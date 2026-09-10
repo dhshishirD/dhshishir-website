@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Globe, Award, GraduationCap } from 'lucide-react';
+import { SOCIAL_LINKS } from '../data/portfolioData';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold backdrop-blur-md">
               <Globe className="w-4 h-4 text-emerald-400" />
-              <span>Young Leaders Delegate (China 2025) • SUST English Alumnus</span>
+              <span>Young Leaders Delegate (China 2025) • SHAKSU VP Candidate • SUST English</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
@@ -22,38 +23,46 @@ export const HeroSection: React.FC = () => {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Development-oriented professional with 7+ years mentoring thousands of students at <span className="text-white font-semibold">UCC</span>, international policy delegation experience at <span className="text-emerald-400 font-semibold">Shanghai & Beijing (China 2025)</span>, and former President of <span className="text-indigo-400 font-semibold">USWA & Mangrove Association SUST</span>.
+              MA & BA in English from <span className="text-white font-semibold">SUST</span>, 7+ years Senior Lecturer at <span className="text-white font-semibold">UCC</span>, Young Leaders Program Fellow in <span className="text-emerald-400 font-semibold">Shanghai & Beijing (China 2025)</span>, and Vice President (VP) Candidate at <span className="text-indigo-400 font-semibold">SHAKSU</span>.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
               <a
                 href="#experience"
-                className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:scale-[1.02] text-white font-bold text-sm shadow-xl shadow-indigo-600/25 transition flex items-center gap-2"
+                className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:scale-[1.02] text-white font-bold text-xs shadow-xl shadow-indigo-600/25 transition flex items-center gap-2"
               >
-                <Award className="w-4 h-4" /> View Leadership & Experience
+                <Award className="w-4 h-4" /> Leadership & Media Mentions
               </a>
               <a
-                href="https://www.linkedin.com/in/daloyar-hassan1/"
+                href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm transition flex items-center gap-2"
+                className="px-5 py-3.5 rounded-2xl bg-[#1877F2]/20 hover:bg-[#1877F2]/30 text-[#1877F2] border border-[#1877F2]/40 font-bold text-xs transition flex items-center gap-2"
               >
-                <span className="font-black text-[#0a66c2]">in</span> Connect on LinkedIn
+                <span className="font-black text-sm">f</span> Facebook
+              </a>
+              <a
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3.5 rounded-2xl bg-[#0a66c2]/20 hover:bg-[#0a66c2]/30 text-[#0a66c2] border border-[#0a66c2]/40 font-bold text-xs transition flex items-center gap-2"
+              >
+                <span className="font-black text-sm">in</span> LinkedIn
               </a>
             </div>
 
             <div className="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
               <div>
                 <div className="text-2xl sm:text-3xl font-extrabold text-white">7+ Yrs</div>
-                <div className="text-xs text-slate-400 font-medium">English Lecturer @ UCC</div>
+                <div className="text-xs text-slate-400 font-medium">Lecturer @ UCC</div>
               </div>
               <div>
                 <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400">5,000+</div>
-                <div className="text-xs text-slate-400 font-medium">Students & Youth Guided</div>
+                <div className="text-xs text-slate-400 font-medium">Youth & Students Guided</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-indigo-400">SUST</div>
-                <div className="text-xs text-slate-400 font-medium">MA & BA in English</div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-indigo-400">4+</div>
+                <div className="text-xs text-slate-400 font-medium">National Media Outlets</div>
               </div>
             </div>
           </div>
@@ -80,11 +89,11 @@ export const HeroSection: React.FC = () => {
                 </div>
                 <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
                   <GraduationCap className="w-4 h-4 text-indigo-400 shrink-0" />
-                  <span className="text-slate-200">Senior Lecturer in English Grammar @ UCC (2019-Present)</span>
+                  <span className="text-slate-200">SHAKSU VP Candidate • Durbar SUSTian Oikya</span>
                 </div>
                 <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
                   <Award className="w-4 h-4 text-blue-400 shrink-0" />
-                  <span className="text-slate-200">President @ USWA & Ex-President @ Mangrove SUST</span>
+                  <span className="text-slate-200">Senior Lecturer @ UCC (7+ Years) • President USWA</span>
                 </div>
               </div>
 
@@ -94,7 +103,7 @@ export const HeroSection: React.FC = () => {
                   href="#contact"
                   className="font-bold text-indigo-400 hover:text-indigo-300 flex items-center gap-1"
                 >
-                  Get in Touch <ArrowRight className="w-3.5 h-3.5" />
+                  Contact Shishir <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

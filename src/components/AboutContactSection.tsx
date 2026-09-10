@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Send, CheckCircle2, Phone } from 'lucide-react';
+import { SOCIAL_LINKS } from '../data/portfolioData';
 
 export const AboutContactSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -17,15 +18,15 @@ export const AboutContactSection: React.FC = () => {
           
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-block px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-              About the Creator
+              About Daloyar Hassan Shishir
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-black text-white">
-              Daloyar Hassan Shishir
+              দেলোয়ার হাসান শিশির
             </h2>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              MA & BA in English Language and Literature from Shahjalal University of Science and Technology (SUST). Senior Lecturer of English at UCC with 7+ years of experience guiding thousands of university aspirants, Young Leaders Program Fellow (China 2025), and dedicated career & skill development mentor.
+              Shahjalal University of Science and Technology (SUST) English alumnus (MA & BA). Renowned English grammar instructor at UCC with 7+ years of experience, China 2025 Young Leaders Program Delegate, and Vice President (VP) Candidate for the SHAKSU elections.
             </p>
 
             <div className="space-y-3 text-sm text-slate-300">
@@ -33,20 +34,33 @@ export const AboutContactSection: React.FC = () => {
                 <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-indigo-400">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span>contactwithshishir@gmail.com</span>
+                <span>{SOCIAL_LINKS.email}</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-emerald-400">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span>+880 1627-714636 (WhatsApp Available)</span>
+                <span>+880 1627-714636 (Direct WhatsApp)</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-blue-400 font-bold">
+                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-[#1877F2] font-bold">
+                  f
+                </div>
+                <a
+                  href={SOCIAL_LINKS.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition"
+                >
+                  facebook.com/dhshishir0
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-[#0a66c2] font-bold">
                   in
                 </div>
                 <a
-                  href="https://www.linkedin.com/in/daloyar-hassan1/"
+                  href={SOCIAL_LINKS.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-emerald-400 transition"
@@ -65,8 +79,8 @@ export const AboutContactSection: React.FC = () => {
 
           <div className="lg:col-span-6">
             <div className="bg-slate-900/90 rounded-3xl border border-slate-800 p-6 sm:p-8 backdrop-blur-xl">
-              <h3 className="text-xl font-bold text-white mb-2">Send a Message / Career Inquiry</h3>
-              <p className="text-xs text-slate-400 mb-6">Have a question about courses, admissions English, CV review, or youth initiatives? Reach out directly.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Send a Message / Consultation Request</h3>
+              <p className="text-xs text-slate-400 mb-6">Reach out for academic admissions English, 10MS courses, ATS CV reviews, or youth leadership initiatives.</p>
 
               {submitted ? (
                 <div className="p-6 bg-emerald-950/60 border border-emerald-500/40 rounded-2xl text-center space-y-2">

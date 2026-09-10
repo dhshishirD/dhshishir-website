@@ -1,4 +1,5 @@
 import React from 'react';
+import { SOCIAL_LINKS } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
   return (
@@ -11,8 +12,26 @@ export const Footer: React.FC = () => {
               dhshishir<span className="text-emerald-400">.com</span>
             </div>
             <p className="text-xs text-slate-400">
-              Personal brand and educational portal curated by Daloyar Hassan Shishir. Empowering learners with verified tools and career courses.
+              Official personal portfolio & educational portal of Daloyar Hassan Shishir (দেলোয়ার হাসান শিশির).
             </p>
+            <div className="flex items-center gap-3 pt-2">
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-[#1877F2] font-black hover:scale-105 transition"
+              >
+                f
+              </a>
+              <a
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-[#0a66c2] font-black hover:scale-105 transition"
+              >
+                in
+              </a>
+            </div>
           </div>
 
           <div>
@@ -36,12 +55,15 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-white mb-3">Transparency & Contact</h4>
-            <p className="text-[11px] text-slate-500 mb-2">
-              Affiliate Disclosure: Some course links contain affiliate tracking. We may earn a small commission at no additional cost to you.
-            </p>
-            <p className="text-[11px] text-slate-400 font-semibold">
+            <h4 className="font-bold text-white mb-3">Verified Social & Contact</h4>
+            <p className="text-[11px] text-slate-400 mb-1">
               Email: contactwithshishir@gmail.com
+            </p>
+            <p className="text-[11px] text-slate-400 mb-2">
+              WhatsApp: +880 1627-714636
+            </p>
+            <p className="text-[10px] text-slate-500">
+              Affiliate Disclosure: Some course links contain affiliate tracking.
             </p>
           </div>
         </div>
@@ -51,7 +73,7 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} dhshishir.com • All Rights Reserved by Daloyar Hassan Shishir.
           </div>
           <div className="flex items-center gap-1 text-slate-500">
-            Crafted for high performance & AdSense readiness
+            Certified by Prothom Alo, Daily Campus, Naya Diganta & Dhruba News citations
           </div>
         </div>
 

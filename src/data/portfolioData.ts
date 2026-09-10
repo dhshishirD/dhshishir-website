@@ -16,16 +16,71 @@ export interface EducationItem {
   details: string;
 }
 
-export interface InternationalDelegation {
+export interface MediaMention {
+  id: string;
+  outlet: string;
   title: string;
-  organizer: string;
-  date: string;
-  locations: string;
-  description: string;
-  topics: string[];
+  url: string;
+  category: string;
+  dateBadge: string;
 }
 
+export const SOCIAL_LINKS = {
+  facebook: 'https://www.facebook.com/dhshishir0/',
+  linkedin: 'https://www.linkedin.com/in/daloyar-hassan1/',
+  email: 'contactwithshishir@gmail.com',
+  whatsapp: 'https://wa.me/8801627714636'
+};
+
+export const MEDIA_MENTIONS: MediaMention[] = [
+  {
+    id: 'prothom-alo',
+    outlet: 'Prothom Alo (প্রথম আলো)',
+    title: 'শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ের ইংরেজি বিভাগের শিক্ষার্থী দেলোয়ার হাসান শিশির',
+    url: 'https://www.prothomalo.com/bangladesh/district/n5ggyur619',
+    category: 'National Daily',
+    dateBadge: 'Featured News'
+  },
+  {
+    id: 'daily-campus',
+    outlet: 'The Daily Campus',
+    title: 'শাকসু নির্বাচনে দুর্বার সাস্টিয়ান ঐক্য প্যানেলের ভিপি (সহ-সভাপতি) প্রার্থী হিসেবে আলোচনা',
+    url: 'https://thedailycampus.com/engineering-university/230711',
+    category: 'Campus Journalism',
+    dateBadge: 'SHAKSU Election'
+  },
+  {
+    id: 'naya-diganta',
+    outlet: 'Daily Naya Diganta (নয়া দিগন্ত)',
+    title: 'শাবিপ্রবি শিক্ষার্থী দেলোয়ার হাসান শিশিরের শিক্ষা ও ক্যাম্পাস কার্যক্রম',
+    url: 'https://dailynayadiganta.com/bangladesh/education-campus/5BiZDXWi26N8',
+    category: 'National Media',
+    dateBadge: 'Campus & Education'
+  },
+  {
+    id: 'dhruba-news',
+    outlet: 'Dhruba News',
+    title: 'সাস্টিয়ান তরুণ নেতৃত্ব ও শিক্ষামূলক উদ্যোগের স্বীকৃতি',
+    url: 'https://www.dhrubanews.com/details/study/1653',
+    category: 'News Portal',
+    dateBadge: 'Youth Leadership'
+  }
+];
+
 export const EXPERIENCES: ExperienceItem[] = [
+  {
+    id: 'shaksu-vp-candidate',
+    role: 'Vice President (VP / সহ-সভাপতি) Candidate',
+    organization: 'Shahjalal University Central Students' Union (SHAKSU - শাকসু)',
+    period: 'Campus Leadership',
+    location: 'Shahjalal University of Science and Technology (SUST)',
+    type: 'Student Union Representation',
+    badge: 'SHAKSU VP Candidate',
+    highlights: [
+      'Nominated as the Vice President (VP) candidate from the "দুর্বার সাস্টিয়ান ঐক্য" (Durbar SUSTian Oikya) panel for the central student union elections.',
+      'Advocated for student welfare reforms, merit-based administration, and campus academic environment development.'
+    ]
+  },
   {
     id: 'young-leaders-china',
     role: 'Young Leaders Program Delegate (Bangladesh Representative)',
