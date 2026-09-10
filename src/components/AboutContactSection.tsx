@@ -19,7 +19,7 @@ export const AboutContactSection: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Shahjalal University of Science and Technology (SUST) English alumnus (MA & BA). Renowned English grammar instructor at UCC with 7+ years of experience, China 2025 Young Leaders Program Delegate, Malaysia 2026 Development Study Tour Fellow, and Vice President (VP) Candidate for the SHAKSU elections.
+              Shahjalal University of Science and Technology (SUST) English alumnus (MA & BA). Renowned English grammar instructor at UCC with 7+ years of experience, China 2025 Young Leaders Program Delegate, Malaysia 2026 Development Study Tour Fellow, and Vice President (VP) Candidate for the SUCSU elections (election postponed before the Day of Voting by BNP and their student wing).
             </p>
 
             <div className="space-y-3 text-sm text-slate-300">

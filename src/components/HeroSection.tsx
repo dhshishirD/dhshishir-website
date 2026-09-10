@@ -14,7 +14,7 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold backdrop-blur-md">
               <Globe className="w-4 h-4 text-emerald-400" />
-              <span>China Delegate 2025 • Malaysia Study Tour 2026 • SHAKSU VP Candidate</span>
+              <span>China Delegate 2025 • Malaysia Study Tour 2026 • SUCSU VP Candidate</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
@@ -23,7 +23,7 @@ export const HeroSection: React.FC = () => {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              MA & BA in English from <span className="text-white font-semibold">SUST</span>, 7+ years Senior Lecturer at <span className="text-white font-semibold">UCC</span>, Young Leaders Program Fellow in <span className="text-emerald-400 font-semibold">China (2025)</span>, Development Model Study in <span className="text-emerald-400 font-semibold">Malaysia (2026)</span>, and VP Candidate at <span className="text-indigo-400 font-semibold">SHAKSU</span>.
+              MA & BA in English from <span className="text-white font-semibold">SUST</span>, 7+ years Senior Lecturer at <span className="text-white font-semibold">UCC</span>, Young Leaders Program Fellow in <span className="text-emerald-400 font-semibold">China (2025)</span>, Development Model Study in <span className="text-emerald-400 font-semibold">Malaysia (2026)</span>, and VP Candidate at <span className="text-indigo-400 font-semibold">SUCSU</span> <span className="text-xs text-slate-400 font-normal">(Election postponed before the Day of Voting by BNP and their student wing)</span>.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
@@ -89,7 +89,7 @@ export const HeroSection: React.FC = () => {
                 </div>
                 <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
                   <GraduationCap className="w-4 h-4 text-indigo-400 shrink-0" />
-                  <span className="text-slate-200">SHAKSU VP Candidate • Durbar SUSTian Oikya</span>
+                  <span className="text-slate-200">SUCSU VP Candidate • Durbar SUSTian Oikya <span className="text-[10px] text-slate-400 block">(Postponed before voting day)</span></span>
                 </div>
                 <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
                   <Award className="w-4 h-4 text-blue-400 shrink-0" />

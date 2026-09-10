@@ -46,7 +46,7 @@ export const MEDIA_MENTIONS: MediaMention[] = [
     title: "শাকসু নির্বাচনে দুর্বার সাস্টিয়ান ঐক্য প্যানেলের ভিপি (সহ-সভাপতি) প্রার্থী হিসেবে আলোচনা",
     url: "https://thedailycampus.com/engineering-university/230711",
     category: "Campus Journalism",
-    dateBadge: "SHAKSU Election"
+    dateBadge: "SUCSU Election"
   },
   {
     id: "naya-diganta",
@@ -81,16 +81,17 @@ export const EXPERIENCES: ExperienceItem[] = [
     ]
   },
   {
-    id: "shaksu-vp-candidate",
+    id: "sucsu-vp-candidate",
     role: "Vice President (VP / সহ-সভাপতি) Candidate",
-    organization: "Shahjalal University Central Students Union (SHAKSU - শাকসু)",
+    organization: "Shahjalal University Central Students Union (SUCSU / শাকসু)",
     period: "Campus Leadership",
     location: "Shahjalal University of Science and Technology (SUST)",
     type: "Student Union Representation",
-    badge: "SHAKSU VP Candidate",
+    badge: "SUCSU VP Candidate",
     highlights: [
-      "Nominated as the Vice President (VP) candidate from the 'দুর্বার সাস্টিয়ান ঐক্য' (Durbar SUSTian Oikya) panel for the central student union elections.",
-      "Advocated for student welfare reforms, merit-based administration, and campus academic environment development."
+      "Nominated as the Vice President (VP) candidate from the 'দুর্বার সাস্টিয়ান ঐক্য' (Durbar SUSTian Oikya) panel for the SUCSU (শাকসু) central student union elections.",
+      "Advocated for student welfare reforms, merit-based campus governance, and student representation.",
+      "Election status: Postponed before the day of voting by BNP and their student wing."
     ]
   },
   {
