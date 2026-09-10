@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090D1A" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#050B14" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="40%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+    </linearGradient>
+    <filter id="dropGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#6366F1" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Background Base with Rounded Squircle -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="url(#primaryGrad)" stroke-width="3" stroke-opacity="0.4" />
+  
+  <!-- Ambient Inner Glow Sphere -->
+  <circle cx="256" cy="256" r="180" fill="url(#glowGrad)" />
+
+  <!-- Monogram Architecture: D + H + S Geometric Fusion -->
+  <g filter="url(#dropGlow)">
+    <!-- Outer Shield / Hexagonal Accent Ring -->
+    <path d="M 256 70 L 410 156 L 410 330 L 256 420 L 102 330 L 102 156 Z" 
+          fill="none" stroke="url(#primaryGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" />
+    
+    <!-- Left Pillar / "D" Arc -->
+    <path d="M 170 160 L 170 352" stroke="url(#primaryGrad)" stroke-width="22" stroke-linecap="round" />
+    <path d="M 170 160 C 260 160, 260 256, 170 256" fill="none" stroke="url(#primaryGrad)" stroke-width="20" stroke-linecap="round" />
+    
+    <!-- Right Pillar / "H" Structure -->
+    <path d="M 342 160 L 342 352" stroke="url(#primaryGrad)" stroke-width="22" stroke-linecap="round" />
+    <path d="M 170 256 L 342 256" stroke="url(#goldGrad)" stroke-width="16" stroke-linecap="round" />
+
+    <!-- Central "S" Dynamic Crest Curve -->
+    <path d="M 310 190 C 270 170, 235 200, 256 240 C 278 280, 240 330, 200 320" 
+          fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" />
+
+    <!-- Crown Star Accent -->
+    <polygon points="256,105 263,122 281,122 266,133 272,150 256,139 240,150 246,133 231,122 249,122" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Wordmark Tagline in Emblem -->
+  <text x="256" y="465" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="8" fill="#E2E8F0">
+    DH SHISHIR
+  </text>
+</svg>
