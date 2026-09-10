@@ -88,32 +88,30 @@ export const HeroSection: React.FC = () => {
                 <div className="bg-slate-950 rounded-[22px] overflow-hidden p-3 sm:p-4">
                   
                   {/* Photo Container */}
-                  <div className="relative w-full h-[360px] sm:h-[400px] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 group">
+                  <div className="relative w-full aspect-[4/4.6] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 group shadow-inner">
                     <img
                       src="/shishir-photo.jpg"
                       alt="Daloyar Hassan Shishir - Youth Leader & English Educator"
-                      className="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover object-[50%_15%] transition duration-500 group-hover:scale-105"
                     />
-                    
-                    {/* Subtle gradient vignette at bottom of photo */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
 
-                    {/* Overlay Badges */}
-                    <div className="absolute top-3 left-3 bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-emerald-500/40 text-emerald-400 text-[11px] font-bold flex items-center gap-1.5 shadow-lg">
+                    {/* Top Floating Badge */}
+                    <div className="absolute top-3 left-3 bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-emerald-500/50 text-emerald-400 text-[11px] font-bold flex items-center gap-1.5 shadow-xl">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> China Delegate 2025
-                    </div>
-
-                    <div className="absolute bottom-3 left-3 right-3 bg-slate-950/90 backdrop-blur-md p-3 rounded-xl border border-slate-800/90">
-                      <div className="text-sm font-black text-white flex items-center justify-between">
-                        <span>Daloyar Hassan Shishir</span>
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-semibold">SUST Alumnus</span>
-                      </div>
-                      <p className="text-xs text-slate-300 font-medium">Senior Lecturer @ UCC • SUCSU VP Candidate</p>
                     </div>
                   </div>
 
+                  {/* Profile Header Below Photo */}
+                  <div className="mt-3.5 p-3.5 bg-slate-900/90 rounded-2xl border border-slate-800/90">
+                    <div className="text-base font-black text-white flex items-center justify-between">
+                      <span>Daloyar Hassan Shishir</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-semibold border border-indigo-500/30">SUST Alumnus</span>
+                    </div>
+                    <p className="text-xs text-emerald-400 font-semibold mt-0.5">Youth Leader & Senior English Educator</p>
+                  </div>
+
                   {/* Highlights Grid */}
-                  <div className="mt-4 space-y-2 text-xs">
+                  <div className="mt-3 space-y-2 text-xs">
                     <div className="p-2.5 bg-slate-900/70 rounded-xl border border-slate-800/80 flex items-center gap-2.5">
                       <Globe className="w-4 h-4 text-emerald-400 shrink-0" />
                       <span className="text-slate-200">Malaysia Study Tour 2026 & China Delegate 2025</span>
