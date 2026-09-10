@@ -10,25 +10,39 @@ import { BlogSection } from './components/BlogSection';
 import { AboutContactSection } from './components/AboutContactSection';
 import { Footer } from './components/Footer';
 import { StandaloneToolPage } from './components/tools/StandaloneToolPage';
+import { LearnerDashboard } from './components/dashboard/LearnerDashboard';
+import { supabase } from './services/supabaseClient';
 
 export function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'courses' | 'tool'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'courses' | 'tools' | 'dashboard'>('home');
   const [activeToolId, setActiveToolId] = useState<string>('cover-letter');
+  const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user);
+    });
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
     const handleHashChange = () => {
       const hash = window.location.hash.toLowerCase();
       if (hash.startsWith('#/courses') || hash === '#courses-directory') {
         setCurrentView('courses');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash.startsWith('#/dashboard') || hash.startsWith('#/profile')) {
+        setCurrentView('dashboard');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash.startsWith('#/tools/')) {
         const toolId = hash.replace('#/tools/', '').trim();
         setActiveToolId(toolId || 'cover-letter');
-        setCurrentView('tool');
+        setCurrentView('tools');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash.startsWith('#/tools')) {
         setActiveToolId('cover-letter');
-        setCurrentView('tool');
+        setCurrentView('tools');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setCurrentView('home');
@@ -37,13 +51,16 @@ export function App() {
 
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      authListener.subscription.unsubscribe();
+    };
   }, []);
 
   const navigateToTool = (toolId: string) => {
     window.location.hash = `#/tools/${toolId}`;
     setActiveToolId(toolId);
-    setCurrentView('tool');
+    setCurrentView('tools');
   };
 
   const navigateHome = () => {
@@ -53,10 +70,25 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-emerald-500 selection:text-white font-sans antialiased">
-      <Navbar currentView={currentView === 'home' ? 'home' : (currentView === 'courses' ? 'courses' : 'tools')} />
+      <Navbar currentView={currentView} setCurrentView={setCurrentView} />
       
       <main>
-        {currentView === 'courses' ? (
+        {currentView === 'dashboard' ? (
+          <LearnerDashboard
+            user={user}
+            onSignOut={() => {
+              setUser(null);
+              navigateHome();
+            }}
+            onNavigateStage={(_stage) => {
+              navigateHome();
+              setTimeout(() => {
+                const elem = document.querySelector('#fluency-lab');
+                if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
+          />
+        ) : currentView === 'courses' ? (
           <div className="pt-24 min-h-screen">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
               <button
@@ -68,7 +100,7 @@ export function App() {
             </div>
             <CourseSection />
           </div>
-        ) : currentView === 'tool' ? (
+        ) : currentView === 'tools' ? (
           <StandaloneToolPage
             toolId={activeToolId}
             onNavigateHome={navigateHome}
@@ -78,8 +110,8 @@ export function App() {
           <>
             <HeroSection />
             <ExperienceSection />
-            <ToolsSection onLaunchStandaloneTool={navigateToTool} />
             <FluencyLabHub />
+            <ToolsSection onLaunchStandaloneTool={navigateToTool} />
             <CvServicesSection />
             <BlogSection />
             <AboutContactSection />
