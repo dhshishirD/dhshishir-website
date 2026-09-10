@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle2, Phone } from 'lucide-react';
-import { SOCIAL_LINKS } from '../data/portfolioData';
+import React, { useState } from "react";
+import { MapPin, Send, CheckCircle2, Phone, MessageSquare } from "lucide-react";
+import { SOCIAL_LINKS } from "../data/portfolioData";
 
 export const AboutContactSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -22,25 +22,19 @@ export const AboutContactSection: React.FC = () => {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-black text-white">
-              দেলোয়ার হাসান শিশির
+              দেলোয়ার হাসান শিশির
             </h2>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Shahjalal University of Science and Technology (SUST) English alumnus (MA & BA). Renowned English grammar instructor at UCC with 7+ years of experience, China 2025 Young Leaders Program Delegate, and Vice President (VP) Candidate for the SHAKSU elections.
+              Shahjalal University of Science and Technology (SUST) English alumnus (MA & BA). Renowned English grammar instructor at UCC with 7+ years of experience, China 2025 Young Leaders Program Delegate, Malaysia 2026 Development Study Tour Fellow, and Vice President (VP) Candidate for the SHAKSU elections.
             </p>
 
             <div className="space-y-3 text-sm text-slate-300">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-indigo-400">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <span>{SOCIAL_LINKS.email}</span>
-              </div>
-              <div className="flex items-center gap-3">
                 <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-emerald-400">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span>+880 1627-714636 (Direct WhatsApp)</span>
+                <span>+880 1627-714636 (Direct WhatsApp Call/Chat)</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-[#1877F2] font-bold">
@@ -79,66 +73,35 @@ export const AboutContactSection: React.FC = () => {
 
           <div className="lg:col-span-6">
             <div className="bg-slate-900/90 rounded-3xl border border-slate-800 p-6 sm:p-8 backdrop-blur-xl">
-              <h3 className="text-xl font-bold text-white mb-2">Send a Message / Consultation Request</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Connect Directly via Social Media & WhatsApp</h3>
               <p className="text-xs text-slate-400 mb-6">Reach out for academic admissions English, 10MS courses, ATS CV reviews, or youth leadership initiatives.</p>
 
-              {submitted ? (
-                <div className="p-6 bg-emerald-950/60 border border-emerald-500/40 rounded-2xl text-center space-y-2">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-400 mx-auto" />
-                  <h4 className="text-base font-bold text-white">Thank you for your message!</h4>
-                  <p className="text-xs text-slate-300">I will get back to you at your email as soon as possible.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Your Name</label>
-                      <input
-                        required
-                        type="text"
-                        placeholder="e.g. Tanvir Ahmed"
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Email Address</label>
-                      <input
-                        required
-                        type="email"
-                        placeholder="you@example.com"
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Subject / Inquiry Type</label>
-                    <select className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500">
-                      <option>10 Minute School Course Advice</option>
-                      <option>Pro ATS CV Review Service</option>
-                      <option>UCC / Admission English Coaching</option>
-                      <option>Youth Leadership & Policy Dialogue</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Your Message</label>
-                    <textarea
-                      required
-                      rows={4}
-                      placeholder="Write your message or question here..."
-                      className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full py-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:opacity-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg transition cursor-pointer"
-                  >
-                    <Send className="w-3.5 h-3.5" /> Send Message
-                  </button>
-                </form>
-              )}
+              <div className="space-y-3">
+                <a
+                  href={SOCIAL_LINKS.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg transition"
+                >
+                  <MessageSquare className="w-4 h-4" /> Message on WhatsApp (+880 1627-714636)
+                </a>
+                <a
+                  href={SOCIAL_LINKS.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 bg-[#1877F2] hover:opacity-90 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg transition"
+                >
+                  <span className="font-black text-sm">f</span> Send Message on Facebook
+                </a>
+                <a
+                  href={SOCIAL_LINKS.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 bg-[#0a66c2] hover:opacity-90 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg transition"
+                >
+                  <span className="font-black text-sm">in</span> Connect on LinkedIn
+                </a>
+              </div>
             </div>
           </div>
 

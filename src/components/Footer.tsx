@@ -1,5 +1,5 @@
-import React from 'react';
-import { SOCIAL_LINKS } from '../data/portfolioData';
+import React from "react";
+import { SOCIAL_LINKS } from "../data/portfolioData";
 
 export const Footer: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
               dhshishir<span className="text-emerald-400">.com</span>
             </div>
             <p className="text-xs text-slate-400">
-              Official personal portfolio & educational portal of Daloyar Hassan Shishir (দেলোয়ার হাসান শিশির).
+              Official personal portfolio & educational portal of Daloyar Hassan Shishir (দেলোয়ার হাসান শিশির).
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -55,12 +55,12 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-white mb-3">Verified Social & Contact</h4>
+            <h4 className="font-bold text-white mb-3">Official Social & Contact</h4>
             <p className="text-[11px] text-slate-400 mb-1">
-              Email: contactwithshishir@gmail.com
+              WhatsApp: +880 1627-714636
             </p>
             <p className="text-[11px] text-slate-400 mb-2">
-              WhatsApp: +880 1627-714636
+              Facebook: fb.com/dhshishir0
             </p>
             <p className="text-[10px] text-slate-500">
               Affiliate Disclosure: Some course links contain affiliate tracking.
@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} dhshishir.com • All Rights Reserved by Daloyar Hassan Shishir.
           </div>
           <div className="flex items-center gap-1 text-slate-500">
-            Certified by Prothom Alo, Daily Campus, Naya Diganta & Dhruba News citations
+            Featured on Prothom Alo, The Daily Campus, Daily Naya Diganta & Dhruba News
           </div>
         </div>
 

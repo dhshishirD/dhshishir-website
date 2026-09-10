@@ -1,6 +1,6 @@
-import React from 'react';
-import { ArrowRight, Globe, Award, GraduationCap } from 'lucide-react';
-import { SOCIAL_LINKS } from '../data/portfolioData';
+import React from "react";
+import { ArrowRight, Globe, Award, GraduationCap } from "lucide-react";
+import { SOCIAL_LINKS } from "../data/portfolioData";
 
 export const HeroSection: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold backdrop-blur-md">
               <Globe className="w-4 h-4 text-emerald-400" />
-              <span>Young Leaders Delegate (China 2025) • SHAKSU VP Candidate • SUST English</span>
+              <span>China Delegate 2025 • Malaysia Study Tour 2026 • SHAKSU VP Candidate</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
@@ -23,7 +23,7 @@ export const HeroSection: React.FC = () => {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              MA & BA in English from <span className="text-white font-semibold">SUST</span>, 7+ years Senior Lecturer at <span className="text-white font-semibold">UCC</span>, Young Leaders Program Fellow in <span className="text-emerald-400 font-semibold">Shanghai & Beijing (China 2025)</span>, and Vice President (VP) Candidate at <span className="text-indigo-400 font-semibold">SHAKSU</span>.
+              MA & BA in English from <span className="text-white font-semibold">SUST</span>, 7+ years Senior Lecturer at <span className="text-white font-semibold">UCC</span>, Young Leaders Program Fellow in <span className="text-emerald-400 font-semibold">China (2025)</span>, Development Model Study in <span className="text-emerald-400 font-semibold">Malaysia (2026)</span>, and VP Candidate at <span className="text-indigo-400 font-semibold">SHAKSU</span>.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
@@ -85,7 +85,7 @@ export const HeroSection: React.FC = () => {
               <div className="space-y-3 text-xs">
                 <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
                   <Globe className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="text-slate-200">Young Leaders Delegate, Shanghai & Beijing (2025)</span>
+                  <span className="text-slate-200">Malaysia Study Tour 2026 & China Delegate 2025</span>
                 </div>
                 <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
                   <GraduationCap className="w-4 h-4 text-indigo-400 shrink-0" />
@@ -103,7 +103,7 @@ export const HeroSection: React.FC = () => {
                   href="#contact"
                   className="font-bold text-indigo-400 hover:text-indigo-300 flex items-center gap-1"
                 >
-                  Contact Shishir <ArrowRight className="w-3.5 h-3.5" />
+                  Contact on Social <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

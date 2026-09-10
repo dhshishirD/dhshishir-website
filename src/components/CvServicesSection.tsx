@@ -1,6 +1,6 @@
-import React from 'react';
-import { CV_SERVICES_DATA } from '../data/cvTemplatesData';
-import { Check, Download, MessageCircle } from 'lucide-react';
+import React from "react";
+import { CV_SERVICES_DATA } from "../data/cvTemplatesData";
+import { Check, Download, MessageCircle } from "lucide-react";
 
 export const CvServicesSection: React.FC = () => {
   return (
@@ -25,8 +25,8 @@ export const CvServicesSection: React.FC = () => {
               key={plan.id}
               className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition ${
                 plan.badge
-                  ? 'bg-gradient-to-b from-slate-900 to-indigo-950/80 border-2 border-indigo-500/60 shadow-2xl shadow-indigo-950/40 relative'
-                  : 'bg-slate-900/80 border border-slate-800'
+                  ? "bg-gradient-to-b from-slate-900 to-indigo-950/80 border-2 border-indigo-500/60 shadow-2xl shadow-indigo-950/40 relative"
+                  : "bg-slate-900/80 border border-slate-800"
               }`}
             >
               <div>
@@ -56,23 +56,18 @@ export const CvServicesSection: React.FC = () => {
                 <p className="text-[11px] text-slate-400 text-center font-medium">
                   Ideal for: <span className="text-slate-200 font-semibold">{plan.recommendedFor}</span>
                 </p>
-                {plan.id === 'free-template' ? (
-                  <a
-                    href="mailto:contactwithshishir@gmail.com?subject=Request%20for%20Free%20ATS%20CV%20Template"
-                    className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition"
-                  >
-                    <Download className="w-4 h-4" /> Download Free Template
-                  </a>
-                ) : (
-                  <a
-                    href={`https://wa.me/8801700000000?text=Hello%20Shishir%20Bhai,%20I%20want%20to%20order%20the%20${encodeURIComponent(plan.name)}%20package.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition"
-                  >
-                    <MessageCircle className="w-4 h-4" /> {plan.ctaText}
-                  </a>
-                )}
+                <a
+                  href={`https://wa.me/8801627714636?text=Hello%20Shishir%20Bhai,%20I%20am%20interested%20in%20the%20${encodeURIComponent(plan.name)}.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition ${
+                    plan.id === "free-template"
+                      ? "bg-slate-800 hover:bg-slate-700 text-white"
+                      : "bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 text-white"
+                  }`}
+                >
+                  <MessageCircle className="w-4 h-4" /> {plan.ctaText}
+                </a>
               </div>
 
             </div>
