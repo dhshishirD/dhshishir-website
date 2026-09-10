@@ -1,6 +1,6 @@
 import React from "react";
 import { CV_SERVICES_DATA } from "../data/cvTemplatesData";
-import { Check, Download, MessageCircle } from "lucide-react";
+import { Check, MessageCircle } from "lucide-react";
 
 export const CvServicesSection: React.FC = () => {
   return (

@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
           <div>
             © {new Date().getFullYear()} dhshishir.com • All Rights Reserved by Daloyar Hassan Shishir.
           </div>
-          <div className="flex items-center gap-1 text-slate-500">
+          <div className="text-slate-500">
             Featured on Prothom Alo, The Daily Campus, Daily Naya Diganta & Dhruba News
           </div>
         </div>

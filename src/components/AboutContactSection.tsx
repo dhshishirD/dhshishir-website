@@ -1,15 +1,8 @@
-import React, { useState } from "react";
-import { MapPin, Send, CheckCircle2, Phone, MessageSquare } from "lucide-react";
+import React from "react";
+import { MapPin, Phone, MessageSquare } from "lucide-react";
 import { SOCIAL_LINKS } from "../data/portfolioData";
 
 export const AboutContactSection: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
     <section id="contact" className="py-20 relative bg-slate-950/80 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
