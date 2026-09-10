@@ -1,13 +1,12 @@
 import React from 'react';
 import { EXPERIENCES, EDUCATION_DATA, CERTIFICATIONS } from '../data/portfolioData';
-import { Briefcase, GraduationCap, Award, Globe, CheckCircle, ExternalLink, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, GraduationCap, Award, CheckCircle, Calendar, MapPin } from 'lucide-react';
 
 export const ExperienceSection: React.FC = () => {
   return (
     <section id="experience" className="py-20 relative bg-slate-950/80 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-block px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-bold uppercase tracking-wider">
             Verified Career & Leadership Timeline
@@ -20,7 +19,6 @@ export const ExperienceSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Experience Timeline */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-8 space-y-6">
             <h3 className="text-xl font-bold text-white flex items-center gap-2 mb-6">
@@ -64,10 +62,7 @@ export const ExperienceSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Education & Certifications Column */}
           <div className="lg:col-span-4 space-y-8">
-            
-            {/* Education */}
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-white flex items-center gap-2">
                 <GraduationCap className="w-5 h-5 text-indigo-400" />
@@ -84,7 +79,6 @@ export const ExperienceSection: React.FC = () => {
               ))}
             </div>
 
-            {/* Certifications & Honors */}
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-white flex items-center gap-2">
                 <Award className="w-5 h-5 text-amber-400" />
@@ -102,7 +96,6 @@ export const ExperienceSection: React.FC = () => {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, BookOpen, Wrench, CheckCircle, ArrowRight, Globe, Award, GraduationCap, Linkedin } from 'lucide-react';
+import { ArrowRight, Globe, Award, GraduationCap } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -10,7 +10,6 @@ export const HeroSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Hero Content */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold backdrop-blur-md">
               <Globe className="w-4 h-4 text-emerald-400" />
@@ -26,7 +25,6 @@ export const HeroSection: React.FC = () => {
               Development-oriented professional with 7+ years mentoring thousands of students at <span className="text-white font-semibold">UCC</span>, international policy delegation experience at <span className="text-emerald-400 font-semibold">Shanghai & Beijing (China 2025)</span>, and former President of <span className="text-indigo-400 font-semibold">USWA & Mangrove Association SUST</span>.
             </p>
 
-            {/* Quick Links */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
               <a
                 href="#experience"
@@ -40,11 +38,10 @@ export const HeroSection: React.FC = () => {
                 rel="noopener noreferrer"
                 className="px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm transition flex items-center gap-2"
               >
-                <Linkedin className="w-4 h-4 text-[#0077b5]" /> Connect on LinkedIn
+                <span className="font-black text-[#0a66c2]">in</span> Connect on LinkedIn
               </a>
             </div>
 
-            {/* Key Stats */}
             <div className="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
               <div>
                 <div className="text-2xl sm:text-3xl font-extrabold text-white">7+ Yrs</div>
@@ -61,7 +58,6 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Hero Profile Card */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-md bg-gradient-to-b from-slate-800/90 to-slate-950 p-6 sm:p-8 rounded-3xl border border-slate-700/80 shadow-2xl backdrop-blur-xl">
               <div className="flex items-center gap-4 mb-6">

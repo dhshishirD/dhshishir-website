@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle2, Globe, Phone, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, Phone } from 'lucide-react';
 
 export const AboutContactSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -42,8 +42,8 @@ export const AboutContactSection: React.FC = () => {
                 <span>+880 1627-714636 (WhatsApp Available)</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-blue-400">
-                  <Linkedin className="w-4 h-4" />
+                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-blue-400 font-bold">
+                  in
                 </div>
                 <a
                   href="https://www.linkedin.com/in/daloyar-hassan1/"
