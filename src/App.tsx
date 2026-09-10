@@ -4,7 +4,7 @@ import { HeroSection } from './components/HeroSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ToolsSection } from './components/ToolsSection';
 import { CourseSection } from './components/CourseSection';
-import { EnglishSection } from './components/EnglishSection';
+import { FluencyLabHub } from './components/fluency/FluencyLabHub';
 import { CvServicesSection } from './components/CvServicesSection';
 import { BlogSection } from './components/BlogSection';
 import { AboutContactSection } from './components/AboutContactSection';
@@ -79,7 +79,7 @@ export function App() {
             <HeroSection />
             <ExperienceSection />
             <ToolsSection onLaunchStandaloneTool={navigateToTool} />
-            <EnglishSection />
+            <FluencyLabHub />
             <CvServicesSection />
             <BlogSection />
             <AboutContactSection />

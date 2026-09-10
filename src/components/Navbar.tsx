@@ -66,10 +66,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', setCurrent
               <Sparkles className="w-3 h-3 text-indigo-400" /> Career & Student Tools
             </button>
             <button
-              onClick={() => handleNavClick('home', '#english')}
+              onClick={() => handleNavClick('home', '#fluency-lab')}
               className="text-xs font-semibold text-slate-300 hover:text-emerald-400 transition"
             >
-              English Academy
+              Fluency Lab
             </button>
             <button
               onClick={() => handleNavClick('home', '#cv-services')}
@@ -135,10 +135,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', setCurrent
             Career & Student Tools
           </button>
           <button
-            onClick={() => handleNavClick('home', '#english')}
+            onClick={() => handleNavClick('home', '#fluency-lab')}
             className="w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition"
           >
-            English Academy
+            Fluency Lab
           </button>
           <button
             onClick={() => handleNavClick('home', '#cv-services')}
