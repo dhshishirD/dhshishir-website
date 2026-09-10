@@ -28,7 +28,6 @@ export interface MediaMention {
 export const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/dhshishir0/",
   linkedin: "https://www.linkedin.com/in/daloyar-hassan1/",
-  whatsapp: "https://wa.me/8801627714636"
 };
 
 export const MEDIA_MENTIONS: MediaMention[] = [

@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin, Phone, MessageSquare } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { SOCIAL_LINKS } from "../data/portfolioData";
 
 export const AboutContactSection: React.FC = () => {
@@ -24,75 +24,70 @@ export const AboutContactSection: React.FC = () => {
 
             <div className="space-y-3 text-sm text-slate-300">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-emerald-400">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <span>+880 1627-714636 (Direct WhatsApp Call/Chat)</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-[#1877F2] font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-[#1877F2] font-black text-sm">
                   f
                 </div>
-                <a
-                  href={SOCIAL_LINKS.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition"
-                >
-                  facebook.com/dhshishir0
-                </a>
+                <div>
+                  <div className="text-xs text-slate-400 font-medium">Official Facebook</div>
+                  <a
+                    href={SOCIAL_LINKS.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-400 font-medium transition"
+                  >
+                    facebook.com/dhshishir0
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-[#0a66c2] font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-[#0a66c2] font-black text-sm">
                   in
                 </div>
-                <a
-                  href={SOCIAL_LINKS.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition"
-                >
-                  linkedin.com/in/daloyar-hassan1
-                </a>
+                <div>
+                  <div className="text-xs text-slate-400 font-medium">Professional LinkedIn</div>
+                  <a
+                    href={SOCIAL_LINKS.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-400 font-medium transition"
+                  >
+                    linkedin.com/in/daloyar-hassan1
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-amber-400">
+                <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-amber-400">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span>Sylhet & Jashore, Bangladesh</span>
+                <div>
+                  <div className="text-xs text-slate-400 font-medium">Location</div>
+                  <span>Sylhet & Jashore, Bangladesh</span>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-6">
             <div className="bg-slate-900/90 rounded-3xl border border-slate-800 p-6 sm:p-8 backdrop-blur-xl">
-              <h3 className="text-xl font-bold text-white mb-2">Connect Directly via Social Media & WhatsApp</h3>
-              <p className="text-xs text-slate-400 mb-6">Reach out for academic admissions English, 10MS courses, ATS CV reviews, or youth leadership initiatives.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Connect Directly via Social Media</h3>
+              <p className="text-xs text-slate-400 mb-6">Reach out on social channels for academic admissions English, 10MS course inquiries, CV reviews, or youth leadership initiatives.</p>
 
-              <div className="space-y-3">
-                <a
-                  href={SOCIAL_LINKS.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg transition"
-                >
-                  <MessageSquare className="w-4 h-4" /> Message on WhatsApp (+880 1627-714636)
-                </a>
+              <div className="space-y-4">
                 <a
                   href={SOCIAL_LINKS.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 bg-[#1877F2] hover:opacity-90 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg transition"
+                  className="w-full py-4 bg-[#1877F2] hover:opacity-95 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-3 shadow-lg transition"
                 >
-                  <span className="font-black text-sm">f</span> Send Message on Facebook
+                  <span className="font-black text-base">f</span> Send Direct Message on Facebook
                 </a>
                 <a
                   href={SOCIAL_LINKS.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 bg-[#0a66c2] hover:opacity-90 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg transition"
+                  className="w-full py-4 bg-[#0a66c2] hover:opacity-95 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-3 shadow-lg transition"
                 >
-                  <span className="font-black text-sm">in</span> Connect on LinkedIn
+                  <span className="font-black text-base">in</span> Connect on LinkedIn
                 </a>
               </div>
             </div>

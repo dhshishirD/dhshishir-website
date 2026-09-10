@@ -55,12 +55,12 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-white mb-3">Official Social & Contact</h4>
+            <h4 className="font-bold text-white mb-3">Social Media Connect</h4>
             <p className="text-[11px] text-slate-400 mb-1">
-              WhatsApp: +880 1627-714636
+              Facebook: <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-emerald-400">fb.com/dhshishir0</a>
             </p>
             <p className="text-[11px] text-slate-400 mb-2">
-              Facebook: fb.com/dhshishir0
+              LinkedIn: <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-emerald-400">in/daloyar-hassan1</a>
             </p>
             <p className="text-[10px] text-slate-500">
               Affiliate Disclosure: Some course links contain affiliate tracking.

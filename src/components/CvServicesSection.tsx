@@ -1,6 +1,7 @@
 import React from "react";
 import { CV_SERVICES_DATA } from "../data/cvTemplatesData";
-import { Check, MessageCircle } from "lucide-react";
+import { Check, MessageSquare } from "lucide-react";
+import { SOCIAL_LINKS } from "../data/portfolioData";
 
 export const CvServicesSection: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ export const CvServicesSection: React.FC = () => {
             ATS-Friendly CV Formats & Pro Services
           </h2>
           <p className="text-slate-400 text-sm sm:text-base">
-            Download our free verified template or hire Daloyar Hassan Shishir to engineer an interview-winning CV.
+            Download our free verified template or connect directly on social media with Daloyar Hassan Shishir to engineer an interview-winning CV.
           </p>
         </div>
 
@@ -57,16 +58,16 @@ export const CvServicesSection: React.FC = () => {
                   Ideal for: <span className="text-slate-200 font-semibold">{plan.recommendedFor}</span>
                 </p>
                 <a
-                  href={`https://wa.me/8801627714636?text=Hello%20Shishir%20Bhai,%20I%20am%20interested%20in%20the%20${encodeURIComponent(plan.name)}.`}
+                  href={SOCIAL_LINKS.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition ${
                     plan.id === "free-template"
                       ? "bg-slate-800 hover:bg-slate-700 text-white"
-                      : "bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 text-white"
+                      : "bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-95 text-white"
                   }`}
                 >
-                  <MessageCircle className="w-4 h-4" /> {plan.ctaText}
+                  <MessageSquare className="w-4 h-4" /> {plan.ctaText}
                 </a>
               </div>
 

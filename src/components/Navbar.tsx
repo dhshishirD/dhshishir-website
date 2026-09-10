@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, PhoneCall } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,12 +48,10 @@ export const Navbar: React.FC = () => {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://wa.me/8801627714636?text=Hello%20Shishir%20Bhai,%20I%20am%20visiting%20dhshishir.com%20and%20want%20to%20know%20more%20about%20your%20services."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-900/30 transition flex items-center gap-2"
+              href="#contact"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:opacity-90 text-white font-bold text-xs shadow-lg shadow-indigo-900/30 transition flex items-center gap-2"
             >
-              <PhoneCall className="w-3.5 h-3.5" /> WhatsApp Consult
+              Connect with Shishir <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
@@ -82,12 +80,11 @@ export const Navbar: React.FC = () => {
           ))}
           <div className="pt-4">
             <a
-              href="https://wa.me/8801627714636"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm flex items-center justify-center gap-2"
+              href="#contact"
+              onClick={() => setIsOpen(false)}
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 text-white font-bold text-sm flex items-center justify-center gap-2"
             >
-              <PhoneCall className="w-4 h-4" /> Direct WhatsApp
+              Connect with Shishir <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
