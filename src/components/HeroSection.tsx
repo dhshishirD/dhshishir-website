@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, BookOpen, Wrench, CheckCircle, ArrowRight } from 'lucide-react';
+import { Sparkles, BookOpen, Wrench, CheckCircle, ArrowRight, Globe, Award, GraduationCap, Linkedin } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -13,89 +13,92 @@ export const HeroSection: React.FC = () => {
           {/* Left Hero Content */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-emerald-400" />
-              <span>Daloyar Hassan Shishir • Career & Education Mentor</span>
+              <Globe className="w-4 h-4 text-emerald-400" />
+              <span>Young Leaders Delegate (China 2025) • SUST English Alumnus</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
-              Master Skills, Ace English & <br className="hidden sm:inline" />
-              <span className="gradient-text">Build Your Dream Career</span>
+              Daloyar Hassan Shishir <br />
+              <span className="gradient-text">Youth Leader & English Educator</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Welcome to <span className="text-white font-semibold">dhshishir.com</span>. Your all-in-one portal for curated <span className="text-emerald-400 font-semibold">10 Minute School courses</span>, free interactive tools (ATS CV checker, IELTS score estimator), and English study guidelines designed for Bangladeshi students and job seekers.
+              Development-oriented professional with 7+ years mentoring thousands of students at <span className="text-white font-semibold">UCC</span>, international policy delegation experience at <span className="text-emerald-400 font-semibold">Shanghai & Beijing (China 2025)</span>, and former President of <span className="text-indigo-400 font-semibold">USWA & Mangrove Association SUST</span>.
             </p>
 
-            {/* CTA Buttons */}
+            {/* Quick Links */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
               <a
-                href="#tools"
+                href="#experience"
                 className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:scale-[1.02] text-white font-bold text-sm shadow-xl shadow-indigo-600/25 transition flex items-center gap-2"
               >
-                <Wrench className="w-4 h-4" /> Try Free Tools
+                <Award className="w-4 h-4" /> View Leadership & Experience
               </a>
               <a
-                href="#courses"
-                className="px-7 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm transition flex items-center gap-2"
+                href="https://www.linkedin.com/in/daloyar-hassan1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm transition flex items-center gap-2"
               >
-                <BookOpen className="w-4 h-4 text-emerald-400" /> Explore Top Courses
+                <Linkedin className="w-4 h-4 text-[#0077b5]" /> Connect on LinkedIn
               </a>
             </div>
 
-            {/* Trust Highlights */}
+            {/* Key Stats */}
             <div className="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white">100+</div>
-                <div className="text-xs text-slate-400 font-medium">Curated BD Courses</div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white">7+ Yrs</div>
+                <div className="text-xs text-slate-400 font-medium">English Lecturer @ UCC</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400">100%</div>
-                <div className="text-xs text-slate-400 font-medium">Free Career Tools</div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400">5,000+</div>
+                <div className="text-xs text-slate-400 font-medium">Students & Youth Guided</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-indigo-400">10k+</div>
-                <div className="text-xs text-slate-400 font-medium">Learners Guided</div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-indigo-400">SUST</div>
+                <div className="text-xs text-slate-400 font-medium">MA & BA in English</div>
               </div>
             </div>
           </div>
 
-          {/* Right Hero Card */}
+          {/* Right Hero Profile Card */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-md bg-gradient-to-b from-slate-800/90 to-slate-950 p-6 sm:p-8 rounded-3xl border border-slate-700/80 shadow-2xl backdrop-blur-xl">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-emerald-500 p-1 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-emerald-500 p-1 flex items-center justify-center shrink-0">
                   <div className="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-white font-black text-2xl">
-                    DS
+                    DH
                   </div>
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-white">Daloyar Hassan Shishir</h2>
-                  <p className="text-xs text-emerald-400 font-medium">Career Consultant & Educator</p>
-                  <p className="text-[11px] text-slate-400">contactwithshishir@gmail.com</p>
+                  <p className="text-xs text-emerald-400 font-medium">English Lecturer & Youth Leader</p>
+                  <p className="text-[11px] text-slate-400">Shahjalal University of Science & Tech</p>
                 </div>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-3 text-xs">
                 <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" />
-                  <span className="text-xs text-slate-200">Official 10 Minute School Affiliate Partner</span>
+                  <Globe className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span className="text-slate-200">Young Leaders Delegate, Shanghai & Beijing (2025)</span>
                 </div>
                 <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-indigo-400 shrink-0" />
-                  <span className="text-xs text-slate-200">ATS Resume Writing & Review Specialist</span>
+                  <GraduationCap className="w-4 h-4 text-indigo-400 shrink-0" />
+                  <span className="text-slate-200">Senior Lecturer in English Grammar @ UCC (2019-Present)</span>
                 </div>
                 <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-blue-400 shrink-0" />
-                  <span className="text-xs text-slate-200">Spoken English & IELTS Self-Study Mentor</span>
+                  <Award className="w-4 h-4 text-blue-400 shrink-0" />
+                  <span className="text-slate-200">President @ USWA & Ex-President @ Mangrove SUST</span>
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-800 text-center">
+              <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                <span className="text-slate-400">Sylhet & Jashore, Bangladesh</span>
                 <a
                   href="#contact"
-                  className="text-xs font-bold text-indigo-400 hover:text-indigo-300 flex items-center justify-center gap-1"
+                  className="font-bold text-indigo-400 hover:text-indigo-300 flex items-center gap-1"
                 >
-                  Learn more about Shishir's mission <ArrowRight className="w-3.5 h-3.5" />
+                  Get in Touch <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

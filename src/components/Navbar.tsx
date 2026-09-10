@@ -6,12 +6,13 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: 'Home', href: '#hero' },
+    { label: 'Experience & Bio', href: '#experience' },
     { label: 'Interactive Tools', href: '#tools' },
     { label: '10MS Courses', href: '#courses' },
     { label: 'English Guides', href: '#english' },
     { label: 'CV Services', href: '#cv-services' },
     { label: 'Articles', href: '#blog' },
-    { label: 'About & Contact', href: '#contact' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -19,7 +20,6 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo & Brand */}
           <a href="#hero" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-emerald-500 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-indigo-600/30 group-hover:scale-105 transition">
               S
@@ -34,23 +34,21 @@ export const Navbar: React.FC = () => {
             </div>
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-emerald-400 transition"
+                className="text-xs font-semibold text-slate-300 hover:text-emerald-400 transition"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* WhatsApp / Booking CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://wa.me/8801700000000?text=Hello%20Shishir%20Bhai,%20I%20am%20visiting%20dhshishir.com%20and%20want%20to%20know%20more%20about%20your%20services."
+              href="https://wa.me/8801627714636?text=Hello%20Shishir%20Bhai,%20I%20am%20visiting%20dhshishir.com%20and%20want%20to%20know%20more%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-900/30 transition flex items-center gap-2"
@@ -59,7 +57,6 @@ export const Navbar: React.FC = () => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -71,7 +68,6 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Nav Drawer */}
       {isOpen && (
         <div className="lg:hidden bg-slate-950 border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
           {navLinks.map((link) => (
@@ -86,7 +82,7 @@ export const Navbar: React.FC = () => {
           ))}
           <div className="pt-4">
             <a
-              href="https://wa.me/8801700000000"
+              href="https://wa.me/8801627714636"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm flex items-center justify-center gap-2"

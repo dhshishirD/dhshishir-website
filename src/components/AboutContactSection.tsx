@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle2, Globe } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, Globe, Phone, Linkedin } from 'lucide-react';
 
 export const AboutContactSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -25,7 +25,7 @@ export const AboutContactSection: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              I am dedicated to empowering Bangladeshi students, job seekers, and career switchers with modern professional skills, English communication mastery, and proven career roadmaps.
+              MA & BA in English Language and Literature from Shahjalal University of Science and Technology (SUST). Senior Lecturer of English at UCC with 7+ years of experience guiding thousands of university aspirants, Young Leaders Program Fellow (China 2025), and dedicated career & skill development mentor.
             </p>
 
             <div className="space-y-3 text-sm text-slate-300">
@@ -37,15 +37,28 @@ export const AboutContactSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-emerald-400">
-                  <Globe className="w-4 h-4" />
+                  <Phone className="w-4 h-4" />
                 </div>
-                <span>www.dhshishir.com</span>
+                <span>+880 1627-714636 (WhatsApp Available)</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-blue-400">
+                  <Linkedin className="w-4 h-4" />
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/daloyar-hassan1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition"
+                >
+                  linkedin.com/in/daloyar-hassan1
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-amber-400">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span>Dhaka, Bangladesh</span>
+                <span>Sylhet & Jashore, Bangladesh</span>
               </div>
             </div>
           </div>
@@ -53,7 +66,7 @@ export const AboutContactSection: React.FC = () => {
           <div className="lg:col-span-6">
             <div className="bg-slate-900/90 rounded-3xl border border-slate-800 p-6 sm:p-8 backdrop-blur-xl">
               <h3 className="text-xl font-bold text-white mb-2">Send a Message / Career Inquiry</h3>
-              <p className="text-xs text-slate-400 mb-6">Have a question about courses, CV review, or collaboration? Reach out directly.</p>
+              <p className="text-xs text-slate-400 mb-6">Have a question about courses, admissions English, CV review, or youth initiatives? Reach out directly.</p>
 
               {submitted ? (
                 <div className="p-6 bg-emerald-950/60 border border-emerald-500/40 rounded-2xl text-center space-y-2">
@@ -89,8 +102,8 @@ export const AboutContactSection: React.FC = () => {
                     <select className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500">
                       <option>10 Minute School Course Advice</option>
                       <option>Pro ATS CV Review Service</option>
-                      <option>IELTS & Spoken English Guidance</option>
-                      <option>Business & Collaboration</option>
+                      <option>UCC / Admission English Coaching</option>
+                      <option>Youth Leadership & Policy Dialogue</option>
                     </select>
                   </div>
 

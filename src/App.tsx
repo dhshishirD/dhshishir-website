@@ -1,5 +1,6 @@
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { ExperienceSection } from './components/ExperienceSection';
 import { ToolsSection } from './components/ToolsSection';
 import { CourseSection } from './components/CourseSection';
 import { EnglishSection } from './components/EnglishSection';
@@ -20,6 +21,7 @@ export function App() {
           <AdSenseSlot slotId="1092837465" label="Top Sponsor" />
         </div>
 
+        <ExperienceSection />
         <ToolsSection />
         <CourseSection />
         <EnglishSection />
