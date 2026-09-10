@@ -57,9 +57,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', setCurrent
               onClick={() => handleNavClick('home', '#hero')}
               className="flex items-center gap-3 group text-left cursor-pointer"
             >
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-emerald-500 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-indigo-600/30 group-hover:scale-105 transition">
-                S
-              </div>
+              <img
+                src="/logo.svg"
+                alt="DH Shishir Monogram Emblem"
+                className="w-10 h-10 rounded-2xl shadow-lg shadow-indigo-600/30 group-hover:scale-105 transition object-contain"
+              />
               <div>
                 <div className="text-lg font-extrabold tracking-tight text-white flex items-center gap-1.5">
                   dhshishir<span className="text-emerald-400">.com</span>
