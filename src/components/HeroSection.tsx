@@ -27,7 +27,7 @@ export const HeroSection: React.FC = () => {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              MA & BA in English from <span className="text-white font-semibold">SUST</span>, 7+ years Senior Lecturer at <span className="text-white font-semibold">UCC</span>, Young Leaders Program Fellow in <span className="text-emerald-400 font-semibold">China (2025)</span>, Development Model Study in <span className="text-emerald-400 font-semibold">Malaysia (2026)</span>, and VP Candidate at <span className="text-indigo-400 font-semibold">SUCSU</span> <span className="text-xs text-slate-400 font-normal">(Election postponed before the Day of Voting by BNP and their student wing)</span>.
+              MA & BA in English from <span className="text-white font-semibold">SUST</span>, 7+ years Senior Lecturer at <span className="text-white font-semibold">UCC</span>, Young Leaders Program Fellow in <span className="text-emerald-400 font-semibold">China (2025)</span>, Development Model Study in <span className="text-emerald-400 font-semibold">Malaysia (2026)</span>, and VP Candidate at <span className="text-indigo-400 font-semibold">SUCSU</span> <span className="text-xs text-slate-400 font-normal">(Election postponed before voting day)</span>.
             </p>
 
             {/* Quick Action Badges */}

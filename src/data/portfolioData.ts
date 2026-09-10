@@ -90,7 +90,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     highlights: [
       "Nominated as the Vice President (VP) candidate from the 'দুর্বার সাস্টিয়ান ঐক্য' (Durbar SUSTian Oikya) panel for the SUCSU (শাকসু) central student union elections.",
       "Advocated for student welfare reforms, merit-based campus governance, and student representation.",
-      "Election status: Postponed before the day of voting by BNP and their student wing."
+      "Election status: Postponed before the day of voting."
     ]
   },
   {
