@@ -112,7 +112,7 @@ ${role} Candidate`;
               <input
                 type="text"
                 required
-                placeholder="e.g. Delowar Hassan"
+                placeholder="e.g. Daloyar Hassan"
                 value={formData.fullName}
                 onChange={e => setFormData({ ...formData, fullName: e.target.value })}
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"

@@ -207,7 +207,7 @@ export const StandaloneToolPage: React.FC<StandaloneToolPageProps> = ({
         <div className="mt-12 bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
             <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
-              Curated by Delowar Hassan Shishir (দেলোয়ার হাসান শিশির)
+              Curated by Daloyar Hassan Shishir (দেলোয়ার হাসান শিশির)
             </div>
             <h4 className="text-lg font-bold text-white">
               Need 1-on-1 Guidance for IELTS, Admission English, or ATS CV Review?
