@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { DiagnosticQuiz } from './DiagnosticQuiz';
+import { Stage2LearnDrill } from './Stage2LearnDrill';
 import { getFluencyProfile } from '../../services/fluencyProfileService';
 import type { FluencyUserProfile } from '../../types/fluencyLab';
-import { Sparkles, Lock, CheckCircle2, Flame } from 'lucide-react';
+import { Sparkles, Lock, CheckCircle2, Flame, BookOpen } from 'lucide-react';
 
 export const FluencyLabHub: React.FC = () => {
   const [profile, setProfile] = useState<FluencyUserProfile>(getFluencyProfile());
-  const [activeTab, setActiveTab] = useState<'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6'>('stage1');
+  const [activeTab, setActiveTab] = useState<'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6'>('stage2');
 
   useEffect(() => {
     setProfile(getFluencyProfile());
@@ -84,17 +85,24 @@ export const FluencyLabHub: React.FC = () => {
             </div>
           </button>
 
-          {/* Stage 2 - Sequential Lock */}
-          <div className="p-3 rounded-2xl border border-slate-800/80 bg-slate-950/60 text-slate-500 text-left">
-            <div className="text-[10px] font-bold text-slate-600 uppercase">Stage 2 (Next)</div>
-            <div className="text-xs font-medium mt-0.5 flex items-center gap-1 text-slate-400">
-              <Lock className="w-3 h-3 text-slate-600" /> IPA & Minimal Pairs
+          {/* Stage 2 - Active & Unlocked */}
+          <button
+            onClick={() => setActiveTab('stage2')}
+            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
+              activeTab === 'stage2'
+                ? 'bg-indigo-950/70 border-indigo-500 text-white shadow-lg shadow-indigo-950/40 ring-1 ring-indigo-400'
+                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+            }`}
+          >
+            <div className="text-[10px] font-bold text-indigo-400 uppercase">Stage 2 (Live)</div>
+            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
+              <BookOpen className="w-3.5 h-3.5 text-indigo-400" /> IPA & Minimal Pairs
             </div>
-          </div>
+          </button>
 
           {/* Stage 3 */}
           <div className="p-3 rounded-2xl border border-slate-800/80 bg-slate-950/60 text-slate-500 text-left">
-            <div className="text-[10px] font-bold text-slate-600 uppercase">Stage 3</div>
+            <div className="text-[10px] font-bold text-slate-600 uppercase">Stage 3 (Next)</div>
             <div className="text-xs font-medium mt-0.5 flex items-center gap-1 text-slate-400">
               <Lock className="w-3 h-3 text-slate-600" /> Speak & Record
             </div>
@@ -126,15 +134,22 @@ export const FluencyLabHub: React.FC = () => {
 
         </div>
 
-        {/* Active Stage 1 Workspace */}
+        {/* Active Stage Viewport */}
         <div className="transition-all duration-300">
-          <DiagnosticQuiz
-            initialUserAlias={profile.userAlias}
-            onComplete={handleQuizCompleted}
-          />
+          {activeTab === 'stage1' && (
+            <DiagnosticQuiz
+              initialUserAlias={profile.userAlias}
+              onComplete={handleQuizCompleted}
+            />
+          )}
+
+          {activeTab === 'stage2' && (
+            <Stage2LearnDrill />
+          )}
         </div>
 
       </div>
     </section>
   );
 };
+
