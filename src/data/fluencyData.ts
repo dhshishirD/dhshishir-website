@@ -347,12 +347,12 @@ export const MINIMAL_PAIRS_DATA: MinimalPair[] = [
   { id: 'vb-02', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'vet', phonemeA: '/v/', wordB: 'bet', phonemeB: '/b/' },
   { id: 'vb-03', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'vote', phonemeA: '/v/', wordB: 'boat', phonemeB: '/b/' },
   { id: 'vb-04', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'vest', phonemeA: '/v/', wordB: 'best', phonemeB: '/b/' },
-  { id: 'vb-05', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'vine', phonemeA: '/v/', wordB: 'bine', phonemeB: '/b/' },
+  { id: 'vb-05', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'veil', phonemeA: '/v/', wordB: 'bail', phonemeB: '/b/' },
   { id: 'vb-06', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'very', phonemeA: '/v/', wordB: 'berry', phonemeB: '/b/' },
   { id: 'vb-07', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'vase', phonemeA: '/v/', wordB: 'base', phonemeB: '/b/' },
   { id: 'vb-08', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'curve', phonemeA: '/v/', wordB: 'curb', phonemeB: '/b/' },
   { id: 'vb-09', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'marvel', phonemeA: '/v/', wordB: 'marble', phonemeB: '/b/' },
-  { id: 'vb-10', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'cover', phonemeA: '/v/', wordB: 'cobber', phonemeB: '/b/' },
+  { id: 'vb-10', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'vault', phonemeA: '/v/', wordB: 'bolt', phonemeB: '/b/' },
 
   // 2. /θ/ and /ð/ (th sounds) vs /t/, /d/, /s/, /z/
   { id: 'th-01', categoryKey: 'th_sounds', categoryLabel: 'TH Sounds (/θ/ & /ð/)', wordA: 'think', phonemeA: '/θ/', wordB: 'sink', phonemeB: '/s/' },

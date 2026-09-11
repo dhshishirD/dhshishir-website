@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import { StandaloneToolPage } from './components/tools/StandaloneToolPage';
 import { LearnerDashboard } from './components/dashboard/LearnerDashboard';
 import { supabase } from './services/supabaseClient';
+import { syncLocalProfileToCloud } from './services/cloudProfileService';
 
 export function App() {
   const [currentView, setCurrentView] = useState<'home' | 'courses' | 'tools' | 'dashboard'>('home');
@@ -21,10 +22,16 @@ export function App() {
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
       setUser(data.user);
+      if (data.user) {
+        syncLocalProfileToCloud(data.user.id, data.user.email, data.user.user_metadata?.full_name);
+      }
     });
 
     const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
+      if (session?.user) {
+        syncLocalProfileToCloud(session.user.id, session.user.email, session.user.user_metadata?.full_name);
+      }
     });
 
     const handleHashChange = () => {

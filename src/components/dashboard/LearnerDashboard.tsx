@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../services/supabaseClient';
-import { fetchCloudProfile, fetchCloudQuizHistory } from '../../services/cloudProfileService';
+import { fetchCloudProfile, fetchCloudQuizHistory, syncLocalProfileToCloud } from '../../services/cloudProfileService';
 import type { CloudProfile } from '../../services/cloudProfileService';
-import { WEAK_PATTERNS_MAP } from '../../services/fluencyProfileService';
+import { getFluencyProfile, WEAK_PATTERNS_MAP } from '../../services/fluencyProfileService';
 import type { WeakPatternKey } from '../../types/fluencyLab';
 import { Flame, Calendar, LogOut, RotateCcw, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
@@ -21,15 +21,32 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
   const [history, setHistory] = useState<any[]>([]);
 
   useEffect(() => {
-    loadCloudData();
+    loadDashboardData();
   }, [user]);
 
-  const loadCloudData = async () => {
+  const loadDashboardData = async () => {
     if (user?.id) {
+      // 1. Ensure local tests are synchronized to cloud first
+      await syncLocalProfileToCloud(user.id, user.email, user.user_metadata?.full_name);
+      
+      // 2. Fetch fresh cloud profile and history
       const p = await fetchCloudProfile(user.id);
       const h = await fetchCloudQuizHistory(user.id);
       setProfile(p);
       setHistory(h);
+    } else {
+      // Guest fallback from local profile
+      const lp = getFluencyProfile();
+      setProfile({
+        id: 'local-guest',
+        full_name: lp.userAlias,
+        current_cefr_level: lp.currentCefrLevel || 'Pending',
+        latest_score: lp.latestScore || 0,
+        flagged_weak_patterns: lp.flaggedWeakPatterns || [],
+        streak_days: lp.streakDays || 1,
+        last_active_date: lp.lastActiveDate
+      });
+      setHistory(lp.history || []);
     }
   };
 
@@ -39,6 +56,7 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
   };
 
   const weakList = profile?.flagged_weak_patterns || [];
+  const hasTakenTest = profile && profile.current_cefr_level && profile.current_cefr_level !== 'Pending' && profile.current_cefr_level !== 'Not Taken';
 
   return (
     <div className="pt-24 pb-20 min-h-screen bg-slate-950 text-slate-100">
@@ -49,7 +67,7 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
           <div className="flex items-center gap-5 text-center md:text-left">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-emerald-500 p-0.5 flex items-center justify-center shrink-0 shadow-lg">
               <div className="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center font-black text-2xl text-emerald-400">
-                {profile?.current_cefr_level || 'B2'}
+                {hasTakenTest ? profile.current_cefr_level : '?'}
               </div>
             </div>
 
@@ -87,20 +105,30 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           <div className="p-5 bg-slate-900/80 rounded-2xl border border-slate-800 space-y-1">
             <div className="text-xs text-slate-400 font-medium">Placement CEFR Level</div>
-            <div className="text-3xl font-black text-emerald-400">{profile?.current_cefr_level || 'B2'}</div>
-            <div className="text-[11px] text-slate-500">Upper Intermediate Proficiency</div>
+            <div className="text-3xl font-black text-emerald-400">
+              {hasTakenTest ? profile.current_cefr_level : 'Pending'}
+            </div>
+            <div className="text-[11px] text-slate-500">
+              {hasTakenTest ? 'Verified Fluency Benchmark' : 'Take Stage 1 placement quiz to calibrate'}
+            </div>
           </div>
 
           <div className="p-5 bg-slate-900/80 rounded-2xl border border-slate-800 space-y-1">
             <div className="text-xs text-slate-400 font-medium">Latest Score</div>
-            <div className="text-3xl font-black text-white">{profile?.latest_score || 7} / 10</div>
-            <div className="text-[11px] text-slate-500">70% Accuracy Benchmark</div>
+            <div className="text-3xl font-black text-white">
+              {hasTakenTest ? `${profile.latest_score} / 10` : '—'}
+            </div>
+            <div className="text-[11px] text-slate-500">
+              {hasTakenTest ? `${(profile.latest_score / 10) * 100}% Accuracy Benchmark` : 'No score recorded yet'}
+            </div>
           </div>
 
           <div className="p-5 bg-slate-900/80 rounded-2xl border border-slate-800 space-y-1">
             <div className="text-xs text-slate-400 font-medium">Active Action Targets</div>
-            <div className="text-3xl font-black text-amber-400">{weakList.length || 3}</div>
-            <div className="text-[11px] text-slate-500">Assigned for Stage 2 & 3 drills</div>
+            <div className="text-3xl font-black text-amber-400">{weakList.length}</div>
+            <div className="text-[11px] text-slate-500">
+              {weakList.length > 0 ? 'Assigned for Stage 2 & 3 drills' : 'No weak patterns identified'}
+            </div>
           </div>
         </div>
 
@@ -120,12 +148,12 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
                 const info = WEAK_PATTERNS_MAP[key as WeakPatternKey];
                 if (!info) return null;
                 return (
-                  <div key={key} className="p-5 bg-slate-900/90 rounded-2xl border border-amber-500/30 space-y-3">
+                  <div key={key} className="p-5 bg-slate-900/90 rounded-2xl border border-amber-500/30 space-y-3 shadow-lg">
                     <div className="flex items-center justify-between text-xs font-bold text-amber-400">
                       <span>{info.name}</span>
-                      <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">Target Assigned</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Target Assigned</span>
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-slate-300 leading-relaxed font-bangla">
                       {info.banglaExplanation}
                     </p>
                     <div className="text-[11px] text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">
@@ -135,11 +163,25 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
                   </div>
                 );
               })
-            ) : (
+            ) : hasTakenTest ? (
               <div className="p-6 bg-slate-900 rounded-2xl border border-emerald-500/30 text-center space-y-2 col-span-2">
                 <CheckCircle2 className="w-8 h-8 text-emerald-400 mx-auto" />
                 <div className="text-sm font-bold text-white">No Phonetic Flaws Flagged!</div>
-                <p className="text-xs text-slate-400">You cleared placement checks with clean articulation.</p>
+                <p className="text-xs text-slate-400">You cleared placement checks with 100% clean articulation.</p>
+              </div>
+            ) : (
+              <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 text-center space-y-3 col-span-2">
+                <AlertTriangle className="w-8 h-8 text-amber-400 mx-auto" />
+                <div className="text-sm font-bold text-white">Placement Test Pending</div>
+                <p className="text-xs text-slate-400 max-w-md mx-auto">
+                  Complete the 10-question placement quiz in Stage 1 to identify your specific phonetic weak areas and calibrate your learning path.
+                </p>
+                <button
+                  onClick={() => onNavigateStage('stage1')}
+                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition cursor-pointer"
+                >
+                  Take Placement Quiz Now
+                </button>
               </div>
             )}
           </div>
@@ -175,14 +217,20 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
                     </div>
                   </div>
                   <div className="text-slate-500 text-[11px]">
-                    {new Date(record.completed_at).toLocaleDateString()}
+                    {new Date(record.completed_at || record.created_at).toLocaleDateString()}
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="p-6 bg-slate-950 rounded-xl text-center text-xs text-slate-500">
-              No previous test history found in cloud. Take the Stage 1 quiz to record your baseline score.
+            <div className="p-6 bg-slate-950 rounded-xl text-center text-xs text-slate-500 space-y-2">
+              <div>No previous test history found in cloud.</div>
+              <button
+                onClick={() => onNavigateStage('stage1')}
+                className="text-xs text-emerald-400 hover:underline font-bold"
+              >
+                Take the Stage 1 quiz to record your baseline score →
+              </button>
             </div>
           )}
         </div>
