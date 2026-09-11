@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { IPA_PHONEMES_DATA, type IpaPhoneme } from '../../data/fluencyData';
 import { playAudioWithFallback } from '../../utils/audioPlayer';
-import { Volume2, Sparkles, HelpCircle } from 'lucide-react';
+import { Volume2, Sparkles, HelpCircle, Mic } from 'lucide-react';
 
 export const IpaChart: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [activePhoneme, setActivePhoneme] = useState<IpaPhoneme>(IPA_PHONEMES_DATA[0]);
-  // isPlaying state
   const [playingWord, setPlayingWord] = useState<string | null>(null);
 
   const categories = [
@@ -22,13 +21,12 @@ export const IpaChart: React.FC = () => {
     ? IPA_PHONEMES_DATA
     : IPA_PHONEMES_DATA.filter(p => p.category === selectedCategory);
 
-  const handlePlayPhoneme = async (phoneme: IpaPhoneme) => {
+  const handlePlayIsolatedSound = (phoneme: IpaPhoneme) => {
     setActivePhoneme(phoneme);
-    
-    // Plays the phoneme sound or representative sample
-    const sampleWord = phoneme.exampleWords[0]?.word || phoneme.symbol;
-    await playAudioWithFallback(undefined, sampleWord, true);
-    
+    // Tries to play studio recording phoneme-isolated-{symbol}.mp3 first, falls back to TTS
+    const symbolSafe = phoneme.symbol.replace(/\//g, '').replace('ː', '-long');
+    const audioUrl = `/audio/fluency/phonemes/phoneme-isolated-${symbolSafe}.mp3`;
+    playAudioWithFallback(audioUrl, phoneme.symbol, true);
   };
 
   const handlePlayWord = async (word: string) => {
@@ -72,7 +70,7 @@ export const IpaChart: React.FC = () => {
               return (
                 <button
                   key={phoneme.symbol}
-                  onClick={() => handlePlayPhoneme(phoneme)}
+                  onClick={() => handlePlayIsolatedSound(phoneme)}
                   className={`p-3.5 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 group cursor-pointer ${
                     isSelected
                       ? 'bg-indigo-600 border-indigo-400 text-white shadow-lg shadow-indigo-600/40 scale-102'
@@ -96,21 +94,29 @@ export const IpaChart: React.FC = () => {
         <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-indigo-950/40 border border-indigo-500/30 rounded-3xl p-6 shadow-2xl space-y-6">
           <div className="flex items-center justify-between border-b border-slate-800/80 pb-4">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/20">
-                {activePhoneme.categoryLabel}
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-md border border-indigo-500/20">
+                  {activePhoneme.categoryLabel}
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1">
+                  <Mic className="w-2.5 h-2.5" /> Studio Ready
+                </span>
+              </div>
+
               <h4 className="text-xl font-black text-white mt-1.5 flex items-center gap-2">
                 <span className="text-emerald-400 text-2xl font-mono">{activePhoneme.symbol}</span>
               </h4>
               <p className="text-xs text-slate-400 mt-0.5">{activePhoneme.name}</p>
             </div>
 
+            {/* Standalone Isolated Phoneme Sound Button */}
             <button
-              onClick={() => handlePlayPhoneme(activePhoneme)}
-              className="w-12 h-12 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold flex items-center justify-center shadow-lg shadow-emerald-500/20 transition cursor-pointer"
-              title="Play Phoneme Sound"
+              onClick={() => handlePlayIsolatedSound(activePhoneme)}
+              className="px-4 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold flex flex-col items-center justify-center shadow-lg shadow-emerald-500/20 transition cursor-pointer"
+              title="Play Isolated Phoneme Sound"
             >
               <Volume2 className="w-5 h-5" />
+              <span className="text-[9px] font-black uppercase mt-0.5">Isolated Sound</span>
             </button>
           </div>
 
