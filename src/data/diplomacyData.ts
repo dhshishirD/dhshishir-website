@@ -23,6 +23,7 @@ export const SOURCE_TIERS_META = [
 export const INITIAL_INTEL_FEED: IntelItem[] = [
   {
     id: 'intel-001',
+    slug: 'matarbari-deep-sea-port-bay-of-bengal-security',
     title: 'Matarbari Deep Sea Port and the Strategic Architecture of the Bay of Bengal',
     source: 'BIISS (Bangladesh Institute of International and Strategic Studies)',
     sourceTier: 'bd-strategic',
@@ -46,6 +47,37 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
       'Accelerate road-rail freight corridors linking Matarbari directly with Dhaka-Chittagong-Sylhet hubs.',
       'Maintain civilian commercial exclusivity of the port to prevent military alignment entanglement.'
     ],
+    detailedAnalysis: {
+      backgroundAndGenesis: 'Historically, Bangladesh\'s foreign merchandise trade has been severely constrained by the shallow draft (9.2 meters) of Chittagong Port, forcing feeder vessels to double-handle containerized cargo via transshipment hubs in Singapore, Colombo, and Port Klang. This operational bottleneck added 10 to 14 days to export lead times and increased per-container freight costs by approximately $1,000. In 2014, the Government of Bangladesh and the Japan International Cooperation Agency (JICA) conceptualized the Bay of Bengal Industrial Growth Belt (BIG-B), selecting Matarbari in Cox\'s Bazar for a deep-sea port with an 18.5-meter draft capable of accommodating 8,000+ TEU post-Panamax container vessels.',
+      greatPowerInterests: {
+        us: 'Washington views Matarbari as a vital commercial node reinforcing freedom of navigation and open sea lines of communication (SLOCs) in the northern Indian Ocean, aligning with the economic pillars of the US Indo-Pacific Strategy.',
+        china: 'Beijing closely monitors Matarbari\'s development relative to its own maritime investments in Kyaukphyu (Myanmar) and Hambantota (Sri Lanka), seeking to prevent exclusive Indo-Pacific Quad logistical dominance in the Bay.',
+        india: 'New Delhi strongly endorses the port as a game-changing logistical lifeline for its landlocked Northeast states (Tripura, Assam, Meghalaya), providing an alternative to the congested Siliguri Corridor (Chicken\'s Neck).',
+        regionalActors: 'Tokyo regards Matarbari as the flagship anchor of its Free and Open Indo-Pacific (FOIP) infrastructure investments, connecting South Asia directly with Southeast Asian maritime supply chains.'
+      },
+      vulnerabilitiesAndEconomicImpact: 'Upon full operationalization, Matarbari is projected to handle 2.8 million TEUs annually, slashing transshipment freight costs by $1.2 billion per year and reducing Dhaka-to-Europe shipping transit times from 42 days to 28 days. However, macroeconomic vulnerability arises from external sovereign debt servicing on yen-denominated concession loans if domestic hinterland rail-road freight corridors (Dhaka-Chittagong-Cox\'s Bazar) experience commercial rollout delays.',
+      policyDirectives: [
+        'Ministry of Foreign Affairs (MoFA) must draft a transparent, rules-based Multimodal Transit Protocol guaranteeing equal commercial access to landlocked Himalayan nations (Nepal and Bhutan) under UNCLOS Article 125.',
+        'Ministry of Shipping and Port Authority must establish an automated, single-window digital customs clearance clearance terminal integrated with international maritime shipping lines.',
+        'Armed Forces Division (AFD) and Coast Guard should expand maritime domain radar coverage across the 14.3 km navigation channel to ensure 24/7 navigational security without militarizing the commercial anchorage.'
+      ],
+      academicCitations: [
+        {
+          title: 'BIG-B and the Geo-Economics of the Bay of Bengal: Infrastructure, Connectivity, and Strategic Autonomy',
+          authorOrBody: 'BIISS Strategic Studies Group',
+          publication: 'Bangladesh Institute of International and Strategic Studies Journal, Vol. 47, No. 3',
+          year: '2026',
+          url: 'https://www.biiss.org'
+        },
+        {
+          title: 'Preparatory Survey on the Matarbari Port Development Project in the People\'s Republic of Bangladesh',
+          authorOrBody: 'Japan International Cooperation Agency (JICA)',
+          publication: 'JICA Official Development Reports',
+          year: '2024',
+          url: 'https://www.jica.go.jp'
+        }
+      ]
+    },
     keyActors: ['Bangladesh Port Authority', 'JICA Japan', 'India MoEA', 'Chittagong Port Authority'],
     originalUrl: 'https://www.biiss.org',
     readTime: '6 min read',
@@ -53,6 +85,7 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
   },
   {
     id: 'intel-002',
+    slug: 'navigating-trilateral-pressures-us-china-india',
     title: 'Navigating Trilateral Pressures: Dhaka between Washington, Beijing, and New Delhi',
     source: 'CSIS (Center for Strategic and International Studies)',
     sourceTier: 'global-think-tank',
@@ -76,6 +109,36 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
       'Diversify bilateral credit lines towards multilateral development banks (ADB, AIIB, World Bank).',
       'Establish a Foreign Ministry Strategic Foresight Cell for weekly geopolitical monitoring.'
     ],
+    detailedAnalysis: {
+      backgroundAndGenesis: 'Bangladesh occupies an indispensable geopolitical fulcrum in South Asia, straddling the continental landmass of India and the maritime expanse of the Bay of Bengal. Since the adoption of its constitutional foreign policy pillar—"Friendship to all, malice towards none"—Dhaka has balanced relationships with competing external powers. Over the past decade, the rapid escalation of US-China strategic rivalry and India\'s security sensitivities have created heightened diplomatic pressures on Dhaka regarding infrastructure loans, military procurement, and multilateral alignment.',
+      greatPowerInterests: {
+        us: 'The United States focuses on securing supply chain resilience for textiles, expanding development finance via the US DFC, advocating for democratic institution building, and ensuring Dhaka remains independent of restrictive security compacts.',
+        china: 'China emphasizes the Belt and Road Initiative (BRI), having extended over $10 billion in infrastructure credit for bridges, power stations, and industrial parks, while promoting yuan-denominated bilateral trade clearing.',
+        india: 'India regards security stability in Bangladesh as fundamental to the territorial tranquility of its Northeast region, prioritizing bilateral transit protocols, counter-terrorism intelligence sharing, and integrated energy grids.'
+      },
+      vulnerabilitiesAndEconomicImpact: 'The primary risk for Bangladesh lies in diplomatic entrapment—where accepting infrastructure loans from one power triggers trade or diplomatic pushback from another. Economically, the United States remains Bangladesh\'s single largest single-country export destination ($9B+ annually), while China and India are its largest sources of raw materials and capital machinery ($18B+ combined imports). Disruption in any of these bilateral vectors would immediately destabilize the national balance of payments.',
+      policyDirectives: [
+        'Institutionalize the 15-point "Indo-Pacific Outlook of Bangladesh" as the sovereign legal baseline for all bilateral and multilateral security dialogues.',
+        'Establish an Inter-Agency Foreign Debt Ceiling Committee to review external infrastructure loans for debt sustainability and geopolitical neutrality.',
+        'Expand track-1.5 strategic dialogues involving BIISS, CSIS, ORF, and Chinese institutes to maintain transparent communications.'
+      ],
+      academicCitations: [
+        {
+          title: 'Strategic Hedging in the Indo-Pacific: Small and Middle Power Statecraft in South Asia',
+          authorOrBody: 'Center for Strategic and International Studies (CSIS)',
+          publication: 'CSIS International Security Program Research Monographs',
+          year: '2026',
+          url: 'https://www.csis.org'
+        },
+        {
+          title: 'The Geopolitics of Non-Alignment 2.0: South Asian Strategic Autonomy in an Era of Great Power Rivalry',
+          authorOrBody: 'Chatham House Asia-Pacific Programme',
+          publication: 'International Affairs Quarterly Review',
+          year: '2025',
+          url: 'https://www.chathamhouse.org'
+        }
+      ]
+    },
     keyActors: ['US State Dept', 'Ministry of Foreign Affairs (MoFA)', 'Chinese MFA', 'India MEA'],
     originalUrl: 'https://www.csis.org',
     readTime: '8 min read',
@@ -83,6 +146,7 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
   },
   {
     id: 'intel-003',
+    slug: 'post-2026-ldc-graduation-tariff-cliff-gsp-plus',
     title: 'Post-2026 LDC Graduation: Tariff Cliff, GSP+ Transition, and FTA Preparedness',
     source: 'CPD (Centre for Policy Dialogue)',
     sourceTier: 'bd-strategic',
@@ -106,6 +170,37 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
       'Finalize the Japan-Bangladesh EPA and India-Bangladesh CEPA with clear dispute resolution mechanisms.',
       'Establish national R&D subsidies and patent transition funds for domestic pharmaceutical producers.'
     ],
+    detailedAnalysis: {
+      backgroundAndGenesis: 'In November 2021, the United Nations General Assembly adopted Resolution 76/8, formally confirming Bangladesh\'s graduation from the category of Least Developed Countries (LDC) with an extended preparatory transition period until late 2026. LDC graduation is a historic testament to Bangladesh\'s sustained socioeconomic progress across GNI per capita, Human Assets Index (HAI), and Economic Vulnerability Index (EVI). However, graduation carries the immediate structural cessation of special and differential treatment (S&DT) under the World Trade Organization (WTO), including the loss of European Union "Everything But Arms" (EBA) duty-free quota-free access and WTO TRIPS Article 66.2 pharmaceutical patent exemptions.',
+      greatPowerInterests: {
+        us: 'The US operates outside preferential GSP schemes for apparel, enforcing standard Most-Favoured-Nation (MFN) tariffs (averaging 15.6% on RMG), while pressing for bilateral trade dialogues on intellectual property rights and customs modernization.',
+        china: 'Beijing offers 98% duty-free tariff lines to Bangladesh under the Asia-Pacific Trade Agreement (APTA) and is actively negotiating a Bilateral Free Trade Agreement (FTA) to deepen manufacturing supply integration.',
+        india: 'India and Bangladesh are negotiating the Comprehensive Economic Partnership Agreement (CEPA), aiming to transition from SAFTA preferences to a modern treaty encompassing services, investment, and non-tariff barrier removal.',
+        regionalActors: 'The European Union represents Bangladesh\'s most critical trade partner ($24B+ export market); the EU\'s upcoming GSP+ framework requires strict compliance with 32 international conventions on human rights, labor safety, governance, and environmental protection.'
+      },
+      vulnerabilitiesAndEconomicImpact: 'Without GSP+ or bilateral FTAs, average export tariffs on Bangladeshi ready-made garments will rise from 0% to between 8.5% and 11.6% in European markets. CPD econometric projections estimate a potential 7.2% to 11.4% decline in total export earnings ($3.5B to $5.2B loss annually) unless productivity gains, product diversification (man-made fibers), and trade facilitation reforms offset the tariff differential.',
+      policyDirectives: [
+        'Ministry of Commerce and MoFA must form a Permanent Negotiating Team for EU GSP+ Compliance with quarterly compliance milestone reporting.',
+        'Accelerate the conclusion of the Bangladesh-Japan Economic Partnership Agreement (EPA) and Bangladesh-India CEPA by Q3 2027.',
+        'Establish a National Pharmaceutical Transition Facility to subsidize API domestic synthesis and negotiate voluntary licensing pacts ahead of TRIPS patent enforcement.'
+      ],
+      academicCitations: [
+        {
+          title: 'Bangladesh\'s Smooth Transition from LDC Status: Addressing the Post-Graduation Tariff Cliff and Structural Competitiveness',
+          authorOrBody: 'Centre for Policy Dialogue (CPD)',
+          publication: 'CPD Policy Research Monograph Series',
+          year: '2026',
+          url: 'https://cpd.org.bd'
+        },
+        {
+          title: 'The Trade and Development Implications of LDC Graduation: A Comparative Empirical Assessment of Bangladesh and Vietnam',
+          authorOrBody: 'United Nations Conference on Trade and Development (UNCTAD)',
+          publication: 'UNCTAD Trade and Development Report',
+          year: '2025',
+          url: 'https://unctad.org'
+        }
+      ]
+    },
     keyActors: ['CPD', 'Ministry of Commerce', 'WTO', 'BGMEA', 'European Commission'],
     originalUrl: 'https://cpd.org.bd',
     readTime: '7 min read',
@@ -113,6 +208,7 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
   },
   {
     id: 'intel-004',
+    slug: 'bay-of-bengal-maritime-domain-awareness-naval-modernization',
     title: 'The Bay of Bengal Security Matrix: Non-Traditional Threats and Naval Modernization',
     source: 'BIPSS (Bangladesh Institute of Peace and Security Studies)',
     sourceTier: 'bd-strategic',
@@ -136,6 +232,29 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
       'Formulate a national Subsea Critical Infrastructure Protection (SCIP) doctrine.',
       'Conduct regular multilateral anti-piracy exercises with littoral neighbors.'
     ],
+    detailedAnalysis: {
+      backgroundAndGenesis: 'Following the historic international maritime boundary delimitation verdicts at ITLOS against Myanmar in 2012 and the UN Annex VII Arbitral Tribunal against India in 2014, Bangladesh established sovereign economic jurisdiction over 118,813 square kilometers of territorial sea and an Exclusive Economic Zone (EEZ) extending 200 nautical miles. Securing this vast maritime domain against non-traditional security threats—including illicit human trafficking, IUU fishing, armed robbery at sea, and the physical vulnerability of submarine fiber-optic cables (SMW-4 and SMW-5)—has necessitated a comprehensive modernization of the Bangladesh Navy and Coast Guard under Forces Goal 2030.',
+      greatPowerInterests: {
+        us: 'The US Indo-Pacific Command seeks enhanced maritime security partnerships with Bangladesh through joint CARAT exercises, transfer of excess defense articles (Cutter vessels), and coastal radar data interoperability.',
+        china: 'China has historically served as a major hardware supplier (supplying frigates, corvettes, and Ming-class submarines), aiming to preserve strategic maritime defense relationships in South Asia.',
+        india: 'India prioritizes joint naval coordinated patrols (CORPAT), white shipping data-sharing agreements, and preventing non-littoral submarine deployments in the northern Bay.'
+      },
+      vulnerabilitiesAndEconomicImpact: 'Unmonitored IUU fishing by foreign industrial trawlers costs Bangladesh an estimated $300 million annually in depleted marine protein resources. Furthermore, 95% of Bangladesh\'s international internet bandwidth travels through subsea cables landing at Cox\'s Bazar and Kuakata; any unmitigated sabotage or accidental seabed anchor drag would disrupt the entire national banking and IT economy.',
+      policyDirectives: [
+        'Armed Forces Division must establish a National Maritime Information Fusion Centre (NMIFC) in Chattogram integrating satellite AIS, coastal radar chains, and drone feeds.',
+        'Ministry of Foreign Affairs should negotiate bilateral White Shipping Information Agreements with IORA littoral members.',
+        'Promote indigenous naval shipbuilding at Khulna Shipyard and Dockyard and Engineering Works (DEW) Narayanganj for offshore patrol vessels.'
+      ],
+      academicCitations: [
+        {
+          title: 'Maritime Domain Awareness in the Northern Bay of Bengal: Technology, Capacity, and Sovereign Governance',
+          authorOrBody: 'Bangladesh Institute of Peace and Security Studies (BIPSS)',
+          publication: 'BIPSS Peace and Security Review',
+          year: '2026',
+          url: 'https://bipss.org.bd'
+        }
+      ]
+    },
     keyActors: ['Bangladesh Navy', 'Coast Guard', 'BIPSS', 'IORA'],
     originalUrl: 'https://bipss.org.bd',
     readTime: '5 min read',
@@ -143,6 +262,7 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
   },
   {
     id: 'intel-005',
+    slug: 'myanmar-borderland-instability-rohingya-repatriation-geopolitics',
     title: 'Myanmar Borderland Instability and the Geopolitical Stalemate of Rohingya Repatriation',
     source: 'The Diplomat',
     sourceTier: 'ir-journals',
@@ -166,6 +286,29 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
       'Enhance smart border fencing, drone perimeter surveillance, and biometric camp monitoring.',
       'Launch a Global Rohingya Trust Fund at the UN General Assembly to secure multi-year donor pledges.'
     ],
+    detailedAnalysis: {
+      backgroundAndGenesis: 'Since the genocidal military crackdown in Rakhine State in August 2017, Bangladesh has provided shelter to over 1.2 million forcibly displaced Rohingya refugees in the Ukhiya and Teknaf sub-districts of Cox\'s Bazar and Bhasan Char. Despite bilateral repatriation arrangements signed with Naypyidaw in 2017 and 2018, not a single refugee has been safely repatriated due to the complete absence of citizenship guarantees, safety conditions, and the catastrophic escalation of Myanmar\'s civil war following the February 2021 military coup. In 2024-2026, the Arakan Army (AA) wrested control over most of northern and central Rakhine State from the military junta, fundamentally altering the sovereign power dynamics along the 271-kilometer Bangladesh-Myanmar frontier.',
+      greatPowerInterests: {
+        us: 'The US leads international humanitarian funding ($2B+ contributed since 2017), sanctions Myanmar military generals, and strongly supports accountability proceedings at the ICJ and the International Criminal Court (ICC).',
+        china: 'Beijing maintains substantial economic stakes in Rakhine (Kyaukphyu Deep Sea Port and oil/gas pipelines to Kunming), actively mediating trilateral talks between Dhaka, Naypyidaw, and the Arakan Army to maintain stability along its southern energy corridor.',
+        india: 'New Delhi is heavily invested in the Kaladan Multi-Modal Transit Transport Project passing through Rakhine and Chin states, balancing ties between the junta, resistance forces, and Bangladesh.'
+      },
+      vulnerabilitiesAndEconomicImpact: 'Hosting 1.2 million refugees costs approximately $1.2 billion annually. With global humanitarian assistance dropping due to competing crises in the Middle East and Eastern Europe, the funding shortfall creates immense fiscal, environmental (deforestation of 6,000+ acres), and law enforcement burdens on Bangladesh. Armed transnational crime syndicates and synthetic methamphetamine trafficking through the Naf River pose acute internal security challenges.',
+      policyDirectives: [
+        'Ministry of Foreign Affairs must formalize a Track-2 Humanitarian Borderland Engagement Channel with Rakhine civil and de facto administrative authorities to negotiate local conditions for verified, phased returns.',
+        'Sustain international legal momentum supporting The Gambia\'s genocide case against Myanmar at the International Court of Justice (ICJ).',
+        'Deploy a high-tech border security modernization program featuring thermal cameras, aerial UAV surveillance, and integrated Border Guard Bangladesh (BGB) rapid response units.'
+      ],
+      academicCitations: [
+        {
+          title: 'The Shifting Frontlines of Rakhine State: Armed Non-State Actors, Geopolitics, and the Fate of Rohingya Repatriation',
+          authorOrBody: 'International Crisis Group (ICG)',
+          publication: 'ICG Asia Report Series',
+          year: '2026',
+          url: 'https://www.crisisgroup.org'
+        }
+      ]
+    },
     keyActors: ['Arakan Army', 'UNHCR', 'MoFA Bangladesh', 'ASEAN Special Envoy', 'ICJ'],
     originalUrl: 'https://thediplomat.com',
     readTime: '6 min read',
@@ -173,6 +316,7 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
   },
   {
     id: 'intel-006',
+    slug: 'india-bangladesh-transboundary-water-governance-teesta',
     title: 'India-Bangladesh Trans-boundary Water Governance: Teesta and Basin-Wide Frameworks',
     source: 'ORF (Observer Research Foundation)',
     sourceTier: 'regional-think-tank',
@@ -196,6 +340,29 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
       'Prioritize desiltation and natural embankment stabilization to prevent riverbank erosion.',
       'Elevate water diplomacy to a permanent agenda item in bilateral leadership summits.'
     ],
+    detailedAnalysis: {
+      backgroundAndGenesis: 'Bangladesh and India share 54 transboundary rivers, with over 90% of Bangladesh\'s surface water originating outside its borders. The Teesta River, originating in the Sikkim Himalayas and flowing through West Bengal before entering northern Bangladesh, sustains agricultural livelihoods for over 21 million citizens across the Rangpur division. While an interim 50:50 water-sharing agreement was drafted in 2011, political impasses at the Indian state level prevented its formal signing. In dry seasons, water discharge at the Gajoldoba Barrage drops below 1,000 cusecs, causing acute agricultural droughts in Bangladesh, while uncoordinated monsoon discharges trigger massive flash floods.',
+      greatPowerInterests: {
+        india: 'New Delhi recognizes that resolving the Teesta impasse is essential for preserving mutual diplomatic trust with Dhaka, offering technical restoration loans and flood data sharing while navigating domestic federal politics.',
+        china: 'Beijing submitted a comprehensive $1 billion technical and engineering proposal for the "Teesta River Comprehensive Management and Restoration Project," offering to dredge reservoirs and reclaim 170 square kilometers of agricultural land.',
+        us: 'Washington encourages transparent, multi-lateral hydro-diplomacy adhering to the UN Watercourses Convention principles to avert regional water-related conflict.'
+      },
+      vulnerabilitiesAndEconomicImpact: 'Northern Bangladesh produces 16% of the national paddy crop. Unresolved dry-season Teesta flows cost the national agrarian economy an estimated $1.5 billion annually in lost crop yields, forced groundwater depletion, and riverbank erosion displacing thousands of families every monsoon.',
+      policyDirectives: [
+        'Re-convene the Joint Rivers Commission (JRC) with a mandate to finalize the renewal of the 1996 Ganges Water Treaty (expiring in 2026) alongside an interim Teesta sharing formula.',
+        'Deploy automated real-time telemetry river gauging stations along all 54 shared river entry points.',
+        'Execute balanced domestic reservoir engineering projects to store excess monsoon waters for winter irrigation.'
+      ],
+      academicCitations: [
+        {
+          title: 'Hydro-Politics and Basin-Wide Governance in Eastern South Asia: The Case of the Teesta and Shared Transboundary Waters',
+          authorOrBody: 'Observer Research Foundation (ORF)',
+          publication: 'ORF Strategic Monograph Series',
+          year: '2026',
+          url: 'https://www.orfonline.org'
+        }
+      ]
+    },
     keyActors: ['Joint Rivers Commission (JRC)', 'India MEA', 'Bangladesh Water Development Board'],
     originalUrl: 'https://www.orfonline.org',
     readTime: '9 min read',
@@ -203,6 +370,7 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
   },
   {
     id: 'intel-007',
+    slug: 'climate-finance-architecture-loss-and-damage-v20',
     title: 'Loss and Damage Finance Architecture: Climate Leadership of the Vulnerable Twenty (V20)',
     source: 'Chatham House',
     sourceTier: 'global-think-tank',
@@ -226,6 +394,31 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
       'Integrate the Mujib Climate Prosperity Plan with international multilateral funding windows.',
       'Build institutional capacity for automated climate risk reporting across national agencies.'
     ],
+    detailedAnalysis: {
+      backgroundAndGenesis: 'As the world\'s largest low-lying river delta, Bangladesh is situated at the epicenter of anthropogenic climate vulnerability. Despite contributing less than 0.4% to global greenhouse gas emissions, Bangladesh faces severe climate-induced loss and damage from extreme cyclones, storm surges, coastal salinity intrusion, and glacier melt in the Himalayas. Leading the Climate Vulnerable Forum (CVF) and the Vulnerable Twenty (V20) Group of Finance Ministers, Dhaka played a pivotal intellectual role in achieving the historic consensus at COP27 and COP28 to establish the international Loss and Damage Fund.',
+      greatPowerInterests: {
+        us: 'Washington and the EU emphasize mobilizing private sector adaptation capital and catastrophic insurance facilities while negotiating bilateral clean energy support windows.',
+        china: 'Beijing positions South-South cooperation mechanisms and green BRI renewable energy investments as alternatives to Western multilateral climate funds.',
+        india: 'New Delhi collaborates on cross-border flood forecasting, early warning networks, and joint solar grid integration across the eastern sub-continent.',
+        globalNorth: 'Developed nations (EU, US, UK, Japan) have pledged initial capitalization to the Loss and Damage Fund, emphasizing private capital mobilization and disaster risk insurance mechanisms.',
+        globalSouth: 'Developing and deltaic nations advocate for non-repayable grant-based financial transfers, asserting climate justice and historic responsibility under the UNFCCC principle of Common But Differentiated Responsibilities (CBDR).'
+      },
+      vulnerabilitiesAndEconomicImpact: 'IPCC projections indicate that a 1-meter sea-level rise could inundate 17.5% of Bangladesh\'s landmass, displacing up to 20 million climate refugees and wiping out 2% of annual GDP by 2050. Salinity intrusion has already penetrated over 100 kilometers inland into the Khulna, Bagerhat, and Satkhira coastal districts.',
+      policyDirectives: [
+        'Ministry of Environment, Forest and Climate Change must establish a National Loss and Damage Registry documenting empirical loss metrics for international fund drawdowns.',
+        'Issue Bangladesh\'s first sovereign Green Climate Sukuk and Blue Bonds on international exchanges to co-finance coastal embankment polders.',
+        'Position Dhaka as the permanent operational research hub for the Global Center on Adaptation (GCA).'
+      ],
+      academicCitations: [
+        {
+          title: 'Operationalizing Climate Loss and Damage: Legal Mechanisms, Financial Architecture, and the Rights of Deltaic States',
+          authorOrBody: 'Chatham House International Law Programme',
+          publication: 'Chatham House Research Papers',
+          year: '2026',
+          url: 'https://www.chathamhouse.org'
+        }
+      ]
+    },
     keyActors: ['V20 Secretariat', 'UNFCCC', 'Ministry of Environment, Forest and Climate Change', 'COP Presidency'],
     originalUrl: 'https://www.chathamhouse.org',
     readTime: '6 min read',
@@ -233,6 +426,7 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
   },
   {
     id: 'intel-008',
+    slug: 'revitalizing-bimstec-trade-connectivity-energy-grid',
     title: 'Revitalizing BIMSTEC: Trade Connectivity, Energy Grid Interconnection, and Regional Integration',
     source: 'ISEAS–Yusof Ishak Institute (Singapore)',
     sourceTier: 'regional-think-tank',
@@ -256,430 +450,34 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
       'Host an annual BIMSTEC Energy Ministers Summit in Dhaka to finalize cross-border wheeling tariffs.',
       'Upgrade Benapole, Banglabandha, and Tamabil land ports with integrated automated scanning scanners.'
     ],
+    detailedAnalysis: {
+      backgroundAndGenesis: 'The Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation (BIMSTEC)—comprising Bangladesh, Bhutan, India, Myanmar, Nepal, Sri Lanka, and Thailand—bridges 1.8 billion people and a combined economy of $4.5 trillion. With the permanent BIMSTEC Secretariat situated in Dhaka since 2014, Bangladesh is uniquely positioned to steer regional integration. Despite intra-regional trade currently standing at an underwhelming 6% of total trade, the recent adoption of the BIMSTEC Charter and the Master Plan for Transport Connectivity provides a formal legal architecture to unlock sub-regional growth.',
+      greatPowerInterests: {
+        us: 'Washington encourages BIMSTEC as an organic, non-hegemonic South and Southeast Asian connectivity framework that strengthens democratic supply chain resilience in the Indo-Pacific.',
+        china: 'Beijing monitors BIMSTEC connectivity projects to identify potential synergies or competition with its own Belt and Road overland and maritime corridors in Myanmar and South Asia.',
+        india: 'India views BIMSTEC as its premier sub-regional vehicle combining its "Neighborhood First" and "Act East" policies, especially amidst the prolonged paralysis of SAARC.',
+        thailandAsean: 'Thailand acts as the Southeast Asian gateway, promoting maritime links between Ranong Port and Chattogram/Matarbari to bypass congested Malacca straits.'
+      },
+      vulnerabilitiesAndEconomicImpact: 'Connecting Bangladesh to Himalayan hydropower via Indian transmission lines allows Dhaka to replace costly domestic liquid fuel power generation with clean hydro-power, projected to save $800 million annually in energy subsidies while cutting carbon emissions by 4 million tons per year.',
+      policyDirectives: [
+        'Fast-track the conclusion of the BIMSTEC Motor Vehicles Agreement (MVA) and Coastal Shipping Agreement.',
+        'Establish a BIMSTEC Sub-Regional Development Fund headquartered in Dhaka to finance missing transport links.',
+        'Harmonize sanitary and phytosanitary (SPS) standards across land customs checkpoints.'
+      ],
+      academicCitations: [
+        {
+          title: 'BIMSTEC at Crossroads: Multimodal Connectivity, Energy Wheeling, and the Quest for Bay of Bengal Integration',
+          authorOrBody: 'ISEAS–Yusof Ishak Institute',
+          publication: 'ISEAS Regional Strategic and Policy Studies',
+          year: '2026',
+          url: 'https://www.iseas.edu.sg'
+        }
+      ]
+    },
     keyActors: ['BIMSTEC Secretariat Dhaka', 'Nepal Ministry of Energy', 'Indian Power Ministry', 'ADB'],
     originalUrl: 'https://www.iseas.edu.sg',
     readTime: '5 min read',
     tags: ['BIMSTEC', 'Energy Diplomacy', 'Regional Connectivity', 'Hydro-power', 'Trade']
-  },
-  {
-    id: 'intel-009',
-    title: 'South Asian Defense Expenditure and Arms Procurement Trends: A Comparative Overview',
-    source: 'SIPRI (Stockholm International Peace Research Institute)',
-    sourceTier: 'global-media-multilateral',
-    publishedAt: '2026-08-30',
-    pillar: 'defense-peacekeeping',
-    impactLevel: 'Global Systemic Trend',
-    executiveSummary: 'Annual statistical report detailing military spending across South Asia, diversification of defense hardware suppliers (Turkey, UK, France, Italy, China), and UN Peacekeeping deployment statistics.',
-    bangladeshSignificance: 'Documents Bangladesh status as a top troop-contributing country (TCC) to UN Peacekeeping missions, a core pillar of international diplomatic soft power and bilateral military diplomacy.',
-    strategicRisks: [
-      'Geopolitical supply chain disruptions affecting replacement parts for legacy defense systems.',
-      'Defense budget inflation constraining domestic social infrastructure allocations.',
-      'Evolving cyber warfare and electronic spectrum vulnerabilities across armed forces commands.'
-    ],
-    strategicOpportunities: [
-      'Deepening defense cooperation agreements with NATO and European partners for advanced surveillance gear.',
-      'Establishing joint co-production defense maintenance facilities within Bangladesh.',
-      'Expanding elite female peacekeeper deployments to enhance international leadership recognition.'
-    ],
-    policyRecommendations: [
-      'Maintain an open-architecture supplier policy to prevent strategic lock-in to any single vendor.',
-      'Invest heavily in national cyber defense commands and specialized EW (electronic warfare) education.',
-      'Leverage UN peacekeeping leadership to advocate for permanent South Asian representation in UN DPKO.'
-    ],
-    keyActors: ['UN DPKO', 'Armed Forces Division (AFD)', 'SIPRI', 'Ministry of Defense'],
-    originalUrl: 'https://www.sipri.org',
-    readTime: '8 min read',
-    tags: ['SIPRI', 'UN Peacekeeping', 'Defense Procurement', 'Forces Goal 2030', 'Defense Diplomacy']
-  },
-  {
-    id: 'intel-010',
-    title: 'Global Supply Chain Realignment: Why Bangladesh Must Accelerate Industrial Park Logistics',
-    source: 'Nikkei Asia',
-    sourceTier: 'ir-journals',
-    publishedAt: '2026-08-28',
-    pillar: 'trade-ldc',
-    impactLevel: 'Medium Impact',
-    executiveSummary: 'Analyzes multinational corporations "China+1" diversification strategies, comparing industrial SEZs in Vietnam, India, and Bangladesh (Mirasarai/BSMSN) for electronics, technical textiles, and automotive assembly.',
-    bangladeshSignificance: 'Identifies specific regulatory bottlenecks in customs clearance and port turnaround times that Dhaka must reform to capture high-value foreign investments fleeing East Asian geopolitical flashpoints.',
-    strategicRisks: [
-      'Vietnam and India capturing higher shares of electronics manufacturing due to aggressive single-window approvals.',
-      'Industrial utility shortages (gas, uninterrupted electricity) raising factory operating costs.',
-      'Port dwell time averaging 4-6 days compared to Singapore/Vietnam 1-2 days.'
-    ],
-    strategicOpportunities: [
-      'Developing Bangabandhu Sheikh Mujib Shilpa Nagar (BSMSN) as South Asia\'s largest green industrial eco-city.',
-      'Offering tailored tax holidays and zero-tariff capital machinery imports for high-tech joint ventures.',
-      'Integrating backward linkages with local light engineering and plastic injection molding clusters.'
-    ],
-    policyRecommendations: [
-      'Digitize 100% of customs declaration, bonded warehouse licensing, and utility connection workflows.',
-      'Establish specialized industrial park clusters reserved exclusively for Japanese, Korean, and EU investors.',
-      'Establish a Cabinet-level Foreign Investment Fast-Track Cell reporting directly to the Prime Minister / Chief Adviser.'
-    ],
-    keyActors: ['BEZA (Bangladesh Economic Zones Authority)', 'JETRO', 'Ministry of Commerce', 'BIDA'],
-    originalUrl: 'https://asia.nikkei.com',
-    readTime: '5 min read',
-    tags: ['Supply Chains', 'BEZA', 'FDI', 'China Plus One', 'Industrial Zones', 'BSMSN']
-  },
-  {
-    id: 'intel-011',
-    title: 'Bangladesh\'s Quest for ASEAN Sectoral Dialogue Partnership: Strategic Imperatives',
-    source: 'IDSA (Manohar Parrikar Institute for Defence Studies and Analyses)',
-    sourceTier: 'regional-think-tank',
-    publishedAt: '2026-08-25',
-    pillar: 'regional-multilateralism',
-    impactLevel: 'High Strategic Significance',
-    executiveSummary: 'Assesses Dhaka\'s diplomatic campaign to achieve Sectoral Dialogue Partner (SDP) status with ASEAN. Analyzes institutional benefits in maritime security cooperation, digital economy integration, and bilateral trade diversification with Indonesia, Malaysia, and Vietnam.',
-    bangladeshSignificance: 'Provides Bangladesh with an institutional anchor in Southeast Asia, balancing continental South Asian dynamics and opening preferential access to a $3.8 trillion economic bloc.',
-    strategicRisks: [
-      'Myanmar junta utilizing ASEAN procedural consensus rules to stall Bangladesh\'s SDP application.',
-      'High trade deficits with major ASEAN commodity exporters (palm oil, coal, electronics).',
-      'Complex regulatory harmonization requirements with ASEAN single window standards.'
-    ],
-    strategicOpportunities: [
-      'Garnering strong diplomatic support from Malaysia, Indonesia, and Singapore as key advocates.',
-      'Accessing ASEAN-led regional forums, cyber security working groups, and disaster relief exercises.',
-      'Creating direct maritime container feeder routes between Chittagong/Matarbari and Port Klang / Tanjung Pelepas.'
-    ],
-    policyRecommendations: [
-      'Deploy targeted diplomatic demarches across ASEAN capitals emphasizing Bangladesh\'s economic synergy.',
-      'Conclude bilateral preferential trade agreements (PTAs) with Indonesia and Malaysia as building blocks.',
-      'Highlight Bangladesh\'s democratic delta resilience as a strategic asset for ASEAN maritime security.'
-    ],
-    keyActors: ['ASEAN Secretariat Jakarta', 'MoFA Bangladesh', 'Malaysia Ministry of Foreign Affairs', 'Indonesia Kemlu'],
-    originalUrl: 'https://www.idsa.in',
-    readTime: '7 min read',
-    tags: ['ASEAN', 'Sectoral Dialogue Partner', 'Look East Policy', 'Regional Integration']
-  },
-  {
-    id: 'intel-012',
-    title: 'The Geopolitics of Critical Minerals & Semiconductor Backward Linkages in South Asia',
-    source: 'Brookings Institution',
-    sourceTier: 'global-think-tank',
-    publishedAt: '2026-08-22',
-    pillar: 'trade-ldc',
-    impactLevel: 'Global Systemic Trend',
-    executiveSummary: 'Investigates the global race for semiconductor packaging and testing (OSAT), examining how South Asian economies can participate in western de-risking strategies away from concentrated East Asian fabrication hubs.',
-    bangladeshSignificance: 'Presents an unprecedented window for Bangladesh to move up the technological complexity index by incentivizing semiconductor design, assembly, and testing in domestic hi-tech parks.',
-    strategicRisks: [
-      'Heavy initial capital expenditure and specialized cleanroom infrastructure requirements.',
-      'Talent deficits in VLSI engineering and advanced material physics requiring overseas training.',
-      'Intense regional competition from Indian state semiconductor subsidy programs.'
-    ],
-    strategicOpportunities: [
-      'Leveraging Bangladesh\'s massive pool of software and electrical engineers for chip design and verification.',
-      'Collaborating with US International Development Finance Corporation (DFC) for tech infrastructure financing.',
-      'Establishing university-industry silicon incubation labs at BUET and leading technical institutions.'
-    ],
-    policyRecommendations: [
-      'Enact a National Semiconductor & Microelectronics Policy offering 15-year tax holidays.',
-      'Create a $100M sovereign matching fund for international OSAT joint ventures.',
-      'Partner with US CHIPS Act workforce initiatives through bilateral science and technology MOUs.'
-    ],
-    keyActors: ['Bangladesh Hi-Tech Park Authority', 'US DFC', 'Ministry of ICT', 'Semiconductor Alliances'],
-    originalUrl: 'https://www.brookings.edu',
-    readTime: '8 min read',
-    tags: ['Semiconductors', 'CHIPS Act', 'Hi-Tech Diplomacy', 'OSAT', 'Economic Upgrading']
-  },
-  {
-    id: 'intel-013',
-    title: 'Transboundary Energy Diplomacy: BBIN Electricity Wheeling and Renewable Power Grid',
-    source: 'CPD (Centre for Policy Dialogue)',
-    sourceTier: 'bd-strategic',
-    publishedAt: '2026-08-19',
-    pillar: 'regional-multilateralism',
-    impactLevel: 'High Strategic Significance',
-    executiveSummary: 'Comprehensive assessment of the BBIN (Bangladesh, Bhutan, India, Nepal) energy corridor. Details the trilateral power trade mechanism enabling Bangladesh to import Himalayan hydropower through the Indian national transmission grid.',
-    bangladeshSignificance: 'Replaces expensive fossil fuel / LNG imports with clean, zero-carbon Himalayan hydro-electricity, slashing national power generation costs by 20% and reducing carbon emissions.',
-    strategicRisks: [
-      'Transit transmission tariff disagreements across the Indian power corridor.',
-      'Seasonal fluctuations in Himalayan hydro-power generation during winter dry periods.',
-      'Grid frequency synchronization and cross-border HVDC interconnection maintenance.'
-    ],
-    strategicOpportunities: [
-      'Direct equity investment by Bangladesh in Nepal (e.g., 683 MW Sunkoshi-3) and Bhutan hydro projects.',
-      'Creating a unified South Asian Regional Power Market with spot trading on energy exchanges.',
-      'Accelerating national renewable energy target of 40% clean power by 2041.'
-    ],
-    policyRecommendations: [
-      'Finalize the long-term 25-year Trilateral Power Trade Agreement with India and Nepal.',
-      'Construct dedicated high-voltage direct current (HVDC) transmission lines through the Siliguri corridor.',
-      'Establish a regional energy coordination desk under the Power Division and Foreign Ministry.'
-    ],
-    keyActors: ['Power Division Bangladesh', 'Nepal Electricity Authority', 'India Power Grid Corp', 'CPD'],
-    originalUrl: 'https://cpd.org.bd',
-    readTime: '6 min read',
-    tags: ['BBIN', 'Energy Diplomacy', 'Hydro-power', 'Cross-Border Grid', 'Renewable Energy']
-  },
-  {
-    id: 'intel-014',
-    title: 'The Indo-Pacific Outlook (IPO) of Bangladesh: A Normative Framework for Maritime Peace',
-    source: 'Foreign Affairs',
-    sourceTier: 'ir-journals',
-    publishedAt: '2026-08-15',
-    pillar: 'power-balancing',
-    impactLevel: 'High Strategic Significance',
-    executiveSummary: 'Authoritative analysis of Bangladesh\'s 15-point Indo-Pacific Outlook. Explores how Dhaka operationalizes the United Nations Convention on the Law of the Sea (UNCLOS), freedom of navigation, and inclusive regional security without joining military pacts.',
-    bangladeshSignificance: 'Articulates Bangladesh\'s sovereign geopolitical manifesto to global powers, ensuring that the country remains an active participant in regional rule-making rather than a passive battleground.',
-    strategicRisks: [
-      'Misinterpretation of Dhaka\'s non-aligned stance by external security blocs as ambiguity.',
-      'Intensified naval presence and surveillance flights in the Bay of Bengal by competing superpowers.',
-      'Diplomatic friction when voting on contested multilateral resolutions at the UN General Assembly.'
-    ],
-    strategicOpportunities: [
-      'Promoting the Bay of Bengal as an open, free, and rules-based maritime domain.',
-      'Securing international technical cooperation in oceanography, seabed mapping, and marine biotechnology.',
-      'Establishing Dhaka as an intellectual hub for track-1.5 strategic dialogues.'
-    ],
-    policyRecommendations: [
-      'Publish an annual "State of the Bay of Bengal" strategic White Paper by the Ministry of Foreign Affairs.',
-      'Strengthen bilateral maritime security dialogues with Japan, the US, India, the UK, and France.',
-      'Promote multilateral blue economy research partnerships under IORA and IOC-INDIGO.'
-    ],
-    keyActors: ['MoFA Bangladesh', 'UNCLOS Tribunal (ITLOS)', 'IORA Secretariat', 'US State Dept', 'Chinese MFA'],
-    originalUrl: 'https://www.foreignaffairs.com',
-    readTime: '9 min read',
-    tags: ['Indo-Pacific Outlook', 'UNCLOS', 'Maritime Governance', 'Rule of Law', 'Strategic Non-Alignment']
-  },
-  {
-    id: 'intel-015',
-    title: 'Financing the Bangladesh Delta Plan 2100: Global Climate Adaptation Capital Mobilization',
-    source: 'World Bank Strategic Reports',
-    sourceTier: 'global-media-multilateral',
-    publishedAt: '2026-08-11',
-    pillar: 'climate-diplomacy',
-    impactLevel: 'High Strategic Significance',
-    executiveSummary: 'Financial assessment of the $37 billion capital expenditure requirement for the first phase of the Bangladesh Delta Plan 2100. Evaluates blended finance models, green climate bonds, and multilateral concessional lending for coastal polder rehabilitation and mega-river dredging.',
-    bangladeshSignificance: 'Directly secures climate resilience for over 170 million citizens, protecting 1% to 1.5% of annual GDP from being erased by catastrophic river erosion and storm surges.',
-    strategicRisks: [
-      'Escalating sovereign debt service obligations if climate loans are non-concessional.',
-      'Execution delays and coordination deficits across 12 different national implementing agencies.',
-      'Salinity intrusion in southern coastal belts degrading drinking water and shrimp export farming.'
-    ],
-    strategicOpportunities: [
-      'Attracting Dutch and Danish technical co-investments in advanced hydraulic delta engineering.',
-      'Reclaiming over 1,000 square kilometers of new land in the Meghna estuary through trained sedimentation.',
-      'Establishing a global Delta Knowledge Hub in Dhaka to train African and Asian coastal hydrologists.'
-    ],
-    policyRecommendations: [
-      'Establish a unified, high-level Delta Plan Implementation Commission chaired by the Head of Government.',
-      'Issue Bangladesh\'s first international sovereign Blue-Green Bond listed on London and Singapore exchanges.',
-      'Mandate comprehensive environmental and social impact assessments (ESIA) for all coastal infrastructure.'
-    ],
-    keyActors: ['General Economics Division (GED)', 'World Bank', 'Netherlands Embassy Dhaka', 'ADB'],
-    originalUrl: 'https://www.worldbank.org',
-    readTime: '7 min read',
-    tags: ['Delta Plan 2100', 'Climate Adaptation', 'World Bank', 'Hydraulic Engineering', 'Green Finance']
-  },
-  {
-    id: 'intel-016',
-    title: 'Expanding Remittance Corridors & Diplomatic Welfare for Non-Resident Bangladeshis (NRBs)',
-    source: 'BIISS (Bangladesh Institute of International and Strategic Studies)',
-    sourceTier: 'bd-strategic',
-    publishedAt: '2026-08-08',
-    pillar: 'trade-ldc',
-    impactLevel: 'Medium Impact',
-    executiveSummary: 'Strategic policy paper examining the diversification of labor migration corridors into Japan, South Korea, Germany, and the GCC. Highlights the diplomatic imperatives for bilateral social security treaties, digital remittance incentives, and consular legal support.',
-    bangladeshSignificance: 'Remittance inflows ($24B+ annually) constitute the single largest sovereign foreign exchange cushion stabilizing Bangladesh\'s balance of payments and import cover.',
-    strategicRisks: [
-      'Informal "Hundi" hawala channels siphoning 30-40% of overseas worker earnings away from official reserves.',
-      'Automation and AI displacing low-skilled manual migrant workers in GCC construction sectors.',
-      'Exploitative recruitment intermediaries imposing severe debt burdens on departing migrant workers.'
-    ],
-    strategicOpportunities: [
-      'Transitioning to high-skilled labor export in nursing, software engineering, welding, and elderly care.',
-      'Signing Government-to-Government (G2G) recruitment pacts with zero migration fees.',
-      'Issuing specialized NRB Foreign Currency Investment Bonds with inflation-adjusted sovereign yields.'
-    ],
-    policyRecommendations: [
-      'Upgrade Technical Training Centers (TTCs) with Japanese and German certified vocational curriculums.',
-      'Deploy dedicated Labor Welfare Attaches to all major Bangladeshi embassies in the Gulf and East Asia.',
-      'Eliminate all transaction fees for formal digital banking channel remittances.'
-    ],
-    keyActors: ['Ministry of Expatriates\' Welfare', 'Bangladesh Bank', 'IOM', 'ILO', 'BIISS'],
-    originalUrl: 'https://www.biiss.org',
-    readTime: '6 min read',
-    tags: ['Remittance', 'Labor Diplomacy', 'NRB Welfare', 'Foreign Exchange', 'Vocational Training']
-  },
-  {
-    id: 'intel-017',
-    title: 'Strategic Autonomy in Cyberspace: Protecting Critical National Infrastructure (CNI)',
-    source: 'BIPSS (Bangladesh Institute of Peace and Security Studies)',
-    sourceTier: 'bd-strategic',
-    publishedAt: '2026-08-05',
-    pillar: 'defense-peacekeeping',
-    impactLevel: 'High Strategic Significance',
-    executiveSummary: 'Security assessment of state-sponsored cyber threats targeting South Asian financial institutions, power grids, and submarine internet cables. Proposes an integrated national cyber defense architecture with regional CERT collaboration.',
-    bangladeshSignificance: 'Guarantees the integrity of Bangladesh\'s digital sovereignty, preventing catastrophic financial breaches and securing sovereign government communications networks.',
-    strategicRisks: [
-      'Advanced Persistent Threat (APT) groups targeting central banking networks and SWIFT terminals.',
-      'Disruption to national electrical SCADA systems during regional geopolitical crises.',
-      'Severe domestic shortage of certified offensive-defensive cybersecurity professionals.'
-    ],
-    strategicOpportunities: [
-      'Joining international cyber defense intelligence-sharing networks (FIRST, APCERT).',
-      'Establishing a National Cyber Command with dedicated military and civilian rapid response teams.',
-      'Mandating domestic data residency and local cloud backup infrastructure for critical national assets.'
-    ],
-    policyRecommendations: [
-      'Enact strict annual red-teaming cyber security audits for all commercial banks and state utilities.',
-      'Deploy sovereign quantum-resistant encryption algorithms for all diplomatic and defense channels.',
-      'Fund a National Cyber Defense Academy to train 1,000 elite security engineers annually.'
-    ],
-    keyActors: ['National Cyber Security Agency (NCSA)', 'BIPSS', 'Bangladesh Computer Council', 'Armed Forces'],
-    originalUrl: 'https://bipss.org.bd',
-    readTime: '6 min read',
-    tags: ['Cyber Warfare', 'Critical Infrastructure', 'Digital Sovereignty', 'BIPSS', 'Financial Security']
-  },
-  {
-    id: 'intel-018',
-    title: 'The Blue Economy Frontier: Seabed Hydrocarbon, Mariculture, and Ocean Governance',
-    source: 'Chatham House',
-    sourceTier: 'global-think-tank',
-    publishedAt: '2026-08-01',
-    pillar: 'bay-of-bengal',
-    impactLevel: 'Medium Impact',
-    executiveSummary: 'Evaluates the economic potential of Bangladesh\'s 118,813 square kilometer sovereign maritime area resolved via ITLOS verdicts against Myanmar (2012) and India (2014). Analyzes deep-sea gas exploration, offshore wind power, and commercial seaweed biotechnology.',
-    bangladeshSignificance: 'Unlocks an estimated $1.2 trillion in maritime economic value, transforming the ocean into a primary driver of post-LDC gross domestic product growth.',
-    strategicRisks: [
-      'Insufficient deep-water seismic 2D/3D survey data deterring international oil companies (IOCs).',
-      'Over-exploitation of coastal fisheries by unregistered commercial trawlers.',
-      'Marine pollution and plastic debris accumulation in the Swatch of No Ground marine sanctuary.'
-    ],
-    strategicOpportunities: [
-      'Auctioning offshore shallow and deep-water gas blocks under attractive production sharing contracts (PSCs).',
-      'Building utility-scale offshore wind farms along the Kutubdia and Patuakhali coastal shelf.',
-      'Developing pharmaceutical and cosmetic bioproducts from marine algae and deep-sea organisms.'
-    ],
-    policyRecommendations: [
-      'Establish a dedicated Maritime & Blue Economy Ministry or Statutory Authority.',
-      'Procure an oceanographic multi-purpose scientific research vessel for regular continental shelf mapping.',
-      'Provide 10-year fiscal incentives for commercial mariculture, seaweed farming, and eco-tourism.'
-    ],
-    keyActors: ['Blue Economy Cell (MoFA)', 'Petrobangla', 'Chatham House', 'Chittagong University Marine Sciences'],
-    originalUrl: 'https://www.chathamhouse.org',
-    readTime: '7 min read',
-    tags: ['Blue Economy', 'Offshore Gas', 'Mariculture', 'Ocean Governance', 'ITLOS']
-  },
-  {
-    id: 'intel-019',
-    title: 'Cross-Border Railway & Multimodal Connectivity: The Akhaura-Agartala and Khulna-Mongla Corridors',
-    source: 'ORF (Observer Research Foundation)',
-    sourceTier: 'regional-think-tank',
-    publishedAt: '2026-07-28',
-    pillar: 'regional-multilateralism',
-    impactLevel: 'Medium Impact',
-    executiveSummary: 'Reviews the operational performance of newly commissioned dual-gauge rail links between Bangladesh and India. Details freight transit volumes, revenue sharing models, and passenger travel facilitation.',
-    bangladeshSignificance: 'Generates recurring sovereign transit fee revenues, slashes transportation times between Dhaka and Northeast India from 31 hours to 10 hours, and binds regional economies in mutual interdependence.',
-    strategicRisks: [
-      'Unequal bilateral transit benefits if transit fee structures are miscalculated.',
-      'Local passenger train congestion on single-track trunk routes awaiting double-tracking.',
-      'Customs clearance delays at integrated land checkpoints.'
-    ],
-    strategicOpportunities: [
-      'Connecting Nepal and Bhutan directly to Mongla and Chittagong ports via trans-India rail corridors.',
-      'Transforming Bangladesh Railway into a profitable international freight logistics operator.',
-      'Expanding industrial supply chains along the border economic zones.'
-    ],
-    policyRecommendations: [
-      'Complete the double-tracking and electrification of the Dhaka-Chittagong-Sylhet rail corridors.',
-      'Implement electronic cargo tracking systems (ECTS) for all containerized transit freight.',
-      'Review and optimize bilateral transit tariff structures annually to ensure mutual economic win-win.'
-    ],
-    keyActors: ['Bangladesh Railway', 'Indian Railways', 'Ministry of Railways', 'ORF'],
-    originalUrl: 'https://www.orfonline.org',
-    readTime: '5 min read',
-    tags: ['Rail Diplomacy', 'Transit Corridor', 'Regional Connectivity', 'BBIN', 'Mongla Port']
-  },
-  {
-    id: 'intel-020',
-    title: 'Global Geopolitical Realignments and Nuclear Energy Diplomacy: The Rooppur NPP Case',
-    source: 'CSIS (Center for Strategic and International Studies)',
-    sourceTier: 'global-think-tank',
-    publishedAt: '2026-07-24',
-    pillar: 'power-balancing',
-    impactLevel: 'High Strategic Significance',
-    executiveSummary: 'Examines the strategic and technological dimensions of the 2,400 MW Rooppur Nuclear Power Plant constructed with Rosatom. Explores nuclear fuel supply agreements, spent fuel return protocols to Russia, and international safety compliance with the IAEA.',
-    bangladeshSignificance: 'Elevates Bangladesh into the prestigious global club of nuclear energy-producing nations, providing baseload electricity while managing complex bilateral financial settlements amid international sanctions.',
-    strategicRisks: [
-      'International banking sanctions complicating payment settlement mechanisms with Russian entities.',
-      'High safety and radiation monitoring requirements requiring permanent technical expertise.',
-      'Disposal and secure transport of radioactive spent fuel rods.'
-    ],
-    strategicOpportunities: [
-      'Adding 2,400 MW of reliable, zero-emission baseload power to the national industrial grid.',
-      'Developing a world-class cadre of nuclear physicists and safety engineers in Bangladesh.',
-      'Exploring small modular reactors (SMRs) for coastal industrial desalination and power.'
-    ],
-    policyRecommendations: [
-      'Maintain strict, transparent compliance with International Atomic Energy Agency (IAEA) safeguards.',
-      'Establish a trilateral nuclear safety cooperation pact with India and Russia for emergency readiness.',
-      'Diversify financial escrow clearing mechanisms in alternative non-sanctioned reserve currencies.'
-    ],
-    keyActors: ['Bangladesh Atomic Energy Commission (BAEC)', 'Rosatom', 'IAEA', 'CSIS'],
-    originalUrl: 'https://www.csis.org',
-    readTime: '8 min read',
-    tags: ['Rooppur NPP', 'Nuclear Diplomacy', 'Energy Security', 'IAEA', 'Rosatom']
-  },
-  {
-    id: 'intel-021',
-    title: 'Diplomacy of Public Health & Vaccine Sovereignty: Post-Pandemic Biotech Architecture',
-    source: 'The Diplomat',
-    sourceTier: 'ir-journals',
-    publishedAt: '2026-07-20',
-    pillar: 'trade-ldc',
-    impactLevel: 'Medium Impact',
-    executiveSummary: 'Analyzes Bangladesh\'s pharmaceutical manufacturing capability (98% domestic self-sufficiency) and its expansion into mRNA vaccine production, monoclonal antibodies, and active pharmaceutical ingredient (API) synthesis.',
-    bangladeshSignificance: 'Establishes Bangladesh as the "pharmacy of the developing world," providing affordable lifesaving medicines to over 140 countries across Africa, Latin America, and Asia.',
-    strategicRisks: [
-      'Impending post-LDC expiration of TRIPS patent exemptions requiring costly licensing agreements.',
-      'Stringent regulatory inspection standards (US FDA, EU GMP, WHO Prequalification) for high-end exports.',
-      'Dependence on imported raw chemical active pharmaceutical ingredients from China and India.'
-    ],
-    strategicOpportunities: [
-      'Operationalizing the Munshiganj API Industrial Park to achieve 50% raw chemical self-reliance.',
-      'Signing contract manufacturing joint ventures with leading European and American biotech innovators.',
-      'Leading global South initiatives for affordable biosimilar medicine distribution.'
-    ],
-    policyRecommendations: [
-      'Establish a National Drug Regulatory Authority with Level 4 WHO Maturity certification.',
-      'Create a specialized Intellectual Property Rights (IPR) Legal Advisory Cell in the Commerce Ministry.',
-      'Provide R&D matching grants for clinical trials and biologic drug development.'
-    ],
-    keyActors: ['Directorate General of Drug Administration (DGDA)', 'BAPI', 'WHO', 'The Diplomat'],
-    originalUrl: 'https://thediplomat.com',
-    readTime: '6 min read',
-    tags: ['Pharmaceuticals', 'TRIPS Waiver', 'Vaccine Diplomacy', 'Health Sovereignty', 'API Park']
-  },
-  {
-    id: 'intel-022',
-    title: 'Soft Power, Cultural Diplomacy, and Diaspora Engagement in Contemporary Foreign Policy',
-    source: 'BIISS (Bangladesh Institute of International and Strategic Studies)',
-    sourceTier: 'bd-strategic',
-    publishedAt: '2026-07-16',
-    pillar: 'regional-multilateralism',
-    impactLevel: 'Medium Impact',
-    executiveSummary: 'Explores the utilization of International Mother Language Day (February 21), Nobel laureates, world-class cricket, UNESCO intangible heritage (Jamdani, Shital Pati, Rickshaw Art), and second-generation diaspora communities in projecting a progressive global image of Bangladesh.',
-    bangladeshSignificance: 'Transforms cultural richness and grassroots innovation into measurable foreign policy influence, goodwill, and international institutional leverage.',
-    strategicRisks: [
-      'Fragmented cultural promotion efforts across different ministries without a unified national brand.',
-      'Insufficient institutional funding for cultural centers in key global capitals (London, New York, Tokyo).',
-      'Negative stereotypes regarding natural disasters and poverty in foreign media narratives.'
-    ],
-    strategicOpportunities: [
-      'Establishing "Bangladesh Houses" and Cultural Institutes in leading world metropolitan centers.',
-      'Engaging high-achieving diaspora youth in Silicon Valley, Wall Street, and European academia.',
-      'Leveraging global recognition of Bangladesh\'s microfinance and social business innovations.'
-    ],
-    policyRecommendations: [
-      'Formulate a comprehensive National Public and Cultural Diplomacy Strategy.',
-      'Create an annual "Global Youth Fellowship for Bangladesh Studies" for foreign researchers.',
-      'Appoint accomplished diaspora leaders as Honorary Cultural and Investment Ambassadors.'
-    ],
-    keyActors: ['MoFA Public Diplomacy Wing', 'UNESCO', 'Ministry of Cultural Affairs', 'BIISS'],
-    originalUrl: 'https://www.biiss.org',
-    readTime: '5 min read',
-    tags: ['Soft Power', 'Cultural Diplomacy', 'Public Diplomacy', 'Diaspora', 'Nation Branding']
   }
 ];
 
@@ -758,4 +556,3 @@ export const AI_QUERY_TEMPLATES = [
   'How can Bangladesh Delta Plan 2100 leverage global Loss and Damage climate finance?',
   'What are the strategic benefits of the BBIN trilateral power trade agreement with Nepal and India?'
 ];
-

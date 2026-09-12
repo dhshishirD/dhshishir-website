@@ -20,9 +20,10 @@ import { AuthModal } from '../auth/AuthModal';
 interface DiplomaticHubProps {
   user: any;
   onNavigateHome?: () => void;
+  onOpenDossierPage?: (slug: string) => void;
 }
 
-export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHome }) => {
+export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHome, onOpenDossierPage }) => {
   const [selectedPillar, setSelectedPillar] = useState<StrategicPillar>('all');
   const [selectedTier, setSelectedTier] = useState<SourceTier>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -469,12 +470,16 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              setSelectedDossier(item);
+                              if (onOpenDossierPage) {
+                                onOpenDossierPage(item.slug || item.id);
+                              } else {
+                                setSelectedDossier(item);
+                              }
                             }}
-                            className="px-3 py-1.5 bg-cyan-900/40 hover:bg-cyan-800/60 border border-cyan-500/40 text-cyan-200 rounded-lg text-xs font-bold transition flex items-center gap-1"
+                            className="px-3 py-1.5 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 border border-cyan-400/40 text-white shadow-md shadow-cyan-950/40 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
                           >
-                            <span>Briefing Dossier</span>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-cyan-400" />
+                            <span>Read Academic Dossier</span>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-cyan-200" />
                           </button>
                         </div>
                       </div>
@@ -553,10 +558,17 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
                       <div className="flex items-center gap-3">
                         <button
-                          onClick={() => setSelectedDossier(item)}
-                          className="text-xs text-cyan-400 hover:text-cyan-300 font-bold"
+                          onClick={() => {
+                            if (onOpenDossierPage) {
+                              onOpenDossierPage(item.slug || item.id);
+                            } else {
+                              setSelectedDossier(item);
+                            }
+                          }}
+                          className="text-xs text-cyan-400 hover:text-cyan-300 font-bold cursor-pointer flex items-center gap-1"
                         >
-                          View Full Briefing
+                          <span>Open Dossier</span>
+                          <ArrowUpRight className="w-3 h-3" />
                         </button>
                         <button
                           onClick={(e) => handleToggleBookmark(item.id, e)}
@@ -915,18 +927,30 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
             {/* Modal Actions */}
             <div className="mt-6 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-800">
-              <button
-                onClick={(e) => handleCopyCitation(selectedDossier, e)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer"
-              >
-                <Copy className="w-3.5 h-3.5" />
-                <span>Copy Citation</span>
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={(e) => handleCopyCitation(selectedDossier, e)}
+                  className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer"
+                >
+                  <Copy className="w-3.5 h-3.5" />
+                  <span>Copy Citation</span>
+                </button>
+
+                <a
+                  href={selectedDossier.originalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-2 bg-slate-800 hover:bg-cyan-900/40 border border-slate-700 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-300 rounded-xl text-xs font-bold transition flex items-center gap-1.5"
+                >
+                  <span>Think Tank Source</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
 
               <div className="flex items-center gap-2">
                 <button
                   onClick={(e) => handleOpenNote(selectedDossier.id, e)}
-                  className="px-4 py-2 bg-amber-600/30 hover:bg-amber-600/50 border border-amber-500/40 text-amber-200 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                  className="px-3.5 py-2 bg-amber-600/30 hover:bg-amber-600/50 border border-amber-500/40 text-amber-200 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>{notes[selectedDossier.id] ? 'Edit Note' : 'Add Note'}</span>
@@ -934,30 +958,34 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
                 <button
                   onClick={(e) => handleToggleBookmark(selectedDossier.id, e)}
-                  className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                  className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer border border-slate-700"
                 >
                   {bookmarks.includes(selectedDossier.id) ? (
                     <>
-                      <BookmarkCheck className="w-3.5 h-3.5" />
-                      <span>Saved in Binder</span>
+                      <BookmarkCheck className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>Saved</span>
                     </>
                   ) : (
                     <>
-                      <Bookmark className="w-3.5 h-3.5" />
-                      <span>Save Dossier</span>
+                      <Bookmark className="w-3.5 h-3.5 text-slate-400" />
+                      <span>Save</span>
                     </>
                   )}
                 </button>
 
-                <a
-                  href={selectedDossier.originalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-slate-800 hover:bg-cyan-900/40 border border-slate-700 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-300 rounded-xl text-xs font-bold transition flex items-center gap-1.5"
-                >
-                  <span>Think Tank Link</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
+                {onOpenDossierPage && (
+                  <button
+                    onClick={() => {
+                      const slug = selectedDossier.slug || selectedDossier.id;
+                      setSelectedDossier(null);
+                      onOpenDossierPage(slug);
+                    }}
+                    className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-bold rounded-xl text-xs shadow-lg shadow-cyan-950/60 transition flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <span>Open Dedicated Dossier Page</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-cyan-200" />
+                  </button>
+                )}
               </div>
             </div>
 

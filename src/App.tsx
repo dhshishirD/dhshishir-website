@@ -11,6 +11,7 @@ import { Footer } from './components/Footer';
 import { StandaloneToolPage } from './components/tools/StandaloneToolPage';
 import { LearnerDashboard } from './components/dashboard/LearnerDashboard';
 import { DiplomaticHub } from './components/diplomacy/DiplomaticHub';
+import { DossierDetailPage } from './components/diplomacy/DossierDetailPage';
 import { FluencyLabPage } from './components/pages/FluencyLabPage';
 import { LeadershipPage } from './components/pages/LeadershipPage';
 import { BlogPage } from './components/pages/BlogPage';
@@ -24,6 +25,7 @@ export function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [isStandaloneTool, setIsStandaloneTool] = useState(false);
   const [activeToolId, setActiveToolId] = useState<string>('cover-letter');
+  const [activeDossierSlug, setActiveDossierSlug] = useState<string | null>(null);
   const [user, setUser] = useState<any>(null);
 
   // Sync route with browser URL
@@ -32,41 +34,55 @@ export function App() {
     const hash = window.location.hash.toLowerCase();
 
     // Check pathname first (clean URLs)
-    if (path === '/diplomacy' || path === '/policy' || path === '/intel' || hash.startsWith('#/diplomacy')) {
+    if (path.startsWith('/diplomacy/') || hash.startsWith('#/diplomacy/')) {
+      const slug = path.replace('/diplomacy/', '') || hash.replace('#/diplomacy/', '');
+      setActiveDossierSlug(slug);
+      setCurrentView('diplomacy');
+      setIsStandaloneTool(false);
+    } else if (path === '/diplomacy' || path === '/policy' || path === '/intel' || hash.startsWith('#/diplomacy')) {
+      setActiveDossierSlug(null);
       setCurrentView('diplomacy');
       setIsStandaloneTool(false);
       document.title = 'Diplomatic & Foreign Policy Intelligence Hub | DH Shishir';
     } else if (path === '/fluency-lab' || path === '/english' || hash.startsWith('#/fluency-lab')) {
+      setActiveDossierSlug(null);
       setCurrentView('fluency-lab');
       setIsStandaloneTool(false);
       document.title = 'Fluency Lab | Interactive Looped English Mastery System | DH Shishir';
     } else if (path.startsWith('/tools/') || hash.startsWith('#/tools/')) {
+      setActiveDossierSlug(null);
       const toolId = path.replace('/tools/', '') || hash.replace('#/tools/', '');
       setActiveToolId(toolId || 'cover-letter');
       setCurrentView('tools');
       setIsStandaloneTool(true);
       document.title = `${toolId.toUpperCase()} | Free Career & Productivity Tools | DH Shishir`;
     } else if (path === '/tools' || hash.startsWith('#/tools')) {
+      setActiveDossierSlug(null);
       setCurrentView('tools');
       setIsStandaloneTool(false);
       document.title = 'Free Career & Productivity Tools Suite | DH Shishir';
     } else if (path === '/leadership' || path === '/experience' || hash.startsWith('#/leadership')) {
+      setActiveDossierSlug(null);
       setCurrentView('leadership');
       setIsStandaloneTool(false);
       document.title = 'Global Leadership, Delegations & Bio | DH Shishir';
     } else if (path === '/blog' || path === '/insights' || path === '/articles' || hash.startsWith('#/blog')) {
+      setActiveDossierSlug(null);
       setCurrentView('blog');
       setIsStandaloneTool(false);
       document.title = 'Strategic Insights, Articles & Policy Commentary | DH Shishir';
     } else if (path === '/contact' || path === '/about' || hash.startsWith('#/contact')) {
+      setActiveDossierSlug(null);
       setCurrentView('contact');
       setIsStandaloneTool(false);
       document.title = 'Contact, Advisory & Speaking Inquiries | DH Shishir';
     } else if (path === '/dashboard' || path === '/profile' || hash.startsWith('#/dashboard')) {
+      setActiveDossierSlug(null);
       setCurrentView('dashboard');
       setIsStandaloneTool(false);
       document.title = 'Personal Command & Learning Dashboard | DH Shishir';
     } else {
+      setActiveDossierSlug(null);
       setCurrentView('home');
       setIsStandaloneTool(false);
       document.title = 'Daloyar Hassan Shishir | Diplomatic Scholar, Fluency Lab & Career Innovation';
@@ -99,20 +115,37 @@ export function App() {
     };
   }, []);
 
-  const navigateTo = (view: ViewType, toolId?: string) => {
+  const navigateTo = (view: ViewType, subParam?: string) => {
     let targetPath = '/';
-    if (view === 'diplomacy') targetPath = '/diplomacy';
-    else if (view === 'fluency-lab') targetPath = '/fluency-lab';
-    else if (view === 'tools') {
-      targetPath = toolId ? `/tools/${toolId}` : '/tools';
-    } else if (view === 'leadership') targetPath = '/leadership';
-    else if (view === 'blog') targetPath = '/blog';
-    else if (view === 'contact') targetPath = '/contact';
-    else if (view === 'dashboard') targetPath = '/dashboard';
+    if (view === 'diplomacy') {
+      targetPath = subParam ? `/diplomacy/${subParam}` : '/diplomacy';
+      if (subParam) setActiveDossierSlug(subParam);
+      else setActiveDossierSlug(null);
+    } else if (view === 'fluency-lab') {
+      targetPath = '/fluency-lab';
+      setActiveDossierSlug(null);
+    } else if (view === 'tools') {
+      targetPath = subParam ? `/tools/${subParam}` : '/tools';
+      setActiveDossierSlug(null);
+    } else if (view === 'leadership') {
+      targetPath = '/leadership';
+      setActiveDossierSlug(null);
+    } else if (view === 'blog') {
+      targetPath = '/blog';
+      setActiveDossierSlug(null);
+    } else if (view === 'contact') {
+      targetPath = '/contact';
+      setActiveDossierSlug(null);
+    } else if (view === 'dashboard') {
+      targetPath = '/dashboard';
+      setActiveDossierSlug(null);
+    } else {
+      setActiveDossierSlug(null);
+    }
 
     window.history.pushState(null, '', targetPath);
-    if (toolId) {
-      setActiveToolId(toolId);
+    if (view === 'tools' && subParam) {
+      setActiveToolId(subParam);
       setIsStandaloneTool(true);
     } else {
       setIsStandaloneTool(false);
@@ -126,10 +159,21 @@ export function App() {
       
       <main>
         {currentView === 'diplomacy' ? (
-          <DiplomaticHub
-            user={user}
-            onNavigateHome={() => navigateTo('home')}
-          />
+          activeDossierSlug ? (
+            <DossierDetailPage
+              slug={activeDossierSlug}
+              user={user}
+              onNavigateHome={() => navigateTo('home')}
+              onNavigateDiplomacy={() => navigateTo('diplomacy')}
+              onNavigateDossier={(slug) => navigateTo('diplomacy', slug)}
+            />
+          ) : (
+            <DiplomaticHub
+              user={user}
+              onNavigateHome={() => navigateTo('home')}
+              onOpenDossierPage={(slug) => navigateTo('diplomacy', slug)}
+            />
+          )
         ) : currentView === 'fluency-lab' ? (
           <FluencyLabPage
             onNavigateHome={() => navigateTo('home')}
