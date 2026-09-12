@@ -2,10 +2,15 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Globe, Compass, Bookmark, BookmarkCheck, FileText, Search, Sparkles, 
   MessageSquare, Lock, Unlock, Filter, Plus, 
-  Layers, Send, AlertCircle, RefreshCw, PenTool, ArrowUpRight
+  Layers, Send, AlertCircle, RefreshCw, PenTool, ArrowUpRight,
+  ShieldCheck, AlertTriangle, CheckCircle2, Copy, X,
+  BarChart3, TrendingUp
 } from 'lucide-react';
-import type { StrategicPillar, SourceTier, PolicyMemo } from '../../types/diplomacy';
-import { INITIAL_INTEL_FEED, DIPLOMACY_PILLARS_META, SOURCE_TIERS_META } from '../../data/diplomacyData';
+import type { StrategicPillar, SourceTier, PolicyMemo, IntelItem } from '../../types/diplomacy';
+import { 
+  INITIAL_INTEL_FEED, DIPLOMACY_PILLARS_META, SOURCE_TIERS_META, 
+  DEFAULT_POLICY_MEMOS, AI_QUERY_TEMPLATES 
+} from '../../data/diplomacyData';
 import { 
   getLocalBookmarks, toggleLocalBookmark, getLocalNotes, saveLocalNote,
   getLocalMemos, saveLocalMemo, generateDiplomaticQueryResponse, syncBookmarkToCloud
@@ -27,6 +32,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [memos, setMemos] = useState<PolicyMemo[]>([]);
   
+  const [selectedDossier, setSelectedDossier] = useState<IntelItem | null>(null);
   const [activeNoteIntelId, setActiveNoteIntelId] = useState<string | null>(null);
   const [currentNoteText, setCurrentNoteText] = useState('');
   
@@ -47,7 +53,12 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
   useEffect(() => {
     setBookmarks(getLocalBookmarks());
     setNotes(getLocalNotes());
-    setMemos(getLocalMemos());
+    const savedMemos = getLocalMemos();
+    if (savedMemos.length === 0) {
+      setMemos(DEFAULT_POLICY_MEMOS);
+    } else {
+      setMemos(savedMemos);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.title = 'Diplomatic & Foreign Policy Intelligence Hub | DH Shishir';
   }, []);
@@ -57,7 +68,8 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
     setTimeout(() => setToastMessage(null), 3000);
   };
 
-  const handleToggleBookmark = (id: string) => {
+  const handleToggleBookmark = (id: string, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     const updated = toggleLocalBookmark(id);
     setBookmarks(updated);
     const isSaved = updated.includes(id);
@@ -67,7 +79,8 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
     showToast(isSaved ? 'Dossier saved to Research Binder' : 'Removed from Research Binder');
   };
 
-  const handleOpenNote = (id: string) => {
+  const handleOpenNote = (id: string, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setActiveNoteIntelId(id);
     setCurrentNoteText(notes[id] || '');
   };
@@ -111,8 +124,8 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
       summary: newMemoSummary || newMemoContent.slice(0, 140) + '...',
       content: newMemoContent,
       recommendations: recsArray.length > 0 ? recsArray : ['Continue diplomatic coordination at bilateral levels.'],
-      status: 'draft',
-      author: user?.user_metadata?.full_name || 'Daloyar Hassan Shishir',
+      status: 'published',
+      author: user?.user_metadata?.full_name || 'Daloyar Hassan Shishir (Strategic Analyst)',
       createdAt: new Date().toISOString().split('T')[0],
       updatedAt: new Date().toISOString().split('T')[0]
     };
@@ -125,6 +138,13 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
     setNewMemoContent('');
     setNewMemoRecommendations('');
     showToast('Ministerial Policy Memo drafted and saved successfully');
+  };
+
+  const handleCopyCitation = (item: IntelItem, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    const citation = `"${item.title}." ${item.source}, Published: ${item.publishedAt}. URL: ${item.originalUrl}`;
+    navigator.clipboard.writeText(citation);
+    showToast('Citation copied to clipboard');
   };
 
   const filteredFeed = useMemo(() => {
@@ -168,6 +188,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
+        {/* Top Breadcrumb & User Status */}
         <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
           <div className="flex items-center gap-2 text-xs text-slate-400">
             {onNavigateHome && (
@@ -201,6 +222,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
           </div>
         </div>
 
+        {/* Hero Header */}
         <div className="py-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-4">
             <Globe className="w-3.5 h-3.5 text-cyan-400" /> Strategic Statecraft & Bangladesh Geopolitics
@@ -209,10 +231,31 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             Foreign Policy & Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400">Intelligence Desk</span>
           </h1>
           <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
-            Real-time open-source intelligence synthesizing <strong>25+ global think tanks</strong> (BIISS, BIPSS, CPD, ORF, IDSA, CSIS, Chatham House, Lowy) and IR journals through the analytical lens of <strong>Bangladesh national interest, Bay of Bengal maritime security, post-LDC trade, and regional diplomacy</strong>.
+            Real-time strategic intelligence synthesizing <strong>25+ global think tanks</strong> (BIISS, BIPSS, CPD, ORF, IDSA, CSIS, Chatham House, Lowy Institute) and international relations datasets through the analytical lens of <strong>Bangladesh national interest, Bay of Bengal maritime security, post-LDC trade, and regional diplomacy</strong>.
           </p>
+
+          {/* Strategic Metrics Ribbon */}
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5">
+              <div className="text-xs font-semibold text-slate-400">Tracked Dossiers</div>
+              <div className="text-xl font-extrabold text-cyan-400 mt-0.5">{INITIAL_INTEL_FEED.length} Analyzed</div>
+            </div>
+            <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5">
+              <div className="text-xs font-semibold text-slate-400">Strategic Pillars</div>
+              <div className="text-xl font-extrabold text-teal-400 mt-0.5">7 Core Domains</div>
+            </div>
+            <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5">
+              <div className="text-xs font-semibold text-slate-400">Think Tank Bodies</div>
+              <div className="text-xl font-extrabold text-indigo-400 mt-0.5">25+ Ingested</div>
+            </div>
+            <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5">
+              <div className="text-xs font-semibold text-slate-400">Analysis Methodology</div>
+              <div className="text-xl font-extrabold text-emerald-400 mt-0.5">100% Open Intel</div>
+            </div>
+          </div>
         </div>
 
+        {/* Navigation Tabs */}
         <div className="flex flex-wrap items-center gap-2 mb-8 bg-slate-900/80 p-1.5 rounded-2xl border border-slate-800">
           <button
             onClick={() => setActiveTab('stream')}
@@ -265,14 +308,17 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             <span className="bg-slate-950/60 px-2 py-0.5 rounded-full text-[11px] text-cyan-200">{memos.length}</span>
           </button>
         </div>
+
+        {/* TAB 1: DAILY STRATEGIC STREAM */}
         {activeTab === 'stream' && (
           <div className="space-y-6">
+            {/* Search and Tier Filter */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
               <div className="md:col-span-6 relative">
                 <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
-                  placeholder="Search by topic, institution (BIISS, CSIS), or keyword (Teesta, Matarbari)..."
+                  placeholder="Search by topic, think tank (BIISS, CSIS), or keyword (Teesta, Matarbari)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-slate-900/90 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition"
@@ -294,6 +340,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               </div>
             </div>
 
+            {/* Strategic Pillar Chips */}
             <div>
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                 <Filter className="w-3.5 h-3.5 text-cyan-400" /> Filter by Strategic Pillar
@@ -318,6 +365,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               </div>
             </div>
 
+            {/* Intel Cards List */}
             {filteredFeed.length === 0 ? (
               <div className="p-12 text-center bg-slate-900/40 rounded-2xl border border-slate-800/80 my-8">
                 <AlertCircle className="w-8 h-8 text-cyan-400 mx-auto mb-3 opacity-60" />
@@ -339,7 +387,8 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                   return (
                     <div 
                       key={item.id}
-                      className="bg-slate-900/70 hover:bg-slate-900/95 border border-slate-800/80 hover:border-cyan-500/30 rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-xl shadow-slate-950/60 group"
+                      onClick={() => setSelectedDossier(item)}
+                      className="bg-slate-900/70 hover:bg-slate-900/95 border border-slate-800/80 hover:border-cyan-500/40 rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-xl shadow-slate-950/60 group cursor-pointer"
                     >
                       <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
                         <div className="flex flex-wrap items-center gap-2">
@@ -353,13 +402,13 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                               ? 'bg-amber-500/10 text-amber-300 border-amber-500/20'
                               : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
                           }`}>
-                            ? {item.impactLevel}
+                            ● {item.impactLevel}
                           </span>
                         </div>
 
                         <div className="flex items-center gap-3 text-xs text-slate-400">
                           <span>{item.publishedAt}</span>
-                          <span>?</span>
+                          <span>•</span>
                           <span>{item.readTime}</span>
                         </div>
                       </div>
@@ -392,7 +441,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
                         <div className="flex items-center gap-2">
                           <button
-                            onClick={() => handleOpenNote(item.id)}
+                            onClick={(e) => handleOpenNote(item.id, e)}
                             className={`p-2 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer border ${
                               hasNote
                                 ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
@@ -405,7 +454,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                           </button>
 
                           <button
-                            onClick={() => handleToggleBookmark(item.id)}
+                            onClick={(e) => handleToggleBookmark(item.id, e)}
                             className={`p-2 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer border ${
                               isSaved
                                 ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40'
@@ -417,16 +466,16 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                             <span className="hidden sm:inline">{isSaved ? 'Saved' : 'Save'}</span>
                           </button>
 
-                          <a
-                            href={item.originalUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 bg-slate-800 hover:bg-cyan-900/40 border border-slate-700 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-300 rounded-lg text-xs font-semibold transition flex items-center gap-1.5"
-                            title="View primary source release"
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedDossier(item);
+                            }}
+                            className="px-3 py-1.5 bg-cyan-900/40 hover:bg-cyan-800/60 border border-cyan-500/40 text-cyan-200 rounded-lg text-xs font-bold transition flex items-center gap-1"
                           >
-                            <span className="hidden sm:inline">Source</span>
-                            <ArrowUpRight className="w-3.5 h-3.5" />
-                          </a>
+                            <span>Briefing Dossier</span>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-cyan-400" />
+                          </button>
                         </div>
                       </div>
 
@@ -443,6 +492,8 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             )}
           </div>
         )}
+
+        {/* TAB 2: RESEARCH BINDER */}
         {activeTab === 'bookmarks' && (
           <div className="space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -493,19 +544,27 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
                     <div className="mt-3 flex items-center justify-between pt-3 border-t border-slate-800">
                       <button
-                        onClick={() => handleOpenNote(item.id)}
+                        onClick={(e) => handleOpenNote(item.id, e)}
                         className="text-xs text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1 cursor-pointer"
                       >
                         <MessageSquare className="w-3.5 h-3.5" />
                         <span>{notes[item.id] ? 'Edit Note' : 'Add Note'}</span>
                       </button>
 
-                      <button
-                        onClick={() => handleToggleBookmark(item.id)}
-                        className="text-xs text-rose-400 hover:text-rose-300 font-semibold cursor-pointer"
-                      >
-                        Remove from Binder
-                      </button>
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => setSelectedDossier(item)}
+                          className="text-xs text-cyan-400 hover:text-cyan-300 font-bold"
+                        >
+                          View Full Briefing
+                        </button>
+                        <button
+                          onClick={(e) => handleToggleBookmark(item.id, e)}
+                          className="text-xs text-rose-400 hover:text-rose-300 font-semibold cursor-pointer"
+                        >
+                          Remove
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -514,6 +573,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
           </div>
         )}
 
+        {/* TAB 3: AI DIPLOMATIC ADVISOR */}
         {activeTab === 'ai-advisor' && (
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-cyan-950/40 border border-cyan-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl">
@@ -523,23 +583,18 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-white">AI Diplomatic Query Assistant</h2>
-                  <p className="text-xs text-cyan-200">Cross-synthesize all ingested think tank papers for Bangladesh foreign policy advice</p>
+                  <p className="text-xs text-cyan-200">Cross-synthesize all 22+ ingested think tank papers for Bangladesh foreign policy advice</p>
                 </div>
               </div>
 
               <div className="mb-4">
                 <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Suggested Inquiries:</div>
                 <div className="flex flex-wrap gap-2">
-                  {[
-                    'What is the geopolitical impact of Matarbari port?',
-                    'How will post-2026 LDC graduation affect RMG exports?',
-                    'Teesta river water sharing and India-Bangladesh relations',
-                    'Strategic balance between US, China, and Bangladesh'
-                  ].map(prompt => (
+                  {AI_QUERY_TEMPLATES.map(prompt => (
                     <button
                       key={prompt}
                       onClick={() => { setAiQuery(prompt); }}
-                      className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-cyan-300 text-xs px-3 py-1.5 rounded-lg transition cursor-pointer"
+                      className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-cyan-300 text-xs px-3 py-1.5 rounded-lg transition cursor-pointer text-left"
                     >
                       {prompt}
                     </button>
@@ -589,15 +644,16 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
           </div>
         )}
 
+        {/* TAB 4: POLICY MEMOS */}
         {activeTab === 'memos' && (
           <div className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800">
               <div>
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-cyan-400" /> Ministerial Policy Memos
+                  <FileText className="w-5 h-5 text-cyan-400" /> Ministerial Policy Memos & Briefings
                 </h2>
                 <p className="text-xs text-slate-400 mt-1">
-                  Compose formal foreign policy briefing notes with strategic recommendations.
+                  Compose, review, and export formal foreign policy briefing notes with actionable strategic recommendations.
                 </p>
               </div>
 
@@ -704,25 +760,32 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                 </p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 gap-5">
                 {memos.map(memo => (
                   <div key={memo.id} className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-lg">
-                    <div className="flex items-center justify-between gap-3 text-xs text-slate-400 mb-2">
-                      <span className="text-cyan-400 font-extrabold uppercase tracking-wider">{memo.pillar}</span>
-                      <span>Created: {memo.createdAt}</span>
+                    <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400 mb-2">
+                      <span className="text-cyan-400 font-extrabold uppercase tracking-wider bg-cyan-950/60 border border-cyan-500/30 px-2.5 py-0.5 rounded-full">
+                        {memo.pillar}
+                      </span>
+                      <span>Author: {memo.author} • {memo.createdAt}</span>
                     </div>
-                    <h4 className="text-lg font-bold text-white">{memo.title}</h4>
-                    <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">{memo.content}</p>
+                    <h4 className="text-lg font-bold text-white mt-1">{memo.title}</h4>
+                    <p className="text-xs text-slate-300 mt-2 font-medium italic border-l-2 border-cyan-500/50 pl-3">
+                      {memo.summary}
+                    </p>
+                    <div className="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed whitespace-pre-line bg-slate-950/60 p-4 rounded-xl border border-slate-800/60">
+                      {memo.content}
+                    </div>
 
                     {memo.recommendations && memo.recommendations.length > 0 && (
-                      <div className="mt-4 bg-slate-950/80 border border-slate-800/80 rounded-xl p-3.5">
-                        <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2">
-                          Key Policy Recommendations:
+                      <div className="mt-4 bg-emerald-950/20 border border-emerald-500/30 rounded-xl p-4">
+                        <div className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Key Policy Recommendations:
                         </div>
-                        <ul className="space-y-1">
+                        <ul className="space-y-1.5">
                           {memo.recommendations.map((rec, i) => (
-                            <li key={i} className="text-xs text-slate-300 flex items-start gap-2">
-                              <span className="text-cyan-400 font-bold">?</span>
+                            <li key={i} className="text-xs text-emerald-100 flex items-start gap-2">
+                              <span className="text-emerald-400 font-bold">•</span>
                               <span>{rec}</span>
                             </li>
                           ))}
@@ -738,6 +801,171 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
       </div>
 
+      {/* FULL STRATEGIC BRIEFING DOSSIER MODAL */}
+      {selectedDossier && (
+        <div className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          <div className="bg-slate-900 border border-cyan-500/40 rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl my-auto text-left relative max-h-[90vh] overflow-y-auto">
+            
+            <button
+              onClick={() => setSelectedDossier(null)}
+              className="absolute top-5 right-5 p-2 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-full transition cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              <span className="text-xs font-extrabold text-cyan-400 bg-cyan-950/80 border border-cyan-500/30 px-3 py-1 rounded-full">
+                {selectedDossier.source}
+              </span>
+              <span className="text-xs font-bold text-slate-300 bg-slate-800 px-3 py-1 rounded-full">
+                {selectedDossier.publishedAt}
+              </span>
+              <span className="text-xs text-slate-400">{selectedDossier.readTime}</span>
+            </div>
+
+            <h2 className="text-xl sm:text-2xl font-extrabold text-white leading-snug">
+              {selectedDossier.title}
+            </h2>
+
+            {/* Strategic Overview */}
+            <div className="mt-5 space-y-4">
+              <div>
+                <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                  <BarChart3 className="w-4 h-4 text-cyan-400" /> Executive Intelligence Summary
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                  {selectedDossier.executiveSummary}
+                </p>
+              </div>
+
+              {/* Bangladesh National Interest Box */}
+              <div className="bg-emerald-950/30 border border-emerald-500/40 rounded-2xl p-4 sm:p-5">
+                <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5 mb-2">
+                  <Compass className="w-4 h-4 text-emerald-400" /> Significance for Bangladesh National Interest
+                </div>
+                <p className="text-xs sm:text-sm text-emerald-100 font-medium leading-relaxed">
+                  {selectedDossier.bangladeshSignificance}
+                </p>
+              </div>
+
+              {/* Strategic Risks & Opportunities Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {selectedDossier.strategicRisks && selectedDossier.strategicRisks.length > 0 && (
+                  <div className="bg-rose-950/20 border border-rose-500/30 rounded-2xl p-4">
+                    <h5 className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <AlertTriangle className="w-3.5 h-3.5 text-rose-400" /> Strategic Risks & Vulnerabilities
+                    </h5>
+                    <ul className="space-y-2">
+                      {selectedDossier.strategicRisks.map((risk, i) => (
+                        <li key={i} className="text-xs text-rose-100 flex items-start gap-2">
+                          <span className="text-rose-400 font-bold">•</span>
+                          <span>{risk}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {selectedDossier.strategicOpportunities && selectedDossier.strategicOpportunities.length > 0 && (
+                  <div className="bg-teal-950/20 border border-teal-500/30 rounded-2xl p-4">
+                    <h5 className="text-xs font-bold text-teal-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <TrendingUp className="w-3.5 h-3.5 text-teal-400" /> Strategic Opportunities & Levers
+                    </h5>
+                    <ul className="space-y-2">
+                      {selectedDossier.strategicOpportunities.map((opp, i) => (
+                        <li key={i} className="text-xs text-teal-100 flex items-start gap-2">
+                          <span className="text-teal-400 font-bold">•</span>
+                          <span>{opp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              {/* Policy Recommendations */}
+              {selectedDossier.policyRecommendations && selectedDossier.policyRecommendations.length > 0 && (
+                <div className="bg-indigo-950/20 border border-indigo-500/30 rounded-2xl p-4 sm:p-5">
+                  <h5 className="text-xs font-bold text-indigo-300 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-indigo-400" /> Actionable Recommendations for MoFA / ERD
+                  </h5>
+                  <ul className="space-y-2">
+                    {selectedDossier.policyRecommendations.map((rec, i) => (
+                      <li key={i} className="text-xs sm:text-sm text-indigo-100 flex items-start gap-2">
+                        <span className="text-indigo-400 font-bold">✓</span>
+                        <span>{rec}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Key Actors */}
+              <div>
+                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Key Stakeholders & Institutions:</div>
+                <div className="flex flex-wrap gap-2">
+                  {selectedDossier.keyActors.map(actor => (
+                    <span key={actor} className="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">
+                      {actor}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Actions */}
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-800">
+              <button
+                onClick={(e) => handleCopyCitation(selectedDossier, e)}
+                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer"
+              >
+                <Copy className="w-3.5 h-3.5" />
+                <span>Copy Citation</span>
+              </button>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={(e) => handleOpenNote(selectedDossier.id, e)}
+                  className="px-4 py-2 bg-amber-600/30 hover:bg-amber-600/50 border border-amber-500/40 text-amber-200 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>{notes[selectedDossier.id] ? 'Edit Note' : 'Add Note'}</span>
+                </button>
+
+                <button
+                  onClick={(e) => handleToggleBookmark(selectedDossier.id, e)}
+                  className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                >
+                  {bookmarks.includes(selectedDossier.id) ? (
+                    <>
+                      <BookmarkCheck className="w-3.5 h-3.5" />
+                      <span>Saved in Binder</span>
+                    </>
+                  ) : (
+                    <>
+                      <Bookmark className="w-3.5 h-3.5" />
+                      <span>Save Dossier</span>
+                    </>
+                  )}
+                </button>
+
+                <a
+                  href={selectedDossier.originalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-slate-800 hover:bg-cyan-900/40 border border-slate-700 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-300 rounded-xl text-xs font-bold transition flex items-center gap-1.5"
+                >
+                  <span>Think Tank Link</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
+
+      {/* CONFIDENTIAL ANNOTATION MODAL */}
       {activeNoteIntelId && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-slate-900 border border-amber-500/40 rounded-2xl max-w-lg w-full p-6 shadow-2xl">

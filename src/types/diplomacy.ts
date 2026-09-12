@@ -1,4 +1,4 @@
-﻿export type SourceTier = 
+export type SourceTier = 
   | 'all'
   | 'bd-strategic'
   | 'regional-think-tank'
@@ -28,6 +28,9 @@ export interface IntelItem {
   impactLevel: ImpactLevel;
   executiveSummary: string;
   bangladeshSignificance: string;
+  strategicRisks?: string[];
+  strategicOpportunities?: string[];
+  policyRecommendations?: string[];
   keyActors: string[];
   originalUrl: string;
   readTime: string;
