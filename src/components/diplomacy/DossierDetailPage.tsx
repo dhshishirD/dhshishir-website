@@ -5,7 +5,8 @@ import {
   TrendingUp, ExternalLink, Calendar, Clock, BookOpen, 
   Printer, ArrowUpRight, Award, Layers, MonitorPlay,
   ChevronLeft, ChevronRight, Shield, BarChart3,
-  Sliders, Target, Scale, Sun, Moon, Coffee
+  Sliders, Target, Scale, Sun, Moon, Coffee, Download,
+  X
 } from 'lucide-react';
 import { INITIAL_INTEL_FEED } from '../../data/diplomacyData';
 import { getLocalBookmarks, toggleLocalBookmark, syncBookmarkToCloud } from '../../services/diplomacyService';
@@ -35,6 +36,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
   const [selectedCitationStyle, setSelectedCitationStyle] = useState<'APA' | 'Harvard' | 'Chicago'>('APA');
   const [viewMode, setViewMode] = useState<'reading' | 'presentation'>('reading');
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
 
   // Reader Comfort Suite State
   const [theme, setTheme] = useState<ReaderTheme>(() => {
@@ -185,6 +187,10 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
     }
   };
 
+  const handlePrintBriefing = () => {
+    window.print();
+  };
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -245,15 +251,39 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
     <div className={`pt-20 pb-28 min-h-screen transition-colors duration-200 ${themeContainerClass}`}>
       
       {/* Top Fixed Reading Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-800/30">
+      <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-800/30 no-print">
         <div 
           className="h-full bg-gradient-to-r from-cyan-500 via-teal-400 to-indigo-500 transition-all duration-150"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
+      {/* ========================================================================= */}
+      {/* PRINT-ONLY OFFICIAL MINISTERIAL LETTERHEAD */}
+      {/* ========================================================================= */}
+      <div className="hidden print:block mb-8 border-b-2 border-slate-900 pb-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="text-[10pt] font-black uppercase tracking-widest text-slate-800">
+              FOREIGN POLICY & STRATEGIC INTELLIGENCE DESK • DHSHISHIR.COM
+            </div>
+            <div className="text-[14pt] font-black tracking-tight text-slate-950 mt-0.5">
+              MINISTERIAL STRATEGIC POLICY BRIEFING
+            </div>
+            <div className="text-[8pt] text-slate-600 mt-0.5">
+              Lead Strategic Affairs Analyst: <strong>Daloyar Hassan</strong> | Primary Reference: {dossier.source}
+            </div>
+          </div>
+          <div className="text-right text-[8pt] font-mono text-slate-700">
+            <div><strong>REF:</strong> FP-DESK/BD/2026/DOSSIER-{dossier.id.toUpperCase()}</div>
+            <div><strong>CLASSIFICATION:</strong> RESTRICTED / OSINT</div>
+            <div><strong>DATE:</strong> {dossier.publishedAt}</div>
+          </div>
+        </div>
+      </div>
+
       {/* Top Academic Breadcrumb Navigation */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 mb-4">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 mb-4 no-print">
         <div className={`flex flex-wrap items-center justify-between gap-4 pb-3 border-b text-xs ${
           theme === 'warm' ? 'border-[#e4dac4]' : theme === 'light' ? 'border-slate-200' : 'border-slate-800/80'
         }`}>
@@ -318,7 +348,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
       {/* READER COMFORT TOOLBAR (Only in Reading Mode) */}
       {/* ========================================================================= */}
       {viewMode === 'reading' && (
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 no-print">
           <div className={`p-3 rounded-2xl border flex flex-wrap items-center justify-between gap-3 text-xs shadow-sm ${
             theme === 'warm' ? 'bg-[#f4eedf] border-[#e2d5bd]' : theme === 'light' ? 'bg-white border-slate-200' : 'bg-slate-900/80 border-slate-800'
           }`}>
@@ -465,7 +495,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
       {/* PRESENTATION MODE: EXECUTIVE SLIDE DECK VIEW */}
       {/* ========================================================================= */}
       {viewMode === 'presentation' && (
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 animate-fade-in">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 animate-fade-in no-print">
           
           {/* Deck Header Bar */}
           <div className="bg-slate-900/95 border border-cyan-500/30 rounded-t-3xl p-4 sm:p-6 flex flex-wrap items-center justify-between gap-4 shadow-2xl text-slate-100">
@@ -911,7 +941,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           
           {/* Document Header & Metadata Badge */}
           <header className="space-y-4 mb-8">
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 no-print">
               <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-bold tracking-wide ${
                 theme === 'warm' 
                   ? 'bg-[#ede5d3] text-amber-900 border-[#ded3be]' 
@@ -973,10 +1003,18 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           </header>
 
           {/* Action Toolbar */}
-          <div className={`flex flex-wrap items-center justify-between gap-3 mb-8 p-3 rounded-2xl border ${
+          <div className={`flex flex-wrap items-center justify-between gap-3 mb-8 p-3 rounded-2xl border no-print ${
             theme === 'warm' ? 'bg-[#f4eedf] border-[#e2d5bd]' : theme === 'light' ? 'bg-white border-slate-200 shadow-sm' : 'bg-slate-900/60 border-slate-800/80'
           }`}>
             <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={() => setIsPdfModalOpen(true)}
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition cursor-pointer shadow-md shadow-emerald-950/40"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download Policy Briefing PDF</span>
+              </button>
+
               <button
                 onClick={() => {
                   setViewMode('presentation');
@@ -985,7 +1023,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
                 className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white text-xs font-bold transition cursor-pointer shadow-sm"
               >
                 <MonitorPlay className="w-3.5 h-3.5" />
-                <span>Present Slide Deck</span>
+                <span>Slide Deck</span>
               </button>
 
               <button
@@ -1001,7 +1039,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
                 }`}
               >
                 {isSaved ? <BookmarkCheck className="w-4 h-4 text-cyan-500" /> : <Bookmark className="w-4 h-4 opacity-70" />}
-                <span>{isSaved ? 'Saved in Binder' : 'Save Dossier'}</span>
+                <span>{isSaved ? 'Saved' : 'Save'}</span>
               </button>
 
               <button
@@ -1019,7 +1057,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
               </button>
 
               <button
-                onClick={() => window.print()}
+                onClick={handlePrintBriefing}
                 className={`hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer border ${
                   theme === 'warm'
                     ? 'bg-[#ede5d3] hover:bg-[#e4dac4] text-[#443c2f] border-[#ded3be]'
@@ -1029,7 +1067,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
                 }`}
               >
                 <Printer className="w-3.5 h-3.5" />
-                <span>Print Brief</span>
+                <span>Print</span>
               </button>
             </div>
 
@@ -1039,13 +1077,13 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-bold px-3 py-1.5 rounded-xl border border-cyan-500/30 transition"
             >
-              <span>Primary Think Tank Source</span>
+              <span>Think Tank Source</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
 
           {/* Presentation Metric Ribbon */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 no-print">
             <div className={`p-3.5 rounded-2xl border ${cardBgClass}`}>
               <div className="text-[11px] font-bold opacity-60 uppercase tracking-wider">Strategic Priority</div>
               <div className="text-base font-extrabold text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1">
@@ -1073,7 +1111,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           </div>
 
           {/* Section: Executive Summary & National Interest Callout */}
-          <section id="sec-overview" className="mb-10 space-y-4 scroll-mt-24">
+          <section id="sec-overview" className="mb-10 space-y-4 scroll-mt-24 page-break-avoid">
             <div className={`p-6 rounded-2xl border ${cardBgClass}`}>
               <h3 className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                 <BookOpen className="w-4 h-4" /> Executive Intelligence Summary
@@ -1096,7 +1134,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           </section>
 
           {/* Section 1: Strategic Background & Genesis */}
-          <section id="sec-genesis" className="mb-10 scroll-mt-24">
+          <section id="sec-genesis" className="mb-10 scroll-mt-24 page-break-avoid">
             <div className={`flex items-center gap-2 mb-3 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-800'
             }`}>
@@ -1113,7 +1151,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           </section>
 
           {/* Section 2: Great Power Interests Matrix */}
-          <section id="sec-greatpowers" className="mb-10 scroll-mt-24">
+          <section id="sec-greatpowers" className="mb-10 scroll-mt-24 page-break-avoid">
             <div className={`flex items-center gap-2 mb-4 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-800'
             }`}>
@@ -1178,7 +1216,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           </section>
 
           {/* Section 3: Vulnerabilities & Economic Impact */}
-          <section id="sec-vulnerabilities" className="mb-10 scroll-mt-24">
+          <section id="sec-vulnerabilities" className="mb-10 scroll-mt-24 page-break-avoid">
             <div className={`flex items-center gap-2 mb-4 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-800'
             }`}>
@@ -1195,7 +1233,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
             </div>
 
             {/* Strategic Scenario Comparative Matrix Table */}
-            <div className={`my-6 p-5 rounded-2xl border ${cardBgClass}`}>
+            <div className={`my-6 p-5 rounded-2xl border ${cardBgClass} page-break-avoid`}>
               <h4 className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
                 <Sliders className="w-4 h-4" /> Strategic Policy Scenarios Matrix
               </h4>
@@ -1238,7 +1276,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
             </div>
 
             {/* Risks vs Opportunities Dual Matrix */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 page-break-avoid">
               {dossier.strategicRisks && dossier.strategicRisks.length > 0 && (
                 <div className={`p-5 rounded-2xl border ${
                   theme === 'warm' ? 'bg-[#fcf0ee] border-rose-200 text-rose-950' : theme === 'light' ? 'bg-rose-50 border-rose-200 text-rose-950' : 'bg-rose-950/20 border-rose-500/30'
@@ -1278,7 +1316,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           </section>
 
           {/* Section 4: Actionable Ministerial Policy Directives */}
-          <section id="sec-directives" className="mb-10 scroll-mt-24">
+          <section id="sec-directives" className="mb-10 scroll-mt-24 page-break-avoid">
             <div className={`flex items-center gap-2 mb-4 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-800'
             }`}>
@@ -1307,7 +1345,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           </section>
 
           {/* Section 5: Academic Citations & Citation Generator */}
-          <section id="sec-citations" className="mb-12 scroll-mt-24">
+          <section id="sec-citations" className="mb-12 scroll-mt-24 page-break-avoid">
             <div className={`flex items-center gap-2 mb-4 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-800'
             }`}>
@@ -1348,7 +1386,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
             </div>
 
             {/* Interactive Citation Generator */}
-            <div className={`p-5 rounded-2xl border shadow-lg ${
+            <div className={`p-5 rounded-2xl border shadow-lg no-print ${
               theme === 'warm' ? 'bg-[#f4eedf] border-[#dfd3bc]' : theme === 'light' ? 'bg-white border-slate-200' : 'bg-slate-900 border-cyan-500/40'
             }`}>
               <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
@@ -1413,7 +1451,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
 
               <button
                 onClick={handleShare}
-                className={`px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center gap-1.5 cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center gap-1.5 cursor-pointer no-print ${
                   theme === 'warm' ? 'bg-[#f4eedf] hover:bg-white border-[#ded3be]' : theme === 'light' ? 'bg-white hover:bg-slate-50 border-slate-300 shadow-sm' : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-200'
                 }`}
               >
@@ -1424,7 +1462,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           </section>
 
           {/* Key Actors Tag Cloud */}
-          <section className={`mb-12 pt-6 border-t ${
+          <section className={`mb-12 pt-6 border-t no-print ${
             theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-800'
           }`}>
             <div className="text-xs font-bold opacity-60 uppercase tracking-wider mb-3">
@@ -1443,7 +1481,7 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
 
           {/* Related Dossiers in Same Strategic Pillar */}
           {relatedDossiers.length > 0 && (
-            <section className={`pt-8 border-t ${
+            <section className={`pt-8 border-t no-print ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-800'
             }`}>
               <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
@@ -1479,6 +1517,87 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
           )}
 
         </article>
+      )}
+
+      {/* ========================================================================= */}
+      {/* MINISTERIAL POLICY BRIEFING PDF EXPORT MODAL */}
+      {/* ========================================================================= */}
+      {isPdfModalOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto no-print">
+          <div className="bg-slate-900 border border-emerald-500/40 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl animate-fade-in text-slate-100 my-8">
+            
+            <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+                  <Download className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-white">Ministerial Briefing PDF Generator</h3>
+                  <p className="text-xs text-emerald-300 font-medium">Official Government & Think Tank Publication Format</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsPdfModalOpen(false)}
+                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Document Preview Card */}
+            <div className="bg-white text-slate-950 p-6 rounded-2xl border border-slate-300 shadow-inner text-xs font-sans space-y-3 mb-6">
+              <div className="flex items-center justify-between border-b pb-2 text-[9px] font-mono text-slate-600">
+                <span className="font-bold text-slate-900 uppercase">PEOPLE'S REPUBLIC OF BANGLADESH • STRATEGIC BRIEF</span>
+                <span>REF: FP-DESK/{dossier.id.toUpperCase()}</span>
+              </div>
+              <h4 className="text-sm font-black text-slate-950 leading-snug">
+                {dossier.title}
+              </h4>
+              <div className="text-[10px] text-slate-700 flex items-center gap-3">
+                <span><strong>Author:</strong> Daloyar Hassan</span>
+                <span>•</span>
+                <span><strong>Source:</strong> {dossier.source}</span>
+                <span>•</span>
+                <span><strong>Date:</strong> {dossier.publishedAt}</span>
+              </div>
+              <div className="bg-slate-100 p-3 rounded-lg border text-[11px] text-slate-800 leading-relaxed">
+                <span className="font-bold">Executive Summary: </span>
+                {dossier.executiveSummary}
+              </div>
+              <div className="text-[10px] text-emerald-800 font-semibold bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
+                ✓ Includes Great Power Alignment Matrix (US, China, India)
+                <br />
+                ✓ Includes Actionable Policy Directives for MoFA & ERD
+                <br />
+                ✓ Includes Academic Citations & Official Document Verification
+              </div>
+            </div>
+
+            {/* Modal Actions */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-800">
+              <button
+                onClick={() => setIsPdfModalOpen(false)}
+                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold rounded-xl cursor-pointer"
+              >
+                Cancel
+              </button>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    setIsPdfModalOpen(false);
+                    setTimeout(() => window.print(), 300);
+                  }}
+                  className="px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-emerald-950 transition flex items-center gap-2 cursor-pointer"
+                >
+                  <Printer className="w-4 h-4" />
+                  <span>Print or Save to PDF Now</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
       )}
 
     </div>
