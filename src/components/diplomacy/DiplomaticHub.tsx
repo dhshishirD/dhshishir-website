@@ -126,7 +126,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
       content: newMemoContent,
       recommendations: recsArray.length > 0 ? recsArray : ['Continue diplomatic coordination at bilateral levels.'],
       status: 'published',
-      author: user?.user_metadata?.full_name || 'Daloyar Hassan Shishir (Strategic Analyst)',
+      author: user?.user_metadata?.full_name || 'Daloyar Hassan (Strategic Affairs Analyst)',
       createdAt: new Date().toISOString().split('T')[0],
       updatedAt: new Date().toISOString().split('T')[0]
     };
@@ -143,7 +143,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
   const handleCopyCitation = (item: IntelItem, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
-    const citation = `"${item.title}." ${item.source}, Published: ${item.publishedAt}. URL: ${item.originalUrl}`;
+    const citation = `Hassan, Daloyar. "${item.title}." ${item.source}, Published: ${item.publishedAt}. URL: https://dhshishir.com/diplomacy/${item.slug || item.id}`;
     navigator.clipboard.writeText(citation);
     showToast('Citation copied to clipboard');
   };

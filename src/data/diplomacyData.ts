@@ -509,7 +509,7 @@ Bangladesh is scheduled for official graduation from Least Developed Country (LD
       'Set up an Intellectual Property Transition Taskforce under the Commerce Ministry.'
     ],
     status: 'published',
-    author: 'Daloyar Hassan Shishir (Strategic Desk Analyst)',
+    author: 'Daloyar Hassan (Strategic Affairs Analyst)',
     createdAt: '2026-09-10',
     updatedAt: '2026-09-11'
   },
@@ -540,7 +540,7 @@ The commissioning of Matarbari Deep Sea Port transforms Bangladesh from a feeder
       'Host the Annual Bay of Bengal Maritime Safety Summit in Chattogram.'
     ],
     status: 'published',
-    author: 'Daloyar Hassan Shishir (Strategic Desk Analyst)',
+    author: 'Daloyar Hassan (Strategic Affairs Analyst)',
     createdAt: '2026-09-08',
     updatedAt: '2026-09-09'
   }
