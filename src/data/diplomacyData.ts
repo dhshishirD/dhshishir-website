@@ -479,6 +479,583 @@ export const INITIAL_INTEL_FEED: IntelItem[] = [
     readTime: '5 min read',
     tags: ['BIMSTEC', 'Energy Diplomacy', 'Regional Connectivity', 'Hydro-power', 'Trade']
   }
+,
+  {
+  "id": "intel-009",
+  "slug": "un-peacekeeping-doctrine-forces-goal-2030",
+  "title": "Bangladesh UN Peacekeeping Leadership, Forces Goal 2030, and Multilateral Defense Diplomacy",
+  "source": "BIPSS (Bangladesh Institute of Peace and Security Studies) & SIPRI",
+  "sourceTier": "bd-strategic",
+  "publishedAt": "2026-09-08",
+  "pillar": "defense-peacekeeping",
+  "impactLevel": "High Strategic Significance",
+  "executiveSummary": "Comprehensive assessment of Bangladesh position as the world premier Troop-Contributing Country (TCC) to the United Nations, analyzing Forces Goal 2030 modernization, blue helmet diplomacy, and preserving operational neutrality in multilateral peace operations.",
+  "bangladeshSignificance": "Enhances sovereign diplomatic leverage across UN General Assembly and Security Council dialogues, generates vital foreign currency reserves for armed forces capacity building, and projects Bangladesh as an indispensable global peacebuilder without entering restrictive military alliances.",
+  "strategicRisks": [
+    "Asymmetric threats from non-state armed groups in complex missions (MINUSCA in CAR, MONUSCO in DR Congo).",
+    "Geopolitical scrutiny regarding defense procurement diversification (NATO vs non-NATO military hardware).",
+    "Evolving UN budget constraints and troop reimbursement timelines requiring national bridge financing."
+  ],
+  "strategicOpportunities": [
+    "Expanding leadership roles in UN Mission Force Command and specialized female peacekeeper contingents.",
+    "Establishing Dhaka as the premier Regional Center of Excellence for Peacekeeping & Civil-Military Affairs (BIPSOT).",
+    "Leveraging multilateral defense goodwill to negotiate bilateral security cooperation and defense exports."
+  ],
+  "policyRecommendations": [
+    "Formulate the \"National Blue Helmet Strategy 2035\" aligning Armed Forces Division training with UN Level-4 medical and drone surveillance standards.",
+    "Expand defense diplomacy attachés across key UN Security Council member capitals.",
+    "Institutionalize transparent multi-source defense hardware procurement under Forces Goal 2030."
+  ],
+  "detailedAnalysis": {
+    "backgroundAndGenesis": "Since deploying its first contingent of military observers to the UN Iran-Iraq Military Observer Group (UNIIMOG) in 1988, Bangladesh has emerged as one of the largest and most dependable Troop and Police Contributing Countries (T/PCC) in United Nations history. Over the past four decades, more than 180,000 Bangladeshi peacekeepers have served across 54 UN peacekeeping missions in 40 countries, with over 160 personnel paying the ultimate sacrifice. Forces Goal 2030—initiated to restructure and modernize the Army, Navy, and Air Force—has equipped Bangladeshi contingents with state-of-the-art armored personnel carriers (APCs), mine-resistant ambush protected (MRAP) vehicles, night-vision tactical equipment, and autonomous UAV reconnaissance assets.",
+    "greatPowerInterests": {
+      "us": "The United States values Bangladesh as an anchor of international peacekeeping interoperability, providing Global Peace Operations Initiative (GPOI) funding and tactical training support while advocating for Western defense procurement standards.",
+      "china": "China recognizes Bangladesh's peacekeeper stature while supplying armored vehicles, air defense systems, and naval frigates, seeking to maintain its role as Dhaka's primary defense equipment partner under long-standing bilateral protocols.",
+      "india": "India shares deep defense cooperation through joint exercises (SAMPRITI and CORPAT) and staff college exchanges, viewing Bangladesh's peacekeeping reputation as a positive stabilizing asset in the wider Indian Ocean region."
+    },
+    "vulnerabilitiesAndEconomicImpact": "Peacekeeping operations generate approximately $250 million to $300 million annually in direct UN reimbursements and specialized allowances, significantly bolstering national foreign exchange reserves and defense capital budgets. The strategic vulnerability lies in mission mandate transitions as the UN Security Council faces budgetary gridlock, necessitating proactive diplomatic lobbying in New York to ensure Bangladeshi contingents retain priority deployment quotas.",
+    "policyDirectives": [
+      "Armed Forces Division (AFD) and Ministry of Foreign Affairs (MoFA) must establish a permanent UN Peacekeeping Diplomatic Cell in New York to secure high-ranking Force Commander and Special Representative appointments.",
+      "Accelerate specialized training at the Bangladesh Institute of Peace Support Operation Training (BIPSOT) in counter-IED, aerial medical evacuation, and women-led community mediation.",
+      "Diversify defense procurement partnerships across European, Turkish, and Asian manufacturers to maintain technological agility and sovereign strategic independence."
+    ],
+    "academicCitations": [
+      {
+        "title": "Blue Helmet Statecraft: Bangladesh in UN Peace Operations and the Evolution of Defense Diplomacy",
+        "authorOrBody": "BIPSS Strategic Papers Series",
+        "publication": "Bangladesh Institute of Peace and Security Studies",
+        "year": "2026",
+        "url": "https://bipss.org.bd"
+      },
+      {
+        "title": "Trends in Multilateral Peace Operations and Troop-Contributing Dynamics in the Global South",
+        "authorOrBody": "Stockholm International Peace Research Institute (SIPRI)",
+        "publication": "SIPRI Yearbook of Armaments and Disarmament",
+        "year": "2025",
+        "url": "https://www.sipri.org"
+      }
+    ]
+  },
+  "keyActors": [
+    "Armed Forces Division (AFD)",
+    "UN Department of Peace Operations (DPO)",
+    "BIPSOT",
+    "MoFA UN Wing"
+  ],
+  "originalUrl": "https://bipss.org.bd",
+  "readTime": "7 min read",
+  "tags": [
+    "Peacekeeping",
+    "Forces Goal 2030",
+    "Defense Diplomacy",
+    "UN Missions",
+    "BIPSOT"
+  ]
+},
+  {
+  "id": "intel-010",
+  "slug": "indo-pacific-outlook-bangladesh-normative-framework",
+  "title": "The Indo-Pacific Outlook of Bangladesh: Institutionalizing Non-Alignment and Maritime Commons in the Indian Ocean",
+  "source": "BIISS (Bangladesh Institute of International and Strategic Studies)",
+  "sourceTier": "bd-strategic",
+  "publishedAt": "2026-09-06",
+  "pillar": "power-balancing",
+  "impactLevel": "High Strategic Significance",
+  "executiveSummary": "Critical evaluation of Bangladesh 15-point Indo-Pacific Outlook (IPO), examining how Dhaka constructs an independent normative framework rejecting military containment pacts while maximizing economic connectivity, open sea lines of communication, and ASEAN centrality.",
+  "bangladeshSignificance": "Establishes a sovereign legal and diplomatic doctrine enabling Bangladesh to navigate US-China polarization without signing zero-sum security treaties, ensuring sustained trade access with the West and vital infrastructure funding from the East.",
+  "strategicRisks": [
+    "Intensified pressure from Quad and AUKUS partners to align maritime intelligence sharing.",
+    "Potential misinterpretation of non-alignment by major powers as indecision or hedging vulnerability.",
+    "Escalating naval militarization in the Bay of Bengal restricting open ocean commercial freedoms."
+  ],
+  "strategicOpportunities": [
+    "Championing an inclusive Indian Ocean Rim Association (IORA) Concord on open navigation and marine safety.",
+    "Positioning Bangladesh as a neutral maritime arbitration and dialogue center in South Asia.",
+    "Attracting multilateral green infrastructure capital under the Indo-Pacific Economic Framework (IPEF) supply chain pillar."
+  ],
+  "policyRecommendations": [
+    "Embed the 15 principles of the Indo-Pacific Outlook into all bilateral Joint Communiqués and trade negotiation mandates.",
+    "Establish an Inter-Agency Indo-Pacific Strategic Coordination Secretariat within MoFA.",
+    "Expand civilian maritime domain monitoring and hydrographic research in collaboration with littoral states."
+  ],
+  "detailedAnalysis": {
+    "backgroundAndGenesis": "In April 2023, the Ministry of Foreign Affairs officially released the \"Indo-Pacific Outlook (IPO) of Bangladesh\", articulating a 15-point guiding framework anchored in the constitutional principle of \"Friendship to all, malice towards none\". The IPO represents a watershed strategic document designed to counter coercive pressures to join exclusive military containment architectures such as the Quad or AUKUS. Instead, Dhaka emphasizes four foundational pillars: (1) building sovereign maritime domain capabilities, (2) safeguarding unimpeded commerce under UNCLOS 1982, (3) promoting regional connectivity, and (4) advancing collective blue economy sustainability.",
+    "greatPowerInterests": {
+      "us": "Washington welcomes Bangladesh's emphasis on UNCLOS, freedom of navigation, and maritime security, while continually encouraging deeper interoperability under GSOMIA and ACSA foundational defense agreements.",
+      "china": "Beijing views the IPO favorably because it explicitly rejects military bloc politics and exclusionary alliances, aligning with China's vision of an open Asian security architecture and the Global Development Initiative (GDI).",
+      "india": "New Delhi considers Bangladesh's IPO complementary to its own Security and Growth for All in the Region (SAGAR) doctrine, prioritizing joint coastal surveillance radar networks and counter-piracy patrols."
+    },
+    "vulnerabilitiesAndEconomicImpact": "The Bay of Bengal handles over $140 billion in Bangladesh foreign trade annually. Any geopolitical standoff or maritime blockade would paralyze national energy imports (crude oil, LNG) within 21 days. By codifying an inclusive, rules-based Indo-Pacific doctrine, Bangladesh protects its maritime supply lines while reinforcing its status as a predictable, sovereign economic partner.",
+    "policyDirectives": [
+      "Ministry of Foreign Affairs (MoFA) must institutionalize an Annual Indo-Pacific Track-1.5 Strategic Dialogue in Dhaka hosting US, Chinese, Indian, Japanese, and ASEAN defense intellectuals.",
+      "Ministry of Commerce must utilize IPO normative commitments to accelerate bilateral Free Trade Agreements (FTAs) with Japan, Singapore, and South Korea.",
+      "Bangladesh Navy and Coast Guard should lead multilateral search-and-rescue (SAR) and humanitarian disaster relief (HADR) exercises under IORA auspices."
+    ],
+    "academicCitations": [
+      {
+        "title": "The Indo-Pacific Outlook of Bangladesh: Strategic Autonomy, Maritime Commons, and Small State Statecraft",
+        "authorOrBody": "BIISS Policy Research Division",
+        "publication": "BIISS Journal of International Affairs, Vol. 45, No. 2",
+        "year": "2026",
+        "url": "https://www.biiss.org"
+      },
+      {
+        "title": "Normative Balancing in the Indian Ocean: Bangladesh, ASEAN, and the Geopolitics of Inclusivity",
+        "authorOrBody": "Center for Strategic and International Studies (CSIS)",
+        "publication": "CSIS Asia-Pacific Security Series",
+        "year": "2025",
+        "url": "https://www.csis.org"
+      }
+    ]
+  },
+  "keyActors": [
+    "Ministry of Foreign Affairs (MoFA)",
+    "IORA Secretariat",
+    "Bangladesh Navy",
+    "ASEAN Secretariat"
+  ],
+  "originalUrl": "https://www.biiss.org",
+  "readTime": "8 min read",
+  "tags": [
+    "Indo-Pacific Outlook",
+    "Strategic Autonomy",
+    "IORA",
+    "Maritime Law",
+    "Non-Alignment"
+  ]
+},
+  {
+  "id": "intel-011",
+  "slug": "cepa-india-bangladesh-economic-partnership",
+  "title": "Comprehensive Economic Partnership Agreement (CEPA) between Bangladesh and India: Tariff Rationalization, Non-Tariff Barriers, and Border Infrastructure",
+  "source": "CPD (Centre for Policy Dialogue)",
+  "sourceTier": "bd-strategic",
+  "publishedAt": "2026-09-04",
+  "pillar": "trade-ldc",
+  "impactLevel": "High Strategic Significance",
+  "executiveSummary": "In-depth economic modeling of the proposed India-Bangladesh Comprehensive Economic Partnership Agreement (CEPA), evaluating bilateral tariff phase-outs, non-tariff barrier harmonization, logistics modernization, and trade balance re-equilibration post-LDC graduation.",
+  "bangladeshSignificance": "Guarantees post-2026 duty-free access to India $4 trillion market, preventing a $2 billion export contraction while rationalizing raw material imports for Bangladeshi textiles and consumer industries.",
+  "strategicRisks": [
+    "Widening bilateral merchandise trade deficit (currently exceeding $10 billion in India favor) if rules of origin are overly restrictive.",
+    "Asymmetric non-tariff barriers (NTBs) such as testing standards delays at Indian land customs stations.",
+    "Domestic resistance from local light manufacturing sectors facing zero-tariff Indian competition."
+  ],
+  "strategicOpportunities": [
+    "Boosting Bangladesh RMG, jute, leather, and processed food exports to Northeast and Eastern Indian consumer centers.",
+    "Attracting Indian manufacturing investments into designated Indian Economic Zones in Mongla and Mirsarai.",
+    "Establishing digital single-window customs processing reducing border truck dwell times from 12 days to 24 hours."
+  ],
+  "policyRecommendations": [
+    "Negotiate an asymmetric tariff reduction schedule allowing Bangladesh a 7-to-10-year transition window for sensitive industrial lines.",
+    "Sign a Mutual Recognition Agreement (MRA) between BSTI (Bangladesh) and BIS (India) for export product certifications.",
+    "Upgrade Petrapole-Benapole, Agartala-Akhaura, and Dawki-Tamabil Integrated Check Posts (ICPs) with 24/7 automated rail freight clearance."
+  ],
+  "detailedAnalysis": {
+    "backgroundAndGenesis": "India is Bangladesh second-largest trading partner globally, with total bilateral trade crossing $16 billion in FY2024-25. However, the trade relationship remains heavily asymmetric: Bangladesh exports approximately $2 billion to India while importing over $14 billion in cotton, yarn, chemicals, machinery, and food grains. Under the South Asian Free Trade Area (SAFTA), Bangladesh has enjoyed duty-free quota-free (DFQF) market access for all tariff lines except tobacco and alcohol. With Bangladesh scheduled for official LDC graduation in late 2026, SAFTA preferences will expire, creating an urgent imperative to conclude a high-standard Comprehensive Economic Partnership Agreement (CEPA).",
+    "greatPowerInterests": {
+      "india": "New Delhi views CEPA as the economic flagship of its \"Neighborhood First\" policy, integrating its manufacturing supply chains with Bangladesh and ensuring transit corridors for its landlocked Northeast states.",
+      "china": "Beijing observes Indo-Bangladesh CEPA dynamics closely, actively negotiating its own bilateral Free Trade Agreement (FTA) and currency swap arrangements with Dhaka to maintain trade primacy.",
+      "us": "Washington encourages transparent bilateral trade integration in South Asia as a counterweight to non-market economic dependencies, supporting digital customs modernization through USAID trade facilitation programs."
+    },
+    "vulnerabilitiesAndEconomicImpact": "Joint CPD and World Bank econometric studies project that a comprehensive CEPA could expand Bangladesh's export earnings to India by 172% to 297% over a ten-year horizon, adding between $3 billion to $5 billion annually to national export receipts. Conversely, failure to conclude CEPA would subject Bangladeshi RMG exports to Indian standard MFN tariffs ranging from 10% to 25%, resulting in an immediate $1.2 billion export shock.",
+    "policyDirectives": [
+      "Ministry of Commerce (MoC) Trade Negotiation Team must maintain a rigorous \"Negative List\" protecting vulnerable small and medium enterprises (SMEs) in light engineering and plastics.",
+      "National Board of Revenue (NBR) and Ministry of Shipping must expand bonded warehouse protocols and electronic cargo tracking systems (ECTS) across all shared riverine and overland routes.",
+      "Foreign Ministry (MoFA) must link CEPA progress with equitable progress on transboundary water-sharing treaties (Teesta and 53 common rivers)."
+    ],
+    "academicCitations": [
+      {
+        "title": "Prospects and Pitfalls of the India-Bangladesh CEPA: An Empirical Trade and Welfare Assessment",
+        "authorOrBody": "Centre for Policy Dialogue (CPD)",
+        "publication": "CPD Working Paper Series No. 158",
+        "year": "2026",
+        "url": "https://cpd.org.bd"
+      },
+      {
+        "title": "Deep Integration in South Asia: Trade Facilitation, Border Infrastructure, and Economic Corridors",
+        "authorOrBody": "World Bank South Asia Regional Integration Studies",
+        "publication": "World Bank Group Publications",
+        "year": "2025",
+        "url": "https://www.worldbank.org"
+      }
+    ]
+  },
+  "keyActors": [
+    "Ministry of Commerce Bangladesh",
+    "Ministry of Commerce & Industry India",
+    "NBR",
+    "CPD Dhaka"
+  ],
+  "originalUrl": "https://cpd.org.bd",
+  "readTime": "9 min read",
+  "tags": [
+    "CEPA",
+    "Trade Diplomacy",
+    "LDC Graduation",
+    "India-Bangladesh",
+    "CPD"
+  ]
+},
+  {
+  "id": "intel-012",
+  "slug": "blue-economy-maritime-spatial-planning-bay-of-bengal",
+  "title": "Maritime Spatial Planning and Blue Economy Governance: Hydrocarbon Exploration, Seabed Minerals, and Marine Conservation in the Bay of Bengal",
+  "source": "IORA (Indian Ocean Rim Association) & MoFA Maritime Affairs Unit",
+  "sourceTier": "global-media-multilateral",
+  "publishedAt": "2026-09-01",
+  "pillar": "bay-of-bengal",
+  "impactLevel": "High Strategic Significance",
+  "executiveSummary": "Strategic analysis of Bangladesh 118,813 sq km Exclusive Economic Zone (EEZ), focusing on offshore hydrocarbon bidding rounds, deep-sea polymetallic nodule exploration, pelagic fisheries governance, and maritime spatial planning (MSP).",
+  "bangladeshSignificance": "Unlocks a multi-billion-dollar maritime economy across gas extraction, coastal aquaculture, pharmaceutical biotechnology, and green marine logistics to substitute declining onshore energy reserves.",
+  "strategicRisks": [
+    "Environmental degradation and overfishing from unregulated foreign trawlers in international waters.",
+    "High capital investment risks in deep-water offshore drilling requiring international oil company (IOC) partnerships.",
+    "Maritime jurisdictional disputes over extended continental shelf outer limits beyond 200 nautical miles."
+  ],
+  "strategicOpportunities": [
+    "Attracting global IOCs (ExxonMobil, Chevron, TotalEnergies, ONGC) for offshore deep-water blocks (DS-08 to DS-26).",
+    "Developing high-value mariculture and sea-weed biofuel processing along the Cox's Bazar and Patuakhali coastlines.",
+    "Leading IORA blue carbon initiatives leveraging the Sundarbans mangrove biosphere."
+  ],
+  "policyRecommendations": [
+    "Finalize and gazette the National Maritime Spatial Planning (MSP) Framework under the Maritime Affairs Unit.",
+    "Revise the Model Production Sharing Contract (PSC) with competitive, market-linked gas pricing mechanisms.",
+    "Establish a National Oceanographic & Deep-Sea Exploration Fleet equipped with seismic survey vessels."
+  ],
+  "detailedAnalysis": {
+    "backgroundAndGenesis": "Following historic legal victories at the International Tribunal for the Law of the Sea (ITLOS) in 2012 against Myanmar and the Permanent Court of Arbitration (PCA) in 2014 against India, Bangladesh definitively settled its maritime boundaries. Dhaka secured sovereign rights over 118,813 square kilometers of territorial waters and Exclusive Economic Zone (EEZ), alongside sovereign seabed rights up to 354 nautical miles from the baseline in the Bay of Bengal. Despite this sovereign expanse, Bangladesh's blue economy currently contributes less than 3% to GDP, compared to 10-15% in advanced maritime nations.",
+    "greatPowerInterests": {
+      "us": "Major American energy conglomerates seek exploration rights in deep-water blocks, with Washington encouraging transparent upstream production-sharing contracts to reduce South Asian dependency on Russian or Middle Eastern LNG.",
+      "china": "Chinese research vessels and state-owned energy firms (CNOOC) actively seek joint exploration and marine scientific research partnerships in the northern Bay of Bengal, offering concessionary geophysical surveying equipment.",
+      "india": "India collaborates on joint hydrographic surveys and search-and-rescue protocols, while monitoring foreign research vessel movements in the Bay to safeguard its eastern naval command assets."
+    },
+    "vulnerabilitiesAndEconomicImpact": "Bangladesh currently consumes approximately 3,000 mmcfd of natural gas, with onshore fields rapidly depleting and projected to drop by 40% by 2030. Unlocking offshore deep-water gas in the Bay of Bengal could yield an estimated 10 to 15 trillion cubic feet (TCF) of natural gas, saving Bangladesh over $4 billion annually in imported LNG expenditures and ensuring energy security for industrial export zones.",
+    "policyDirectives": [
+      "Petrobangla and Ministry of Power, Energy and Mineral Resources must conclude international offshore bidding rounds with transparent, investor-friendly PSC terms.",
+      "Ministry of Foreign Affairs (MoFA) Maritime Affairs Unit must collaborate with the UN International Seabed Authority (ISA) to secure exploratory mining licenses for polymetallic sulphides.",
+      "Ministry of Fisheries and Livestock must enforce satellite-based Vessel Monitoring Systems (VMS) on all industrial trawlers to halt marine ecological collapse."
+    ],
+    "academicCitations": [
+      {
+        "title": "Unlocking the Blue Economy in the Bay of Bengal: Maritime Spatial Planning, Energy Sovereignty, and Resource Governance",
+        "authorOrBody": "MoFA Maritime Affairs Unit & BIISS",
+        "publication": "Strategic Maritime Studies Monograph No. 12",
+        "year": "2026",
+        "url": "https://mofa.gov.bd"
+      },
+      {
+        "title": "Blue Economy and Sustainable Development in the Indian Ocean Rim: Strategic Guidelines and Policy Frameworks",
+        "authorOrBody": "Indian Ocean Rim Association (IORA)",
+        "publication": "IORA Blue Economy Policy Papers",
+        "year": "2025",
+        "url": "https://www.iora.int"
+      }
+    ]
+  },
+  "keyActors": [
+    "MoFA Maritime Affairs Unit",
+    "Petrobangla",
+    "IORA Secretariat",
+    "Bangladesh Coast Guard"
+  ],
+  "originalUrl": "https://www.iora.int",
+  "readTime": "8 min read",
+  "tags": [
+    "Blue Economy",
+    "Offshore Gas",
+    "Bay of Bengal",
+    "Maritime Law",
+    "IORA"
+  ]
+},
+  {
+  "id": "intel-013",
+  "slug": "cross-border-subregional-energy-grid-nepal-bhutan",
+  "title": "Sub-Regional Cross-Border Power Trade: Importing Himalayan Hydropower from Nepal and Bhutan via the Indian High-Voltage Grid",
+  "source": "ORF (Observer Research Foundation) & World Bank South Asia",
+  "sourceTier": "regional-think-tank",
+  "publishedAt": "2026-08-28",
+  "pillar": "regional-multilateralism",
+  "impactLevel": "High Strategic Significance",
+  "executiveSummary": "Strategic evaluation of trilateral sub-regional electricity trade connecting Bangladesh with Nepal and Bhutan surplus hydropower through the Indian transmission grid, assessing wheeling charges, high-voltage interconnections, and clean energy transition.",
+  "bangladeshSignificance": "Secures 5,000 MW of zero-carbon baseload electricity by 2035, reducing dependence on volatile fossil fuel imports and fulfilling national climate emissions targets under the Mujib Climate Prosperity Plan.",
+  "strategicRisks": [
+    "Regulatory bottlenecks in Indian cross-border electricity trade (CBET) guidelines requiring third-party wheeling approvals.",
+    "Transmission line congestion in the Siliguri corridor limiting transit electricity volumes.",
+    "Seasonal fluctuations in Himalayan run-of-the-river hydropower generation during winter dry seasons."
+  ],
+  "strategicOpportunities": [
+    "Operationalizing the 40 MW landmark Nepal-India-Bangladesh tripartite power off-take agreement.",
+    "Direct equity investment by Bangladesh in Nepal Upper Trishuli (500 MW) and Sunkoshi-3 (683 MW) hydropower projects.",
+    "Establishing a regional electricity exchange market (BBIN Power Pool) optimizing seasonal demand-supply complementary dynamics."
+  ],
+  "policyRecommendations": [
+    "Fast-track the construction of the dedicated 765 kV cross-border Katihar-Parbatipur-Bornagar high-capacity transmission corridor.",
+    "Establish a permanent BBIN Energy Regulatory Forum to standardize cross-border wheeling tariffs and transmission pricing.",
+    "Incentivize domestic sovereign green fund investments in Himalayan storage hydro projects."
+  ],
+  "detailedAnalysis": {
+    "backgroundAndGenesis": "South Asia is endowed with enormous complementary energy dynamics: Nepal and Bhutan possess over 80,000 MW and 30,000 MW of commercially exploitable hydropower potential respectively, while Bangladesh faces a chronic clean energy deficit, relying on imported fossil fuels (LNG, coal, diesel) for over 85% of its 27,000 MW installed grid capacity. In recent years, the BBIN (Bangladesh, Bhutan, India, Nepal) sub-regional framework and bilateral diplomatic summits have overcome decade-long geopolitical deadlocks. In 2024, Bangladesh, India, and Nepal signed a historic tripartite agreement to transmit 40 MW of Nepalese hydropower to the Bangladesh national grid via India's Dhalkebar-Muzaffarpur and Baharampur-Bheramara lines.",
+    "greatPowerInterests": {
+      "india": "India acts as the indispensable geographical transit bridge and grid operator, leveraging its Central Electricity Regulatory Commission (CERC) frameworks while promoting the One Sun, One World, One Grid (OSOWOG) initiative.",
+      "us": "The United States strongly supports cross-border energy trade through the Millennium Challenge Corporation (MCC) compact in Nepal and the South Asia Regional Energy Hub (SAREH), promoting regional market integration.",
+      "china": "Beijing actively constructs major hydropower dams in Nepal and seeks to export Chinese power equipment, monitoring regional grid connectivity relative to its own trans-Himalayan connectivity blueprints."
+    },
+    "vulnerabilitiesAndEconomicImpact": "Importing 5,000 MW of Himalayan hydro-electricity by 2035 will save Bangladesh approximately $1.5 billion annually in foreign exchange spent on imported furnace oil and spot LNG. Furthermore, clean hydropower off-take reduces national greenhouse gas emissions by an estimated 12 million metric tons of CO2 equivalent per year, directly fulfilling Bangladesh's Nationally Determined Contributions (NDCs).",
+    "policyDirectives": [
+      "Ministry of Power, Energy and Mineral Resources (Power Division) must finalize power purchase agreements (PPAs) with Nepal Electricity Authority (NEA) and Druk Green Power Corporation (DGPC) of Bhutan.",
+      "Ministry of Foreign Affairs (MoFA) must coordinate with New Delhi to designate the Katihar-Parbatipur transmission link as a critical sub-regional infrastructure priority under BIMSTEC funding.",
+      "Bangladesh Power Development Board (BPDB) should integrate cross-border off-take into the National Smart Grid Dispatch Center in Dhaka."
+    ],
+    "academicCitations": [
+      {
+        "title": "Cross-Border Electricity Trade in South Asia: Geopolitics, Regulatory Harmonization, and Energy Security",
+        "authorOrBody": "Observer Research Foundation (ORF)",
+        "publication": "ORF Strategic Energy Series Monograph",
+        "year": "2026",
+        "url": "https://www.orfonline.org"
+      },
+      {
+        "title": "Regional Power Sector Integration in South Asia: Quantitative Economics and Sub-Regional Grids",
+        "authorOrBody": "World Bank South Asia Regional Energy Division",
+        "publication": "World Bank Development Reports",
+        "year": "2025",
+        "url": "https://www.worldbank.org"
+      }
+    ]
+  },
+  "keyActors": [
+    "BPDB Bangladesh",
+    "Nepal Electricity Authority (NEA)",
+    "Power Grid Corporation of India (PGCIL)",
+    "World Bank"
+  ],
+  "originalUrl": "https://www.orfonline.org",
+  "readTime": "7 min read",
+  "tags": [
+    "Energy Diplomacy",
+    "Cross-Border Power",
+    "Hydropower",
+    "BBIN",
+    "Clean Energy"
+  ]
+},
+  {
+  "id": "intel-014",
+  "slug": "cyber-diplomacy-digital-sovereignty-critical-infrastructure",
+  "title": "Cyber Statecraft and Digital Sovereignty: Protecting National Critical Information Infrastructure (CII) against Hybrid Warfare in South Asia",
+  "source": "Lowy Institute & Chatham House Cyber Policy Programme",
+  "sourceTier": "global-think-tank",
+  "publishedAt": "2026-08-25",
+  "pillar": "power-balancing",
+  "impactLevel": "Medium Impact",
+  "executiveSummary": "Strategic examination of cyber diplomacy, state-sponsored cyber espionage, data localization laws, and securing 39 designated Critical Information Infrastructures (CII) in Bangladesh against state and non-state Advanced Persistent Threat (APT) groups.",
+  "bangladeshSignificance": "Guarantees the integrity of the national banking system (Bangladesh Bank RTGS), electricity grid supervisory control (SCADA), and submarine cable telecommunications landings against foreign hybrid disruption.",
+  "strategicRisks": [
+    "Advanced Persistent Threat (APT) campaigns targeting financial institutions and power grid control systems.",
+    "Technological supply chain vulnerabilities in imported hardware, routers, and 5G telecommunication infrastructure.",
+    "Transboundary data colonization and lack of international legal consensus on state cyber attribution."
+  ],
+  "strategicOpportunities": [
+    "Forming bilateral Computer Emergency Response Team (CERT) partnerships with Singapore, Japan, the EU, and the US.",
+    "Establishing Bangladesh as a secure regional data center and submarine cable connectivity hub (SEA-ME-WE-4, 5, 6).",
+    "Championing an inclusive UN Cybercrime Treaty safeguarding developing nation digital sovereignty."
+  ],
+  "policyRecommendations": [
+    "Establish a National Cyber Defense Command (NCDC) under the Armed Forces Division and ICT Ministry.",
+    "Mandate zero-trust architecture and automated vulnerability scanning across all 39 national CII entities.",
+    "Enact comprehensive cross-border data protection treaties guaranteeing sovereign jurisdiction over citizen data."
+  ],
+  "detailedAnalysis": {
+    "backgroundAndGenesis": "The 2016 Bangladesh Bank cyber heist—where sophisticated threat actors infiltrated the SWIFT financial messaging network to attempt the theft of $951 million—served as a global wake-up call for cyber statecraft in South Asia. Over the following decade, Bangladesh rapidly expanded its digital economy, creating a massive digital attack surface across mobile financial services (bKash, Nagad), power grid SCADA networks, and government identity registries (NID). In response, the Government designated 39 critical institutions as Critical Information Infrastructure (CII) under the Cyber Security Act and established the Bangladesh Government Computer Incident Response Team (BGD e-GOV CIRT).",
+    "greatPowerInterests": {
+      "us": "Washington prioritizes international cybersecurity norms under the UN Open-Ended Working Group (OEWG), offering technical incident-response training (US CISA) while advising against telecommunication dependence on high-risk foreign telecom vendors.",
+      "china": "Beijing emphasizes digital sovereignty and cyber capacity building under the Digital Silk Road, supplying telecom infrastructure (Huawei, ZTE) and cloud computing architectures to Bangladeshi state enterprises.",
+      "india": "New Delhi focuses on bilateral cyber threat intelligence sharing via CERT-In and BGD e-GOV CIRT, joint cyber drills, and shielding cross-border railway and energy transmission control systems."
+    },
+    "vulnerabilitiesAndEconomicImpact": "A major coordinated cyber assault on Bangladesh's national power grid or banking clearinghouse could inflict economic losses exceeding $500 million per day, while disrupting food supply chains and emergency services. Developing sovereign cyber forensic capabilities and international cyber diplomacy alliances is therefore an existential requirement for 21st-century national security.",
+    "policyDirectives": [
+      "Ministry of Foreign Affairs (MoFA) must create a dedicated Cyber & Emerging Technologies Diplomacy Wing to represent Bangladesh at UN cyber norms forums in Geneva and New York.",
+      "National Cyber Security Agency (NCSA) must conduct mandatory biannual red-team penetration tests across all 39 designated CII institutions.",
+      "Armed Forces Division (AFD) should institutionalize a Military Cyber Operations Wing for defensive deterrence against state-sponsored hybrid warfare."
+    ],
+    "academicCitations": [
+      {
+        "title": "Hybrid Warfare and Cyber Statecraft in South Asia: Protecting Critical Infrastructure in an Era of Strategic Competition",
+        "authorOrBody": "Lowy Institute International Cyber Policy Centre",
+        "publication": "Lowy Institute Analysis Papers",
+        "year": "2026",
+        "url": "https://www.lowyinstitute.org"
+      },
+      {
+        "title": "Digital Sovereignty and International Cyber Law: Normative Pathways for Developing Nations",
+        "authorOrBody": "Chatham House International Security Programme",
+        "publication": "Chatham House Cyber Policy Series",
+        "year": "2025",
+        "url": "https://www.chathamhouse.org"
+      }
+    ]
+  },
+  "keyActors": [
+    "BGD e-GOV CIRT",
+    "National Cyber Security Agency",
+    "Armed Forces Division",
+    "Bangladesh Bank"
+  ],
+  "originalUrl": "https://www.lowyinstitute.org",
+  "readTime": "6 min read",
+  "tags": [
+    "Cyber Diplomacy",
+    "Digital Sovereignty",
+    "Hybrid Warfare",
+    "Critical Infrastructure",
+    "BGD e-GOV CIRT"
+  ]
+},
+  {
+  "id": "intel-015",
+  "slug": "asean-sectoral-dialogue-partnership-bangladesh",
+  "title": "Bangladesh Quest for ASEAN Sectoral Dialogue Partnership: Bridging South Asia and Southeast Asian Regional Value Chains",
+  "source": "ISEAS–Yusof Ishak Institute (Singapore)",
+  "sourceTier": "regional-think-tank",
+  "publishedAt": "2026-08-20",
+  "pillar": "regional-multilateralism",
+  "impactLevel": "Medium Impact",
+  "executiveSummary": "Diplomatic strategy review of Bangladesh institutional application for ASEAN Sectoral Dialogue Partner (SDP) status, evaluating trade synergies, bilateral Free Trade Agreements (FTAs) with Indonesia and Malaysia, and maritime connectivity.",
+  "bangladeshSignificance": "Positions Dhaka as the definitive geo-economic bridge between SAARC and ASEAN economies, securing diversified supply chains and expanding export markets across Southeast Asia.",
+  "strategicRisks": [
+    "Diplomatic reservations from select ASEAN member states due to prolonged Rohingya crisis friction.",
+    "Tariff competition from ASEAN textile exporters (Vietnam, Cambodia, Indonesia) with lower logistic lead times.",
+    "Complex ASEAN institutional consensus mechanisms requiring unanimous approval from all 10 member states."
+  ],
+  "strategicOpportunities": [
+    "Concluding bilateral Preferential Trade Agreements (PTAs) with Indonesia, Malaysia, and Singapore.",
+    "Establishing direct container shipping routes between Chattogram/Matarbari and Port Klang / Tanjung Pelepas / Singapore.",
+    "Attracting ASEAN high-tech FDI in semiconductor assembly, halal agro-processing, and consumer electronics."
+  ],
+  "policyRecommendations": [
+    "Deploy targeted diplomatic envoys to key ASEAN capitals (Jakarta, Kuala Lumpur, Singapore, Bangkok) highlighting reciprocal economic benefits.",
+    "Offer reciprocal market access concessions in pharmaceutical exports and light engineering.",
+    "Institutionalize the Bangladesh-ASEAN Business Forum as an annual track-1.5 commercial dialogue."
+  ],
+  "detailedAnalysis": {
+    "backgroundAndGenesis": "Geographically and historically, Bangladesh represents the natural terrestrial and maritime bridge connecting South Asia to Southeast Asia. ASEAN comprises 670 million citizens and a combined GDP surpassing $3.8 trillion. Recognizing that South Asian regionalism under SAARC remains paralyzed, Bangladesh submitted its formal application to become a Sectoral Dialogue Partner (SDP) of ASEAN in 2017. Gaining SDP status would elevate Dhaka into ASEAN sectoral ministerial dialogues on trade, maritime transport, agriculture, and energy, providing an institutional gateway to the Regional Comprehensive Economic Partnership (RCEP).",
+    "greatPowerInterests": {
+      "aseanLittoral": "Singapore, Malaysia, and Indonesia recognize Bangladesh as a high-growth market of 170 million consumers, supporting deeper commercial ties while advocating for steady bilateral trade agreements.",
+      "us": "Washington encourages deeper Bangladesh-ASEAN institutional integration to foster open, multi-layered Indo-Pacific supply chains and reduce exclusive regional market dependencies.",
+      "china": "China maintains deep comprehensive strategic partnerships with both ASEAN and Bangladesh, encouraging sub-regional integration under its Belt and Road regional connectivity initiatives."
+    },
+    "vulnerabilitiesAndEconomicImpact": "Currently, bilateral trade between Bangladesh and ASEAN exceeds $10 billion, but is heavily skewed toward imports (palm oil, mineral fuel, machinery, chemicals). Securing SDP status and negotiating bilateral FTAs will enable Bangladeshi pharmaceuticals, ceramics, leather products, and RMG to access Southeast Asian consumer markets duty-free, projecting a potential $2.5 billion boost in non-traditional exports by 2030.",
+    "policyDirectives": [
+      "Ministry of Foreign Affairs (MoFA) must formulate a \"Look East 2.0 Strategic Roadmap\" prioritizing high-level ministerial visits across all ASEAN member capitals.",
+      "Ministry of Commerce must fast-track the conclusion of the Bangladesh-Indonesia PTA and initiate feasibility studies for an EPA with Singapore.",
+      "Export Promotion Bureau (EPB) must establish permanent commercial display centers in Jakarta, Bangkok, and Kuala Lumpur."
+    ],
+    "academicCitations": [
+      {
+        "title": "Bridging the Bay: Bangladesh, ASEAN Sectoral Partnership, and the Geo-Economics of Southeast Asian Integration",
+        "authorOrBody": "ISEAS–Yusof Ishak Institute",
+        "publication": "ISEAS Regional Policy Analysis",
+        "year": "2026",
+        "url": "https://www.iseas.edu.sg"
+      },
+      {
+        "title": "Trade and Connectivity between South and Southeast Asia: Emerging Corridors and Institutional Frameworks",
+        "authorOrBody": "Asian Development Bank (ADB)",
+        "publication": "ADB South Asia Working Papers",
+        "year": "2025",
+        "url": "https://www.adb.org"
+      }
+    ]
+  },
+  "keyActors": [
+    "ASEAN Secretariat Jakarta",
+    "MoFA Southeast Asia Wing",
+    "Ministry of Commerce",
+    "ISEAS Singapore"
+  ],
+  "originalUrl": "https://www.iseas.edu.sg",
+  "readTime": "7 min read",
+  "tags": [
+    "ASEAN",
+    "Sectoral Dialogue Partner",
+    "Look East Policy",
+    "RCEP",
+    "Trade Diplomacy"
+  ]
+},
+  {
+  "id": "intel-016",
+  "slug": "saudi-gulf-economic-diplomacy-manpower-remittances",
+  "title": "Geopolitics of Remittances and Sovereign Capital: Upgrading Economic Diplomacy with the GCC and Saudi Arabia",
+  "source": "Middle East Institute (MEI) & BIISS",
+  "sourceTier": "bd-strategic",
+  "publishedAt": "2026-08-15",
+  "pillar": "trade-ldc",
+  "impactLevel": "High Strategic Significance",
+  "executiveSummary": "Strategic assessment of Bangladesh economic statecraft with the Gulf Cooperation Council (GCC) and Saudi Arabia, examining the transition from low-skilled labor migration to certified technical manpower, sovereign wealth fund FDI, and energy security partnerships.",
+  "bangladeshSignificance": "Secures $15B+ in annual wage remittances stabilizing the national balance of payments, while attracting Saudi PIF and UAE sovereign capital into mega-infrastructure, ports, and green energy projects.",
+  "strategicRisks": [
+    "Gulf nationalization policies (Saudization, Emiratization) displacing low-skilled foreign workers without technical certifications.",
+    "Informal remittance channels (Hundi/Hawala) diverting foreign currency away from official banking reserves.",
+    "Geopolitical volatility and regional security escalation in the Middle East impacting energy shipments."
+  ],
+  "strategicOpportunities": [
+    "Deploying certified healthcare workers, IT technicians, and engineers into Saudi Vision 2030 and UAE smart city gigaprojects (NEOM, Red Sea Project).",
+    "Attracting Saudi Aramco, ACWA Power, and DP World equity investments into Bangladesh special economic zones (Mirsarai, Matarbari).",
+    "Institutionalizing a bilateral Sovereign Investment Framework protecting Gulf direct investments."
+  ],
+  "policyRecommendations": [
+    "Launch the \"National Workforce Certification & Skill Standardization Initiative\" aligned with Gulf labor accreditation frameworks.",
+    "Incentivize formal remittance channels with real-time digital bank incentives and sovereign diaspora bonds.",
+    "Establish a permanent Gulf Economic Diplomacy Desk within MoFA and ERD."
+  ],
+  "detailedAnalysis": {
+    "backgroundAndGenesis": "Over 5 million Bangladeshi expatriate workers reside in the Gulf Cooperation Council (GCC) nations—primarily Saudi Arabia, the UAE, Qatar, Kuwait, Oman, and Bahrain. Expatriate remittances exceed $24 billion annually, with the GCC accounting for over 60% of total inflows. Historically viewed purely through the prism of low-skilled manpower exports, Bangladesh-GCC relations are undergoing a fundamental structural transformation driven by Gulf modernization programs (Saudi Vision 2030, UAE Centennial 2071). Dhaka is pivoting its Middle Eastern diplomacy toward high-value sovereign investment partnerships, renewable energy joint ventures, and skilled technical manpower deployment.",
+    "greatPowerInterests": {
+      "saudiArabiaGCC": "Riyadh and Abu Dhabi view Bangladesh as an indispensable demographic, commercial, and security partner in South Asia, actively deploying sovereign capital (ACWA Power, Red Sea Gateway Terminal at Patenga) into strategic maritime and power assets.",
+      "us": "Washington encourages stable energy and financial cooperation between Gulf allies and South Asian democracies, supporting transparent investment regimes under international commercial arbitration standards.",
+      "china": "Beijing maintains deep energy and infrastructure ties with both GCC capitals and Bangladesh, fostering trilateral industrial park investments aligned with the Belt and Road Initiative."
+    },
+    "vulnerabilitiesAndEconomicImpact": "Remittances represent the single largest net foreign currency earner for Bangladesh, directly financing rural consumption, poverty alleviation, and foreign exchange import cover for 4 to 5 months of national merchandise purchases. Upgrading 30% of migrant workers from unskilled laborers to certified technicians could increase annual remittance receipts by $6 billion by 2030.",
+    "policyDirectives": [
+      "Ministry of Expatriates' Welfare and Overseas Employment (BMET) must establish accredited technical training institutes with standardized GCC curriculum certifications in nursing, electrical engineering, and AI logistics.",
+      "Economic Relations Division (ERD) must negotiate Bilateral Investment Promotion and Protection Treaties with the Saudi Public Investment Fund (PIF) and Abu Dhabi Investment Authority (ADIA).",
+      "Bangladesh Bank must partner with Gulf fintech networks to enable instant, zero-fee mobile remittance remittances directly into domestic bank accounts."
+    ],
+    "academicCitations": [
+      {
+        "title": "Remittances, Sovereign Capital, and Strategic Statecraft: The Transformation of Bangladesh-GCC Relations",
+        "authorOrBody": "Middle East Institute (MEI) Policy Briefs",
+        "publication": "MEI South Asia-Middle East Strategic Series",
+        "year": "2026",
+        "url": "https://www.mei.edu"
+      },
+      {
+        "title": "Labor Migration, Skill Certification, and Macroeconomic Resilience in the Global South",
+        "authorOrBody": "BIISS Strategic Studies Division",
+        "publication": "BIISS Journal, Vol. 46, No. 4",
+        "year": "2025",
+        "url": "https://www.biiss.org"
+      }
+    ]
+  },
+  "keyActors": [
+    "Ministry of Expatriates Welfare",
+    "Saudi Ministry of Human Resources",
+    "ACWA Power",
+    "Bangladesh Bank"
+  ],
+  "originalUrl": "https://www.mei.edu",
+  "readTime": "8 min read",
+  "tags": [
+    "GCC Diplomacy",
+    "Saudi Arabia",
+    "Remittances",
+    "Vision 2030",
+    "Economic Statecraft"
+  ]
+},
 ];
 
 export const DEFAULT_POLICY_MEMOS: PolicyMemo[] = [
