@@ -1,22 +1,33 @@
 import React from "react";
 import { SOCIAL_LINKS } from "../data/portfolioData";
+import { Globe, Sparkles } from 'lucide-react';
+import type { ViewType } from './Navbar';
 
 interface FooterProps {
-  onOpenCourses?: () => void;
+  onNavigate?: (view: ViewType, toolId?: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenCourses }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const handleLink = (e: React.MouseEvent, view: ViewType, toolId?: string) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate(view, toolId);
+    }
+  };
+
   return (
     <footer className="bg-slate-950 border-t border-slate-900 py-12 text-slate-400 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
+          {/* Brand & Bio */}
           <div className="space-y-3">
             <div className="text-lg font-black text-white">
-              dhshishir<span className="text-emerald-400">.com</span>
+              dhshishir<span className="text-cyan-400">.com</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Official personal portfolio & educational portal of Daloyar Hassan Shishir (দেলোয়ার হাসান শিশির).
+              Official personal portal of <strong>Daloyar Hassan Shishir</strong> (???????? ????? ?????) ? Foreign Policy Scholar, Fluency Lab Innovator & Youth Leader.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -40,58 +51,99 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCourses }) => {
             </div>
           </div>
 
+          {/* Strategic & Diplomatic Hub */}
           <div>
-            <h4 className="font-bold text-white mb-3">Free Tools</h4>
+            <h4 className="font-bold text-white mb-3 flex items-center gap-1.5">
+              <Globe className="w-3.5 h-3.5 text-cyan-400" /> Geopolitics & Foreign Policy
+            </h4>
             <ul className="space-y-2">
-              <li><a href="#tools" className="hover:text-emerald-400">ATS CV Readiness Checker</a></li>
-              <li><a href="#tools" className="hover:text-emerald-400">IELTS Band Score Predictor</a></li>
-              <li><a href="#tools" className="hover:text-emerald-400">Skill-to-Course Matcher</a></li>
-              <li><a href="#tools" className="hover:text-emerald-400">CGPA 4.0 Scale Converter</a></li>
+              <li>
+                <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-cyan-400 transition">
+                  Daily Think Tank Strategic Stream
+                </a>
+              </li>
+              <li>
+                <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-cyan-400 transition">
+                  Bay of Bengal & Maritime Security
+                </a>
+              </li>
+              <li>
+                <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-cyan-400 transition">
+                  Post-2026 LDC Trade & Economic Desk
+                </a>
+              </li>
+              <li>
+                <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-cyan-400 transition">
+                  AI Diplomatic Query Advisor
+                </a>
+              </li>
             </ul>
           </div>
 
+          {/* Education & Innovation */}
           <div>
-            <h4 className="font-bold text-white mb-3">Education & Resources</h4>
+            <h4 className="font-bold text-white mb-3 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> Learning & Tools
+            </h4>
             <ul className="space-y-2">
-              <li><a href="#english" className="hover:text-emerald-400">Grammar Formulas & Rules</a></li>
-              <li><a href="#english" className="hover:text-emerald-400">Common English Errors Quiz</a></li>
-              <li><a href="#cv-services" className="hover:text-emerald-400">Free ATS CV Template</a></li>
-              <li><a href="#blog" className="hover:text-emerald-400">Policy & Higher Ed Articles</a></li>
+              <li>
+                <a href="/fluency-lab" onClick={(e) => handleLink(e, 'fluency-lab')} className="hover:text-emerald-400 transition">
+                  Fluency Lab Interactive Spoken English
+                </a>
+              </li>
+              <li>
+                <a href="/tools/ats-checker" onClick={(e) => handleLink(e, 'tools', 'ats-checker')} className="hover:text-emerald-400 transition">
+                  Free ATS Resume Scanner & Checker
+                </a>
+              </li>
+              <li>
+                <a href="/tools/cover-letter" onClick={(e) => handleLink(e, 'tools', 'cover-letter')} className="hover:text-emerald-400 transition">
+                  AI Cover Letter Studio
+                </a>
+              </li>
+              <li>
+                <a href="/tools/ielts-planner" onClick={(e) => handleLink(e, 'tools', 'ielts-planner')} className="hover:text-emerald-400 transition">
+                  IELTS Study Routine Architect
+                </a>
+              </li>
             </ul>
           </div>
 
+          {/* Bio & Connect */}
           <div>
-            <h4 className="font-bold text-white mb-3">Direct Social Connect</h4>
-            <p className="text-[11px] text-slate-400 mb-1">
-              Facebook: <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-emerald-400">fb.com/dhshishir0</a>
-            </p>
-            <p className="text-[11px] text-slate-400 mb-2">
-              LinkedIn: <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-emerald-400">in/daloyar-hassan1</a>
-            </p>
-            <div className="pt-2">
-              <a
-                href="#/courses"
-                onClick={(e) => {
-                  if (onOpenCourses) {
-                    e.preventDefault();
-                    window.location.hash = '#/courses';
-                    onOpenCourses();
-                  }
-                }}
-                className="text-[11px] text-slate-500 hover:text-slate-400 transition underline underline-offset-4"
-              >
-                Learning & Course Index
-              </a>
-            </div>
+            <h4 className="font-bold text-white mb-3">Portfolio & Contact</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="/leadership" onClick={(e) => handleLink(e, 'leadership')} className="hover:text-slate-200 transition">
+                  Global Leadership & Key Engagements
+                </a>
+              </li>
+              <li>
+                <a href="/blog" onClick={(e) => handleLink(e, 'blog')} className="hover:text-slate-200 transition">
+                  Research Articles & Op-Eds
+                </a>
+              </li>
+              <li>
+                <a href="/contact" onClick={(e) => handleLink(e, 'contact')} className="hover:text-slate-200 transition">
+                  Contact & Advisory Booking
+                </a>
+              </li>
+              <li>
+                <a href="/privacy.html" className="text-slate-500 hover:text-slate-400">
+                  Privacy Policy & Terms
+                </a>
+              </li>
+            </ul>
           </div>
+
         </div>
 
         <div className="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           <div>
-            © {new Date().getFullYear()} dhshishir.com • All Rights Reserved by Daloyar Hassan Shishir.
+            ? {new Date().getFullYear()} dhshishir.com ? All Rights Reserved by Daloyar Hassan Shishir.
           </div>
           <div className="text-slate-500">
-            Featured on Prothom Alo, The Daily Campus, Daily Naya Diganta & Dhruba News
+            Strategic Foreign Policy Desk ? Fluency Lab Systems ? Career Innovation
           </div>
         </div>
 
