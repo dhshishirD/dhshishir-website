@@ -4,7 +4,7 @@ import {
   MessageSquare, Lock, Unlock, Filter, Plus, 
   Layers, Send, AlertCircle, RefreshCw, PenTool, ArrowUpRight,
   ShieldCheck, AlertTriangle, CheckCircle2, Copy, X,
-  BarChart3, TrendingUp
+  BarChart3, TrendingUp, Sliders
 } from 'lucide-react';
 import type { StrategicPillar, SourceTier, PolicyMemo, IntelItem } from '../../types/diplomacy';
 import { 
@@ -16,6 +16,7 @@ import {
   getLocalMemos, saveLocalMemo, generateDiplomaticQueryResponse, syncBookmarkToCloud
 } from '../../services/diplomacyService';
 import { AuthModal } from '../auth/AuthModal';
+import { GeopoliticalRiskSimulator } from './GeopoliticalRiskSimulator';
 
 interface DiplomaticHubProps {
   user: any;
@@ -27,7 +28,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
   const [selectedPillar, setSelectedPillar] = useState<StrategicPillar>('all');
   const [selectedTier, setSelectedTier] = useState<SourceTier>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'stream' | 'bookmarks' | 'ai-advisor' | 'memos'>('stream');
+  const [activeTab, setActiveTab] = useState<'stream' | 'bookmarks' | 'ai-advisor' | 'memos' | 'simulator'>('stream');
   
   const [bookmarks, setBookmarks] = useState<string[]>([]);
   const [notes, setNotes] = useState<Record<string, string>>({});
@@ -305,8 +306,21 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             }`}
           >
             <FileText className="w-4 h-4" />
-            <span>Policy Memos & Briefings</span>
+            <span>Policy Memos</span>
             <span className="bg-slate-950/60 px-2 py-0.5 rounded-full text-[11px] text-cyan-200">{memos.length}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('simulator')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
+              activeTab === 'simulator'
+                ? 'bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-900/40'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+            }`}
+          >
+            <Sliders className="w-4 h-4 text-cyan-300" />
+            <span>Risk Simulator</span>
+            <span className="bg-amber-500/20 border border-amber-500/40 px-2 py-0.5 rounded-full text-[10px] text-amber-300 font-extrabold">NEW</span>
           </button>
         </div>
 
@@ -809,6 +823,11 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               </div>
             )}
           </div>
+        )}
+
+        {/* TAB 5: GEOPOLITICAL RISK SIMULATOR */}
+        {activeTab === 'simulator' && (
+          <GeopoliticalRiskSimulator />
         )}
 
       </div>

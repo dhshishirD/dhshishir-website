@@ -167,6 +167,62 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
     }
   };
 
+  const generateBibTeX = () => {
+    const year = new Date(dossier.publishedAt).getFullYear() || 2026;
+    const cleanKey = `hassan${year}${dossier.slug.split('-')[0] || 'dossier'}`;
+    const url = `https://dhshishir.com/diplomacy/${dossier.slug || dossier.id}`;
+    return `@article{${cleanKey},
+  author = {Hassan, Daloyar},
+  title = {${dossier.title}},
+  journal = {Strategic Foreign Policy \\& Diplomatic Intelligence Desk},
+  year = {${year}},
+  url = {${url}},
+  keywords = {${dossier.tags.join(', ')}},
+  note = {External Strategic Intelligence Dossier}
+}`;
+  };
+
+  const generateRIS = () => {
+    const year = new Date(dossier.publishedAt).getFullYear() || 2026;
+    const url = `https://dhshishir.com/diplomacy/${dossier.slug || dossier.id}`;
+    return `TY  - JOUR
+AU  - Hassan, Daloyar
+TI  - ${dossier.title}
+JO  - Strategic Foreign Policy & Diplomatic Intelligence Desk
+PY  - ${year}
+UR  - ${url}
+AB  - ${dossier.executiveSummary}
+KW  - ${dossier.tags.join('\nKW  - ')}
+ER  - `;
+  };
+
+  const downloadCitationFile = (filename: string, content: string, mimeType: string) => {
+    const blob = new Blob([content], { type: mimeType });
+    const fileUrl = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(fileUrl);
+  };
+
+  const handleDownloadBibTeX = () => {
+    const content = generateBibTeX();
+    downloadCitationFile(`${dossier.slug || 'dossier'}-citation.bib`, content, 'application/x-bibtex');
+  };
+
+  const handleDownloadRIS = () => {
+    const content = generateRIS();
+    downloadCitationFile(`${dossier.slug || 'dossier'}-citation.ris`, content, 'application/x-research-info-systems');
+  };
+
+  const handleDownloadPlainText = () => {
+    const content = getCitation(selectedCitationStyle);
+    downloadCitationFile(`${dossier.slug || 'dossier'}-${selectedCitationStyle.toLowerCase()}.txt`, content, 'text/plain');
+  };
+
   const handleCopyCitation = () => {
     const text = getCitation(selectedCitationStyle);
     navigator.clipboard.writeText(text);
@@ -1419,7 +1475,41 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
                 {getCitation(selectedCitationStyle)}
               </div>
 
-              <div className="flex justify-end mt-3">
+              <div className="flex flex-wrap items-center justify-between gap-3 mt-4 pt-3 border-t border-slate-800/40">
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    onClick={handleDownloadBibTeX}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer border ${
+                      theme === 'warm' ? 'bg-[#ede5d3] hover:bg-[#e4dac5] border-[#ded3be] text-[#2c2825]' : theme === 'light' ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-800' : 'bg-slate-950 hover:bg-slate-800 border-slate-800 text-slate-200'
+                    }`}
+                    title="Export citation for LaTeX / Overleaf"
+                  >
+                    <Download className="w-3.5 h-3.5 text-cyan-500" />
+                    <span>Download .BIB (BibTeX)</span>
+                  </button>
+
+                  <button
+                    onClick={handleDownloadRIS}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer border ${
+                      theme === 'warm' ? 'bg-[#ede5d3] hover:bg-[#e4dac5] border-[#ded3be] text-[#2c2825]' : theme === 'light' ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-800' : 'bg-slate-950 hover:bg-slate-800 border-slate-800 text-slate-200'
+                    }`}
+                    title="Export citation for Zotero, Mendeley, EndNote"
+                  >
+                    <Download className="w-3.5 h-3.5 text-teal-500" />
+                    <span>Download .RIS (Zotero/EndNote)</span>
+                  </button>
+
+                  <button
+                    onClick={handleDownloadPlainText}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer border ${
+                      theme === 'warm' ? 'bg-[#ede5d3] hover:bg-[#e4dac5] border-[#ded3be] text-[#2c2825]' : theme === 'light' ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-800' : 'bg-slate-950 hover:bg-slate-800 border-slate-800 text-slate-200'
+                    }`}
+                  >
+                    <FileText className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>Download .TXT</span>
+                  </button>
+                </div>
+
                 <button
                   onClick={handleCopyCitation}
                   className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-md"
