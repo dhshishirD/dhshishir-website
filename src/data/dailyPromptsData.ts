@@ -1,5 +1,4 @@
-// Stage 4 Daily Spoken Fluency Prompts Data Bank
-// Structured prompts designed for spontaneous spoken practice with guided frameworks and phonetic focus
+// Stage 4 Daily Spoken Fluency Prompts & IELTS Part 2 Cue Card Generator
 
 export interface DailyPrompt {
   id: string;
@@ -18,6 +17,17 @@ export interface DailyPrompt {
   targetCollocations: { phrase: string; ipa: string; meaningBn: string }[];
   phoneticWatchouts: string[];
   recommendedDurationSec: number;
+}
+
+export interface IeltsCueCard {
+  id: string;
+  topicNumber: number;
+  category: string;
+  topicTitle: string;
+  cueCardPrompt: string;
+  bulletPoints: string[];
+  powerVocabulary: { word: string; meaningBn: string }[];
+  speakingTips: string;
 }
 
 export const PROMPT_CATEGORIES = [
@@ -308,5 +318,129 @@ export const DAILY_PROMPTS_DATA: DailyPrompt[] = [
       'Clear /p/ in "perspective" and "profound".'
     ],
     recommendedDurationSec: 90
+  }
+];
+
+// IELTS Part 2 Cue Cards Repository
+export const IELTS_CUE_CARDS_DATA: IeltsCueCard[] = [
+  {
+    id: 'ielts-01',
+    topicNumber: 1,
+    category: 'People & Leadership',
+    topicTitle: 'Describe a Leader or Mentor You Greatly Admire',
+    cueCardPrompt: 'Describe a leader, mentor, or teacher whose guidance had a lasting impact on your life or career.',
+    bulletPoints: [
+      'Who this person is and how you first met them',
+      'What specific qualities or principles define their character',
+      'What memorable guidance or assistance they provided you',
+      'And explain why their leadership continues to inspire your choices'
+    ],
+    powerVocabulary: [
+      { word: 'charismatic leadership', meaningBn: 'আকর্ষণীয় নেতৃত্ব' },
+      { word: 'unwavering integrity', meaningBn: 'অবিচল সততা' },
+      { word: 'invaluable mentorship', meaningBn: 'অমূল্য দিকনির্দেশনা' },
+      { word: 'instill confidence', meaningBn: 'আত্মবিশ্বাস সঞ্চার করা' }
+    ],
+    speakingTips: 'Use past tense narratives to describe how you met, then shift to present perfect or simple present to discuss their lasting impact.'
+  },
+  {
+    id: 'ielts-02',
+    topicNumber: 2,
+    category: 'Work & Projects',
+    topicTitle: 'Describe an Important Project You Successfully Completed',
+    cueCardPrompt: 'Describe a challenging project or assignment that you completed either individually or as part of a team.',
+    bulletPoints: [
+      'What the project was and what objectives were set',
+      'What obstacles or time constraints you faced during execution',
+      'How you coordinated resources and solved critical problems',
+      'And explain why completing this project felt particularly rewarding'
+    ],
+    powerVocabulary: [
+      { word: 'stringent deadline', meaningBn: 'কঠোর সময়সীমা' },
+      { word: 'meticulous planning', meaningBn: 'সূক্ষ্ম ও নিখুঁত পরিকল্পনা' },
+      { word: 'cross-functional collaboration', meaningBn: 'বহুমুখী সমন্বিত দল' },
+      { word: 'exceed expectations', meaningBn: 'প্রত্যাশা ছাড়িয়ে যাওয়া' }
+    ],
+    speakingTips: 'Structure your speech chronologically: Inception ➔ Problem encountered ➔ Resolution ➔ Final triumph.'
+  },
+  {
+    id: 'ielts-03',
+    topicNumber: 3,
+    category: 'Environment & Policy',
+    topicTitle: 'Describe an Environmental Law or Initiative in Your Country',
+    cueCardPrompt: 'Describe an environmental regulation, green campaign, or sustainability initiative that you think is effective.',
+    bulletPoints: [
+      'What the initiative or environmental law is',
+      'Why it was introduced and what issue it targets',
+      'How the public and businesses have responded to it',
+      'And explain whether you believe it will deliver lasting environmental benefits'
+    ],
+    powerVocabulary: [
+      { word: 'ecological conservation', meaningBn: 'পরিবেশগত সংরক্ষণ' },
+      { word: 'reduce carbon footprint', meaningBn: 'কার্বন নির্গমন কমানো' },
+      { word: 'public compliance', meaningBn: 'জনসাধারণের মান্যতা' },
+      { word: 'sustainable ecosystem', meaningBn: 'টেকসই বাস্তুতন্ত্র' }
+    ],
+    speakingTips: 'Incorporate formal collocations and modal verbs of speculation (e.g. "It is bound to foster...", "This could potentially mitigate...").'
+  },
+  {
+    id: 'ielts-04',
+    topicNumber: 4,
+    category: 'Places & Travel',
+    topicTitle: 'Describe a Historic City or Heritage Site You Visited',
+    cueCardPrompt: 'Describe a historical site, monument, or ancient city that left a deep impression on you.',
+    bulletPoints: [
+      'Where this place is located and when you visited it',
+      'What historical events or architectural feats make it unique',
+      'What you did and saw while exploring the location',
+      'And explain why preserving this historic heritage is crucial'
+    ],
+    powerVocabulary: [
+      { word: 'architectural marvel', meaningBn: 'স্থাপত্য বিস্ময়' },
+      { word: 'cultural heritage', meaningBn: 'সাংস্কৃতিক ঐতিহ্য' },
+      { word: 'steeped in history', meaningBn: 'ইতিহাসে সমৃদ্ধ' },
+      { word: 'breathtaking scenery', meaningBn: 'মনোরম প্রাকৃতিক দৃশ্য' }
+    ],
+    speakingTips: 'Use rich descriptive sensory adjectives (visual, auditory, atmospheric) to bring the scene to life.'
+  },
+  {
+    id: 'ielts-05',
+    topicNumber: 5,
+    category: 'Technology & Modern Life',
+    topicTitle: 'Describe an Artificial Intelligence Tool You Find Valuable',
+    cueCardPrompt: 'Describe a modern software program or AI application that has significantly changed your productivity.',
+    bulletPoints: [
+      'What the tool is and what purpose it serves',
+      'How frequently you use it in your daily routine',
+      'What distinct advantages it offers over traditional methods',
+      'And explain how you foresee this technology evolving in the near future'
+    ],
+    powerVocabulary: [
+      { word: 'streamline workflow', meaningBn: 'কাজের গতি বৃদ্ধি করা' },
+      { word: 'automation capability', meaningBn: 'স্বয়ংক্রিয় সক্ষমতা' },
+      { word: 'seamless integration', meaningBn: 'নিরবচ্ছিন্ন সমন্বয়' },
+      { word: 'exponential growth', meaningBn: 'দ্রুত প্রবৃদ্ধি' }
+    ],
+    speakingTips: 'Highlight contrasts between manual processes before and automated precision now.'
+  },
+  {
+    id: 'ielts-06',
+    topicNumber: 6,
+    category: 'Decisions & Life Choices',
+    topicTitle: 'Describe a Tough Decision That Ultimately Turned Out Well',
+    cueCardPrompt: 'Describe an important and difficult decision you had to make in your education or career.',
+    bulletPoints: [
+      'What the decision was and why it was difficult to make',
+      'What alternative options you were weighing at the time',
+      'Who you consulted before reaching the final verdict',
+      'And explain why you feel satisfied with the ultimate outcome'
+    ],
+    powerVocabulary: [
+      { word: 'weigh the pros and cons', meaningBn: 'ভালো-মন্দ দিক বিবেচনা করা' },
+      { word: 'calculated risk', meaningBn: 'হিসাবকৃত ঝুঁকি' },
+      { word: 'pivotal turning point', meaningBn: 'গুরুত্বপূর্ণ মোড়' },
+      { word: 'yield positive results', meaningBn: 'ইতিবাচক ফল বয়ে আনা' }
+    ],
+    speakingTips: 'Use third conditional and mixed conditional structures (e.g. "Had I chosen otherwise, I would not be here today...").'
   }
 ];
