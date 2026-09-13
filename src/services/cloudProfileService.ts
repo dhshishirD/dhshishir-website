@@ -93,16 +93,33 @@ export const fetchCloudQuizHistory = async (userId: string) => {
 
   if (!data || data.length === 0) return [];
 
-  // Deduplicate records in memory by completed_at timestamp or score+timestamp
+  // Deduplicate records in memory and identify redundant database rows to purge
   const seenTimestamps = new Set<string>();
+  const duplicateIds: string[] = [];
   const uniqueRecords = data.filter((item) => {
     const timestampKey = item.completed_at ? new Date(item.completed_at).toISOString() : item.id;
     if (seenTimestamps.has(timestampKey)) {
+      if (item.id) duplicateIds.push(item.id);
       return false;
     }
     seenTimestamps.add(timestampKey);
     return true;
   });
+
+  // Permanently purge redundant database duplicates if any exist
+  if (duplicateIds.length > 0) {
+    supabase
+      .from('diagnostic_quiz_results')
+      .delete()
+      .in('id', duplicateIds)
+      .then(({ error: delErr }) => {
+        if (delErr) {
+          console.error('Error purging duplicate quiz history rows from database:', delErr);
+        } else {
+          console.log(`Successfully purged ${duplicateIds.length} duplicate diagnostic records from cloud DB.`);
+        }
+      });
+  }
 
   return uniqueRecords;
 };

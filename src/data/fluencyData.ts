@@ -352,7 +352,7 @@ export const MINIMAL_PAIRS_DATA: MinimalPair[] = [
   { id: 'vb-07', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'vase', phonemeA: '/v/', wordB: 'base', phonemeB: '/b/' },
   { id: 'vb-08', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'curve', phonemeA: '/v/', wordB: 'curb', phonemeB: '/b/' },
   { id: 'vb-09', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'marvel', phonemeA: '/v/', wordB: 'marble', phonemeB: '/b/' },
-  { id: 'vb-10', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'vault', phonemeA: '/v/', wordB: 'bolt', phonemeB: '/b/' },
+  { id: 'vb-10', categoryKey: 'v_vs_b', categoryLabel: '/v/ vs /b/', wordA: 'vent', phonemeA: '/v/', wordB: 'bent', phonemeB: '/b/' },
 
   // 2. /θ/ and /ð/ (th sounds) vs /t/, /d/, /s/, /z/
   { id: 'th-01', categoryKey: 'th_sounds', categoryLabel: 'TH Sounds (/θ/ & /ð/)', wordA: 'think', phonemeA: '/θ/', wordB: 'sink', phonemeB: '/s/' },

@@ -109,6 +109,49 @@ export const saveQuizResultToProfile = (result: QuizResult, userAlias?: string):
   return updatedProfile;
 };
 
+export const recordDailyPractice = (): FluencyUserProfile => {
+  const currentProfile = getFluencyProfile();
+  const now = new Date();
+  const todayStr = now.toISOString().split('T')[0];
+  
+  let newStreak = currentProfile.streakDays || 1;
+  
+  if (currentProfile.lastActiveDate) {
+    const lastDate = new Date(currentProfile.lastActiveDate);
+    const lastDateStr = lastDate.toISOString().split('T')[0];
+    
+    if (lastDateStr === todayStr) {
+      // Already practiced today, preserve streak
+    } else {
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yesterdayStr = yesterday.toISOString().split('T')[0];
+      
+      if (lastDateStr === yesterdayStr) {
+        newStreak += 1;
+      } else {
+        newStreak = 1;
+      }
+    }
+  } else {
+    newStreak = 1;
+  }
+
+  const updatedProfile: FluencyUserProfile = {
+    ...currentProfile,
+    streakDays: newStreak,
+    lastActiveDate: now.toISOString()
+  };
+
+  try {
+    localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(updatedProfile));
+  } catch (err) {
+    console.error('Error saving fluency profile to localStorage', err);
+  }
+
+  return updatedProfile;
+};
+
 export const resetFluencyProfile = (): FluencyUserProfile => {
   localStorage.removeItem(PROFILE_STORAGE_KEY);
   return getFluencyProfile();
