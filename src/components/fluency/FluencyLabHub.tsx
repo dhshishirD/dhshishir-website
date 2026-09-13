@@ -4,13 +4,25 @@ import { Stage2LearnDrill } from './Stage2LearnDrill';
 import { SpeakAndRecordTrainer } from './SpeakAndRecordTrainer';
 import { DailyPromptsHub } from './DailyPromptsHub';
 import { SpeechFeedbackEngine } from './SpeechFeedbackEngine';
+import { DashboardLoopHub } from './DashboardLoopHub';
+import { ProgressCertificationSuite } from './ProgressCertificationSuite';
 import { getFluencyProfile } from '../../services/fluencyProfileService';
 import type { FluencyUserProfile } from '../../types/fluencyLab';
-import { Sparkles, Lock, CheckCircle2, Flame, BookOpen, Mic, Calendar, Activity } from 'lucide-react';
+import { 
+  Sparkles, 
+  CheckCircle2, 
+  Flame, 
+  BookOpen, 
+  Mic, 
+  Calendar, 
+  Activity, 
+  RotateCcw, 
+  Award 
+} from 'lucide-react';
 
 export const FluencyLabHub: React.FC = () => {
   const [profile, setProfile] = useState<FluencyUserProfile>(getFluencyProfile());
-  const [activeTab, setActiveTab] = useState<'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6'>('stage3');
+  const [activeTab, setActiveTab] = useState<'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6' | 'stage7'>('stage6');
 
   useEffect(() => {
     setProfile(getFluencyProfile());
@@ -18,6 +30,13 @@ export const FluencyLabHub: React.FC = () => {
 
   const handleQuizCompleted = () => {
     setProfile(getFluencyProfile());
+    setActiveTab('stage6');
+  };
+
+  const handleNavigateStage = (stage: string) => {
+    if (['stage1', 'stage2', 'stage3', 'stage4', 'stage5', 'stage6', 'stage7'].includes(stage)) {
+      setActiveTab(stage as 'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6' | 'stage7');
+    }
   };
 
   return (
@@ -33,7 +52,7 @@ export const FluencyLabHub: React.FC = () => {
             Interactive Looped Learning System
           </h2>
           <p className="text-slate-400 text-sm sm:text-base">
-            Continuous cycle: <span className="text-slate-200 font-semibold">Diagnose → Learn → Drill → Speak & Record → Get Feedback → Repeat</span>.
+            Continuous cycle: <span className="text-slate-200 font-semibold">Diagnose → Learn → Drill → Speak & Record → Get Feedback → Repeat → Certify</span>.
           </p>
         </div>
 
@@ -70,10 +89,10 @@ export const FluencyLabHub: React.FC = () => {
           </div>
         </div>
 
-        {/* Sequential 6-Stage Navigation Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+        {/* Sequential 7-Stage Navigation Bar */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
           
-          {/* Stage 1 - Active */}
+          {/* Stage 1 */}
           <button
             onClick={() => setActiveTab('stage1')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
@@ -82,13 +101,13 @@ export const FluencyLabHub: React.FC = () => {
                 : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
             }`}
           >
-            <div className="text-[10px] font-bold text-emerald-400 uppercase">Stage 1 (Live)</div>
+            <div className="text-[10px] font-bold text-emerald-400 uppercase">Stage 1</div>
             <div className="text-xs font-bold mt-0.5 flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Placement Quiz
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Placement
             </div>
           </button>
 
-          {/* Stage 2 - Active & Unlocked */}
+          {/* Stage 2 */}
           <button
             onClick={() => setActiveTab('stage2')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
@@ -97,13 +116,13 @@ export const FluencyLabHub: React.FC = () => {
                 : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
             }`}
           >
-            <div className="text-[10px] font-bold text-indigo-400 uppercase">Stage 2 (Live)</div>
+            <div className="text-[10px] font-bold text-indigo-400 uppercase">Stage 2</div>
             <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
-              <BookOpen className="w-3.5 h-3.5 text-indigo-400" /> IPA & Minimal Pairs
+              <BookOpen className="w-3.5 h-3.5 text-indigo-400 shrink-0" /> IPA & Drills
             </div>
           </button>
 
-          {/* Stage 3 - Active & Unlocked */}
+          {/* Stage 3 */}
           <button
             onClick={() => setActiveTab('stage3')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
@@ -112,13 +131,13 @@ export const FluencyLabHub: React.FC = () => {
                 : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
             }`}
           >
-            <div className="text-[10px] font-bold text-purple-400 uppercase">Stage 3 (Live)</div>
+            <div className="text-[10px] font-bold text-purple-400 uppercase">Stage 3</div>
             <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
-              <Mic className="w-3.5 h-3.5 text-purple-400" /> Speak & Record
+              <Mic className="w-3.5 h-3.5 text-purple-400 shrink-0" /> Speak & Record
             </div>
           </button>
 
-          {/* Stage 4 - Active & Unlocked */}
+          {/* Stage 4 */}
           <button
             onClick={() => setActiveTab('stage4')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
@@ -127,13 +146,13 @@ export const FluencyLabHub: React.FC = () => {
                 : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
             }`}
           >
-            <div className="text-[10px] font-bold text-amber-400 uppercase">Stage 4 (Live)</div>
+            <div className="text-[10px] font-bold text-amber-400 uppercase">Stage 4</div>
             <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
-              <Calendar className="w-3.5 h-3.5 text-amber-400" /> Daily & IELTS
+              <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" /> Daily & IELTS
             </div>
           </button>
 
-          {/* Stage 5 - Active & Unlocked */}
+          {/* Stage 5 */}
           <button
             onClick={() => setActiveTab('stage5')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
@@ -142,19 +161,41 @@ export const FluencyLabHub: React.FC = () => {
                 : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
             }`}
           >
-            <div className="text-[10px] font-bold text-cyan-400 uppercase">Stage 5 (Live)</div>
+            <div className="text-[10px] font-bold text-cyan-400 uppercase">Stage 5</div>
             <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
-              <Activity className="w-3.5 h-3.5 text-cyan-400" /> Speech Feedback
+              <Activity className="w-3.5 h-3.5 text-cyan-400 shrink-0" /> Speech Feedback
             </div>
           </button>
 
           {/* Stage 6 */}
-          <div className="p-3 rounded-2xl border border-slate-800/80 bg-slate-950/60 text-slate-500 text-left">
-            <div className="text-[10px] font-bold text-slate-600 uppercase">Stage 6</div>
-            <div className="text-xs font-medium mt-0.5 flex items-center gap-1 text-slate-400">
-              <Lock className="w-3 h-3 text-slate-600" /> Dashboard Loop
+          <button
+            onClick={() => setActiveTab('stage6')}
+            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
+              activeTab === 'stage6'
+                ? 'bg-indigo-950/70 border-indigo-400 text-white shadow-lg shadow-indigo-950/40 ring-1 ring-indigo-400'
+                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+            }`}
+          >
+            <div className="text-[10px] font-bold text-indigo-300 uppercase">Stage 6</div>
+            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
+              <RotateCcw className="w-3.5 h-3.5 text-indigo-400 shrink-0" /> Dashboard Loop
             </div>
-          </div>
+          </button>
+
+          {/* Stage 7 */}
+          <button
+            onClick={() => setActiveTab('stage7')}
+            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
+              activeTab === 'stage7'
+                ? 'bg-emerald-950/70 border-emerald-400 text-white shadow-lg shadow-emerald-950/40 ring-1 ring-emerald-400'
+                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+            }`}
+          >
+            <div className="text-[10px] font-bold text-emerald-300 uppercase">Stage 7</div>
+            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
+              <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" /> Certificate
+            </div>
+          </button>
 
         </div>
 
@@ -182,10 +223,17 @@ export const FluencyLabHub: React.FC = () => {
           {activeTab === 'stage5' && (
             <SpeechFeedbackEngine />
           )}
+
+          {activeTab === 'stage6' && (
+            <DashboardLoopHub onNavigateStage={handleNavigateStage} />
+          )}
+
+          {activeTab === 'stage7' && (
+            <ProgressCertificationSuite />
+          )}
         </div>
 
       </div>
     </section>
   );
 };
-
