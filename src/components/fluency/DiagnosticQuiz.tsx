@@ -3,7 +3,7 @@ import { DIAGNOSTIC_QUESTIONS } from '../../data/diagnosticQuizData';
 import type { QuizResult, CEFRLevel, WeakPatternKey } from '../../types/fluencyLab';
 import { saveQuizResultToProfile } from '../../services/fluencyProfileService';
 import { supabase } from '../../services/supabaseClient';
-import { syncLocalProfileToCloud } from '../../services/cloudProfileService';
+import { syncLocalProfileToCloud, recordQuizResultInCloud } from '../../services/cloudProfileService';
 import { DiagnosticResultCard } from './DiagnosticResultCard';
 import { Volume2, ArrowRight, User } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -137,6 +137,7 @@ export const DiagnosticQuiz: React.FC<DiagnosticQuizProps> = ({
     supabase.auth.getUser().then(async ({ data }) => {
       if (data.user) {
         await syncLocalProfileToCloud(data.user.id, data.user.email, userAlias || data.user.user_metadata?.full_name);
+        await recordQuizResultInCloud(data.user.id, result);
       }
     });
 

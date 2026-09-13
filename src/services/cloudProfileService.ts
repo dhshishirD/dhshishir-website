@@ -16,7 +16,7 @@ export interface CloudProfile {
 export const syncLocalProfileToCloud = async (userId: string, email?: string, fullName?: string) => {
   const localProfile = getFluencyProfile();
 
-  // 1. Upsert Profile
+  // Upsert Profile only - do NOT bulk insert history here
   const { data: profile, error: profileErr } = await supabase
     .from('profiles')
     .upsert({
@@ -36,25 +36,33 @@ export const syncLocalProfileToCloud = async (userId: string, email?: string, fu
     console.error('Error syncing profile to cloud:', profileErr);
   }
 
-  // 2. Sync Quiz History
-  if (localProfile.history && localProfile.history.length > 0) {
-    for (const item of localProfile.history) {
-      await supabase.from('diagnostic_quiz_results').insert({
-        user_id: userId,
-        score: item.score,
-        total_questions: item.totalQuestions,
-        percentage: item.percentage,
-        cefr_level: item.cefrLevel,
-        reading_score: item.readingScore,
-        listening_score: item.listeningScore,
-        speaking_score: item.speakingScore,
-        flagged_weak_patterns: item.flaggedWeakPatterns,
-        completed_at: item.completedAt
-      });
-    }
-  }
-
   return profile;
+};
+
+export const recordQuizResultInCloud = async (userId: string, item: any) => {
+  if (!userId || !item) return null;
+
+  const { data, error } = await supabase
+    .from('diagnostic_quiz_results')
+    .insert({
+      user_id: userId,
+      score: item.score,
+      total_questions: item.totalQuestions || item.total_questions || 10,
+      percentage: item.percentage,
+      cefr_level: item.cefrLevel || item.cefr_level,
+      reading_score: item.readingScore || item.reading_score || 0,
+      listening_score: item.listeningScore || item.listening_score || 0,
+      speaking_score: item.speakingScore || item.speaking_score || 0,
+      flagged_weak_patterns: item.flaggedWeakPatterns || item.flagged_weak_patterns || [],
+      completed_at: item.completedAt || item.completed_at || new Date().toISOString()
+    })
+    .select()
+    .single();
+
+  if (error) {
+    console.error('Error recording quiz result in cloud:', error);
+  }
+  return data;
 };
 
 export const fetchCloudProfile = async (userId: string) => {
@@ -82,5 +90,19 @@ export const fetchCloudQuizHistory = async (userId: string) => {
     console.error('Error fetching quiz history:', error);
     return [];
   }
-  return data;
+
+  if (!data || data.length === 0) return [];
+
+  // Deduplicate records in memory by completed_at timestamp or score+timestamp
+  const seenTimestamps = new Set<string>();
+  const uniqueRecords = data.filter((item) => {
+    const timestampKey = item.completed_at ? new Date(item.completed_at).toISOString() : item.id;
+    if (seenTimestamps.has(timestampKey)) {
+      return false;
+    }
+    seenTimestamps.add(timestampKey);
+    return true;
+  });
+
+  return uniqueRecords;
 };
