@@ -5,11 +5,11 @@ import { SpeakAndRecordTrainer } from './SpeakAndRecordTrainer';
 import { DailyPromptsHub } from './DailyPromptsHub';
 import { getFluencyProfile } from '../../services/fluencyProfileService';
 import type { FluencyUserProfile } from '../../types/fluencyLab';
-import { Sparkles, Lock, CheckCircle2, Flame, BookOpen, Mic, Calendar } from 'lucide-react';
+import { Sparkles, Lock, CheckCircle2, Flame, BookOpen, Mic } from 'lucide-react';
 
 export const FluencyLabHub: React.FC = () => {
   const [profile, setProfile] = useState<FluencyUserProfile>(getFluencyProfile());
-  const [activeTab, setActiveTab] = useState<'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6'>('stage4');
+  const [activeTab, setActiveTab] = useState<'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6'>('stage3');
 
   useEffect(() => {
     setProfile(getFluencyProfile());
@@ -117,20 +117,13 @@ export const FluencyLabHub: React.FC = () => {
             </div>
           </button>
 
-          {/* Stage 4 - Active & Unlocked */}
-          <button
-            onClick={() => setActiveTab('stage4')}
-            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage4'
-                ? 'bg-amber-950/70 border-amber-500 text-white shadow-lg shadow-amber-950/40 ring-1 ring-amber-400'
-                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
-            }`}
-          >
-            <div className="text-[10px] font-bold text-amber-400 uppercase">Stage 4 (Live)</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
-              <Calendar className="w-3.5 h-3.5 text-amber-400" /> Daily Prompts
+          {/* Stage 4 - Held pending Stage 3 Sign-Off */}
+          <div className="p-3 rounded-2xl border border-slate-800/80 bg-slate-950/60 text-slate-500 text-left">
+            <div className="text-[10px] font-bold text-slate-600 uppercase">Stage 4 (Next)</div>
+            <div className="text-xs font-medium mt-0.5 flex items-center gap-1 text-slate-400">
+              <Lock className="w-3 h-3 text-slate-600" /> Daily Prompts & IELTS
             </div>
-          </button>
+          </div>
 
           {/* Stage 5 */}
           <div className="p-3 rounded-2xl border border-slate-800/80 bg-slate-950/60 text-slate-500 text-left">
