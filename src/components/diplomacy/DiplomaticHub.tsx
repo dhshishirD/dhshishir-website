@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
-  Globe, Compass, Bookmark, BookmarkCheck, FileText, Search, Sparkles, 
+  Globe, Compass, Bookmark, BookmarkCheck, FileText, Search, Sparkles, Volume2, 
   MessageSquare, Lock, Unlock, Filter, Plus, 
   Layers, Send, AlertCircle, RefreshCw, PenTool, ArrowUpRight,
   ShieldCheck, AlertTriangle, CheckCircle2, Copy, X,
   BarChart3, TrendingUp, Sliders
 } from 'lucide-react';
 import type { StrategicPillar, SourceTier, PolicyMemo, IntelItem } from '../../types/diplomacy';
+import { SmartAudioReader } from '../common/SmartAudioReader';
 import { 
   INITIAL_INTEL_FEED, DIPLOMACY_PILLARS_META, SOURCE_TIERS_META, 
   DEFAULT_POLICY_MEMOS, AI_QUERY_TEMPLATES 
@@ -451,6 +452,17 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                         </div>
 
                         <div className="flex items-center gap-2">
+                                                    <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedDossier(item);
+                            }}
+                            className="p-2 rounded-lg text-xs font-bold bg-teal-50 text-teal-900 border border-teal-200 hover:bg-teal-100 transition flex items-center gap-1.5 cursor-pointer"
+                            title="Listen to Executive Audio Briefing"
+                          >
+                            <Volume2 className="w-3.5 h-3.5 text-teal-800" />
+                            <span className="hidden sm:inline">Audio</span>
+                          </button>
                           <button
                             onClick={(e) => handleOpenNote(item.id, e)}
                             className={`p-2 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer border ${
@@ -853,6 +865,34 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-snug">
               {selectedDossier.title}
             </h2>
+
+            
+            {/* Smart Audio Briefing for Selected Dossier */}
+            <div className="mt-4 mb-2">
+              <SmartAudioReader
+                key={selectedDossier.id}
+                title={`Audio Dossier Briefing: ${selectedDossier.id}`}
+                subtitle={`Narrated executive summary and foreign policy takeaways`}
+                sections={[
+                  {
+                    id: 'summary',
+                    label: 'Executive Summary',
+                    text: `${selectedDossier.title}. Executive Intelligence Summary: ${selectedDossier.executiveSummary}. Strategic Significance for Bangladesh: ${selectedDossier.bangladeshSignificance}. Key Risks: ${(selectedDossier.strategicRisks || []).join('. ')}. Recommendations: ${(selectedDossier.policyRecommendations || []).join('. ')}`
+                  },
+                  {
+                    id: 'bangladesh',
+                    label: 'National Interest',
+                    text: `Significance for Bangladesh National Interest: ${selectedDossier.bangladeshSignificance}`
+                  },
+                  {
+                    id: 'recommendations',
+                    label: 'Recommendations',
+                    text: `Actionable Recommendations for Foreign Ministry and Economic Relations Division: ${(selectedDossier.policyRecommendations || []).join('. ')}`
+                  }
+                ]}
+                theme="light"
+              />
+            </div>
 
             {/* Strategic Overview */}
             <div className="mt-5 space-y-4">

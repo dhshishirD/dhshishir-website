@@ -9,6 +9,8 @@ import {
   X
 } from 'lucide-react';
 import { INITIAL_INTEL_FEED } from '../../data/diplomacyData';
+import { SmartAudioReader } from '../common/SmartAudioReader';
+import type { AudioSection } from '../common/SmartAudioReader';
 import { getLocalBookmarks, toggleLocalBookmark, syncBookmarkToCloud } from '../../services/diplomacyService';
 
 interface DossierDetailPageProps {
@@ -253,6 +255,43 @@ ER  - `;
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  
+    const directivesList = dossier.detailedAnalysis?.policyDirectives?.join('. ') || (dossier.policyRecommendations || []).join('. ');
+  const genesisText = dossier.detailedAnalysis?.backgroundAndGenesis || '';
+  const usText = dossier.detailedAnalysis?.greatPowerInterests?.us || '';
+  const chinaText = dossier.detailedAnalysis?.greatPowerInterests?.china || '';
+  const indiaText = dossier.detailedAnalysis?.greatPowerInterests?.india || '';
+  const vulnText = dossier.detailedAnalysis?.vulnerabilitiesAndEconomicImpact || dossier.bangladeshSignificance || '';
+  const oppsList = (dossier.strategicOpportunities || []).join('. ');
+
+  const dossierAudioSections: AudioSection[] = [
+    {
+      id: 'full',
+      label: 'Full Executive Dossier',
+      text: `${dossier.title}. Executive Summary: ${dossier.executiveSummary}. Strategic Background: ${genesisText}. Regional Great Power Postures: ${usText} ${chinaText} ${indiaText}. Strategic Vulnerabilities and Macroeconomic Exposure: ${vulnText}. Ministerial Directives and Recommendations: ${directivesList}`
+    },
+    {
+      id: 'summary',
+      label: 'Executive Summary',
+      text: `${dossier.title}. ${dossier.executiveSummary}. Strategic Significance for Bangladesh: ${dossier.bangladeshSignificance}`
+    },
+    {
+      id: 'great-powers',
+      label: 'Great Power Dynamics',
+      text: `United States Posture: ${usText}. China Posture: ${chinaText}. India Posture: ${indiaText}`
+    },
+    {
+      id: 'vulnerabilities',
+      label: 'Vulnerabilities & Exposure',
+      text: `Strategic Vulnerabilities: ${vulnText}. Strategic Opportunities: ${oppsList}`
+    },
+    {
+      id: 'directives',
+      label: 'Policy Directives',
+      text: `Ministerial Policy Directives and Recommendations: ${directivesList}`
+    }
+  ];
 
   const relatedDossiers = INITIAL_INTEL_FEED.filter(
     item => item.id !== dossier.id && item.pillar === dossier.pillar
@@ -1057,6 +1096,18 @@ ER  - `;
               </div>
             </div>
           </header>
+
+          
+          {/* Executive Smart Audio Dossier Player */}
+          <div className="mb-8 no-print">
+            <SmartAudioReader
+              key={dossier.id}
+              title={`Audio Dossier: ${dossier.slug || dossier.id}`}
+              subtitle={`Listen to the full strategic intelligence analysis in Oxford / US English narration`}
+              sections={dossierAudioSections}
+              theme={theme === 'warm' ? 'warm' : theme === 'light' ? 'light' : 'light'}
+            />
+          </div>
 
           {/* Action Toolbar */}
           <div className={`flex flex-wrap items-center justify-between gap-3 mb-8 p-3 rounded-2xl border no-print ${

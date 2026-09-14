@@ -19,6 +19,8 @@ import {
   updateFellowAlias
 } from '../../services/irFellowshipProfileService';
 import type { FellowshipProfile, Pillar, Lecture } from '../../types/irAcademy';
+import { SmartAudioReader } from '../common/SmartAudioReader';
+import type { AudioSection } from '../common/SmartAudioReader';
 import { 
   Award, 
   BookOpen, 
@@ -277,6 +279,36 @@ export const IrFellowshipHub: React.FC = () => {
   });
 
   const isCurrentLectureBookmarked = profile.bookmarkedLectureIds?.includes(selectedLecture.id);
+
+  // Dynamic Audio Sections for Selected Lecture
+  const lectureAudioSections: AudioSection[] = [
+    {
+      id: 'full',
+      label: 'Complete Lecture Briefing',
+      text: `${selectedLecture.title}. ${selectedLecture.subtitle}. Overview: ${selectedLecture.overview}. Core Theoretical Frameworks: ${selectedLecture.theoreticalFrameworks.map(tf => `${tf.name}: ${tf.concept}. Diplomatic application: ${tf.application}`).join('. ')}. Executive Statecraft Case Study: ${selectedLecture.statecraftCaseStudy.title}. Historical Context: ${selectedLecture.statecraftCaseStudy.historicalContext}. Strategic Analysis: ${selectedLecture.statecraftCaseStudy.strategicAnalysis}. Lessons for statecraft: ${selectedLecture.statecraftCaseStudy.lessonsForStatecraft}. Postgraduate Seminar Prompts: ${selectedLecture.analyticalSeminarQuestions.join('. ')}`
+    },
+    {
+      id: 'overview',
+      label: 'Overview & Foundation',
+      text: `${selectedLecture.title}. ${selectedLecture.subtitle}. ${selectedLecture.overview}`
+    },
+    {
+      id: 'theories',
+      label: 'Theoretical Frameworks',
+      text: selectedLecture.theoreticalFrameworks.map(tf => `${tf.name}: ${tf.concept}. Diplomatic application: ${tf.application}`).join('. ')
+    },
+    {
+      id: 'case-study',
+      label: 'Statecraft Case Study',
+      text: `${selectedLecture.statecraftCaseStudy.title}. Historical Context: ${selectedLecture.statecraftCaseStudy.historicalContext}. Strategic Analysis: ${selectedLecture.statecraftCaseStudy.strategicAnalysis}. Lessons for Statecraft: ${selectedLecture.statecraftCaseStudy.lessonsForStatecraft}`
+    },
+    {
+      id: 'seminar',
+      label: 'Seminar & Thesis Prompts',
+      text: `Postgraduate Seminar and Thesis Questions: ${selectedLecture.analyticalSeminarQuestions.join('. ')}`
+    }
+  ];
+
 
   // Reading Theme styles
   const themeCardBg = 
@@ -567,6 +599,16 @@ export const IrFellowshipHub: React.FC = () => {
             {/* Main Lecture Study Reader */}
             <div className="lg:col-span-8 space-y-6">
               
+              
+              {/* Executive Smart Audio Reader for Active Lecture */}
+              <SmartAudioReader
+                key={selectedLecture.id}
+                title={`Executive Audio Lecture: ${selectedLecture.lectureNumber}`}
+                subtitle={`Listen to ${selectedLecture.title} in native diplomatic English narration`}
+                sections={lectureAudioSections}
+                theme={readingTheme === 'ivory' ? 'light' : readingTheme === 'parchment' ? 'warm' : 'nordic'}
+              />
+
               {/* Active Lecture Container with Selected Reading Theme */}
               <div className={`p-6 sm:p-8 rounded-3xl border space-y-5 shadow-xs transition-colors duration-300 ${themeCardBg}`}>
                 <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
