@@ -28,6 +28,7 @@ export function App() {
   const [isStandaloneTool, setIsStandaloneTool] = useState(false);
   const [activeToolId, setActiveToolId] = useState<string>('cover-letter');
   const [activeDossierSlug, setActiveDossierSlug] = useState<string | null>(null);
+  const [activeBlogSlug, setActiveBlogSlug] = useState<string | null>(null);
   const [activeMapLocationId, setActiveMapLocationId] = useState<string | null>(null);
   const [user, setUser] = useState<any>(null);
 
@@ -81,7 +82,14 @@ export function App() {
       setCurrentView('leadership');
       setIsStandaloneTool(false);
       document.title = 'Global Leadership, Delegations & Bio | DH Shishir';
+    } else if (path.startsWith('/blog/') || hash.startsWith('#/blog/')) {
+      const slug = path.replace('/blog/', '') || hash.replace('#/blog/', '');
+      setActiveBlogSlug(slug);
+      setActiveDossierSlug(null);
+      setCurrentView('blog');
+      setIsStandaloneTool(false);
     } else if (path === '/blog' || path === '/insights' || path === '/articles' || hash.startsWith('#/blog')) {
+      setActiveBlogSlug(null);
       setActiveDossierSlug(null);
       setCurrentView('blog');
       setIsStandaloneTool(false);
@@ -153,7 +161,9 @@ export function App() {
       targetPath = '/leadership';
       setActiveDossierSlug(null);
     } else if (view === 'blog') {
-      targetPath = '/blog';
+      targetPath = subParam ? `/blog/${subParam}` : '/blog';
+      if (subParam) setActiveBlogSlug(subParam);
+      else setActiveBlogSlug(null);
       setActiveDossierSlug(null);
     } else if (view === 'contact') {
       targetPath = '/contact';
@@ -234,7 +244,10 @@ export function App() {
           />
         ) : currentView === 'blog' ? (
           <BlogPage
+            initialSlug={activeBlogSlug}
             onNavigateHome={() => navigateTo('home')}
+            onNavigateTools={(tId) => navigateTo('tools', tId)}
+            onNavigateFluency={() => navigateTo('fluency-lab')}
           />
         ) : currentView === 'contact' ? (
           <ContactPage

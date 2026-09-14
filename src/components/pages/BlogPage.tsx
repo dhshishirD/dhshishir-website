@@ -3,14 +3,24 @@ import { BlogSection } from '../BlogSection';
 import { ArrowLeft, BookOpen } from 'lucide-react';
 
 interface BlogPageProps {
+  initialSlug?: string | null;
   onNavigateHome: () => void;
+  onNavigateTools?: (toolId?: string) => void;
+  onNavigateFluency?: () => void;
 }
 
-export const BlogPage: React.FC<BlogPageProps> = ({ onNavigateHome }) => {
+export const BlogPage: React.FC<BlogPageProps> = ({ 
+  initialSlug, 
+  onNavigateHome,
+  onNavigateTools,
+  onNavigateFluency
+}) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.title = 'Strategic Insights, Articles & Policy Commentary | DH Shishir';
-  }, []);
+    if (!initialSlug) {
+      document.title = 'Strategic Insights, Articles & Policy Commentary | DH Shishir';
+    }
+  }, [initialSlug]);
 
   return (
     <div className="pt-24 pb-20 min-h-screen bg-slate-50 text-slate-900">
@@ -22,12 +32,17 @@ export const BlogPage: React.FC<BlogPageProps> = ({ onNavigateHome }) => {
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Main Homepage (dhshishir.com)
           </button>
-          <div className="flex items-center gap-1.5 bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs px-3 py-1 rounded-full font-bold">
-            <BookOpen className="w-3.5 h-3.5 text-blue-400" /> Research, Op-Eds & Articles
+          <div className="flex items-center gap-1.5 bg-teal-50 border border-teal-200 text-teal-900 text-xs px-3 py-1 rounded-full font-bold">
+            <BookOpen className="w-3.5 h-3.5 text-teal-800" /> Research, Masterclasses & Guides
           </div>
         </div>
       </div>
-      <BlogSection />
+      <BlogSection 
+        initialSlug={initialSlug} 
+        onNavigateHome={onNavigateHome}
+        onNavigateTools={onNavigateTools}
+        onNavigateFluency={onNavigateFluency}
+      />
     </div>
   );
 };
