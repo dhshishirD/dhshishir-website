@@ -28,18 +28,18 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ onLaunchStandaloneTo
   };
 
   return (
-    <section id="tools" className="py-20 relative bg-slate-950/60 border-t border-slate-900">
+    <section id="tools" className="py-20 relative bg-slate-50 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs font-bold uppercase tracking-wider">
             Visitor & Career Tools Suite
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
             Smart Self-Diagnostic & Generator Utilities
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             Free, instant interactive tools designed for Bangladeshi graduates, BCS aspirants, job seekers, and IELTS candidates.
           </p>
         </div>
@@ -53,7 +53,7 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ onLaunchStandaloneTo
               className={`px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
                 selectedCategory === cat
                   ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-950/50'
-                  : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+                  : 'bg-white text-slate-700 hover:text-slate-950 border border-slate-200 shadow-xs'
               }`}
             >
               {cat}

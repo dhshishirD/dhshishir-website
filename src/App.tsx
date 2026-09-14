@@ -164,7 +164,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-white font-sans antialiased">
+    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-amber-100 selection:text-amber-900 font-sans antialiased">
       <Navbar currentView={currentView} onNavigate={navigateTo} />
       
       <main>
@@ -234,17 +234,17 @@ export function App() {
             <HeroSection onNavigate={navigateTo} />
             
             {/* Featured IR Fellowship Academic Spotlight Banner on Homepage */}
-            <section className="py-12 bg-gradient-to-r from-slate-950 via-indigo-950/40 to-slate-950 border-y border-indigo-500/20">
+            <section className="py-12 bg-gradient-to-r from-blue-50/70 via-indigo-50/60 to-slate-50 border-y border-indigo-100">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-slate-900/90 border border-indigo-500/40 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl shadow-indigo-950/60">
+                <div className="bg-white border border-indigo-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-indigo-100/50">
                   <div className="space-y-2 text-center md:text-left">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-bold uppercase tracking-wider">
                       <GraduationCap className="w-3.5 h-3.5 text-amber-400" /> Open Master's Fellowship (OMF-IRSS)
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-black text-white">
+                    <h2 className="text-xl sm:text-2xl font-black text-slate-900">
                       Open Master's Fellowship in International Relations & Strategic Studies
                     </h2>
-                    <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
+                    <p className="text-xs sm:text-sm text-slate-600 max-w-2xl">
                       Master classical statecraft, cognitive political psychology, UNCLOS maritime law, and the post-2024 Bangladesh sovereign foreign policy paradigm. Earn verifiable credentials and academic transcripts.
                     </p>
                   </div>
@@ -260,17 +260,17 @@ export function App() {
             </section>
 
             {/* Featured Diplomatic Hub Spotlight Banner on Homepage */}
-            <section className="py-12 bg-gradient-to-r from-slate-950 via-cyan-950/30 to-slate-950 border-b border-cyan-500/20">
+            <section className="py-12 bg-gradient-to-r from-slate-50 via-cyan-50/50 to-slate-50 border-b border-cyan-100">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-slate-900/90 border border-cyan-500/40 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl shadow-cyan-950/60">
+                <div className="bg-white border border-cyan-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-cyan-100/50">
                   <div className="space-y-2 text-center md:text-left">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-900 text-xs font-bold uppercase tracking-wider">
                       <Globe className="w-3.5 h-3.5 text-cyan-400" /> Strategic Intelligence Desk
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-black text-white">
+                    <h2 className="text-xl sm:text-2xl font-black text-slate-900">
                       Explore the Diplomatic & Foreign Policy Intelligence Hub
                     </h2>
-                    <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
+                    <p className="text-xs sm:text-sm text-slate-600 max-w-2xl">
                       Live daily intelligence synthesizing 25+ global think tanks (BIISS, BIPSS, ORF, CSIS, Chatham House) with strategic impact analysis for Bangladesh.
                     </p>
                   </div>

@@ -7,17 +7,17 @@ export const BlogSection: React.FC = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
   return (
-    <section id="blog" className="py-20 relative">
+    <section id="blog" className="py-20 relative bg-white border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-bold uppercase tracking-wider">
             Career Articles & Guidelines
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
             Insights, Guides & Tutorials
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             In-depth strategies to accelerate your professional growth and academic preparation.
           </p>
         </div>
@@ -26,7 +26,7 @@ export const BlogSection: React.FC = () => {
           {BLOG_POSTS.map((post) => (
             <div
               key={post.id}
-              className="bg-slate-900/80 rounded-3xl border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-slate-700 transition group"
+              className="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col justify-between hover:border-slate-300 shadow-xs transition group"
             >
               <div>
                 <div className="h-48 overflow-hidden bg-slate-950">
@@ -44,11 +44,11 @@ export const BlogSection: React.FC = () => {
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {post.readTime}</span>
                   </div>
 
-                  <h3 className="text-base font-bold text-white line-clamp-2 leading-snug">
+                  <h3 className="text-base font-bold text-slate-900 line-clamp-2 leading-snug">
                     {post.title}
                   </h3>
 
-                  <p className="text-xs text-slate-400 line-clamp-3">
+                  <p className="text-xs text-slate-600 line-clamp-3">
                     {post.summary}
                   </p>
                 </div>
@@ -57,7 +57,7 @@ export const BlogSection: React.FC = () => {
               <div className="p-6 pt-0">
                 <button
                   onClick={() => setSelectedPost(post)}
-                  className="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer"
+                  className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer"
                 >
                   <span>Read Full Article</span>
                   <ArrowRight className="w-3.5 h-3.5" />
