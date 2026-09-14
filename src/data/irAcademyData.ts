@@ -175,51 +175,51 @@ export const PILLARS_DATA: Pillar[] = [
   {
     "id": "pillar1_theories",
     "termId": "term1",
-    "termTitle": "Term I: Foundations & Theoretical Paradigms",
+    "termTitle": "\ud83c\udfdb\ufe0f TERM I: FOUNDATIONS OF WORLD POLITICS & THEORETICAL PARADIGMS",
     "pillarNumber": 1,
-    "title": "International Relations Theories & Structural Anarchy",
-    "categoryBadge": "Theoretical Paradigms & Systemic Structure",
-    "shortDescription": "Master the intellectual foundations of world politics, Classical Realism, Neorealism, Liberal Institutionalism, and Constructivism.",
-    "academicObjective": "Analyze how systemic anarchy, material polarity, and international norms dictate state survival imperatives and balance-of-power dynamics.",
+    "title": "Theories of International Relations & Sovereign Statecraft",
+    "categoryBadge": "Theoretical Paradigms & Sovereign Statecraft",
+    "shortDescription": "Master classical realism, structural neorealism, liberal institutionalism, constructivism, and post-colonial/subaltern paradigms.",
+    "academicObjective": "Analyze how systemic anarchy, material polarity, institutional regimes, intersubjective norms, and dependency structures dictate interstate power dynamics.",
     "competencyArea": "Structural Analysis & Grand Theoretical Modeling",
     "lectures": [
       {
         "id": "lec1_1",
         "pillarId": "pillar1_theories",
         "lectureNumber": "1.1",
-        "title": "Anarchy, Sovereignty & Classical Statecraft",
-        "subtitle": "From the Melian Dialogue to Westphalian Order",
-        "readTimeMinutes": 18,
-        "overview": "World politics operates within an anarchic international system—a realm devoid of a central global enforcement agency. This lecture examines the intellectual lineage of classical statecraft: Thucydides' Melian Dialogue, Niccolò Machiavelli's doctrine of ragione di stato, and Thomas Hobbes's Leviathan state of nature. We trace how the 1648 Peace of Westphalia codified the twin principles of territorial sovereignty and non-interference, creating the modern sovereign state system.",
+        "title": "The Anarchic System & Classical Statecraft",
+        "subtitle": "Thucydidean Realism, Machiavellian Prudence, Hobbesian State of Nature & Westphalian Sovereignty",
+        "readTimeMinutes": 20,
+        "overview": "World politics operates within an anarchic international system devoid of a central global enforcement agency. This lecture traces classical statecraft through Thucydides' Melian Dialogue, Machiavelli's ragione di stato, and Hobbes's Leviathan state of nature, culminating in the 1648 Peace of Westphalia which codified territorial sovereignty, legal equality of states, and non-interference.",
         "theoreticalFrameworks": [
           {
-            "name": "Thucydidean Prudence & Power Asymmetry",
-            "concept": "Interstate justice exists only between equals in power; between unequals, power dictates outcomes unless mitigated by diplomatic alliance.",
-            "application": "Analyzing how small and middle powers navigate bilateral pressure from neighboring hegemons."
+            "name": "Thucydidean Power Asymmetry",
+            "concept": "The strong do what they have the power to do and the weak accept what they have to accept; morality cannot substitute for tangible deterrence.",
+            "application": "Small and middle powers managing coercive bilateral pressure from regional superpowers."
           },
           {
-            "name": "The Westphalian Sovereign Compact (1648)",
-            "concept": "Legal equality of states, exclusive territorial jurisdiction, and the formal prohibition of external intervention in domestic sovereign governance.",
-            "application": "Formulating legal defenses against extraterritorial political coercion in multilateral forums."
+            "name": "Westphalian Sovereign Compact (1648)",
+            "concept": "Absolute territorial jurisdiction, legal sovereign equality, and prohibition of extraterritorial intervention.",
+            "application": "Defending national sovereignty in multilateral forums against foreign political dictates."
           }
         ],
         "statecraftCaseStudy": {
-          "title": "The Melian Dialogue (416 BCE): The Perils of Strategic Wishful Thinking",
-          "historicalContext": "During the Peloponnesian War, the Athenian armada besieged the neutral island state of Melos, demanding immediate capitulation and tribute.",
-          "strategicAnalysis": "The Melians relied on moral justice and the speculative hope of Spartan rescue. The Athenians dismissed moral appeals, asserting that systemic power differentials govern survival. The Melians were annihilated.",
-          "lessonsForStatecraft": "Diplomacy untethered from tangible national deterrence or credible alliance commitments invites strategic catastrophe. Morality cannot substitute for sovereign balance of power."
+          "title": "The Melian Dialogue (416 BCE)",
+          "historicalContext": "During the Peloponnesian War, the Athenian armada besieged the neutral island of Melos demanding immediate submission.",
+          "strategicAnalysis": "The Melians relied on abstract justice and hoped for Spartan rescue. Athens annihilated Melos, proving that neutrality without deterrence invites conquest.",
+          "lessonsForStatecraft": "Diplomatic neutrality must be backed by credible national defense and tangible alliance commitments."
         },
-        "banglaDiplomaticSummary": "আন্তর্জাতিক ব্যবস্থা মৌলিকভাবেই নৈরাজ্যময়। থুসিডিডিসের মেলিয়ান সংলাপ থেকে শুরু করে ১৬৪৮ সালের ওয়েস্টফালিয়া শান্তি চুক্তি পর্যন্ত রাষ্ট্রচিন্তার মূল সত্য হলো—সার্বভৌম অস্তিত্ব টিকিয়ে রাখতে হলে নৈতিক আশ্বাসের চেয়ে বাস্তব সামরিক ও অর্থনৈতিক সক্ষমতাই প্রধান।",
+        "banglaDiplomaticSummary": "\u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u09ac\u09cd\u09af\u09ac\u09b8\u09cd\u09a5\u09be \u09b8\u09cd\u09ac\u09ad\u09be\u09ac\u09a4\u0987 \u09a8\u09c8\u09b0\u09be\u099c\u09cd\u09af\u09ae\u09af\u09bc\u0964 \u09a5\u09c1\u09b8\u09bf\u09a1\u09bf\u09a1\u09bf\u09b8\u09c7\u09b0 \u09ae\u09c7\u09b2\u09bf\u09af\u09bc\u09be\u09a8 \u09b8\u0982\u09b2\u09be\u09aa \u09a5\u09c7\u0995\u09c7 \u0993\u09af\u09bc\u09c7\u09b8\u09cd\u099f\u09ab\u09be\u09b2\u09bf\u09af\u09bc\u09be\u09b0 \u099a\u09c1\u0995\u09cd\u09a4\u09bf \u09aa\u09b0\u09cd\u09af\u09a8\u09cd\u09a4 \u09ae\u09c2\u09b2 \u09b8\u09a4\u09cd\u09af \u09b9\u09b2\u09cb\u2014\u09b8\u09be\u09b0\u09cd\u09ac\u09ad\u09cc\u09ae \u0985\u09b8\u09cd\u09a4\u09bf\u09a4\u09cd\u09ac\u09c7\u09b0 \u099c\u09a8\u09cd\u09af \u09a8\u09c8\u09a4\u09bf\u0995 \u0986\u09b6\u09cd\u09ac\u09be\u09b8\u09c7\u09b0 \u099a\u09c7\u09af\u09bc\u09c7 \u09ac\u09be\u09b8\u09cd\u09a4\u09ac \u09b8\u09be\u09ae\u09b0\u09bf\u0995 \u09b8\u0995\u09cd\u09b7\u09ae\u09a4\u09be\u0987 \u09aa\u09cd\u09b0\u09a7\u09be\u09a8\u0964",
         "analyticalSeminarQuestions": [
-          "How does the Westphalian principle of non-interference reconcile with contemporary unilateral sanctions and extraterritorial jurisdiction?",
-          "Why do small states face acute survival dilemmas in an anarchic international structure, and how does diplomatic alignment mitigate this risk?"
+          "How does the Westphalian principle of non-interference reconcile with contemporary unilateral sanctions?",
+          "Why do small states face acute survival dilemmas in an anarchic structure?"
         ],
         "keyReadings": [
           {
-            "title": "History of the Peloponnesian War (Book V: Melian Dialogue)",
+            "title": "History of the Peloponnesian War",
             "author": "Thucydides",
             "sourceType": "Classic Text",
-            "coreConcept": "Power asymmetry, strategic prudence, and the limits of moral appeals in war."
+            "coreConcept": "Power asymmetry and strategic prudence."
           }
         ]
       },
@@ -227,39 +227,159 @@ export const PILLARS_DATA: Pillar[] = [
         "id": "lec1_2",
         "pillarId": "pillar1_theories",
         "lectureNumber": "1.2",
-        "title": "Structural Realism: Polarities, Security Dilemmas & Power Shifts",
-        "subtitle": "Defensive vs. Offensive Realism in a Multipolar World",
+        "title": "Structural Realism & The Balance of Power",
+        "subtitle": "Offensive vs. Defensive Realism (Mearsheimer vs. Waltz), Polarities & Power Transitions",
         "readTimeMinutes": 22,
-        "overview": "Structural Realism posits that systemic structure dictates state behavior. Kenneth Waltz's Defensive Realism argues that anarchy incentivizes states to maintain an appropriate balance of power. Conversely, John Mearsheimer's Offensive Realism contends that states must relentlessly seek regional hegemony to ensure absolute survival.",
+        "overview": "Kenneth Waltz's Defensive Realism posits that systemic anarchy encourages states to maintain balance of power to ensure survival. Conversely, John Mearsheimer's Offensive Realism contends that states must relentlessly seek regional hegemony. We examine polarity dynamics (unipolar, bipolar, multipolar), security dilemmas, and Graham Allison's Thucydides Trap.",
         "theoreticalFrameworks": [
           {
-            "name": "Waltzian Defensive Realism & Balance of Power",
-            "concept": "States are systemically punished for over-expansion. The primary objective is security achieved through internal or external balancing.",
-            "application": "Explaining why emerging middle powers balance against overbearing regional hegemons."
+            "name": "Waltzian Defensive Realism & Balancing",
+            "concept": "States balance internally (military buildup) or externally (alliances) to prevent any single hegemon from dominating.",
+            "application": "Middle powers balancing against overbearing regional hegemons."
           },
           {
-            "name": "Mearsheimer's Offensive Realism & Regional Hegemony",
-            "concept": "Global hegemony is impossible due to the stopping power of water; therefore, great powers strive for regional hegemony while preventing peer competitors.",
-            "application": "Analyzing the Indo-Pacific geopolitical rivalry and naval containment strategies."
+            "name": "Mearsheimer's Offensive Realism & Stopping Power of Water",
+            "concept": "Global hegemony is impossible across oceans; great powers pursue regional hegemony while acting as offshore balancers.",
+            "application": "US-China maritime naval rivalry in the Indo-Pacific."
           }
         ],
         "statecraftCaseStudy": {
-          "title": "The Security Dilemma & The Outbreak of World War I (1914)",
-          "historicalContext": "The rigid alliance structure of the Triple Entente and Triple Alliance transformed a localized Balkan crisis into a systemic continental war.",
-          "strategicAnalysis": "German naval expansion and railway mobilization timetables were perceived by Britain and Russia as mortal threats, triggering preemptive mobilization cascades.",
-          "lessonsForStatecraft": "When defensive preparations are indistinguishable from offensive capabilities, arms races and rigid alliances escalate crises beyond political control."
+          "title": "The 1914 Security Dilemma & Outbreak of WWI",
+          "historicalContext": "Rigid alliance commitments and railway mobilization timetables turned a localized Balkan assassination into continental catastrophe.",
+          "strategicAnalysis": "Defensive mobilizations were indistinguishable from offensive preparations, creating irreversible spiral escalation.",
+          "lessonsForStatecraft": "When defensive military capabilities are perceived as offensive preparations, arms races escape political control."
         },
-        "banglaDiplomaticSummary": "স্ট্রাকচারাল রিয়ালিজম প্রমাণ করে যে আন্তর্জাতিক কাঠামোই রাষ্ট্রের আচরণ নিয়ন্ত্রণ করে। কেনেথ ওয়াল্টজের ডিফেন্সিভ রিয়ালিজম ভারসাম্যের ওপর গুরুত্ব দেয়, আর মেয়ারশাইমারের অফেন্সিভ রিয়ালিজম আঞ্চলিক আধিপত্য প্রতিষ্ঠার অপরিহার্যতা ব্যাখ্যা করে।",
+        "banglaDiplomaticSummary": "\u0995\u09be\u09a0\u09be\u09ae\u09cb\u0997\u09a4 \u09ac\u09be\u09b8\u09cd\u09a4\u09ac\u09ac\u09be\u09a6 \u09a6\u09c7\u0996\u09be\u09af\u09bc \u09af\u09c7 \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u09ac\u09bf\u09a8\u09cd\u09af\u09be\u09b8\u0987 \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09c7\u09b0 \u0986\u099a\u09b0\u09a3 \u09a8\u09bf\u09af\u09bc\u09a8\u09cd\u09a4\u09cd\u09b0\u09a3 \u0995\u09b0\u09c7\u0964 \u0995\u09c7\u09a8\u09c7\u09a5 \u0993\u09af\u09bc\u09be\u09b2\u09cd\u099f\u099c\u09c7\u09b0 \u09a1\u09bf\u09ab\u09c7\u09a8\u09cd\u09b8\u09bf\u09ad \u09b0\u09bf\u09af\u09bc\u09be\u09b2\u09bf\u099c\u09ae \u09ad\u09be\u09b0\u09b8\u09be\u09ae\u09cd\u09af\u0995\u09c7 \u09ae\u09c2\u09b2 \u09ae\u09a8\u09c7 \u0995\u09b0\u09c7, \u0986\u09b0 \u09ae\u09c7\u09af\u09bc\u09be\u09b0\u09b6\u09be\u0987\u09ae\u09be\u09b0\u09c7\u09b0 \u0985\u09ab\u09c7\u09a8\u09cd\u09b8\u09bf\u09ad \u09b0\u09bf\u09af\u09bc\u09be\u09b2\u09bf\u099c\u09ae \u0986\u099e\u09cd\u099a\u09b2\u09bf\u0995 \u0986\u09a7\u09bf\u09aa\u09a4\u09cd\u09af\u09c7\u09b0 \u0985\u09aa\u09b0\u09bf\u09b9\u09be\u09b0\u09cd\u09af\u09a4\u09be \u09aa\u09cd\u09b0\u09ae\u09be\u09a3 \u0995\u09b0\u09c7\u0964",
         "analyticalSeminarQuestions": [
-          "Is a multipolar international architecture inherently more prone to miscalculation than a bipolar balance of power?",
-          "How does the stopping power of water influence naval grand strategy in the Indian Ocean?"
+          "Is a multipolar international architecture inherently more prone to miscalculation than bipolarity?",
+          "How does the stopping power of water influence naval strategy in the Bay of Bengal?"
         ],
         "keyReadings": [
           {
             "title": "Theory of International Politics",
             "author": "Kenneth N. Waltz",
             "sourceType": "Academic Journal",
-            "coreConcept": "Systemic structure, distribution of capabilities, and balance of power dynamics."
+            "coreConcept": "Systemic polarity and balance of power."
+          }
+        ]
+      },
+      {
+        "id": "lec1_3",
+        "pillarId": "pillar1_theories",
+        "lectureNumber": "1.3",
+        "title": "Liberal Institutionalism & Interdependence",
+        "subtitle": "Complex Interdependence (Keohane & Nye), International Regimes & Democratic Peace",
+        "readTimeMinutes": 20,
+        "overview": "Robert Keohane and Joseph Nye demonstrated that transnational linkages, trade interdependence, and international regimes (UN, WTO, IMF) mitigate structural anarchy by reducing transaction costs, sharing information, and facilitating iterated reciprocity. We critique the Democratic Peace Proposition and the limits of institutionalism during great power friction.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Complex Interdependence & Multiple Channels",
+            "concept": "Interstate, transgovernmental, and transnational ties diminish the utility of military force in high-interdependence theaters.",
+            "application": "Regional economic integration and multilateral trade regimes."
+          },
+          {
+            "name": "Iterated Tit-for-Tat Cooperation (Axelrod)",
+            "concept": "Cooperation emerges under anarchy when states have a shadow of the future and commit to reciprocal enforcement.",
+            "application": "Transboundary environmental and water treaty compliance."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The Post-WWII Bretton Woods & GATT Architecture",
+          "historicalContext": "Post-1945 multilateral institutions built rules-based global trade and financial stability under US hegemony.",
+          "strategicAnalysis": "Institutional lock-in allowed multilateral cooperation to persist even as raw US relative material dominance declined ('After Hegemony').",
+          "lessonsForStatecraft": "Multilateral institutional regimes provide middle powers with rule-based protections against unconstrained raw power."
+        },
+        "banglaDiplomaticSummary": "\u09b2\u09bf\u09ac\u09be\u09b0\u09c7\u09b2 \u09aa\u09cd\u09b0\u09be\u09a4\u09bf\u09b7\u09cd\u09a0\u09be\u09a8\u09bf\u0995\u09a4\u09be\u09ac\u09be\u09a6 \u09aa\u09cd\u09b0\u09ae\u09be\u09a3 \u0995\u09b0\u09c7 \u09af\u09c7 \u09ac\u09c8\u09b6\u09cd\u09ac\u09bf\u0995 \u09b8\u0982\u09b8\u09cd\u09a5\u09be (\u099c\u09be\u09a4\u09bf\u09b8\u0982\u0998, \u09ac\u09bf\u09b6\u09cd\u09ac \u09ac\u09be\u09a3\u09bf\u099c\u09cd\u09af \u09b8\u0982\u09b8\u09cd\u09a5\u09be) \u0993 \u0985\u09b0\u09cd\u09a5\u09a8\u09c8\u09a4\u09bf\u0995 \u09aa\u09be\u09b0\u09b8\u09cd\u09aa\u09b0\u09bf\u0995 \u09a8\u09bf\u09b0\u09cd\u09ad\u09b0\u09a4\u09be \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u09a8\u09c8\u09b0\u09be\u099c\u09cd\u09af\u09c7\u09b0 \u09ae\u09a7\u09cd\u09af\u09c7\u0993 \u099f\u09c7\u0995\u09b8\u0987 \u09b8\u09b9\u09af\u09cb\u0997\u09bf\u09a4\u09be \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09a4\u09c7 \u09aa\u09be\u09b0\u09c7\u0964",
+        "analyticalSeminarQuestions": [
+          "Can international institutions survive the withdrawal of their original hegemonic patron?",
+          "Why does complex economic interdependence sometimes increase strategic vulnerability instead of guaranteeing peace?"
+        ],
+        "keyReadings": [
+          {
+            "title": "After Hegemony: Cooperation and Discord in the World Political Economy",
+            "author": "Robert O. Keohane",
+            "sourceType": "Classic Text",
+            "coreConcept": "Regimes, information sharing, and institutional cooperation."
+          }
+        ]
+      },
+      {
+        "id": "lec1_4",
+        "pillarId": "pillar1_theories",
+        "lectureNumber": "1.4",
+        "title": "Constructivism, Identity & Norm Diffusion",
+        "subtitle": "Social Construction of Anarchy (Wendt), Strategic Culture & Intersubjective Meanings",
+        "readTimeMinutes": 22,
+        "overview": "Alexander Wendt demonstrated that 'anarchy is what states make of it.' Constructivism analyzes how state identities, historical memories, strategic cultures, and international norms (like the nuclear taboo or territorial integrity norm) shape national interests and redefine what is considered legitimate statecraft.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Wendtian Cultures of Anarchy (Hobbesian, Lockean, Kantian)",
+            "concept": "Interstate relationships are structured as enemy (Hobbesian), rival (Lockean), or friend (Kantian) through iterated social interaction.",
+            "application": "Transforming hostile regional rivalries into institutional security communities."
+          },
+          {
+            "name": "Norm Life Cycle & Cascades (Finnemore & Sikkink)",
+            "concept": "Norm emergence by entrepreneurs leads to a tipping point/cascade and eventual internalization into domestic legal systems.",
+            "application": "Global climate governance and sovereign human rights norms."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The Evolution of the Nuclear Taboo (1945\u2013Present)",
+          "historicalContext": "Since Nagasaki, nuclear weapons have not been used in warfare despite acute military crises.",
+          "strategicAnalysis": "Thomas Schelling and Nina Tannenwald showed that a powerful normative and moral prohibition delegitimized nuclear first-use.",
+          "lessonsForStatecraft": "Normative constraints and reputational legitimacy are potent structural boundaries in grand strategy."
+        },
+        "banglaDiplomaticSummary": "\u0997\u09a0\u09a8\u09ac\u09be\u09a6 \u0985\u09a8\u09c1\u09b8\u09be\u09b0\u09c7 \u09ac\u09bf\u09b6\u09cd\u09ac\u09b0\u09be\u099c\u09a8\u09c0\u09a4\u09bf \u09a8\u09bf\u099b\u0995 \u0985\u09b8\u09cd\u09a4\u09cd\u09b0\u09c7\u09b0 \u09a6\u09cd\u09ac\u09be\u09b0\u09be \u09a8\u09af\u09bc, \u09ac\u09b0\u0982 \u0990\u09a4\u09bf\u09b9\u09be\u09b8\u09bf\u0995 \u09aa\u09b0\u09bf\u099a\u09af\u09bc, \u0995\u09cc\u09b6\u09b2\u0997\u09a4 \u09b8\u0982\u09b8\u09cd\u0995\u09c3\u09a4\u09bf \u098f\u09ac\u0982 \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u09ae\u09c2\u09b2\u09cd\u09af\u09ac\u09cb\u09a7\u09c7\u09b0 \u09ae\u09bf\u09a5\u09b8\u09cd\u0995\u09cd\u09b0\u09bf\u09af\u09bc\u09be\u09af\u09bc \u09b0\u09c2\u09aa \u09a8\u09c7\u09af\u09bc (\u0993\u09af\u09bc\u09c7\u09a8\u09cd\u09a1\u099f\u09c7\u09b0 \u09b8\u09be\u09ae\u09be\u099c\u09bf\u0995 \u09a4\u09a4\u09cd\u09a4\u09cd\u09ac)\u0964",
+        "analyticalSeminarQuestions": [
+          "How does a nation's historical trauma shape its enduring strategic culture?",
+          "Can an established international norm collapse under aggressive revisionist challenge?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Social Theory of International Politics",
+            "author": "Alexander Wendt",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Intersubjective identities and cultures of anarchy."
+          }
+        ]
+      },
+      {
+        "id": "lec1_5",
+        "pillarId": "pillar1_theories",
+        "lectureNumber": "1.5",
+        "title": "Critical, Structural & Post-Colonial Perspectives",
+        "subtitle": "Dependency Theory, Core-Periphery Exploitation, Subaltern Realism & Non-Western IR",
+        "readTimeMinutes": 22,
+        "overview": "Mainstream Western IR often assumes equal sovereign units while ignoring imperial legacies. This lecture explores Dependency Theory (Frank, Wallerstein), Mohammed Ayoob's Subaltern Realism, and non-Western IR traditions (Kautilya's Arthashastra, Ibn Khaldun's Asabiyyah) to analyze internal regime security and global structural inequality.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Subaltern Realism (Mohammed Ayoob)",
+            "concept": "Third World states prioritize internal regime security, state-building, and border consolidation over external balance of power.",
+            "application": "Analyzing post-colonial state vulnerabilities and border management."
+          },
+          {
+            "name": "World Systems Core-Periphery Paradigm (Wallerstein)",
+            "concept": "Global capitalism reproduces unequal exchange between the industrial core, semi-periphery, and raw-material periphery.",
+            "application": "Strategies for middle powers escaping raw-material and low-value supply chain traps."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "Decolonization & The Bandung Conference (1955)",
+          "historicalContext": "29 Asian and African states convened in Bandung to reject Cold War alignment and assert Afro-Asian solidarity.",
+          "strategicAnalysis": "Bandung birthed the Non-Aligned Movement (NAM), establishing the Ten Principles of peaceful coexistence and anti-imperial solidarity.",
+          "lessonsForStatecraft": "Solidarity among developing nations provides collective diplomatic leverage against great power bloc politics."
+        },
+        "banglaDiplomaticSummary": "\u0989\u09a4\u09cd\u09a4\u09b0-\u0994\u09aa\u09a8\u09bf\u09ac\u09c7\u09b6\u09bf\u0995 \u0993 \u09b8\u09ae\u09be\u09b2\u09cb\u099a\u09a8\u09be\u09ae\u09c2\u09b2\u0995 \u09a4\u09a4\u09cd\u09a4\u09cd\u09ac \u09a6\u09c7\u0996\u09be\u09af\u09bc \u0995\u09c0\u09ad\u09be\u09ac\u09c7 \u09b8\u09be\u09ae\u09cd\u09b0\u09be\u099c\u09cd\u09af\u09ac\u09be\u09a6\u09c0 \u0995\u09be\u09a0\u09be\u09ae\u09cb \u0993 \u0985\u09ad\u09cd\u09af\u09a8\u09cd\u09a4\u09b0\u09c0\u09a3 \u0985\u09b8\u09cd\u09a5\u09bf\u09a4\u09bf\u09b6\u09c0\u09b2\u09a4\u09be \u09a4\u09c3\u09a4\u09c0\u09af\u09bc \u09ac\u09bf\u09b6\u09cd\u09ac\u09c7\u09b0 \u09a8\u09bf\u09b0\u09be\u09aa\u09a4\u09cd\u09a4\u09be\u0995\u09c7 \u09aa\u09cd\u09b0\u09ad\u09be\u09ac\u09bf\u09a4 \u0995\u09b0\u09c7 (\u0986\u0987\u09af\u09bc\u09c1\u09ac\u09c7\u09b0 \u09b8\u09be\u09ac\u0985\u09b2\u09cd\u099f\u09be\u09b0\u09cd\u09a8 \u09b0\u09bf\u09af\u09bc\u09be\u09b2\u09bf\u099c\u09ae)\u0964",
+        "analyticalSeminarQuestions": [
+          "Why is internal state-making often the primary security challenge for post-colonial middle powers?",
+          "How can non-Western IR traditions enrich modern strategic diplomacy?"
+        ],
+        "keyReadings": [
+          {
+            "title": "The Third World Security Predicament",
+            "author": "Mohammed Ayoob",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Subaltern realism and internal state consolidation."
           }
         ]
       }
@@ -267,7 +387,7 @@ export const PILLARS_DATA: Pillar[] = [
     "checkpointQuiz": {
       "id": "quiz_p1",
       "pillarId": "pillar1_theories",
-      "title": "Pillar 1 Theoretical Mastery Examination",
+      "title": "Seminar Checkpoint 1: Analytical Critique \u2014 Re-evaluating Hegemonic Stability Theory in a Fragmenting Global Order",
       "passingScorePercentage": 75,
       "questions": [
         {
@@ -281,20 +401,20 @@ export const PILLARS_DATA: Pillar[] = [
           ],
           "correctIndex": 1,
           "academicRationale": "Waltzian Neorealism explicitly locates the cause of state action at the systemic level (Third Image), where anarchy and material power distribution dictate state survival imperatives.",
-          "banglaExplanation": "ওয়াল্টজের নিওরিয়ালিজম অনুসারে ব্যক্তি চরিত্র নয়, বরং আন্তর্জাতিক কাঠামোর নৈরাজ্য ও বস্তুগত সক্ষমতার বিন্যাসই রাষ্ট্রের আচরণ নিয়ন্ত্রণ করে।"
+          "banglaExplanation": "\u0993\u09af\u09bc\u09be\u09b2\u09cd\u099f\u099c\u09c7\u09b0 \u09a8\u09bf\u0993\u09b0\u09bf\u09af\u09bc\u09be\u09b2\u09bf\u099c\u09ae \u0985\u09a8\u09c1\u09b8\u09be\u09b0\u09c7 \u09ac\u09cd\u09af\u0995\u09cd\u09a4\u09bf \u099a\u09b0\u09bf\u09a4\u09cd\u09b0 \u09a8\u09af\u09bc, \u09ac\u09b0\u0982 \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u0995\u09be\u09a0\u09be\u09ae\u09cb\u09b0 \u09a8\u09c8\u09b0\u09be\u099c\u09cd\u09af \u0993 \u09ac\u09b8\u09cd\u09a4\u09c1\u0997\u09a4 \u09b8\u0995\u09cd\u09b7\u09ae\u09a4\u09be\u09b0 \u09ac\u09bf\u09a8\u09cd\u09af\u09be\u09b8\u0987 \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09c7\u09b0 \u0986\u099a\u09b0\u09a3 \u09a8\u09bf\u09af\u09bc\u09a8\u09cd\u09a4\u09cd\u09b0\u09a3 \u0995\u09b0\u09c7\u0964"
         },
         {
           "id": "q1_2",
-          "prompt": "Why does John Mearsheimer argue in 'The Tragedy of Great Power Politics' that global hegemony is fundamentally impossible?",
+          "prompt": "What did Alexander Wendt mean by the famous constructivist dictum 'Anarchy is what states make of it'?",
           "options": [
-            "Because international treaties forbid world conquest",
-            "Due to the 'Stopping Power of Water'—oceans make cross-continental military conquest impractical",
-            "Because all states eventually transition into pacifist democracies",
-            "Because space satellites have eliminated all ground military conflicts"
+            "Anarchy automatically forces all states into total nuclear warfare",
+            "The nature of international anarchy is socially constructed by the shared identities, perceptions, and practices of states",
+            "Anarchy does not exist because world government is already established",
+            "Anarchy is purely a financial banking system"
           ],
           "correctIndex": 1,
-          "academicRationale": "Mearsheimer demonstrates that massive water expanses prevent any state from conquering and occupying across oceans, confining great powers to regional hegemony.",
-          "banglaExplanation": "মেয়ারশাইমার দেখিয়েছেন সমুদ্রের বিশাল বাধা অতিক্রম করে অন্য মহাদেশ সম্পূর্ণ দখল করা অসম্ভব, তাই পরাশক্তিরা কেবল নিজ অঞ্চলে আধিপত্য প্রতিষ্ঠা করতে পারে।"
+          "academicRationale": "Wendt argues anarchy does not have a fixed material logic; social interaction determines whether states view each other as enemies, rivals, or friends.",
+          "banglaExplanation": "\u0993\u09af\u09bc\u09c7\u09a8\u09cd\u09a1\u099f \u09a6\u09c7\u0996\u09bf\u09af\u09bc\u09c7\u099b\u09c7\u09a8 \u09af\u09c7 \u09a8\u09c8\u09b0\u09be\u099c\u09cd\u09af \u0995\u09cb\u09a8\u09cb \u0985\u09aa\u09b0\u09bf\u09ac\u09b0\u09cd\u09a4\u09a8\u09c0\u09af\u09bc \u09b6\u09a4\u09cd\u09b0\u09c1\u09a4\u09be \u09a8\u09af\u09bc; \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09c7\u09b0 \u09ac\u09bf\u09b6\u09cd\u09ac\u09be\u09b8, \u0986\u099a\u09b0\u09a3 \u0993 \u09aa\u09be\u09b0\u09b8\u09cd\u09aa\u09b0\u09bf\u0995 \u09aa\u09b0\u09bf\u099a\u09af\u09bc\u09c7\u09b0 \u09ae\u09be\u09a7\u09cd\u09af\u09ae\u09c7\u0987 \u09b8\u09ae\u09cd\u09aa\u09b0\u09cd\u0995\u09c7\u09b0 \u09a7\u09b0\u09a8 \u09a4\u09c8\u09b0\u09bf \u09b9\u09af\u09bc\u0964"
         }
       ]
     }
@@ -302,44 +422,44 @@ export const PILLARS_DATA: Pillar[] = [
   {
     "id": "pillar2_fpa",
     "termId": "term1",
-    "termTitle": "Term I: Foundations & Theoretical Paradigms",
+    "termTitle": "\ud83c\udfdb\ufe0f TERM I: FOUNDATIONS OF WORLD POLITICS & THEORETICAL PARADIGMS",
     "pillarNumber": 2,
     "title": "Foreign Policy Analysis & Comparative Diplomatic Systems",
-    "categoryBadge": "Diplomatic Statecraft & Decision Systems",
-    "shortDescription": "Analyze the domestic, bureaucratic, and systemic determinants of state foreign policy, Two-Level Games, and small/middle power strategic autonomy.",
-    "academicObjective": "Master Graham Allison's decision models, Putnam's Two-Level Games, and the machinery of modern diplomatic negotiation.",
+    "categoryBadge": "Foreign Policy Decision Systems",
+    "shortDescription": "Analyze the domestic, bureaucratic, and systemic determinants of foreign policy, Graham Allison's decision models, Two-Level Games, and middle-power diplomacy.",
+    "academicObjective": "Master levels of analysis, bureaucratic bargaining, domestic political coalitions, embassy statecraft, and small/middle power strategic autonomy.",
     "competencyArea": "Foreign Policy Architecture & Bilateral Statecraft",
     "lectures": [
       {
         "id": "lec2_1",
         "pillarId": "pillar2_fpa",
         "lectureNumber": "2.1",
-        "title": "Levels of Analysis & Graham Allison's Decision Models",
-        "subtitle": "Rational Actor, Organizational Process, and Bureaucratic Politics",
+        "title": "Levels of Analysis in Foreign Policy",
+        "subtitle": "Systemic, Domestic, Bureaucratic & Individual Determinants (Waltz's Three Images & Allison's Decision Models)",
         "readTimeMinutes": 20,
-        "overview": "Graham Allison's study of the Cuban Missile Crisis proved foreign policy is shaped by Model I (Rational Actor), Model II (Organizational SOPs), and Model III (Bureaucratic Politics) where where you stand depends on where you sit.",
+        "overview": "Foreign Policy Analysis bridges the gap between abstract systemic theory and concrete state action. We dissect Kenneth Waltz's Three Images (Individual, State, International System) and Graham Allison's three seminal decision models (Rational Actor, Organizational Behavior SOPs, Bureaucratic Politics).",
         "theoreticalFrameworks": [
           {
-            "name": "Allison's Model III: Bureaucratic Bargaining",
-            "concept": "Foreign policy decisions represent compromises, coalitions, and triumphs of competing bureaucratic actors (Defense vs Foreign Ministry vs Intelligence).",
-            "application": "Deconstructing inter-agency coordination friction in national security policy."
+            "name": "Allison's Model II (Organizational Process)",
+            "concept": "Decisions are standard operating procedures (SOPs) executed by pre-existing organizational routines rather than optimized grand choices.",
+            "application": "Auditing military and diplomatic crisis readiness protocols."
           },
           {
-            "name": "Robert Putnam's Two-Level Game Theory",
-            "concept": "Diplomats bargain concurrently at the international table (Level I) and with domestic political constituencies (Level II) required to ratify the accord.",
-            "application": "Ensuring international transit and trade agreements have robust domestic democratic win-sets."
+            "name": "Allison's Model III (Bureaucratic Politics)",
+            "concept": "Foreign policy outcomes reflect compromises and political bargaining among competing departmental chiefs ('Where you stand depends on where you sit').",
+            "application": "Resolving inter-agency friction between Defense, Foreign Affairs, and Intelligence ministries."
           }
         ],
         "statecraftCaseStudy": {
-          "title": "The Cuban Missile Crisis (1962): EXCOMM Decision Dynamics",
-          "historicalContext": "Soviet nuclear missiles deployed in Cuba triggered a 13-day existential standoff between Washington and Moscow.",
-          "strategicAnalysis": "President Kennedy resisted military air-strike advice by creating a naval quarantine and trading Jupiter missiles in Turkey via secret backchannels.",
-          "lessonsForStatecraft": "Effective leaders deliberately structure advisory councils to cultivate devil's advocacy and avoid premature military escalation."
+          "title": "EXCOMM Decision Dynamics in the Cuban Missile Crisis (1962)",
+          "historicalContext": "When Soviet nuclear missiles were discovered in Cuba, President Kennedy convened EXCOMM to deliberate military vs diplomatic responses.",
+          "strategicAnalysis": "Air Force chiefs pushed for preemptive air strikes (Model I/II), while diplomatic advisors crafted the naval blockade and backchannel Turkish missile trade (Model III).",
+          "lessonsForStatecraft": "Leaders must structure advisory councils to cultivate devil's advocacy and prevent single-agency operational lock-in."
         },
-        "banglaDiplomaticSummary": "পররাষ্ট্রনীতি একক কোনো ব্যক্তির সিদ্ধান্তে চলে না; এটি আমলাতান্ত্রিক দরকষাকষি এবং আন্তর্জাতিক ও অভ্যন্তরীণ রাজনীতির মিথস্ক্রিয়া (পুটনামের টু-লেভেল গেম)।",
+        "banglaDiplomaticSummary": "\u09aa\u09b0\u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09a8\u09c0\u09a4\u09bf \u09ac\u09bf\u09b6\u09cd\u09b2\u09c7\u09b7\u09a3 \u09a6\u09c7\u0996\u09be\u09af\u09bc \u0995\u09c0\u09ad\u09be\u09ac\u09c7 \u09ac\u09cd\u09af\u0995\u09cd\u09a4\u09bf, \u0986\u09ae\u09b2\u09be\u09a4\u09a8\u09cd\u09a4\u09cd\u09b0 \u098f\u09ac\u0982 \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u0995\u09be\u09a0\u09be\u09ae\u09cb\u09b0 \u09ae\u09bf\u09a5\u09b8\u09cd\u0995\u09cd\u09b0\u09bf\u09af\u09bc\u09be\u09af\u09bc \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09c7\u09b0 \u09b8\u09bf\u09a6\u09cd\u09a7\u09be\u09a8\u09cd\u09a4 \u0997\u09c3\u09b9\u09c0\u09a4 \u09b9\u09af\u09bc (\u0985\u09cd\u09af\u09be\u09b2\u09bf\u09b8\u09a8\u09c7\u09b0 \u09e9\u099f\u09bf \u09a1\u09bf\u09b8\u09bf\u09b6\u09a8 \u09ae\u09a1\u09c7\u09b2)\u0964",
         "analyticalSeminarQuestions": [
-          "How do Standard Operating Procedures (SOPs) constrain a state's diplomatic flexibility during sudden geopolitical shocks?",
-          "Why do international agreements collapse when negotiators miscalculate their domestic Level II win-sets?"
+          "How do Standard Operating Procedures (SOPs) constrain diplomatic flexibility in fast-moving crises?",
+          "Why is the rational actor model insufficient to explain contradictory foreign policy decisions?"
         ],
         "keyReadings": [
           {
@@ -349,12 +469,132 @@ export const PILLARS_DATA: Pillar[] = [
             "coreConcept": "Three conceptual models of crisis decision-making."
           }
         ]
+      },
+      {
+        "id": "lec2_2",
+        "pillarId": "pillar2_fpa",
+        "lectureNumber": "2.2",
+        "title": "Domestic Politics, Public Opinion & Interest Coalitions",
+        "subtitle": "The Two-Level Game Framework, Legislative-Executive Friction & Media Impact (Putnam)",
+        "readTimeMinutes": 22,
+        "overview": "Foreign policy is never purely external. Robert Putnam's Two-Level Game framework conceptualizes diplomacy as simultaneous bargaining across Level I (interstate negotiating table) and Level II (domestic ratifying constituencies). We explore the role of public opinion, parliamentary oversight, and media dynamics.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Putnam's Win-Set Concept",
+            "concept": "The set of all possible Level I international agreements that would gain the necessary majority ratification at Level II domestic politics.",
+            "application": "Designing transboundary river, transit, and trade pacts that have durable domestic support."
+          },
+          {
+            "name": "The CNN / Social Media Effect",
+            "concept": "24/7 real-time broadcast and viral digital media force rapid emotional reactions from leaders, compressing deliberation time.",
+            "application": "Managing strategic communications during border skirmishes and hostage crises."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The Collapse of the 2011 Teesta Water Sharing Agreement",
+          "historicalContext": "A finalized draft agreement on the Teesta River was scheduled for signing in Dhaka in September 2011.",
+          "strategicAnalysis": "Opposition from the provincial West Bengal government (Level II) fractured the central government's Level I negotiating position, scuttling the treaty at the last hour.",
+          "lessonsForStatecraft": "International treaties fail when chief negotiators ignore or miscalculate domestic sub-federal and legislative win-sets."
+        },
+        "banglaDiplomaticSummary": "\u09aa\u09c1\u099f\u09a8\u09be\u09ae\u09c7\u09b0 \u099f\u09c1-\u09b2\u09c7\u09ad\u09c7\u09b2 \u0997\u09c7\u09ae \u0985\u09a8\u09c1\u09af\u09be\u09af\u09bc\u09c0 \u09af\u09c7\u0995\u09cb\u09a8\u09cb \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u099a\u09c1\u0995\u09cd\u09a4\u09bf \u0995\u09be\u09b0\u09cd\u09af\u0995\u09b0 \u09b9\u09a4\u09c7 \u09b9\u09b2\u09c7 \u09a4\u09be \u0985\u09ad\u09cd\u09af\u09a8\u09cd\u09a4\u09b0\u09c0\u09a3 \u09b0\u09be\u099c\u09a8\u09c8\u09a4\u09bf\u0995 \u0985\u09a8\u09c1\u09ae\u09cb\u09a6\u09a8 (\u0989\u0987\u09a8-\u09b8\u09c7\u099f) \u09b2\u09be\u09ad \u0995\u09b0\u09a4\u09c7 \u09b9\u09ac\u09c7, \u09af\u09be \u09a4\u09bf\u09b8\u09cd\u09a4\u09be \u099a\u09c1\u0995\u09cd\u09a4\u09bf\u09b0 \u0995\u09cd\u09b7\u09c7\u09a4\u09cd\u09b0\u09c7 \u09b8\u09cd\u09aa\u09b7\u09cd\u099f\u09ad\u09be\u09ac\u09c7 \u09aa\u09cd\u09b0\u09ae\u09be\u09a3\u09bf\u09a4\u0964",
+        "analyticalSeminarQuestions": [
+          "How can diplomats expand their domestic Level II win-sets without compromising sovereign national interests?",
+          "How does public domestic nationalism constrain diplomatic compromise during territorial disputes?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Diplomacy and Domestic Politics: The Logic of Two-Level Games",
+            "author": "Robert D. Putnam",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Level I and Level II bargaining and win-set dynamics."
+          }
+        ]
+      },
+      {
+        "id": "lec2_3",
+        "pillarId": "pillar2_fpa",
+        "lectureNumber": "2.3",
+        "title": "Diplomatic Machinery & Bilateral Statecraft",
+        "subtitle": "Foreign Ministries, Vienna Convention, Embassy Statecraft, Communiqu\u00e9s & Backchannel Diplomacy",
+        "readTimeMinutes": 20,
+        "overview": "This lecture examines the physical and institutional apparatus of statecraft: diplomatic immunities under the 1961 Vienna Convention on Diplomatic Relations, the drafting of joint communiqu\u00e9s, demarches, Track 1.5/Track 2 diplomacy, and the use of secret backchannels during high-stakes brinkmanship.",
+        "theoreticalFrameworks": [
+          {
+            "name": "The Vienna Convention Diplomatic Regime (1961)",
+            "concept": "Inviolability of diplomatic missions, diplomatic pouch protections, and absolute immunity from criminal jurisdiction.",
+            "application": "Safeguarding national envoys and communications in hostile sovereign territory."
+          },
+          {
+            "name": "Track 1.5 and Track 2 Backchanneling",
+            "concept": "Unofficial, non-binding dialogues between retired diplomats, academics, and intelligence officials to test compromise formulas without public political fallout.",
+            "application": "De-escalating frozen interstate conflicts."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "Kissinger's 1971 Secret Backchannel Mission to Beijing",
+          "historicalContext": "Using Pakistan as an intermediary, Henry Kissinger conducted a secret trip to Beijing to negotiate the historic US-China rapprochement.",
+          "strategicAnalysis": "Bypassed standard State Department bureaucracy to execute a structural balance-of-power realignment against the Soviet Union.",
+          "lessonsForStatecraft": "Strategic secrecy and trusted backchannels are indispensable for historic diplomatic breakthroughs."
+        },
+        "banglaDiplomaticSummary": "\u0995\u09c2\u099f\u09a8\u09c8\u09a4\u09bf\u0995 \u09af\u09a8\u09cd\u09a4\u09cd\u09b0\u09aa\u09be\u09a4\u09bf\u09b0 \u09b8\u09a0\u09bf\u0995 \u09aa\u09b0\u09bf\u099a\u09be\u09b2\u09a8\u09be, \u09ad\u09bf\u09af\u09bc\u09c7\u09a8\u09be \u0995\u09a8\u09ad\u09c7\u09a8\u09b6\u09a8 \u09e7\u09ef\u09ec\u09e7-\u098f\u09b0 \u0986\u0987\u09a8\u09bf \u09b8\u09c1\u09b0\u0995\u09cd\u09b7\u09be \u098f\u09ac\u0982 \u0997\u09cb\u09aa\u09a8 \u09ac\u09cd\u09af\u09be\u0995\u099a\u09cd\u09af\u09be\u09a8\u09c7\u09b2 \u0995\u09c2\u099f\u09a8\u09c0\u09a4\u09bf \u099c\u099f\u09bf\u09b2 \u09ad\u09c2-\u09b0\u09be\u099c\u09a8\u09c8\u09a4\u09bf\u0995 \u09b8\u0982\u0995\u099f\u09c7 \u0990\u09a4\u09bf\u09b9\u09be\u09b8\u09bf\u0995 \u09b8\u09be\u09ab\u09b2\u09cd\u09af \u098f\u09a8\u09c7 \u09a6\u09bf\u09a4\u09c7 \u09aa\u09be\u09b0\u09c7\u0964",
+        "analyticalSeminarQuestions": [
+          "What are the risks of over-relying on secret backchannels at the expense of professional foreign service institutions?",
+          "How has digital communication transformed the traditional role of resident ambassadors?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Diplomacy",
+            "author": "Henry Kissinger",
+            "sourceType": "Classic Text",
+            "coreConcept": "Diplomatic history, balance of power, and statecraft machinery."
+          }
+        ]
+      },
+      {
+        "id": "lec2_4",
+        "pillarId": "pillar2_fpa",
+        "lectureNumber": "2.4",
+        "title": "Small and Middle Power Diplomacy",
+        "subtitle": "Hedging, Balancing, Bandwagoning & Strategic Autonomy Strategies for Non-Hegemonic States",
+        "readTimeMinutes": 22,
+        "overview": "Small and middle powers face acute vulnerabilities in a competitive international system. This lecture explores the strategic toolkit of non-hegemonic states: hard balancing vs soft balancing, bandwagoning, omnidirectional hedging, niche diplomacy, and the institutional pursuit of strategic autonomy.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Omnidirectional Strategic Hedging",
+            "concept": "Simultaneously cultivating economic, military, and diplomatic partnerships with competing superpowers without formal exclusive alignment.",
+            "application": "Littoral Indo-Pacific states balancing ties between Washington, Beijing, New Delhi, and Tokyo."
+          },
+          {
+            "name": "Niche Diplomacy & Norm Entrepreneurship",
+            "concept": "Focusing diplomatic resources on specific global issues (e.g. UN Peacekeeping, climate justice, maritime law) to amplify international prestige and leverage.",
+            "application": "Bangladesh's global leadership in climate vulnerability advocacy and UN Peacekeeping operations."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "Singapore's Grand Strategy of Dynamic Omnidirectional Hedging",
+          "historicalContext": "As a tiny sovereign city-state in Southeast Asia, Singapore engineered a sophisticated multi-vector balance of power.",
+          "strategicAnalysis": "Maintains deep military logistics ties with the US while remaining China's largest foreign investor and an active ASEAN anchor.",
+          "lessonsForStatecraft": "Small states survive not by weakness, but by becoming indispensable to all major powers through impeccable strategic clarity."
+        },
+        "banglaDiplomaticSummary": "\u0995\u09cd\u09b7\u09c1\u09a6\u09cd\u09b0 \u0993 \u09ae\u09a7\u09cd\u09af\u09ae \u09b6\u0995\u09cd\u09a4\u09bf\u09b0 \u09a6\u09c7\u09b6\u0997\u09c1\u09b2\u09cb\u09b0 \u09aa\u09b0\u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09a8\u09c0\u09a4\u09bf\u09b0 \u099a\u09be\u09ac\u09bf\u0995\u09be\u09a0\u09bf \u09b9\u09b2\u09cb \u0995\u09cb\u09a8\u09cb \u098f\u0995\u0995 \u09b6\u0995\u09cd\u09a4\u09bf\u09b0 \u09ac\u09b2\u09af\u09bc\u09c7 \u09ac\u09a8\u09cd\u09a6\u09bf \u09a8\u09be \u09b9\u09af\u09bc\u09c7 \u09ac\u09b9\u09c1\u09ae\u09c1\u0996\u09c0 \u09b9\u09c7\u099c\u09bf\u0982, \u09b8\u09ae\u09ae\u09b0\u09cd\u09af\u09be\u09a6\u09be\u09b0 \u0995\u09cc\u09b6\u09b2\u0997\u09a4 \u09b8\u09cd\u09ac\u09be\u09af\u09bc\u09a4\u09cd\u09a4\u09b6\u09be\u09b8\u09a8 \u098f\u09ac\u0982 \u09a8\u09bf\u09b6 \u09a1\u09bf\u09aa\u09cd\u09b2\u09cb\u09ae\u09cd\u09af\u09be\u09b8\u09bf \u09aa\u09b0\u09bf\u099a\u09be\u09b2\u09a8\u09be \u0995\u09b0\u09be\u0964",
+        "analyticalSeminarQuestions": [
+          "Under what conditions does hedging collapse into dangerous forced alignment?",
+          "How can middle powers leverage multilateral organizations to constrain regional hegemons?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Small States in World Politics",
+            "author": "Jeanne A.K. Hey",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Middle power constraints and asymmetric diplomatic strategies."
+          }
+        ]
       }
     ],
     "checkpointQuiz": {
       "id": "quiz_p2",
       "pillarId": "pillar2_fpa",
-      "title": "Pillar 2 Foreign Policy Analysis Examination",
+      "title": "Seminar Checkpoint 2: Foreign Policy Audit \u2014 Evaluating Strategic Autonomy in Middle-Power Foreign Policy",
       "passingScorePercentage": 75,
       "questions": [
         {
@@ -368,7 +608,20 @@ export const PILLARS_DATA: Pillar[] = [
           ],
           "correctIndex": 1,
           "academicRationale": "Miles's Law ('Where you stand depends on where you sit') underpins Allison's Model III, showing that departmental interests dictate policy preferences.",
-          "banglaExplanation": "অ্যালিসনের মডেল ৩-এ বলা হয় একজন কর্মকর্তা কোন দপ্তরের দায়িত্বে আছেন তার ওপর নির্ভর করে তিনি কোন নীতি সমর্থন করবেন।"
+          "banglaExplanation": "\u0985\u09cd\u09af\u09be\u09b2\u09bf\u09b8\u09a8\u09c7\u09b0 \u09ae\u09a1\u09c7\u09b2 \u09e9-\u098f \u09ac\u09b2\u09be \u09b9\u09af\u09bc \u098f\u0995\u099c\u09a8 \u0995\u09b0\u09cd\u09ae\u0995\u09b0\u09cd\u09a4\u09be \u0995\u09cb\u09a8 \u09a6\u09aa\u09cd\u09a4\u09b0\u09c7\u09b0 \u09a6\u09be\u09af\u09bc\u09bf\u09a4\u09cd\u09ac\u09c7 \u0986\u099b\u09c7\u09a8 \u09a4\u09be\u09b0 \u0993\u09aa\u09b0 \u09a8\u09bf\u09b0\u09cd\u09ad\u09b0 \u0995\u09b0\u09c7 \u09a4\u09bf\u09a8\u09bf \u0995\u09cb\u09a8 \u09a8\u09c0\u09a4\u09bf \u09b8\u09ae\u09b0\u09cd\u09a5\u09a8 \u0995\u09b0\u09ac\u09c7\u09a8\u0964"
+        },
+        {
+          "id": "q2_2",
+          "prompt": "Under Robert Putnam's Two-Level Game Theory, what is a 'Win-Set'?",
+          "options": [
+            "The total number of medals won by diplomats at the Olympics",
+            "The set of all possible international (Level I) agreements that would gain the necessary ratification in domestic politics (Level II)",
+            "A military secret code used by naval ships",
+            "A list of all foreign embassies in a capital city"
+          ],
+          "correctIndex": 1,
+          "academicRationale": "Putnam defines a win-set as the collection of Level I international bargains that domestic Level II ratifying coalitions will accept.",
+          "banglaExplanation": "\u09aa\u09c1\u099f\u09a8\u09be\u09ae\u09c7\u09b0 \u09b8\u0982\u099c\u09cd\u099e\u09be\u09af\u09bc \u0989\u0987\u09a8-\u09b8\u09c7\u099f \u09b9\u09b2\u09cb \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u099a\u09c1\u0995\u09cd\u09a4\u09bf\u09b0 \u09b8\u09c7\u0987 \u0985\u0982\u09b6 \u09af\u09be \u09a8\u09bf\u099c \u09a6\u09c7\u09b6\u09c7\u09b0 \u0985\u09ad\u09cd\u09af\u09a8\u09cd\u09a4\u09b0\u09c0\u09a3 \u09b0\u09be\u099c\u09a8\u09c8\u09a4\u09bf\u0995 \u09b6\u0995\u09cd\u09a4\u09bf \u0985\u09a8\u09c1\u09ae\u09cb\u09a6\u09a8 \u0995\u09b0\u09a4\u09c7 \u09b0\u09be\u099c\u09bf \u09a5\u09be\u0995\u09c7\u0964"
         }
       ]
     }
@@ -376,51 +629,171 @@ export const PILLARS_DATA: Pillar[] = [
   {
     "id": "pillar3_polpsych_individual",
     "termId": "term2",
-    "termTitle": "Term II: Psychological & Advisory Statecraft",
+    "termTitle": "\ud83e\udde0 TERM II: POLITICAL PSYCHOLOGY & FOREIGN POLICY DECISION-MAKING",
     "pillarNumber": 3,
-    "title": "Political Psychology & Cognitive Biases in Statecraft",
-    "categoryBadge": "Cognitive Psychology & Strategic Misperception",
-    "shortDescription": "Understand how cognitive biases, prospect theory, historical analogies, and stress distort high-stakes foreign policy decisions.",
-    "academicObjective": "Examine Robert Jervis's perception theory, Kahneman-Tversky prospect theory, and psychological deterrence failures.",
+    "title": "Cognitive Dimensions of Leadership & State Decisions",
+    "categoryBadge": "Cognitive Psychology & Leadership",
+    "shortDescription": "Understand how cognitive limits, prospect theory, confirmation biases, and historical analogies distort high-stakes foreign policy decisions.",
+    "academicObjective": "Examine bounded rationality, Kahneman-Tversky prospect theory, Alexander George's operational code, and psychological deterrence failures.",
     "competencyArea": "Decision Psychology & Cognitive Intelligence",
     "lectures": [
       {
         "id": "lec3_1",
         "pillarId": "pillar3_polpsych_individual",
         "lectureNumber": "3.1",
-        "title": "Robert Jervis on Perception and Misperception in International Politics",
-        "subtitle": "Cognitive Consistency, Wishful Thinking, and Deterrence Failures",
-        "readTimeMinutes": 24,
-        "overview": "Statesmen do not react to the objective world, but to their subjective perception of it. Robert Jervis proved decision-makers suffer from confirmation bias, the fundamental attribution error, and worst-case scenario overestimation.",
+        "title": "The Rational Actor Model vs. Bounded Rationality",
+        "subtitle": "Cognitive Limits, Satisficing Behavior & Information Bottlenecks under Uncertainty (Herbert Simon)",
+        "readTimeMinutes": 20,
+        "overview": "Classical economics assumes leaders maximize utility with perfect information. Herbert Simon's Bounded Rationality proves that cognitive processing limits, incomplete information, and time pressures force decision-makers to 'satisfice'\u2014selecting the first minimally acceptable option rather than the optimal grand strategy.",
         "theoreticalFrameworks": [
           {
-            "name": "Cognitive Consistency & Confirmation Bias",
-            "concept": "Leaders fit incoming intelligence into pre-existing belief systems, dismissing discordant facts as deception while treating conforming rumors as verified truth.",
-            "application": "Auditing intelligence briefings to prevent strategic surprise."
+            "name": "Herbert Simon's Bounded Rationality & Satisficing",
+            "concept": "Decision-makers simplify complex environments into manageable mental heuristics, settling for 'good enough' solutions.",
+            "application": "Auditing national security crisis briefings to avoid truncated search for options."
           },
           {
-            "name": "Fundamental Attribution Error in Statecraft",
-            "concept": "Attributing adversary actions to deep malevolent intent while viewing one's own provocative moves as purely defensive and self-evidently benign.",
-            "application": "Mitigating accidental spiral escalation during border incidents."
+            "name": "Information Processing Bottlenecks",
+            "concept": "During rapid military crises, senior executives suffer cognitive overload, filtering out vital intelligence.",
+            "application": "Structuring specialized intelligence synthesis desks."
           }
         ],
         "statecraftCaseStudy": {
-          "title": "Operation Barbarossa (1941): Stalin's Cognitive Trap",
-          "historicalContext": "Despite over 80 specific intelligence warnings detailing Hitler's invasion plans, Stalin refused to mobilize Soviet border forces.",
-          "strategicAnalysis": "Stalin was convinced the intelligence was British disinformation intended to provoke a war between Germany and the USSR.",
-          "lessonsForStatecraft": "Rigid psychological models blind even absolute autocrats to impending existential attacks."
+          "title": "The 1973 Yom Kippur War Intelligence Failure",
+          "historicalContext": "Israeli military intelligence (Aman) possessed extensive raw indicators of Egyptian and Syrian mobilizations.",
+          "strategicAnalysis": "Bound to 'The Concept' (the fixed assumption that Egypt would never attack without long-range strike aircraft), analysts dismissed contradictory raw data until war began.",
+          "lessonsForStatecraft": "Rigid cognitive models cause leaders to rationalize away overwhelming warning indicators."
         },
-        "banglaDiplomaticSummary": "রাষ্ট্রনায়করা বাস্তব পৃথিবীর চেয়ে তাদের মস্তিষ্কের ধারণার ওপর ভিত্তি করে সিদ্ধান্ত নেন। জারভিসের পারসেপশন থিওরি দেখায় কীভাবে বিশ্বাসগত গোঁড়ামি জাতীয় বিপর্যয় ডেকে আনে।",
+        "banglaDiplomaticSummary": "\u09b9\u09be\u09b0\u09ac\u09be\u09b0\u09cd\u099f \u09b8\u09be\u0987\u09ae\u09a8\u09c7\u09b0 \u09ac\u09be\u0989\u09a8\u09cd\u09a1\u09c7\u09a1 \u09b0\u09cd\u09af\u09be\u09b6\u09a8\u09be\u09b2\u09bf\u099f\u09bf \u09aa\u09cd\u09b0\u09ae\u09be\u09a3 \u0995\u09b0\u09c7 \u09af\u09c7 \u09a4\u09a5\u09cd\u09af\u09c7\u09b0 \u0985\u09aa\u09cd\u09b0\u09a4\u09c1\u09b2\u09a4\u09be \u0993 \u09ae\u09be\u09a8\u09b8\u09bf\u0995 \u09b8\u09c0\u09ae\u09be\u09ac\u09a6\u09cd\u09a7\u09a4\u09be\u09b0 \u0995\u09be\u09b0\u09a3\u09c7 \u09a8\u09c7\u09a4\u09be\u09b0\u09be \u09b8\u09b0\u09cd\u09ac\u09cb\u09a4\u09cd\u09a4\u09ae \u09b8\u09bf\u09a6\u09cd\u09a7\u09be\u09a8\u09cd\u09a4\u09c7\u09b0 \u09ac\u09a6\u09b2\u09c7 \u09a4\u09be\u09ce\u0995\u09cd\u09b7\u09a3\u09bf\u0995 '\u09b8\u09a8\u09cd\u09a4\u09cb\u09b7\u099c\u09a8\u0995' \u09b8\u09bf\u09a6\u09cd\u09a7\u09be\u09a8\u09cd\u09a4\u09c7 \u09aa\u09cc\u0981\u099b\u09be\u09a8\u0964",
         "analyticalSeminarQuestions": [
-          "How can foreign ministry intelligence bureaus build institutional red-teams to break cognitive confirmation bias?",
-          "Why do rival states perceive each other's defensive deployments as offensive preparations?"
+          "How can national intelligence agencies institutionalize alternative hypothesis testing to combat bounded rationality?",
+          "Why do leaders continue to believe disproven strategic assumptions during military crises?"
         ],
         "keyReadings": [
           {
-            "title": "Perception and Misperception in International Politics",
-            "author": "Robert Jervis",
+            "title": "Models of Man: Social and Rational",
+            "author": "Herbert A. Simon",
+            "sourceType": "Classic Text",
+            "coreConcept": "Bounded rationality and satisficing behavior."
+          }
+        ]
+      },
+      {
+        "id": "lec3_2",
+        "pillarId": "pillar3_polpsych_individual",
+        "lectureNumber": "3.2",
+        "title": "Cognitive Biases, Heuristics & Historical Analogies",
+        "subtitle": "Confirmation Bias, Fundamental Attribution Error, Wishful Thinking & Munich vs. Vietnam Analogies",
+        "readTimeMinutes": 24,
+        "overview": "Robert Jervis proved decision-makers suffer from systematic perceptual distortions: confirmation bias, wishful thinking, and the fundamental attribution error. Yuen Foong Khong demonstrated that leaders rely on historical analogies (e.g. 'Munich 1938' = never appease; 'Vietnam 1965' = avoid quagmires) which often lead to catastrophic misdiagnoses of new crises.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Fundamental Attribution Error in Statecraft",
+            "concept": "Viewing adversary provocations as manifestations of permanent evil character while viewing one's own military moves as purely defensive and benign.",
+            "application": "Preventing accidental military escalation cycles."
+          },
+          {
+            "name": "Analogical Explanation Framework (Khong)",
+            "concept": "Analogies define the problem, assess the stakes, provide prescriptive remedies, and evaluate moral legitimacy.",
+            "application": "Auditing foreign policy rhetoric against false historical parallels."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The 2003 Iraq War & The Munich/Suez Analogy Trap",
+          "historicalContext": "US and British decision-makers framed Saddam Hussein explicitly through the lens of 1930s European appeasement.",
+          "strategicAnalysis": "The rigid 'Munich analogy' blinded leadership to the regional balance of power and catastrophic post-invasion sectarian fracturing.",
+          "lessonsForStatecraft": "Misapplied historical analogies produce disastrous military interventions by blinding leaders to unique local realities."
+        },
+        "banglaDiplomaticSummary": "\u099c\u09be\u09b0\u09ad\u09bf\u09b8\u09c7\u09b0 \u0995\u0997\u09a8\u09bf\u099f\u09bf\u09ad \u09ac\u09be\u09af\u09bc\u09be\u09b8 \u098f\u09ac\u0982 \u0987\u09a4\u09bf\u09b9\u09be\u09b8 \u09a5\u09c7\u0995\u09c7 \u09ad\u09c1\u09b2 \u09b6\u09bf\u0995\u09cd\u09b7\u09be \u09a8\u09c7\u0993\u09af\u09bc\u09be\u09b0 \u09aa\u09cd\u09b0\u09ac\u09a3\u09a4\u09be (\u09ae\u09bf\u0989\u09a8\u09bf\u0996 \u09ac\u09be \u09ad\u09bf\u09af\u09bc\u09c7\u09a4\u09a8\u09be\u09ae \u09a4\u09c1\u09b2\u09a8\u09be) \u09ac\u09bf\u09b6\u09cd\u09ac\u09a8\u09c7\u09a4\u09be\u09a6\u09c7\u09b0 \u09ad\u09c1\u09b2 \u09af\u09c1\u09a6\u09cd\u09a7\u09c7 \u099c\u09a1\u09bc\u09bf\u09af\u09bc\u09c7 \u09aa\u09a1\u09bc\u09be\u09b0 \u09aa\u09cd\u09b0\u09a7\u09be\u09a8 \u09ae\u09a8\u09b8\u09cd\u09a4\u09be\u09a4\u09cd\u09a4\u09cd\u09ac\u09bf\u0995 \u0995\u09be\u09b0\u09a3\u0964",
+        "analyticalSeminarQuestions": [
+          "Why is the 'Munich 1938' analogy so frequently abused by hawkish foreign policy leaders?",
+          "How can diplomats distinguish between genuine conciliatory signals and strategic deception?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Analogies at War",
+            "author": "Yuen Foong Khong",
             "sourceType": "Academic Journal",
-            "coreConcept": "Cognitive biases and misperception in war outbreaks."
+            "coreConcept": "Cognitive schemas and the misuse of historical analogies."
+          }
+        ]
+      },
+      {
+        "id": "lec3_3",
+        "pillarId": "pillar3_polpsych_individual",
+        "lectureNumber": "3.3",
+        "title": "Prospect Theory & Risk Orientation in Statecraft",
+        "subtitle": "Domain of Gains vs. Domain of Losses, Status-Quo Bias & Risk Acceptance (Kahneman & Tversky)",
+        "readTimeMinutes": 22,
+        "overview": "Daniel Kahneman and Amos Tversky's Prospect Theory showed that human decision-makers evaluate outcomes relative to a subjective reference point rather than absolute wealth. Leaders are risk-averse when protecting perceived gains, but become highly risk-acceptant (gambling on dangerous escalation) when facing perceived losses of territory, prestige, or regime survival.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Loss Aversion & The Sunk Cost Trap",
+            "concept": "Losses hurt roughly twice as much as equivalent gains feel good; leaders escalate failing military commitments to avoid confirming a loss.",
+            "application": "Evaluating exit strategies for military interventions."
+          },
+          {
+            "name": "Status Quo Bias & Reference Point Framing",
+            "concept": "Leaders quickly normalize recent gains into their new baseline reference point, treating any reversal as an intolerable direct attack.",
+            "application": "Explaining sudden military crises following diplomatic boundary shifts."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The 1982 Falklands/Malvinas War Escalation",
+          "historicalContext": "Facing domestic collapse, the Argentine junta invaded the Falkland Islands to recapture historic territory.",
+          "strategicAnalysis": "Framed in the 'domain of losses', British Prime Minister Margaret Thatcher accepted immense naval military risks 8,000 miles from home to reverse the loss.",
+          "lessonsForStatecraft": "When both sides frame a territorial dispute in the domain of losses, armed conflict becomes almost impossible to prevent."
+        },
+        "banglaDiplomaticSummary": "\u09aa\u09cd\u09b0\u09b8\u09aa\u09c7\u0995\u09cd\u099f \u09a5\u09bf\u0993\u09b0\u09bf \u09a6\u09c7\u0996\u09be\u09af\u09bc \u09af\u09c7 \u0995\u09cd\u09b7\u09a4\u09bf \u09ac\u09be \u09ae\u09b0\u09cd\u09af\u09be\u09a6\u09be \u09b9\u09be\u09a8\u09bf\u09b0 \u09ae\u09c1\u0996\u09c7 \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09a8\u09be\u09af\u09bc\u0995\u09b0\u09be \u09aa\u09b0\u09be\u099c\u09af\u09bc \u09b8\u09cd\u09ac\u09c0\u0995\u09be\u09b0 \u09a8\u09be \u0995\u09b0\u09c7 \u0986\u09b0\u0993 \u099a\u09b0\u09ae \u09ac\u09bf\u09aa\u099c\u09cd\u099c\u09a8\u0995 \u09b8\u09be\u09ae\u09b0\u09bf\u0995 \u099d\u09c1\u0981\u0995\u09bf \u09a8\u09bf\u09a4\u09c7 \u0989\u09a6\u09cd\u09af\u09a4 \u09b9\u09a8\u0964",
+        "analyticalSeminarQuestions": [
+          "Why do political regimes find it nearly impossible to execute a strategic military withdrawal when framed in the domain of losses?",
+          "How can diplomats re-frame negotiations to shift an adversary from the domain of losses to the domain of gains?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Prospect Theory in International Relations",
+            "author": "Jack S. Levy",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Loss aversion, reference points, and crisis escalation."
+          }
+        ]
+      },
+      {
+        "id": "lec3_4",
+        "pillarId": "pillar3_polpsych_individual",
+        "lectureNumber": "3.4",
+        "title": "Operational Code & Leader Personality Profiling",
+        "subtitle": "Nathan Leites, Alexander George's Philosophical/Instrumental Codes & World Leader Profiling",
+        "readTimeMinutes": 22,
+        "overview": "A statesman's Operational Code constitutes their fundamental belief system regarding the nature of politics: Is the political universe essentially one of harmony or conflict? How predictable is the future? What is the utility of force? We analyze Nathan Leites and Alexander George's Operational Code constructs and psychological profiling techniques.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Alexander George's Operational Code Construct",
+            "concept": "5 Philosophical beliefs (nature of politics, predictability, control) and 5 Instrumental beliefs (strategy, tactics, risk calculation).",
+            "application": "Constructing predictive behavioral profiles of adversary chief executives."
+          },
+          {
+            "name": "Leadership Trait Analysis (Margaret Hermann)",
+            "concept": "Measuring conceptual complexity, belief in ability to control events, and task vs. relationship orientation from unscripted public speech.",
+            "application": "Tailoring bilateral summit negotiating strategies to specific head-of-state personalities."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "Profiling the Soviet Politburo: Leites's 'The Operational Code of the Politburo'",
+          "historicalContext": "During the early Cold War, RAND analyst Nathan Leites decoded the Bolshevik operational doctrine.",
+          "strategicAnalysis": "Proved Soviet leaders operated on strict 'push to the limit, but retreat when encountering firm resistance' logic, guiding US containment strategy.",
+          "lessonsForStatecraft": "Understanding an adversary's operational code prevents both unwarranted appeasement and dangerous miscalculated escalation."
+        },
+        "banglaDiplomaticSummary": "\u0985\u09aa\u09be\u09b0\u09c7\u09b6\u09a8\u09be\u09b2 \u0995\u09cb\u09a1 \u09ac\u09bf\u09b6\u09cd\u09b2\u09c7\u09b7\u09a3 \u0995\u09b0\u09c7 \u09ac\u09bf\u09b6\u09cd\u09ac\u09a8\u09c7\u09a4\u09be\u09a6\u09c7\u09b0 \u09ae\u09cc\u09b2\u09bf\u0995 \u09ae\u09a8\u09b8\u09cd\u09a4\u09be\u09a4\u09cd\u09a4\u09cd\u09ac\u09bf\u0995 \u09a6\u09c3\u09b7\u09cd\u099f\u09bf\u09ad\u0999\u09cd\u0997\u09bf \u0993 \u09b8\u0982\u0998\u09be\u09a4 \u09aa\u09b0\u09bf\u099a\u09be\u09b2\u09a8\u09be\u09b0 \u09a7\u09b0\u09a8 \u09ac\u09cb\u099d\u09be \u09af\u09be\u09af\u09bc, \u09af\u09be \u09b6\u09c0\u09b0\u09cd\u09b7 \u09ac\u09c8\u09a0\u0995\u09c7\u09b0 \u09a6\u09b0\u0995\u09b7\u09be\u0995\u09b7\u09bf\u09a4\u09c7 \u0985\u09a4\u09cd\u09af\u09a8\u09cd\u09a4 \u0995\u09be\u09b0\u09cd\u09af\u0995\u09b0\u0964",
+        "analyticalSeminarQuestions": [
+          "How does a leader's operational code influence their interpretation of ambiguous military signaling?",
+          "Can an entrenched leader's operational code fundamentally change in response to geopolitical shocks?"
+        ],
+        "keyReadings": [
+          {
+            "title": "The 'Operational Code': A Neglected Approach to the Study of Political Leaders",
+            "author": "Alexander L. George",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Philosophical and instrumental belief systems in statecraft."
           }
         ]
       }
@@ -428,7 +801,7 @@ export const PILLARS_DATA: Pillar[] = [
     "checkpointQuiz": {
       "id": "quiz_p3",
       "pillarId": "pillar3_polpsych_individual",
-      "title": "Pillar 3 Cognitive Statecraft Examination",
+      "title": "Seminar Checkpoint 3: Psychological Deconstruction \u2014 Cognitive Bias Mapping of a Historic Escalation Crisis",
       "passingScorePercentage": 75,
       "questions": [
         {
@@ -442,7 +815,20 @@ export const PILLARS_DATA: Pillar[] = [
           ],
           "correctIndex": 1,
           "academicRationale": "Prospect Theory demonstrates the domain of losses induces risk-seeking behavior, causing leaders to double down on failing strategies.",
-          "banglaExplanation": "প্রসপেক্ট থিওরি অনুযায়ী ক্ষতি বা মর্যাদা হানির মুখে রাষ্ট্রনায়করা পরাজয় স্বীকার না করে আরও বিপজ্জনক সামরিক ঝুঁকি নিতে দ্বিধা করেন না।"
+          "banglaExplanation": "\u09aa\u09cd\u09b0\u09b8\u09aa\u09c7\u0995\u09cd\u099f \u09a5\u09bf\u0993\u09b0\u09bf \u0985\u09a8\u09c1\u09af\u09be\u09af\u09bc\u09c0 \u0995\u09cd\u09b7\u09a4\u09bf \u09ac\u09be \u09ae\u09b0\u09cd\u09af\u09be\u09a6\u09be \u09b9\u09be\u09a8\u09bf\u09b0 \u09ae\u09c1\u0996\u09c7 \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09a8\u09be\u09af\u09bc\u0995\u09b0\u09be \u09aa\u09b0\u09be\u099c\u09af\u09bc \u09b8\u09cd\u09ac\u09c0\u0995\u09be\u09b0 \u09a8\u09be \u0995\u09b0\u09c7 \u0986\u09b0\u0993 \u09ac\u09bf\u09aa\u099c\u09cd\u099c\u09a8\u0995 \u09b8\u09be\u09ae\u09b0\u09bf\u0995 \u099d\u09c1\u0981\u0995\u09bf \u09a8\u09bf\u09a4\u09c7 \u09a6\u09cd\u09ac\u09bf\u09a7\u09be \u0995\u09b0\u09c7\u09a8 \u09a8\u09be\u0964"
+        },
+        {
+          "id": "q3_2",
+          "prompt": "What is the 'Fundamental Attribution Error' in foreign policy analysis?",
+          "options": [
+            "A math calculation error in the defense budget",
+            "Attributing adversary actions to deep malevolent character traits while viewing one's own moves as purely defensive reactions to circumstance",
+            "Translating a diplomatic note into the wrong foreign language",
+            "Failing to invite an ambassador to a state dinner"
+          ],
+          "correctIndex": 1,
+          "academicRationale": "Fundamental Attribution Error causes states to interpret opponent actions as proof of inherent aggression while assuming their own motives are self-evidently defensive.",
+          "banglaExplanation": "\u09ab\u09be\u09a8\u09cd\u09a1\u09be\u09ae\u09c7\u09a8\u09cd\u099f\u09be\u09b2 \u0985\u09cd\u09af\u09be\u099f\u09cd\u09b0\u09bf\u09ac\u09bf\u0989\u09b6\u09a8 \u098f\u09b0\u09b0 \u09b9\u09b2\u09cb \u09aa\u09cd\u09b0\u09a4\u09bf\u09aa\u0995\u09cd\u09b7\u09c7\u09b0 \u0995\u09be\u099c\u0995\u09c7 \u09b6\u09a4\u09cd\u09b0\u09c1\u09ad\u09be\u09ac\u09be\u09aa\u09a8\u09cd\u09a8 \u09b8\u09cd\u09ac\u09ad\u09be\u09ac\u09c7\u09b0 \u09aa\u09cd\u09b0\u09ae\u09be\u09a3 \u09ae\u09a8\u09c7 \u0995\u09b0\u09be \u098f\u09ac\u0982 \u09a8\u09bf\u099c\u09c7\u09b0 \u09aa\u09a6\u0995\u09cd\u09b7\u09c7\u09aa\u0995\u09c7 \u098f\u0995\u09be\u09a8\u09cd\u09a4\u0987 \u0986\u09a4\u09cd\u09ae\u09b0\u0995\u09cd\u09b7\u09be\u09ae\u09c2\u09b2\u0995 \u09ac\u09b2\u09c7 \u09ac\u09bf\u09ac\u09c7\u099a\u09a8\u09be \u0995\u09b0\u09be\u0964"
         }
       ]
     }
@@ -450,20 +836,20 @@ export const PILLARS_DATA: Pillar[] = [
   {
     "id": "pillar4_polpsych_group",
     "termId": "term2",
-    "termTitle": "Term II: Psychological & Advisory Statecraft",
+    "termTitle": "\ud83e\udde0 TERM II: POLITICAL PSYCHOLOGY & FOREIGN POLICY DECISION-MAKING",
     "pillarNumber": 4,
-    "title": "Advisory Systems, Groupthink & Crisis Management",
+    "title": "Group Dynamics, Bureaucracy & Crisis Psychology",
     "categoryBadge": "Advisory Councils & Crisis Dynamics",
-    "shortDescription": "Analyze how small-group dynamics, Irving Janis's Groupthink, and National Security Council structures shape strategic decision-making.",
-    "academicObjective": "Evaluate institutional mechanisms for Devil's Advocacy, red-teaming, and cognitive debiasing during geopolitical crises.",
+    "shortDescription": "Analyze how small-group dynamics, Irving Janis's Groupthink, bureaucratic politics, extreme stress, and collective emotion shape foreign policy.",
+    "academicObjective": "Evaluate institutional mechanisms for Devil's Advocacy, Multiple Advocacy, crisis management under time compression, and honor/grievance dynamics.",
     "competencyArea": "Cabinet Advisory Systems & Crisis Leadership",
     "lectures": [
       {
         "id": "lec4_1",
         "pillarId": "pillar4_polpsych_group",
         "lectureNumber": "4.1",
-        "title": "Irving Janis's Groupthink & Cabinet Decision Failures",
-        "subtitle": "Illusions of Invulnerability, Self-Censorship, and the Bay of Pigs",
+        "title": "Groupthink & Pathologies of Advisory Councils",
+        "subtitle": "Irving Janis's 8 Symptoms, Concurrence-Seeking, Self-Censorship & Preventive Mechanisms (Devil's Advocacy)",
         "readTimeMinutes": 20,
         "overview": "When national leadership councils become highly cohesive and isolated from independent critique, concurrence-seeking overrides realistic appraisal of alternatives. We analyze the 8 symptoms of Groupthink identified by Irving Janis and examine how formal National Security Council processes can institutionalize dissent.",
         "theoreticalFrameworks": [
@@ -484,17 +870,137 @@ export const PILLARS_DATA: Pillar[] = [
           "strategicAnalysis": "Advisors who harbored serious doubts practiced self-censorship, assuming everyone else was confident. The invasion collapsed in 72 hours.",
           "lessonsForStatecraft": "Consensus without rigorous institutionalized debate is the most dangerous hazard in high-stakes security statecraft."
         },
-        "banglaDiplomaticSummary": "গ্রুপথিঙ্ক এমন এক মনস্তাত্ত্বিক ফাঁদ যেখানে শীর্ষ উপদেষ্টারা মতবিরোধ গোপন রেখে অন্ধ ঐকমত্য তৈরি করেন, যার ফলে কিউবায় বে অব পিগসের মতো মারাত্মক বিপর্যয় ঘটে।",
+        "banglaDiplomaticSummary": "\u0997\u09cd\u09b0\u09c1\u09aa\u09a5\u09bf\u0999\u09cd\u0995 \u098f\u09ae\u09a8 \u098f\u0995 \u09ae\u09a8\u09b8\u09cd\u09a4\u09be\u09a4\u09cd\u09a4\u09cd\u09ac\u09bf\u0995 \u09ab\u09be\u0981\u09a6 \u09af\u09c7\u0996\u09be\u09a8\u09c7 \u09b6\u09c0\u09b0\u09cd\u09b7 \u0989\u09aa\u09a6\u09c7\u09b7\u09cd\u099f\u09be\u09b0\u09be \u09ae\u09a4\u09ac\u09bf\u09b0\u09cb\u09a7 \u0997\u09cb\u09aa\u09a8 \u09b0\u09c7\u0996\u09c7 \u0985\u09a8\u09cd\u09a7 \u0990\u0995\u09ae\u09a4\u09cd\u09af \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09c7\u09a8, \u09af\u09be\u09b0 \u09ab\u09b2\u09c7 \u0995\u09bf\u0989\u09ac\u09be\u09af\u09bc \u09ac\u09c7 \u0985\u09ac \u09aa\u09bf\u0997\u09b8\u09c7\u09b0 \u09ae\u09a4\u09cb \u09ae\u09be\u09b0\u09be\u09a4\u09cd\u09ae\u0995 \u09ac\u09bf\u09aa\u09b0\u09cd\u09af\u09af\u09bc \u0998\u099f\u09c7\u0964",
         "analyticalSeminarQuestions": [
           "How can a Prime Minister or President prevent cabinet members from acting as sycophantic 'mindguards'?",
           "What institutional rules distinguish productive multiple advocacy from paralyzing bureaucratic deadlock?"
         ],
         "keyReadings": [
           {
-            "title": "Victims of Groupthink: A Psychological Study of Foreign-Policy Decisions",
+            "title": "Victims of Groupthink",
             "author": "Irving L. Janis",
             "sourceType": "Classic Text",
             "coreConcept": "Group dynamics and structural failures in advisory councils."
+          }
+        ]
+      },
+      {
+        "id": "lec4_2",
+        "pillarId": "pillar4_polpsych_group",
+        "lectureNumber": "4.2",
+        "title": "Bureaucratic Politics & 'Where You Stand Depends on Where You Sit'",
+        "subtitle": "Departmental Turf Battles, Standard Operating Procedures (SOPs) & Inter-Agency Friction",
+        "readTimeMinutes": 22,
+        "overview": "Foreign policy decisions are rarely the output of a single unitary mind. Graham Allison and Morton Halperin demonstrated that state action is the result of bureaucratic pulling and hauling between ministries (Foreign Affairs, Defense, Finance, Intelligence) competing for budget, prestige, and institutional autonomy.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Halperin's Bureaucratic Politics Model",
+            "concept": "Agencies formulate policy stances designed to protect their organizational essence, budget allocations, and jurisdiction.",
+            "application": "Navigating defense procurement disputes between armed service branches."
+          },
+          {
+            "name": "Organizational Routine Lock-In",
+            "concept": "Agencies can only execute operations for which they have pre-existing training and doctrine, severely limiting the executive's policy options.",
+            "application": "Developing flexible asymmetric crisis response capabilities."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The 1980 Operation Eagle Claw Desert One Disaster",
+          "historicalContext": "The US attempted a complex multi-service helicopter rescue of hostages in Tehran, which failed catastrophically in the Iranian desert.",
+          "strategicAnalysis": "Inter-service rivalry led to fragmented command structures, incompatible communications, and failure of joint operations.",
+          "lessonsForStatecraft": "Unified joint command structures are essential to overcome paralyzing inter-agency bureaucratic rivalries."
+        },
+        "banglaDiplomaticSummary": "\u0986\u09ae\u09b2\u09be\u09a4\u09be\u09a8\u09cd\u09a4\u09cd\u09b0\u09bf\u0995 \u09b0\u09be\u099c\u09a8\u09c0\u09a4\u09bf\u09a4\u09c7 \u09aa\u09cd\u09b0\u09a4\u09bf\u099f\u09bf \u09ae\u09a8\u09cd\u09a4\u09cd\u09b0\u09a3\u09be\u09b2\u09af\u09bc \u09a8\u09bf\u099c\u09b8\u09cd\u09ac \u09ac\u09be\u099c\u09c7\u099f \u0993 \u0995\u09b0\u09cd\u09a4\u09c3\u09a4\u09cd\u09ac \u09b0\u0995\u09cd\u09b7\u09be\u09af\u09bc \u09ac\u09cd\u09af\u09b8\u09cd\u09a4 \u09a5\u09be\u0995\u09c7, \u09af\u09be \u099c\u09be\u09a4\u09c0\u09af\u09bc \u09a8\u09bf\u09b0\u09be\u09aa\u09a4\u09cd\u09a4\u09be \u09b8\u09bf\u09a6\u09cd\u09a7\u09be\u09a8\u09cd\u09a4\u09c7\u09b0 \u0997\u09a4\u09bf \u0993 \u0995\u09be\u09b0\u09cd\u09af\u0995\u09be\u09b0\u09bf\u09a4\u09be\u0995\u09c7 \u09ae\u09be\u09b0\u09be\u09a4\u09cd\u09ae\u0995\u09ad\u09be\u09ac\u09c7 \u09ac\u09cd\u09af\u09be\u09b9\u09a4 \u0995\u09b0\u09c7\u0964",
+        "analyticalSeminarQuestions": [
+          "How can a National Security Advisor break inter-service rivalries between the Army, Navy, and Air Force?",
+          "Why do foreign ministries often clash with military intelligence agencies during diplomatic negotiations?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Bureaucratic Politics and Foreign Policy",
+            "author": "Morton H. Halperin",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Organizational interests and bureaucratic games."
+          }
+        ]
+      },
+      {
+        "id": "lec4_3",
+        "pillarId": "pillar4_polpsych_group",
+        "lectureNumber": "4.3",
+        "title": "Stress, Fatigue & Crisis Decision-Making",
+        "subtitle": "Time Compression, Perceptual Narrowing, Sleep Deprivation & Decision Degradation in War Cabinets (Holsti)",
+        "readTimeMinutes": 20,
+        "overview": "Ole Holsti's crisis research showed that acute geopolitical crises induce severe psychological stress characterized by time compression, sleep deprivation, physical exhaustion, and perceptual narrowing (tunnel vision). Decision-makers focus exclusively on immediate survival while ignoring long-term second-order consequences.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Holsti's Crisis Stress Model",
+            "concept": "As perceived threat and time pressure increase, cognitive tolerance for ambiguity declines, alternatives examined drop, and reliance on crude stereotypes surges.",
+            "application": "Mandating cognitive rest protocols and rotational advisory teams in national command centers."
+          },
+          {
+            "name": "Perceptual Narrowing (Tunnel Vision)",
+            "concept": "Stress severely restricts the visual and cognitive field, causing leaders to overlook diplomatic de-escalation off-ramps.",
+            "application": "Creating formal checklists of de-escalation channels during military alerts."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The July 1914 Crisis: Exhaustion in the European Chanceries",
+          "historicalContext": "In the weeks following the Sarajevo assassination, European monarchs, chancellors, and foreign ministers worked under frantic around-the-clock telegram pressure.",
+          "strategicAnalysis": "Physical exhaustion and panic fueled fatalistic beliefs that war was inevitable, causing leaders to abdicate diplomacy to military railway timetables.",
+          "lessonsForStatecraft": "Crisis decision mechanisms must be designed to withstand severe time compression without triggering panic reactions."
+        },
+        "banglaDiplomaticSummary": "\u099a\u09b0\u09ae \u09b8\u0982\u0995\u099f \u0993 \u09b8\u09ae\u09af\u09bc\u09b8\u09cd\u09ac\u09b2\u09cd\u09aa\u09a4\u09be\u09b0 \u09ae\u09c1\u0996\u09c7 \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09a8\u09be\u09af\u09bc\u0995\u09a6\u09c7\u09b0 \u09ae\u09b8\u09cd\u09a4\u09bf\u09b7\u09cd\u0995 \u0995\u09cd\u09b2\u09be\u09a8\u09cd\u09a4 \u09b9\u09af\u09bc\u09c7 \u09aa\u09a1\u09bc\u09c7 (\u09b9\u09cb\u09b2\u09b8\u09cd\u099f\u09bf\u09b0 \u0995\u09cd\u09b0\u09be\u0987\u09b8\u09bf\u09b8 \u09b8\u09cd\u099f\u09cd\u09b0\u09c7\u09b8 \u09ae\u09a1\u09c7\u09b2), \u09ab\u09b2\u09c7 \u09a4\u09be\u09b0\u09be \u09a6\u09c0\u09b0\u09cd\u0998\u09ae\u09c7\u09af\u09bc\u09be\u09a6\u09c0 \u09aa\u09b0\u09bf\u09a3\u09a4\u09bf \u09a8\u09be \u09ad\u09c7\u09ac\u09c7 \u09ad\u09c1\u09b2 \u09b8\u09bf\u09a6\u09cd\u09a7\u09be\u09a8\u09cd\u09a4\u09c7 \u0989\u09aa\u09a8\u09c0\u09a4 \u09b9\u09a8\u0964",
+        "analyticalSeminarQuestions": [
+          "How can modern war cabinets structure cognitive rotations to prevent fatigue-induced strategic blunders?",
+          "How does hypersonic missile technology exacerbate crisis time compression for national command authorities?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Crisis, Escalation, War",
+            "author": "Ole R. Holsti",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Stress, cognitive narrowing, and crisis decision-making."
+          }
+        ]
+      },
+      {
+        "id": "lec4_4",
+        "pillarId": "pillar4_polpsych_group",
+        "lectureNumber": "4.4",
+        "title": "Emotion, Honor, Hubris & National Humiliation",
+        "subtitle": "Prestige Politics, Collective Historical Trauma, Fear & Grievance in Foreign Policy Escalation",
+        "readTimeMinutes": 22,
+        "overview": "Realism often assumes cold rational calculation, but history proves that non-material emotional drivers\u2014national honor, fear of humiliation, collective historical trauma, and strategic hubris\u2014frequently overpower economic and military logic, driving states into ruinous revisionist conflicts.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Richard Ned Lebow's Psychology of Honor and Standing",
+            "concept": "Interstate conflict is frequently motivated not by appetite or security fear, but by the pursuit of standing, prestige, and vindication of national honor.",
+            "application": "Understanding why nations fight over barren islands and prestige symbols."
+          },
+          {
+            "name": "Collective Historical Trauma & Grievance Mobilization",
+            "concept": "Regimes mobilize historical narratives of past victimhood ('Century of Humiliation') to justify aggressive foreign policy revisionism.",
+            "application": "Analyzing revisionist great-power nationalism and border disputes."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The 1870 Franco-Prussian War & The Ems Dispatch",
+          "historicalContext": "Otto von Bismarck edited a diplomatic telegram (the Ems Dispatch) to make it appear that the Prussian King had insulted the French Ambassador.",
+          "strategicAnalysis": "French domestic outrage over wounded national honor forced Emperor Napoleon III into declaring a disastrous war for which France was unprepared.",
+          "lessonsForStatecraft": "Skillful adversaries weaponize public honor and emotional humiliation to provoke catastrophic military overextension."
+        },
+        "banglaDiplomaticSummary": "\u099c\u09be\u09a4\u09c0\u09af\u09bc \u09ae\u09b0\u09cd\u09af\u09be\u09a6\u09be, \u0985\u09aa\u09ae\u09be\u09a8\u09c7\u09b0 \u09aa\u09cd\u09b0\u09a4\u09bf\u09b6\u09cb\u09a7 \u0993 \u0990\u09a4\u09bf\u09b9\u09be\u09b8\u09bf\u0995 \u0995\u09cd\u09b7\u09cb\u09ad \u0985\u09a8\u09c7\u0995 \u09b8\u09ae\u09af\u09bc \u0985\u09b0\u09cd\u09a5\u09a8\u09c8\u09a4\u09bf\u0995 \u09af\u09c1\u0995\u09cd\u09a4\u09bf\u09b0 \u099a\u09c7\u09af\u09bc\u09c7\u0993 \u09ac\u09c7\u09b6\u09bf \u09b6\u0995\u09cd\u09a4\u09bf\u09b6\u09be\u09b2\u09c0 \u09b9\u09af\u09bc\u09c7 \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u0995\u09c7 \u09af\u09c1\u09a6\u09cd\u09a7\u09c7 \u09a8\u09be\u09ae\u09bf\u09af\u09bc\u09c7 \u09a6\u09c7\u09af\u09bc (\u09b2\u09c7\u09ac\u09cb\u09b0 \u0985\u09a8\u09be\u09b0 \u0985\u09cd\u09af\u09be\u09a8\u09cd\u09a1 \u09b8\u09cd\u099f\u09cd\u09af\u09be\u09a8\u09cd\u09a1\u09bf\u0982 \u09a5\u09bf\u0993\u09b0\u09bf)\u0964",
+        "analyticalSeminarQuestions": [
+          "Why is diplomatic 'face-saving' an essential component of peaceful conflict resolution?",
+          "How do domestic populist movements leverage collective trauma to constrain pragmatic foreign diplomacy?"
+        ],
+        "keyReadings": [
+          {
+            "title": "A Cultural Theory of International Relations",
+            "author": "Richard Ned Lebow",
+            "sourceType": "Classic Text",
+            "coreConcept": "Honor, standing, and emotional drivers of war."
           }
         ]
       }
@@ -502,7 +1008,7 @@ export const PILLARS_DATA: Pillar[] = [
     "checkpointQuiz": {
       "id": "quiz_p4",
       "pillarId": "pillar4_polpsych_group",
-      "title": "Pillar 4 Advisory Systems & Groupthink Examination",
+      "title": "Seminar Checkpoint 4: Crisis Cabinet Simulation \u2014 Analyzing Decision Breakdown under Severe Time Compression",
       "passingScorePercentage": 75,
       "questions": [
         {
@@ -516,7 +1022,20 @@ export const PILLARS_DATA: Pillar[] = [
           ],
           "correctIndex": 1,
           "academicRationale": "Multiple advocacy ensures that diverse, competing viewpoints and structured devil's advocates rigorously critique policy options before approval.",
-          "banglaExplanation": "আলেকজান্ডার জর্জ দেখিয়েছেন যে মাল্টিপল অ্যাডভোকেসি ও প্রাতিষ্ঠানিক ভিন্নমতের মাধ্যমে অন্ধ ঐকমত্য ভেঙে সঠিক সিদ্ধান্ত নেওয়া সম্ভব।"
+          "banglaExplanation": "\u0986\u09b2\u09c7\u0995\u099c\u09be\u09a8\u09cd\u09a1\u09be\u09b0 \u099c\u09b0\u09cd\u099c \u09a6\u09c7\u0996\u09bf\u09af\u09bc\u09c7\u099b\u09c7\u09a8 \u09af\u09c7 \u09ae\u09be\u09b2\u09cd\u099f\u09bf\u09aa\u09b2 \u0985\u09cd\u09af\u09be\u09a1\u09ad\u09cb\u0995\u09c7\u09b8\u09bf \u0993 \u09aa\u09cd\u09b0\u09be\u09a4\u09bf\u09b7\u09cd\u09a0\u09be\u09a8\u09bf\u0995 \u09ad\u09bf\u09a8\u09cd\u09a8\u09ae\u09a4\u09c7\u09b0 \u09ae\u09be\u09a7\u09cd\u09af\u09ae\u09c7 \u0985\u09a8\u09cd\u09a7 \u0990\u0995\u09ae\u09a4\u09cd\u09af \u09ad\u09c7\u0999\u09c7 \u09b8\u09a0\u09bf\u0995 \u09b8\u09bf\u09a6\u09cd\u09a7\u09be\u09a8\u09cd\u09a4 \u09a8\u09c7\u0993\u09af\u09bc\u09be \u09b8\u09ae\u09cd\u09ad\u09ac\u0964"
+        },
+        {
+          "id": "q4_2",
+          "prompt": "According to Ole Holsti's research, what happens to cognitive decision-making when cabinet leaders experience extreme crisis stress and time compression?",
+          "options": [
+            "Their cognitive capacity expands and they examine significantly more options",
+            "Perceptual narrowing (tunnel vision) occurs, alternatives evaluated drop, and reliance on crude stereotypes surges",
+            "They completely forget their native language",
+            "They automatically achieve world peace"
+          ],
+          "correctIndex": 1,
+          "academicRationale": "Holsti demonstrated that severe stress causes perceptual narrowing, leading decision-makers to overlook diplomatic off-ramps and focus on immediate worst-case fears.",
+          "banglaExplanation": "\u09b9\u09cb\u09b2\u09b8\u09cd\u099f\u09bf\u09b0 \u0997\u09ac\u09c7\u09b7\u09a3\u09be\u09af\u09bc \u09a6\u09c7\u0996\u09be \u09af\u09be\u09af\u09bc \u09a4\u09c0\u09ac\u09cd\u09b0 \u09ae\u09be\u09a8\u09b8\u09bf\u0995 \u099a\u09be\u09aa\u09c7 \u09a8\u09c7\u09a4\u09be\u09a6\u09c7\u09b0 \u09ae\u09be\u09a8\u09b8\u09bf\u0995 \u09a6\u09c3\u09b7\u09cd\u099f\u09bf \u09b8\u0982\u0995\u09c0\u09b0\u09cd\u09a3 (\u099f\u09be\u09a8\u09c7\u09b2 \u09ad\u09bf\u09b6\u09a8) \u09b9\u09af\u09bc\u09c7 \u09af\u09be\u09af\u09bc \u098f\u09ac\u0982 \u09a4\u09be\u09b0\u09be \u09ac\u09bf\u0995\u09b2\u09cd\u09aa \u09aa\u09a5\u0997\u09c1\u09b2\u09cb \u09ac\u09bf\u09ac\u09c7\u099a\u09a8\u09be \u0995\u09b0\u09a4\u09c7 \u09ac\u09cd\u09af\u09b0\u09cd\u09a5 \u09b9\u09a8\u0964"
         }
       ]
     }
@@ -524,51 +1043,211 @@ export const PILLARS_DATA: Pillar[] = [
   {
     "id": "pillar5_security_strategy",
     "termId": "term3",
-    "termTitle": "Term III: Security, Strategy & International Law",
+    "termTitle": "\ud83d\udee1\ufe0f TERM III: STRATEGIC STUDIES, GLOBAL SECURITY & INTERNATIONAL LAW",
     "pillarNumber": 5,
-    "title": "Grand Strategy, Nuclear Deterrence & Maritime Hegemony",
-    "categoryBadge": "Grand Strategy & Maritime Security",
-    "shortDescription": "Master the principles of grand strategy, Thomas Schelling's arms and influence, Mahanian naval theory, and Indian Ocean security architectures.",
-    "academicObjective": "Analyze nuclear stability-instability paradoxes, sea lines of communication (SLOCs), and middle-power asymmetric deterrence.",
+    "title": "Grand Strategy, Warfare & Modern Security Architecture",
+    "categoryBadge": "Grand Strategy & Global Security",
+    "shortDescription": "Master the evolution of strategic thought, nuclear deterrence, hybrid/grey-zone warfare, maritime choke points, and AI/cyber warfare.",
+    "academicObjective": "Analyze Clausewitzian friction, Schelling's arms and influence, Corbettian sea denial, Herman Kahn's escalation ladders, and autonomous cyber doctrines.",
     "competencyArea": "Military Strategy, Maritime Security & Deterrence Architecture",
     "lectures": [
       {
         "id": "lec5_1",
         "pillarId": "pillar5_security_strategy",
         "lectureNumber": "5.1",
-        "title": "Mahan, Corbett & Naval Geostrategy in the Indian Ocean",
-        "subtitle": "Sea Control, Choke Points, and Bay of Bengal Maritime Security",
+        "title": "The Evolution of Strategic Thought",
+        "subtitle": "Sun Tzu, Clausewitz, Jomini, Mahan & Liddell Hart on the Nature of Strategy, Friction & Political War",
         "readTimeMinutes": 22,
-        "overview": "Alfred Thayer Mahan argued that national greatness is tied to command of the sea through decisive battle fleets. Julian Corbett refined this by emphasizing sea denial, commercial interdiction, and joint land-sea operations. This lecture applies these classical theories to the contemporary Indo-Pacific and Bay of Bengal maritime theater.",
+        "overview": "Strategy is the art of creating power to achieve political objectives. This lecture analyzes the foundational strategic canons: Sun Tzu's deception and winning without fighting, Carl von Clausewitz's 'war as the continuation of politics by other means' and the fog/friction of war, Jomini's scientific lines of operations, and Liddell Hart's indirect approach.",
         "theoreticalFrameworks": [
           {
-            "name": "Mahanian Command of the Sea vs. Corbettian Sea Denial",
-            "concept": "Command of the sea requires capital fleets to control oceanic transit; Sea Denial relies on submarines, anti-ship missiles, and mines to deny adversary access.",
-            "application": "Structuring littoral coastal defense doctrines for emerging middle powers."
+            "name": "Clausewitzian Trinity & Friction",
+            "concept": "War is governed by Passion (people), Chance/Creativity (commander/army), and Reason/Policy (government); friction turns simple actions into immense difficulties.",
+            "application": "Aligning military campaigns strictly with clear political end-states."
           },
           {
-            "name": "Thomas Schelling's Strategic Coercion & Brinkmanship",
-            "concept": "The manipulation of the shared risk of war ('the threat that leaves something to chance') as a bargaining instrument in asymmetric deterrence.",
-            "application": "Deterring gray-zone maritime incursions without escalating to hot war."
+            "name": "Liddell Hart's Indirect Approach",
+            "concept": "Dislocating the enemy psychologically and physically prior to battle rather than seeking direct attrition clashes.",
+            "application": "Middle-power asymmetric defense strategies against superior foes."
           }
         ],
         "statecraftCaseStudy": {
-          "title": "The 1971 Indian Ocean Naval Crisis: Task Force 74",
-          "historicalContext": "During the 1971 Bangladesh Liberation War, the US dispatched the USS Enterprise task force into the Bay of Bengal, countered by Soviet nuclear-armed submarines.",
-          "strategicAnalysis": "A classic demonstration of gunboat diplomacy and superpower naval counter-balancing in a regional conflict theater.",
-          "lessonsForStatecraft": "Littoral nations must cultivate domestic naval deterrence and diplomatic agility to avoid becoming helpless pawns in great-power naval standoffs."
+          "title": "The 1971 Bangladesh Liberation War: Multi-Domain Indirect Strategy",
+          "historicalContext": "The joint operational campaign by the Mukti Bahini and allied forces liberated Bangladesh in 13 days.",
+          "strategicAnalysis": "Combined guerrilla disruption of interior lines (indirect approach) with high-speed amphibious/airborne bypass of fortified border strongpoints.",
+          "lessonsForStatecraft": "Asymmetric popular resistance combined with indirect maneuver paralyzes conventional occupying forces."
         },
-        "banglaDiplomaticSummary": "মাহান ও কর্বেটের নৌ-কৌশল তত্ত্ব বঙ্গোপসাগরের ভূ-রাজনীতির মূল ভিত্তি। উপকূলীয় দেশ হিসেবে বাংলাদেশকে মাহানিয়ান আধিপত্যের বিরুদ্ধে কর্বেটিয়ান 'সি ডিনায়াল' এবং কোস্টাল ডিফেন্স গড়ে তুলতে হবে।",
+        "banglaDiplomaticSummary": "\u09b8\u09be\u09a8 \u099c\u09c1, \u0995\u09cd\u09b2\u099c\u09ad\u09bf\u099f\u09b8 \u098f\u09ac\u0982 \u09b2\u09bf\u09a1\u09c7\u09b2 \u09b9\u09be\u09b0\u09cd\u099f\u09c7\u09b0 \u0995\u09cc\u09b6\u09b2\u0997\u09a4 \u09a4\u09a4\u09cd\u09a4\u09cd\u09ac \u09b6\u09c7\u0996\u09be\u09af\u09bc \u09af\u09c7 \u09af\u09c1\u09a6\u09cd\u09a7 \u09a8\u09bf\u099b\u0995 \u09b0\u0995\u09cd\u09a4\u09aa\u09be\u09a4 \u09a8\u09af\u09bc \u09ac\u09b0\u0982 \u09b0\u09be\u099c\u09a8\u09c8\u09a4\u09bf\u0995 \u09b2\u0995\u09cd\u09b7\u09cd\u09af \u0985\u09b0\u09cd\u099c\u09a8\u09c7\u09b0 \u09ae\u09be\u09a7\u09cd\u09af\u09ae; \u09aa\u09cd\u09b0\u09a4\u09cd\u09af\u0995\u09cd\u09b7 \u09b8\u0982\u0998\u09b0\u09cd\u09b7\u09c7\u09b0 \u099a\u09c7\u09af\u09bc\u09c7 \u09aa\u09b0\u09cb\u0995\u09cd\u09b7 \u0995\u09cc\u09b6\u09b2\u0987 \u09ac\u09c7\u09b6\u09bf \u09ab\u09b2\u09aa\u09cd\u09b0\u09b8\u09c2\u0964",
         "analyticalSeminarQuestions": [
-          "Why is Corbett's concept of 'Sea Denial' more cost-effective for a middle power than Mahanian fleet-on-fleet 'Command of the Sea'?",
-          "How does the Malacca Strait choke point shape Chinese and Indian naval grand strategies?"
+          "How does Clausewitz's concept of 'friction' explain the failure of complex military campaign plans?",
+          "Why is Sun Tzu's doctrine of 'subduing the enemy without fighting' the highest form of grand strategy?"
+        ],
+        "keyReadings": [
+          {
+            "title": "On War",
+            "author": "Carl von Clausewitz",
+            "sourceType": "Classic Text",
+            "coreConcept": "War as policy, the trinity, and friction."
+          }
+        ]
+      },
+      {
+        "id": "lec5_2",
+        "pillarId": "pillar5_security_strategy",
+        "lectureNumber": "5.2",
+        "title": "Nuclear Deterrence, Arms Control & Strategic Stability",
+        "subtitle": "Mutually Assured Destruction (MAD), First-Strike vs. Second-Strike, Herman Kahn's Escalation Ladder & Counter-Proliferation",
+        "readTimeMinutes": 24,
+        "overview": "The nuclear revolution fundamentally transformed statecraft: weapons are no longer designed to win wars, but to prevent them from occurring. We analyze Thomas Schelling's coercive diplomacy, Herman Kahn's 44-rung Escalation Ladder, First-Strike vs. Second-Strike survivability (SSBN nuclear triads), counter-force vs counter-value targeting, and the South Asian nuclear matrix (India-Pakistan-China).",
+        "theoreticalFrameworks": [
+          {
+            "name": "Schelling's Strategic Deterrence & Brinkmanship",
+            "concept": "Deterrence is the threat of pain to compel restraint; brinkmanship is 'the threat that leaves something to chance.'",
+            "application": "Establishing credible red lines during border crises."
+          },
+          {
+            "name": "The Stability-Instability Paradox (Glenn Snyder)",
+            "concept": "Strategic nuclear stability at the high end incentivizes low-level proxy wars and cross-border skirmishes at the conventional end.",
+            "application": "Analyzing South Asian sub-conventional conflicts."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The 1999 Kargil Conflict: Testing the Stability-Instability Paradox",
+          "historicalContext": "One year after both India and Pakistan conducted overt nuclear tests, armed conflict erupted along the Line of Control in Kargil.",
+          "strategicAnalysis": "Nuclear deterrence prevented a full-scale systemic war, but Pakistan calculated its nuclear shield would prevent India from opening a second front across the international border.",
+          "lessonsForStatecraft": "Nuclear weapons do not abolish warfare; they compress conflict into dangerous sub-conventional gray zones."
+        },
+        "banglaDiplomaticSummary": "\u09aa\u09be\u09b0\u09ae\u09be\u09a3\u09ac\u09bf\u0995 \u09a8\u09bf\u09ac\u09c3\u09a4\u09cd\u09a4\u09bf\u0995\u09b0\u09a3 \u098f\u09ac\u0982 \u09b8\u09c7\u0995\u09c7\u09a8\u09cd\u09a1-\u09b8\u09cd\u099f\u09cd\u09b0\u09be\u0987\u0995 \u09b8\u0995\u09cd\u09b7\u09ae\u09a4\u09be \u09b8\u09b0\u09be\u09b8\u09b0\u09bf \u09ae\u09b9\u09be\u09af\u09c1\u09a6\u09cd\u09a7 \u0986\u099f\u0995\u09c7 \u09a6\u09bf\u09b2\u09c7\u0993 '\u09b8\u09cd\u099f\u09cd\u09af\u09be\u09ac\u09bf\u09b2\u09bf\u099f\u09bf-\u0987\u09a8\u09b8\u09cd\u099f\u09cd\u09af\u09be\u09ac\u09bf\u09b2\u09bf\u099f\u09bf \u09aa\u09cd\u09af\u09be\u09b0\u09be\u09a1\u0995\u09cd\u09b8'-\u098f\u09b0 \u0995\u09be\u09b0\u09a3\u09c7 \u09a8\u09bf\u09ae\u09cd\u09a8\u09ae\u09be\u09a4\u09cd\u09b0\u09be\u09b0 \u09aa\u09cd\u09b0\u0995\u09cd\u09b8\u09bf \u09af\u09c1\u09a6\u09cd\u09a7 \u0993 \u09b8\u0982\u0998\u09be\u09a4 \u09ac\u09be\u09a1\u09bc\u09bf\u09af\u09bc\u09c7 \u09a6\u09c7\u09af\u09bc\u0964",
+        "analyticalSeminarQuestions": [
+          "Why is a secure, survivable Second-Strike Capability (SSBN submarines) essential for strategic crisis stability?",
+          "How does hypersonic glide technology threaten the existing global nuclear balance?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Arms and Influence",
+            "author": "Thomas C. Schelling",
+            "sourceType": "Classic Text",
+            "coreConcept": "Coercion, deterrence, and commitment strategies."
+          }
+        ]
+      },
+      {
+        "id": "lec5_3",
+        "pillarId": "pillar5_security_strategy",
+        "lectureNumber": "5.3",
+        "title": "Asymmetric, Hybrid & Grey-Zone Warfare",
+        "subtitle": "Non-Contact Operations, Proxy Conflicts, Salami-Slicing Tactics, Weaponized Interdependence & Private Military Actors",
+        "readTimeMinutes": 22,
+        "overview": "Modern conflict rarely takes the form of declared symmetric interstate war. Revisionist states employ Gray-Zone strategies\u2014coercive statecraft that stays deliberately below the threshold of conventional armed conflict to avoid triggering treaty alliances (Article 5). We dissect 'salami-slicing' tactics, maritime militias, cyber sabotage, weaponized disinformation, and proxy warfare.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Gray-Zone Salami Slicing Tactics",
+            "concept": "Accumulating minor, incremental revisions to the territorial or security status quo where no individual action justifies armed retaliation.",
+            "application": "Defending offshore EEZ borders and transboundary river basins."
+          },
+          {
+            "name": "Gerasimov Hybrid Warfare Doctrine",
+            "concept": "The ratio of non-military to military measures in modern warfare is 4:1 (economic, informational, legal, cyber, and special forces).",
+            "application": "Building whole-of-nation resilience against foreign subversion."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "Maritime Gray-Zone Expansion in the South China Sea",
+          "historicalContext": "Deployment of paramilitary Maritime Militia fishing fleets and artificial island reclamation.",
+          "strategicAnalysis": "Encroached upon neighboring EEZs without firing shots, paralyzing conventional naval responses.",
+          "lessonsForStatecraft": "Coastal middle powers must develop maritime constabulary and legal lawfare instruments to counter gray-zone encroachment."
+        },
+        "banglaDiplomaticSummary": "\u0997\u09cd\u09b0\u09c7-\u099c\u09cb\u09a8 \u0993 \u09b9\u09be\u0987\u09ac\u09cd\u09b0\u09bf\u09a1 \u09af\u09c1\u09a6\u09cd\u09a7 \u098f\u09ae\u09a8 \u098f\u0995 \u0995\u09cc\u09b6\u09b2 \u09af\u09c7\u0996\u09be\u09a8\u09c7 \u09b8\u09b0\u09be\u09b8\u09b0\u09bf \u09af\u09c1\u09a6\u09cd\u09a7 \u0998\u09cb\u09b7\u09a3\u09be \u09a8\u09be \u0995\u09b0\u09c7 \u09b8\u09be\u0987\u09ac\u09be\u09b0 \u09b9\u09be\u09ae\u09b2\u09be, \u09ad\u09c1\u09af\u09bc\u09be \u09a4\u09a5\u09cd\u09af \u098f\u09ac\u0982 \u09b8\u09be\u09ae\u09b0\u09bf\u0995 \u09ae\u09bf\u09b2\u09bf\u09b6\u09bf\u09af\u09bc\u09be\u09b0 \u09ae\u09be\u09a7\u09cd\u09af\u09ae\u09c7 \u09a7\u09be\u09aa\u09c7 \u09a7\u09be\u09aa\u09c7 \u09b8\u09be\u09b0\u09cd\u09ac\u09ad\u09cc\u09ae\u09a4\u09cd\u09ac \u0995\u09cd\u09b7\u09c1\u09a3\u09cd\u09a3 \u0995\u09b0\u09be \u09b9\u09af\u09bc\u0964",
+        "analyticalSeminarQuestions": [
+          "How can a middle power deter gray-zone encroachments without escalating into conventional armed defeat?",
+          "What is the role of private military companies (PMCs) in modern geopolitical proxy conflicts?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Hybrid Warfare",
+            "author": "Williamson Murray & Peter R. Mansoor",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Asymmetric, hybrid, and irregular warfare."
+          }
+        ]
+      },
+      {
+        "id": "lec5_4",
+        "pillarId": "pillar5_security_strategy",
+        "lectureNumber": "5.4",
+        "title": "Maritime Strategy & Choke-Point Geopolitics",
+        "subtitle": "Sea Lines of Communication (SLOCs), Exclusive Economic Zones (EEZ), Maritime Corridors & Naval Modernization",
+        "readTimeMinutes": 22,
+        "overview": "Over 80% of global trade and 90% of energy transit travels by sea. Julian Corbett demonstrated that control of Sea Lines of Communication (SLOCs) and maritime choke points (Strait of Malacca, Hormuz, Bab-el-Mandeb) dictates national survival. We analyze naval modernization, anti-access/area-denial (A2/AD) coastal defense, and the Bay of Bengal littoral balance of power.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Julian Corbett's Sea Denial Doctrine",
+            "concept": "Weaker littoral navies do not need expensive carrier fleets; they can deny oceanic transit to adversaries via missile corvettes, submarines, and coastal batteries.",
+            "application": "Formulating Bangladesh Navy's 'Forces Goal 2030' littoral defense architecture."
+          },
+          {
+            "name": "Choke Point Vulnerability & The Malacca Dilemma",
+            "concept": "Dependence on narrow maritime straits allows adversary navies to strangle national energy and trade supply lines.",
+            "application": "Developing deep-sea ports (Matarbari, Payra) to secure maritime resilience."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The Bay of Bengal Maritime Security Corridor & Matarbari Port",
+          "historicalContext": "The Bay of Bengal connects the Indian Ocean to East Asian trade highways.",
+          "strategicAnalysis": "Developing Bangladesh's Matarbari deep-sea port provides strategic commercial access to landlocked Northeast India, Nepal, and Bhutan while maintaining open sea lines.",
+          "lessonsForStatecraft": "Strategic port infrastructure transforms geographical location into enduring geoeconomic leverage."
+        },
+        "banglaDiplomaticSummary": "\u09b8\u09ae\u09c1\u09a6\u09cd\u09b0 \u09ac\u09be\u09a3\u09bf\u099c\u09cd\u09af \u0993 \u099c\u09cd\u09ac\u09be\u09b2\u09be\u09a8\u09bf \u09a8\u09bf\u09b0\u09be\u09aa\u09a4\u09cd\u09a4\u09be\u09b0 \u0995\u09c7\u09a8\u09cd\u09a6\u09cd\u09b0\u09ac\u09bf\u09a8\u09cd\u09a6\u09c1 \u09b9\u09b2\u09cb \u09b8\u09be\u09ae\u09c1\u09a6\u09cd\u09b0\u09bf\u0995 \u099a\u09cb\u0996 \u09aa\u09af\u09bc\u09c7\u09a8\u09cd\u099f\u0964 \u0995\u09b0\u09cd\u09ac\u09c7\u099f\u09c7\u09b0 '\u09b8\u09bf \u09a1\u09bf\u09a8\u09be\u09af\u09bc\u09be\u09b2' \u09a4\u09a4\u09cd\u09a4\u09cd\u09ac \u0985\u09a8\u09c1\u09af\u09be\u09af\u09bc\u09c0 \u0989\u09aa\u0995\u09c2\u09b2\u09c0\u09af\u09bc \u09aa\u09cd\u09b0\u09a4\u09bf\u09b0\u0995\u09cd\u09b7\u09be \u0993 \u0997\u09ad\u09c0\u09b0 \u09b8\u09ae\u09c1\u09a6\u09cd\u09b0 \u09ac\u09a8\u09cd\u09a6\u09b0 \u09a8\u09bf\u09b0\u09cd\u09ae\u09be\u09a3 \u099c\u09be\u09a4\u09c0\u09af\u09bc \u09a8\u09bf\u09b0\u09be\u09aa\u09a4\u09cd\u09a4\u09be\u09b0 \u0985\u09aa\u09b0\u09bf\u09b9\u09be\u09b0\u09cd\u09af \u0985\u0999\u09cd\u0997\u0964",
+        "analyticalSeminarQuestions": [
+          "Why is Corbettian Sea Denial more fiscally and strategically viable for developing coastal nations than Mahanian fleet expansion?",
+          "How does the militarization of the Andaman and Nicobar Islands impact Bay of Bengal sea lines?"
         ],
         "keyReadings": [
           {
             "title": "Some Principles of Maritime Strategy",
             "author": "Julian S. Corbett",
             "sourceType": "Classic Text",
-            "coreConcept": "Sea denial, commerce protection, and joint maritime-land operations."
+            "coreConcept": "Sea denial, trade protection, and maritime lines of operation."
+          }
+        ]
+      },
+      {
+        "id": "lec5_5",
+        "pillarId": "pillar5_security_strategy",
+        "lectureNumber": "5.5",
+        "title": "Cybersecurity, Critical Infrastructure & Autonomous Weapons",
+        "subtitle": "Cyber Statecraft, Offensive Cyber Doctrines, Algorithmic Deterrence & AI-Enabled Warfare",
+        "readTimeMinutes": 20,
+        "overview": "Cyberspace and Artificial Intelligence constitute the fifth domain of warfare. This lecture explores offensive cyber operations (Stuxnet, ransomware sabotage of power grids), algorithmic deterrence, attribution challenges, the weaponization of autonomous drone swarms, and the absence of established arms control treaties in digital warfare.",
+        "theoreticalFrameworks": [
+          {
+            "name": "Cyber Attribution Dilemma & Active Defense",
+            "concept": "The difficulty of definitively proving the sovereign origin of a cyber attack reduces traditional deterrence credibility.",
+            "application": "Building sovereign critical infrastructure cyber air-gaps and rapid incident response teams."
+          },
+          {
+            "name": "Autonomous Weapons & Algorithmic Escalation",
+            "concept": "AI-driven targeting systems operate at machine speeds, compressing crisis decision-making and raising risks of inadvertent war.",
+            "application": "Negotiating global ethical conventions on Human-in-the-Loop (HITL) weapons systems."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "Operation Olympic Games (Stuxnet 2010)",
+          "historicalContext": "A sophisticated cyber weapon damaged Iranian nuclear centrifuges at Natanz without physical air strikes.",
+          "strategicAnalysis": "Demonstrated that digital code can produce kinetic destruction on sovereign critical infrastructure.",
+          "lessonsForStatecraft": "National sovereignty now requires absolute cyber defense of electrical grids, central banking systems, and ports."
+        },
+        "banglaDiplomaticSummary": "\u09b8\u09be\u0987\u09ac\u09be\u09b0 \u09b8\u09cd\u09aa\u09c7\u09b8 \u0993 \u0995\u09c3\u09a4\u09cd\u09b0\u09bf\u09ae \u09ac\u09c1\u09a6\u09cd\u09a7\u09bf\u09ae\u09a4\u09cd\u09a4\u09be \u09af\u09c1\u09a6\u09cd\u09a7\u09c7\u09b0 \u09a8\u09a4\u09c1\u09a8 \u09ab\u09cd\u09b0\u09a8\u09cd\u099f\u09b2\u09be\u0987\u09a8\u0964 \u09ac\u09bf\u09a6\u09cd\u09af\u09c1\u09ce \u0997\u09cd\u09b0\u09bf\u09a1, \u09ac\u09cd\u09af\u09be\u0982\u0995 \u098f\u09ac\u0982 \u09b8\u09ae\u09c1\u09a6\u09cd\u09b0 \u09ac\u09a8\u09cd\u09a6\u09b0\u09c7\u09b0 \u09b8\u09be\u0987\u09ac\u09be\u09b0 \u09b8\u09c1\u09b0\u0995\u09cd\u09b7\u09be \u098f\u0996\u09a8 \u0995\u09cd\u09b7\u09c7\u09aa\u09a3\u09be\u09b8\u09cd\u09a4\u09cd\u09b0 \u09aa\u09cd\u09b0\u09a4\u09bf\u09b0\u0995\u09cd\u09b7\u09be\u09b0 \u09ae\u09a4\u09cb\u0987 \u09b8\u09ae\u09be\u09a8 \u0997\u09c1\u09b0\u09c1\u09a4\u09cd\u09ac\u09aa\u09c2\u09b0\u09cd\u09a3\u0964",
+        "analyticalSeminarQuestions": [
+          "Can classical nuclear deterrence concepts (like MAD) apply to offensive cyber warfare?",
+          "What are the strategic dangers of delegating military kill-chains to autonomous AI algorithms?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Cyber War Will Not Take Place",
+            "author": "Thomas Rid",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Cyber sabotage, espionage, and the limits of cyber warfare."
           }
         ]
       }
@@ -576,12 +1255,12 @@ export const PILLARS_DATA: Pillar[] = [
     "checkpointQuiz": {
       "id": "quiz_p5",
       "pillarId": "pillar5_security_strategy",
-      "title": "Pillar 5 Grand Strategy & Maritime Security Examination",
+      "title": "Seminar Checkpoint 5: Strategic Threat Assessment \u2014 Formulating a National Maritime Deterrence Doctrine",
       "passingScorePercentage": 75,
       "questions": [
         {
           "id": "q5_1",
-          "prompt": "What is the strategic distinction between Mahan's 'Command of the Sea' and Corbett's 'Sea Denial'?",
+          "prompt": "What is the strategic distinction between Alfred Thayer Mahan's 'Command of the Sea' and Julian Corbett's 'Sea Denial'?",
           "options": [
             "Mahan emphasizes land-based tanks while Corbett focuses on cavalry",
             "Command of the sea aims for total oceanic control via decisive fleet battles, while Sea Denial aims to prevent an adversary from safely utilizing sea lanes",
@@ -590,7 +1269,20 @@ export const PILLARS_DATA: Pillar[] = [
           ],
           "correctIndex": 1,
           "academicRationale": "Corbett demonstrated that weaker or littoral navies can successfully achieve Sea Denial (via submarines, mines, and shore missiles) without needing an expensive battle fleet to achieve total Command.",
-          "banglaExplanation": "মাহান চেয়েছিলেন বিশাল নৌবহর দিয়ে সমুদ্রের পূর্ণ নিয়ন্ত্রণ; অন্যদিকে কর্বেট দেখিয়েছেন উপকূলীয় দেশ মিসাইল ও সাবমেরিন দিয়ে শত্রুর সমুদ্র ব্যবহার আটকে দিতে পারে (সি ডিনায়াল)।"
+          "banglaExplanation": "\u09ae\u09be\u09b9\u09be\u09a8 \u099a\u09c7\u09af\u09bc\u09c7\u099b\u09bf\u09b2\u09c7\u09a8 \u09ac\u09bf\u09b6\u09be\u09b2 \u09a8\u09cc\u09ac\u09b9\u09b0 \u09a6\u09bf\u09af\u09bc\u09c7 \u09b8\u09ae\u09c1\u09a6\u09cd\u09b0\u09c7\u09b0 \u09aa\u09c2\u09b0\u09cd\u09a3 \u09a8\u09bf\u09af\u09bc\u09a8\u09cd\u09a4\u09cd\u09b0\u09a3; \u0985\u09a8\u09cd\u09af\u09a6\u09bf\u0995\u09c7 \u0995\u09b0\u09cd\u09ac\u09c7\u099f \u09a6\u09c7\u0996\u09bf\u09af\u09bc\u09c7\u099b\u09c7\u09a8 \u0989\u09aa\u0995\u09c2\u09b2\u09c0\u09af\u09bc \u09a6\u09c7\u09b6 \u09ae\u09bf\u09b8\u09be\u0987\u09b2 \u0993 \u09b8\u09be\u09ac\u09ae\u09c7\u09b0\u09bf\u09a8 \u09a6\u09bf\u09af\u09bc\u09c7 \u09b6\u09a4\u09cd\u09b0\u09c1\u09b0 \u09b8\u09ae\u09c1\u09a6\u09cd\u09b0 \u09ac\u09cd\u09af\u09ac\u09b9\u09be\u09b0 \u0986\u099f\u0995\u09c7 \u09a6\u09bf\u09a4\u09c7 \u09aa\u09be\u09b0\u09c7 (\u09b8\u09bf \u09a1\u09bf\u09a8\u09be\u09af\u09bc\u09be\u09b2)\u0964"
+        },
+        {
+          "id": "q5_2",
+          "prompt": "What is Glenn Snyder's 'Stability-Instability Paradox' in nuclear deterrence?",
+          "options": [
+            "Nuclear weapons make all conventional weapons completely vanish from the planet",
+            "Strategic nuclear stability between two superpowers eliminates total war at the high end, but paradoxically makes low-level conventional skirmishes and proxy conflicts safer and more likely",
+            "Nuclear power plants always cause financial bankruptcy",
+            "A treaty that requires all countries to build equal numbers of tanks"
+          ],
+          "correctIndex": 1,
+          "academicRationale": "Snyder showed that because neither side dares to escalate to mutual nuclear destruction, states feel emboldened to engage in localized proxy wars below the nuclear threshold.",
+          "banglaExplanation": "\u09b8\u09cd\u09a8\u09be\u0987\u09a1\u09be\u09b0\u09c7\u09b0 \u09aa\u09cd\u09af\u09be\u09b0\u09be\u09a1\u0995\u09cd\u09b8 \u09a6\u09c7\u0996\u09be\u09af\u09bc \u09af\u09c7 \u09aa\u09be\u09b0\u09ae\u09be\u09a3\u09ac\u09bf\u0995 \u09af\u09c1\u09a6\u09cd\u09a7\u09c7\u09b0 \u09ad\u09af\u09bc\u09c7 \u09a6\u09c7\u09b6\u0997\u09c1\u09b2\u09cb \u09b8\u09b0\u09be\u09b8\u09b0\u09bf \u09ae\u09b9\u09be\u09af\u09c1\u09a6\u09cd\u09a7\u09c7 \u09af\u09be\u09af\u09bc \u09a8\u09be \u09a0\u09bf\u0995\u0987, \u09a4\u09ac\u09c7 \u098f\u0987 \u09a8\u09bf\u09b0\u09be\u09aa\u09a4\u09cd\u09a4\u09be\u09b0 \u09b8\u09c1\u09af\u09cb\u0997 \u09a8\u09bf\u09af\u09bc\u09c7 \u099b\u09cb\u099f\u0996\u09be\u099f\u09cb \u09b8\u09c0\u09ae\u09be\u09a8\u09cd\u09a4 \u09b8\u0982\u0998\u09be\u09a4 \u0993 \u09aa\u09cd\u09b0\u0995\u09cd\u09b8\u09bf \u09af\u09c1\u09a6\u09cd\u09a7\u09c7 \u09b2\u09bf\u09aa\u09cd\u09a4 \u09b9\u09af\u09bc\u0964"
         }
       ]
     }
@@ -598,51 +1290,171 @@ export const PILLARS_DATA: Pillar[] = [
   {
     "id": "pillar6_intl_law",
     "termId": "term3",
-    "termTitle": "Term III: Security, Strategy & International Law",
+    "termTitle": "\ud83d\udee1\ufe0f TERM III: STRATEGIC STUDIES, GLOBAL SECURITY & INTERNATIONAL LAW",
     "pillarNumber": 6,
-    "title": "Public International Law, UNCLOS & Sovereign Lawfare",
+    "title": "Public International Law, Human Rights & Multilateral Governance",
     "categoryBadge": "International Jurisprudence & Lawfare",
-    "shortDescription": "Understand the UN Charter, UNCLOS maritime regimes, sovereign immunity, and how middle powers use international courts for sovereign defense.",
-    "academicObjective": "Analyze the ICJ, ITLOS, PCA arbitrations, transboundary water treaties, and international humanitarian law.",
+    "shortDescription": "Understand public international law sources, UN Charter use of force, UNCLOS maritime delimitation, ICJ/ICC tribunals, and statecraft lawfare.",
+    "academicObjective": "Analyze customary law, jus cogens, Geneva Conventions, UN Security Council Chapter VII veto politics, and ITLOS/PCA maritime jurisprudence.",
     "competencyArea": "International Legal Regimes & Sovereign Lawfare",
     "lectures": [
       {
         "id": "lec6_1",
         "pillarId": "pillar6_intl_law",
         "lectureNumber": "6.1",
-        "title": "UNCLOS & Maritime Delimitation: The Bangladesh Bay of Bengal Precedent",
-        "subtitle": "ITLOS (2012 Myanmar) & PCA (2014 India) Landmark Jurisprudence",
+        "title": "Sources & Enforcement of Public International Law",
+        "subtitle": "Treaties, Customary International Law (Opinio Juris), Jus Cogens & ICJ Jurisdiction (Statute Art. 38)",
         "readTimeMinutes": 22,
-        "overview": "How a developing middle power leveraged binding international dispute resolution mechanisms to secure 118,813 sq km of maritime waters, an undisputed 200 NM Exclusive Economic Zone, and sovereign rights over the outer continental shelf without firing a single shot.",
+        "overview": "Public International Law (PIL) provides the formal normative architecture of the interstate system. This lecture analyzes the four formal sources under ICJ Statute Article 38 (Treaties, Custom, General Principles, Judicial Decisions/Teachings), the formation of Customary International Law (State Practice + Opinio Juris), peremptory norms (Jus Cogens), and the consent-based jurisdiction of the ICJ.",
         "theoreticalFrameworks": [
           {
-            "name": "UNCLOS Equitable Maritime Delimitation Doctrine",
-            "concept": "Equidistance lines must be adjusted for special circumstances (concave coastlines) to prevent cut-off effects that deprive coastal states of their legitimate EEZ.",
-            "application": "Defending sovereign offshore hydrocarbon and living marine resources."
+            "name": "Customary International Law & Opinio Juris",
+            "concept": "General, consistent state practice accepted as legal obligation; binds states even without a signed treaty.",
+            "application": "Asserting international transboundary water and maritime rights."
           },
           {
-            "name": "Strategic Lawfare by Developing States",
-            "concept": "Using compulsory dispute resolution under UNCLOS Part XV to neutralize power asymmetries and compel larger neighboring states into legal parity.",
-            "application": "Resolving transboundary disputes through codified multilateral treaties."
+            "name": "Jus Cogens (Peremptory Norms)",
+            "concept": "Non-derogable core legal norms (prohibition of aggression, genocide, slavery, torture) that invalidate conflicting treaties.",
+            "application": "Challenging coercive bilateral treaties forced by great powers."
           }
         ],
         "statecraftCaseStudy": {
-          "title": "Bangladesh v. Myanmar (ITLOS 2012) & Bangladesh v. India (PCA 2014)",
-          "historicalContext": "For four decades, bilateral maritime negotiations were deadlocked, blocking offshore energy exploration.",
-          "strategicAnalysis": "Bangladesh initiated compulsory arbitration under UNCLOS Annex VII. ITLOS and PCA recognized the concavity of the Bangladesh coast, rejecting strict equidistance and granting full access to the outer continental shelf.",
-          "lessonsForStatecraft": "Small and middle powers can achieve historic sovereign victories over larger powers when combining international legal mastery with firm diplomatic resolve."
+          "title": "Nicaragua v. United States (ICJ 1986)",
+          "historicalContext": "Nicaragua sued the US for mining its harbors and financing Contra rebels.",
+          "strategicAnalysis": "The ICJ ruled the US violated customary international law on non-use of force and sovereign non-intervention.",
+          "lessonsForStatecraft": "Small states can secure landmark legal victories against superpowers in international judicial forums."
         },
-        "banglaDiplomaticSummary": "আন্তর্জাতিক সমুদ্র আইন (আনক্লস) এবং ২০১২ (আইটিএলওএস) ও ২০১৪ (পিসিএ) রায়ের মাধ্যমে বাংলাদেশ কোনো সংঘাত ছাড়া ১,১৮,৮১৩ বর্গকিলোমিটার সমুদ্রসীমা ও মহীসোপানের ওপর নিরঙ্কুশ সার্বভৌম অধিকার প্রতিষ্ঠা করেছে।",
+        "banglaDiplomaticSummary": "\u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u0986\u0987\u09a8\u09c7\u09b0 \u0989\u09ce\u09b8 (\u099a\u09c1\u0995\u09cd\u09a4\u09bf, \u0995\u09be\u09b8\u09cd\u099f\u09ae\u09be\u09b0\u09bf \u09b2 \u098f\u09ac\u0982 \u099c\u09c1\u09b8 \u0995\u09cb\u099c\u09c7\u09a8\u09b8) \u098f\u09ac\u0982 \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u0986\u09a6\u09be\u09b2\u09a4\u09c7\u09b0 (\u0986\u0987\u09b8\u09bf\u099c\u09c7) \u09b0\u09be\u09af\u09bc \u0995\u09cd\u09b7\u09c1\u09a6\u09cd\u09b0 \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09c7\u09b0 \u099c\u09a8\u09cd\u09af \u09aa\u09b0\u09be\u09b6\u0995\u09cd\u09a4\u09bf\u09b0 \u09ac\u09bf\u09b0\u09c1\u09a6\u09cd\u09a7\u09c7 \u0985\u09a8\u09cd\u09af\u09a4\u09ae \u09aa\u09cd\u09b0\u09a7\u09be\u09a8 \u0986\u0987\u09a8\u09bf \u09a2\u09be\u09b2\u0964",
         "analyticalSeminarQuestions": [
-          "How did the ITLOS 2012 ruling redefine global jurisprudence regarding the delimitation of the continental shelf beyond 200 nautical miles?",
-          "Why is compulsory dispute settlement under UNCLOS Part XV the most potent shield for developing coastal states?"
+          "Why is 'Opinio Juris' required in addition to physical state practice to establish customary international law?",
+          "How can a state utilize ICJ advisory opinions to amplify diplomatic campaigns?"
         ],
         "keyReadings": [
           {
-            "title": "Dispute concerning delimitation of the maritime boundary between Bangladesh and Myanmar (Judgment)",
-            "author": "ITLOS Reports",
-            "sourceType": "Treaty/Charter",
-            "coreConcept": "Maritime delimitation, concavity of coastline, and outer continental shelf rights."
+            "title": "Principles of Public International Law",
+            "author": "Ian Brownlie / James Crawford",
+            "sourceType": "Classic Text",
+            "coreConcept": "Sources, state responsibility, and international tribunals."
+          }
+        ]
+      },
+      {
+        "id": "lec6_2",
+        "pillarId": "pillar6_intl_law",
+        "lectureNumber": "6.2",
+        "title": "Use of Force (Jus ad Bellum) & International Humanitarian Law (Jus in Bello)",
+        "subtitle": "UN Charter Article 2(4), Article 51 Self-Defense, Geneva Conventions, Proportionality & Distinction",
+        "readTimeMinutes": 22,
+        "overview": "International law strictly regulates when states may go to war (Jus ad Bellum) and how war must be conducted (Jus in Bello). We dissect UN Charter Article 2(4) prohibition of force, Article 51 individual/collective self-defense exceptions, the Caroline Doctrine on preemptive defense, and the 1949 Geneva Conventions principles (Military Necessity, Distinction, Proportionality, Humanity).",
+        "theoreticalFrameworks": [
+          {
+            "name": "The Caroline Test of Imminent Self-Defense (1837)",
+            "concept": "Self-defense requires 'a necessity of self-defense, instant, overwhelming, leaving no choice of means, and no moment for deliberation.'",
+            "application": "Evaluating legal claims of anticipatory self-defense."
+          },
+          {
+            "name": "Core Principles of IHL (Geneva Conventions)",
+            "concept": "Strict distinction between combatants and civilians; absolute prohibition on disproportionate collateral damage.",
+            "application": "Drafting operational rules of engagement (ROE) for national armed forces."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The 2003 Invasion of Iraq: The Legality of Unilateral Preemption",
+          "historicalContext": "The US-led coalition invaded Iraq without explicit UN Security Council authorization under Chapter VII.",
+          "strategicAnalysis": "Widely regarded by international legal scholars as a violation of UN Charter Article 2(4), eroding the post-WWII collective security framework.",
+          "lessonsForStatecraft": "Unilateral military action outside UN Charter mechanisms causes long-term erosion of international legal order."
+        },
+        "banglaDiplomaticSummary": "\u099c\u09be\u09a4\u09bf\u09b8\u0982\u0998 \u09b8\u09a8\u09a6\u09c7\u09b0 \u0985\u09a8\u09c1\u099a\u09cd\u099b\u09c7\u09a6 \u09e8(\u09ea) \u0985\u09a8\u09c1\u09af\u09be\u09af\u09bc\u09c0 \u09af\u09c1\u09a6\u09cd\u09a7 \u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3 \u09a8\u09bf\u09b7\u09bf\u09a6\u09cd\u09a7, \u0995\u09c7\u09ac\u09b2 \u0985\u09a8\u09c1\u099a\u09cd\u099b\u09c7\u09a6 \u09eb\u09e7-\u098f\u09b0 \u0986\u09a4\u09cd\u09ae\u09b0\u0995\u09cd\u09b7\u09be \u098f\u09ac\u0982 \u09a8\u09bf\u09b0\u09be\u09aa\u09a4\u09cd\u09a4\u09be \u09aa\u09b0\u09bf\u09b7\u09a6\u09c7\u09b0 \u0985\u09a8\u09c1\u09ae\u09cb\u09a6\u09a8 \u099b\u09be\u09a1\u09bc\u09be; \u099c\u09c7\u09a8\u09c7\u09ad\u09be \u0995\u09a8\u09ad\u09c7\u09a8\u09b6\u09a8 \u09b8\u09be\u09a7\u09be\u09b0\u09a3 \u09a8\u09be\u0997\u09b0\u09bf\u0995\u09a6\u09c7\u09b0 \u09b8\u09c1\u09b0\u0995\u09cd\u09b7\u09be\u09af\u09bc \u09ac\u09be\u09a7\u09cd\u09af \u0995\u09b0\u09c7\u0964",
+        "analyticalSeminarQuestions": [
+          "Does the rise of non-state terrorist actors and cyber weapons require updating the 1837 Caroline Test?",
+          "How does International Humanitarian Law enforce accountability for deliberate civilian targeting?"
+        ],
+        "keyReadings": [
+          {
+            "title": "The Use of Force in International Law",
+            "author": "Christine Gray",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Jus ad bellum, self-defense, and Security Council mandates."
+          }
+        ]
+      },
+      {
+        "id": "lec6_3",
+        "pillarId": "pillar6_intl_law",
+        "lectureNumber": "6.3",
+        "title": "The United Nations System & Collective Security Architecture",
+        "subtitle": "UNSC Structure, Voting Dynamics, Chapter VII Enforcement Powers, Veto Politics & UNSC Reform",
+        "readTimeMinutes": 20,
+        "overview": "The United Nations represents the premier multilateral forum. This lecture examines the design of the UN Charter, the power dynamics between the General Assembly and Security Council, Chapter VI peaceful dispute settlement vs Chapter VII binding sanctions and military enforcement, P5 veto politics, and the structural debates surrounding UNSC expansion.",
+        "theoreticalFrameworks": [
+          {
+            "name": "UN Charter Chapter VII Enforcement Powers",
+            "concept": "Articles 39-42 empower the UNSC to identify threats to peace and authorize mandatory economic sanctions or military force.",
+            "application": "Navigating international sanctions regimes and embargoes."
+          },
+          {
+            "name": "Uniting for Peace Resolution (UNGA Res 377A)",
+            "concept": "Empowers the General Assembly to recommend collective measures when the Security Council is paralyzed by P5 veto.",
+            "application": "Mobilizing multilateral majorities during great power gridlock."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The Rohingya Humanitarian Crisis & UNSC Veto Politics",
+          "historicalContext": "Myanmar's military carried out mass atrocities and ethnic cleansing against the Rohingya in Rakhine State in 2017.",
+          "strategicAnalysis": "P5 veto alignments repeatedly blocked binding Chapter VII sanctions in the Security Council, shifting the diplomatic battle to the ICJ (The Gambia v. Myanmar) and the UNGA.",
+          "lessonsForStatecraft": "When the Security Council is veto-paralyzed, middle powers must mobilize international judicial courts and General Assembly coalitions."
+        },
+        "banglaDiplomaticSummary": "\u099c\u09be\u09a4\u09bf\u09b8\u0982\u0998 \u09a8\u09bf\u09b0\u09be\u09aa\u09a4\u09cd\u09a4\u09be \u09aa\u09b0\u09bf\u09b7\u09a6\u09c7\u09b0 \u09ad\u09c7\u099f\u09cb \u09b0\u09be\u099c\u09a8\u09c0\u09a4\u09bf\u09b0 \u0995\u09be\u09b0\u09a3\u09c7 \u0985\u09a8\u09c7\u0995 \u09b8\u09ae\u09af\u09bc \u0995\u09be\u09b0\u09cd\u09af\u0995\u09b0 \u09ac\u09cd\u09af\u09ac\u09b8\u09cd\u09a5\u09be \u09a8\u09c7\u0993\u09af\u09bc\u09be \u09b8\u09ae\u09cd\u09ad\u09ac \u09b9\u09af\u09bc \u09a8\u09be; \u09a4\u09ac\u09c7 \u09b8\u09be\u09a7\u09be\u09b0\u09a3 \u09aa\u09b0\u09bf\u09b7\u09a6 \u098f\u09ac\u0982 \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u0986\u09a6\u09be\u09b2\u09a4\u09c7\u09b0 \u09ae\u09be\u09a7\u09cd\u09af\u09ae\u09c7 \u0986\u0987\u09a8\u09bf \u099c\u09ac\u09be\u09ac\u09a6\u09bf\u09b9\u09bf\u09a4\u09be \u09a8\u09bf\u09b6\u09cd\u099a\u09bf\u09a4 \u0995\u09b0\u09be \u09af\u09be\u09af\u09bc\u0964",
+        "analyticalSeminarQuestions": [
+          "Why has comprehensive UN Security Council structural reform remained deadlocked for decades?",
+          "How can small states leverage UN General Assembly coalitions to bypass Security Council inaction?"
+        ],
+        "keyReadings": [
+          {
+            "title": "The Oxford Handbook on the United Nations",
+            "author": "Thomas G. Weiss & Sam Daws",
+            "sourceType": "Classic Text",
+            "coreConcept": "UN Charter architecture, peace operations, and reform."
+          }
+        ]
+      },
+      {
+        "id": "lec6_4",
+        "pillarId": "pillar6_intl_law",
+        "lectureNumber": "6.4",
+        "title": "International Criminal Jurisprudence & Global Regimes",
+        "subtitle": "International Criminal Court (Rome Statute), Universal Jurisdiction, Sanctions & Refugee Conventions",
+        "readTimeMinutes": 22,
+        "overview": "International Criminal Law enforces individual criminal accountability for the gravest atrocities: Genocide, Crimes Against Humanity, War Crimes, and the Crime of Aggression. We examine the Rome Statute of the ICC, the principle of Complementarity, the 1948 Genocide Convention, and the 1951 Refugee Convention regarding non-refoulement.",
+        "theoreticalFrameworks": [
+          {
+            "name": "ICC Principle of Complementarity",
+            "concept": "The ICC acts only when domestic national courts are unwilling or genuinely unable to prosecute grave international crimes.",
+            "application": "Evaluating jurisdictional thresholds for international criminal indictments."
+          },
+          {
+            "name": "The Principle of Non-Refoulement (1951 Convention)",
+            "concept": "Prohibits returning refugees to a territory where their life or freedom would be threatened on account of race, religion, or nationality.",
+            "application": "Managing international humanitarian law obligations during mass refugee influxes."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The ICJ Genocide Case: The Gambia v. Myanmar (2020 Order)",
+          "historicalContext": "The Gambia brought Myanmar before the ICJ under the 1948 Genocide Convention for atrocities against the Rohingya.",
+          "strategicAnalysis": "The ICJ unanimously issued binding Provisional Measures ordering Myanmar to prevent genocidal acts and preserve evidence.",
+          "lessonsForStatecraft": "Universal jurisdiction and multilateral legal treaties enable third-party states to enforce humanitarian accountability globally."
+        },
+        "banglaDiplomaticSummary": "\u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u0985\u09aa\u09b0\u09be\u09a7 \u0986\u09a6\u09be\u09b2\u09a4 (\u0986\u0987\u09b8\u09bf\u09b8\u09bf), \u099c\u09c7\u09a8\u09c7\u09ad\u09be \u0993 \u099c\u09c7\u09a8\u09cb\u09b8\u09be\u0987\u09a1 \u0995\u09a8\u09ad\u09c7\u09a8\u09b6\u09a8 \u09ac\u09bf\u09b6\u09cd\u09ac\u09ac\u09cd\u09af\u09be\u09aa\u09c0 \u09ae\u09be\u09a8\u09ac\u09a4\u09be\u09ac\u09bf\u09b0\u09cb\u09a7\u09c0 \u0985\u09aa\u09b0\u09be\u09a7\u09c7\u09b0 \u09ac\u09bf\u099a\u09be\u09b0 \u09a8\u09bf\u09b6\u09cd\u099a\u09bf\u09a4 \u0995\u09b0\u09c7 \u098f\u09ac\u0982 \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u0997\u09c1\u09b2\u09cb\u0995\u09c7 \u09ae\u09be\u09a8\u09ac\u09bf\u0995 \u0986\u0987\u09a8 \u09ae\u09be\u09a8\u09a4\u09c7 \u09ac\u09be\u09a7\u09cd\u09af \u0995\u09b0\u09c7\u0964",
+        "analyticalSeminarQuestions": [
+          "How does the principle of complementarity protect sovereign national judicial authority?",
+          "What are the enforcement limitations of ICC arrest warrants against sitting heads of state?"
+        ],
+        "keyReadings": [
+          {
+            "title": "An Introduction to International Criminal Law",
+            "author": "Robert Cryer et al.",
+            "sourceType": "Academic Journal",
+            "coreConcept": "Rome Statute, universal jurisdiction, and international crimes."
           }
         ]
       }
@@ -650,21 +1462,34 @@ export const PILLARS_DATA: Pillar[] = [
     "checkpointQuiz": {
       "id": "quiz_p6",
       "pillarId": "pillar6_intl_law",
-      "title": "Pillar 6 International Law & UNCLOS Examination",
+      "title": "Seminar Checkpoint 6: Legal Briefing \u2014 Analyzing Jurisdictional Thresholds and State Compliance in Maritime Delimitation Disputes",
       "passingScorePercentage": 75,
       "questions": [
         {
           "id": "q6_1",
-          "prompt": "Why did the International Tribunal for the Law of the Sea (ITLOS) adjust the strict equidistance line in the 2012 Bangladesh-Myanmar dispute?",
+          "prompt": "Under UN Charter Article 2(4) and customary international law, which of the following acts constitutes an unlawful threat or use of force?",
           "options": [
-            "To grant Myanmar sovereign control over all islands",
-            "To correct the 'cut-off effect' caused by the concave shape of Bangladesh's coastline and ensure an equitable solution",
-            "Because Bangladesh agreed to pay a cash settlement",
-            "Because UNCLOS only applies to Atlantic Ocean states"
+            "Filing a peaceful maritime dispute before the International Tribunal for the Law of the Sea (ITLOS)",
+            "Arming, financing, and training insurgent paramilitary forces to destabilize a foreign sovereign government (as affirmed in ICJ Nicaragua 1986)",
+            "Conducting peaceful bilateral tariff reduction negotiations under WTO rules",
+            "Delivering diplomatic notes of protest through accredited ambassadors"
           ],
           "correctIndex": 1,
-          "academicRationale": "ITLOS recognized that a concave coastline creates an inequitable cut-off effect under strict equidistance, requiring an angle adjustment to produce an equitable delimitation.",
-          "banglaExplanation": "বাংলাদেশের উপকূল অবতল (ভেতরের দিকে বাঁকা) হওয়ায় সাধারণ সমদূরত্ব পদ্ধতি প্রয়োগ করলে বাংলাদেশ সমুদ্রবঞ্চিত হতো; আদালত এটি দূর করতে কোণ পরিবর্তন করে ন্যায়সঙ্গত সমাধান দেয়।"
+          "academicRationale": "The ICJ ruled in Nicaragua (1986) that arming and financing insurgents constitutes an unlawful use of force and intervention.",
+          "banglaExplanation": "\u0986\u0987\u09b8\u09bf\u099c\u09c7 \u09a8\u09bf\u0995\u09be\u09b0\u09be\u0997\u09c1\u09af\u09bc\u09be (\u09e7\u09ef\u09ee\u09ec) \u09ae\u09be\u09ae\u09b2\u09be\u09af\u09bc \u09b0\u09be\u09af\u09bc \u09a6\u09c7\u09af\u09bc \u09af\u09c7 \u0985\u09a8\u09cd\u09af \u0995\u09cb\u09a8\u09cb \u09a6\u09c7\u09b6\u09c7\u09b0 \u09b8\u09b0\u0995\u09be\u09b0 \u0989\u09ce\u0996\u09be\u09a4\u09c7 \u09ac\u09bf\u09a6\u09cd\u09b0\u09cb\u09b9\u09c0\u09a6\u09c7\u09b0 \u0985\u09b0\u09cd\u09a5 \u0993 \u0985\u09b8\u09cd\u09a4\u09cd\u09b0 \u09a6\u09c7\u0993\u09af\u09bc\u09be \u09ac\u09c7\u0986\u0987\u09a8\u09bf \u09ac\u09b2\u09aa\u09cd\u09b0\u09af\u09bc\u09cb\u0997 \u0993 \u09b9\u09b8\u09cd\u09a4\u0995\u09cd\u09b7\u09c7\u09aa\u0964"
+        },
+        {
+          "id": "q6_2",
+          "prompt": "What is the principle of 'Non-Refoulement' in international refugee and humanitarian law?",
+          "options": [
+            "Mandatory taxation of foreign tourists",
+            "The absolute prohibition against expelling or returning refugees to a territory where their life or freedom would be threatened",
+            "A rule requiring all diplomats to speak French",
+            "The right of a state to seize foreign bank accounts"
+          ],
+          "correctIndex": 1,
+          "academicRationale": "Non-refoulement (1951 Refugee Convention Article 33) is a foundational customary international law norm protecting individuals from being returned to persecution.",
+          "banglaExplanation": "\u09a8\u09a8-\u09b0\u09bf\u09ab\u09be\u0989\u09b2\u09ae\u09c7\u09a8\u09cd\u099f \u09b9\u09b2\u09cb \u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u0986\u0987\u09a8\u09c7\u09b0 \u0985\u09b2\u0999\u09cd\u0998\u09a8\u09c0\u09af\u09bc \u09a8\u09c0\u09a4\u09bf \u09af\u09be \u0995\u09cb\u09a8\u09cb \u09b6\u09b0\u09a3\u09be\u09b0\u09cd\u09a5\u09c0\u0995\u09c7 \u098f\u09ae\u09a8 \u09a6\u09c7\u09b6\u09c7 \u09ab\u09c7\u09b0\u09a4 \u09aa\u09be\u09a0\u09be\u09a8\u09cb \u09a8\u09bf\u09b7\u09bf\u09a6\u09cd\u09a7 \u0995\u09b0\u09c7 \u09af\u09c7\u0996\u09be\u09a8\u09c7 \u09a4\u09be\u09b0 \u099c\u09c0\u09ac\u09a8 \u09ac\u09be \u09b8\u09cd\u09ac\u09be\u09a7\u09c0\u09a8\u09a4\u09be \u09b9\u09c1\u09ae\u0995\u09bf\u09b0 \u09ae\u09c1\u0996\u09c7 \u09aa\u09a1\u09bc\u09ac\u09c7\u0964"
         }
       ]
     }
@@ -672,51 +1497,171 @@ export const PILLARS_DATA: Pillar[] = [
   {
     "id": "pillar7_ipe_geoeconomics",
     "termId": "term4",
-    "termTitle": "Term IV: Geoeconomics & Regional Strategy",
+    "termTitle": "\ud83c\udf10 TERM IV: INTERNATIONAL POLITICAL ECONOMY & REGIONAL GEOPOLITICS",
     "pillarNumber": 7,
-    "title": "Geoeconomics, Supply Chains & Weaponized Interdependence",
+    "title": "International Political Economy, Geoeconomics & Trade Statecraft",
     "categoryBadge": "Geoeconomics & Trade Statecraft",
-    "shortDescription": "Analyze how superpowers use SWIFT financial networks, trade tariffs, semiconductor controls, and infrastructure credit as instruments of coercion.",
-    "academicObjective": "Examine Henry Farrell & Abraham Newman's weaponized interdependence, debt-trap statecraft, and trade diversification for middle powers.",
+    "shortDescription": "Analyze global political economy paradigms, dollar hegemony, SWIFT weaponization, multilateral trade architecture (WTO, RCEP), and critical minerals.",
+    "academicObjective": "Master Mercantilist/Liberal/Structuralist paradigms, Bretton Woods, supply chain friend-shoring, and energy/climate geopolitics.",
     "competencyArea": "Geoeconomics & Strategic Trade Policy",
     "lectures": [
       {
         "id": "lec7_1",
         "pillarId": "pillar7_ipe_geoeconomics",
         "lectureNumber": "7.1",
-        "title": "Weaponized Interdependence & Global Hub-and-Spoke Networks",
-        "subtitle": "SWIFT, Pan-Hub Chokepoints, and Sanctions Regimes",
+        "title": "Paradigms of Global Political Economy",
+        "subtitle": "Mercantilism/Economic Nationalism, Liberal Globalism & Structuralist/Marxist Critiques of Capital Accumulation",
         "readTimeMinutes": 20,
-        "overview": "Farrell and Newman showed that globalization did not create a decentralized web, but an asymmetric hub-and-spoke network where central nodes (like dollar clearing and SWIFT) can be weaponized for surveillance and coercion.",
+        "overview": "International Political Economy (IPE) studies the mutual interaction of states (power) and markets (wealth). This lecture compares the three core paradigms: Mercantilism/Realism (Alexander Hamilton, Friedrich List: wealth serves power), Liberalism (Adam Smith, David Ricardo: free trade and absolute gains), and Structuralism (Marx, Wallerstein: unequal exchange and capital accumulation).",
         "theoreticalFrameworks": [
           {
-            "name": "Panopticon and Chokepoint Effects",
-            "concept": "The Panopticon effect allows hub states to monitor global information flows; the Chokepoint effect allows them to sever adversaries from essential global networks.",
-            "application": "Formulating economic resilience against secondary financial sanctions."
+            "name": "Economic Nationalism & Strategic Industrial Policy",
+            "concept": "Trade surpluses, infant-industry protection, and domestic technological mastery are essential for national sovereignty.",
+            "application": "Designing national industrial export subsidies and semiconductor incentives."
           },
           {
-            "name": "Strategic Supply Chain Friend-Shoring",
-            "concept": "Restructuring industrial supply chains to friendly partner states to avoid dependency on single geopolitical rivals.",
-            "application": "Positioning national manufacturing as a trusted global supply chain alternative."
+            "name": "Ricardian Comparative Advantage vs. Strategic Trade Theory",
+            "concept": "Free trade maximizes aggregate global output, but strategic trade policy allows states to capture high-value technological rents.",
+            "application": "Upgrading manufacturing from low-wage garments to high-tech pharmaceuticals and electronics."
           }
         ],
         "statecraftCaseStudy": {
-          "title": "The 2022 Central Bank Sanctions & SWIFT Disconnection of Russia",
-          "historicalContext": "Following the Ukraine invasion, Western nations froze $300 billion in Russian sovereign reserves and severed major Russian banks from SWIFT.",
-          "strategicAnalysis": "Demonstrated the unprecedented coercive power of central financial hubs, accelerating global interest in currency diversification and local-currency trade settlements.",
-          "lessonsForStatecraft": "Foreign reserve management must balance liquidity, safety, and sovereign geopolitical risk across multiple global currencies and gold."
+          "title": "The Post-2018 US-China Tariff & Tech War",
+          "historicalContext": "The United States imposed sweeping Section 301 tariffs on Chinese imports and restricted advanced AI semiconductor exports.",
+          "strategicAnalysis": "Marked the structural return of economic mercantilism, ending three decades of unconstrained liberal globalization.",
+          "lessonsForStatecraft": "Global markets are subordinate to great power security competition; middle powers must prepare for fractured supply chains."
         },
-        "banglaDiplomaticSummary": "বিশ্বায়ন সমান্তরাল জাল নয়, বরং পরাশক্তিদের নিয়ন্ত্রিত কেন্দ্রভিত্তিক ব্যবস্থা। সুইফট ও ডলার নেটওয়ার্ককে রাজনৈতিক হাতিয়ার হিসেবে ব্যবহারের মুখে মধ্যম শক্তির দেশগুলোকে বাণিজ্যে বহুমুখীকরণ করতে হবে।",
+        "banglaDiplomaticSummary": "\u0986\u09a8\u09cd\u09a4\u09b0\u09cd\u099c\u09be\u09a4\u09bf\u0995 \u09b0\u09be\u099c\u09a8\u09c8\u09a4\u09bf\u0995 \u0985\u09b0\u09cd\u09a5\u09a8\u09c0\u09a4\u09bf \u09a6\u09c7\u0996\u09be\u09af\u09bc \u09af\u09c7 \u09ac\u09be\u099c\u09be\u09b0 \u0993 \u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0 \u09aa\u09b0\u09b8\u09cd\u09aa\u09b0\u09c7\u09b0 \u09b8\u09be\u09a5\u09c7 \u09af\u09c1\u0995\u09cd\u09a4\u0964 \u09ae\u09be\u09b0\u0995\u09c7\u09a8\u09cd\u099f\u09be\u0987\u09b2\u09bf\u099c\u09ae \u09ac\u09be \u0985\u09b0\u09cd\u09a5\u09a8\u09c8\u09a4\u09bf\u0995 \u099c\u09be\u09a4\u09c0\u09af\u09bc\u09a4\u09be\u09ac\u09be\u09a6 \u099c\u09be\u09a4\u09c0\u09af\u09bc \u09b6\u0995\u09cd\u09a4\u09bf\u09b0 \u099c\u09a8\u09cd\u09af \u09b6\u09bf\u09b2\u09cd\u09aa \u09b8\u09c1\u09b0\u0995\u09cd\u09b7\u09be\u0995\u09c7 \u09b8\u09ac\u099a\u09c7\u09af\u09bc\u09c7 \u09ac\u09c7\u09b6\u09bf \u0997\u09c1\u09b0\u09c1\u09a4\u09cd\u09ac \u09a6\u09c7\u09af\u09bc\u0964",
         "analyticalSeminarQuestions": [
-          "How can emerging market economies insulate their foreign exchange reserves against weaponized financial chokepoints?",
-          "What are the structural risks of over-reliance on single-source infrastructure financing?"
+          "Why is unconstrained free trade rarely practiced by major powers during geopolitical transitions?",
+          "How can emerging middle powers protect infant industries without violating WTO rules?"
         ],
         "keyReadings": [
           {
-            "title": "Weaponized Interdependence: How Global Economic Networks Shape State Coercion",
-            "author": "Henry Farrell & Abraham L. Newman",
+            "title": "The Political Economy of International Relations",
+            "author": "Robert Gilpin",
+            "sourceType": "Classic Text",
+            "coreConcept": "States, markets, and global economic hegemony."
+          }
+        ]
+      },
+      {
+        "id": "lec7_2",
+        "pillarId": "pillar7_ipe_geoeconomics",
+        "lectureNumber": "7.2",
+        "title": "International Monetary Architecture & Dollar Hegemony",
+        "subtitle": "The Bretton Woods System, Post-1971 Floating Currencies, IMF Adjustment, Foreign Reserves & De-Dollarization",
+        "readTimeMinutes": 22,
+        "overview": "The international monetary architecture underpins global power. We trace the 1944 Bretton Woods system, Nixon's 1971 gold decoupling, the petrodollar recycling system, the role of the IMF and World Bank in sovereign debt management, Farrell & Newman's Weaponized Interdependence (SWIFT sanctions), and contemporary de-dollarization and bilateral local-currency settlement dynamics.",
+        "theoreticalFrameworks": [
+          {
+            "name": "The Dollar's 'Exorbitant Privilege' (Giscard d'Estaing)",
+            "concept": "The US can print the global reserve currency to finance structural current-account deficits and project global power.",
+            "application": "Managing sovereign foreign exchange reserve exposure."
+          },
+          {
+            "name": "Weaponized Interdependence & Chokepoint Sanctions",
+            "concept": "Controlling centralized financial clearing nodes (SWIFT, CHIPS) allows hub states to cut adversaries off from global commerce.",
+            "application": "Diversifying national reserves into multi-currency baskets and physical gold."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The 2022 Central Bank Sanctions & G7 Freezing of Russian Reserves",
+          "historicalContext": "Following the Ukraine war, Western powers froze $300 billion in Russian sovereign central bank assets.",
+          "strategicAnalysis": "Crossed a historic threshold by weaponizing the sovereign reserve currency system, accelerating Global South interest in BRICS alternative payment channels.",
+          "lessonsForStatecraft": "Sovereign reserves stored in foreign jurisdictions carry acute geopolitical counterparty risks."
+        },
+        "banglaDiplomaticSummary": "\u09a1\u09b2\u09be\u09b0\u09c7\u09b0 \u09ac\u09c8\u09b6\u09cd\u09ac\u09bf\u0995 \u0986\u09a7\u09bf\u09aa\u09a4\u09cd\u09af \u098f\u09ac\u0982 \u09b8\u09c1\u0987\u09ab\u099f \u09ac\u09cd\u09af\u09be\u0982\u0995\u09bf\u0982 \u09ac\u09cd\u09af\u09ac\u09b8\u09cd\u09a5\u09be\u09b0 \u0985\u09b8\u09cd\u09a4\u09cd\u09b0\u09be\u09af\u09bc\u09a8 \u09aa\u09cd\u09b0\u09ae\u09be\u09a3 \u0995\u09b0\u09c7\u099b\u09c7 \u09af\u09c7 \u09ac\u09bf\u09a6\u09c7\u09b6\u09bf \u09ae\u09c1\u09a6\u09cd\u09b0\u09be\u09b0 \u09b0\u09bf\u099c\u09be\u09b0\u09cd\u09ad \u09b8\u09c1\u09b0\u0995\u09cd\u09b7\u09be\u09af\u09bc \u09ac\u09b9\u09c1\u09ae\u09c1\u0996\u09c0\u0995\u09b0\u09a3 \u0993 \u09a6\u09cd\u09ac\u09bf\u09aa\u09be\u0995\u09cd\u09b7\u09bf\u0995 \u09ae\u09c1\u09a6\u09cd\u09b0\u09be \u09a8\u09bf\u09b7\u09cd\u09aa\u09a4\u09cd\u09a4\u09bf \u0985\u09a4\u09cd\u09af\u09a8\u09cd\u09a4 \u099c\u09b0\u09c1\u09b0\u09bf\u0964",
+        "analyticalSeminarQuestions": [
+          "What are the structural obstacles preventing rapid global de-dollarization?",
+          "How can developing states manage IMF structural adjustment conditionality while protecting domestic social safety nets?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Exorbitant Privilege: The Rise and Fall of the Dollar",
+            "author": "Barry Eichengreen",
             "sourceType": "Academic Journal",
-            "coreConcept": "Hub-and-spoke networks, chokepoint effect, and economic coercion."
+            "coreConcept": "Dollar hegemony, reserve currencies, and international monetary order."
+          }
+        ]
+      },
+      {
+        "id": "lec7_3",
+        "pillarId": "pillar7_ipe_geoeconomics",
+        "lectureNumber": "7.3",
+        "title": "Multilateral Trade, Tariffs & Economic Statecraft",
+        "subtitle": "GATT/WTO Architecture, Regional FTAs (RCEP, CPTPP), Supply-Chain Resilience & Targeted Sanctions",
+        "readTimeMinutes": 22,
+        "overview": "This lecture examines the architecture of global trade governance: Most Favored Nation (MFN) and National Treatment rules under the WTO, the paralysis of the WTO Appellate Body, the rise of mega-regional trade agreements (RCEP, CPTPP), and the strategic restructuring of global manufacturing through 'friend-shoring' and near-shoring.",
+        "theoreticalFrameworks": [
+          {
+            "name": "WTO Non-Discrimination Principles (MFN & National Treatment)",
+            "concept": "Treating all foreign trading partners equally and treating foreign goods no less favorably than domestic goods once imported.",
+            "application": "Defending national export goods against arbitrary discriminatory tariffs."
+          },
+          {
+            "name": "Strategic Supply Chain 'Friend-Shoring'",
+            "concept": "Relocating critical manufacturing supply chains to politically aligned partner states to reduce vulnerability to adversary coercion.",
+            "application": "Positioning national industrial parks as trusted alternative manufacturing hubs."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The Regional Comprehensive Economic Partnership (RCEP 2020)",
+          "historicalContext": "15 Asia-Pacific nations signed the world's largest free trade agreement, covering 30% of global GDP.",
+          "strategicAnalysis": "Created a unified rule-of-origin framework across Asia, accelerating regional supply chain integration independent of US participation.",
+          "lessonsForStatecraft": "Joining regional mega-FTAs is critical for export-oriented economies to avoid tariff exclusion."
+        },
+        "banglaDiplomaticSummary": "\u09ac\u09bf\u09b6\u09cd\u09ac \u09ac\u09be\u09a3\u09bf\u099c\u09cd\u09af \u09b8\u0982\u09b8\u09cd\u09a5\u09be\u09b0 \u09b8\u09cd\u09a5\u09ac\u09bf\u09b0\u09a4\u09be\u09b0 \u09ae\u09c1\u0996\u09c7 \u0986\u09b0\u09b8\u09bf\u0987\u09aa\u09bf \u0993 \u09b8\u09bf\u09aa\u09bf\u099f\u09bf\u09aa\u09bf\u09aa\u09bf\u09b0 \u09ae\u09a4\u09cb \u0986\u099e\u09cd\u099a\u09b2\u09bf\u0995 \u09ae\u09c1\u0995\u09cd\u09a4 \u09ac\u09be\u09a3\u09bf\u099c\u09cd\u09af \u099a\u09c1\u0995\u09cd\u09a4\u09bf \u098f\u09ac\u0982 \u09b8\u09be\u09aa\u09cd\u09b2\u09be\u0987 \u099a\u09c7\u0987\u09a8\u09c7\u09b0 '\u09ab\u09cd\u09b0\u09c7\u09a8\u09cd\u09a1-\u09b6\u09cb\u09b0\u09bf\u0982' \u09ac\u09bf\u09b6\u09cd\u09ac\u09ac\u09be\u09a3\u09bf\u099c\u09cd\u09af\u09c7\u09b0 \u09a8\u09a4\u09c1\u09a8 \u09a6\u09bf\u0995 \u09a8\u09bf\u09b0\u09cd\u09a7\u09be\u09b0\u09a3 \u0995\u09b0\u099b\u09c7\u0964",
+        "analyticalSeminarQuestions": [
+          "How can a developing country navigate the transition from LDC trade preferences to reciprocal Free Trade Agreements?",
+          "Why is the WTO Appellate Body impasse damaging to small trading nations?"
+        ],
+        "keyReadings": [
+          {
+            "title": "The World Trade Organization: Law, Practice, and Policy",
+            "author": "Mitsuo Matsushita et al.",
+            "sourceType": "Classic Text",
+            "coreConcept": "WTO law, dispute settlement, and regional trade pacts."
+          }
+        ]
+      },
+      {
+        "id": "lec7_4",
+        "pillarId": "pillar7_ipe_geoeconomics",
+        "lectureNumber": "7.4",
+        "title": "Energy Security, Critical Minerals & Climate Geopolitics",
+        "subtitle": "Hydrocarbon Politics, Transition Mineral Cartels (Lithium, Rare Earths), Climate Diplomacy (UNFCCC/COP) & Green Protectionism",
+        "readTimeMinutes": 22,
+        "overview": "The global energy transition is creating new geopolitical winners and losers. We analyze OPEC+ market maneuvering, the geopolitics of liquefied natural gas (LNG) maritime supply chains, Chinese dominance in critical transition minerals (rare earths, lithium, cobalt, nickel processing), UNFCCC/COP climate finance statecraft (Loss and Damage Fund), and EU Carbon Border Adjustment Mechanisms (CBAM).",
+        "theoreticalFrameworks": [
+          {
+            "name": "Critical Mineral Asymmetric Chokepoints",
+            "concept": "Monopolization of upstream mining and refining of battery/semiconductor minerals creates acute coercive geopolitical leverage.",
+            "application": "Securing long-term bilateral mineral access agreements."
+          },
+          {
+            "name": "Climate Justice & Common But Differentiated Responsibilities (CBDR)",
+            "concept": "Developed nations bear historical responsibility for greenhouse emissions; developing nations must receive concessional climate finance and technology transfer.",
+            "application": "Leading the Climate Vulnerable Forum (CVF) multilateral negotiations."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "European Energy Realignment Following the 2022 Nord Stream Cutoff",
+          "historicalContext": "The sudden termination of Russian pipeline natural gas forced Europe into a rapid pivot to maritime LNG imports.",
+          "strategicAnalysis": "Demonstrated the catastrophic danger of single-source energy dependency, triggering global price shocks for developing LNG importers.",
+          "lessonsForStatecraft": "Energy security requires absolute fuel source diversification, strategic reserves, and domestic renewable expansion."
+        },
+        "banglaDiplomaticSummary": "\u099c\u09cd\u09ac\u09be\u09b2\u09be\u09a8\u09bf \u09a8\u09bf\u09b0\u09be\u09aa\u09a4\u09cd\u09a4\u09be \u098f\u09ac\u0982 \u09b2\u09bf\u09a5\u09bf\u09af\u09bc\u09be\u09ae \u0993 \u09b0\u09c7\u09af\u09bc\u09be\u09b0 \u0986\u09b0\u09cd\u09a5\u09c7\u09b0 \u09ae\u09a4\u09cb \u0996\u09a8\u09bf\u099c\u09c7\u09b0 \u09ad\u09c2-\u09b0\u09be\u099c\u09a8\u09c0\u09a4\u09bf \u09ac\u09bf\u09b6\u09cd\u09ac\u09b6\u0995\u09cd\u09a4\u09bf \u09a8\u09bf\u09b0\u09cd\u09a7\u09be\u09b0\u09a3 \u0995\u09b0\u099b\u09c7; \u099c\u09b2\u09ac\u09be\u09af\u09bc\u09c1 \u0995\u09c2\u099f\u09a8\u09c0\u09a4\u09bf\u09a4\u09c7 \u09ac\u09be\u0982\u09b2\u09be\u09a6\u09c7\u09b6 \u09b8\u09bf\u09ad\u09bf\u098f\u09ab \u099c\u09cb\u099f\u09c7\u09b0 \u09ae\u09be\u09a7\u09cd\u09af\u09ae\u09c7 \u09a8\u09cd\u09af\u09be\u09af\u09cd\u09af \u09b9\u09bf\u09b8\u09cd\u09af\u09be \u09a6\u09be\u09ac\u09bf \u0995\u09b0\u099b\u09c7\u0964",
+        "analyticalSeminarQuestions": [
+          "How will EU Carbon Border Adjustment Mechanisms (CBAM) impact manufacturing exports from developing countries?",
+          "Why is critical mineral refining a more potent geopolitical chokepoint than raw mineral mining?"
+        ],
+        "keyReadings": [
+          {
+            "title": "The New Map: Energy, Climate, and the Clash of Nations",
+            "author": "Daniel Yergin",
+            "sourceType": "Classic Text",
+            "coreConcept": "Energy security, renewables transition, and shale geopolitics."
           }
         ]
       }
@@ -724,7 +1669,7 @@ export const PILLARS_DATA: Pillar[] = [
     "checkpointQuiz": {
       "id": "quiz_p7",
       "pillarId": "pillar7_ipe_geoeconomics",
-      "title": "Pillar 7 Geoeconomics & Supply Chains Examination",
+      "title": "Seminar Checkpoint 7: Geoeconomic Impact Analysis \u2014 Assessing the Strategic Vulnerability of Critical Supply Chains",
       "passingScorePercentage": 75,
       "questions": [
         {
@@ -738,7 +1683,20 @@ export const PILLARS_DATA: Pillar[] = [
           ],
           "correctIndex": 1,
           "academicRationale": "The Chokepoint effect describes how sovereign control over a centralized network hub enables a state to sever access for geopolitical leverage.",
-          "banglaExplanation": "চোখপয়েন্ট প্রভাব হলো সুইফট বা ডলারের মতো কেন্দ্রীয় বৈশ্বিক নেটওয়ার্কের নিয়ন্ত্রণ নিয়ে শত্রুকে বিশ্ব অর্থনীতি থেকে বিচ্ছিন্ন করার ক্ষমতা।"
+          "banglaExplanation": "\u099a\u09cb\u0996\u09aa\u09af\u09bc\u09c7\u09a8\u09cd\u099f \u09aa\u09cd\u09b0\u09ad\u09be\u09ac \u09b9\u09b2\u09cb \u09b8\u09c1\u0987\u09ab\u099f \u09ac\u09be \u09a1\u09b2\u09be\u09b0\u09c7\u09b0 \u09ae\u09a4\u09cb \u0995\u09c7\u09a8\u09cd\u09a6\u09cd\u09b0\u09c0\u09af\u09bc \u09ac\u09c8\u09b6\u09cd\u09ac\u09bf\u0995 \u09a8\u09c7\u099f\u0993\u09af\u09bc\u09be\u09b0\u09cd\u0995\u09c7\u09b0 \u09a8\u09bf\u09af\u09bc\u09a8\u09cd\u09a4\u09cd\u09b0\u09a3 \u09a8\u09bf\u09af\u09bc\u09c7 \u09b6\u09a4\u09cd\u09b0\u09c1\u0995\u09c7 \u09ac\u09bf\u09b6\u09cd\u09ac \u0985\u09b0\u09cd\u09a5\u09a8\u09c0\u09a4\u09bf \u09a5\u09c7\u0995\u09c7 \u09ac\u09bf\u099a\u09cd\u099b\u09bf\u09a8\u09cd\u09a8 \u0995\u09b0\u09be\u09b0 \u0995\u09cd\u09b7\u09ae\u09a4\u09be\u0964"
+        },
+        {
+          "id": "q7_2",
+          "prompt": "What does the UNFCCC principle of 'Common But Differentiated Responsibilities' (CBDR) establish in global climate diplomacy?",
+          "options": [
+            "All countries must pay equal cash taxes regardless of their economic size",
+            "While all states share a duty to address climate change, developed countries bear primary responsibility due to historical greenhouse emissions and must provide climate financing",
+            "Developing countries must dismantle all their factories immediately",
+            "Only island nations are permitted to build solar panels"
+          ],
+          "correctIndex": 1,
+          "academicRationale": "CBDR recognizes that developed nations historically caused the vast majority of atmospheric greenhouse accumulation and have greater financial capacity to assist developing states.",
+          "banglaExplanation": "\u09b8\u09bf\u09ac\u09bf\u09a1\u09bf\u0986\u09b0 \u09a8\u09c0\u09a4\u09bf \u0985\u09a8\u09c1\u09b8\u09be\u09b0\u09c7 \u099c\u09b2\u09ac\u09be\u09af\u09bc\u09c1 \u09aa\u09b0\u09bf\u09ac\u09b0\u09cd\u09a4\u09a8\u09c7\u09b0 \u099c\u09a8\u09cd\u09af \u0990\u09a4\u09bf\u09b9\u09be\u09b8\u09bf\u0995\u09ad\u09be\u09ac\u09c7 \u0989\u09a8\u09cd\u09a8\u09a4 \u09a6\u09c7\u09b6\u0997\u09c1\u09b2\u09cb \u09ac\u09c7\u09b6\u09bf \u09a6\u09be\u09af\u09bc\u09c0, \u09a4\u09be\u0987 \u0995\u09cd\u09b7\u09a4\u09bf\u0997\u09cd\u09b0\u09b8\u09cd\u09a4 \u0989\u09a8\u09cd\u09a8\u09af\u09bc\u09a8\u09b6\u09c0\u09b2 \u09a6\u09c7\u09b6\u0997\u09c1\u09b2\u09cb\u0995\u09c7 \u09a4\u09be\u09a6\u09c7\u09b0 \u0995\u09cd\u09b7\u09a4\u09bf\u09aa\u09c2\u09b0\u09a3 \u0993 \u0985\u09b0\u09cd\u09a5\u09be\u09af\u09bc\u09a8 \u09a6\u09c7\u0993\u09af\u09bc\u09be \u09ac\u09be\u09a7\u09cd\u09af\u09a4\u09be\u09ae\u09c2\u09b2\u0995\u0964"
         }
       ]
     }
@@ -746,51 +1704,171 @@ export const PILLARS_DATA: Pillar[] = [
   {
     "id": "pillar8_regional_bangladesh",
     "termId": "term4",
-    "termTitle": "Term IV: Geoeconomics & Regional Strategy",
+    "termTitle": "\ud83c\udf10 TERM IV: INTERNATIONAL POLITICAL ECONOMY & REGIONAL GEOPOLITICS",
     "pillarNumber": 8,
-    "title": "Bangladesh Grand Strategy, Neighborhood Statecraft & Indo-Pacific Balancing",
-    "categoryBadge": "Bangladesh Grand Strategy & Regional Geopolitics",
-    "shortDescription": "Formulate a forward-looking grand strategy for Bangladesh: sovereign equality, Teesta transboundary water diplomacy, Bay of Bengal security, and multi-vector hedging.",
-    "academicObjective": "Analyze the post-2024 strategic transformation of Bangladesh foreign policy, SAARC revival, BIMSTEC integration, and maritime statecraft.",
+    "title": "Regional Security Architecture, Indo-Pacific & Southern Asian Geopolitics",
+    "categoryBadge": "Regional Security & Southern Asian Statecraft",
+    "shortDescription": "Formulate a rigorous strategic architecture for Bangladesh and Southern Asia: Indo-Pacific balancing, SAARC/BIMSTEC, Bay of Bengal connectivity, and middle-power hedging.",
+    "academicObjective": "Analyze Great Power balance across maritime littorals, the Siliguri Corridor, transboundary water governance (Teesta), and small-state omnidirectional statecraft.",
     "competencyArea": "Bangladesh National Security Architecture & Regional Diplomacy",
     "lectures": [
       {
         "id": "lec8_1",
         "pillarId": "pillar8_regional_bangladesh",
         "lectureNumber": "8.1",
-        "title": "The Post-2024 Strategic Realignment: The 'Bangladesh First' Doctrine",
-        "subtitle": "Sovereign Equality, Dignity-Based Diplomacy, and Multipolar Balancing",
-        "readTimeMinutes": 25,
-        "overview": "The historic 2024 transformation in Bangladesh fundamentally reconfigured its foreign policy architecture. Moving away from asymmetric subservience, the new 'Bangladesh First' doctrine asserts absolute sovereign dignity, zero tolerance for border violence, strict reciprocity in bilateral ties, transboundary water rights under international law, and balanced multi-vector engagement across the US, China, India, EU, and the Islamic World.",
+        "title": "The Indo-Pacific Paradigm & Great Power Balance",
+        "subtitle": "Geostrategic Concepts of the Indo-Pacific, Minilateral Security Groupings (Quad, AUKUS) & Maritime Littoral Competition",
+        "readTimeMinutes": 22,
+        "overview": "The geopolitical center of gravity has shifted to the Indo-Pacific. This lecture examines the transition from 'Asia-Pacific' to 'Indo-Pacific', the emergence of US-led minilaterals (Quad, AUKUS, IPEF), China's Belt and Road Initiative (BRI) and Global Security Initiative (GSI), and how littoral middle powers guard sovereign autonomy in a contested maritime theater.",
         "theoreticalFrameworks": [
           {
-            "name": "The Bangladesh First Sovereign Doctrine",
-            "concept": "Foreign policy grounded in national interest primacy, democratic domestic mandate, sovereign equality, and strict reciprocity in neighborhood relations.",
-            "application": "Negotiating equitable transboundary river agreements and transit treaties."
+            "name": "Indo-Pacific Free and Open Maritime Order",
+            "concept": "Ensuring freedom of navigation, unimpeded commerce, and adherence to international law (UNCLOS) across oceanic waterways.",
+            "application": "Formulating Bangladesh's Indo-Pacific Outlook (IPO) emphasizing peace and economic connectivity."
           },
           {
-            "name": "Omnidirectional Strategic Hedging",
-            "concept": "Maximizing developmental investments from all great powers while refusing to enter exclusive military blocs that compromise sovereign autonomy.",
-            "application": "Balancing infrastructure cooperation across China (BRI), Japan (BIG-B), and Western trade partnerships."
+            "name": "Minilateralism vs. Inclusive Multilateralism",
+            "concept": "Small flexible coalitions of the willing (Quad, AUKUS) replacing large consensus-based institutions (ASEAN, SAARC).",
+            "application": "Engaging issue-based multilateral cooperation without joining formal military blocs."
           }
         ],
         "statecraftCaseStudy": {
-          "title": "Transboundary Water Governance: The Teesta & 54 Common Rivers",
-          "historicalContext": "Bangladesh shares 54 transboundary rivers with India. The Teesta River Treaty has remained stalled for over a decade, causing severe dry-season desiccation in northern Bangladesh.",
-          "strategicAnalysis": "A modern statecraft approach combines bilateral negotiations under the 1997 UN Watercourses Convention principles with the comprehensive domestic Teesta River Comprehensive Management Project to secure year-round agricultural water security.",
-          "lessonsForStatecraft": "Water security is sovereign national security; diplomatic persistence must be paired with domestic infrastructure resilience."
+          "title": "Bangladesh's Indo-Pacific Outlook (IPO 2023)",
+          "historicalContext": "Navigating intense competing pressures from the US Indo-Pacific Strategy and China's Belt and Road Initiative.",
+          "strategicAnalysis": "Dhaka released a 15-point Outlook based on non-alignment, UNCLOS compliance, regional connectivity, and shared prosperity, explicitly rejecting exclusive military alliances.",
+          "lessonsForStatecraft": "Publishing clear strategic outlooks prevents superpowers from misinterpreting a middle power's non-aligned posture."
         },
-        "banglaDiplomaticSummary": "২০২৪-পরবর্তী বাংলাদেশের পররাষ্ট্রনীতির ভিত্তি হলো 'বাংলাদেশ ফার্স্ট ডকট্রিন'। সীমান্ত হত্যার অবসান, তিস্তাসহ ৫৪টি অভিন্ন নদীর ন্যায্য হিস্যা, এবং সার্বভৌম মর্যাদার ভিত্তিতে কোনো পরাশক্তির কাছে নত না হয়ে স্বাধীন কূটনৈতিক ভারসাম্য রক্ষা করা।",
+        "banglaDiplomaticSummary": "\u0987\u09a8\u09cd\u09a6\u09cb-\u09aa\u09cd\u09af\u09be\u09b8\u09bf\u09ab\u09bf\u0995 \u0985\u099e\u09cd\u099a\u09b2\u09c7 \u0995\u09cb\u09af\u09bc\u09be\u09a1 \u0993 \u0985\u0995\u09c1\u09b8\u09c7\u09b0 \u09ae\u09a4\u09cb \u099c\u09cb\u099f \u098f\u09ac\u0982 \u099a\u09c0\u09a8\u09c7\u09b0 \u09ac\u09bf\u0986\u09b0\u0986\u0987-\u098f\u09b0 \u09ae\u09a7\u09cd\u09af\u0995\u09be\u09b0 \u09aa\u09cd\u09b0\u09a4\u09bf\u09af\u09cb\u0997\u09bf\u09a4\u09be\u09b0 \u09ae\u09be\u099d\u09c7 \u09ac\u09be\u0982\u09b2\u09be\u09a6\u09c7\u09b6\u09c7\u09b0 \u0987\u09a8\u09cd\u09a6\u09cb-\u09aa\u09cd\u09af\u09be\u09b8\u09bf\u09ab\u09bf\u0995 \u0986\u0989\u099f\u09b2\u09c1\u0995 (\u0986\u0987\u09aa\u09bf\u0993) \u09b8\u09cd\u09ac\u09be\u09a7\u09c0\u09a8 \u09ad\u09be\u09b0\u09b8\u09be\u09ae\u09cd\u09af \u09b0\u0995\u09cd\u09b7\u09be\u09b0 \u0989\u09ce\u0995\u09c3\u09b7\u09cd\u099f \u0989\u09a6\u09be\u09b9\u09b0\u09a3\u0964",
         "analyticalSeminarQuestions": [
-          "How does the 'Bangladesh First' doctrine redefine bilateral relations with neighboring countries on the basis of mutual respect and strict reciprocity?",
-          "Why is the revitalization of SAARC and the strengthening of BIMSTEC essential for Bangladesh's role as a bridge between South and Southeast Asia?"
+          "How does the concept of the 'Indo-Pacific' redefine the strategic importance of the Bay of Bengal?",
+          "Why do minilateral security groupings create anxieties for traditional consensus-based regional bodies?"
         ],
         "keyReadings": [
           {
-            "title": "Bangladesh Foreign Policy & The Geopolitics of the Bay of Bengal",
+            "title": "The Indo-Pacific Empire",
+            "author": "Rory Medcalf",
+            "sourceType": "Classic Text",
+            "coreConcept": "Indo-Pacific geopolitics, maritime containment, and regional middle powers."
+          }
+        ]
+      },
+      {
+        "id": "lec8_2",
+        "pillarId": "pillar8_regional_bangladesh",
+        "lectureNumber": "8.2",
+        "title": "South Asian Security Dynamics & Strategic Realities",
+        "subtitle": "India-Pakistan Nuclear Rivalry, Strategic Corridors, Himalayan Territorial Friction & Connectivity Challenges",
+        "readTimeMinutes": 24,
+        "overview": "South Asia is one of the world's most densely populated and militarized regions. We dissect the structural realities of South Asian security: India-Pakistan nuclear and cross-border tensions, China-India Himalayan border disputes (Galwan/Doklam), the vulnerability of the 22-km Siliguri Corridor ('Chicken's Neck'), and the collapse of regional trade integration.",
+        "theoreticalFrameworks": [
+          {
+            "name": "The Siliguri Corridor ('Chicken's Neck') Geopolitical Pivot",
+            "concept": "A narrow 22-kilometer land bridge connecting mainland India to its eight northeastern states, bordered by Nepal, Bhutan, and Bangladesh.",
+            "application": "Leveraging geographic transit corridors as reciprocal diplomatic assets."
+          },
+          {
+            "name": "Cross-Border Hydro-Hegemony (Mark Zeitoun)",
+            "concept": "Upper riparian states utilizing geographic elevation and dam infrastructure to control downstream water flows for political leverage.",
+            "application": "Enforcing international water law and multi-lateral basin agreements."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The 2017 Doklam Standoff & Regional Buffer Geopolitics",
+          "historicalContext": "Chinese road construction near the tri-junction with Bhutan triggered a 73-day military standoff with Indian troops.",
+          "strategicAnalysis": "Highlighted the acute sensitivity surrounding the Siliguri Corridor and the vital buffer role of smaller Himalayan and littoral states.",
+          "lessonsForStatecraft": "Geographic proximity to strategic great-power choke points requires heightened diplomatic vigilance and deterrence."
+        },
+        "banglaDiplomaticSummary": "\u09a6\u0995\u09cd\u09b7\u09bf\u09a3 \u098f\u09b6\u09bf\u09af\u09bc\u09be\u09b0 \u09ad\u09c2-\u09b0\u09be\u099c\u09a8\u09c0\u09a4\u09bf \u09ad\u09be\u09b0\u09a4-\u09aa\u09be\u0995\u09bf\u09b8\u09cd\u09a4\u09be\u09a8 \u09aa\u09be\u09b0\u09ae\u09be\u09a3\u09ac\u09bf\u0995 \u09ac\u09c8\u09b0\u09bf\u09a4\u09be, \u09b6\u09bf\u09b2\u09bf\u0997\u09c1\u09a1\u09bc\u09bf \u0995\u09b0\u09bf\u09a1\u09cb\u09b0 (\u099a\u09bf\u0995\u09c7\u09a8\u09b8 \u09a8\u09c7\u0995) \u098f\u09ac\u0982 \u099a\u09c0\u09a8-\u09ad\u09be\u09b0\u09a4 \u09b8\u09c0\u09ae\u09be\u09a8\u09cd\u09a4 \u0989\u09a4\u09cd\u09a4\u09c7\u099c\u09a8\u09be\u09b0 \u09a6\u09cd\u09ac\u09be\u09b0\u09be \u0997\u09ad\u09c0\u09b0\u09ad\u09be\u09ac\u09c7 \u09aa\u09cd\u09b0\u09ad\u09be\u09ac\u09bf\u09a4, \u09af\u09be \u09ac\u09be\u0982\u09b2\u09be\u09a6\u09c7\u09b6\u09c7\u09b0 \u09ad\u09cc\u0997\u09cb\u09b2\u09bf\u0995 \u09ae\u09b0\u09cd\u09af\u09be\u09a6\u09be\u0995\u09c7 \u0985\u09a4\u09cd\u09af\u09a8\u09cd\u09a4 \u0997\u09c1\u09b0\u09c1\u09a4\u09cd\u09ac\u09aa\u09c2\u09b0\u09cd\u09a3 \u0995\u09b0\u09c7 \u09a4\u09c1\u09b2\u09c7\u099b\u09c7\u0964",
+        "analyticalSeminarQuestions": [
+          "Why is the Siliguri Corridor considered the most sensitive geographic choke point in South Asian defense planning?",
+          "How can regional hydro-hegemony be transformed into cooperative transboundary river basin management?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Does South Asia Exist? Prospects for Regional Integration",
+            "author": "Swarna Rajagopalan",
+            "sourceType": "Academic Journal",
+            "coreConcept": "South Asian security dynamics, borderlands, and regional identity."
+          }
+        ]
+      },
+      {
+        "id": "lec8_3",
+        "pillarId": "pillar8_regional_bangladesh",
+        "lectureNumber": "8.3",
+        "title": "The Bay of Bengal as a Strategic Theater",
+        "subtitle": "Maritime Connectivity, Littoral Balance of Power, Port Infrastructure Developments & Deep-Sea Resources",
+        "readTimeMinutes": 22,
+        "overview": "The Bay of Bengal is re-emerging as the central maritime crossroads connecting South Asia to Southeast Asia. This lecture explores maritime trade routes, deep-sea exploration, offshore gas blocks, and the geopolitical competition surrounding regional port developments: Matarbari (Japan-funded deep-sea port), Payra, Sittwe (Myanmar/India), and Hambantota (Sri Lanka).",
+        "theoreticalFrameworks": [
+          {
+            "name": "The Blue Economy Paradigm",
+            "concept": "Sustainable utilization of ocean resources for economic growth, livelihood, and maritime energy while preserving coastal ecosystems.",
+            "application": "Developing offshore deep-sea hydrocarbon blocks and sustainable marine fisheries."
+          },
+          {
+            "name": "String of Pearls vs. Free and Open Indo-Pacific Ports",
+            "concept": "Strategic competition between commercial/military dual-use port infrastructure investments across the Indian Ocean rim.",
+            "application": "Ensuring national port infrastructure remains strictly commercial and under sovereign national control."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "Matarbari Port Development: Bangladesh's First Deep-Sea Port",
+          "historicalContext": "Construction of an 18.5-meter draft deep-sea commercial port at Matarbari, Cox's Bazar, supported by JICA.",
+          "strategicAnalysis": "Enables large container mother vessels to dock directly in Bangladesh, creating an economic transit hub for regional landlocked neighbors.",
+          "lessonsForStatecraft": "Transforming maritime coastline into world-class port infrastructure cements long-term regional economic leadership."
+        },
+        "banglaDiplomaticSummary": "\u09ac\u0999\u09cd\u0997\u09cb\u09aa\u09b8\u09be\u0997\u09b0\u09c7\u09b0 \u09ac\u09cd\u09b2\u09c1-\u0987\u0995\u09cb\u09a8\u09ae\u09bf \u098f\u09ac\u0982 \u09ae\u09be\u09a4\u09be\u09b0\u09ac\u09be\u09a1\u09bc\u09c0 \u0997\u09ad\u09c0\u09b0 \u09b8\u09ae\u09c1\u09a6\u09cd\u09b0 \u09ac\u09a8\u09cd\u09a6\u09b0 \u09ac\u09be\u0982\u09b2\u09be\u09a6\u09c7\u09b6\u0995\u09c7 \u09a6\u0995\u09cd\u09b7\u09bf\u09a3 \u0993 \u09a6\u0995\u09cd\u09b7\u09bf\u09a3-\u09aa\u09c2\u09b0\u09cd\u09ac \u098f\u09b6\u09bf\u09af\u09bc\u09be\u09b0 \u09ae\u09a7\u09cd\u09af\u09c7 \u09ac\u09be\u09a3\u09bf\u099c\u09cd\u09af\u09bf\u0995 \u0993 \u09ad\u09c2-\u0995\u09cc\u09b6\u09b2\u0997\u09a4 \u09b8\u0982\u09af\u09cb\u0997 \u09b8\u09c7\u09a4\u09c1 \u09b9\u09bf\u09b8\u09c7\u09ac\u09c7 \u09aa\u09cd\u09b0\u09a4\u09bf\u09b7\u09cd\u09a0\u09bf\u09a4 \u0995\u09b0\u099b\u09c7\u0964",
+        "analyticalSeminarQuestions": [
+          "How does Matarbari deep-sea port alter Bangladesh's strategic bargaining power in South Asian trade?",
+          "What are the environmental and security challenges of deep-sea hydrocarbon exploration in the Bay of Bengal?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Bay of Bengal: Maritime Geopolitics and Strategic Future of South Asia",
             "author": "Daloyar Hassan Shishir",
             "sourceType": "Policy Report",
-            "coreConcept": "Sovereign dignity, multi-vector hedging, and transboundary water governance."
+            "coreConcept": "Blue economy, deep-sea ports, and Bay of Bengal maritime security."
+          }
+        ]
+      },
+      {
+        "id": "lec8_4",
+        "pillarId": "pillar8_regional_bangladesh",
+        "lectureNumber": "8.4",
+        "title": "Small State Diplomacy in a Contested Littoral",
+        "subtitle": "Hedging, Balancing Sovereign Interests, Multi-Vector Foreign Policy & Regional Cooperation Frameworks (SAARC, BIMSTEC, IORA)",
+        "readTimeMinutes": 25,
+        "overview": "The culmination of the fellowship: synthesizing grand strategy for Bangladesh in the 21st century. We analyze the post-2024 'Bangladesh First' foreign policy doctrine\u2014asserting sovereign equality, zero tolerance for border violence, strict reciprocity in bilateral ties, diplomatic resolution of the Rohingya refugee crisis, revitalizing SAARC, deepening BIMSTEC and Indian Ocean Rim Association (IORA) integration, and executing non-aligned multi-vector statecraft.",
+        "theoreticalFrameworks": [
+          {
+            "name": "The Post-2024 'Bangladesh First' Doctrine",
+            "concept": "A dignity-based foreign policy rooted in democratic domestic consensus, absolute sovereign equality, and strict reciprocity in neighborhood relations.",
+            "application": "Negotiating transboundary water treaties (Teesta, Ganges) and cross-border transit accords."
+          },
+          {
+            "name": "Regional Institutional Architecture: SAARC & BIMSTEC",
+            "concept": "Revitalizing SAARC for South Asian political dialogue while leveraging BIMSTEC as the physical bridge to ASEAN markets.",
+            "application": "Promoting regional trade, energy grid interconnections, and visa-free academic mobility."
+          }
+        ],
+        "statecraftCaseStudy": {
+          "title": "The Post-2024 Sovereign Reset & Transboundary River Diplomacy",
+          "historicalContext": "Following the 2024 political transformation, Bangladesh reasserted its rights over 54 shared transboundary rivers and border security equality.",
+          "strategicAnalysis": "Combined bilateral negotiations under the 1997 UN Watercourses Convention with the domestic Teesta River Comprehensive Management Project to secure dry-season irrigation independence.",
+          "lessonsForStatecraft": "Dignity-based statecraft paired with domestic infrastructure resilience earns enduring international respect."
+        },
+        "banglaDiplomaticSummary": "\u09e8\u09e6\u09e8\u09ea-\u09aa\u09b0\u09ac\u09b0\u09cd\u09a4\u09c0 '\u09ac\u09be\u0982\u09b2\u09be\u09a6\u09c7\u09b6 \u09ab\u09be\u09b0\u09cd\u09b8\u09cd\u099f \u09a1\u0995\u099f\u09cd\u09b0\u09bf\u09a8'-\u098f\u09b0 \u09b2\u0995\u09cd\u09b7\u09cd\u09af \u09b9\u09b2\u09cb \u09b8\u09be\u09b0\u09cd\u09ac\u09ad\u09cc\u09ae \u09b8\u09ae\u09ae\u09b0\u09cd\u09af\u09be\u09a6\u09be, \u09b8\u09c0\u09ae\u09be\u09a8\u09cd\u09a4 \u09b9\u09a4\u09cd\u09af\u09be\u09b0 \u0985\u09ac\u09b8\u09be\u09a8, \u09a4\u09bf\u09b8\u09cd\u09a4\u09be\u09b8\u09b9 \u09eb\u09ea\u099f\u09bf \u09a8\u09a6\u09c0\u09b0 \u09a8\u09cd\u09af\u09be\u09af\u09cd\u09af \u09b9\u09bf\u09b8\u09cd\u09af\u09be, \u09b8\u09be\u09b0\u09cd\u0995 \u09aa\u09c1\u09a8\u09b0\u09c1\u099c\u09cd\u099c\u09c0\u09ac\u09a8 \u098f\u09ac\u0982 \u09ac\u09bf\u09ae\u09b8\u099f\u09c7\u0995\u09c7\u09b0 \u09ae\u09be\u09a7\u09cd\u09af\u09ae\u09c7 \u09a6\u0995\u09cd\u09b7\u09bf\u09a3 \u0993 \u09a6\u0995\u09cd\u09b7\u09bf\u09a3-\u09aa\u09c2\u09b0\u09cd\u09ac \u098f\u09b6\u09bf\u09af\u09bc\u09be\u09b0 \u09b6\u0995\u09cd\u09a4\u09bf\u09b6\u09be\u09b2\u09c0 \u09b8\u09c7\u09a4\u09c1 \u09b9\u09bf\u09b8\u09c7\u09ac\u09c7 \u0986\u09ac\u09bf\u09b0\u09cd\u09ad\u09c2\u09a4 \u09b9\u0993\u09af\u09bc\u09be\u0964",
+        "analyticalSeminarQuestions": [
+          "How can Bangladesh balance its diplomatic and trade ties with Washington, Beijing, New Delhi, and Brussels without becoming vulnerable to coercion?",
+          "What practical institutional reforms are necessary to revitalize SAARC as a functional regional body?"
+        ],
+        "keyReadings": [
+          {
+            "title": "Bangladesh Grand Strategy: Sovereign Autonomy, Bay of Bengal Geopolitics & Foreign Policy in a Multipolar Age",
+            "author": "Daloyar Hassan Shishir",
+            "sourceType": "Policy Report",
+            "coreConcept": "The Bangladesh First doctrine, river diplomacy, and multipolar balance."
           }
         ]
       }
@@ -798,7 +1876,7 @@ export const PILLARS_DATA: Pillar[] = [
     "checkpointQuiz": {
       "id": "quiz_p8",
       "pillarId": "pillar8_regional_bangladesh",
-      "title": "Pillar 8 Bangladesh Grand Strategy Examination",
+      "title": "Seminar Checkpoint 8: Regional Policy Paper \u2014 Constructing a Comprehensive Maritime Strategy for the Bay of Bengal",
       "passingScorePercentage": 75,
       "questions": [
         {
@@ -812,7 +1890,20 @@ export const PILLARS_DATA: Pillar[] = [
           ],
           "correctIndex": 1,
           "academicRationale": "The Bangladesh First doctrine is founded on sovereign equality, dignity-based diplomacy, reciprocal accountability, and multi-vector strategic autonomy.",
-          "banglaExplanation": "বাংলাদেশ ফার্স্ট ডকট্রিনের মূল লক্ষ্য হলো সার্বভৌম সমমর্যাদা, সীমান্ত হত্যার অবসান, কঠোর পারস্পরিকতা এবং স্বাধীন পররাষ্ট্রনীতি রক্ষা।"
+          "banglaExplanation": "\u09ac\u09be\u0982\u09b2\u09be\u09a6\u09c7\u09b6 \u09ab\u09be\u09b0\u09cd\u09b8\u09cd\u099f \u09a1\u0995\u099f\u09cd\u09b0\u09bf\u09a8\u09c7\u09b0 \u09ae\u09c2\u09b2 \u09b2\u0995\u09cd\u09b7\u09cd\u09af \u09b9\u09b2\u09cb \u09b8\u09be\u09b0\u09cd\u09ac\u09ad\u09cc\u09ae \u09b8\u09ae\u09ae\u09b0\u09cd\u09af\u09be\u09a6\u09be, \u09b8\u09c0\u09ae\u09be\u09a8\u09cd\u09a4 \u09b9\u09a4\u09cd\u09af\u09be\u09b0 \u0985\u09ac\u09b8\u09be\u09a8, \u0995\u09a0\u09cb\u09b0 \u09aa\u09be\u09b0\u09b8\u09cd\u09aa\u09b0\u09bf\u0995\u09a4\u09be \u098f\u09ac\u0982 \u09b8\u09cd\u09ac\u09be\u09a7\u09c0\u09a8 \u09aa\u09b0\u09b0\u09be\u09b7\u09cd\u099f\u09cd\u09b0\u09a8\u09c0\u09a4\u09bf \u09b0\u0995\u09cd\u09b7\u09be\u0964"
+        },
+        {
+          "id": "q8_2",
+          "prompt": "Why is the revitalization of SAARC (South Asian Association for Regional Cooperation) essential for regional diplomacy?",
+          "options": [
+            "To permanently ban all internet access across Asia",
+            "To provide a vital multilateral platform for all South Asian sovereign nations to engage in structured dialogue, economic integration, and regional dispute reduction",
+            "Because SAARC only exists to manage cricket matches",
+            "To replace the United Nations entirely"
+          ],
+          "correctIndex": 1,
+          "academicRationale": "SAARC provides the only institutional table where all 8 South Asian nations can meet as sovereign equals to deliberate regional challenges, trade, and climate issues.",
+          "banglaExplanation": "\u09b8\u09be\u09b0\u09cd\u0995 \u09aa\u09c1\u09a8\u09b0\u09c1\u099c\u09cd\u099c\u09c0\u09ac\u09a8 \u09a6\u0995\u09cd\u09b7\u09bf\u09a3 \u098f\u09b6\u09bf\u09af\u09bc\u09be\u09b0 \u09ee\u099f\u09bf \u09a6\u09c7\u09b6\u09c7\u09b0 \u09b8\u09ae\u09ae\u09b0\u09cd\u09af\u09be\u09a6\u09be\u09b0 \u09b8\u0982\u09b2\u09be\u09aa, \u0986\u099e\u09cd\u099a\u09b2\u09bf\u0995 \u09ac\u09be\u09a3\u09bf\u099c\u09cd\u09af \u0993 \u09b8\u0982\u0995\u099f \u09b8\u09ae\u09be\u09a7\u09be\u09a8\u09c7\u09b0 \u099c\u09a8\u09cd\u09af \u0985\u09a4\u09cd\u09af\u09a8\u09cd\u09a4 \u0997\u09c1\u09b0\u09c1\u09a4\u09cd\u09ac\u09aa\u09c2\u09b0\u09cd\u09a3\u0964"
         }
       ]
     }
