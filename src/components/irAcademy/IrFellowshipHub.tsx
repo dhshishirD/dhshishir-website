@@ -29,7 +29,10 @@ import {
   Layers, 
   HelpCircle,
   AlertOctagon,
-  RotateCcw
+  RotateCcw,
+  Sun,
+  Moon,
+  Coffee
 } from 'lucide-react';
 
 export const IrFellowshipHub: React.FC = () => {
@@ -38,6 +41,7 @@ export const IrFellowshipHub: React.FC = () => {
   const [selectedPillar, setSelectedPillar] = useState<Pillar>(PILLARS_DATA[0]);
   const [selectedLecture, setSelectedLecture] = useState<Lecture>(PILLARS_DATA[0].lectures[0]);
   const [searchGlossaryQuery, setSearchGlossaryQuery] = useState('');
+  const [readingTheme, setReadingTheme] = useState<'midnight' | 'sepia' | 'slate'>('midnight');
   
   // Checkpoint Quiz States
   const [activeQuizPillar, setActiveQuizPillar] = useState<Pillar | null>(null);
@@ -105,7 +109,6 @@ export const IrFellowshipHub: React.FC = () => {
     if (crisisStageIdx < activeCrisis.dilemmas.length - 1) {
       setCrisisStageIdx(prev => prev + 1);
     } else {
-      // Complete Crisis
       let totalPts = 0;
       activeCrisis.dilemmas.forEach(d => {
         const pickedId = updatedChoices[d.id];
@@ -152,34 +155,40 @@ export const IrFellowshipHub: React.FC = () => {
     item.banglaMeaning.toLowerCase().includes(searchGlossaryQuery.toLowerCase())
   );
 
+  // Reading Theme styles
+  const themeCardBg = 
+    readingTheme === 'midnight' ? 'bg-[#0b1120] text-slate-200 border-slate-800/80' :
+    readingTheme === 'sepia' ? 'bg-[#1c1917] text-amber-100/90 border-amber-900/40' :
+    'bg-[#0f172a] text-slate-100 border-slate-700/60';
+
   return (
-    <div className="py-12 bg-slate-950 text-slate-100 min-h-screen">
+    <div className="py-12 bg-[#080c14] text-slate-200 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
         {/* Master Header */}
-        <div className="bg-gradient-to-r from-slate-900 via-indigo-950/60 to-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-4 relative overflow-hidden">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
-            <GraduationCap className="w-4 h-4 text-indigo-400" /> Open Fellowship Program • {IR_FELLOWSHIP_CODE}
+        <div className="bg-gradient-to-r from-[#0b1120] via-slate-900 to-[#0b1120] border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-4 relative overflow-hidden">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
+            <GraduationCap className="w-4 h-4 text-amber-400" /> Open Fellowship Program • {IR_FELLOWSHIP_CODE}
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-2 max-w-3xl">
-              <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+              <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight font-serif-title">
                 {IR_FELLOWSHIP_TITLE}
               </h1>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Graduate-level executive curriculum synthesizing classical statecraft, cognitive political psychology, international law, geoeconomics, and the <strong className="text-amber-400">Bangladesh Geopolitical Paradigm (Post-2024 Strategic Realignment)</strong>.
+                Graduate-level executive curriculum synthesizing classical statecraft, cognitive political psychology, international law, geoeconomics, and the <strong className="text-amber-300">Bangladesh Geopolitical Paradigm (Post-2024 Strategic Realignment)</strong>.
               </p>
             </div>
 
             {/* Quick Profile Pill */}
             <div className="shrink-0 p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-2 text-right">
-              <div className="text-xs text-slate-400">Fellow ID: <span className="font-mono text-indigo-400 font-bold">{profile.fellowId}</span></div>
+              <div className="text-xs text-slate-400">Fellow ID: <span className="font-mono text-amber-400 font-bold">{profile.fellowId}</span></div>
               <div className="flex items-center gap-2 justify-end">
-                <span className="text-[11px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">
+                <span className="text-[11px] px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-bold border border-emerald-500/30">
                   {progressPercent}% Completed
                 </span>
-                <span className="text-[11px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/30">
+                <span className="text-[11px] px-2.5 py-0.5 rounded bg-amber-500/15 text-amber-300 font-bold border border-amber-500/30">
                   {profile.passedCheckpointPillarIds.length} Checkpoints Cleared
                 </span>
               </div>
@@ -189,73 +198,106 @@ export const IrFellowshipHub: React.FC = () => {
           {/* Progress Bar */}
           <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
             <div 
-              className="bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 h-full transition-all duration-300"
+              className="bg-gradient-to-r from-amber-500 via-yellow-400 to-emerald-400 h-full transition-all duration-300"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-4">
-          <button
-            onClick={() => setActiveTab('curriculum')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
-              activeTab === 'curriculum'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-950'
-                : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
-            }`}
-          >
-            <BookOpen className="w-4 h-4" />
-            <span>Curriculum & Study Studio</span>
-          </button>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setActiveTab('curriculum')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                activeTab === 'curriculum'
+                  ? 'bg-amber-600 text-slate-950 font-black shadow-lg shadow-amber-950/40'
+                  : 'bg-slate-900/90 text-slate-300 hover:text-white border border-slate-800'
+              }`}
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>Curriculum & Study Studio</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('glossary')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
-              activeTab === 'glossary'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-950'
-                : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
-            }`}
-          >
-            <Search className="w-4 h-4" />
-            <span>Strategic Glossary (50+)</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('glossary')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                activeTab === 'glossary'
+                  ? 'bg-amber-600 text-slate-950 font-black shadow-lg shadow-amber-950/40'
+                  : 'bg-slate-900/90 text-slate-300 hover:text-white border border-slate-800'
+              }`}
+            >
+              <Search className="w-4 h-4" />
+              <span>Strategic Glossary (50+)</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('crisis')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
-              activeTab === 'crisis'
-                ? 'bg-rose-600 text-white shadow-lg shadow-rose-950'
-                : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
-            }`}
-          >
-            <AlertOctagon className="w-4 h-4 text-rose-400" />
-            <span>Crisis Decision Simulator</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('crisis')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                activeTab === 'crisis'
+                  ? 'bg-rose-600 text-white shadow-lg shadow-rose-950/40'
+                  : 'bg-slate-900/90 text-slate-300 hover:text-white border border-slate-800'
+              }`}
+            >
+              <AlertOctagon className="w-4 h-4 text-rose-400" />
+              <span>Crisis Decision Simulator</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('exam')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
-              activeTab === 'exam'
-                ? 'bg-purple-600 text-white shadow-lg shadow-purple-950'
-                : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
-            }`}
-          >
-            <HelpCircle className="w-4 h-4 text-purple-400" />
-            <span>Grand Qualifying Exam</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('exam')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                activeTab === 'exam'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-950/40'
+                  : 'bg-slate-900/90 text-slate-300 hover:text-white border border-slate-800'
+              }`}
+            >
+              <HelpCircle className="w-4 h-4 text-indigo-400" />
+              <span>Grand Qualifying Exam</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('certificate')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
-              activeTab === 'certificate'
-                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-950'
-                : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
-            }`}
-          >
-            <Award className="w-4 h-4 text-amber-400" />
-            <span>Fellowship Credentials & Transcript</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('certificate')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                activeTab === 'certificate'
+                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-950/40'
+                  : 'bg-slate-900/90 text-slate-300 hover:text-white border border-slate-800'
+              }`}
+            >
+              <Award className="w-4 h-4 text-amber-300" />
+              <span>Fellowship Credentials & Transcript</span>
+            </button>
+          </div>
+
+          {/* Reading Comfort Theme Switcher */}
+          {activeTab === 'curriculum' && (
+            <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-xl border border-slate-800 text-xs">
+              <span className="text-[10px] text-slate-400 px-2 font-medium">Reading Theme:</span>
+              <button
+                onClick={() => setReadingTheme('midnight')}
+                className={`p-1.5 rounded-lg transition cursor-pointer flex items-center gap-1 ${readingTheme === 'midnight' ? 'bg-blue-950 text-sky-300 border border-sky-500/40' : 'text-slate-400 hover:text-white'}`}
+                title="Midnight Study Dark (Soft Deep Navy)"
+              >
+                <Moon className="w-3.5 h-3.5" />
+                <span className="text-[10px] hidden sm:inline">Midnight</span>
+              </button>
+              <button
+                onClick={() => setReadingTheme('sepia')}
+                className={`p-1.5 rounded-lg transition cursor-pointer flex items-center gap-1 ${readingTheme === 'sepia' ? 'bg-amber-950/80 text-amber-300 border border-amber-500/40' : 'text-slate-400 hover:text-white'}`}
+                title="Warm Parchment (Anti-Eye Strain)"
+              >
+                <Coffee className="w-3.5 h-3.5" />
+                <span className="text-[10px] hidden sm:inline">Sepia</span>
+              </button>
+              <button
+                onClick={() => setReadingTheme('slate')}
+                className={`p-1.5 rounded-lg transition cursor-pointer flex items-center gap-1 ${readingTheme === 'slate' ? 'bg-slate-800 text-slate-200 border border-slate-600' : 'text-slate-400 hover:text-white'}`}
+                title="Slate Focus"
+              >
+                <Sun className="w-3.5 h-3.5" />
+                <span className="text-[10px] hidden sm:inline">Slate</span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* TAB 1: CURRICULUM & STUDY STUDIO */}
@@ -265,7 +307,7 @@ export const IrFellowshipHub: React.FC = () => {
             {/* Sidebar Syllabus Navigator */}
             <div className="lg:col-span-4 space-y-4">
               <div className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
-                <Layers className="w-4 h-4 text-indigo-400" />
+                <Layers className="w-4 h-4 text-amber-400" />
                 <span>Fellowship Syllabus Navigator</span>
               </div>
 
@@ -279,17 +321,17 @@ export const IrFellowshipHub: React.FC = () => {
                       key={pillar.id}
                       className={`p-4 rounded-2xl border transition ${
                         isPillarActive
-                          ? 'bg-slate-900/90 border-indigo-500/80 ring-1 ring-indigo-500/40'
-                          : 'bg-slate-950/80 border-slate-800/80 hover:border-slate-700'
+                          ? 'bg-slate-900/95 border-amber-500/60 ring-1 ring-amber-500/30'
+                          : 'bg-[#0b1120]/80 border-slate-800/80 hover:border-slate-700'
                       }`}
                     >
                       <div className="flex items-center justify-between gap-2 mb-2">
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">
                           {pillar.termTitle.split(':')[0]} • Pillar {pillar.pillarNumber}
                         </span>
                         {isCheckpointPassed && (
                           <span className="text-[10px] text-emerald-400 font-bold flex items-center gap-1">
-                            <CheckCircle2 className="w-3.5 h-3.5" /> Exam Passed
+                            <CheckCircle2 className="w-3.5 h-3.5" /> Cleared
                           </span>
                         )}
                       </div>
@@ -310,18 +352,18 @@ export const IrFellowshipHub: React.FC = () => {
                               onClick={() => handleSelectLecture(pillar, lec)}
                               className={`w-full text-left p-2.5 rounded-xl text-xs flex items-center justify-between gap-2 transition cursor-pointer ${
                                 isSelected
-                                  ? 'bg-indigo-600 text-white font-bold'
+                                  ? 'bg-amber-600/90 text-slate-950 font-black shadow-md'
                                   : 'hover:bg-slate-800 text-slate-300'
                               }`}
                             >
                               <div className="flex items-center gap-2 truncate">
-                                <span className={`text-[10px] font-mono ${isSelected ? 'text-indigo-200' : 'text-slate-500'}`}>
+                                <span className={`text-[10px] font-mono ${isSelected ? 'text-slate-900 font-bold' : 'text-slate-500'}`}>
                                   {lec.lectureNumber}
                                 </span>
                                 <span className="truncate">{lec.title}</span>
                               </div>
                               {isDone && (
-                                <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-white' : 'text-emerald-400'}`} />
+                                <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-slate-950' : 'text-emerald-400'}`} />
                               )}
                             </button>
                           );
@@ -330,9 +372,9 @@ export const IrFellowshipHub: React.FC = () => {
                         {/* Checkpoint Exam Button */}
                         <button
                           onClick={() => handleStartQuiz(pillar)}
-                          className="w-full mt-2 p-2 rounded-xl text-xs font-bold bg-slate-900 hover:bg-indigo-950/60 border border-indigo-500/30 text-indigo-300 flex items-center justify-center gap-2 transition cursor-pointer"
+                          className="w-full mt-2 p-2 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-amber-300 flex items-center justify-center gap-2 transition cursor-pointer"
                         >
-                          <HelpCircle className="w-3.5 h-3.5 text-indigo-400" />
+                          <HelpCircle className="w-3.5 h-3.5 text-amber-400" />
                           <span>{isCheckpointPassed ? 'Retake Checkpoint Exam' : 'Take Pillar Checkpoint Exam'}</span>
                         </button>
                       </div>
@@ -345,27 +387,27 @@ export const IrFellowshipHub: React.FC = () => {
             {/* Main Lecture Study Reader */}
             <div className="lg:col-span-8 space-y-6">
               
-              {/* Active Lecture Header */}
-              <div className="p-6 sm:p-8 bg-slate-900/90 rounded-3xl border border-slate-800 space-y-4 shadow-xl">
+              {/* Active Lecture Container with Selected Reading Theme */}
+              <div className={`p-6 sm:p-8 rounded-3xl border space-y-5 shadow-xl transition-colors duration-300 ${themeCardBg}`}>
                 <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-                  <span className="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 font-mono font-bold">
+                  <span className="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono font-bold">
                     Pillar {selectedPillar.pillarNumber} • Lecture {selectedLecture.lectureNumber}
                   </span>
                   <span className="text-slate-400 flex items-center gap-1">
-                    <BookOpen className="w-3.5 h-3.5 text-indigo-400" /> {selectedLecture.readTimeMinutes} min intensive reading
+                    <BookOpen className="w-3.5 h-3.5 text-amber-400" /> {selectedLecture.readTimeMinutes} min intensive reading
                   </span>
                 </div>
 
-                <div className="space-y-1">
-                  <h2 className="text-xl sm:text-3xl font-black text-white">
+                <div className="space-y-1.5">
+                  <h2 className="text-2xl sm:text-3xl font-black text-white font-serif-title tracking-tight">
                     {selectedLecture.title}
                   </h2>
-                  <p className="text-sm font-semibold text-indigo-400">
+                  <p className="text-sm font-semibold text-amber-300/90">
                     {selectedLecture.subtitle}
                   </p>
                 </div>
 
-                <div className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-2 border-t border-slate-800 whitespace-pre-line">
+                <div className="text-sm sm:text-base leading-relaxed pt-3 border-t border-slate-800/80 whitespace-pre-line font-normal text-slate-300">
                   {selectedLecture.overview}
                 </div>
               </div>
@@ -373,14 +415,14 @@ export const IrFellowshipHub: React.FC = () => {
               {/* Theoretical Framework Cards */}
               <div className="space-y-3">
                 <h3 className="text-sm font-bold text-white flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-cyan-400" />
+                  <Sparkles className="w-4 h-4 text-amber-400" />
                   Core Theoretical Frameworks & Conceptual Modeling
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {selectedLecture.theoreticalFrameworks.map((tf, idx) => (
-                    <div key={idx} className="p-5 bg-slate-900/80 rounded-2xl border border-cyan-500/30 space-y-2 shadow-lg">
-                      <div className="text-xs font-bold text-cyan-300">{tf.name}</div>
+                    <div key={idx} className="p-5 bg-[#0b1120] rounded-2xl border border-slate-800 space-y-2 shadow-lg hover:border-slate-700 transition">
+                      <div className="text-xs font-bold text-amber-300">{tf.name}</div>
                       <p className="text-xs text-slate-300 leading-relaxed">{tf.concept}</p>
                       <div className="text-[11px] text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">
                         <strong className="text-slate-200">Diplomatic Application: </strong>{tf.application}
@@ -391,25 +433,25 @@ export const IrFellowshipHub: React.FC = () => {
               </div>
 
               {/* Statecraft Case Study */}
-              <div className="p-6 bg-gradient-to-br from-amber-950/20 via-slate-900 to-slate-950 rounded-3xl border border-amber-500/40 space-y-3 shadow-xl">
+              <div className="p-6 bg-gradient-to-br from-amber-950/20 via-[#0b1120] to-slate-950 rounded-3xl border border-amber-500/30 space-y-3 shadow-xl">
                 <div className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-amber-400" />
                   Executive Statecraft Case Study
                 </div>
-                <h4 className="text-base font-bold text-white">
+                <h4 className="text-base font-bold text-white font-serif-title">
                   {selectedLecture.statecraftCaseStudy.title}
                 </h4>
                 <div className="text-xs text-slate-300 space-y-2 leading-relaxed">
                   <p><strong className="text-slate-200">Historical Context: </strong>{selectedLecture.statecraftCaseStudy.historicalContext}</p>
                   <p><strong className="text-slate-200">Strategic Analysis: </strong>{selectedLecture.statecraftCaseStudy.strategicAnalysis}</p>
-                  <p className="p-3 bg-slate-950 rounded-xl border border-amber-500/30 text-amber-200 font-medium">
+                  <p className="p-3 bg-slate-950/80 rounded-xl border border-amber-500/30 text-amber-200 font-medium">
                     <strong className="text-amber-400">Lesson for Statecraft: </strong>{selectedLecture.statecraftCaseStudy.lessonsForStatecraft}
                   </p>
                 </div>
               </div>
 
               {/* Bengali Diplomatic Summary */}
-              <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 space-y-2">
+              <div className="p-6 bg-[#0b1120] rounded-2xl border border-slate-800 space-y-2">
                 <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
                   কূটনৈতিক সারসংক্ষেপ (Bangla Executive Summary)
                 </div>
@@ -420,7 +462,7 @@ export const IrFellowshipHub: React.FC = () => {
 
               {/* Analytical Seminar Questions */}
               <div className="p-6 bg-slate-950 rounded-2xl border border-slate-800 space-y-3">
-                <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
                   Postgraduate Seminar & Thesis Prompts
                 </div>
                 <ul className="space-y-2 text-xs text-slate-300 list-disc list-inside leading-relaxed">
@@ -431,16 +473,16 @@ export const IrFellowshipHub: React.FC = () => {
               </div>
 
               {/* Key Readings */}
-              <div className="p-6 bg-slate-900/60 rounded-2xl border border-slate-800 space-y-3">
+              <div className="p-6 bg-[#0b1120] rounded-2xl border border-slate-800 space-y-3">
                 <div className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-indigo-400" />
+                  <FileText className="w-4 h-4 text-amber-400" />
                   Seminal Reading List & Treaties
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {selectedLecture.keyReadings.map((r, idx) => (
                     <div key={idx} className="p-3.5 bg-slate-950 rounded-xl border border-slate-800 space-y-1 text-xs">
                       <div className="font-bold text-white">{r.title}</div>
-                      <div className="text-[11px] text-slate-400">{r.author} • <span className="text-indigo-400">{r.sourceType}</span></div>
+                      <div className="text-[11px] text-slate-400">{r.author} • <span className="text-amber-400">{r.sourceType}</span></div>
                       <p className="text-[10px] text-slate-500">{r.coreConcept}</p>
                     </div>
                   ))}
@@ -455,10 +497,10 @@ export const IrFellowshipHub: React.FC = () => {
         {/* TAB 2: GLOSSARY SEARCH INDEX */}
         {activeTab === 'glossary' && (
           <div className="space-y-6">
-            <div className="p-6 bg-slate-900 rounded-3xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="p-6 bg-[#0b1120] rounded-3xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="space-y-1 text-center sm:text-left">
-                <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                  <Globe className="w-4 h-4 text-indigo-400" />
+                <h2 className="text-lg font-bold text-white flex items-center gap-2 font-serif-title">
+                  <Globe className="w-4 h-4 text-amber-400" />
                   Diplomatic, Strategic & Geopolitical Conceptual Index
                 </h2>
                 <p className="text-xs text-slate-400">
@@ -473,22 +515,22 @@ export const IrFellowshipHub: React.FC = () => {
                   placeholder="Search terms or concepts..."
                   value={searchGlossaryQuery}
                   onChange={(e) => setSearchGlossaryQuery(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {filteredGlossary.map((item, idx) => (
-                <div key={idx} className="p-5 bg-slate-900/80 rounded-2xl border border-slate-800 space-y-2 shadow-lg hover:border-slate-700 transition">
+                <div key={idx} className="p-5 bg-[#0b1120] rounded-2xl border border-slate-800 space-y-2 shadow-lg hover:border-slate-700 transition">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-black text-white text-sm">{item.term}</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">
+                    <span className="font-black text-white text-sm font-serif-title">{item.term}</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">
                       {item.category}
                     </span>
                   </div>
                   {item.pronunciationIpa && (
-                    <div className="text-[11px] font-mono text-cyan-400">{item.pronunciationIpa}</div>
+                    <div className="text-[11px] font-mono text-sky-400">{item.pronunciationIpa}</div>
                   )}
                   <p className="text-xs text-slate-300 leading-relaxed">{item.definition}</p>
                   <p className="text-xs text-emerald-300/90 font-bangla">{item.banglaMeaning}</p>
@@ -504,7 +546,7 @@ export const IrFellowshipHub: React.FC = () => {
         {/* TAB 3: CRISIS DECISION SIMULATOR (STATECRAFT LAB) */}
         {activeTab === 'crisis' && (
           <div className="space-y-8 max-w-4xl mx-auto">
-            <div className="p-6 sm:p-8 bg-slate-900 border border-rose-500/40 rounded-3xl space-y-4 shadow-2xl">
+            <div className="p-6 sm:p-8 bg-[#0b1120] border border-rose-500/40 rounded-3xl space-y-4 shadow-2xl">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold border border-rose-500/40 flex items-center gap-1.5 animate-pulse">
                   <AlertOctagon className="w-4 h-4 text-rose-400" /> {activeCrisis.threatLevel} Alert • {activeCrisis.theater}
@@ -512,7 +554,7 @@ export const IrFellowshipHub: React.FC = () => {
                 <span className="text-xs text-slate-400 font-mono">Stage {crisisStageIdx + 1} of {activeCrisis.dilemmas.length}</span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-black text-white">
+              <h2 className="text-xl sm:text-2xl font-black text-white font-serif-title">
                 {activeCrisis.title}
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -524,9 +566,9 @@ export const IrFellowshipHub: React.FC = () => {
             </div>
 
             {!crisisCompleted ? (
-              <div className="p-6 sm:p-8 bg-slate-900/90 rounded-3xl border border-slate-800 space-y-6 shadow-xl">
+              <div className="p-6 sm:p-8 bg-[#0b1120] rounded-3xl border border-slate-800 space-y-6 shadow-xl">
                 <div className="space-y-2">
-                  <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                  <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
                     {activeCrisis.dilemmas[crisisStageIdx].stageTitle}
                   </div>
                   <h3 className="text-base font-bold text-white">
@@ -544,11 +586,11 @@ export const IrFellowshipHub: React.FC = () => {
                     <button
                       key={opt.id}
                       onClick={() => handleCrisisSelectOption(activeCrisis.dilemmas[crisisStageIdx].id, opt.id)}
-                      className="w-full p-5 rounded-2xl bg-slate-950 hover:bg-indigo-950/40 border border-slate-800 hover:border-indigo-500/50 text-left space-y-2 transition cursor-pointer group"
+                      className="w-full p-5 rounded-2xl bg-slate-950 hover:bg-amber-950/20 border border-slate-800 hover:border-amber-500/40 text-left space-y-2 transition cursor-pointer group"
                     >
                       <div className="flex items-center justify-between text-xs">
-                        <span className="font-bold text-white group-hover:text-indigo-300 text-sm">{opt.actionTitle}</span>
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">
+                        <span className="font-bold text-white group-hover:text-amber-300 text-sm">{opt.actionTitle}</span>
+                        <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">
                           {opt.strategicDoctrine}
                         </span>
                       </div>
@@ -563,9 +605,9 @@ export const IrFellowshipHub: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="p-8 bg-slate-900 rounded-3xl border border-emerald-500/40 space-y-4 text-center shadow-2xl">
+              <div className="p-8 bg-[#0b1120] rounded-3xl border border-emerald-500/40 space-y-4 text-center shadow-2xl">
                 <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
-                <h3 className="text-xl font-bold text-white">Crisis Management Scenario Successfully Resolved</h3>
+                <h3 className="text-xl font-bold text-white font-serif-title">Crisis Management Scenario Successfully Resolved</h3>
                 <p className="text-xs text-slate-300 max-w-lg mx-auto">
                   Your statecraft decisions maintained sovereign integrity while preventing catastrophic armed conflict. Strategic Performance Score: <strong className="text-emerald-400 text-base">{crisisTotalScore} / 100</strong>.
                 </p>
@@ -575,7 +617,7 @@ export const IrFellowshipHub: React.FC = () => {
                     setCrisisStageIdx(0);
                     setCrisisChoices({});
                   }}
-                  className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-2 mx-auto cursor-pointer"
+                  className="px-6 py-2.5 bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold rounded-xl text-xs transition flex items-center gap-2 mx-auto cursor-pointer"
                 >
                   <RotateCcw className="w-4 h-4" />
                   <span>Re-run Crisis Simulation</span>
@@ -588,12 +630,12 @@ export const IrFellowshipHub: React.FC = () => {
         {/* TAB 4: GRAND QUALIFYING EXAMINATION */}
         {activeTab === 'exam' && (
           <div className="space-y-8 max-w-4xl mx-auto">
-            <div className="p-6 sm:p-8 bg-slate-900 border border-purple-500/40 rounded-3xl space-y-3 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="p-6 sm:p-8 bg-[#0b1120] border border-amber-500/30 rounded-3xl space-y-3 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="space-y-1 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold border border-purple-500/30">
-                  <GraduationCap className="w-4 h-4 text-purple-400" /> Capstone Qualifying Examination
+                <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-amber-500/10 text-amber-300 text-xs font-bold border border-amber-500/30">
+                  <GraduationCap className="w-4 h-4 text-amber-400" /> Capstone Qualifying Examination
                 </div>
-                <h2 className="text-xl sm:text-2xl font-black text-white">
+                <h2 className="text-xl sm:text-2xl font-black text-white font-serif-title">
                   Fellowship Grand Qualifying Examination
                 </h2>
                 <p className="text-xs text-slate-300 max-w-xl">
@@ -603,16 +645,16 @@ export const IrFellowshipHub: React.FC = () => {
 
               <div className="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-center shrink-0">
                 <div className="text-xs text-slate-400">Honors Threshold</div>
-                <div className="text-2xl font-black text-emerald-400">≥ 80%</div>
+                <div className="text-2xl font-black text-amber-400">≥ 80%</div>
                 <div className="text-[10px] text-slate-500">for A+ / A Distinction</div>
               </div>
             </div>
 
             <div className="space-y-6">
               {GRAND_EXAM_QUESTIONS.map((q, idx) => (
-                <div key={q.id} className="p-6 bg-slate-900/90 rounded-2xl border border-slate-800 space-y-4">
+                <div key={q.id} className="p-6 bg-[#0b1120] rounded-2xl border border-slate-800 space-y-4">
                   <div className="text-xs font-bold text-white flex items-start gap-2">
-                    <span className="text-indigo-400 font-mono">Q{idx + 1}.</span>
+                    <span className="text-amber-400 font-mono">Q{idx + 1}.</span>
                     <span>{q.prompt}</span>
                   </div>
 
@@ -626,7 +668,7 @@ export const IrFellowshipHub: React.FC = () => {
                         if (isCorrect) btnStyle = 'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold';
                         else if (isSelected && !isCorrect) btnStyle = 'bg-rose-950/80 border-rose-500 text-rose-300';
                       } else if (isSelected) {
-                        btnStyle = 'bg-purple-600 border-purple-500 text-white font-bold';
+                        btnStyle = 'bg-amber-600 border-amber-500 text-slate-950 font-black';
                       }
 
                       return (
@@ -643,7 +685,7 @@ export const IrFellowshipHub: React.FC = () => {
 
                   {examSubmitted && (
                     <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] space-y-1 text-slate-300">
-                      <p><strong className="text-indigo-400">Academic Rationale: </strong>{q.academicRationale}</p>
+                      <p><strong className="text-amber-400">Academic Rationale: </strong>{q.academicRationale}</p>
                       <p className="font-bangla text-emerald-400/90">{q.banglaExplanation}</p>
                     </div>
                   )}
@@ -651,7 +693,7 @@ export const IrFellowshipHub: React.FC = () => {
               ))}
             </div>
 
-            <div className="flex items-center justify-between p-6 bg-slate-900 rounded-2xl border border-slate-800">
+            <div className="flex items-center justify-between p-6 bg-[#0b1120] rounded-2xl border border-slate-800">
               {examSubmitted ? (
                 <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
                   <div className="space-y-1 text-center sm:text-left">
@@ -671,7 +713,7 @@ export const IrFellowshipHub: React.FC = () => {
               ) : (
                 <button
                   onClick={handleSubmitGrandExam}
-                  className="w-full py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold transition shadow-lg cursor-pointer"
+                  className="w-full py-3.5 bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-slate-950 font-black rounded-xl text-xs transition shadow-lg cursor-pointer"
                 >
                   Submit Grand Qualifying Examination for Grading
                 </button>
@@ -685,23 +727,23 @@ export const IrFellowshipHub: React.FC = () => {
           <div className="space-y-8 max-w-4xl mx-auto">
             
             {/* Diploma Card Preview */}
-            <div className="p-8 sm:p-12 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/40 rounded-3xl border-2 border-amber-500/40 shadow-2xl space-y-8 text-center relative overflow-hidden">
+            <div className="p-8 sm:p-12 bg-gradient-to-br from-slate-950 via-[#0b1120] to-slate-950 rounded-3xl border-2 border-amber-500/40 shadow-2xl space-y-8 text-center relative overflow-hidden">
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-amber-400 uppercase">
                   <ShieldCheck className="w-4 h-4 text-amber-400" />
                   Daloyar Hassan Diplomatic Research & Academic Fellowship
                 </div>
-                <h1 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-wider font-serif">
+                <h1 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-wider font-serif-title">
                   Certificate of Academic Fellowship
                 </h1>
                 <p className="text-xs text-slate-400 max-w-lg mx-auto">
-                  Open Master\\'s Fellowship in International Relations & Strategic Studies
+                  Open Master's Fellowship in International Relations & Strategic Studies
                 </p>
               </div>
 
               <div className="py-6 border-y border-amber-500/20 space-y-4">
                 <div className="text-xs text-slate-400 uppercase tracking-wider">This Executive Fellowship is Conferred Upon</div>
-                <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 font-serif">
+                <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 font-serif-title">
                   {profile.userAlias || 'Fellow Candidate'}
                 </div>
                 
@@ -723,14 +765,14 @@ export const IrFellowshipHub: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4 text-xs text-slate-400">
                 <div className="text-center sm:text-left space-y-1">
-                  <div className="font-serif italic font-bold text-amber-300 text-base">Daloyar Hassan Shishir</div>
+                  <div className="font-serif-title italic font-bold text-amber-300 text-base">Daloyar Hassan Shishir</div>
                   <div className="text-[11px] text-slate-500">Founder & Diplomatic Research Director</div>
                   <div className="text-[10px] text-slate-600">dhshishir.com • Diplomatic Hub</div>
                 </div>
 
                 <button
                   onClick={() => window.print()}
-                  className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg cursor-pointer"
+                  className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold rounded-xl text-xs flex items-center gap-2 shadow-lg cursor-pointer"
                 >
                   <Printer className="w-4 h-4" />
                   <span>Print / Save PDF Diploma</span>
@@ -739,11 +781,11 @@ export const IrFellowshipHub: React.FC = () => {
             </div>
 
             {/* Official Academic Transcript Breakdown */}
-            <div className="bg-slate-900/90 rounded-3xl border border-slate-800 p-6 sm:p-8 space-y-6 shadow-2xl">
+            <div className="bg-[#0b1120] rounded-3xl border border-slate-800 p-6 sm:p-8 space-y-6 shadow-2xl">
               <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                 <div>
-                  <h3 className="text-base font-bold text-white flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-indigo-400" />
+                  <h3 className="text-base font-bold text-white flex items-center gap-2 font-serif-title">
+                    <FileText className="w-4 h-4 text-amber-400" />
                     Official Academic Transcript & Competency Breakdown
                   </h3>
                   <p className="text-xs text-slate-400 mt-0.5">
@@ -763,7 +805,7 @@ export const IrFellowshipHub: React.FC = () => {
                       </div>
                       <div className="text-right">
                         <div className="text-xs font-bold text-emerald-400">{score}% Score</div>
-                        <div className="text-[10px] text-slate-500 font-mono">Grade A</div>
+                        <div className="text-[10px] text-amber-400 font-mono">Grade A</div>
                       </div>
                     </div>
                   );
@@ -779,10 +821,10 @@ export const IrFellowshipHub: React.FC = () => {
       {/* CHECKPOINT QUIZ MODAL */}
       {activeQuizPillar && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto shadow-2xl">
+          <div className="bg-[#0b1120] border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div>
-                <h3 className="text-sm font-bold text-white">{activeQuizPillar.checkpointQuiz.title}</h3>
+                <h3 className="text-sm font-bold text-white font-serif-title">{activeQuizPillar.checkpointQuiz.title}</h3>
                 <p className="text-xs text-slate-400">Passing score: {activeQuizPillar.checkpointQuiz.passingScorePercentage}%</p>
               </div>
               <button
@@ -810,7 +852,7 @@ export const IrFellowshipHub: React.FC = () => {
                         if (isCorrect) btnStyle = 'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold';
                         else if (isSelected && !isCorrect) btnStyle = 'bg-rose-950/80 border-rose-500 text-rose-300';
                       } else if (isSelected) {
-                        btnStyle = 'bg-indigo-600 border-indigo-500 text-white font-bold';
+                        btnStyle = 'bg-amber-600 border-amber-500 text-slate-950 font-black';
                       }
 
                       return (
@@ -827,7 +869,7 @@ export const IrFellowshipHub: React.FC = () => {
 
                   {quizSubmitted && (
                     <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-[11px] space-y-1 text-slate-300">
-                      <p><strong className="text-indigo-400">Academic Rationale: </strong>{q.academicRationale}</p>
+                      <p><strong className="text-amber-400">Academic Rationale: </strong>{q.academicRationale}</p>
                       <p className="font-bangla text-emerald-400/90">{q.banglaExplanation}</p>
                     </div>
                   )}
@@ -843,7 +885,7 @@ export const IrFellowshipHub: React.FC = () => {
                   </span>
                   <button
                     onClick={() => setActiveQuizPillar(null)}
-                    className="px-4 py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold cursor-pointer"
+                    className="px-4 py-2 bg-amber-600 text-slate-950 font-bold rounded-xl text-xs cursor-pointer"
                   >
                     Done
                   </button>
@@ -851,7 +893,7 @@ export const IrFellowshipHub: React.FC = () => {
               ) : (
                 <button
                   onClick={handleSubmitQuiz}
-                  className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition shadow-lg cursor-pointer"
+                  className="w-full py-3 bg-amber-600 hover:bg-amber-500 text-slate-950 font-black rounded-xl text-xs transition shadow-lg cursor-pointer"
                 >
                   Submit Examination
                 </button>
