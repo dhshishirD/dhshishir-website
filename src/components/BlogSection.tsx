@@ -11,7 +11,7 @@ export const BlogSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold uppercase tracking-wider">
             Career Articles & Guidelines
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
@@ -39,7 +39,7 @@ export const BlogSection: React.FC = () => {
 
                 <div className="p-6 space-y-3">
                   <div className="flex items-center gap-3 text-xs text-slate-400">
-                    <span className="font-semibold text-emerald-400">{post.category}</span>
+                    <span className="font-semibold text-teal-900">{post.category}</span>
                     <span>•</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {post.readTime}</span>
                   </div>

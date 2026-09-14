@@ -33,7 +33,7 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ onLaunchStandaloneTo
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold uppercase tracking-wider">
             Visitor & Career Tools Suite
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
@@ -52,7 +52,7 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ onLaunchStandaloneTo
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-950/50'
+                  ? 'bg-teal-900 text-white shadow-xs font-bold'
                   : 'bg-white text-slate-700 hover:text-slate-950 border border-slate-200 shadow-xs'
               }`}
             >

@@ -53,16 +53,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               onClick={() => handleNavClick('home')}
               className="flex items-center gap-3 group text-left cursor-pointer"
             >
-              <img
-                src="/logo.svg"
-                alt="DH Shishir Monogram Emblem"
-                className="w-10 h-10 rounded-2xl shadow-md group-hover:scale-105 transition object-contain border border-slate-200"
-              />
+              <div className="w-10 h-10 rounded-2xl bg-teal-900 text-white flex items-center justify-center font-bold text-lg shadow-sm group-hover:scale-105 transition">
+                শ
+              </div>
               <div>
                 <div className="text-lg font-extrabold tracking-tight text-slate-900 flex items-center gap-1.5">
-                  dhshishir<span className="text-blue-700">.com</span>
+                  dhshishir<span className="text-teal-800">.com</span>
                 </div>
-                <div className="text-[10px] sm:text-[11px] font-semibold text-slate-600 tracking-wider uppercase">
+                <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 tracking-wider uppercase">
                   Daloyar Hassan Shishir
                 </div>
               </div>
@@ -73,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               <button
                 onClick={() => handleNavClick('home')}
                 className={`text-xs font-bold transition px-3 py-1.5 rounded-lg cursor-pointer ${
-                  currentView === 'home' ? 'text-slate-950 bg-slate-100 font-extrabold' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  currentView === 'home' ? 'text-teal-950 bg-teal-50 font-extrabold' : 'text-slate-600 hover:text-teal-900 hover:bg-slate-50'
                 }`}
               >
                 Home
@@ -84,44 +82,44 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                 onClick={() => handleNavClick('fellowship')}
                 className={`text-xs font-bold transition px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer border ${
                   currentView === 'fellowship'
-                    ? 'bg-blue-50 text-blue-900 border-blue-300 shadow-xs'
-                    : 'bg-slate-50 text-slate-700 hover:text-blue-900 border-slate-200 hover:bg-blue-50/60'
+                    ? 'bg-teal-900 text-white border-teal-900 shadow-xs'
+                    : 'bg-teal-50/80 text-teal-900 hover:bg-teal-100/80 border-teal-200'
                 }`}
               >
-                <GraduationCap className="w-3.5 h-3.5 text-blue-700" />
+                <GraduationCap className={`w-3.5 h-3.5 ${currentView === 'fellowship' ? 'text-teal-200' : 'text-teal-800'}`} />
                 <span>IR Fellowship</span>
-                <span className="bg-amber-500 text-slate-950 text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase">Master's</span>
+                <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full uppercase ${currentView === 'fellowship' ? 'bg-teal-800 text-teal-100' : 'bg-teal-200 text-teal-900'}`}>Master's</span>
               </button>
 
               <button
                 onClick={() => handleNavClick('diplomacy')}
                 className={`text-xs font-bold transition px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer border ${
                   currentView === 'diplomacy'
-                    ? 'bg-cyan-50 text-cyan-900 border-cyan-300 shadow-xs'
-                    : 'bg-slate-50 text-slate-700 hover:text-cyan-900 border-slate-200 hover:bg-cyan-50/60'
+                    ? 'bg-teal-900 text-white border-teal-900 shadow-xs'
+                    : 'bg-slate-50 text-slate-700 hover:text-teal-900 border-slate-200 hover:bg-teal-50/60'
                 }`}
               >
-                <Globe className="w-3.5 h-3.5 text-cyan-700" />
+                <Globe className={`w-3.5 h-3.5 ${currentView === 'diplomacy' ? 'text-teal-200' : 'text-teal-800'}`} />
                 <span>Diplomatic Hub</span>
-                <span className="bg-cyan-600 text-white text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase">Intel</span>
+                <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full uppercase ${currentView === 'diplomacy' ? 'bg-teal-800 text-teal-100' : 'bg-slate-200 text-slate-800'}`}>Intel</span>
               </button>
 
               <button
                 onClick={() => handleNavClick('fluency-lab')}
                 className={`text-xs font-bold transition px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer border ${
                   currentView === 'fluency-lab'
-                    ? 'bg-emerald-50 text-emerald-900 border-emerald-300 shadow-xs'
-                    : 'bg-slate-50 text-slate-700 hover:text-emerald-900 border-slate-200 hover:bg-emerald-50/60'
+                    ? 'bg-teal-900 text-white border-teal-900 shadow-xs'
+                    : 'bg-slate-50 text-slate-700 hover:text-teal-900 border-slate-200 hover:bg-teal-50/60'
                 }`}
               >
-                <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                <Sparkles className={`w-3.5 h-3.5 ${currentView === 'fluency-lab' ? 'text-teal-200' : 'text-teal-800'}`} />
                 <span>Fluency Lab</span>
               </button>
 
               <button
                 onClick={() => handleNavClick('tools')}
                 className={`text-xs font-bold transition px-3 py-1.5 rounded-lg cursor-pointer ${
-                  currentView === 'tools' ? 'text-slate-950 bg-slate-100 font-extrabold' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  currentView === 'tools' ? 'text-teal-950 bg-teal-50 font-extrabold' : 'text-slate-600 hover:text-teal-900 hover:bg-slate-50'
                 }`}
               >
                 Career Tools
@@ -130,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               <button
                 onClick={() => handleNavClick('leadership')}
                 className={`text-xs font-bold transition px-3 py-1.5 rounded-lg cursor-pointer ${
-                  currentView === 'leadership' ? 'text-slate-950 bg-slate-100 font-extrabold' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  currentView === 'leadership' ? 'text-teal-950 bg-teal-50 font-extrabold' : 'text-slate-600 hover:text-teal-900 hover:bg-slate-50'
                 }`}
               >
                 Leadership & Bio
@@ -139,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               <button
                 onClick={() => handleNavClick('blog')}
                 className={`text-xs font-bold transition px-3 py-1.5 rounded-lg cursor-pointer ${
-                  currentView === 'blog' ? 'text-slate-950 bg-slate-100 font-extrabold' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  currentView === 'blog' ? 'text-teal-950 bg-teal-50 font-extrabold' : 'text-slate-600 hover:text-teal-900 hover:bg-slate-50'
                 }`}
               >
                 Insights
@@ -148,7 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               <button
                 onClick={() => handleNavClick('contact')}
                 className={`text-xs font-bold transition px-3 py-1.5 rounded-lg cursor-pointer ${
-                  currentView === 'contact' ? 'text-slate-950 bg-slate-100 font-extrabold' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  currentView === 'contact' ? 'text-teal-950 bg-teal-50 font-extrabold' : 'text-slate-600 hover:text-teal-900 hover:bg-slate-50'
                 }`}
               >
                 Contact
@@ -163,7 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                     onClick={() => handleNavClick('dashboard')}
                     className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-900 text-xs font-bold transition cursor-pointer"
                   >
-                    <LayoutDashboard className="w-4 h-4 text-blue-700" />
+                    <LayoutDashboard className="w-4 h-4 text-teal-800" />
                     <span>Dashboard</span>
                   </button>
                   <button
@@ -177,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               ) : (
                 <button
                   onClick={() => setIsAuthModalOpen(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-xs shadow-md transition cursor-pointer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs shadow-xs transition cursor-pointer"
                 >
                   <User className="w-3.5 h-3.5" />
                   <span>Sign In / Join</span>
@@ -210,31 +208,31 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
 
             <button
               onClick={() => handleNavClick('fellowship')}
-              className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-blue-900 bg-blue-50 border border-blue-200 flex items-center justify-between transition cursor-pointer"
+              className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-teal-900 bg-teal-50 border border-teal-200 flex items-center justify-between transition cursor-pointer"
             >
               <div className="flex items-center gap-2">
-                <GraduationCap className="w-4 h-4 text-blue-700" />
+                <GraduationCap className="w-4 h-4 text-teal-800" />
                 <span>IR Master's Fellowship</span>
               </div>
-              <span className="bg-amber-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full">OPEN</span>
+              <span className="bg-teal-800 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">OPEN</span>
             </button>
 
             <button
               onClick={() => handleNavClick('diplomacy')}
-              className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-cyan-900 bg-cyan-50 border border-cyan-200 flex items-center justify-between transition cursor-pointer"
+              className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-slate-800 hover:bg-teal-50 hover:text-teal-900 border border-transparent rounded-lg flex items-center justify-between transition cursor-pointer"
             >
               <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-cyan-700" />
+                <Globe className="w-4 h-4 text-teal-800" />
                 <span>Diplomatic & Foreign Policy Hub</span>
               </div>
-              <span className="bg-cyan-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full">LIVE</span>
+              <span className="bg-slate-200 text-slate-800 text-[10px] font-bold px-2 py-0.5 rounded-full">LIVE</span>
             </button>
 
             <button
               onClick={() => handleNavClick('fluency-lab')}
-              className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-emerald-900 bg-emerald-50 border border-emerald-200 flex items-center gap-2 transition cursor-pointer"
+              className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-slate-800 hover:bg-teal-50 hover:text-teal-900 flex items-center gap-2 transition cursor-pointer"
             >
-              <Sparkles className="w-4 h-4 text-emerald-600" />
+              <Sparkles className="w-4 h-4 text-teal-800" />
               <span>Fluency Lab Hub</span>
             </button>
 
@@ -271,7 +269,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                 <>
                   <button
                     onClick={() => handleNavClick('dashboard')}
-                    className="w-full py-2.5 rounded-xl bg-slate-100 border border-slate-200 text-blue-900 text-xs font-bold flex items-center justify-center gap-2"
+                    className="w-full py-2.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold flex items-center justify-center gap-2"
                   >
                     <LayoutDashboard className="w-4 h-4" /> Personal Dashboard
                   </button>
@@ -288,7 +286,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                     setIsAuthModalOpen(true);
                     setIsOpen(false);
                   }}
-                  className="w-full py-2.5 rounded-xl bg-blue-900 text-white text-xs font-bold flex items-center justify-center gap-2 shadow-md"
+                  className="w-full py-2.5 rounded-xl bg-teal-900 text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs"
                 >
                   <User className="w-4 h-4" /> Sign In / Create Account
                 </button>

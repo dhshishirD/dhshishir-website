@@ -234,11 +234,11 @@ export function App() {
             <HeroSection onNavigate={navigateTo} />
             
             {/* Featured IR Fellowship Academic Spotlight Banner on Homepage */}
-            <section className="py-12 bg-gradient-to-r from-blue-50/70 via-indigo-50/60 to-slate-50 border-y border-indigo-100">
+            <section className="py-12 bg-gradient-to-r from-teal-50/50 via-slate-50 to-teal-50/50 border-y border-teal-200">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-white border border-indigo-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-indigo-100/50">
+                <div className="bg-white border border-teal-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
                   <div className="space-y-2 text-center md:text-left">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-bold uppercase tracking-wider">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold uppercase tracking-wider">
                       <GraduationCap className="w-3.5 h-3.5 text-amber-400" /> Open Master's Fellowship (OMF-IRSS)
                     </div>
                     <h2 className="text-xl sm:text-2xl font-black text-slate-900">
@@ -250,7 +250,7 @@ export function App() {
                   </div>
                   <button
                     onClick={() => navigateTo('fellowship')}
-                    className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-xl shadow-indigo-900/40"
+                    className="px-6 py-3.5 rounded-2xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-xs"
                   >
                     <span>Enter Master's Academy</span>
                     <ArrowRight className="w-4 h-4" />
@@ -260,11 +260,11 @@ export function App() {
             </section>
 
             {/* Featured Diplomatic Hub Spotlight Banner on Homepage */}
-            <section className="py-12 bg-gradient-to-r from-slate-50 via-cyan-50/50 to-slate-50 border-b border-cyan-100">
+            <section className="py-12 bg-slate-50 border-b border-slate-200">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-white border border-cyan-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-cyan-100/50">
+                <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
                   <div className="space-y-2 text-center md:text-left">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-900 text-xs font-bold uppercase tracking-wider">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider">
                       <Globe className="w-3.5 h-3.5 text-cyan-400" /> Strategic Intelligence Desk
                     </div>
                     <h2 className="text-xl sm:text-2xl font-black text-slate-900">
@@ -276,7 +276,7 @@ export function App() {
                   </div>
                   <button
                     onClick={() => navigateTo('diplomacy')}
-                    className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-600 via-teal-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-xl shadow-cyan-900/40"
+                    className="px-6 py-3.5 rounded-2xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-xs"
                   >
                     <span>Launch Diplomatic Desk</span>
                     <ArrowRight className="w-4 h-4" />

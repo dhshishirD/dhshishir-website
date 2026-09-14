@@ -16,8 +16,8 @@
 }
 
 ::selection {
-  background-color: rgba(245, 158, 11, 0.25);
-  color: #92400e;
+  background-color: rgba(19, 78, 74, 0.18);
+  color: #134e4a;
 }
 
 /* Custom Study-Friendly Clean Scrollbar */
@@ -41,21 +41,17 @@
 }
 
 .gradient-gold-text {
-  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #b45309 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #134e4a;
 }
 
 .gradient-diplomatic-text {
-  background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #1e293b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #0f172a;
 }
 
 .diplomatic-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
 }
 
 @media print {
