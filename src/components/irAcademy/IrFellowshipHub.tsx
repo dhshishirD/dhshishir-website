@@ -50,7 +50,8 @@ export const IrFellowshipHub: React.FC = () => {
   const [quizScore, setQuizScore] = useState(0);
 
   // Crisis Simulator States
-  const activeCrisis = CRISIS_SCENARIOS[0];
+  const [selectedCrisisId, setSelectedCrisisId] = useState<string>(CRISIS_SCENARIOS[0].id);
+  const activeCrisis = CRISIS_SCENARIOS.find(s => s.id === selectedCrisisId) || CRISIS_SCENARIOS[0];
   const [crisisStageIdx, setCrisisStageIdx] = useState(0);
   const [crisisChoices, setCrisisChoices] = useState<Record<string, string>>({});
   const [crisisCompleted, setCrisisCompleted] = useState(false);
@@ -546,6 +547,29 @@ export const IrFellowshipHub: React.FC = () => {
         {/* TAB 3: CRISIS DECISION SIMULATOR (STATECRAFT LAB) */}
         {activeTab === 'crisis' && (
           <div className="space-y-8 max-w-4xl mx-auto">
+            {/* Scenario Switcher */}
+            <div className="flex flex-wrap items-center gap-2 p-2 bg-slate-100 rounded-2xl border border-slate-200">
+              {CRISIS_SCENARIOS.map((sc, idx) => (
+                <button
+                  key={sc.id}
+                  onClick={() => {
+                    setSelectedCrisisId(sc.id);
+                    setCrisisStageIdx(0);
+                    setCrisisChoices({});
+                    setCrisisCompleted(false);
+                  }}
+                  className={`flex-1 min-w-[200px] px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
+                    selectedCrisisId === sc.id
+                      ? 'bg-teal-900 text-white shadow-xs'
+                      : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200'
+                  }`}
+                >
+                  <AlertOctagon className="w-3.5 h-3.5" />
+                  <span>Scenario {idx + 1}: {sc.title.split('&')[0].trim()}</span>
+                </button>
+              ))}
+            </div>
+
             <div className="p-6 sm:p-8 bg-white border border-slate-200 rounded-3xl space-y-4 shadow-xs">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="px-3 py-1 rounded-full bg-teal-50 text-teal-900 text-xs font-bold border border-teal-200 flex items-center gap-1.5">

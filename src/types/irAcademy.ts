@@ -78,7 +78,7 @@ export interface CrisisOption {
   id: string;
   actionTitle: string;
   actionDescription: string;
-  strategicDoctrine: 'Deterrence Escalation' | 'Diplomatic De-escalation' | 'Multilateral Mediation' | 'Asymmetric Hedging';
+  strategicDoctrine: 'Deterrence Escalation' | 'Diplomatic De-escalation' | 'Multilateral Mediation' | 'Asymmetric Hedging' | 'Omnidirectional Hedging';
   projectedOutcomes: {
     sovereigntyImpact: string;
     regionalStability: string;
@@ -109,7 +109,7 @@ export interface CrisisScenario {
 
 export interface GlossaryTerm {
   term: string;
-  category: 'IR Theory' | 'Security & Strategy' | 'Political Psychology' | 'Geoeconomics' | 'International Law' | 'Bangladesh Statecraft';
+  category: 'IR Theory' | 'Security & Strategy' | 'Political Psychology' | 'Geoeconomics' | 'International Law' | 'Bangladesh Statecraft' | 'Diplomatic Statecraft & Decision Systems';
   pronunciationIpa?: string;
   definition: string;
   banglaMeaning: string;
