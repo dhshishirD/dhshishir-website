@@ -3,6 +3,7 @@ import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, GraduationCap,
 import { supabase } from '../services/supabaseClient';
 import { AuthModal } from './auth/AuthModal';
 import { DiplomaticSoundscapes } from './common/DiplomaticSoundscapes';
+import { LanguageSwitcher } from './common/LanguageSwitcher';
 
 export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'fluency-lab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard';
 
@@ -168,6 +169,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
 
             {/* Ambient Diplomatic Soundscapes Focus Switcher */}
             <DiplomaticSoundscapes className="hidden md:flex" />
+            <LanguageSwitcher />
 
             {/* User Auth Action Button */}
             <div className="hidden lg:flex items-center gap-3">

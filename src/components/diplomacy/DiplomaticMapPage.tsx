@@ -31,6 +31,7 @@ import type {
   VoyageRouteOption
 } from '../../data/diplomaticMapData';
 import { speakText } from '../../utils/audioPlayer';
+import { useLocalization, resolveLocalizedText } from '../../services/localizationService';
 
 interface DiplomaticMapPageProps {
   initialLocationId?: string | null;
@@ -49,6 +50,7 @@ export const DiplomaticMapPage: React.FC<DiplomaticMapPageProps> = ({
 }) => {
   // Main view mode: 'map' | 'voyage-simulator' | 'radar-challenge'
   const [activeMode, setActiveMode] = useState<'map' | 'voyage-simulator' | 'radar-challenge'>('map');
+  const { lang, currentMeta } = useLocalization();
 
   const [selectedLocation, setSelectedLocation] = useState<StrategicLocation | null>(() => {
     if (initialLocationId) {
@@ -842,9 +844,19 @@ export const DiplomaticMapPage: React.FC<DiplomaticMapPageProps> = ({
                   <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-700 leading-relaxed space-y-2">
                     <strong className="text-slate-900 block font-sans">Strategic Significance:</strong>
                     <p>{selectedLocation.significance}</p>
-                    <div className="pt-2 border-t border-slate-200 text-teal-950 font-bangla font-medium">
-                      {selectedLocation.banglaSignificance}
-                    </div>
+                    {(() => {
+                      const locInfo = resolveLocalizedText(lang, selectedLocation.banglaSignificance, selectedLocation.significance);
+                      return (
+                        <div className="pt-2 border-t border-slate-200 text-teal-950 font-medium">
+                          <span className="text-[10px] uppercase font-bold text-slate-500 block mb-0.5">
+                            {currentMeta.flag} {locInfo.languageLabel}
+                          </span>
+                          <p className={lang === 'bn' ? 'font-bangla' : ''} dir={locInfo.isRtl ? 'rtl' : 'ltr'}>
+                            {locInfo.text}
+                          </p>
+                        </div>
+                      );
+                    })()}
                   </div>
 
                   {/* Bangladesh Foreign Policy Relevance */}

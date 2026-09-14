@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import type { ExtendedGlossaryTerm } from '../../data/diplomaticGlossaryData';
 import { speakText } from '../../utils/audioPlayer';
+import { useLocalization, resolveLocalizedText } from '../../services/localizationService';
 
 interface GlossaryTermModalProps {
   term: ExtendedGlossaryTerm | null;
@@ -21,6 +22,7 @@ export const GlossaryTermModal: React.FC<GlossaryTermModalProps> = ({
   onClose,
   onNavigateToMap
 }) => {
+  const { lang, currentMeta } = useLocalization();
   if (!term) return null;
 
   const handlePronounce = () => {
@@ -101,15 +103,21 @@ export const GlossaryTermModal: React.FC<GlossaryTermModalProps> = ({
           </p>
         </div>
 
-        {/* Bengali Semantic Translation */}
-        <div className="p-3.5 bg-teal-50/50 rounded-2xl border border-teal-200 space-y-1">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-teal-900 font-bangla">
-            বাংলা অর্থ ও তাৎপর্য (Bangla Meaning)
-          </div>
-          <p className="text-xs sm:text-sm text-slate-900 font-medium font-bangla leading-relaxed">
-            {term.banglaMeaning}
-          </p>
-        </div>
+        {/* Localized Semantic Explanation */}
+        {(() => {
+          const locInfo = resolveLocalizedText(lang, term.banglaMeaning, term.definition);
+          return (
+            <div className="p-3.5 bg-teal-50/50 rounded-2xl border border-teal-200 space-y-1">
+              <div className="text-[11px] font-bold uppercase tracking-wider text-teal-900 flex items-center gap-1.5">
+                <span>{currentMeta.flag}</span>
+                <span>{locInfo.languageLabel}</span>
+              </div>
+              <p className={`text-xs sm:text-sm text-slate-900 font-medium leading-relaxed ${lang === 'bn' ? 'font-bangla' : ''}`} dir={locInfo.isRtl ? 'rtl' : 'ltr'}>
+                {locInfo.text}
+              </p>
+            </div>
+          );
+        })()}
 
         {/* Strategic & Statecraft Context */}
         <div className="space-y-1">

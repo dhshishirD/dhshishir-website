@@ -7,8 +7,10 @@ import {
   ThumbsUp
 } from 'lucide-react';
 import { speakText } from '../../utils/audioPlayer';
+import { useLocalization, resolveLocalizedText } from '../../services/localizationService';
 
 export const StrategicMemoryVault: React.FC = () => {
+  const { lang, currentMeta } = useLocalization();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [flippedCardIds, setFlippedCardIds] = useState<string[]>([]);
   const [masteredCardIds, setMasteredCardIds] = useState<string[]>([]);
@@ -157,9 +159,19 @@ export const StrategicMemoryVault: React.FC = () => {
                   <p className="leading-relaxed text-[11px] bg-teal-900/60 p-2.5 rounded-xl border border-teal-800">
                     <strong className="text-teal-300">Core Rule: </strong>{card.backDeepDive.coreDefinition}
                   </p>
-                  <p className="text-[11px] font-bangla text-teal-200 font-medium">
-                    {card.backDeepDive.banglaMeaning}
-                  </p>
+                  {(() => {
+                    const locInfo = resolveLocalizedText(lang, card.backDeepDive.banglaMeaning, card.backDeepDive.coreDefinition);
+                    return (
+                      <div className="text-[11px] text-teal-200 font-medium pt-1 border-t border-teal-800/80">
+                        <span className="text-[9px] uppercase font-mono text-teal-400 block mb-0.5">
+                          {currentMeta.flag} {locInfo.languageLabel}:
+                        </span>
+                        <p className={lang === 'bn' ? 'font-bangla' : ''} dir={locInfo.isRtl ? 'rtl' : 'ltr'}>
+                          {locInfo.text}
+                        </p>
+                      </div>
+                    );
+                  })()}
                   <div className="text-[10px] text-slate-300">
                     <strong className="text-teal-400">Application: </strong>{card.backDeepDive.diplomaticApplication}
                   </div>
