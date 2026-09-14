@@ -2,218 +2,332 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dhshishir.com/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/fluency-lab</loc>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://dhshishir.com/diplomatic-map</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/fellowship</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/fluency-lab</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/tools</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://dhshishir.com/tools/ats-checker</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dhshishir.com/tools/cover-letter</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dhshishir.com/tools/ielts-planner</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dhshishir.com/tools/action-verbs</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dhshishir.com/leadership</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/blog</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/matarbari-deep-sea-port-bay-of-bengal-security</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/leadership</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/navigating-trilateral-pressures-us-china-india</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/contact</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/post-2026-ldc-graduation-tariff-cliff-gsp-plus</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/ats-checker</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/bay-of-bengal-maritime-domain-awareness-naval-modernization</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/cover-letter</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/myanmar-borderland-instability-rohingya-repatriation-geopolitics</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/ielts-planner</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/india-bangladesh-transboundary-water-governance-teesta</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/action-verbs</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/climate-finance-architecture-loss-and-damage-v20</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/salary-negotiator</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/revitalizing-bimstec-trade-connectivity-energy-grid</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/sop-generator</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/un-peacekeeping-doctrine-forces-goal-2030</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/interview-simulator</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/indo-pacific-outlook-bangladesh-normative-framework</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/email-diplomat</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/cepa-india-bangladesh-economic-partnership</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/grammar-coach</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/blue-economy-maritime-spatial-planning-bay-of-bengal</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dhshishir.com/tools/vocabulary-builder</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/cross-border-subregional-energy-grid-nepal-bhutan</loc>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://dhshishir.com/diplomacy/red-sea-crisis-bab-el-mandeb-garment-supply-chain-diversion</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/cyber-diplomacy-digital-sovereignty-critical-infrastructure</loc>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://dhshishir.com/diplomacy/middle-east-energy-realignment-hormuz-lng-bangladesh-security</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/asean-sectoral-dialogue-partnership-bangladesh</loc>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://dhshishir.com/diplomacy/us-china-semiconductor-tech-war-export-controls-global-south-decoupling</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://dhshishir.com/diplomacy/saudi-gulf-economic-diplomacy-manpower-remittances</loc>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://dhshishir.com/diplomacy/brics-plus-de-dollarization-mbridge-local-currency-settlements-sovereign-reserves</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/unclos-extended-continental-shelf-delimitation-central-bay-of-bengal</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/quad-ipef-vs-belt-and-road-green-energy-minerals-competition</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/taiwan-strait-south-china-sea-a2ad-deterrence-first-island-chain-sloc-security</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/ai-driven-cognitive-warfare-foreign-electoral-interference-south-asia</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/rooppur-nuclear-power-plant-geopolitics-rosatom-grid</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/nato-arctic-expansion-european-strategic-autonomy-defense-industrial-rearmament</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/matarbari-deep-sea-port-bay-of-bengal-security</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/myanmar-civil-war-arakan-army-rohingya-repatriation-security</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/un-global-ai-governance-treaty-autonomous-weapons-algorithmic-deterrence-statecraft</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/navigating-trilateral-pressures-us-china-india</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/ganga-water-sharing-treaty-2026-renewal-hydropolitics</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/post-2026-ldc-graduation-tariff-cliff-gsp-plus</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/teesta-river-comprehensive-management-china-india-standoff</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/bay-of-bengal-maritime-domain-awareness-naval-modernization</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/un-peacekeeping-doctrine-forces-goal-2030</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/bns-sheikh-hasina-pekuan-submarine-base-naval-balance</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/myanmar-borderland-instability-rohingya-repatriation-geopolitics</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/cross-border-electricity-trade-nepal-bhutan-hydropower-grid</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/india-bangladesh-transboundary-water-governance-teesta</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/indo-pacific-outlook-bangladesh-normative-framework</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/gcc-remittance-diplomacy-sovereign-wealth-fund-engagement</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/semiconductor-assembly-testing-electronics-supply-chain-rerouting</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/climate-finance-architecture-loss-and-damage-v20</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/cepa-india-bangladesh-economic-partnership</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/loss-and-damage-fund-cop31-climate-reparations-diplomacy</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://dhshishir.com/diplomacy/cross-border-data-sovereignty-digital-public-infrastructure-south-asia</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/revitalizing-bimstec-trade-connectivity-energy-grid</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/blue-economy-maritime-spatial-planning-bay-of-bengal</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/cross-border-subregional-energy-grid-nepal-bhutan</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/cyber-diplomacy-digital-sovereignty-critical-infrastructure</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/asean-sectoral-dialogue-partnership-bangladesh</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/diplomacy/saudi-gulf-economic-diplomacy-manpower-remittances</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
   </url>
 </urlset>
