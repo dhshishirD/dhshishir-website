@@ -42,13 +42,13 @@ export function App() {
       setCurrentView('fellowship');
       setIsStandaloneTool(false);
       document.title = "Open Master's Fellowship in International Relations & Strategic Studies | DH Shishir";
-        } else if (path === '/map' || path === '/diplomatic-map' || hash.startsWith('#/map')) {
+        } else if (path === '/diplomatic-map' || path === '/map' || path === '/diplomaticmap' || hash.startsWith('#/diplomatic-map') || hash.startsWith('#/map')) {
       const locParam = new URLSearchParams(window.location.search).get('location');
       setActiveMapLocationId(locParam || null);
       setActiveDossierSlug(null);
       setCurrentView('map');
       setIsStandaloneTool(false);
-      document.title = 'Interactive Diplomatic & Geopolitical World Map | DH Shishir';
+      document.title = 'Interactive Diplomatic & Geopolitical World Map | Strategic Sea Lanes & Global Chokepoints | DH Shishir';
     } else if (path.startsWith('/diplomacy/') || hash.startsWith('#/diplomacy/')) {
       const slug = path.replace('/diplomacy/', '') || hash.replace('#/diplomacy/', '');
       setActiveDossierSlug(slug);
@@ -136,7 +136,7 @@ export function App() {
       targetPath = '/fellowship';
       setActiveDossierSlug(null);
         } else if (view === 'map') {
-      targetPath = subParam ? `/map?location=${subParam}` : '/map';
+      targetPath = subParam ? `/diplomatic-map?location=${subParam}` : '/diplomatic-map';
       setActiveMapLocationId(subParam || null);
       setActiveDossierSlug(null);
     } else if (view === 'diplomacy') {
