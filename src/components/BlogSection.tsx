@@ -29,7 +29,7 @@ export const BlogSection: React.FC = () => {
               className="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col justify-between hover:border-slate-300 shadow-xs transition group"
             >
               <div>
-                <div className="h-48 overflow-hidden bg-slate-950">
+                <div className="h-48 overflow-hidden bg-slate-50">
                   <img
                     src={post.coverImage}
                     alt={post.title}
@@ -38,7 +38,7 @@ export const BlogSection: React.FC = () => {
                 </div>
 
                 <div className="p-6 space-y-3">
-                  <div className="flex items-center gap-3 text-xs text-slate-400">
+                  <div className="flex items-center gap-3 text-xs text-slate-500">
                     <span className="font-semibold text-teal-900">{post.category}</span>
                     <span>•</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {post.readTime}</span>
@@ -70,28 +70,28 @@ export const BlogSection: React.FC = () => {
         <AdSenseSlot slotId="3489102834" label="Sponsored Content" />
 
         {selectedPost && (
-          <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+          <div className="fixed inset-0 z-50 bg-white backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+            <div className="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
               <button
                 onClick={() => setSelectedPost(null)}
-                className="absolute top-5 right-5 p-2 bg-slate-800 hover:bg-slate-700 rounded-full text-slate-300 cursor-pointer"
+                className="absolute top-5 right-5 p-2 bg-slate-100 hover:bg-slate-700 rounded-full text-slate-600 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="space-y-4">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">{selectedPost.category}</span>
-                <h2 className="text-2xl font-black text-white">{selectedPost.title}</h2>
-                <div className="text-xs text-slate-400">{selectedPost.date} • {selectedPost.readTime}</div>
+                <span className="text-xs font-bold text-teal-800 uppercase tracking-wider">{selectedPost.category}</span>
+                <h2 className="text-2xl font-black text-slate-900">{selectedPost.title}</h2>
+                <div className="text-xs text-slate-500">{selectedPost.date} • {selectedPost.readTime}</div>
 
-                <div className="text-sm text-slate-300 space-y-4 leading-relaxed whitespace-pre-line border-t border-slate-800 pt-4">
+                <div className="text-sm text-slate-600 space-y-4 leading-relaxed whitespace-pre-line border-t border-slate-200 pt-4">
                   {selectedPost.content}
                 </div>
 
-                <div className="pt-6 border-t border-slate-800 flex justify-end">
+                <div className="pt-6 border-t border-slate-200 flex justify-end">
                   <button
                     onClick={() => setSelectedPost(null)}
-                    className="px-6 py-2.5 bg-indigo-600 text-white rounded-xl text-xs font-bold cursor-pointer"
+                    className="px-6 py-2.5 bg-indigo-600 text-slate-900 rounded-xl text-xs font-bold cursor-pointer"
                   >
                     Close Article
                   </button>

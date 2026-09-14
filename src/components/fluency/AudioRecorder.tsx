@@ -199,7 +199,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
   return (
     <div className="space-y-4">
       {/* Recorder Action Box */}
-      <div className="p-6 bg-slate-950 rounded-2xl border border-slate-800 shadow-inner flex flex-col items-center justify-center text-center space-y-4">
+      <div className="p-6 bg-white rounded-2xl border border-slate-200 shadow-inner flex flex-col items-center justify-center text-center space-y-4">
         
         {/* Animated Waveform / Status Display */}
         {recordingState === 'recording' ? (
@@ -223,14 +223,14 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
           </div>
         ) : recordingState === 'recorded' ? (
           <div className="space-y-1">
-            <div className="text-emerald-400 font-bold text-sm flex items-center justify-center gap-1.5">
+            <div className="text-teal-800 font-bold text-sm flex items-center justify-center gap-1.5">
               <Volume2 className="w-4 h-4" /> Recording Ready ({formatTime(duration)})
             </div>
-            <p className="text-slate-400 text-xs">Play back below to compare your articulation with the studio model.</p>
+            <p className="text-slate-500 text-xs">Play back below to compare your articulation with the studio model.</p>
           </div>
         ) : (
           <div className="space-y-1">
-            <div className="text-slate-300 font-bold text-sm">Microphone Ready</div>
+            <div className="text-slate-600 font-bold text-sm">Microphone Ready</div>
             <p className="text-slate-500 text-xs">Press the button below, speak the phrase clearly, and press stop.</p>
           </div>
         )}
@@ -241,7 +241,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
             <button
               onClick={startRecording}
               disabled={isRecordingDisabled}
-              className="px-6 py-3.5 bg-gradient-to-r from-rose-600 to-red-500 hover:from-rose-500 hover:to-red-400 disabled:opacity-50 text-white rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-rose-900/30 transition transform active:scale-95 cursor-pointer"
+              className="px-6 py-3.5 bg-gradient-to-r from-rose-600 to-red-500 hover:from-rose-500 hover:to-red-400 disabled:opacity-50 text-slate-900 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer"
             >
               <Mic className="w-4 h-4" />
               <span>Start Recording Take</span>
@@ -251,7 +251,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
           {recordingState === 'requesting' && (
             <button
               disabled
-              className="px-6 py-3.5 bg-slate-800 text-slate-400 rounded-2xl font-bold text-sm flex items-center gap-2 cursor-wait"
+              className="px-6 py-3.5 bg-slate-100 text-slate-500 rounded-2xl font-bold text-sm flex items-center gap-2 cursor-wait"
             >
               <Mic className="w-4 h-4 animate-spin" />
               <span>Accessing Mic...</span>
@@ -261,7 +261,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
           {recordingState === 'recording' && (
             <button
               onClick={stopRecording}
-              className="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-rose-400 border border-rose-500/40 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg transition transform active:scale-95 cursor-pointer"
+              className="px-6 py-3.5 bg-slate-100 hover:bg-slate-700 text-rose-400 border border-rose-500/40 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg transition transform active:scale-95 cursor-pointer"
             >
               <Square className="w-4 h-4 fill-rose-400" />
               <span>Stop Recording</span>
@@ -271,7 +271,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
           {recordingState === 'recorded' && (
             <button
               onClick={handleReset}
-              className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 rounded-2xl font-bold text-xs flex items-center gap-1.5 transition cursor-pointer"
+              className="px-5 py-2.5 bg-white hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200 rounded-2xl font-bold text-xs flex items-center gap-1.5 transition cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Record New Take</span>

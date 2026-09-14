@@ -83,24 +83,24 @@ export const BanglaMistakeChecker: React.FC = () => {
   };
 
   return (
-    <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-2xl text-white">
-      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
-        <div className="p-3 bg-amber-500/20 text-amber-400 rounded-2xl border border-amber-500/30">
+    <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-2xl text-slate-900">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
+        <div className="p-3 bg-teal-50 text-amber-400 rounded-2xl border border-amber-500/30">
           <SpellCheck className="w-6 h-6" />
         </div>
         <div>
-          <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+          <h3 className="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
             Bangladeshi English Common Mistake Scanner
-            <span className="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-medium">UCC 7+ Yrs Pedagogy</span>
+            <span className="text-xs bg-teal-50 text-teal-800 border border-teal-200 px-2 py-0.5 rounded-full font-medium">UCC 7+ Yrs Pedagogy</span>
           </h3>
-          <p className="text-sm text-slate-400">Detect typical Bengali-speaker grammatical habits, false collocations, and preposition mismatches.</p>
+          <p className="text-sm text-slate-500">Detect typical Bengali-speaker grammatical habits, false collocations, and preposition mismatches.</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-6 space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1">
+            <label className="block text-xs font-semibold text-slate-600 mb-1">
               Enter your English paragraph or sentence to scan:
             </label>
             <textarea
@@ -111,7 +111,7 @@ export const BanglaMistakeChecker: React.FC = () => {
                 setInputText(e.target.value);
                 if (hasScanned) setHasScanned(false);
               }}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs sm:text-sm text-white focus:border-amber-500 outline-none leading-relaxed"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs sm:text-sm text-slate-900 focus:border-amber-500 outline-none leading-relaxed"
             />
           </div>
 
@@ -119,7 +119,7 @@ export const BanglaMistakeChecker: React.FC = () => {
             <button
               onClick={handleScan}
               disabled={!inputText.trim()}
-              className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-amber-600 via-orange-600 to-indigo-600 hover:opacity-95 disabled:opacity-50 text-white font-bold text-xs shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
+              className="flex-1 py-3.5 rounded-xl bg-teal-900 hover:bg-teal-800 hover:opacity-95 disabled:opacity-50 text-white font-bold text-xs shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" /> Scan for Typical Errors
             </button>
@@ -129,14 +129,14 @@ export const BanglaMistakeChecker: React.FC = () => {
                 setMatchedErrors([]);
                 setHasScanned(false);
               }}
-              className="px-4 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-bold"
+              className="px-4 py-3.5 bg-slate-100 hover:bg-slate-700 text-slate-600 rounded-xl text-xs font-bold"
             >
               Clear
             </button>
           </div>
 
-          <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-slate-400">
-            <span className="font-bold text-slate-200">Try quick test examples: </span>
+          <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-500">
+            <span className="font-bold text-slate-800">Try quick test examples: </span>
             <button
               onClick={() => setInputText("I am agree with your decision. We should discuss about this.")}
               className="text-amber-400 underline ml-1 cursor-pointer"
@@ -153,11 +153,11 @@ export const BanglaMistakeChecker: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-6 bg-slate-950/90 rounded-2xl border border-slate-800 p-5">
-          <h4 className="text-sm font-bold text-white border-b border-slate-800 pb-3 flex items-center justify-between">
+        <div className="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5">
+          <h4 className="text-sm font-bold text-slate-900 border-b border-slate-200 pb-3 flex items-center justify-between">
             <span>Diagnostic Results</span>
             {hasScanned && (
-              <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${matchedErrors.length === 0 ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'}`}>
+              <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${matchedErrors.length === 0 ? 'bg-teal-50 text-teal-800' : 'bg-teal-50 text-amber-400'}`}>
                 {matchedErrors.length === 0 ? '✓ No Common Errors' : `${matchedErrors.length} Issue(s) Found`}
               </span>
             )}
@@ -167,21 +167,21 @@ export const BanglaMistakeChecker: React.FC = () => {
             {hasScanned ? (
               matchedErrors.length > 0 ? (
                 matchedErrors.map((err, idx) => (
-                  <div key={idx} className="p-3.5 bg-slate-900 rounded-xl border border-amber-500/30 space-y-1.5">
+                  <div key={idx} className="p-3.5 bg-white rounded-xl border border-amber-500/30 space-y-1.5">
                     <div className="flex items-center gap-2 text-xs font-bold text-amber-400">
                       <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
                       <span>{err.title}</span>
                     </div>
-                    <p className="text-[11px] text-slate-300">{err.explanation}</p>
-                    <div className="text-[11px] font-mono bg-slate-950 p-2 rounded border border-slate-800 text-emerald-400">
+                    <p className="text-[11px] text-slate-600">{err.explanation}</p>
+                    <div className="text-[11px] font-mono bg-slate-50 p-2 rounded border border-slate-200 text-teal-800">
                       Correct usage: <span className="font-bold">{err.correction}</span>
                     </div>
                   </div>
                 ))
               ) : (
-                <div className="p-6 text-center space-y-2 text-slate-400">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-400 mx-auto" />
-                  <div className="text-sm font-bold text-white">Clean Structure Detected!</div>
+                <div className="p-6 text-center space-y-2 text-slate-500">
+                  <CheckCircle2 className="w-10 h-10 text-teal-800 mx-auto" />
+                  <div className="text-sm font-bold text-slate-900">Clean Structure Detected!</div>
                   <p className="text-xs text-slate-500">No standard Bangladeshi English grammatical traps found in this excerpt.</p>
                 </div>
               )

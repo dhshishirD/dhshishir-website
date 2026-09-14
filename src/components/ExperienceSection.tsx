@@ -86,8 +86,8 @@ export const ExperienceSection: React.FC = () => {
                   </div>
 
                   <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 mb-4 pb-3 border-b border-slate-100">
-                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-slate-400" /> {item.period}</span>
-                    <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-slate-400" /> {item.location}</span>
+                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-slate-500" /> {item.period}</span>
+                    <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-slate-500" /> {item.location}</span>
                   </div>
 
                   <ul className="space-y-2">

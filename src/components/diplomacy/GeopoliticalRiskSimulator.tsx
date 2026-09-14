@@ -26,7 +26,7 @@ const PRESETS: ScenarioPreset[] = [
     name: 'The Bay of Bengal Bridge (Optimal Multi-Vector)',
     tagline: 'Balanced Multi-Alignment & Sub-Regional Hub',
     description: 'Strict constitutional neutrality, engaging Quad MDA commercially while hosting BRI infrastructure, expanding EU GSP+ trade, and importing BBIN Himalayan clean hydropower.',
-    badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+    badgeColor: 'bg-teal-50 text-teal-800 border-teal-200',
     levers: {
       alignment: 'balanced_neutral',
       maritime: 'commercial_open',
@@ -68,7 +68,7 @@ const PRESETS: ScenarioPreset[] = [
     name: 'Fortress Sovereignty & Self-Reliance',
     tagline: 'High Defense Readiness with Trade Insulation',
     description: 'Maximizing subsurface A2/AD naval deterrence, unilateral river training (Ganges/Teesta barrages), strict border fortification, and domestic industrial tariffs.',
-    badgeColor: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
+    badgeColor: 'bg-teal-50 text-amber-400 border-amber-500/30',
     levers: {
       alignment: 'balanced_neutral',
       maritime: 'a2ad_fortified',
@@ -201,29 +201,29 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
 
   const getScoreColor = (val: number, inverse = false) => {
     if (inverse) {
-      if (val <= 30) return 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30';
-      if (val <= 55) return 'text-amber-400 bg-amber-500/10 border-amber-500/30';
+      if (val <= 30) return 'text-teal-800 bg-teal-50 border-teal-200';
+      if (val <= 55) return 'text-amber-400 bg-teal-50 border-amber-500/30';
       return 'text-rose-400 bg-rose-500/10 border-rose-500/30';
     }
-    if (val >= 80) return 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30';
-    if (val >= 60) return 'text-amber-400 bg-amber-500/10 border-amber-500/30';
+    if (val >= 80) return 'text-teal-800 bg-teal-50 border-teal-200';
+    if (val >= 60) return 'text-amber-400 bg-teal-50 border-amber-500/30';
     return 'text-rose-400 bg-rose-500/10 border-rose-500/30';
   };
 
   return (
     <div className="space-y-8 animate-fadeIn">
       {/* Header Banner */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 border border-cyan-500/30 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 border border-teal-200 shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-50 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider mb-2">
               <Sliders className="w-3.5 h-3.5" /> Interactive Geopolitical Engine
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Strategic Scenario & Geopolitical Risk Simulator
             </h2>
-            <p className="text-sm text-slate-300 max-w-3xl mt-1.5 leading-relaxed">
+            <p className="text-sm text-slate-600 max-w-3xl mt-1.5 leading-relaxed">
               Model multi-vector policy recalibrations for Bangladesh across Great Power diplomacy (US-China-India), Bay of Bengal maritime transit, transboundary energy corridors, and post-LDC trade resilience.
             </p>
           </div>
@@ -231,13 +231,13 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => handleSelectPreset('bay_of_bengal_bridge')}
-              className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl border border-slate-700 transition flex items-center gap-1.5 cursor-pointer shadow"
+              className="px-4 py-2 bg-slate-100 hover:bg-slate-700 text-slate-800 text-xs font-bold rounded-xl border border-slate-200 transition flex items-center gap-1.5 cursor-pointer shadow"
             >
               <RotateCcw className="w-3.5 h-3.5" /> Reset Levers
             </button>
             <button
               onClick={() => window.print()}
-              className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg"
+              className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg"
             >
               <Printer className="w-3.5 h-3.5" /> Export Simulation Memo
             </button>
@@ -247,7 +247,7 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
 
       {/* Preset Selector */}
       <div className="space-y-3">
-        <div className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+        <div className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-amber-400" /> Strategic Scenario Presets
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -259,8 +259,8 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
                 onClick={() => handleSelectPreset(preset.id)}
                 className={`p-4 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-slate-800/90 border-cyan-500 ring-2 ring-cyan-500/30 shadow-lg'
-                    : 'bg-slate-900/60 border-slate-800 hover:bg-slate-800/50 hover:border-slate-700'
+                    ? 'bg-slate-50 border-cyan-500 ring-2 ring-cyan-500/30 shadow-lg'
+                    : 'bg-white border-slate-200 hover:bg-slate-100/50 hover:border-slate-200'
                 }`}
               >
                 <div>
@@ -268,11 +268,11 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
                     <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full border ${preset.badgeColor}`}>
                       {preset.name.split(' ')[0]}
                     </span>
-                    {isSelected && <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />}
+                    {isSelected && <CheckCircle2 className="w-4 h-4 text-teal-800 shrink-0" />}
                   </div>
-                  <h4 className="text-sm font-black text-white leading-snug">{preset.name}</h4>
-                  <div className="text-xs text-cyan-400 font-semibold mt-0.5">{preset.tagline}</div>
-                  <p className="text-xs text-slate-400 mt-2 leading-relaxed line-clamp-3">{preset.description}</p>
+                  <h4 className="text-sm font-black text-slate-900 leading-snug">{preset.name}</h4>
+                  <div className="text-xs text-teal-800 font-semibold mt-0.5">{preset.tagline}</div>
+                  <p className="text-xs text-slate-500 mt-2 leading-relaxed line-clamp-3">{preset.description}</p>
                 </div>
               </button>
             );
@@ -285,19 +285,19 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
         
         {/* Left Column: Interactive Policy Levers (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="p-6 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-xl space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-cyan-400" /> Strategic Policy Levers
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Sliders className="w-4 h-4 text-teal-800" /> Strategic Policy Levers
               </h3>
-              <span className="text-xs text-slate-400">5 Calibration Vectors</span>
+              <span className="text-xs text-slate-500">5 Calibration Vectors</span>
             </div>
 
             {/* Lever 1: Great Power Alignment Vector */}
             <div className="space-y-2.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center justify-between">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center justify-between">
                 <span>1. Great Power Alignment Vector</span>
-                <span className="text-[11px] text-cyan-400 capitalize">{alignment.replace(/_/g, ' ')}</span>
+                <span className="text-[11px] text-teal-800 capitalize">{alignment.replace(/_/g, ' ')}</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {[
@@ -314,8 +314,8 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
                     }}
                     className={`p-3 rounded-xl border text-left transition cursor-pointer ${
                       alignment === item.id
-                        ? 'bg-cyan-500/10 border-cyan-500/60 text-white shadow'
-                        : 'bg-slate-950/60 border-slate-800/80 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                        ? 'bg-teal-50 border-cyan-500/60 text-slate-900 shadow'
+                        : 'bg-white border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-200'
                     }`}
                   >
                     <div className="text-xs font-bold">{item.label}</div>
@@ -327,9 +327,9 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
 
             {/* Lever 2: Maritime Choke-Point Governance */}
             <div className="space-y-2.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center justify-between">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center justify-between">
                 <span>2. Bay of Bengal Port & Maritime Access</span>
-                <span className="text-[11px] text-cyan-400 capitalize">{maritime.replace(/_/g, ' ')}</span>
+                <span className="text-[11px] text-teal-800 capitalize">{maritime.replace(/_/g, ' ')}</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {[
@@ -345,8 +345,8 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
                     }}
                     className={`p-3 rounded-xl border text-left transition cursor-pointer ${
                       maritime === item.id
-                        ? 'bg-cyan-500/10 border-cyan-500/60 text-white shadow'
-                        : 'bg-slate-950/60 border-slate-800/80 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                        ? 'bg-teal-50 border-cyan-500/60 text-slate-900 shadow'
+                        : 'bg-white border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-200'
                     }`}
                   >
                     <div className="text-xs font-bold">{item.label}</div>
@@ -358,9 +358,9 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
 
             {/* Lever 3: Transboundary Water & Energy Strategy */}
             <div className="space-y-2.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center justify-between">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center justify-between">
                 <span>3. Transboundary River & Energy Strategy</span>
-                <span className="text-[11px] text-cyan-400 capitalize">{waterEnergy.replace(/_/g, ' ')}</span>
+                <span className="text-[11px] text-teal-800 capitalize">{waterEnergy.replace(/_/g, ' ')}</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {[
@@ -376,8 +376,8 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
                     }}
                     className={`p-3 rounded-xl border text-left transition cursor-pointer ${
                       waterEnergy === item.id
-                        ? 'bg-cyan-500/10 border-cyan-500/60 text-white shadow'
-                        : 'bg-slate-950/60 border-slate-800/80 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                        ? 'bg-teal-50 border-cyan-500/60 text-slate-900 shadow'
+                        : 'bg-white border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-200'
                     }`}
                   >
                     <div className="text-xs font-bold">{item.label}</div>
@@ -389,9 +389,9 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
 
             {/* Lever 4: Post-LDC Trade & Financial Architecture */}
             <div className="space-y-2.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center justify-between">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center justify-between">
                 <span>4. Post-2026 LDC Trade & Finance Architecture</span>
-                <span className="text-[11px] text-cyan-400 capitalize">{tradeFinance.replace(/_/g, ' ')}</span>
+                <span className="text-[11px] text-teal-800 capitalize">{tradeFinance.replace(/_/g, ' ')}</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {[
@@ -407,8 +407,8 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
                     }}
                     className={`p-3 rounded-xl border text-left transition cursor-pointer ${
                       tradeFinance === item.id
-                        ? 'bg-cyan-500/10 border-cyan-500/60 text-white shadow'
-                        : 'bg-slate-950/60 border-slate-800/80 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                        ? 'bg-teal-50 border-cyan-500/60 text-slate-900 shadow'
+                        : 'bg-white border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-200'
                     }`}
                   >
                     <div className="text-xs font-bold">{item.label}</div>
@@ -420,9 +420,9 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
 
             {/* Lever 5: Frontier & Refugee Security Policy */}
             <div className="space-y-2.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center justify-between">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center justify-between">
                 <span>5. Myanmar Frontier & Rohingya Strategy</span>
-                <span className="text-[11px] text-cyan-400 capitalize">{frontierSecurity.replace(/_/g, ' ')}</span>
+                <span className="text-[11px] text-teal-800 capitalize">{frontierSecurity.replace(/_/g, ' ')}</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {[
@@ -438,8 +438,8 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
                     }}
                     className={`p-3 rounded-xl border text-left transition cursor-pointer ${
                       frontierSecurity === item.id
-                        ? 'bg-cyan-500/10 border-cyan-500/60 text-white shadow'
-                        : 'bg-slate-950/60 border-slate-800/80 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                        ? 'bg-teal-50 border-cyan-500/60 text-slate-900 shadow'
+                        : 'bg-white border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-200'
                     }`}
                   >
                     <div className="text-xs font-bold">{item.label}</div>
@@ -456,12 +456,12 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
         <div className="lg:col-span-5 space-y-6">
           
           {/* Dynamic Scoreboard */}
-          <div className="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-5">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Scale className="w-4 h-4 text-cyan-400" /> Real-Time Strategic Scoreboard
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-5">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Scale className="w-4 h-4 text-teal-800" /> Real-Time Strategic Scoreboard
               </h3>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-mono">
+              <span className="text-xs px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200 font-mono">
                 Live Index
               </span>
             </div>
@@ -471,14 +471,14 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
               {/* Metric 1 */}
               <div>
                 <div className="flex items-center justify-between text-xs mb-1.5 font-bold">
-                  <span className="flex items-center gap-1.5 text-slate-300">
-                    <Shield className="w-3.5 h-3.5 text-indigo-400" /> Sovereign Autonomy Index
+                  <span className="flex items-center gap-1.5 text-slate-600">
+                    <Shield className="w-3.5 h-3.5 text-teal-800" /> Sovereign Autonomy Index
                   </span>
                   <span className={`px-2 py-0.5 rounded-md border font-mono text-[11px] ${getScoreColor(sovereigntyScore)}`}>
                     {sovereigntyScore} / 100
                   </span>
                 </div>
-                <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                <div className="h-2 w-full bg-white rounded-full overflow-hidden border border-slate-200">
                   <div 
                     className="h-full bg-gradient-to-r from-indigo-500 to-cyan-500 transition-all duration-500 rounded-full"
                     style={{ width: `${sovereigntyScore}%` }}
@@ -489,14 +489,14 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
               {/* Metric 2 */}
               <div>
                 <div className="flex items-center justify-between text-xs mb-1.5 font-bold">
-                  <span className="flex items-center gap-1.5 text-slate-300">
-                    <TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> Trade & Macro Resilience
+                  <span className="flex items-center gap-1.5 text-slate-600">
+                    <TrendingUp className="w-3.5 h-3.5 text-teal-800" /> Trade & Macro Resilience
                   </span>
                   <span className={`px-2 py-0.5 rounded-md border font-mono text-[11px] ${getScoreColor(tradeResilienceScore)}`}>
                     {tradeResilienceScore} / 100
                   </span>
                 </div>
-                <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                <div className="h-2 w-full bg-white rounded-full overflow-hidden border border-slate-200">
                   <div 
                     className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-500 rounded-full"
                     style={{ width: `${tradeResilienceScore}%` }}
@@ -507,14 +507,14 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
               {/* Metric 3 */}
               <div>
                 <div className="flex items-center justify-between text-xs mb-1.5 font-bold">
-                  <span className="flex items-center gap-1.5 text-slate-300">
+                  <span className="flex items-center gap-1.5 text-slate-600">
                     <Zap className="w-3.5 h-3.5 text-amber-400" /> Energy & Base-Load Security
                   </span>
                   <span className={`px-2 py-0.5 rounded-md border font-mono text-[11px] ${getScoreColor(energySecurityScore)}`}>
                     {energySecurityScore} / 100
                   </span>
                 </div>
-                <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                <div className="h-2 w-full bg-white rounded-full overflow-hidden border border-slate-200">
                   <div 
                     className="h-full bg-gradient-to-r from-amber-500 to-yellow-500 transition-all duration-500 rounded-full"
                     style={{ width: `${energySecurityScore}%` }}
@@ -525,14 +525,14 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
               {/* Metric 4 */}
               <div>
                 <div className="flex items-center justify-between text-xs mb-1.5 font-bold">
-                  <span className="flex items-center gap-1.5 text-slate-300">
-                    <Compass className="w-3.5 h-3.5 text-cyan-400" /> Bay of Bengal Deterrence
+                  <span className="flex items-center gap-1.5 text-slate-600">
+                    <Compass className="w-3.5 h-3.5 text-teal-800" /> Bay of Bengal Deterrence
                   </span>
                   <span className={`px-2 py-0.5 rounded-md border font-mono text-[11px] ${getScoreColor(deterrenceScore)}`}>
                     {deterrenceScore} / 100
                   </span>
                 </div>
-                <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                <div className="h-2 w-full bg-white rounded-full overflow-hidden border border-slate-200">
                   <div 
                     className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-500 rounded-full"
                     style={{ width: `${deterrenceScore}%` }}
@@ -543,16 +543,16 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
               {/* Metric 5: Geopolitical Friction (Inverse) */}
               <div>
                 <div className="flex items-center justify-between text-xs mb-1.5 font-bold">
-                  <span className="flex items-center gap-1.5 text-slate-300">
+                  <span className="flex items-center gap-1.5 text-slate-600">
                     <AlertTriangle className="w-3.5 h-3.5 text-rose-400" /> Great Power Friction & Sanction Risk
                   </span>
                   <span className={`px-2 py-0.5 rounded-md border font-mono text-[11px] ${getScoreColor(frictionScore, true)}`}>
                     {frictionScore} / 100 {frictionScore > 50 ? '(Elevated)' : '(Contained)'}
                   </span>
                 </div>
-                <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                <div className="h-2 w-full bg-white rounded-full overflow-hidden border border-slate-200">
                   <div 
-                    className="h-full bg-gradient-to-r from-emerald-500 via-amber-500 to-rose-500 transition-all duration-500 rounded-full"
+                    className="h-full bg-teal-900 hover:bg-teal-800 transition-all duration-500 rounded-full"
                     style={{ width: `${frictionScore}%` }}
                   />
                 </div>
@@ -561,20 +561,20 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
           </div>
 
           {/* Great Power Response Forecast */}
-          <div className="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-              <Globe className="w-4 h-4 text-cyan-400" /> Great Power Strategic Responses
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+              <Globe className="w-4 h-4 text-teal-800" /> Great Power Strategic Responses
             </h4>
 
             {/* US Response */}
-            <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <div className="flex items-center justify-between text-xs font-bold text-slate-200">
+            <div className="p-3.5 rounded-2xl bg-white border border-slate-200 space-y-1">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-800">
                 <span>🇺🇸 Washington Posture</span>
-                <span className="text-[11px] text-cyan-400 font-normal">
+                <span className="text-[11px] text-teal-800 font-normal">
                   {alignment === 'indo_pacific_us' ? 'High Strategic Alignment' : alignment === 'eurasian_china' ? 'Scrutiny & Sanction Pressure' : 'Constructive Engagement'}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 leading-relaxed">
+              <p className="text-[11px] text-slate-500 leading-relaxed">
                 {alignment === 'indo_pacific_us'
                   ? 'Expands USAID clean energy funding, fast-tracks CHIPS Act ITSI semiconductor qualification, and integrates Bangladesh Navy into CARAT exercises.'
                   : alignment === 'eurasian_china'
@@ -584,14 +584,14 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
             </div>
 
             {/* China Response */}
-            <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <div className="flex items-center justify-between text-xs font-bold text-slate-200">
+            <div className="p-3.5 rounded-2xl bg-white border border-slate-200 space-y-1">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-800">
                 <span>🇨🇳 Beijing Posture</span>
-                <span className="text-[11px] text-cyan-400 font-normal">
+                <span className="text-[11px] text-teal-800 font-normal">
                   {alignment === 'eurasian_china' ? 'Maximum Capital Deployment' : alignment === 'indo_pacific_us' ? 'Diplomatic Caution' : 'Active Infrastructure Partner'}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 leading-relaxed">
+              <p className="text-[11px] text-slate-500 leading-relaxed">
                 {alignment === 'eurasian_china'
                   ? 'Accelerates $1B Teesta River Restoration funding, promotes RMB currency swaps, and bids for Payra/Mongla deep port expansion.'
                   : alignment === 'indo_pacific_us'
@@ -601,14 +601,14 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
             </div>
 
             {/* India Response */}
-            <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <div className="flex items-center justify-between text-xs font-bold text-slate-200">
+            <div className="p-3.5 rounded-2xl bg-white border border-slate-200 space-y-1">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-800">
                 <span>🇮🇳 New Delhi Posture</span>
-                <span className="text-[11px] text-cyan-400 font-normal">
+                <span className="text-[11px] text-teal-800 font-normal">
                   {alignment === 'neighborhood_india' ? 'Unprecedented Transit Cooperation' : alignment === 'eurasian_china' ? 'Security Redlines Triggered' : 'Pragmatic Transit Balance'}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 leading-relaxed">
+              <p className="text-[11px] text-slate-500 leading-relaxed">
                 {alignment === 'neighborhood_india'
                   ? 'Expands BBIN electricity wheeling corridors, expedites 2026 Ganga Treaty renewal, and integrates multimodal transit to Northeast India.'
                   : alignment === 'eurasian_china'
@@ -623,25 +623,25 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
       </div>
 
       {/* Strategic Synthesis Memo by Daloyar Hassan */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+      <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-2xl space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-slate-900 font-bold text-sm shadow">
               DH
             </div>
             <div>
-              <h4 className="text-sm font-bold text-white">Daloyar Hassan — Strategic Synthesis & Policy Directive</h4>
-              <div className="text-xs text-cyan-400 font-medium">Lead Foreign Policy & Strategic Affairs Analyst</div>
+              <h4 className="text-sm font-bold text-slate-900">Daloyar Hassan — Strategic Synthesis & Policy Directive</h4>
+              <div className="text-xs text-teal-800 font-medium">Lead Foreign Policy & Strategic Affairs Analyst</div>
             </div>
           </div>
-          <div className="text-xs font-mono px-3 py-1 rounded-lg bg-slate-950 text-slate-400 border border-slate-800">
+          <div className="text-xs font-mono px-3 py-1 rounded-lg bg-white text-slate-500 border border-slate-200">
             REF: SIM-BD/2026/POLICY-{alignment.toUpperCase()}
           </div>
         </div>
 
-        <div className="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3 font-sans">
+        <div className="text-xs sm:text-sm text-slate-600 leading-relaxed space-y-3 font-sans">
           <p>
-            <strong>Executive Strategic Assessment:</strong> The simulated configuration demonstrates that Bangladesh’s optimal sovereign leverage is achieved not by exclusionary great-power allegiance, but through <em>Dynamic Multi-Vector Hedging</em>. Under the current levers, sovereign autonomy stands at <strong className="text-cyan-400">{sovereigntyScore}/100</strong> with a trade resilience score of <strong className="text-emerald-400">{tradeResilienceScore}/100</strong>.
+            <strong>Executive Strategic Assessment:</strong> The simulated configuration demonstrates that Bangladesh’s optimal sovereign leverage is achieved not by exclusionary great-power allegiance, but through <em>Dynamic Multi-Vector Hedging</em>. Under the current levers, sovereign autonomy stands at <strong className="text-teal-800">{sovereigntyScore}/100</strong> with a trade resilience score of <strong className="text-teal-800">{tradeResilienceScore}/100</strong>.
           </p>
           <p>
             <strong>Primary Policy Directives for MoFA & ERD:</strong>

@@ -253,21 +253,21 @@ export const SpeakAndRecordTrainer: React.FC = () => {
     <div className="space-y-8 max-w-5xl mx-auto">
 
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-white border border-slate-200 border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" /> Stage 3 • Speak & Record Studio
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
             Listen, Record & Contrast Comparison
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-xl">
+          <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
             Record your voice against verified studio models. Compare pronunciation nuances, stress rhythm, and consonant articulation side-by-side.
           </p>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="px-4 py-2.5 bg-slate-950 rounded-2xl border border-slate-800 flex items-center gap-2 text-xs font-bold text-amber-400 shadow-inner">
+          <div className="px-4 py-2.5 bg-white rounded-2xl border border-slate-200 flex items-center gap-2 text-xs font-bold text-amber-400 shadow-inner">
             <Flame className="w-4 h-4 text-amber-400" />
             <span>{streakCount} Day Practice Streak</span>
           </div>
@@ -280,8 +280,8 @@ export const SpeakAndRecordTrainer: React.FC = () => {
           onClick={() => { setSelectedCategory('all'); setCurrentIndex(0); }}
           className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer ${
             selectedCategory === 'all'
-              ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
-              : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+              ? 'bg-emerald-500 text-slate-950 shadow-md shadow-xs'
+              : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
           }`}
         >
           All Drills ({SPEAK_PRACTICE_DATA.length})
@@ -292,8 +292,8 @@ export const SpeakAndRecordTrainer: React.FC = () => {
             onClick={() => { setSelectedCategory(cat.id); setCurrentIndex(0); }}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer ${
               selectedCategory === cat.id
-                ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+                ? 'bg-indigo-600 text-slate-900 shadow-md shadow-xs'
+                : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
             }`}
           >
             {cat.label} ({cat.count})
@@ -302,20 +302,20 @@ export const SpeakAndRecordTrainer: React.FC = () => {
       </div>
 
       {/* Main Practice Workspace Card */}
-      <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-8 shadow-2xl backdrop-blur-xl">
+      <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-8 shadow-2xl backdrop-blur-xl">
 
         {/* Target Navigation & Meta */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-800">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-200">
           <div className="flex items-center gap-2.5">
-            <span className="px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 font-mono text-xs font-bold border border-indigo-500/30">
+            <span className="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-900 font-mono text-xs font-bold border border-teal-200">
               Drill {currentIndex + 1} of {filteredTargets.length}
             </span>
-            <span className="text-xs text-slate-400 font-medium">
+            <span className="text-xs text-slate-500 font-medium">
               {currentTarget.categoryLabel}
             </span>
             <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase ${
-              currentTarget.difficulty === 'Beginner' ? 'bg-emerald-500/20 text-emerald-300' :
-              currentTarget.difficulty === 'Intermediate' ? 'bg-amber-500/20 text-amber-300' :
+              currentTarget.difficulty === 'Beginner' ? 'bg-teal-50 text-teal-900' :
+              currentTarget.difficulty === 'Intermediate' ? 'bg-teal-50 text-amber-300' :
               'bg-rose-500/20 text-rose-300'
             }`}>
               {currentTarget.difficulty}
@@ -325,14 +325,14 @@ export const SpeakAndRecordTrainer: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrevTarget}
-              className="p-2 bg-slate-950 hover:bg-slate-800 text-slate-300 rounded-xl border border-slate-800 transition cursor-pointer"
+              className="p-2 bg-white hover:bg-slate-100 text-slate-600 rounded-xl border border-slate-200 transition cursor-pointer"
               title="Previous Drill"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNextTarget}
-              className="p-2 bg-slate-950 hover:bg-slate-800 text-slate-300 rounded-xl border border-slate-800 transition cursor-pointer"
+              className="p-2 bg-white hover:bg-slate-100 text-slate-600 rounded-xl border border-slate-200 transition cursor-pointer"
               title="Next Drill"
             >
               <ChevronRight className="w-4 h-4" />
@@ -341,18 +341,18 @@ export const SpeakAndRecordTrainer: React.FC = () => {
         </div>
 
         {/* Prompt Card: Target Text & IPA & Stress */}
-        <div className="p-6 bg-slate-950 rounded-2xl border border-slate-800 space-y-4 shadow-inner text-center md:text-left">
+        <div className="p-6 bg-white rounded-2xl border border-slate-200 space-y-4 shadow-inner text-center md:text-left">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center justify-center md:justify-start gap-1.5">
+            <div className="text-xs font-bold uppercase tracking-wider text-teal-800 flex items-center justify-center md:justify-start gap-1.5">
               <Sparkles className="w-3.5 h-3.5" /> Target Phonetic Phrase
             </div>
-            <div className="font-mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-lg border border-slate-800 inline-block">
-              IPA: <span className="text-indigo-300">{currentTarget.ipa}</span>
+            <div className="font-mono text-xs text-slate-500 bg-white px-3 py-1 rounded-lg border border-slate-200 inline-block">
+              IPA: <span className="text-teal-900">{currentTarget.ipa}</span>
             </div>
           </div>
 
           {/* Large Display Sentence */}
-          <div className="text-xl sm:text-2xl md:text-3xl font-black text-white leading-relaxed tracking-wide">
+          <div className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 leading-relaxed tracking-wide">
             {currentTarget.targetSentence}
           </div>
 
@@ -368,8 +368,8 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                       key={idx}
                       className={`px-3 py-1 rounded-xl text-xs font-mono font-bold uppercase transition ${
                         isStressed
-                          ? 'bg-amber-400 text-slate-950 ring-2 ring-amber-300 shadow-md shadow-amber-400/30 scale-105'
-                          : 'bg-slate-900 text-slate-400 border border-slate-800'
+                          ? 'bg-amber-400 text-slate-950 ring-2 ring-amber-300 shadow-md shadow-xs scale-105'
+                          : 'bg-white text-slate-500 border border-slate-200'
                       }`}
                     >
                       {syl} {isStressed && 'ˈ'}
@@ -381,10 +381,10 @@ export const SpeakAndRecordTrainer: React.FC = () => {
           )}
 
           {/* Bengali Articulation Trap & Guidance */}
-          <div className="p-3.5 bg-indigo-950/40 rounded-xl border border-indigo-500/20 flex items-start gap-2.5 text-xs text-indigo-200 text-left">
-            <Info className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+          <div className="p-3.5 bg-indigo-950/40 rounded-xl border border-teal-200 flex items-start gap-2.5 text-xs text-teal-900 text-left">
+            <Info className="w-4 h-4 text-teal-800 shrink-0 mt-0.5" />
             <div className="leading-relaxed font-bangla">
-              <span className="font-bold text-indigo-300">উচ্চারণ সতর্কতা ও টিপস: </span>
+              <span className="font-bold text-teal-900">উচ্চারণ সতর্কতা ও টিপস: </span>
               {currentTarget.banglaContrastTip}
             </div>
           </div>
@@ -394,23 +394,23 @@ export const SpeakAndRecordTrainer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           {/* 1. Studio Reference Audio Card */}
-          <div className="p-6 bg-slate-950/70 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+          <div className="p-6 bg-white rounded-2xl border border-slate-200 space-y-4 flex flex-col justify-between">
             <div className="space-y-1">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-xs font-bold text-teal-800 uppercase tracking-wider flex items-center gap-1.5">
                   <Volume2 className="w-4 h-4" /> 1. Native Model Clip
                 </span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/30">
+                <span className="text-[10px] px-2 py-0.5 rounded bg-teal-50 text-teal-900 font-bold border border-teal-200">
                   Studio Reference
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 Listen carefully to vowel duration and stressed syllable peak.
               </p>
             </div>
 
             {/* Reference Progress Bar */}
-            <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+            <div className="w-full bg-white h-2 rounded-full overflow-hidden border border-slate-200">
               <div
                 className="bg-indigo-500 h-full transition-all duration-150"
                 style={{ width: `${referenceProgress}%` }}
@@ -422,18 +422,18 @@ export const SpeakAndRecordTrainer: React.FC = () => {
               <button
                 onClick={() => playReferenceAudio(playbackSpeed)}
                 disabled={isReferencePlaying || isAbComparing}
-                className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-indigo-600/30 transition cursor-pointer"
+                className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-xs transition cursor-pointer"
               >
                 {isReferencePlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                 <span>{isReferencePlaying ? 'Playing Model...' : 'Play Reference'}</span>
               </button>
 
               {/* Speed Switcher */}
-              <div className="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800 text-[11px] font-bold">
+              <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 text-[11px] font-bold">
                 <button
                   onClick={() => setPlaybackSpeed(1.0)}
                   className={`px-2.5 py-1 rounded-lg transition cursor-pointer ${
-                    playbackSpeed === 1.0 ? 'bg-indigo-500 text-white' : 'text-slate-400 hover:text-white'
+                    playbackSpeed === 1.0 ? 'bg-indigo-500 text-slate-900' : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
                   1.0x Normal
@@ -441,7 +441,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                 <button
                   onClick={() => setPlaybackSpeed(0.8)}
                   className={`px-2.5 py-1 rounded-lg transition cursor-pointer ${
-                    playbackSpeed === 0.8 ? 'bg-indigo-500 text-white' : 'text-slate-400 hover:text-white'
+                    playbackSpeed === 0.8 ? 'bg-indigo-500 text-slate-900' : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
                   0.8x Slow
@@ -451,7 +451,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
           </div>
 
           {/* 2. Learner Recording Card */}
-          <div className="p-6 bg-slate-950/70 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+          <div className="p-6 bg-white rounded-2xl border border-slate-200 space-y-4 flex flex-col justify-between">
             <div className="space-y-1">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
@@ -459,13 +459,13 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                 </span>
                 <span className={`text-[10px] px-2 py-0.5 rounded font-bold border ${
                   recordedAudioUrl
-                    ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
-                    : 'bg-slate-800 text-slate-500 border-slate-700'
+                    ? 'bg-teal-50 text-teal-900 border-teal-200'
+                    : 'bg-slate-100 text-slate-500 border-slate-200'
                 }`}>
                   {recordedAudioUrl ? 'Take Recorded' : 'Awaiting Take'}
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 Record your voice speaking the phrase with proper stress.
               </p>
             </div>
@@ -479,8 +479,8 @@ export const SpeakAndRecordTrainer: React.FC = () => {
 
             {/* Learner Playback Controls */}
             {recordedAudioUrl && (
-              <div className="space-y-2 pt-2 border-t border-slate-800">
-                <div className="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden border border-slate-800">
+              <div className="space-y-2 pt-2 border-t border-slate-200">
+                <div className="w-full bg-white h-1.5 rounded-full overflow-hidden border border-slate-200">
                   <div
                     className="bg-emerald-400 h-full transition-all duration-100"
                     style={{ width: `${learnerProgress}%` }}
@@ -495,7 +495,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                     {isLearnerPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
                     <span>{isLearnerPlaying ? 'Playing Take...' : 'Play Your Take'}</span>
                   </button>
-                  <span className="text-[11px] font-mono text-slate-400">
+                  <span className="text-[11px] font-mono text-slate-500">
                     Duration: {recordedDuration}s
                   </span>
                 </div>
@@ -507,13 +507,13 @@ export const SpeakAndRecordTrainer: React.FC = () => {
 
         {/* 3. A/B Toggle & Comparison Bar */}
         {recordedAudioUrl && (
-          <div className="p-5 bg-gradient-to-r from-indigo-950/60 via-purple-950/40 to-slate-950 rounded-2xl border border-indigo-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+          <div className="p-5 bg-gradient-to-r from-indigo-950/60 via-purple-950/40 to-slate-950 rounded-2xl border border-teal-200 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
             <div className="space-y-1 text-center sm:text-left">
-              <div className="text-sm font-bold text-white flex items-center justify-center sm:justify-start gap-2">
+              <div className="text-sm font-bold text-slate-900 flex items-center justify-center sm:justify-start gap-2">
                 <Layers className="w-4 h-4 text-purple-400" />
                 A/B By-Ear Contrast Comparison
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 Listen sequentially to hear the gap between the native reference and your recording.
               </p>
             </div>
@@ -521,7 +521,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
             <button
               onClick={handleAbComparison}
               disabled={isAbComparing || isReferencePlaying || isLearnerPlaying}
-              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-white rounded-2xl font-bold text-xs flex items-center gap-2 shadow-lg shadow-purple-900/40 transition transform active:scale-95 cursor-pointer"
+              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-slate-900 rounded-2xl font-bold text-xs flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer"
             >
               <Sliders className="w-4 h-4" />
               <span>{isAbComparing ? 'Comparing (Model ➔ You)...' : 'Run Sequential A/B Compare'}</span>
@@ -531,23 +531,23 @@ export const SpeakAndRecordTrainer: React.FC = () => {
 
         {/* 4. Formative Self-Assessment Checklist */}
         {recordedAudioUrl && (
-          <div className="p-6 bg-slate-950 rounded-2xl border border-slate-800 space-y-5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
+          <div className="p-6 bg-white rounded-2xl border border-slate-200 space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-200">
               <div>
-                <h3 className="text-sm font-bold text-white flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-teal-800" />
                   Self-Assessment Checklist
                 </h3>
-                <p className="text-xs text-slate-400 mt-0.5">
+                <p className="text-xs text-slate-500 mt-0.5">
                   Evaluate your take honestly by ear against the studio standard.
                 </p>
               </div>
 
               <div className="flex items-center gap-2">
                 <span className={`text-xs px-3 py-1 rounded-xl font-bold border ${
-                  checkedCount === 4 ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' :
-                  checkedCount >= 2 ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' :
-                  'bg-slate-800 text-slate-400 border-slate-700'
+                  checkedCount === 4 ? 'bg-teal-50 text-teal-900 border-teal-200' :
+                  checkedCount >= 2 ? 'bg-teal-50 text-amber-300 border-amber-500/30' :
+                  'bg-slate-100 text-slate-500 border-slate-200'
                 }`}>
                   {checkedCount === 4 ? '✨ Mastered Take!' :
                    checkedCount >= 2 ? '👍 Good Articulation' :
@@ -564,18 +564,18 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                 onClick={() => toggleCheck('stress')}
                 className={`p-4 rounded-xl border text-left flex items-start gap-3 transition cursor-pointer ${
                   checklist.stress
-                    ? 'bg-emerald-950/50 border-emerald-500/60 text-white'
-                    : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+                    ? 'bg-emerald-950/50 border-emerald-500/60 text-slate-900'
+                    : 'bg-white border-slate-200 text-slate-600 hover:border-slate-200'
                 }`}
               >
                 <div className={`w-5 h-5 rounded-md border mt-0.5 flex items-center justify-center shrink-0 ${
-                  checklist.stress ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'border-slate-700 bg-slate-950'
+                  checklist.stress ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'border-slate-200 bg-white'
                 }`}>
                   {checklist.stress && <CheckCircle2 className="w-3.5 h-3.5 stroke-[3]" />}
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-bold text-white">Syllable Stress Peak</div>
-                  <div className="text-[11px] text-slate-400">Did you emphasize the correct stressed syllable with higher pitch and duration?</div>
+                  <div className="text-xs font-bold text-slate-900">Syllable Stress Peak</div>
+                  <div className="text-[11px] text-slate-500">Did you emphasize the correct stressed syllable with higher pitch and duration?</div>
                 </div>
               </button>
 
@@ -584,18 +584,18 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                 onClick={() => toggleCheck('articulation')}
                 className={`p-4 rounded-xl border text-left flex items-start gap-3 transition cursor-pointer ${
                   checklist.articulation
-                    ? 'bg-emerald-950/50 border-emerald-500/60 text-white'
-                    : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+                    ? 'bg-emerald-950/50 border-emerald-500/60 text-slate-900'
+                    : 'bg-white border-slate-200 text-slate-600 hover:border-slate-200'
                 }`}
               >
                 <div className={`w-5 h-5 rounded-md border mt-0.5 flex items-center justify-center shrink-0 ${
-                  checklist.articulation ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'border-slate-700 bg-slate-950'
+                  checklist.articulation ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'border-slate-200 bg-white'
                 }`}>
                   {checklist.articulation && <CheckCircle2 className="w-3.5 h-3.5 stroke-[3]" />}
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-bold text-white">Target Sound Distinction</div>
-                  <div className="text-[11px] text-slate-400">Was the focus contrast ({currentTarget.focusSound}) clean without Bengali phonetic substitution?</div>
+                  <div className="text-xs font-bold text-slate-900">Target Sound Distinction</div>
+                  <div className="text-[11px] text-slate-500">Was the focus contrast ({currentTarget.focusSound}) clean without Bengali phonetic substitution?</div>
                 </div>
               </button>
 
@@ -604,18 +604,18 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                 onClick={() => toggleCheck('vowels')}
                 className={`p-4 rounded-xl border text-left flex items-start gap-3 transition cursor-pointer ${
                   checklist.vowels
-                    ? 'bg-emerald-950/50 border-emerald-500/60 text-white'
-                    : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+                    ? 'bg-emerald-950/50 border-emerald-500/60 text-slate-900'
+                    : 'bg-white border-slate-200 text-slate-600 hover:border-slate-200'
                 }`}
               >
                 <div className={`w-5 h-5 rounded-md border mt-0.5 flex items-center justify-center shrink-0 ${
-                  checklist.vowels ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'border-slate-700 bg-slate-950'
+                  checklist.vowels ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'border-slate-200 bg-white'
                 }`}>
                   {checklist.vowels && <CheckCircle2 className="w-3.5 h-3.5 stroke-[3]" />}
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-bold text-white">Vowel Length & Crispness</div>
-                  <div className="text-[11px] text-slate-400">Were short vowels crisp and relaxed, and long vowels clearly sustained?</div>
+                  <div className="text-xs font-bold text-slate-900">Vowel Length & Crispness</div>
+                  <div className="text-[11px] text-slate-500">Were short vowels crisp and relaxed, and long vowels clearly sustained?</div>
                 </div>
               </button>
 
@@ -624,28 +624,28 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                 onClick={() => toggleCheck('rhythm')}
                 className={`p-4 rounded-xl border text-left flex items-start gap-3 transition cursor-pointer ${
                   checklist.rhythm
-                    ? 'bg-emerald-950/50 border-emerald-500/60 text-white'
-                    : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+                    ? 'bg-emerald-950/50 border-emerald-500/60 text-slate-900'
+                    : 'bg-white border-slate-200 text-slate-600 hover:border-slate-200'
                 }`}
               >
                 <div className={`w-5 h-5 rounded-md border mt-0.5 flex items-center justify-center shrink-0 ${
-                  checklist.rhythm ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'border-slate-700 bg-slate-950'
+                  checklist.rhythm ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'border-slate-200 bg-white'
                 }`}>
                   {checklist.rhythm && <CheckCircle2 className="w-3.5 h-3.5 stroke-[3]" />}
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-bold text-white">Pacing & Natural Rhythm</div>
-                  <div className="text-[11px] text-slate-400">Did the sentence sound fluid and natural without robotic pauses?</div>
+                  <div className="text-xs font-bold text-slate-900">Pacing & Natural Rhythm</div>
+                  <div className="text-[11px] text-slate-500">Did the sentence sound fluid and natural without robotic pauses?</div>
                 </div>
               </button>
 
             </div>
 
             {/* Complete & Next Actions */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800">
-              <div className="text-xs text-slate-400">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
+              <div className="text-xs text-slate-500">
                 {isCompleted ? (
-                  <span className="text-emerald-400 font-bold flex items-center gap-1">
+                  <span className="text-teal-800 font-bold flex items-center gap-1">
                     <CheckCircle2 className="w-4 h-4" /> Practice logged to daily streak!
                   </span>
                 ) : (
@@ -658,7 +658,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                   <button
                     onClick={handleCompleteDrill}
                     disabled={checkedCount === 0}
-                    className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-emerald-900/30 transition cursor-pointer"
+                    className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
                   >
                     <Award className="w-4 h-4" />
                     <span>Log Drill & Update Streak</span>
@@ -666,7 +666,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                 ) : (
                   <button
                     onClick={handleNextTarget}
-                    className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-indigo-900/30 transition cursor-pointer"
+                    className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
                   >
                     <span>Next Drill</span>
                     <ArrowRight className="w-4 h-4" />

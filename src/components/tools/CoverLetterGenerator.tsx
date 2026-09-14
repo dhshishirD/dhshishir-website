@@ -90,17 +90,17 @@ ${role} Candidate`;
   };
 
   return (
-    <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-2xl text-white">
-      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
+    <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-2xl text-slate-900">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
         <div className="p-3 bg-blue-500/20 text-blue-400 rounded-2xl border border-blue-500/30">
           <FileText className="w-6 h-6" />
         </div>
         <div>
-          <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+          <h3 className="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
             AI-Style Professional Cover Letter Generator
-            <span className="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-medium">BD Job Market Ready</span>
+            <span className="text-xs bg-teal-50 text-teal-800 border border-teal-200 px-2 py-0.5 rounded-full font-medium">BD Job Market Ready</span>
           </h3>
-          <p className="text-sm text-slate-400">Generate an ATS-compliant, tailored cover letter for corporate, NGO, bank, and tech job circulars.</p>
+          <p className="text-sm text-slate-500">Generate an ATS-compliant, tailored cover letter for corporate, NGO, bank, and tech job circulars.</p>
         </div>
       </div>
 
@@ -108,61 +108,61 @@ ${role} Candidate`;
         <form onSubmit={handleGenerate} className="lg:col-span-6 space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Your Full Name *</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Your Full Name *</label>
               <input
                 type="text"
                 required
                 placeholder="e.g. Daloyar Hassan"
                 value={formData.fullName}
                 onChange={e => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Email or Phone *</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Email or Phone *</label>
               <input
                 type="text"
                 required
                 placeholder="e.g. yourname@gmail.com | 017XXXXXXXX"
                 value={formData.emailOrPhone}
                 onChange={e => setFormData({ ...formData, emailOrPhone: e.target.value })}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Target Job Title *</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Target Job Title *</label>
               <input
                 type="text"
                 required
                 placeholder="e.g. Management Trainee / English Faculty"
                 value={formData.jobTitle}
                 onChange={e => setFormData({ ...formData, jobTitle: e.target.value })}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Company / Organization *</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Company / Organization *</label>
               <input
                 type="text"
                 required
                 placeholder="e.g. Grameenphone / BRAC / UCC"
                 value={formData.companyName}
                 onChange={e => setFormData({ ...formData, companyName: e.target.value })}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Experience Level</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Experience Level</label>
               <select
                 value={formData.experienceYears}
                 onChange={e => setFormData({ ...formData, experienceYears: e.target.value })}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
               >
                 <option value="Fresher / Entry Level">Fresher / Recent Graduate</option>
                 <option value="1-3">1 to 3 Years (Junior / Mid)</option>
@@ -171,11 +171,11 @@ ${role} Candidate`;
               </select>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Industry / Tone</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Industry / Tone</label>
               <select
                 value={formData.industryTone}
                 onChange={e => setFormData({ ...formData, industryTone: e.target.value })}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
               >
                 <option value="Corporate & MNC">Corporate, Bank & MNC</option>
                 <option value="NGO & Development">NGO, INGO & Development</option>
@@ -186,48 +186,48 @@ ${role} Candidate`;
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1">Key Skills & Core Strengths (Comma separated) *</label>
+            <label className="block text-xs font-semibold text-slate-600 mb-1">Key Skills & Core Strengths (Comma separated) *</label>
             <textarea
               required
               rows={2}
               placeholder="e.g. English pedagogy, curriculum design, leadership communication, IELTS training"
               value={formData.keySkills}
               onChange={e => setFormData({ ...formData, keySkills: e.target.value })}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:border-indigo-500 outline-none"
+              className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs text-slate-900 focus:border-indigo-500 outline-none"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:opacity-95 text-white font-bold text-xs shadow-lg shadow-indigo-950/40 transition flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:opacity-95 text-slate-900 font-bold text-xs shadow-lg shadow-xs transition flex items-center justify-center gap-2 cursor-pointer"
           >
             <Sparkles className="w-4 h-4" /> Generate Professional Cover Letter
           </button>
         </form>
 
-        <div className="lg:col-span-6 flex flex-col justify-between bg-slate-950/90 rounded-2xl border border-slate-800 p-5">
+        <div className="lg:col-span-6 flex flex-col justify-between bg-white rounded-2xl border border-slate-200 p-5">
           {generatedLetter ? (
             <>
               <div className="space-y-3">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                  <span className="text-xs font-bold text-emerald-400">Generated Cover Letter Preview</span>
+                <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                  <span className="text-xs font-bold text-teal-800">Generated Cover Letter Preview</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={copyToClipboard}
-                      className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition"
+                      className="px-3 py-1.5 bg-slate-100 hover:bg-slate-700 text-slate-900 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition"
                     >
-                      {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      {copied ? <Check className="w-3.5 h-3.5 text-teal-800" /> : <Copy className="w-3.5 h-3.5" />}
                       {copied ? 'Copied!' : 'Copy'}
                     </button>
                     <button
                       onClick={downloadText}
-                      className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition"
+                      className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-slate-900 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition"
                     >
                       <Download className="w-3.5 h-3.5" /> Download
                     </button>
                   </div>
                 </div>
-                <div className="max-h-[380px] overflow-y-auto pr-2 text-xs text-slate-300 whitespace-pre-line leading-relaxed font-mono">
+                <div className="max-h-[380px] overflow-y-auto pr-2 text-xs text-slate-600 whitespace-pre-line leading-relaxed font-mono">
                   {generatedLetter}
                 </div>
               </div>
@@ -235,7 +235,7 @@ ${role} Candidate`;
           ) : (
             <div className="h-full min-h-[300px] flex flex-col items-center justify-center text-center p-6 space-y-3 text-slate-500">
               <FileText className="w-12 h-12 stroke-[1.2] text-slate-700" />
-              <div className="text-sm font-semibold text-slate-400">Ready to Draft Your Cover Letter</div>
+              <div className="text-sm font-semibold text-slate-500">Ready to Draft Your Cover Letter</div>
               <p className="text-xs max-w-xs text-slate-500">Fill in the job circular details on the left to generate an authentic, ATS-tested draft.</p>
             </div>
           )}

@@ -81,26 +81,26 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl text-white">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-md bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl text-slate-900">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-xl bg-slate-800/60 hover:bg-slate-800 transition"
+          className="absolute top-4 right-4 p-2 text-slate-500 hover:text-slate-900 rounded-xl bg-slate-100/60 hover:bg-slate-100 transition"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* Modal Header */}
         <div className="text-center space-y-2 mb-6">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" /> Learner Personal Space
           </div>
-          <h3 className="text-2xl font-black text-white">
+          <h3 className="text-2xl font-black text-slate-900">
             {isSignUp ? 'Create Your Account' : 'Sign in to Your Space'}
           </h3>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-500">
             {isSignUp 
               ? 'Save your CEFR test records, sound drills, and daily streaks permanently to the cloud.' 
               : 'Access your saved diagnostic results, weak sound index, and practice timeline.'}
@@ -116,7 +116,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
         )}
 
         {successMsg && (
-          <div className="mb-4 p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-xs text-emerald-400 flex items-center gap-2">
+          <div className="mb-4 p-3 bg-teal-50 border border-teal-200 rounded-xl text-xs text-teal-800 flex items-center gap-2">
             <Check className="w-4 h-4 shrink-0" />
             <span>{successMsg}</span>
           </div>
@@ -150,16 +150,16 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
         </button>
 
         <div className="flex items-center gap-3 my-4">
-          <div className="h-px bg-slate-800 flex-1" />
+          <div className="h-px bg-slate-100 flex-1" />
           <span className="text-[11px] text-slate-500 font-semibold uppercase">or with email</span>
-          <div className="h-px bg-slate-800 flex-1" />
+          <div className="h-px bg-slate-100 flex-1" />
         </div>
 
         {/* Email Form */}
         <form onSubmit={handleEmailAuth} className="space-y-3.5">
           {isSignUp && (
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Your Full Name</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Your Full Name</label>
               <div className="relative">
                 <User className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
                 <input
@@ -168,14 +168,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
                   placeholder="e.g. Tanvir Ahmed"
                   value={fullName}
                   onChange={e => setFullName(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"
+                  className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
                 />
               </div>
             </div>
           )}
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1">Email Address</label>
+            <label className="block text-xs font-semibold text-slate-600 mb-1">Email Address</label>
             <div className="relative">
               <Mail className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
               <input
@@ -184,13 +184,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
                 placeholder="you@example.com"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1">Password</label>
+            <label className="block text-xs font-semibold text-slate-600 mb-1">Password</label>
             <div className="relative">
               <Lock className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
               <input
@@ -200,7 +200,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
                 minLength={6}
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
               />
             </div>
           </div>
@@ -208,21 +208,21 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:opacity-95 disabled:opacity-50 text-white font-bold text-xs shadow-lg shadow-indigo-950/40 transition flex items-center justify-center gap-2 cursor-pointer mt-2"
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:opacity-95 disabled:opacity-50 text-slate-900 font-bold text-xs shadow-lg shadow-xs transition flex items-center justify-center gap-2 cursor-pointer mt-2"
           >
             {loading ? 'Processing...' : (isSignUp ? 'Create Cloud Profile' : 'Sign in to Dashboard')}
           </button>
         </form>
 
         {/* Switch mode */}
-        <div className="mt-5 text-center text-xs text-slate-400">
+        <div className="mt-5 text-center text-xs text-slate-500">
           {isSignUp ? (
             <span>
               Already have an account?{' '}
               <button
                 type="button"
                 onClick={() => setIsSignUp(false)}
-                className="text-emerald-400 font-bold hover:underline"
+                className="text-teal-800 font-bold hover:underline"
               >
                 Sign In
               </button>
@@ -233,7 +233,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
               <button
                 type="button"
                 onClick={() => setIsSignUp(true)}
-                className="text-emerald-400 font-bold hover:underline"
+                className="text-teal-800 font-bold hover:underline"
               >
                 Register Free
               </button>

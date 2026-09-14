@@ -47,22 +47,22 @@ export const SkillGapFinder: React.FC = () => {
   const activePath = CAREER_PATHS.find(c => c.id === selectedId) || CAREER_PATHS[0];
 
   return (
-    <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-2xl text-white">
-      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
+    <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-2xl text-slate-900">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
         <div className="p-3 bg-blue-500/20 text-blue-400 rounded-2xl border border-blue-500/30">
           <Compass className="w-6 h-6" />
         </div>
         <div>
-          <h3 className="text-xl md:text-2xl font-bold text-white">
+          <h3 className="text-xl md:text-2xl font-bold text-slate-900">
             Skill-to-Career Roadmap & Course Matcher
           </h3>
-          <p className="text-sm text-slate-400">Identify exact skills needed for your dream career and find top-rated courses.</p>
+          <p className="text-sm text-slate-500">Identify exact skills needed for your dream career and find top-rated courses.</p>
         </div>
       </div>
 
       <div className="space-y-6">
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Choose Your Target Path:</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Choose Your Target Path:</label>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {CAREER_PATHS.map((cp) => (
               <button
@@ -70,25 +70,25 @@ export const SkillGapFinder: React.FC = () => {
                 onClick={() => setSelectedId(cp.id)}
                 className={`p-4 rounded-2xl text-left border transition cursor-pointer ${
                   selectedId === cp.id
-                    ? 'bg-indigo-600/30 border-indigo-500 text-white shadow-lg'
-                    : 'bg-slate-800/50 border-slate-800 text-slate-400 hover:border-slate-700'
+                    ? 'bg-indigo-600/30 border-indigo-500 text-slate-900 shadow-lg'
+                    : 'bg-slate-100/50 border-slate-200 text-slate-500 hover:border-slate-200'
                 }`}
               >
-                <div className="font-bold text-sm text-white">{cp.title}</div>
+                <div className="font-bold text-sm text-slate-900">{cp.title}</div>
               </button>
             ))}
           </div>
         </div>
 
-        <div className="p-6 bg-slate-800/40 rounded-2xl border border-slate-800">
-          <p className="text-sm text-slate-300 mb-4">{activePath.roleDescription}</p>
+        <div className="p-6 bg-slate-100/40 rounded-2xl border border-slate-200">
+          <p className="text-sm text-slate-600 mb-4">{activePath.roleDescription}</p>
 
           <div className="mb-6">
-            <span className="text-xs uppercase font-bold text-indigo-400 tracking-wider block mb-2">Core Skills You Must Master:</span>
+            <span className="text-xs uppercase font-bold text-teal-800 tracking-wider block mb-2">Core Skills You Must Master:</span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {activePath.keySkills.map((sk, idx) => (
-                <div key={idx} className="flex items-center gap-2 p-2 bg-slate-900/60 rounded-xl text-xs text-slate-200">
-                  <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div key={idx} className="flex items-center gap-2 p-2 bg-white rounded-xl text-xs text-slate-800">
+                  <CheckCircle className="w-4 h-4 text-teal-800 shrink-0" />
                   <span>{sk}</span>
                 </div>
               ))}
@@ -96,13 +96,13 @@ export const SkillGapFinder: React.FC = () => {
           </div>
 
           <div>
-            <span className="text-xs uppercase font-bold text-emerald-400 tracking-wider block mb-3">Curated Top Courses with Special Discount:</span>
+            <span className="text-xs uppercase font-bold text-teal-800 tracking-wider block mb-3">Curated Top Courses with Special Discount:</span>
             <div className="space-y-2.5">
               {activePath.recommendedCourses.map((c, idx) => (
-                <div key={idx} className="p-3 bg-slate-900/90 rounded-xl border border-slate-700/60 flex items-center justify-between gap-3">
+                <div key={idx} className="p-3 bg-white rounded-xl border border-slate-200/60 flex items-center justify-between gap-3">
                   <div>
-                    <span className="text-xs font-bold text-white block">{c.name}</span>
-                    <span className="text-[11px] text-slate-400">{c.provider} • <span className="text-emerald-400 font-semibold">{c.price}</span></span>
+                    <span className="text-xs font-bold text-slate-900 block">{c.name}</span>
+                    <span className="text-[11px] text-slate-500">{c.provider} • <span className="text-teal-800 font-semibold">{c.price}</span></span>
                   </div>
                   <a
                     href={c.url}

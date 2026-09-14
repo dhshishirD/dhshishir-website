@@ -40,40 +40,40 @@ export const FluencyLabHub: React.FC = () => {
   };
 
   return (
-    <section id="fluency-lab" className="py-20 relative bg-slate-950 border-t border-slate-900">
+    <section id="fluency-lab" className="py-20 relative bg-slate-50 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Hub Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> Fluency Lab • Spoken English Hub
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-teal-800" /> Fluency Lab • Spoken English Hub
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
             Interactive Looped Learning System
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
-            Continuous cycle: <span className="text-slate-200 font-semibold">Diagnose → Learn → Drill → Speak & Record → Get Feedback → Repeat → Certify</span>.
+          <p className="text-slate-500 text-sm sm:text-base">
+            Continuous cycle: <span className="text-slate-800 font-semibold">Diagnose → Learn → Drill → Speak & Record → Get Feedback → Repeat → Certify</span>.
           </p>
         </div>
 
         {/* User Persistent Profile Status Bar */}
-        <div className="bg-gradient-to-r from-slate-900 via-indigo-950/50 to-slate-900 rounded-2xl p-5 border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 border border-slate-200 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4 text-center md:text-left">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-emerald-500 p-0.5 flex items-center justify-center shrink-0">
-              <div className="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center font-black text-emerald-400 text-base">
+            <div className="w-12 h-12 rounded-2xl bg-teal-900 p-0.5 flex items-center justify-center shrink-0">
+              <div className="w-full h-full bg-teal-50 rounded-[14px] flex items-center justify-center font-black text-teal-900 text-base">
                 {profile.currentCefrLevel || '?'}
               </div>
             </div>
             <div>
-              <div className="text-sm font-bold text-white flex items-center gap-2">
+              <div className="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <span>Profile: {profile.userAlias}</span>
                 {profile.hasTakenPlacement && (
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200">
                     CEFR {profile.currentCefrLevel} Verified
                   </span>
                 )}
               </div>
-              <div className="text-xs text-slate-400 mt-0.5">
+              <div className="text-xs text-slate-500 mt-0.5">
                 {profile.hasTakenPlacement 
                   ? `Diagnosed Weak Areas: ${profile.flaggedWeakPatterns.length} pattern(s) identified` 
                   : 'Placement test pending. Complete Stage 1 quiz below to calibrate your learning path.'}
@@ -82,7 +82,7 @@ export const FluencyLabHub: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="px-3.5 py-2 bg-slate-950 rounded-xl border border-slate-800 flex items-center gap-2 text-xs font-bold text-amber-400">
+            <div className="px-3.5 py-2 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2 text-xs font-bold text-amber-400">
               <Flame className="w-4 h-4 text-amber-400" />
               <span>{profile.streakDays} Day Streak</span>
             </div>
@@ -96,14 +96,12 @@ export const FluencyLabHub: React.FC = () => {
           <button
             onClick={() => setActiveTab('stage1')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage1'
-                ? 'bg-emerald-950/60 border-emerald-500 text-white shadow-lg shadow-emerald-950/40 ring-1 ring-emerald-400'
-                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              activeTab === 'stage1' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
             }`}
           >
-            <div className="text-[10px] font-bold text-emerald-400 uppercase">Stage 1</div>
+            <div className="text-[10px] font-bold text-teal-800 uppercase">Stage 1</div>
             <div className="text-xs font-bold mt-0.5 flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Placement
+              <CheckCircle2 className="w-3.5 h-3.5 text-teal-800 shrink-0" /> Placement
             </div>
           </button>
 
@@ -111,14 +109,12 @@ export const FluencyLabHub: React.FC = () => {
           <button
             onClick={() => setActiveTab('stage2')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage2'
-                ? 'bg-indigo-950/70 border-indigo-500 text-white shadow-lg shadow-indigo-950/40 ring-1 ring-indigo-400'
-                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              activeTab === 'stage2' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
             }`}
           >
-            <div className="text-[10px] font-bold text-indigo-400 uppercase">Stage 2</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
-              <BookOpen className="w-3.5 h-3.5 text-indigo-400 shrink-0" /> IPA & Drills
+            <div className="text-[10px] font-bold text-teal-800 uppercase">Stage 2</div>
+            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
+              <BookOpen className="w-3.5 h-3.5 text-teal-800 shrink-0" /> IPA & Drills
             </div>
           </button>
 
@@ -126,13 +122,11 @@ export const FluencyLabHub: React.FC = () => {
           <button
             onClick={() => setActiveTab('stage3')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage3'
-                ? 'bg-purple-950/70 border-purple-500 text-white shadow-lg shadow-purple-950/40 ring-1 ring-purple-400'
-                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              activeTab === 'stage3' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
             }`}
           >
             <div className="text-[10px] font-bold text-purple-400 uppercase">Stage 3</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
+            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
               <Mic className="w-3.5 h-3.5 text-purple-400 shrink-0" /> Speak & Record
             </div>
           </button>
@@ -141,13 +135,11 @@ export const FluencyLabHub: React.FC = () => {
           <button
             onClick={() => setActiveTab('stage4')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage4'
-                ? 'bg-amber-950/70 border-amber-500 text-white shadow-lg shadow-amber-950/40 ring-1 ring-amber-400'
-                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              activeTab === 'stage4' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
             }`}
           >
             <div className="text-[10px] font-bold text-amber-400 uppercase">Stage 4</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
+            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
               <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" /> Daily & IELTS
             </div>
           </button>
@@ -156,14 +148,12 @@ export const FluencyLabHub: React.FC = () => {
           <button
             onClick={() => setActiveTab('stage5')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage5'
-                ? 'bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/40 ring-1 ring-cyan-400'
-                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              activeTab === 'stage5' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
             }`}
           >
-            <div className="text-[10px] font-bold text-cyan-400 uppercase">Stage 5</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
-              <Activity className="w-3.5 h-3.5 text-cyan-400 shrink-0" /> Speech Feedback
+            <div className="text-[10px] font-bold text-teal-800 uppercase">Stage 5</div>
+            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
+              <Activity className="w-3.5 h-3.5 text-teal-800 shrink-0" /> Speech Feedback
             </div>
           </button>
 
@@ -171,14 +161,12 @@ export const FluencyLabHub: React.FC = () => {
           <button
             onClick={() => setActiveTab('stage6')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage6'
-                ? 'bg-indigo-950/70 border-indigo-400 text-white shadow-lg shadow-indigo-950/40 ring-1 ring-indigo-400'
-                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              activeTab === 'stage6' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
             }`}
           >
-            <div className="text-[10px] font-bold text-indigo-300 uppercase">Stage 6</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
-              <RotateCcw className="w-3.5 h-3.5 text-indigo-400 shrink-0" /> Dashboard Loop
+            <div className="text-[10px] font-bold text-teal-900 uppercase">Stage 6</div>
+            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
+              <RotateCcw className="w-3.5 h-3.5 text-teal-800 shrink-0" /> Dashboard Loop
             </div>
           </button>
 
@@ -186,13 +174,11 @@ export const FluencyLabHub: React.FC = () => {
           <button
             onClick={() => setActiveTab('stage7')}
             className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage7'
-                ? 'bg-emerald-950/70 border-emerald-400 text-white shadow-lg shadow-emerald-950/40 ring-1 ring-emerald-400'
-                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              activeTab === 'stage7' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
             }`}
           >
-            <div className="text-[10px] font-bold text-emerald-300 uppercase">Stage 7</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-white">
+            <div className="text-[10px] font-bold text-teal-900 uppercase">Stage 7</div>
+            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
               <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" /> Certificate
             </div>
           </button>

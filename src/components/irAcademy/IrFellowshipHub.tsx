@@ -357,7 +357,7 @@ export const IrFellowshipHub: React.FC = () => {
                               }`}
                             >
                               <div className="flex items-center gap-2 truncate">
-                                <span className={`text-[10px] font-mono ${isSelected ? 'text-teal-200' : 'text-slate-400'}`}>
+                                <span className={`text-[10px] font-mono ${isSelected ? 'text-teal-200' : 'text-slate-500'}`}>
                                   {lec.lectureNumber}
                                 </span>
                                 <span className="truncate">{lec.title}</span>
@@ -509,7 +509,7 @@ export const IrFellowshipHub: React.FC = () => {
               </div>
 
               <div className="relative w-full sm:w-72">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                <Search className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
                 <input
                   type="text"
                   placeholder="Search terms or concepts..."
@@ -820,7 +820,7 @@ export const IrFellowshipHub: React.FC = () => {
 
       {/* CHECKPOINT QUIZ MODAL */}
       {activeQuizPillar && (
-        <div className="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-2xs flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-white backdrop-blur-2xs flex items-center justify-center p-4">
           <div className="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
