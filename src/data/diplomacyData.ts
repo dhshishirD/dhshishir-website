@@ -22,6 +22,330 @@ export const SOURCE_TIERS_META = [
 
 export const INITIAL_INTEL_FEED: IntelItem[] = [
   {
+    "id": "intel-009",
+    "slug": "red-sea-crisis-bab-el-mandeb-garment-supply-chain-diversion",
+    "title": "Red Sea Crisis & Maritime Chokepoint Disruption: Global Supply Chain Diversion & South Asian Export Fallout",
+    "source": "IISS (International Institute for Strategic Studies, London)",
+    "sourceTier": "global-think-tank",
+    "publishedAt": "2026-09-14",
+    "pillar": "bay-of-bengal",
+    "impactLevel": "High Strategic Significance",
+    "executiveSummary": "Analyzes the systemic shock to global ocean freight caused by Houthi anti-ship missile operations in the Bab el-Mandeb strait, forcing commercial container liners to bypass the Suez Canal and circumnavigate the Cape of Good Hope, inflating shipping lead times and freight rates for Bangladesh garment shipments to Europe.",
+    "bangladeshSignificance": "Exposes the severe vulnerability of Bangladesh's export logistics to Middle Eastern chokepoint crises, adding 14-20 days to European transit times and increasing container spot rates by up to 200%.",
+    "strategicRisks": [
+      "Container equipment shortages and blank sailings at Chattogram and transshipment hubs.",
+      "Increased working capital requirements and cancellation penalties from European fashion buyers.",
+      "War-risk insurance surcharges adding significant per-vessel transit expenses."
+    ],
+    "strategicOpportunities": [
+      "Accelerating alternative sea-air multimodal logistics hubs connecting Dhaka Airport with Gulf air-cargo routes.",
+      "Developing direct deep-sea shipping services from Matarbari bypassing intermediate feeder delays.",
+      "Advocating for multilateral freedom of navigation escort regimes under UN auspices."
+    ],
+    "policyRecommendations": [
+      "Establish an emergency Maritime Supply Chain Taskforce combining Shipping Ministry, BGMEA, and freight forwarders.",
+      "Provide concessionary working capital credit lines for apparel exporters facing extended payment cycles.",
+      "Expand bonded warehouse storage facilities to cushion raw material supply delays."
+    ],
+    "detailedAnalysis": {
+      "backgroundAndGenesis": "Beginning in late 2023, asymmetric anti-ship ballistic missile and drone operations by Yemen's Houthi movement targeting commercial vessels in the Bab el-Mandeb Strait disrupted the world's most critical container transit route connecting Asia to Europe via the Suez Canal. Over 80% of container carriers rerouted around the Cape of Good Hope, adding approximately 3,500 nautical miles and 10 to 14 days to each sailing.",
+      "greatPowerInterests": {
+        "us": "Leads Operation Prosperity Guardian multinational naval escort coalition.",
+        "china": "Maintains naval presence from its logistics base in Djibouti while negotiating safe passage for Chinese-flagged ships.",
+        "regional": "Gulf states face disrupted port revenue and altered trade flow routing."
+      },
+      "vulnerabilitiesAndEconomicImpact": "Bangladesh exports over $30 billion worth of readymade garments annually to the European Union and UK, representing 60% of total national exports. The rerouting around Africa increased 40-foot container freight rates from $1,800 to over $4,500 during peak crisis periods, eroding the price competitiveness of domestic manufacturers.",
+      "policyDirectives": [
+        "Civil Aviation Authority and Biman Bangladesh must expand dedicated air-cargo charter capacity for time-sensitive fashion items.",
+        "Port authorities must prioritize berthing for vessels carrying critical industrial raw materials (cotton, yarn, chemicals).",
+        "Ministry of Foreign Affairs should coordinate with international maritime bodies (IMO) on security risk mitigation."
+      ],
+      "academicCitations": [
+        {
+          "title": "Chokepoints in Crisis: Geopolitics, Maritime Vulnerability, and Global Supply Chains",
+          "authorOrBody": "International Institute for Strategic Studies (IISS)",
+          "publication": "IISS Strategic Dossiers",
+          "year": "2025",
+          "url": "https://www.iiss.org"
+        }
+      ]
+    },
+    "keyActors": [
+      "International Maritime Organization",
+      "BGMEA",
+      "Shipping Ministry",
+      "Lloyd's Register"
+    ],
+    "originalUrl": "https://www.iiss.org",
+    "readTime": "7 min read",
+    "tags": [
+      "Red Sea",
+      "Suez Canal",
+      "Supply Chains",
+      "Apparel Exports",
+      "Maritime Chokepoint"
+    ]
+  },
+  {
+    "id": "intel-010",
+    "slug": "middle-east-energy-realignment-hormuz-lng-bangladesh-security",
+    "title": "Persian Gulf Geopolitics & the Strait of Hormuz: Strategic Energy Security & LNG Supply Chains for South Asia",
+    "source": "Carnegie Middle East Center & OPEC Secretariat",
+    "sourceTier": "global-think-tank",
+    "publishedAt": "2026-09-14",
+    "pillar": "power-balancing",
+    "impactLevel": "High Strategic Significance",
+    "executiveSummary": "Analyzes maritime security dynamics across the Strait of Hormuz and Persian Gulf crude/LNG terminals, evaluating long-term supply contracts between Bangladesh Petroleum Corporation/Petrobangla and QatarEnergy and OQ Trading amid shifting regional defense alignments.",
+    "bangladeshSignificance": "Critical national energy lifeline: over 70% of Bangladesh's imported LNG and crude petroleum transits the Strait of Hormuz, making Middle Eastern maritime stability vital for national power generation and industrial output.",
+    "strategicRisks": [
+      "Naval drone attacks or mine laying in the Strait of Hormuz causing severe LNG carrier delays.",
+      "Spikes in international spot LNG prices during Middle Eastern geopolitical escalation.",
+      "Expatriate worker safety in GCC host states and potential remittance volatility."
+    ],
+    "strategicOpportunities": [
+      "Locking in 15-year long-term LNG supply contracts with QatarEnergy at oil-indexed price caps.",
+      "Expanding domestic strategic petroleum reserves (SPR) and offshore floating storage (FSRU).",
+      "Deepening defense and security cooperation dialogues with Saudi Arabia and UAE."
+    ],
+    "policyRecommendations": [
+      "Build a 90-day sovereign Strategic Petroleum and LNG Reserve buffer in Moheshkhali and Payra.",
+      "Diversify long-term energy import sources to include Southeast Asian and West African suppliers.",
+      "Establish an Energy Diplomacy Taskforce within the Energy and Foreign Ministries."
+    ],
+    "detailedAnalysis": {
+      "backgroundAndGenesis": "As domestic natural gas fields in the Surma Basin experience production declines, Bangladesh has become increasingly reliant on imported Liquefied Natural Gas (LNG) to fuel its power plants and export industries. The country operationalized two Floating Storage Regasification Units (FSRUs) at Moheshkhali with a combined capacity of 1,000 MMCFD, sourcing the vast majority of its long-term LNG volumes from Qatar and Oman through the Strait of Hormuz.",
+      "greatPowerInterests": {
+        "us": "Maintains naval patrols under Combined Maritime Forces (CMF) Bahrain to safeguard commercial freedom of navigation.",
+        "china": "Consumes 45% of Gulf crude exports and brokers regional diplomatic détentes (Saudi-Iran rapprochement).",
+        "regional": "GCC producers prioritize stable long-term energy contracts with growing Asian economies."
+      },
+      "vulnerabilitiesAndEconomicImpact": "A 10-day closure of the Strait of Hormuz would halt LNG deliveries to Bangladesh, forcing widespread industrial power rationing and costing the manufacturing economy an estimated $200 million per day.",
+      "policyDirectives": [
+        "Petrobangla must maintain a 75/25 balance between predictable long-term contracts and volatile spot market purchases.",
+        "Ministry of Energy should fast-track the Matarbari Land-Based LNG Terminal (1,000 MMCFD capacity).",
+        "Encourage offshore hydrocarbon exploration in the Bay of Bengal deep-water blocks to boost domestic gas reserves."
+      ],
+      "academicCitations": [
+        {
+          "title": "Energy Security and Sea Lines of Communication in the Indian Ocean and Arabian Gulf",
+          "authorOrBody": "Carnegie Middle East Program",
+          "publication": "Carnegie Policy Papers",
+          "year": "2025",
+          "url": "https://carnegieendowment.org"
+        }
+      ]
+    },
+    "keyActors": [
+      "Petrobangla",
+      "QatarEnergy",
+      "Ministry of Power & Energy",
+      "OPEC"
+    ],
+    "originalUrl": "https://carnegieendowment.org",
+    "readTime": "7 min read",
+    "tags": [
+      "Energy Security",
+      "LNG",
+      "Strait of Hormuz",
+      "Qatar",
+      "Petrobangla"
+    ]
+  },
+  {
+    "id": "intel-011",
+    "slug": "unclos-extended-continental-shelf-delimitation-central-bay-of-bengal",
+    "title": "UNCLOS Article 76 & the Extended Continental Shelf: Sovereign Seabed Rights in the Central Bay of Bengal",
+    "source": "ITLOS (Hamburg) & Cambridge International Law Centre",
+    "sourceTier": "global-media-multilateral",
+    "publishedAt": "2026-09-13",
+    "pillar": "bay-of-bengal",
+    "impactLevel": "High Strategic Significance",
+    "executiveSummary": "Legal and geological analysis of Bangladesh's submission to the UN Commission on the Limits of the Continental Shelf (CLCS) under UNCLOS Article 76, assessing sovereign rights over seabed mineral resources, polymetallic nodules, and benthic ecosystems beyond 200 nautical miles.",
+    "bangladeshSignificance": "Solidifies Bangladesh's outer continental shelf boundary, unlocking deep-sea mineral exploration rights across the Bengal Fan and establishing definitive legal boundaries in the central Indian Ocean.",
+    "strategicRisks": [
+      "Overlapping continental shelf claims with India's revised submission before the CLCS.",
+      "High capital costs and technological hurdles for deep-sea mining exploration.",
+      "Environmental impact on benthic marine ecosystems and benthic biodiversity."
+    ],
+    "strategicOpportunities": [
+      "Securing deep-sea hydrocarbon and rare earth mineral exploration blocks.",
+      "Pioneering Blue Economy marine biotechnology and offshore renewable energy projects.",
+      "Strengthening multilateral ocean governance partnerships with the International Seabed Authority (ISA)."
+    ],
+    "policyRecommendations": [
+      "Deploy specialized scientific seismic research vessels to map seabed sedimentary thickness.",
+      "Engage in constructive bilateral technical consultations with India's Ministry of Earth Sciences on overlapping outer limits.",
+      "Establish the Bangladesh Institute of Oceanography and Deep-Sea Mineral Studies in Chattogram."
+    ],
+    "detailedAnalysis": {
+      "backgroundAndGenesis": "Under Article 76 of the 1982 United Nations Convention on the Law of the Sea (UNCLOS), coastal states have the right to delineate the outer limits of their continental shelf beyond 200 nautical miles based on the natural prolongation of their land territory. Bangladesh's unique geology—dominated by the massive sedimentary accumulation of the Bengal Fan created by the Ganges-Brahmaputra river system—provides scientific grounds for claiming an extended continental shelf reaching up to 350 nautical miles.",
+      "greatPowerInterests": {
+        "global": "The International Seabed Authority (ISA) in Kingston regulates mineral exploration in 'The Area' (common heritage of mankind).",
+        "regional": "India, Myanmar, and Sri Lanka have filed concurrent outer continental shelf claims across the Bay."
+      },
+      "vulnerabilitiesAndEconomicImpact": "The Bengal Fan is estimated to contain vast reservoirs of natural gas hydrates and cobalt-rich ferromanganese crusts. Establishing clear legal title provides certainty for international energy and mining consortium investments.",
+      "policyDirectives": [
+        "Ministry of Foreign Affairs Maritime Affairs Unit must actively represent Bangladesh before the UN CLCS in New York.",
+        "Enact comprehensive domestic legislation governing deep-sea mineral extraction and environmental impact assessments.",
+        "Collaborate with international oceanographic institutions (e.g. IFREMER, JODC) for deep-water bathymetric data."
+      ],
+      "academicCitations": [
+        {
+          "title": "Delimitation of the Outer Continental Shelf in the Bay of Bengal: Law, Geology, and Multilateral Practice",
+          "authorOrBody": "Cambridge International Law Journal",
+          "publication": "Cambridge University Press, Vol. 15, No. 2",
+          "year": "2025",
+          "url": "https://www.cambridge.org"
+        }
+      ]
+    },
+    "keyActors": [
+      "UN CLCS",
+      "Ministry of Foreign Affairs",
+      "International Seabed Authority",
+      "Geological Survey of Bangladesh"
+    ],
+    "originalUrl": "https://www.un.org/depts/los/clcs_new/clcs_home.htm",
+    "readTime": "8 min read",
+    "tags": [
+      "UNCLOS",
+      "Continental Shelf",
+      "Blue Economy",
+      "Deep-Sea Mining",
+      "ITLOS"
+    ]
+  },
+  {
+    "id": "intel-012",
+    "slug": "quad-ipef-vs-belt-and-road-green-energy-minerals-competition",
+    "title": "Quad IPEF vs. Belt & Road: Critical Mineral Supply Chains & Green Energy Competition in South Asia",
+    "source": "Lowy Institute (Sydney) & CSIS (Washington)",
+    "sourceTier": "global-think-tank",
+    "publishedAt": "2026-09-13",
+    "pillar": "power-balancing",
+    "impactLevel": "High Strategic Significance",
+    "executiveSummary": "Examines the geopolitical rivalry between the US-led Indo-Pacific Economic Framework (IPEF) Clean Economy Agreement and China's Belt and Road Energy Partnership, analyzing how Bangladesh navigates critical mineral access, solar technology transfer, and grid modernization.",
+    "bangladeshSignificance": "Directly guides Bangladesh's $20 billion green energy transition under the Mujib Climate Prosperity Plan, balancing Chinese solar panel supply dominance with Western renewable finance and battery technology standards.",
+    "strategicRisks": [
+      "Carbon border tax penalties (EU CBAM) on export industries reliant on fossil-fuel power grids.",
+      "Supply-chain weaponization and export controls on critical battery minerals (Lithium, Nickel, Cobalt).",
+      "Conflicting technical standards between Chinese DC ultra-high voltage grids and Western smart grid protocols."
+    ],
+    "strategicOpportunities": [
+      "Attracting US and Japanese concessional climate finance under IPEF Pillar III (Clean Economy).",
+      "Expanding domestic assembly of electric vehicles (EVs) and smart energy storage systems.",
+      "Securing competitive pricing for solar PV modules from diversified Asian manufacturers."
+    ],
+    "policyRecommendations": [
+      "Formulate a National Critical Minerals & Clean Technology Strategy.",
+      "Accede to the IPEF Supply Chain Agreement while maintaining active trade partnerships under RCEP/BRI.",
+      "Establish a Special Economic Zone dedicated exclusively to renewable energy hardware manufacturing."
+    ],
+    "detailedAnalysis": {
+      "backgroundAndGenesis": "The global energy transition has sparked a contest for control over critical mineral supply chains, battery manufacturing, and renewable energy infrastructure. The United States and its Quad partners (India, Japan, Australia) established the Indo-Pacific Economic Framework (IPEF) to build resilient, trusted supply chains, while China continues to manufacture over 80% of the world's solar photovoltaic modules and 75% of lithium-ion battery cells.",
+      "greatPowerInterests": {
+        "us": "Advocates for supply-chain diversification away from single-source dependencies under IPEF.",
+        "china": "Expands renewable energy and smart grid exports across South Asia under the BRI Green Silk Road.",
+        "india": "Promotes the International Solar Alliance (ISA) and cross-border regional power trading."
+      },
+      "vulnerabilitiesAndEconomicImpact": "Bangladesh currently generates less than 5% of its electricity from renewable sources. Meeting the national target of 40% renewable energy by 2041 requires $2 billion in annual green investments, demanding access to both Western climate finance and affordable Asian technology.",
+      "policyDirectives": [
+        "Sustainable and Renewable Energy Development Authority (SREDA) must streamline rooftop solar net-metering regulations.",
+        "Ministry of Commerce should negotiate tariff concessions for raw materials used in local lithium-ion battery assembly.",
+        "Participate actively in multilateral critical mineral recycling and standard-setting dialogues."
+      ],
+      "academicCitations": [
+        {
+          "title": "Clean Energy Geopolitics in the Indo-Pacific: Supply Chains, Standards, and Strategic Alignment",
+          "authorOrBody": "Lowy Institute for International Policy",
+          "publication": "Lowy Institute Analysis Series",
+          "year": "2025",
+          "url": "https://www.lowyinstitute.org"
+        }
+      ]
+    },
+    "keyActors": [
+      "SREDA",
+      "IPEF",
+      "Ministry of Power & Energy",
+      "International Solar Alliance"
+    ],
+    "originalUrl": "https://www.lowyinstitute.org",
+    "readTime": "8 min read",
+    "tags": [
+      "Clean Energy",
+      "IPEF",
+      "Critical Minerals",
+      "Solar Power",
+      "Quad"
+    ]
+  },
+  {
+    "id": "intel-013",
+    "slug": "ai-driven-cognitive-warfare-foreign-electoral-interference-south-asia",
+    "title": "AI-Driven Cognitive Warfare & Foreign Information Manipulation: Defending Democratic Sovereignty",
+    "source": "RAND Corporation & BIPSS (Bangladesh Institute of Peace and Security Studies)",
+    "sourceTier": "global-think-tank",
+    "publishedAt": "2026-09-12",
+    "pillar": "defense-peacekeeping",
+    "impactLevel": "High Strategic Significance",
+    "executiveSummary": "Evaluates the emergence of generative AI deepfakes, coordinated inauthentic behavior (CIB), and algorithmic information manipulation campaigns aimed at polarizing domestic political discourse, undermining institutional trust, and interfering in sovereign South Asian electoral processes.",
+    "bangladeshSignificance": "Critical national security and societal resilience priority: safeguards Bangladesh's democratic elections, communal harmony, and digital sovereignty against hostile state and non-state cyber influence operations.",
+    "strategicRisks": [
+      "AI-generated deepfake audio/video inciting communal violence or political unrest during election cycles.",
+      "Micro-targeted disinformation campaigns targeting overseas diaspora communities to disrupt remittances.",
+      "Cyber espionage targeting critical national infrastructure (voter databases, central bank, power grids)."
+    ],
+    "strategicOpportunities": [
+      "Deploying national AI verification and deepfake detection algorithms in local languages (Bangla).",
+      "Establishing sovereign digital infrastructure and localized data governance frameworks.",
+      "Deepening international cyber defense partnerships with ITU, Interpol, and global tech platforms."
+    ],
+    "policyRecommendations": [
+      "Establish an independent National Digital Verification & Cyber Resilience Agency.",
+      "Mandate transparent algorithmic transparency and political ad disclosure by social media platforms.",
+      "Integrate critical digital media literacy into national secondary and higher education curricula."
+    ],
+    "detailedAnalysis": {
+      "backgroundAndGenesis": "The weaponization of artificial intelligence, large language models (LLMs), and synthetic media has transformed modern information warfare into 'cognitive warfare'—the deliberate manipulation of human cognition to destabilize political systems without firing a shot. In South Asia, where smartphone penetration exceeds 60% and social media platforms (Facebook, YouTube, TikTok) serve as primary news sources, malicious actors exploit ethnic, religious, and political fault lines through automated bot networks and generative deepfakes.",
+      "greatPowerInterests": {
+        "global": "Major powers maintain sophisticated offensive and defensive cyber-cognitive capabilities (US Cyber Command, China's Strategic Support Force).",
+        "regional": "Regional intelligence agencies increasingly deploy digital influence networks across neighboring information environments."
+      },
+      "vulnerabilitiesAndEconomicImpact": "Information manipulation campaigns can trigger social panic, runs on banks, and communal riots, causing hundreds of millions of dollars in economic disruption and eroding public faith in sovereign electoral legitimacy.",
+      "policyDirectives": [
+        "National Cyber Security Agency (NCSA) must operate 24/7 rapid-response digital forensics teams to debunk viral synthetic disinformation.",
+        "Election Commission must implement cryptographic watermarking and verified candidate communication channels.",
+        "Enact robust Data Protection Laws that balance national security with fundamental constitutional freedoms of speech and press."
+      ],
+      "academicCitations": [
+        {
+          "title": "Cognitive Warfare and the Threat to Democratic Processes in Developing Democracies",
+          "authorOrBody": "RAND Corporation Security Studies Group",
+          "publication": "RAND Research Reports, RR-A2419",
+          "year": "2025",
+          "url": "https://www.rand.org"
+        }
+      ]
+    },
+    "keyActors": [
+      "National Cyber Security Agency",
+      "Election Commission",
+      "BTRC",
+      "ITU"
+    ],
+    "originalUrl": "https://www.rand.org",
+    "readTime": "8 min read",
+    "tags": [
+      "Cognitive Warfare",
+      "AI",
+      "Cybersecurity",
+      "Disinformation",
+      "Elections"
+    ]
+  },
+
+  {
     id: 'intel-001',
     slug: 'matarbari-deep-sea-port-bay-of-bengal-security',
     title: 'Matarbari Deep Sea Port and the Strategic Architecture of the Bay of Bengal',
