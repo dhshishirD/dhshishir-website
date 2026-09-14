@@ -252,8 +252,8 @@ export const DailyPromptsHub: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="px-4 py-2.5 bg-white rounded-2xl border border-slate-200 flex items-center gap-2 text-xs font-bold text-amber-400 shadow-inner">
-            <Flame className="w-4 h-4 text-amber-400" />
+          <div className="px-4 py-2.5 bg-white rounded-2xl border border-slate-200 flex items-center gap-2 text-xs font-bold text-amber-800 font-bold shadow-inner">
+            <Flame className="w-4 h-4 text-amber-800 font-bold" />
             <span>{streakCount} Day Practice Streak</span>
           </div>
         </div>
@@ -330,7 +330,7 @@ export const DailyPromptsHub: React.FC = () => {
               <span className="text-xs text-slate-500 font-medium">
                 {currentCueCard.category}
               </span>
-              <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-teal-50 text-amber-300 uppercase">
+              <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-teal-50 text-amber-900 font-semibold uppercase">
                 Official Part 2 Format
               </span>
             </div>
@@ -430,11 +430,11 @@ export const DailyPromptsHub: React.FC = () => {
                 </div>
 
                 <div className="p-4 bg-amber-950/30 rounded-2xl border border-amber-500/20 space-y-2">
-                  <div className="text-xs font-bold text-amber-400 flex items-center gap-1.5">
-                    <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
+                  <div className="text-xs font-bold text-amber-800 font-bold flex items-center gap-1.5">
+                    <AlertTriangle className="w-4 h-4 text-amber-800 font-bold shrink-0" />
                     <span>Phonetic & Grammar Trap Warnings</span>
                   </div>
-                  <ul className="text-xs text-amber-200/90 space-y-1 pl-4 list-disc">
+                  <ul className="text-xs text-amber-950/90 space-y-1 pl-4 list-disc">
                     {currentPrompt.phoneticWatchouts.map((w, idx) => (
                       <li key={idx}>{w}</li>
                     ))}
@@ -491,7 +491,7 @@ export const DailyPromptsHub: React.FC = () => {
                 </div>
 
                 <div className="p-4 bg-white rounded-xl border border-slate-200 space-y-2">
-                  <div className="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+                  <div className="text-xs font-bold text-amber-800 font-bold flex items-center gap-1.5">
                     <Lightbulb className="w-3.5 h-3.5" /> Examiner Fluency Tip
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -641,7 +641,7 @@ export const DailyPromptsHub: React.FC = () => {
                   </h4>
                   <span className={`text-xs px-2.5 py-0.5 rounded font-bold border ${
                     checkedCount === 4 ? 'bg-teal-50 text-teal-900 border-teal-200' :
-                    checkedCount >= 2 ? 'bg-teal-50 text-amber-300 border-amber-500/30' :
+                    checkedCount >= 2 ? 'bg-teal-50 text-amber-900 font-semibold border-amber-500/30' :
                     'bg-slate-100 text-slate-500 border-slate-200'
                   }`}>
                     {checkedCount}/4 Criteria Met

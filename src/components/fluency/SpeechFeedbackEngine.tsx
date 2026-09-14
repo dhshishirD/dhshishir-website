@@ -263,13 +263,13 @@ export const SpeechFeedbackEngine: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
             Word-Level Speech Recognition & Loopback
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
             Automated speech analysis powered by browser Web Speech API. Compares your spoken utterance against the target text to detect word omissions and substitutions.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-[11px] px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-500 font-mono">
+          <span className="text-[11px] px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-600 font-mono">
             Zero-Cost Engine
           </span>
         </div>
@@ -285,7 +285,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
               Word-Level Transcription Match
             </span>
           </div>
-          <p className="text-slate-500 leading-relaxed">
+          <p className="text-slate-600 leading-relaxed">
             This module evaluates whether spoken words were transcribed accurately by the browser speech engine. It highlights word-level mismatches rather than acoustic/phonetic wave scoring.
           </p>
         </div>
@@ -313,7 +313,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
             <span className="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-900 font-mono text-xs font-bold border border-teal-200">
               Target {currentTargetIndex + 1} of {SPEAK_PRACTICE_DATA.length}
             </span>
-            <span className="text-xs text-slate-500 font-medium">
+            <span className="text-xs text-slate-600 font-medium">
               {currentTarget.categoryLabel}
             </span>
           </div>
@@ -346,7 +346,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
             {currentTarget.targetSentence}
           </div>
 
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs text-slate-500">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs text-slate-600">
             <span className="font-mono bg-white px-2.5 py-1 rounded border border-slate-200">
               Focus: <span className="text-teal-900 font-bold">{currentTarget.focusSound}</span>
             </span>
@@ -366,7 +366,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
               <div className="text-sm font-bold text-rose-400 font-mono animate-pulse">
                 LISTENING TO YOUR SPEECH...
               </div>
-              <p className="text-xs text-slate-500">Speak the target sentence clearly into your microphone.</p>
+              <p className="text-xs text-slate-600">Speak the target sentence clearly into your microphone.</p>
               <button
                 onClick={stopListening}
                 className="px-5 py-2.5 bg-slate-100 hover:bg-slate-700 text-rose-300 rounded-xl text-xs font-bold flex items-center gap-2 mx-auto cursor-pointer"
@@ -385,7 +385,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
                 <Mic className="w-4 h-4" />
                 <span>Speak & Analyze With Speech Engine</span>
               </button>
-              <p className="text-xs text-slate-500">Press the button and read the target phrase aloud.</p>
+              <p className="text-xs text-slate-600">Press the button and read the target phrase aloud.</p>
             </div>
           )}
 
@@ -404,7 +404,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
             {/* Score & Verdict Bar */}
             <div className="p-5 bg-white rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <div className="text-xs text-slate-500 font-medium">Word Alignment Accuracy</div>
+                <div className="text-xs text-slate-600 font-medium">Word Alignment Accuracy</div>
                 <div className="text-2xl sm:text-3xl font-black text-slate-900 flex items-center gap-2">
                   <span className={matchScore && matchScore >= 80 ? 'text-teal-800' : matchScore && matchScore >= 50 ? 'text-amber-400' : 'text-rose-400'}>
                     {matchScore}%
@@ -415,7 +415,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
                 </div>
               </div>
 
-              <div className="text-xs text-slate-500 text-center sm:text-right">
+              <div className="text-xs text-slate-600 text-center sm:text-right">
                 <div>Transcribed by engine:</div>
                 <div className="text-slate-800 font-mono italic mt-0.5">"{transcribedText}"</div>
               </div>
@@ -480,7 +480,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
                 </p>
 
                 <div className="flex items-center justify-between pt-2">
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-slate-600">
                     {isLoopbackSaved ? (
                       <span className="text-teal-800 font-bold flex items-center gap-1">
                         <CheckCircle2 className="w-4 h-4" /> Added to Your Diagnostic Weak Areas!

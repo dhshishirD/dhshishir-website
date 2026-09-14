@@ -279,9 +279,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
         <button
           onClick={() => { setSelectedCategory('all'); setCurrentIndex(0); }}
           className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer ${
-            selectedCategory === 'all'
-              ? 'bg-emerald-500 text-slate-950 shadow-md shadow-xs'
-              : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
+            selectedCategory === 'all' ? 'bg-teal-900 text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:text-teal-900 border border-slate-200 font-semibold'
           }`}
         >
           All Drills ({SPEAK_PRACTICE_DATA.length})
@@ -292,7 +290,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
             onClick={() => { setSelectedCategory(cat.id); setCurrentIndex(0); }}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer ${
               selectedCategory === cat.id
-                ? 'bg-indigo-600 text-slate-900 shadow-md shadow-xs'
+                ? 'bg-teal-900 text-slate-900 shadow-md shadow-xs'
                 : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
             }`}
           >
@@ -422,7 +420,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
               <button
                 onClick={() => playReferenceAudio(playbackSpeed)}
                 disabled={isReferencePlaying || isAbComparing}
-                className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-xs transition cursor-pointer"
+                className="px-5 py-2.5 bg-teal-900 hover:bg-indigo-500 disabled:opacity-50 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-xs transition cursor-pointer"
               >
                 {isReferencePlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                 <span>{isReferencePlaying ? 'Playing Model...' : 'Play Reference'}</span>
@@ -490,7 +488,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                   <button
                     onClick={() => playLearnerAudio()}
                     disabled={isLearnerPlaying || isAbComparing}
-                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
+                    className="px-4 py-2 bg-teal-900 hover:bg-emerald-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
                   >
                     {isLearnerPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
                     <span>{isLearnerPlaying ? 'Playing Take...' : 'Play Your Take'}</span>
@@ -658,7 +656,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                   <button
                     onClick={handleCompleteDrill}
                     disabled={checkedCount === 0}
-                    className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
+                    className="px-6 py-2.5 bg-teal-900 hover:bg-emerald-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
                   >
                     <Award className="w-4 h-4" />
                     <span>Log Drill & Update Streak</span>
@@ -666,7 +664,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                 ) : (
                   <button
                     onClick={handleNextTarget}
-                    className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
+                    className="px-6 py-2.5 bg-teal-900 hover:bg-indigo-500 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
                   >
                     <span>Next Drill</span>
                     <ArrowRight className="w-4 h-4" />

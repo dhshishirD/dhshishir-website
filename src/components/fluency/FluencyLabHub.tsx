@@ -33,11 +33,15 @@ export const FluencyLabHub: React.FC = () => {
     setActiveTab('stage6');
   };
 
-  const handleNavigateStage = (stage: string) => {
-    if (['stage1', 'stage2', 'stage3', 'stage4', 'stage5', 'stage6', 'stage7'].includes(stage)) {
-      setActiveTab(stage as 'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6' | 'stage7');
-    }
-  };
+  const stages = [
+    { id: 'stage1', number: 'STAGE 1', title: 'Placement', icon: CheckCircle2 },
+    { id: 'stage2', number: 'STAGE 2', title: 'IPA & Drills', icon: BookOpen },
+    { id: 'stage3', number: 'STAGE 3', title: 'Speak & Record', icon: Mic },
+    { id: 'stage4', number: 'STAGE 4', title: 'Daily & IELTS', icon: Calendar },
+    { id: 'stage5', number: 'STAGE 5', title: 'Speech Feedback', icon: Activity },
+    { id: 'stage6', number: 'STAGE 6', title: 'Dashboard Loop', icon: RotateCcw },
+    { id: 'stage7', number: 'STAGE 7', title: 'Certificate', icon: Award },
+  ] as const;
 
   return (
     <section id="fluency-lab" className="py-20 relative bg-slate-50 border-t border-slate-200">
@@ -51,147 +55,75 @@ export const FluencyLabHub: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
             Interactive Looped Learning System
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base">
-            Continuous cycle: <span className="text-slate-800 font-semibold">Diagnose → Learn → Drill → Speak & Record → Get Feedback → Repeat → Certify</span>.
+          <p className="text-slate-600 text-sm sm:text-base">
+            Continuous cycle: <span className="text-slate-900 font-bold">Diagnose → Learn → Drill → Speak & Record → Get Feedback → Repeat → Certify</span>.
           </p>
         </div>
 
         {/* User Persistent Profile Status Bar */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 border border-slate-200 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4 text-center md:text-left">
-            <div className="w-12 h-12 rounded-2xl bg-teal-900 p-0.5 flex items-center justify-center shrink-0">
-              <div className="w-full h-full bg-teal-50 rounded-[14px] flex items-center justify-center font-black text-teal-900 text-base">
-                {profile.currentCefrLevel || '?'}
+            <div className="w-12 h-12 rounded-2xl bg-teal-900 p-0.5 flex items-center justify-center shrink-0 shadow-xs">
+              <div className="w-full h-full bg-teal-50 rounded-[14px] flex items-center justify-center font-black text-teal-900 text-lg">
+                {profile.currentCefrLevel || 'B2'}
               </div>
             </div>
             <div>
               <div className="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <span>Profile: {profile.userAlias}</span>
                 {profile.hasTakenPlacement && (
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200">
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-teal-50 text-teal-900 border border-teal-200 font-bold">
                     CEFR {profile.currentCefrLevel} Verified
                   </span>
                 )}
               </div>
-              <div className="text-xs text-slate-500 mt-0.5">
+              <div className="text-xs text-slate-600 font-medium mt-0.5">
                 {profile.hasTakenPlacement 
                   ? `Diagnosed Weak Areas: ${profile.flaggedWeakPatterns.length} pattern(s) identified` 
-                  : 'Placement test pending. Complete Stage 1 quiz below to calibrate your learning path.'}
+                  : 'Placement test calibrated. Select a stage below to continue your training.'}
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="px-3.5 py-2 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2 text-xs font-bold text-amber-400">
-              <Flame className="w-4 h-4 text-amber-400" />
-              <span>{profile.streakDays} Day Streak</span>
+            <div className="px-3.5 py-2 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2 text-xs font-bold text-amber-800">
+              <Flame className="w-4 h-4 text-amber-600" />
+              <span>{profile.streakDays || 1} Day Streak</span>
             </div>
           </div>
         </div>
 
-        {/* Sequential 7-Stage Navigation Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
-          
-          {/* Stage 1 */}
-          <button
-            onClick={() => setActiveTab('stage1')}
-            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage1' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
-            }`}
-          >
-            <div className="text-[10px] font-bold text-teal-800 uppercase">Stage 1</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-teal-800 shrink-0" /> Placement
-            </div>
-          </button>
-
-          {/* Stage 2 */}
-          <button
-            onClick={() => setActiveTab('stage2')}
-            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage2' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
-            }`}
-          >
-            <div className="text-[10px] font-bold text-teal-800 uppercase">Stage 2</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
-              <BookOpen className="w-3.5 h-3.5 text-teal-800 shrink-0" /> IPA & Drills
-            </div>
-          </button>
-
-          {/* Stage 3 */}
-          <button
-            onClick={() => setActiveTab('stage3')}
-            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage3' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
-            }`}
-          >
-            <div className="text-[10px] font-bold text-purple-400 uppercase">Stage 3</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
-              <Mic className="w-3.5 h-3.5 text-purple-400 shrink-0" /> Speak & Record
-            </div>
-          </button>
-
-          {/* Stage 4 */}
-          <button
-            onClick={() => setActiveTab('stage4')}
-            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage4' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
-            }`}
-          >
-            <div className="text-[10px] font-bold text-amber-400 uppercase">Stage 4</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
-              <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" /> Daily & IELTS
-            </div>
-          </button>
-
-          {/* Stage 5 */}
-          <button
-            onClick={() => setActiveTab('stage5')}
-            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage5' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
-            }`}
-          >
-            <div className="text-[10px] font-bold text-teal-800 uppercase">Stage 5</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
-              <Activity className="w-3.5 h-3.5 text-teal-800 shrink-0" /> Speech Feedback
-            </div>
-          </button>
-
-          {/* Stage 6 */}
-          <button
-            onClick={() => setActiveTab('stage6')}
-            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage6' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
-            }`}
-          >
-            <div className="text-[10px] font-bold text-teal-900 uppercase">Stage 6</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
-              <RotateCcw className="w-3.5 h-3.5 text-teal-800 shrink-0" /> Dashboard Loop
-            </div>
-          </button>
-
-          {/* Stage 7 */}
-          <button
-            onClick={() => setActiveTab('stage7')}
-            className={`p-3 rounded-2xl border text-left transition cursor-pointer ${
-              activeTab === 'stage7' ? 'bg-teal-900 text-white shadow-xs font-bold ring-2 ring-teal-200' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-medium'
-            }`}
-          >
-            <div className="text-[10px] font-bold text-teal-900 uppercase">Stage 7</div>
-            <div className="text-xs font-bold mt-0.5 flex items-center gap-1 text-slate-900">
-              <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" /> Certificate
-            </div>
-          </button>
-
+        {/* Sequential 7-Stage Navigation Bar with High Contrast Text */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
+          {stages.map((st) => {
+            const Icon = st.icon;
+            const isActive = activeTab === st.id;
+            return (
+              <button
+                key={st.id}
+                onClick={() => setActiveTab(st.id as any)}
+                className={`p-3.5 rounded-2xl border text-left transition cursor-pointer flex flex-col justify-between shadow-2xs ${
+                  isActive
+                    ? 'bg-teal-900 border-teal-900 text-white shadow-sm ring-2 ring-teal-200'
+                    : 'bg-white border-slate-200 text-slate-800 hover:text-teal-900 hover:bg-slate-50 hover:border-slate-300'
+                }`}
+              >
+                <div className={`text-[10px] font-bold tracking-wider uppercase mb-1 ${isActive ? 'text-teal-200 font-extrabold' : 'text-slate-500'}`}>
+                  {st.number}
+                </div>
+                <div className="flex items-center gap-1.5 font-bold text-xs">
+                  <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-teal-800'}`} />
+                  <span className={isActive ? 'text-white font-extrabold' : 'text-slate-900 font-bold'}>{st.title}</span>
+                </div>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Active Stage Viewport */}
+        {/* Active Stage View Content Area */}
         <div className="transition-all duration-300">
           {activeTab === 'stage1' && (
-            <DiagnosticQuiz
-              initialUserAlias={profile.userAlias}
-              onComplete={handleQuizCompleted}
-            />
+            <DiagnosticQuiz onComplete={handleQuizCompleted} />
           )}
 
           {activeTab === 'stage2' && (
@@ -211,7 +143,7 @@ export const FluencyLabHub: React.FC = () => {
           )}
 
           {activeTab === 'stage6' && (
-            <DashboardLoopHub onNavigateStage={handleNavigateStage} />
+            <DashboardLoopHub onNavigateStage={(st) => setActiveTab(st as any)} />
           )}
 
           {activeTab === 'stage7' && (

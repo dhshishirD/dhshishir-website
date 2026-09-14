@@ -107,9 +107,7 @@ export const MinimalPairsTrainer: React.FC = () => {
               handleRestartGame();
             }}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-              activeCategory === cat.key
-                ? 'bg-emerald-600 text-white shadow-lg shadow-xs'
-                : 'bg-white text-slate-500 border border-slate-200 hover:text-slate-900 hover:border-slate-200'
+              activeCategory === cat.key ? 'bg-teal-900 text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:text-teal-900 hover:bg-slate-50 border border-slate-200 font-semibold shadow-2xs'
             }`}
           >
             {cat.label}
@@ -122,9 +120,7 @@ export const MinimalPairsTrainer: React.FC = () => {
         <button
           onClick={() => setMode('study')}
           className={`flex-1 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
-            mode === 'study'
-              ? 'bg-indigo-600 text-slate-900 shadow-md'
-              : 'text-slate-500 hover:text-slate-900'
+            mode === 'study' ? 'bg-teal-900 text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:text-teal-900 border border-slate-200 font-semibold'
           }`}
         >
           <Layers className="w-3.5 h-3.5" /> 1. Listen & Compare ({categoryPairs.length} Pairs)
@@ -135,9 +131,7 @@ export const MinimalPairsTrainer: React.FC = () => {
             handleRestartGame();
           }}
           className={`flex-1 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
-            mode === 'game'
-              ? 'bg-emerald-600 text-white shadow-md'
-              : 'text-slate-500 hover:text-slate-900'
+            mode === 'game' ? 'bg-teal-900 text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:text-teal-900 border border-slate-200 font-semibold'
           }`}
         >
           <Award className="w-3.5 h-3.5" /> 2. Ear Discrimination Test
@@ -193,14 +187,14 @@ export const MinimalPairsTrainer: React.FC = () => {
 
                       <button
                         onClick={() => handlePlaySingle(pair.wordA)}
-                        className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer shadow-md shadow-xs"
+                        className="px-3.5 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer shadow-md shadow-xs"
                       >
                         <Volume2 className="w-3.5 h-3.5" /> Hear Target
                       </button>
                     </div>
 
                     {pair.clusterTip && (
-                      <div className="text-xs text-slate-600 bg-indigo-950/30 p-2.5 rounded-lg border border-teal-200 flex items-start gap-2">
+                      <div className="text-xs text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-slate-700 flex items-start gap-2">
                         <ShieldCheck className="w-3.5 h-3.5 text-teal-800 shrink-0 mt-0.5" />
                         <span>{pair.clusterTip}</span>
                       </div>
@@ -267,7 +261,7 @@ export const MinimalPairsTrainer: React.FC = () => {
 
       {/* MODE 2: EAR DISCRIMINATION GAME */}
       {mode === 'game' && (
-        <div className="max-w-xl mx-auto bg-gradient-to-b from-slate-900 to-indigo-950/50 border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+        <div className="max-w-xl mx-auto bg-white border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-xs space-y-6 text-slate-900">
           {!isGameOver ? (
             <>
               {/* Question Header & Streak Tracker */}
@@ -291,7 +285,7 @@ export const MinimalPairsTrainer: React.FC = () => {
               <div className="text-center py-6 space-y-4">
                 <button
                   onClick={handlePlayGameAudio}
-                  className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 flex items-center justify-center shadow-xl shadow-xs transition transform hover:scale-105 active:scale-95 cursor-pointer"
+                  className="w-20 h-20 mx-auto rounded-3xl bg-teal-900 hover:bg-teal-800 text-white flex items-center justify-center shadow-xl shadow-xs transition transform hover:scale-105 active:scale-95 cursor-pointer"
                   title="Replay Audio"
                 >
                   <Volume2 className="w-9 h-9" />
@@ -363,7 +357,7 @@ export const MinimalPairsTrainer: React.FC = () => {
 
                   <button
                     onClick={handleNextQuestion}
-                    className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-500 text-slate-900 font-bold rounded-xl flex items-center justify-center gap-2 transition cursor-pointer shadow-lg shadow-xs"
+                    className="w-full py-3.5 bg-teal-900 hover:bg-teal-800 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition cursor-pointer shadow-lg shadow-xs"
                   >
                     <span>{gameIndex + 1 === categoryPairs.length ? 'See Final Score' : 'Next Pair'}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -396,7 +390,7 @@ export const MinimalPairsTrainer: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setMode('study')}
-                  className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition cursor-pointer"
+                  className="flex-1 py-3 bg-teal-900 hover:bg-teal-800 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition cursor-pointer"
                 >
                   <Layers className="w-4 h-4" /> Return to Study Mode
                 </button>
