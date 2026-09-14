@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, GraduationCap, Compass } from 'lucide-react';
 import { supabase } from '../services/supabaseClient';
 import { AuthModal } from './auth/AuthModal';
+import { DiplomaticSoundscapes } from './common/DiplomaticSoundscapes';
 
 export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'fluency-lab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard';
 
@@ -164,6 +165,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                 Contact
               </button>
             </nav>
+
+            {/* Ambient Diplomatic Soundscapes Focus Switcher */}
+            <DiplomaticSoundscapes className="hidden md:flex" />
 
             {/* User Auth Action Button */}
             <div className="hidden lg:flex items-center gap-3">

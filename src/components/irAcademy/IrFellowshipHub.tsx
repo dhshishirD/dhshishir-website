@@ -21,6 +21,8 @@ import {
 import type { FellowshipProfile, Pillar, Lecture } from '../../types/irAcademy';
 import { SmartAudioReader } from '../common/SmartAudioReader';
 import { AnnotatedDiplomaticText } from '../common/AnnotatedDiplomaticText';
+import { DiplomatPassportModal } from './DiplomatPassportModal';
+import { StrategicMemoryVault } from './StrategicMemoryVault';
 import type { AudioSection } from '../common/SmartAudioReader';
 import { 
   Award, 
@@ -51,7 +53,8 @@ import {
 
 export const IrFellowshipHub: React.FC = () => {
   const [profile, setProfile] = useState<FellowshipProfile>(getFellowshipProfile());
-  const [activeTab, setActiveTab] = useState<'curriculum' | 'glossary' | 'crisis' | 'policy-brief' | 'exam' | 'certificate'>('curriculum');
+  const [activeTab, setActiveTab] = useState<'curriculum' | 'glossary' | 'memory-vault' | 'crisis' | 'policy-brief' | 'exam' | 'certificate'>('curriculum');
+  const [isPassportOpen, setIsPassportOpen] = useState(false);
   const [selectedPillar, setSelectedPillar] = useState<Pillar>(PILLARS_DATA[0]);
   const [selectedLecture, setSelectedLecture] = useState<Lecture>(PILLARS_DATA[0].lectures[0]);
   const [searchGlossaryQuery, setSearchGlossaryQuery] = useState('');
@@ -373,6 +376,14 @@ export const IrFellowshipHub: React.FC = () => {
                 <span className="font-mono text-teal-900 font-bold">{profile.fellowId}</span>
               </div>
               <div className="flex items-center gap-2 justify-end">
+                <button
+                  onClick={() => setIsPassportOpen(true)}
+                  className="flex items-center gap-1.5 px-3 py-1 bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-[11px] rounded-lg shadow-sm transition cursor-pointer"
+                  title="View Official Digital Diplomat Passport & Visa Stamps"
+                >
+                  <Award className="w-3.5 h-3.5" />
+                  <span>Digital Passport & Visas</span>
+                </button>
                 <span className="text-[11px] px-2.5 py-0.5 rounded bg-teal-100 text-teal-900 font-bold border border-teal-200">
                   {progressPercent}% Completed
                 </span>
@@ -417,6 +428,19 @@ export const IrFellowshipHub: React.FC = () => {
             >
               <Search className="w-4 h-4" />
               <span>Strategic Glossary (50+)</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('memory-vault')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                activeTab === 'memory-vault'
+                  ? 'bg-teal-900 text-white font-bold shadow-xs'
+                  : 'bg-white text-slate-700 hover:text-teal-900 border border-slate-200 hover:bg-teal-50/50'
+              }`}
+            >
+              <Sparkles className="w-4 h-4 text-amber-500" />
+              <span>Strategic Memory Vault (3D Cards)</span>
+              <span className="bg-amber-100 text-amber-900 text-[10px] font-bold px-1.5 py-0.2 rounded-full">60+</span>
             </button>
 
             <button
@@ -776,6 +800,10 @@ export const IrFellowshipHub: React.FC = () => {
         )}
 
         {/* TAB 2: GLOSSARY SEARCH INDEX */}
+        {activeTab === 'memory-vault' && (
+          <StrategicMemoryVault />
+        )}
+
         {activeTab === 'glossary' && (
           <div className="space-y-6">
             <div className="p-6 bg-white rounded-3xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xs">
@@ -1361,6 +1389,13 @@ export const IrFellowshipHub: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Diplomat Digital Passport & Visa Stamps Modal */}
+      <DiplomatPassportModal
+        isOpen={isPassportOpen}
+        onClose={() => setIsPassportOpen(false)}
+        profile={profile}
+      />
 
     </div>
   );

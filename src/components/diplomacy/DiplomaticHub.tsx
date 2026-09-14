@@ -19,6 +19,7 @@ import {
 } from '../../services/diplomacyService';
 import { AuthModal } from '../auth/AuthModal';
 import { GeopoliticalRiskSimulator } from './GeopoliticalRiskSimulator';
+import { BilateralNegotiationSimulator } from './BilateralNegotiationSimulator';
 
 interface DiplomaticHubProps {
   user: any;
@@ -31,7 +32,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
   const [selectedPillar, setSelectedPillar] = useState<StrategicPillar>('all');
   const [selectedTier, setSelectedTier] = useState<SourceTier>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'stream' | 'bookmarks' | 'ai-advisor' | 'memos' | 'simulator'>('stream');
+  const [activeTab, setActiveTab] = useState<'stream' | 'bookmarks' | 'ai-advisor' | 'memos' | 'simulator' | 'negotiation'>('stream');
   
   const [bookmarks, setBookmarks] = useState<string[]>([]);
   const [notes, setNotes] = useState<Record<string, string>>({});
@@ -836,6 +837,12 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
         )}
 
         {/* TAB 5: GEOPOLITICAL RISK SIMULATOR */}
+        {activeTab === 'negotiation' && (
+          <div className="mb-12">
+            <BilateralNegotiationSimulator />
+          </div>
+        )}
+
         {activeTab === 'simulator' && (
           <GeopoliticalRiskSimulator />
         )}
