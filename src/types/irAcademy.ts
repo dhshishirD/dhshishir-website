@@ -122,10 +122,23 @@ export interface FellowshipProfile {
   enrolledDate: string;
   lastActiveDate: string;
   completedLectureIds: string[];
+  bookmarkedLectureIds?: string[];
+  lectureNotes?: Record<string, string>;
   passedCheckpointPillarIds: string[];
   checkpointScores: Record<string, number>;
   crisisSimulationPassed: boolean;
   crisisSimulationScore: number;
+  policyBriefSubmission?: {
+    title: string;
+    targetAgency: string;
+    executiveSummary: string;
+    threatAssessment: string;
+    strategicOptions: string;
+    recommendation: string;
+    score?: number;
+    feedback?: string;
+    evaluatedDate?: string;
+  };
   grandExamScore: number;
   grandExamPassed: boolean;
   isCompleted: boolean;

@@ -124,3 +124,30 @@ export const updateFellowAlias = (alias: string): FellowshipProfile => {
   saveFellowshipProfile(current);
   return current;
 };
+
+export const toggleBookmarkLecture = (lectureId: string): FellowshipProfile => {
+  const current = getFellowshipProfile();
+  if (!current.bookmarkedLectureIds) current.bookmarkedLectureIds = [];
+  if (current.bookmarkedLectureIds.includes(lectureId)) {
+    current.bookmarkedLectureIds = current.bookmarkedLectureIds.filter(id => id !== lectureId);
+  } else {
+    current.bookmarkedLectureIds.push(lectureId);
+  }
+  saveFellowshipProfile(current);
+  return current;
+};
+
+export const saveLectureNote = (lectureId: string, noteText: string): FellowshipProfile => {
+  const current = getFellowshipProfile();
+  if (!current.lectureNotes) current.lectureNotes = {};
+  current.lectureNotes[lectureId] = noteText;
+  saveFellowshipProfile(current);
+  return current;
+};
+
+export const savePolicyBriefSubmission = (brief: NonNullable<FellowshipProfile['policyBriefSubmission']>): FellowshipProfile => {
+  const current = getFellowshipProfile();
+  current.policyBriefSubmission = brief;
+  saveFellowshipProfile(current);
+  return current;
+};

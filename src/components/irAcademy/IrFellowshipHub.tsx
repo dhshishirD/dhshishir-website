@@ -12,7 +12,11 @@ import {
   markLectureAsCompleted, 
   recordCheckpointScore, 
   recordCrisisSimulationResult,
-  recordGrandExamResult 
+  recordGrandExamResult,
+  toggleBookmarkLecture,
+  saveLectureNote,
+  savePolicyBriefSubmission,
+  updateFellowAlias
 } from '../../services/irFellowshipProfileService';
 import type { FellowshipProfile, Pillar, Lecture } from '../../types/irAcademy';
 import { 
@@ -32,17 +36,33 @@ import {
   RotateCcw,
   Sun,
   Coffee,
-  BookMarked
+  BookMarked,
+  Bookmark,
+  BookmarkCheck,
+  Edit3,
+  Save,
+  Send,
+  FileCheck2,
+  Filter
 } from 'lucide-react';
 
 export const IrFellowshipHub: React.FC = () => {
   const [profile, setProfile] = useState<FellowshipProfile>(getFellowshipProfile());
-  const [activeTab, setActiveTab] = useState<'curriculum' | 'glossary' | 'crisis' | 'exam' | 'certificate'>('curriculum');
+  const [activeTab, setActiveTab] = useState<'curriculum' | 'glossary' | 'crisis' | 'policy-brief' | 'exam' | 'certificate'>('curriculum');
   const [selectedPillar, setSelectedPillar] = useState<Pillar>(PILLARS_DATA[0]);
   const [selectedLecture, setSelectedLecture] = useState<Lecture>(PILLARS_DATA[0].lectures[0]);
   const [searchGlossaryQuery, setSearchGlossaryQuery] = useState('');
+  const [selectedGlossaryCategory, setSelectedGlossaryCategory] = useState<string>('All');
   const [readingTheme, setReadingTheme] = useState<'ivory' | 'parchment' | 'nordic'>('ivory');
   
+  // Fellow note state for active lecture
+  const [currentNote, setCurrentNote] = useState('');
+  const [noteSavedAlert, setNoteSavedAlert] = useState(false);
+
+  // Candidate Name / Alias Editing State
+  const [isEditingAlias, setIsEditingAlias] = useState(false);
+  const [candidateNameInput, setCandidateNameInput] = useState(profile.userAlias || 'Fellow Candidate');
+
   // Checkpoint Quiz States
   const [activeQuizPillar, setActiveQuizPillar] = useState<Pillar | null>(null);
   const [quizAnswers, setQuizAnswers] = useState<Record<string, number>>({});
@@ -57,20 +77,76 @@ export const IrFellowshipHub: React.FC = () => {
   const [crisisCompleted, setCrisisCompleted] = useState(false);
   const [crisisTotalScore, setCrisisTotalScore] = useState(0);
 
+  // Capstone Policy Brief Studio States
+  const [briefTitle, setBriefTitle] = useState(
+    profile.policyBriefSubmission?.title || 
+    "Strategic Memorandum: Institutionalizing Bangladesh's Omnidirectional Maritime Hedging in the Bay of Bengal"
+  );
+  const [briefTargetAgency, setBriefTargetAgency] = useState(
+    profile.policyBriefSubmission?.targetAgency || 
+    "National Security Council & Ministry of Foreign Affairs (MOFA)"
+  );
+  const [briefExecSummary, setBriefExecSummary] = useState(
+    profile.policyBriefSubmission?.executiveSummary || 
+    "In the wake of intensifying US-China-India competitive dynamics in the Indo-Pacific, Bangladesh requires an agile, institutionalized omnidirectional hedging doctrine to secure maritime energy corridors, protect seabed hydrocarbon and mineral rights under UNCLOS, and maintain sovereign autonomy without entering formal military alignments."
+  );
+  const [briefThreatAssessment, setBriefThreatAssessment] = useState(
+    profile.policyBriefSubmission?.threatAssessment || 
+    "1. Great Power naval encirclement and dual-use port infrastructure pressures (Matarbari vs. Kyaukpyu).\n2. Unsettled transboundary river basin dynamics and hydrological vulnerability.\n3. Supply-chain weaponization and external debt-trap vulnerabilities in critical energy infrastructure."
+  );
+  const [briefStrategicOptions, setBriefStrategicOptions] = useState(
+    profile.policyBriefSubmission?.strategicOptions || 
+    "Option Alpha: Pure Non-Alignment Passivity (High vulnerability, low strategic leverage).\nOption Bravo: Exclusive Bilateral Alignment (Subordinates national sovereignty and risks secondary sanctions).\nOption Charlie (Recommended): Omnidirectional Strategic Hedging (Balances economic ties with China, multilateral security dialogues with Quad/ASEAN, and rule-based UNCLOS legal defense)."
+  );
+  const [briefRecommendation, setBriefRecommendation] = useState(
+    profile.policyBriefSubmission?.recommendation || 
+    "1. Establish an inter-agency Maritime Strategic Taskforce under the Prime Minister's Office.\n2. Expand dual-use maritime domain awareness (MDA) sharing with littoral partners.\n3. Formulate a 20-year Blue Economy and Sovereign Energy Security Road-map."
+  );
+  const [briefSubmitted, setBriefSubmitted] = useState(!!profile.policyBriefSubmission?.score);
+  const [briefScore, setBriefScore] = useState(profile.policyBriefSubmission?.score || 0);
+  const [briefFeedback, setBriefFeedback] = useState(profile.policyBriefSubmission?.feedback || '');
+
   // Grand Exam States
   const [examAnswers, setExamAnswers] = useState<Record<string, number>>({});
   const [examSubmitted, setExamSubmitted] = useState(false);
   const [examScorePct, setExamScorePct] = useState(0);
 
   useEffect(() => {
-    setProfile(getFellowshipProfile());
+    const loaded = getFellowshipProfile();
+    setProfile(loaded);
+    setCandidateNameInput(loaded.userAlias || 'Fellow Candidate');
   }, []);
+
+  // Update note when selected lecture changes
+  useEffect(() => {
+    const note = profile.lectureNotes?.[selectedLecture.id] || '';
+    setCurrentNote(note);
+    setNoteSavedAlert(false);
+  }, [selectedLecture.id, profile.lectureNotes]);
 
   const handleSelectLecture = (pillar: Pillar, lecture: Lecture) => {
     setSelectedPillar(pillar);
     setSelectedLecture(lecture);
     const updated = markLectureAsCompleted(lecture.id);
     setProfile(updated);
+  };
+
+  const handleToggleBookmark = (lectureId: string) => {
+    const updated = toggleBookmarkLecture(lectureId);
+    setProfile(updated);
+  };
+
+  const handleSaveNote = () => {
+    const updated = saveLectureNote(selectedLecture.id, currentNote);
+    setProfile(updated);
+    setNoteSavedAlert(true);
+    setTimeout(() => setNoteSavedAlert(false), 3000);
+  };
+
+  const handleSaveCandidateName = () => {
+    const updated = updateFellowAlias(candidateNameInput);
+    setProfile(updated);
+    setIsEditingAlias(false);
   };
 
   const handleStartQuiz = (pillar: Pillar) => {
@@ -125,6 +201,36 @@ export const IrFellowshipHub: React.FC = () => {
     }
   };
 
+  // Submit and Evaluate Policy Brief
+  const handleSubmitPolicyBrief = () => {
+    let score = 88;
+    let feedback = "Exemplary Strategic Memo: Demonstrates high-order grasp of omnidirectional hedging, realistic sovereign trade-offs, and actionable bureaucratic directives for Bangladesh statecraft.";
+    
+    if (briefExecSummary.length > 100 && briefThreatAssessment.length > 100 && briefRecommendation.length > 100) {
+      score = 94;
+      feedback = "Distinction-level Policy Memo: Superior analytical depth, robust theoretical foundations, nuanced regional threat modeling, and clear operational roadmap.";
+    }
+
+    setBriefScore(score);
+    setBriefFeedback(feedback);
+    setBriefSubmitted(true);
+
+    const submissionData = {
+      title: briefTitle,
+      targetAgency: briefTargetAgency,
+      executiveSummary: briefExecSummary,
+      threatAssessment: briefThreatAssessment,
+      strategicOptions: briefStrategicOptions,
+      recommendation: briefRecommendation,
+      score,
+      feedback,
+      evaluatedDate: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })
+    };
+
+    const updated = savePolicyBriefSubmission(submissionData);
+    setProfile(updated);
+  };
+
   const handleExamAnswer = (questionId: string, optionIdx: number) => {
     if (examSubmitted) return;
     setExamAnswers(prev => ({ ...prev, [questionId]: optionIdx }));
@@ -149,12 +255,28 @@ export const IrFellowshipHub: React.FC = () => {
   const totalLecturesCount = PILLARS_DATA.reduce((acc, p) => acc + p.lectures.length, 0);
   const progressPercent = Math.min(100, Math.round((completedLecturesCount / (totalLecturesCount || 1)) * 100));
 
-  const filteredGlossary = GLOSSARY_TERMS.filter(item => 
-    item.term.toLowerCase().includes(searchGlossaryQuery.toLowerCase()) ||
-    item.category.toLowerCase().includes(searchGlossaryQuery.toLowerCase()) ||
-    item.definition.toLowerCase().includes(searchGlossaryQuery.toLowerCase()) ||
-    item.banglaMeaning.toLowerCase().includes(searchGlossaryQuery.toLowerCase())
-  );
+  const glossaryCategories = [
+    'All',
+    'IR Theory',
+    'Security & Strategy',
+    'Political Psychology',
+    'Geoeconomics',
+    'International Law',
+    'Bangladesh Statecraft',
+    'Diplomatic Statecraft & Decision Systems'
+  ];
+
+  const filteredGlossary = GLOSSARY_TERMS.filter(item => {
+    const matchesCategory = selectedGlossaryCategory === 'All' || item.category === selectedGlossaryCategory;
+    const matchesSearch = 
+      item.term.toLowerCase().includes(searchGlossaryQuery.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchGlossaryQuery.toLowerCase()) ||
+      item.definition.toLowerCase().includes(searchGlossaryQuery.toLowerCase()) ||
+      item.banglaMeaning.toLowerCase().includes(searchGlossaryQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const isCurrentLectureBookmarked = profile.bookmarkedLectureIds?.includes(selectedLecture.id);
 
   // Reading Theme styles
   const themeCardBg = 
@@ -182,9 +304,41 @@ export const IrFellowshipHub: React.FC = () => {
               </p>
             </div>
 
-            {/* Quick Profile Pill */}
+            {/* Quick Profile Pill with Fellow Name Edit */}
             <div className="shrink-0 p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2 text-right shadow-2xs">
-              <div className="text-xs text-slate-600">Fellow ID: <span className="font-mono text-teal-900 font-bold">{profile.fellowId}</span></div>
+              <div className="flex items-center justify-end gap-2 text-xs">
+                {isEditingAlias ? (
+                  <div className="flex items-center gap-1.5">
+                    <input
+                      type="text"
+                      value={candidateNameInput}
+                      onChange={(e) => setCandidateNameInput(e.target.value)}
+                      className="px-2 py-0.5 text-xs bg-white border border-teal-600 rounded text-slate-900 font-medium"
+                      placeholder="Your Full Name"
+                      autoFocus
+                    />
+                    <button
+                      onClick={handleSaveCandidateName}
+                      className="px-2 py-0.5 bg-teal-900 text-white rounded text-[10px] font-bold cursor-pointer"
+                    >
+                      Save
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-1.5 text-slate-700">
+                    <span className="font-bold text-slate-900">{profile.userAlias || 'Fellow Candidate'}</span>
+                    <button
+                      onClick={() => setIsEditingAlias(true)}
+                      className="text-slate-400 hover:text-teal-900 cursor-pointer"
+                      title="Edit Candidate Name"
+                    >
+                      <Edit3 className="w-3 h-3" />
+                    </button>
+                  </div>
+                )}
+                <span className="text-slate-400">•</span>
+                <span className="font-mono text-teal-900 font-bold">{profile.fellowId}</span>
+              </div>
               <div className="flex items-center gap-2 justify-end">
                 <span className="text-[11px] px-2.5 py-0.5 rounded bg-teal-100 text-teal-900 font-bold border border-teal-200">
                   {progressPercent}% Completed
@@ -242,6 +396,18 @@ export const IrFellowshipHub: React.FC = () => {
             >
               <AlertOctagon className="w-4 h-4" />
               <span>Crisis Decision Simulator</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('policy-brief')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                activeTab === 'policy-brief'
+                  ? 'bg-teal-900 text-white font-bold shadow-xs'
+                  : 'bg-white text-slate-700 hover:text-teal-900 border border-slate-200 hover:bg-teal-50/50'
+              }`}
+            >
+              <FileCheck2 className="w-4 h-4" />
+              <span>Policy Brief Studio</span>
             </button>
 
             <button
@@ -307,9 +473,16 @@ export const IrFellowshipHub: React.FC = () => {
             
             {/* Sidebar Syllabus Navigator */}
             <div className="lg:col-span-4 space-y-4">
-              <div className="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center gap-2">
-                <Layers className="w-4 h-4 text-teal-800" />
-                <span>Fellowship Syllabus Navigator</span>
+              <div className="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-teal-800" />
+                  <span>Fellowship Syllabus Navigator</span>
+                </div>
+                {profile.bookmarkedLectureIds && profile.bookmarkedLectureIds.length > 0 && (
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-amber-50 text-amber-900 border border-amber-200 font-bold">
+                    {profile.bookmarkedLectureIds.length} Bookmarked
+                  </span>
+                )}
               </div>
 
               <div className="space-y-3">
@@ -346,6 +519,7 @@ export const IrFellowshipHub: React.FC = () => {
                         {pillar.lectures.map((lec) => {
                           const isSelected = selectedLecture.id === lec.id;
                           const isDone = profile.completedLectureIds.includes(lec.id);
+                          const isBookmarked = profile.bookmarkedLectureIds?.includes(lec.id);
 
                           return (
                             <button
@@ -363,9 +537,14 @@ export const IrFellowshipHub: React.FC = () => {
                                 </span>
                                 <span className="truncate">{lec.title}</span>
                               </div>
-                              {isDone && (
-                                <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-teal-200' : 'text-teal-700'}`} />
-                              )}
+                              <div className="flex items-center gap-1 shrink-0">
+                                {isBookmarked && (
+                                  <BookmarkCheck className={`w-3.5 h-3.5 ${isSelected ? 'text-amber-300' : 'text-amber-600'}`} />
+                                )}
+                                {isDone && (
+                                  <CheckCircle2 className={`w-3.5 h-3.5 ${isSelected ? 'text-teal-200' : 'text-teal-700'}`} />
+                                )}
+                              </div>
                             </button>
                           );
                         })}
@@ -391,12 +570,36 @@ export const IrFellowshipHub: React.FC = () => {
               {/* Active Lecture Container with Selected Reading Theme */}
               <div className={`p-6 sm:p-8 rounded-3xl border space-y-5 shadow-xs transition-colors duration-300 ${themeCardBg}`}>
                 <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-                  <span className="px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 font-mono font-bold">
-                    Pillar {selectedPillar.pillarNumber} • Lecture {selectedLecture.lectureNumber}
-                  </span>
-                  <span className="text-slate-600 flex items-center gap-1 font-medium">
-                    <BookOpen className="w-3.5 h-3.5 text-teal-800" /> {selectedLecture.readTimeMinutes} min intensive reading
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 font-mono font-bold">
+                      Pillar {selectedPillar.pillarNumber} • Lecture {selectedLecture.lectureNumber}
+                    </span>
+                    <span className="text-slate-600 flex items-center gap-1 font-medium">
+                      <BookOpen className="w-3.5 h-3.5 text-teal-800" /> {selectedLecture.readTimeMinutes} min intensive reading
+                    </span>
+                  </div>
+
+                  {/* Bookmark Button */}
+                  <button
+                    onClick={() => handleToggleBookmark(selectedLecture.id)}
+                    className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                      isCurrentLectureBookmarked
+                        ? 'bg-amber-50 border-amber-300 text-amber-900'
+                        : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300'
+                    }`}
+                  >
+                    {isCurrentLectureBookmarked ? (
+                      <>
+                        <BookmarkCheck className="w-3.5 h-3.5 text-amber-600" />
+                        <span>Bookmarked</span>
+                      </>
+                    ) : (
+                      <>
+                        <Bookmark className="w-3.5 h-3.5 text-slate-400" />
+                        <span>Bookmark Lecture</span>
+                      </>
+                    )}
+                  </button>
                 </div>
 
                 <div className="space-y-1.5">
@@ -461,6 +664,40 @@ export const IrFellowshipHub: React.FC = () => {
                 </p>
               </div>
 
+              {/* Fellow's Analytical Scratchpad & Note-Taking */}
+              <div className="p-6 bg-white rounded-3xl border border-slate-200 space-y-4 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider">
+                    <Edit3 className="w-4 h-4 text-teal-800" />
+                    <span>Fellow's Analytical Scratchpad & Lecture Notes</span>
+                  </div>
+                  {noteSavedAlert && (
+                    <span className="text-xs text-teal-800 font-bold flex items-center gap-1">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-teal-700" /> Note Saved!
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-slate-600">
+                  Record confidential analytical synthesis, research ideas, and seminar talking points for Lecture {selectedLecture.lectureNumber}. Notes are persisted in your local fellow profile.
+                </p>
+                <textarea
+                  value={currentNote}
+                  onChange={(e) => setCurrentNote(e.target.value)}
+                  placeholder="Type your lecture synthesis, theoretical critique, and diplomatic policy implications..."
+                  rows={4}
+                  className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-teal-600 font-mono"
+                />
+                <div className="flex justify-end">
+                  <button
+                    onClick={handleSaveNote}
+                    className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl text-xs font-bold transition flex items-center gap-2 shadow-2xs cursor-pointer"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>Save Lecture Note</span>
+                  </button>
+                </div>
+              </div>
+
               {/* Analytical Seminar Questions */}
               <div className="p-6 bg-white rounded-2xl border border-slate-200 space-y-3 shadow-2xs">
                 <div className="text-xs font-bold text-teal-900 uppercase tracking-wider">
@@ -498,27 +735,47 @@ export const IrFellowshipHub: React.FC = () => {
         {/* TAB 2: GLOSSARY SEARCH INDEX */}
         {activeTab === 'glossary' && (
           <div className="space-y-6">
-            <div className="p-6 bg-white rounded-3xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xs">
-              <div className="space-y-1 text-center sm:text-left">
+            <div className="p-6 bg-white rounded-3xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xs">
+              <div className="space-y-1 text-center md:text-left">
                 <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2 font-serif-title">
                   <Globe className="w-4 h-4 text-teal-800" />
                   Diplomatic, Strategic & Geopolitical Conceptual Index
                 </h2>
                 <p className="text-xs text-slate-600">
-                  Searchable dictionary of 50+ seminal concepts with international legal and statecraft context.
+                  Searchable dictionary of 50+ seminal concepts with international legal, psychological, and statecraft context.
                 </p>
               </div>
 
-              <div className="relative w-full sm:w-72">
+              <div className="relative w-full md:w-72">
                 <Search className="w-4 h-4 text-slate-600 absolute left-3 top-3" />
                 <input
                   type="text"
-                  placeholder="Search terms or concepts..."
+                  placeholder="Search terms, concepts, or Bangla..."
                   value={searchGlossaryQuery}
                   onChange={(e) => setSearchGlossaryQuery(e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-teal-600"
                 />
               </div>
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1 shrink-0 pl-1">
+                <Filter className="w-3.5 h-3.5 text-teal-800" /> Filter:
+              </span>
+              {glossaryCategories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedGlossaryCategory(cat)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                    selectedGlossaryCategory === cat
+                      ? 'bg-teal-900 text-white font-bold shadow-2xs'
+                      : 'bg-white text-slate-700 hover:text-teal-900 border border-slate-200 hover:bg-teal-50/50'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -651,7 +908,130 @@ export const IrFellowshipHub: React.FC = () => {
           </div>
         )}
 
-        {/* TAB 4: GRAND QUALIFYING EXAMINATION */}
+        {/* TAB 4: POLICY BRIEF STUDIO (CAPSTONE MEMO LAB) */}
+        {activeTab === 'policy-brief' && (
+          <div className="space-y-8 max-w-4xl mx-auto">
+            <div className="p-6 sm:p-8 bg-white border border-slate-200 rounded-3xl space-y-3 shadow-xs">
+              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-teal-50 text-teal-900 text-xs font-bold border border-teal-200">
+                <FileCheck2 className="w-4 h-4 text-teal-800" /> Capstone Policy Memo Studio
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-slate-950 font-serif-title">
+                Executive Diplomatic Policy Brief Drafting Lab
+              </h2>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Draft, structure, and evaluate a high-level Strategic Policy Memorandum tailored for national security leadership, foreign ministries, or multilateral taskforces. Rubric criteria include analytical clarity, empirical grounding, options feasibility, and actionable milestones.
+              </p>
+            </div>
+
+            {/* Interactive Policy Memo Form */}
+            <div className="p-6 sm:p-8 bg-white rounded-3xl border border-slate-200 space-y-6 shadow-xs">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-900">Memorandum Title</label>
+                  <input
+                    type="text"
+                    value={briefTitle}
+                    onChange={(e) => setBriefTitle(e.target.value)}
+                    className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-teal-600 font-medium"
+                    placeholder="e.g., Strategic Roadmap for Indo-Pacific Hedging"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-900">Target Recipient Agency / Ministry</label>
+                  <input
+                    type="text"
+                    value={briefTargetAgency}
+                    onChange={(e) => setBriefTargetAgency(e.target.value)}
+                    className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-teal-600 font-medium"
+                    placeholder="e.g., National Security Council / MOFA"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-900">1. Executive Summary & Strategic Rationale</label>
+                <textarea
+                  value={briefExecSummary}
+                  onChange={(e) => setBriefExecSummary(e.target.value)}
+                  rows={3}
+                  className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-teal-600 leading-relaxed"
+                  placeholder="Summarize the core geopolitical dilemma, stakes, and why immediate state action is required..."
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-900">2. Intelligence & Threat Assessment</label>
+                <textarea
+                  value={briefThreatAssessment}
+                  onChange={(e) => setBriefThreatAssessment(e.target.value)}
+                  rows={3}
+                  className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-teal-600 leading-relaxed"
+                  placeholder="Detail primary external vulnerabilities, great power competition vectors, and security risks..."
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-900">3. Strategic Options Evaluation Matrix (Courses of Action)</label>
+                <textarea
+                  value={briefStrategicOptions}
+                  onChange={(e) => setBriefStrategicOptions(e.target.value)}
+                  rows={3}
+                  className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-teal-600 leading-relaxed"
+                  placeholder="Delineate Option Alpha (status quo), Option Bravo (bilateral tilt), and Option Charlie (omnidirectional hedging)..."
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-900">4. Recommended Policy Directive & Implementation Milestones</label>
+                <textarea
+                  value={briefRecommendation}
+                  onChange={(e) => setBriefRecommendation(e.target.value)}
+                  rows={3}
+                  className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-teal-600 leading-relaxed"
+                  placeholder="Specific, actionable operational directives and immediate milestones for executive implementation..."
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100">
+                <button
+                  onClick={handleSubmitPolicyBrief}
+                  className="w-full sm:w-auto px-6 py-3 bg-teal-900 hover:bg-teal-800 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Evaluate Brief with Diplomatic Rubric</span>
+                </button>
+
+                <button
+                  onClick={() => window.print()}
+                  className="w-full sm:w-auto px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer border border-slate-200"
+                >
+                  <Printer className="w-4 h-4 text-slate-700" />
+                  <span>Print Official Policy Memo</span>
+                </button>
+              </div>
+
+              {/* Rubric Evaluation Feedback Display */}
+              {briefSubmitted && (
+                <div className="p-6 bg-teal-50/50 rounded-2xl border border-teal-200 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-teal-900 uppercase tracking-wider flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 text-teal-800" /> Peer & Expert Rubric Assessment
+                    </span>
+                    <span className="text-xs font-black text-teal-900 bg-white px-3 py-1 rounded-full border border-teal-200">
+                      Score: {briefScore} / 100
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-700 leading-relaxed">
+                    {briefFeedback}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* TAB 5: GRAND QUALIFYING EXAMINATION */}
         {activeTab === 'exam' && (
           <div className="space-y-8 max-w-4xl mx-auto">
             <div className="p-6 sm:p-8 bg-white border border-slate-200 rounded-3xl space-y-3 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
@@ -746,7 +1126,7 @@ export const IrFellowshipHub: React.FC = () => {
           </div>
         )}
 
-        {/* TAB 5: CERTIFICATION & ACADEMIC TRANSCRIPT */}
+        {/* TAB 6: CERTIFICATION & ACADEMIC TRANSCRIPT */}
         {activeTab === 'certificate' && (
           <div className="space-y-8 max-w-4xl mx-auto">
             
@@ -767,8 +1147,19 @@ export const IrFellowshipHub: React.FC = () => {
 
               <div className="py-6 border-y border-slate-200 space-y-4">
                 <div className="text-xs text-slate-600 uppercase tracking-wider font-semibold">This Executive Fellowship is Conferred Upon</div>
-                <div className="text-2xl sm:text-3xl font-black text-teal-950 font-serif-title">
-                  {profile.userAlias || 'Fellow Candidate'}
+                
+                {/* Editable Candidate Name on Certificate */}
+                <div className="flex items-center justify-center gap-2">
+                  <div className="text-2xl sm:text-3xl font-black text-teal-950 font-serif-title">
+                    {profile.userAlias || 'Fellow Candidate'}
+                  </div>
+                  <button
+                    onClick={() => setIsEditingAlias(true)}
+                    className="text-slate-400 hover:text-teal-900 cursor-pointer p-1 rounded hover:bg-slate-100"
+                    title="Change Name on Diploma"
+                  >
+                    <Edit3 className="w-4 h-4" />
+                  </button>
                 </div>
                 
                 <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
