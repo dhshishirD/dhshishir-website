@@ -12,7 +12,7 @@ export const CgpaConverter: React.FC = () => {
     if (val >= 3.75) return { title: 'First Class with Distinction (Honors)', color: 'text-teal-800', badge: 'Top Tier' };
     if (val >= 3.00) return { title: 'First Class / Division', color: 'text-blue-400', badge: 'Good Standing' };
     if (val >= 2.50) return { title: 'Second Class (Upper)', color: 'text-amber-400', badge: 'Eligible for Corporate' };
-    return { title: 'Pass / Third Division', color: 'text-rose-400', badge: 'Focus on Skills' };
+    return { title: 'Pass / Third Division', color: 'text-rose-800 font-bold', badge: 'Focus on Skills' };
   };
 
   const info = getClassification(cgpa);

@@ -2,11 +2,11 @@ import type { IntelItem, PolicyMemo } from '../types/diplomacy';
 
 export const DIPLOMACY_PILLARS_META = [
   { id: 'all', label: 'All Strategic Pillars', icon: 'Globe' },
-  { id: 'bay-of-bengal', label: 'Bay of Bengal & Maritime', icon: 'Compass', badgeColor: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20' },
-  { id: 'power-balancing', label: 'Great Power Balancing (US-CN-IN)', icon: 'Scale', badgeColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20' },
+  { id: 'bay-of-bengal', label: 'Bay of Bengal & Maritime', icon: 'Compass', badgeColor: 'bg-teal-50 text-teal-900 border-teal-200' },
+  { id: 'power-balancing', label: 'Great Power Balancing (US-CN-IN)', icon: 'Scale', badgeColor: 'bg-teal-50 text-teal-800 border-teal-200' },
   { id: 'trade-ldc', label: 'Trade & LDC Graduation', icon: 'TrendingUp', badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' },
   { id: 'climate-diplomacy', label: 'Climate Diplomacy & Delta', icon: 'Leaf', badgeColor: 'bg-teal-500/10 text-teal-400 border-teal-500/20' },
-  { id: 'rohingya-security', label: 'Rohingya & Border Security', icon: 'ShieldAlert', badgeColor: 'bg-rose-500/10 text-rose-400 border-rose-500/20' },
+  { id: 'rohingya-security', label: 'Rohingya & Border Security', icon: 'ShieldAlert', badgeColor: 'bg-rose-50 text-rose-800 font-bold border-rose-200' },
   { id: 'regional-multilateralism', label: 'BIMSTEC & Regional Orgs', icon: 'Users', badgeColor: 'bg-amber-500/10 text-amber-400 border-amber-500/20' },
   { id: 'defense-peacekeeping', label: 'Defense & UN Peacekeeping', icon: 'Award', badgeColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20' },
 ];

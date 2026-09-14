@@ -45,7 +45,7 @@ export const IpaChart: React.FC = () => {
             onClick={() => setSelectedCategory(cat.key)}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
               selectedCategory === cat.key
-                ? 'bg-indigo-600 text-slate-900 shadow-md shadow-xs'
+                ? 'bg-teal-900 text-white font-bold shadow-md shadow-xs'
                 : 'bg-white text-slate-600 border border-slate-200 hover:text-slate-900 hover:border-slate-200'
             }`}
           >
@@ -73,7 +73,7 @@ export const IpaChart: React.FC = () => {
                   onClick={() => handlePlayIsolatedSound(phoneme)}
                   className={`p-3.5 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 group cursor-pointer ${
                     isSelected
-                      ? 'bg-indigo-600 border-indigo-400 text-slate-900 shadow-lg shadow-xs scale-102'
+                      ? 'bg-teal-900 border-teal-200 text-white shadow-lg shadow-xs scale-102'
                       : 'bg-white border-slate-200 text-slate-600 hover:border-slate-200 hover:bg-white'
                   }`}
                 >
@@ -91,7 +91,7 @@ export const IpaChart: React.FC = () => {
         </div>
 
         {/* Phoneme Detail & 3 Example Words Card (Right 5 Cols) */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 border border-teal-200 rounded-3xl p-6 shadow-2xl space-y-6">
+        <div className="lg:col-span-5 bg-white border border-teal-200 rounded-3xl p-6 shadow-2xl space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-4">
             <div>
               <div className="flex items-center gap-2">
@@ -163,7 +163,7 @@ export const IpaChart: React.FC = () => {
                       className={`p-2 rounded-lg transition ${
                         isItemPlaying 
                           ? 'bg-emerald-500 text-slate-950' 
-                          : 'bg-white text-slate-600 group-hover:text-slate-900 group-hover:bg-indigo-600'
+                          : 'bg-white text-slate-600 group-hover:text-white group-hover:bg-teal-900'
                       }`}
                     >
                       <Volume2 className="w-4 h-4" />

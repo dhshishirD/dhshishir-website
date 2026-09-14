@@ -186,7 +186,7 @@ export const StandaloneToolPage: React.FC<StandaloneToolPageProps> = ({
                   onClick={() => onSelectTool(t.id)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition cursor-pointer ${
                     isCurrent
-                      ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs border border-indigo-400/40'
+                      ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs border border-teal-200'
                       : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
                   }`}
                 >

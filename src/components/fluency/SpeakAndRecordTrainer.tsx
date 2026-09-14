@@ -517,7 +517,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
             <button
               onClick={handleAbComparison}
               disabled={isAbComparing || isReferencePlaying || isLearnerPlaying}
-              className="px-6 py-3 bg-white border border-slate-200 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-slate-900 rounded-2xl font-bold text-xs flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer"
+              className="px-6 py-3 bg-white border border-slate-200 hover:bg-teal-800 disabled:opacity-50 text-slate-900 rounded-2xl font-bold text-xs flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer"
             >
               <Sliders className="w-4 h-4" />
               <span>{isAbComparing ? 'Comparing (Model ➔ You)...' : 'Run Sequential A/B Compare'}</span>
@@ -662,7 +662,7 @@ export const SpeakAndRecordTrainer: React.FC = () => {
                 ) : (
                   <button
                     onClick={handleNextTarget}
-                    className="px-6 py-2.5 bg-teal-900 hover:bg-indigo-500 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
+                    className="px-6 py-2.5 bg-teal-900 hover:bg-teal-800 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
                   >
                     <span>Next Drill</span>
                     <ArrowRight className="w-4 h-4" />

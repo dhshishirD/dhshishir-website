@@ -53,7 +53,7 @@ export const EnglishSection: React.FC = () => {
             {activeResource.examples.map((item, idx) => (
               <div key={idx} className="p-4 bg-white rounded-2xl border border-slate-200 space-y-2">
                 {item.wrong && (
-                  <div className="flex items-start gap-2 text-rose-400 text-xs">
+                  <div className="flex items-start gap-2 text-rose-800 font-bold text-xs">
                     <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                     <span className="line-through font-medium">{item.wrong}</span>
                   </div>

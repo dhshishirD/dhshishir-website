@@ -32,7 +32,7 @@ export const BcsRoadmapTracker: React.FC = () => {
   return (
     <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-2xl text-slate-900">
       <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
-        <div className="p-3 bg-purple-500/20 text-teal-800 rounded-2xl border border-purple-500/30">
+        <div className="p-3 bg-teal-50 text-teal-800 rounded-2xl border border-teal-200">
           <Award className="w-6 h-6" />
         </div>
         <div>
@@ -52,7 +52,7 @@ export const BcsRoadmapTracker: React.FC = () => {
               <select
                 value={selectedCadre}
                 onChange={e => setSelectedCadre(e.target.value)}
-                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 outline-none focus:border-purple-500"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 outline-none focus:border-teal-200"
               >
                 <option value="Foreign Affairs">BCS (Foreign Affairs / পররাষ্ট্র ক্যাডার)</option>
                 <option value="Administration">BCS (Administration / প্রশাসন ক্যাডার)</option>
@@ -108,7 +108,7 @@ export const BcsRoadmapTracker: React.FC = () => {
               <div key={idx} className="p-3.5 bg-white rounded-xl border border-slate-200 space-y-2">
                 <div className="flex items-center justify-between text-xs font-bold text-slate-900">
                   <span className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-purple-500/20 text-teal-800 flex items-center justify-center text-[10px]">
+                    <span className="w-5 h-5 rounded-full bg-teal-50 text-teal-800 flex items-center justify-center text-[10px]">
                       {idx + 1}
                     </span>
                     {mod.subject}

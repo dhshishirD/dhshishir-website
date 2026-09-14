@@ -91,7 +91,7 @@ export const BlogSection: React.FC = () => {
                 <div className="pt-6 border-t border-slate-200 flex justify-end">
                   <button
                     onClick={() => setSelectedPost(null)}
-                    className="px-6 py-2.5 bg-indigo-600 text-slate-900 rounded-xl text-xs font-bold cursor-pointer"
+                    className="px-6 py-2.5 bg-teal-900 text-white font-bold rounded-xl text-xs font-bold cursor-pointer"
                   >
                     Close Article
                   </button>

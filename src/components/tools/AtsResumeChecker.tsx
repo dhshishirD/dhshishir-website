@@ -170,7 +170,7 @@ export const AtsResumeChecker: React.FC = () => {
                   {answers[q.id] ? (
                     <CheckCircle className="w-5 h-5 text-teal-800 shrink-0 mt-0.5" />
                   ) : (
-                    <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+                    <AlertTriangle className="w-5 h-5 text-rose-800 font-bold shrink-0 mt-0.5" />
                   )}
                   <div>
                     <span className="text-xs font-bold text-slate-600 block">{q.category}</span>

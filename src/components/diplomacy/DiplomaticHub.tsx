@@ -486,7 +486,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                                 setSelectedDossier(item);
                               }
                             }}
-                            className="px-3 py-1.5 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 border border-cyan-400/40 text-slate-900 shadow-md shadow-xs rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                            className="px-3 py-1.5 bg-white border border-slate-200 hover:bg-teal-800 border border-teal-200 text-slate-900 shadow-md shadow-xs rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
                           >
                             <span>Read Academic Dossier</span>
                             <ArrowUpRight className="w-3.5 h-3.5 text-teal-900" />
@@ -534,7 +534,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                 </p>
                 <button
                   onClick={() => setActiveTab('stream')}
-                  className="mt-4 px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-slate-900 text-xs font-bold rounded-xl transition cursor-pointer"
+                  className="mt-4 px-4 py-2 bg-teal-900 hover:bg-teal-900 text-white font-bold text-xs font-bold rounded-xl transition cursor-pointer"
                 >
                   Explore Daily Stream
                 </button>
@@ -582,7 +582,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                         </button>
                         <button
                           onClick={(e) => handleToggleBookmark(item.id, e)}
-                          className="text-xs text-rose-400 hover:text-rose-300 font-semibold cursor-pointer"
+                          className="text-xs text-rose-800 font-bold hover:text-rose-900 font-semibold cursor-pointer"
                         >
                           Remove
                         </button>
@@ -598,7 +598,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
         {/* TAB 3: AI DIPLOMATIC ADVISOR */}
         {activeTab === 'ai-advisor' && (
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-white border border-slate-200 border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div className="bg-white border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-900">
                   <Sparkles className="w-5 h-5" />
@@ -640,7 +640,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                   <button
                     type="submit"
                     disabled={isAiLoading || !aiQuery.trim()}
-                    className="px-6 py-2.5 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 font-bold text-xs sm:text-sm rounded-xl transition flex items-center gap-2 shadow-lg shadow-cyan-950 disabled:opacity-50 cursor-pointer"
+                    className="px-6 py-2.5 bg-white border border-slate-200 hover:bg-teal-800 text-slate-900 font-bold text-xs sm:text-sm rounded-xl transition flex items-center gap-2 shadow-lg shadow-cyan-950 disabled:opacity-50 cursor-pointer"
                   >
                     {isAiLoading ? (
                       <>
@@ -681,7 +681,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
               <button
                 onClick={() => setIsCreatingMemo(!isCreatingMemo)}
-                className="px-4 py-2 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg shadow-cyan-950"
+                className="px-4 py-2 bg-white border border-slate-200 hover:bg-teal-800 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg shadow-cyan-950"
               >
                 <Plus className="w-4 h-4" />
                 <span>{isCreatingMemo ? 'Close Studio' : 'Draft New Policy Memo'}</span>
@@ -765,7 +765,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 bg-cyan-600 hover:bg-cyan-500 text-slate-900 text-xs font-bold rounded-xl transition cursor-pointer"
+                    className="px-5 py-2 bg-teal-900 hover:bg-teal-900 text-white font-bold text-xs font-bold rounded-xl transition cursor-pointer"
                   >
                     Save Policy Memo
                   </button>
@@ -878,14 +878,14 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               {/* Strategic Risks & Opportunities Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {selectedDossier.strategicRisks && selectedDossier.strategicRisks.length > 0 && (
-                  <div className="bg-rose-950/20 border border-rose-500/30 rounded-2xl p-4">
-                    <h5 className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                      <AlertTriangle className="w-3.5 h-3.5 text-rose-400" /> Strategic Risks & Vulnerabilities
+                  <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4">
+                    <h5 className="text-xs font-bold text-rose-800 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <AlertTriangle className="w-3.5 h-3.5 text-rose-800 font-bold" /> Strategic Risks & Vulnerabilities
                     </h5>
                     <ul className="space-y-2">
                       {selectedDossier.strategicRisks.map((risk, i) => (
-                        <li key={i} className="text-xs text-rose-100 flex items-start gap-2">
-                          <span className="text-rose-400 font-bold">•</span>
+                        <li key={i} className="text-xs text-rose-950 font-medium flex items-start gap-2">
+                          <span className="text-rose-800 font-bold">•</span>
                           <span>{risk}</span>
                         </li>
                       ))}
@@ -955,7 +955,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                   href={selectedDossier.originalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-2 bg-slate-100 hover:bg-cyan-900/40 border border-slate-200 hover:border-teal-200 text-slate-600 hover:text-teal-900 rounded-xl text-xs font-bold transition flex items-center gap-1.5"
+                  className="px-3.5 py-2 bg-slate-100 hover:bg-teal-50 border border-slate-200 hover:border-teal-200 text-slate-600 hover:text-teal-900 rounded-xl text-xs font-bold transition flex items-center gap-1.5"
                 >
                   <span>Think Tank Source</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -995,7 +995,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                       setSelectedDossier(null);
                       onOpenDossierPage(slug);
                     }}
-                    className="px-4 py-2 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 font-bold rounded-xl text-xs shadow-lg shadow-xs transition flex items-center gap-1.5 cursor-pointer"
+                    className="px-4 py-2 bg-white border border-slate-200 hover:bg-teal-800 text-slate-900 font-bold rounded-xl text-xs shadow-lg shadow-xs transition flex items-center gap-1.5 cursor-pointer"
                   >
                     <span>Open Dedicated Dossier Page</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-teal-900" />

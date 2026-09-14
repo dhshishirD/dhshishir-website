@@ -265,7 +265,7 @@ export function App() {
                 <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
                   <div className="space-y-2 text-center md:text-left">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider">
-                      <Globe className="w-3.5 h-3.5 text-cyan-400" /> Strategic Intelligence Desk
+                      <Globe className="w-3.5 h-3.5 text-teal-900" /> Strategic Intelligence Desk
                     </div>
                     <h2 className="text-xl sm:text-2xl font-black text-slate-900">
                       Explore the Diplomatic & Foreign Policy Intelligence Hub

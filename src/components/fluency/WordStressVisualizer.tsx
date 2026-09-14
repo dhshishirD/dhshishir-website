@@ -55,7 +55,7 @@ export const WordStressVisualizer: React.FC = () => {
             placeholder="Type ANY English word (e.g. technology, university, communication, record)..."
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            className="w-full bg-white border border-slate-200 rounded-2xl pl-12 pr-4 py-3.5 text-sm text-slate-900 focus:border-teal-200 outline-none shadow-lg placeholder:text-slate-600"
+            className="w-full bg-white border border-slate-200 rounded-2xl pl-12 pr-4 py-3.5 text-sm text-slate-900 focus:border-teal-200 outline-none shadow-lg placeholder:text-slate-400"
           />
         </div>
 
@@ -67,7 +67,7 @@ export const WordStressVisualizer: React.FC = () => {
               onClick={() => setActiveSection(sec.key as any)}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
                 activeSection === sec.key
-                  ? 'bg-indigo-600 text-slate-900 shadow-md shadow-xs'
+                  ? 'bg-teal-900 text-white font-bold shadow-md shadow-xs'
                   : 'bg-white text-slate-600 border border-slate-200 hover:text-slate-900 hover:border-slate-200'
               }`}
             >
@@ -79,10 +79,10 @@ export const WordStressVisualizer: React.FC = () => {
 
       {/* UNLIMITED LOOKUP TIER (AI / CMUDICT RESULT) */}
       {aiLookupResult && (
-        <div className="max-w-2xl mx-auto bg-white border border-slate-200 border border-purple-500/40 rounded-3xl p-6 shadow-2xl space-y-4 animate-in fade-in duration-200">
-          <div className="flex items-center justify-between border-b border-purple-500/20 pb-3">
+        <div className="max-w-2xl mx-auto bg-white border border-teal-200 rounded-3xl p-6 shadow-2xl space-y-4 animate-in fade-in duration-200">
+          <div className="flex items-center justify-between border-b border-teal-200 pb-3">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-500/20 text-teal-900 border border-purple-500/30 flex items-center gap-1">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-teal-50 text-teal-900 border border-teal-200 flex items-center gap-1">
                 <Cpu className="w-3 h-3 text-teal-800" /> Unlimited AI Lookup Tier
               </span>
               <span className="text-xs text-slate-600">CMUDict Phonetic Engine</span>
@@ -107,7 +107,7 @@ export const WordStressVisualizer: React.FC = () => {
                     key={idx}
                     className={`px-3.5 py-1.5 rounded-xl font-mono text-sm font-black transition ${
                       isStressed
-                        ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs ring-2 ring-purple-400 scale-105'
+                        ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs ring-2 ring-teal-700/30 scale-105'
                         : 'bg-white text-slate-600 border border-slate-200'
                     }`}
                   >
@@ -120,7 +120,7 @@ export const WordStressVisualizer: React.FC = () => {
 
           <button
             onClick={() => handlePlayStressAudio(aiLookupResult.word)}
-            className="w-full py-2.5 bg-purple-600 hover:bg-purple-500 text-slate-900 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition cursor-pointer shadow-md shadow-xs"
+            className="w-full py-2.5 bg-teal-900 hover:bg-teal-800 text-white font-bold rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition cursor-pointer shadow-md shadow-xs"
           >
             <Volume2 className="w-4 h-4" />
             <span>Hear AI Phonetic Pronunciation</span>

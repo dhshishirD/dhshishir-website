@@ -261,7 +261,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
           {recordingState === 'recording' && (
             <button
               onClick={stopRecording}
-              className="px-6 py-3.5 bg-slate-100 hover:bg-slate-700 text-rose-400 border border-rose-500/40 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg transition transform active:scale-95 cursor-pointer"
+              className="px-6 py-3.5 bg-rose-50 hover:bg-rose-100 text-rose-800 font-bold border border-rose-200 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg transition transform active:scale-95 cursor-pointer"
             >
               <Square className="w-4 h-4 fill-rose-400" />
               <span>Stop Recording</span>
@@ -281,8 +281,8 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
 
         {/* Error Notification */}
         {errorMessage && (
-          <div className="p-3.5 bg-rose-950/70 border border-rose-500/40 rounded-xl text-rose-300 text-xs flex items-start gap-2 text-left max-w-md">
-            <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+          <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-rose-900 font-semibold text-xs flex items-start gap-2 text-left max-w-md">
+            <AlertCircle className="w-4 h-4 text-rose-800 font-bold shrink-0 mt-0.5" />
             <div>{errorMessage}</div>
           </div>
         )}

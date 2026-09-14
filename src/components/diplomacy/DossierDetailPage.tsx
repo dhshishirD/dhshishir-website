@@ -344,15 +344,15 @@ ER  - `;
           theme === 'warm' ? 'border-[#e4dac4]' : theme === 'light' ? 'border-slate-200' : 'border-slate-200'
         }`}>
           <div className="flex items-center gap-2 opacity-80">
-            <button onClick={onNavigateHome} className="hover:text-cyan-500 font-semibold transition cursor-pointer">
+            <button onClick={onNavigateHome} className="hover:text-teal-800 font-semibold transition cursor-pointer">
               dhshishir.com
             </button>
             <span>/</span>
-            <button onClick={onNavigateDiplomacy} className="hover:text-cyan-500 font-semibold transition cursor-pointer">
+            <button onClick={onNavigateDiplomacy} className="hover:text-teal-800 font-semibold transition cursor-pointer">
               diplomacy
             </button>
             <span>/</span>
-            <span className="font-bold text-cyan-600 dark:text-teal-800 truncate max-w-[180px] sm:max-w-xs">{dossier.slug || dossier.id}</span>
+            <span className="font-bold text-teal-900 truncate max-w-[180px] sm:max-w-xs">{dossier.slug || dossier.id}</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -364,7 +364,7 @@ ER  - `;
                 onClick={() => setViewMode('reading')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold text-xs transition cursor-pointer ${
                   viewMode === 'reading'
-                    ? 'bg-cyan-600 text-slate-900 shadow-sm'
+                    ? 'bg-teal-900 text-white font-bold shadow-sm'
                     : 'opacity-70 hover:opacity-100'
                 }`}
               >
@@ -461,7 +461,7 @@ ER  - `;
                 onClick={() => handleFontChange('sans')}
                 className={`px-2.5 py-1 rounded-lg font-sans font-bold transition cursor-pointer ${
                   fontStyle === 'sans'
-                    ? 'bg-cyan-600 text-slate-900 shadow-sm'
+                    ? 'bg-teal-900 text-white font-bold shadow-sm'
                     : 'opacity-70 hover:opacity-100'
                 }`}
               >
@@ -471,7 +471,7 @@ ER  - `;
                 onClick={() => handleFontChange('serif')}
                 className={`px-2.5 py-1 rounded-lg font-serif font-bold transition cursor-pointer ${
                   fontStyle === 'serif'
-                    ? 'bg-cyan-600 text-slate-900 shadow-sm'
+                    ? 'bg-teal-900 text-white font-bold shadow-sm'
                     : 'opacity-70 hover:opacity-100'
                 }`}
                 title="Academic Book Serif"
@@ -489,7 +489,7 @@ ER  - `;
                   onClick={() => handleSizeChange(sz)}
                   className={`px-2 py-0.5 rounded-md font-bold transition cursor-pointer text-xs ${
                     fontSize === sz
-                      ? 'bg-cyan-600 text-slate-900'
+                      ? 'bg-teal-900 text-white font-bold'
                       : 'opacity-60 hover:opacity-100'
                   }`}
                 >
@@ -502,42 +502,42 @@ ER  - `;
             <div className="hidden md:flex items-center gap-1.5">
               <button
                 onClick={() => scrollToSection('sec-overview')}
-                className="opacity-70 hover:opacity-100 hover:text-cyan-500 transition cursor-pointer"
+                className="opacity-70 hover:opacity-100 hover:text-teal-800 transition cursor-pointer"
               >
                 Overview
               </button>
               <span>•</span>
               <button
                 onClick={() => scrollToSection('sec-genesis')}
-                className="opacity-70 hover:opacity-100 hover:text-cyan-500 transition cursor-pointer"
+                className="opacity-70 hover:opacity-100 hover:text-teal-800 transition cursor-pointer"
               >
                 Genesis
               </button>
               <span>•</span>
               <button
                 onClick={() => scrollToSection('sec-greatpowers')}
-                className="opacity-70 hover:opacity-100 hover:text-cyan-500 transition cursor-pointer"
+                className="opacity-70 hover:opacity-100 hover:text-teal-800 transition cursor-pointer"
               >
                 Great Powers
               </button>
               <span>•</span>
               <button
                 onClick={() => scrollToSection('sec-vulnerabilities')}
-                className="opacity-70 hover:opacity-100 hover:text-cyan-500 transition cursor-pointer"
+                className="opacity-70 hover:opacity-100 hover:text-teal-800 transition cursor-pointer"
               >
                 Vulnerabilities
               </button>
               <span>•</span>
               <button
                 onClick={() => scrollToSection('sec-directives')}
-                className="opacity-70 hover:opacity-100 hover:text-cyan-500 transition cursor-pointer"
+                className="opacity-70 hover:opacity-100 hover:text-teal-800 transition cursor-pointer"
               >
                 Directives
               </button>
               <span>•</span>
               <button
                 onClick={() => scrollToSection('sec-citations')}
-                className="opacity-70 hover:opacity-100 hover:text-cyan-500 transition cursor-pointer font-bold"
+                className="opacity-70 hover:opacity-100 hover:text-teal-800 transition cursor-pointer font-bold"
               >
                 Cite
               </button>
@@ -614,7 +614,7 @@ ER  - `;
                   activeSlide === idx
                     ? 'bg-white border border-slate-200 shadow-lg shadow-xs'
                     : idx < activeSlide
-                    ? 'bg-cyan-700/60'
+                    ? 'bg-teal-900'
                     : 'bg-slate-100'
                 }`}
                 title={`Jump to: ${s.title}`}
@@ -632,7 +632,7 @@ ER  - `;
                   <span className="px-3 py-1 rounded-full bg-white border border-teal-200 text-teal-900 text-xs font-bold">
                     🏛️ {dossier.source}
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-bold">
+                  <span className="px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-900 font-semibold text-xs font-bold">
                     ● {dossier.impactLevel}
                   </span>
                   <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">
@@ -648,7 +648,7 @@ ER  - `;
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-6">
                   <div className="bg-white border border-slate-200 rounded-2xl p-4">
                     <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Strategic Urgency</div>
-                    <div className="text-lg font-black text-rose-400 mt-1 flex items-center gap-1.5">
+                    <div className="text-lg font-black text-rose-800 font-bold mt-1 flex items-center gap-1.5">
                       <Target className="w-4 h-4" /> Priority High
                     </div>
                   </div>
@@ -726,13 +726,13 @@ ER  - `;
                   </div>
 
                   {/* Beijing */}
-                  <div className="bg-white border border-rose-500/30 rounded-2xl p-5 shadow-xl flex flex-col justify-between">
+                  <div className="bg-white border border-rose-200 rounded-2xl p-5 shadow-xl flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center justify-between pb-2 mb-3 border-b border-rose-500/20">
-                        <span className="text-xs font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <div className="flex items-center justify-between pb-2 mb-3 border-b border-rose-200">
+                        <span className="text-xs font-bold text-rose-800 font-bold uppercase tracking-wider flex items-center gap-1.5">
                           🇨🇳 Beijing (China Posture)
                         </span>
-                        <span className="text-[10px] bg-rose-950/80 text-rose-300 border border-rose-500/30 px-2 py-0.5 rounded-full font-bold">
+                        <span className="text-[10px] bg-rose-50 text-rose-900 font-semibold border border-rose-200 px-2 py-0.5 rounded-full font-bold">
                           BRI & Infrastructure
                         </span>
                       </div>
@@ -741,7 +741,7 @@ ER  - `;
                          'Monitors regional transport connectivity relative to the Belt and Road Initiative (BRI) and the China-Myanmar Economic Corridor (CMEC) access.'}
                       </p>
                     </div>
-                    <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-rose-300 font-medium">
+                    <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-rose-900 font-semibold font-medium">
                       🎯 Primary Lever: Concessionary Capital & Multilateral Loans
                     </div>
                   </div>
@@ -781,7 +781,7 @@ ER  - `;
             {activeSlide === 2 && (
               <div className="space-y-6 animate-fade-in">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-400 bg-rose-950/60 border border-rose-500/30 px-3 py-1 rounded-full mb-2">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-800 font-bold bg-rose-50 border border-rose-200 px-3 py-1 rounded-full mb-2">
                     <BarChart3 className="w-3.5 h-3.5" /> Economic & Strategic Exposure
                   </div>
                   <h2 className="text-2xl font-black text-slate-900">
@@ -798,9 +798,9 @@ ER  - `;
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Risks */}
-                  <div className="bg-rose-950/20 border border-rose-500/30 rounded-2xl p-5 shadow-lg">
-                    <h4 className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                      <AlertTriangle className="w-4 h-4 text-rose-400" /> Key Strategic Risks & Vulnerabilities
+                  <div className="bg-rose-50 border border-rose-200 rounded-2xl p-5 shadow-lg">
+                    <h4 className="text-xs font-bold text-rose-800 font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 text-rose-800 font-bold" /> Key Strategic Risks & Vulnerabilities
                     </h4>
                     <ul className="space-y-2.5">
                       {(dossier.strategicRisks || [
@@ -808,8 +808,8 @@ ER  - `;
                         'Geopolitical friction among major powers.',
                         'Trade policy cliff effects.'
                       ]).map((risk, i) => (
-                        <li key={i} className="text-xs sm:text-sm text-rose-100 flex items-start gap-2">
-                          <span className="text-rose-400 font-bold">•</span>
+                        <li key={i} className="text-xs sm:text-sm text-rose-950 font-medium flex items-start gap-2">
+                          <span className="text-rose-800 font-bold">•</span>
                           <span>{risk}</span>
                         </li>
                       ))}
@@ -911,7 +911,7 @@ ER  - `;
                           onClick={() => setSelectedCitationStyle(style)}
                           className={`px-3 py-1 rounded-lg text-xs font-bold transition cursor-pointer ${
                             selectedCitationStyle === style
-                              ? 'bg-cyan-600 text-slate-900 shadow'
+                              ? 'bg-teal-900 text-white font-bold shadow'
                               : 'text-slate-600 hover:text-slate-900'
                           }`}
                         >
@@ -928,7 +928,7 @@ ER  - `;
                   <div className="flex justify-end mt-3">
                     <button
                       onClick={handleCopyCitation}
-                      className="px-4 py-2 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg shadow-cyan-950"
+                      className="px-4 py-2 bg-white border border-slate-200 hover:bg-teal-800 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg shadow-cyan-950"
                     >
                       {copiedFormat ? <CheckCircle2 className="w-3.5 h-3.5 text-teal-900" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{copiedFormat ? `Copied ${copiedFormat} Citation!` : `Copy ${selectedCitationStyle} Citation`}</span>
@@ -1007,7 +1007,7 @@ ER  - `;
               }`}>
                 <Globe className="w-3.5 h-3.5" /> {dossier.source}
               </span>
-              <span className="px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-500 dark:text-rose-300 text-xs font-bold">
+              <span className="px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-500 font-semibold text-xs font-bold">
                 ● {dossier.impactLevel}
               </span>
               <span className={`px-3 py-1 rounded-full border text-xs font-medium ${
@@ -1041,7 +1041,7 @@ ER  - `;
                   }`}>
                     Daloyar Hassan
                   </div>
-                  <div className="text-[11px] text-cyan-600 dark:text-teal-800 font-medium">Strategic Affairs Analyst & Foreign Policy Lead</div>
+                  <div className="text-[11px] text-teal-900 font-medium">Strategic Affairs Analyst & Foreign Policy Lead</div>
                 </div>
               </div>
 
@@ -1076,7 +1076,7 @@ ER  - `;
                   setViewMode('presentation');
                   setActiveSlide(0);
                 }}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold transition cursor-pointer shadow-sm"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 hover:bg-teal-800 text-slate-900 text-xs font-bold transition cursor-pointer shadow-sm"
               >
                 <MonitorPlay className="w-3.5 h-3.5" />
                 <span>Slide Deck</span>
@@ -1086,7 +1086,7 @@ ER  - `;
                 onClick={handleToggleSave}
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer border ${
                   isSaved
-                    ? 'bg-teal-50 text-cyan-600 dark:text-teal-900 border-teal-200 shadow-sm'
+                    ? 'bg-teal-50 text-teal-900 border-teal-200 shadow-sm'
                     : theme === 'warm' 
                     ? 'bg-[#ede5d3] hover:bg-[#e4dac4] text-[#443c2f] border-[#ded3be]'
                     : theme === 'light'
@@ -1094,7 +1094,7 @@ ER  - `;
                     : 'bg-slate-100 text-slate-600 hover:text-slate-900 border-slate-200'
                 }`}
               >
-                {isSaved ? <BookmarkCheck className="w-4 h-4 text-cyan-500" /> : <Bookmark className="w-4 h-4 opacity-70" />}
+                {isSaved ? <BookmarkCheck className="w-4 h-4 text-teal-900" /> : <Bookmark className="w-4 h-4 opacity-70" />}
                 <span>{isSaved ? 'Saved' : 'Save'}</span>
               </button>
 
@@ -1131,7 +1131,7 @@ ER  - `;
               href={dossier.originalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-cyan-600 dark:text-teal-800 hover:underline font-bold px-3 py-1.5 rounded-xl border border-teal-200 transition"
+              className="flex items-center gap-1.5 text-xs text-teal-900 hover:underline font-bold px-3 py-1.5 rounded-xl border border-teal-200 transition"
             >
               <span>Think Tank Source</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -1142,19 +1142,19 @@ ER  - `;
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 no-print">
             <div className={`p-3.5 rounded-2xl border ${cardBgClass}`}>
               <div className="text-[11px] font-bold opacity-60 uppercase tracking-wider">Strategic Priority</div>
-              <div className="text-base font-extrabold text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1">
+              <div className="text-base font-extrabold text-rose-500 font-bold mt-1 flex items-center gap-1">
                 <Target className="w-3.5 h-3.5" /> Immediate / High
               </div>
             </div>
             <div className={`p-3.5 rounded-2xl border ${cardBgClass}`}>
               <div className="text-[11px] font-bold opacity-60 uppercase tracking-wider">Diplomatic Equilibrium</div>
-              <div className="text-base font-extrabold text-cyan-600 dark:text-teal-800 mt-1 flex items-center gap-1">
+              <div className="text-base font-extrabold text-teal-900 mt-1 flex items-center gap-1">
                 <Scale className="w-3.5 h-3.5" /> Non-Aligned Hedging
               </div>
             </div>
             <div className={`p-3.5 rounded-2xl border ${cardBgClass}`}>
               <div className="text-[11px] font-bold opacity-60 uppercase tracking-wider">Strategic Horizon</div>
-              <div className="text-base font-extrabold text-teal-600 dark:text-teal-400 mt-1 flex items-center gap-1">
+              <div className="text-base font-extrabold text-teal-600 mt-1 flex items-center gap-1">
                 <TrendingUp className="w-3.5 h-3.5" /> 2026 – 2030
               </div>
             </div>
@@ -1169,7 +1169,7 @@ ER  - `;
           {/* Section: Executive Summary & National Interest Callout */}
           <section id="sec-overview" className="mb-10 space-y-4 scroll-mt-24 page-break-avoid">
             <div className={`p-6 rounded-2xl border ${cardBgClass}`}>
-              <h3 className="text-xs font-bold text-cyan-600 dark:text-teal-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <h3 className="text-xs font-bold text-teal-900 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                 <BookOpen className="w-4 h-4" /> Executive Intelligence Summary
               </h3>
               <p className={`font-normal ${textProseClass}`}>
@@ -1180,7 +1180,7 @@ ER  - `;
             <div className={`p-5 rounded-r-2xl border-l-4 border-teal-200 shadow-sm ${
               theme === 'warm' ? 'bg-[#edf5ec] text-[#1c3823]' : theme === 'light' ? 'bg-emerald-50 text-emerald-950' : 'bg-white border border-slate-200 text-slate-800'
             }`}>
-              <h3 className="text-xs font-bold text-emerald-600 dark:text-teal-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <h3 className="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                 <Compass className="w-4 h-4" /> Significance for Bangladesh National Interest
               </h3>
               <p className={`font-medium ${textProseClass}`}>
@@ -1194,7 +1194,7 @@ ER  - `;
             <div className={`flex items-center gap-2 mb-3 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-200'
             }`}>
-              <span className="w-6 h-6 rounded-lg bg-teal-50 text-cyan-600 dark:text-teal-800 flex items-center justify-center text-xs font-bold">1</span>
+              <span className="w-6 h-6 rounded-lg bg-teal-50 text-teal-900 flex items-center justify-center text-xs font-bold">1</span>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
                 Strategic Background & Historical Genesis
               </h2>
@@ -1211,7 +1211,7 @@ ER  - `;
             <div className={`flex items-center gap-2 mb-4 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-200'
             }`}>
-              <span className="w-6 h-6 rounded-lg bg-teal-50 text-cyan-600 dark:text-teal-800 flex items-center justify-center text-xs font-bold">2</span>
+              <span className="w-6 h-6 rounded-lg bg-teal-50 text-teal-900 flex items-center justify-center text-xs font-bold">2</span>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
                 Great Power Interests & Strategic Postures
               </h2>
@@ -1222,7 +1222,7 @@ ER  - `;
                 theme === 'warm' ? 'bg-[#f4eedf] border-blue-300/80' : theme === 'light' ? 'bg-white border-blue-200 shadow-sm' : 'bg-white border-slate-200'
               }`}>
                 <div>
-                  <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     🇺🇸 Washington (US Posture)
                   </div>
                   <p className={`leading-relaxed ${textProseClass}`}>
@@ -1230,7 +1230,7 @@ ER  - `;
                      'Prioritizes freedom of navigation in the Bay of Bengal, maritime domain awareness, and ensuring open commercial sea lanes under UNCLOS principles.'}
                   </p>
                 </div>
-                <div className="mt-4 pt-2.5 border-t border-blue-500/20 text-[11px] text-blue-600 dark:text-blue-300 font-semibold">
+                <div className="mt-4 pt-2.5 border-t border-blue-500/20 text-[11px] text-blue-600 font-semibold">
                   Focus: Democratic Supply Chains & Sea Lanes
                 </div>
               </div>
@@ -1239,7 +1239,7 @@ ER  - `;
                 theme === 'warm' ? 'bg-[#f4eedf] border-rose-300/80' : theme === 'light' ? 'bg-white border-rose-200 shadow-sm' : 'bg-white border-slate-200'
               }`}>
                 <div>
-                  <div className="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <div className="text-xs font-bold text-rose-600 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     🇨🇳 Beijing (China Posture)
                   </div>
                   <p className={`leading-relaxed ${textProseClass}`}>
@@ -1247,7 +1247,7 @@ ER  - `;
                      'Monitors regional transport connectivity relative to the Belt and Road Initiative (BRI) and the China-Myanmar Economic Corridor (CMEC) access.'}
                   </p>
                 </div>
-                <div className="mt-4 pt-2.5 border-t border-rose-500/20 text-[11px] text-rose-600 dark:text-rose-300 font-semibold">
+                <div className="mt-4 pt-2.5 border-t border-rose-200 text-[11px] text-rose-600 font-semibold">
                   Focus: Belt and Road Mega-Infrastructure & Yuan Clearing
                 </div>
               </div>
@@ -1256,7 +1256,7 @@ ER  - `;
                 theme === 'warm' ? 'bg-[#f4eedf] border-amber-300/80' : theme === 'light' ? 'bg-white border-amber-200 shadow-sm' : 'bg-white border-slate-200'
               }`}>
                 <div>
-                  <div className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <div className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     🇮🇳 New Delhi (India Posture)
                   </div>
                   <p className={`leading-relaxed ${textProseClass}`}>
@@ -1264,7 +1264,7 @@ ER  - `;
                      'Focuses on transit connectivity for its landlocked Northeast states (Seven Sisters), cross-border security coordination, and coastal radar integration.'}
                   </p>
                 </div>
-                <div className="mt-4 pt-2.5 border-t border-amber-500/20 text-[11px] text-amber-600 dark:text-amber-300 font-semibold">
+                <div className="mt-4 pt-2.5 border-t border-amber-500/20 text-[11px] text-amber-600 font-semibold">
                   Focus: Northeast Transit & Sub-regional Energy Grid
                 </div>
               </div>
@@ -1276,7 +1276,7 @@ ER  - `;
             <div className={`flex items-center gap-2 mb-4 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-200'
             }`}>
-              <span className="w-6 h-6 rounded-lg bg-teal-50 text-cyan-600 dark:text-teal-800 flex items-center justify-center text-xs font-bold">3</span>
+              <span className="w-6 h-6 rounded-lg bg-teal-50 text-teal-900 flex items-center justify-center text-xs font-bold">3</span>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
                 Strategic Vulnerabilities & Macroeconomic Impact for Bangladesh
               </h2>
@@ -1290,7 +1290,7 @@ ER  - `;
 
             {/* Strategic Scenario Comparative Matrix Table */}
             <div className={`my-6 p-5 rounded-2xl border ${cardBgClass} page-break-avoid`}>
-              <h4 className="text-xs font-bold text-cyan-600 dark:text-teal-800 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <h4 className="text-xs font-bold text-teal-900 uppercase tracking-wider mb-3 flex items-center gap-1.5">
                 <Sliders className="w-4 h-4" /> Strategic Policy Scenarios Matrix
               </h4>
               <div className="overflow-x-auto">
@@ -1309,22 +1309,22 @@ ER  - `;
                     theme === 'warm' ? 'divide-[#dfd3bc]' : theme === 'light' ? 'divide-slate-100' : 'divide-slate-800/60'
                   }`}>
                     <tr>
-                      <td className="py-3 pr-4 font-bold text-teal-600 dark:text-teal-300">Proactive Multi-Vector Diplomacy</td>
+                      <td className="py-3 pr-4 font-bold text-teal-600">Proactive Multi-Vector Diplomacy</td>
                       <td className="py-3 px-4">Maximum Strategic Autonomy & Non-Alignment</td>
                       <td className="py-3 px-4">+1.5% GDP via Diversified FDI & Trade</td>
-                      <td className="py-3 pl-4 text-emerald-600 dark:text-teal-800 font-bold">Low Friction (Optimal)</td>
+                      <td className="py-3 pl-4 text-emerald-600 font-bold">Low Friction (Optimal)</td>
                     </tr>
                     <tr>
-                      <td className="py-3 pr-4 font-bold text-amber-600 dark:text-amber-400">Policy Inertia / Bureaucratic Drift</td>
+                      <td className="py-3 pr-4 font-bold text-amber-600">Policy Inertia / Bureaucratic Drift</td>
                       <td className="py-3 px-4">Erosion of Negotiating Leverage in BIMSTEC/WTO</td>
                       <td className="py-3 px-4">Export Tariff Cliff Risks Post-2026</td>
-                      <td className="py-3 pl-4 text-amber-600 dark:text-amber-400 font-bold">Moderate Exposure</td>
+                      <td className="py-3 pl-4 text-amber-600 font-bold">Moderate Exposure</td>
                     </tr>
                     <tr>
-                      <td className="py-3 pr-4 font-bold text-rose-600 dark:text-rose-400">Exclusive Geopolitical Alignment</td>
+                      <td className="py-3 pr-4 font-bold text-rose-600 font-bold">Exclusive Geopolitical Alignment</td>
                       <td className="py-3 px-4">Heightened Diplomatic Pressure & Secondary Scrutiny</td>
                       <td className="py-3 px-4">Supply Chain Vulnerability & Export Retaliation</td>
-                      <td className="py-3 pl-4 text-rose-600 dark:text-rose-400 font-bold">Critical Risk</td>
+                      <td className="py-3 pl-4 text-rose-600 font-bold">Critical Risk</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1335,9 +1335,9 @@ ER  - `;
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 page-break-avoid">
               {dossier.strategicRisks && dossier.strategicRisks.length > 0 && (
                 <div className={`p-5 rounded-2xl border ${
-                  theme === 'warm' ? 'bg-[#fcf0ee] border-rose-200 text-rose-950' : theme === 'light' ? 'bg-rose-50 border-rose-200 text-rose-950' : 'bg-rose-950/20 border-rose-500/30'
+                  theme === 'warm' ? 'bg-[#fcf0ee] border-rose-200 text-rose-950' : theme === 'light' ? 'bg-rose-50 border-rose-200 text-rose-950' : 'bg-rose-50 border-rose-200'
                 }`}>
-                  <h4 className="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                  <h4 className="text-xs font-bold text-rose-600 font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5">
                     <AlertTriangle className="w-4 h-4 text-rose-500" /> Key Strategic Risks & Vulnerabilities
                   </h4>
                   <ul className="space-y-2">
@@ -1355,7 +1355,7 @@ ER  - `;
                 <div className={`p-5 rounded-2xl border ${
                   theme === 'warm' ? 'bg-[#eef8f5] border-teal-200 text-teal-950' : theme === 'light' ? 'bg-teal-50 border-teal-200 text-teal-950' : 'bg-teal-950/20 border-teal-500/30'
                 }`}>
-                  <h4 className="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                  <h4 className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-3 flex items-center gap-1.5">
                     <TrendingUp className="w-4 h-4 text-teal-500" /> Strategic Opportunities & Levers
                   </h4>
                   <ul className="space-y-2">
@@ -1376,7 +1376,7 @@ ER  - `;
             <div className={`flex items-center gap-2 mb-4 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-200'
             }`}>
-              <span className="w-6 h-6 rounded-lg bg-teal-50 text-cyan-600 dark:text-teal-800 flex items-center justify-center text-xs font-bold">4</span>
+              <span className="w-6 h-6 rounded-lg bg-teal-50 text-teal-900 flex items-center justify-center text-xs font-bold">4</span>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
                 Actionable Policy Directives for MoFA, ERD & Line Ministries
               </h2>
@@ -1389,7 +1389,7 @@ ER  - `;
                 'Coordinate with regional multilateral secretariats.'
               ]).map((directive, idx) => (
                 <div key={idx} className="flex items-start gap-3.5">
-                  <div className="w-7 h-7 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-cyan-600 dark:text-teal-800 font-bold shrink-0 mt-0.5 shadow-sm text-xs">
+                  <div className="w-7 h-7 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-900 font-bold shrink-0 mt-0.5 shadow-sm text-xs">
                     {idx + 1}
                   </div>
                   <div className={`font-medium ${textProseClass}`}>
@@ -1405,7 +1405,7 @@ ER  - `;
             <div className={`flex items-center gap-2 mb-4 pb-2 border-b ${
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-200'
             }`}>
-              <span className="w-6 h-6 rounded-lg bg-teal-50 text-cyan-600 dark:text-teal-800 flex items-center justify-center text-xs font-bold">5</span>
+              <span className="w-6 h-6 rounded-lg bg-teal-50 text-teal-900 flex items-center justify-center text-xs font-bold">5</span>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
                 Primary Citations & Think Tank Sources
               </h2>
@@ -1425,13 +1425,13 @@ ER  - `;
                 <div key={i} className={`flex items-start gap-2.5 text-xs pb-3 border-b last:border-0 last:pb-0 ${
                   theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-100' : 'border-slate-200'
                 }`}>
-                  <FileText className="w-4 h-4 text-cyan-600 dark:text-teal-800 shrink-0 mt-0.5" />
+                  <FileText className="w-4 h-4 text-teal-900 shrink-0 mt-0.5" />
                   <div className="leading-relaxed">
                     <span className="font-bold">{cite.authorOrBody} ({cite.year}).</span>{' '}
                     <span className="italic">{cite.title}.</span>{' '}
                     <span className="opacity-70">{cite.publication}.</span>{' '}
                     {cite.url && (
-                      <a href={cite.url} target="_blank" rel="noopener noreferrer" className="text-cyan-600 dark:text-teal-800 hover:underline inline-flex items-center gap-0.5">
+                      <a href={cite.url} target="_blank" rel="noopener noreferrer" className="text-teal-900 hover:underline inline-flex items-center gap-0.5">
                         <span>[Source Link]</span>
                         <ArrowUpRight className="w-3 h-3" />
                       </a>
@@ -1447,7 +1447,7 @@ ER  - `;
             }`}>
               <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
                 <div className="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-                  <Award className="w-4 h-4 text-cyan-600 dark:text-teal-800" /> Academic Citation Generator (Author: Daloyar Hassan)
+                  <Award className="w-4 h-4 text-teal-900" /> Academic Citation Generator (Author: Daloyar Hassan)
                 </div>
                 
                 <div className={`flex items-center gap-1 p-1 rounded-xl border ${
@@ -1459,7 +1459,7 @@ ER  - `;
                       onClick={() => setSelectedCitationStyle(style)}
                       className={`px-3 py-1 rounded-lg text-xs font-bold transition cursor-pointer ${
                         selectedCitationStyle === style
-                          ? 'bg-cyan-600 text-slate-900 shadow'
+                          ? 'bg-teal-900 text-white font-bold shadow'
                           : 'opacity-70 hover:opacity-100'
                       }`}
                     >
@@ -1484,7 +1484,7 @@ ER  - `;
                     }`}
                     title="Export citation for LaTeX / Overleaf"
                   >
-                    <Download className="w-3.5 h-3.5 text-cyan-500" />
+                    <Download className="w-3.5 h-3.5 text-teal-900" />
                     <span>Download .BIB (BibTeX)</span>
                   </button>
 
@@ -1512,7 +1512,7 @@ ER  - `;
 
                 <button
                   onClick={handleCopyCitation}
-                  className="px-4 py-2 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-md"
+                  className="px-4 py-2 bg-white border border-slate-200 hover:bg-teal-800 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-md"
                 >
                   {copiedFormat ? <CheckCircle2 className="w-3.5 h-3.5 text-teal-900" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{copiedFormat ? `Copied ${copiedFormat} Citation!` : `Copy ${selectedCitationStyle} Citation`}</span>
@@ -1532,7 +1532,7 @@ ER  - `;
                 </div>
                 <div>
                   <h4 className="text-base sm:text-lg font-black">Daloyar Hassan</h4>
-                  <div className="text-xs text-cyan-600 dark:text-teal-800 font-semibold">Foreign Policy & Strategic Affairs Analyst</div>
+                  <div className="text-xs text-teal-900 font-semibold">Foreign Policy & Strategic Affairs Analyst</div>
                   <p className="text-xs opacity-80 mt-1 max-w-xl leading-relaxed">
                     Lead researcher synthesizing open-source geopolitical data, think tank papers (BIISS, CSIS, Chatham House, ORF), and Bay of Bengal maritime strategy.
                   </p>
@@ -1575,7 +1575,7 @@ ER  - `;
               theme === 'warm' ? 'border-[#e2d5bd]' : theme === 'light' ? 'border-slate-200' : 'border-slate-200'
             }`}>
               <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                <Layers className="w-5 h-5 text-cyan-600 dark:text-teal-800" /> Related Strategic Dossiers
+                <Layers className="w-5 h-5 text-teal-900" /> Related Strategic Dossiers
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {relatedDossiers.map(rel => (
@@ -1587,10 +1587,10 @@ ER  - `;
                     }`}
                   >
                     <div>
-                      <span className="text-[10px] font-extrabold text-cyan-600 dark:text-teal-800 uppercase tracking-wider block mb-1">
+                      <span className="text-[10px] font-extrabold text-teal-900 uppercase tracking-wider block mb-1">
                         {rel.source}
                       </span>
-                      <h4 className="text-xs font-bold group-hover:text-cyan-600 dark:group-hover:text-teal-900 transition line-clamp-2">
+                      <h4 className="text-xs font-bold group-hover:text-teal-800 :text-teal-900 transition line-clamp-2">
                         {rel.title}
                       </h4>
                     </div>
@@ -1598,7 +1598,7 @@ ER  - `;
                       theme === 'warm' ? 'border-[#ded3be]' : theme === 'light' ? 'border-slate-100' : 'border-slate-200'
                     }`}>
                       <span>{rel.publishedAt}</span>
-                      <span className="text-cyan-600 dark:text-teal-800 font-bold group-hover:translate-x-0.5 transition">Read Brief →</span>
+                      <span className="text-teal-900 font-bold group-hover:translate-x-0.5 transition">Read Brief →</span>
                     </div>
                   </div>
                 ))}

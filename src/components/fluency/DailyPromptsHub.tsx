@@ -277,7 +277,7 @@ export const DailyPromptsHub: React.FC = () => {
           onClick={() => setActiveMode('ielts_cue_card')}
           className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
             activeMode === 'ielts_cue_card'
-              ? 'bg-indigo-600 text-slate-900 shadow-md shadow-xs'
+              ? 'bg-teal-900 text-white font-bold shadow-md shadow-xs'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
@@ -467,7 +467,7 @@ export const DailyPromptsHub: React.FC = () => {
                 <ul className="space-y-2 text-xs text-slate-800 pl-2">
                   {currentCueCard.bulletPoints.map((bp, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-teal-700 mt-1.5 shrink-0" />
                       <span>{bp}</span>
                     </li>
                   ))}
@@ -544,7 +544,7 @@ export const DailyPromptsHub: React.FC = () => {
                 {!isPrepActive ? (
                   <button
                     onClick={startPrepTimer}
-                    className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-xs transition cursor-pointer"
+                    className="px-5 py-2.5 bg-teal-900 hover:bg-teal-800 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-xs transition cursor-pointer"
                   >
                     <Play className="w-3.5 h-3.5" />
                     <span>Start {activeMode === 'ielts_cue_card' ? '60s' : '30s'} Prep Timer</span>
@@ -746,7 +746,7 @@ export const DailyPromptsHub: React.FC = () => {
                   ) : (
                     <button
                       onClick={handleNextPrompt}
-                      className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
+                      className="px-6 py-2.5 bg-teal-900 hover:bg-teal-800 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-xs transition cursor-pointer"
                     >
                       <span>Next Practice Topic</span>
                       <ArrowRight className="w-4 h-4" />

@@ -221,7 +221,7 @@ ${role} Candidate`;
                     </button>
                     <button
                       onClick={downloadText}
-                      className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-slate-900 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition"
+                      className="px-3 py-1.5 bg-teal-900 hover:bg-teal-800 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition"
                     >
                       <Download className="w-3.5 h-3.5" /> Download
                     </button>

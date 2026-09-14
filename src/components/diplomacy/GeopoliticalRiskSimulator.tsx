@@ -40,7 +40,7 @@ const PRESETS: ScenarioPreset[] = [
     name: 'Deep Eurasian & BRI Integration',
     tagline: 'High Infrastructure Capex with Sanction Exposure',
     description: 'Prioritizing Chinese Belt and Road loans, Russian nuclear grid expansion, BRICS New Development Bank accession, and local currency / RMB debt settlement.',
-    badgeColor: 'bg-rose-500/10 text-rose-400 border-rose-500/30',
+    badgeColor: 'bg-rose-50 text-rose-800 font-bold border-rose-200',
     levers: {
       alignment: 'eurasian_china',
       maritime: 'commercial_open',
@@ -203,17 +203,17 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
     if (inverse) {
       if (val <= 30) return 'text-teal-800 bg-teal-50 border-teal-200';
       if (val <= 55) return 'text-amber-400 bg-teal-50 border-amber-500/30';
-      return 'text-rose-400 bg-rose-500/10 border-rose-500/30';
+      return 'text-rose-800 font-bold bg-rose-50 border-rose-200';
     }
     if (val >= 80) return 'text-teal-800 bg-teal-50 border-teal-200';
     if (val >= 60) return 'text-amber-400 bg-teal-50 border-amber-500/30';
-    return 'text-rose-400 bg-rose-500/10 border-rose-500/30';
+    return 'text-rose-800 font-bold bg-rose-50 border-rose-200';
   };
 
   return (
     <div className="space-y-8 animate-fadeIn">
       {/* Header Banner */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 border border-teal-200 shadow-2xl relative overflow-hidden">
+      <div className="p-6 sm:p-8 rounded-3xl bg-white border border-teal-200 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-teal-50 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
           <div>
@@ -237,7 +237,7 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
             </button>
             <button
               onClick={() => window.print()}
-              className="px-4 py-2 bg-white border border-slate-200 hover:from-cyan-500 hover:to-indigo-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg"
+              className="px-4 py-2 bg-white border border-slate-200 hover:bg-teal-800 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg"
             >
               <Printer className="w-3.5 h-3.5" /> Export Simulation Memo
             </button>
@@ -259,7 +259,7 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
                 onClick={() => handleSelectPreset(preset.id)}
                 className={`p-4 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-slate-50 border-teal-200 ring-2 ring-cyan-500/30 shadow-lg'
+                    ? 'bg-slate-50 border-teal-200 ring-2 ring-teal-700/20 shadow-lg'
                     : 'bg-white border-slate-200 hover:bg-slate-100/50 hover:border-slate-200'
                 }`}
               >
@@ -544,7 +544,7 @@ export const GeopoliticalRiskSimulator: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between text-xs mb-1.5 font-bold">
                   <span className="flex items-center gap-1.5 text-slate-600">
-                    <AlertTriangle className="w-3.5 h-3.5 text-rose-400" /> Great Power Friction & Sanction Risk
+                    <AlertTriangle className="w-3.5 h-3.5 text-rose-800 font-bold" /> Great Power Friction & Sanction Risk
                   </span>
                   <span className={`px-2 py-0.5 rounded-md border font-mono text-[11px] ${getScoreColor(frictionScore, true)}`}>
                     {frictionScore} / 100 {frictionScore > 50 ? '(Elevated)' : '(Contained)'}

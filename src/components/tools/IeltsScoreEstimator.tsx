@@ -79,7 +79,7 @@ export const IeltsScoreEstimator: React.FC = () => {
                   onClick={() => setDailyHours(hr)}
                   className={`py-2 px-1 text-center rounded-xl text-xs font-bold transition cursor-pointer ${
                     dailyHours === hr
-                      ? 'bg-indigo-600 text-slate-900 shadow-lg'
+                      ? 'bg-teal-900 text-white font-bold shadow-lg'
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-700'
                   }`}
                 >

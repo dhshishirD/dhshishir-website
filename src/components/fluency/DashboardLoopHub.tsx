@@ -114,7 +114,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
 
           <button
             onClick={() => onNavigateStage('stage3')}
-            className="p-3.5 bg-white hover:bg-slate-50 rounded-2xl border border-purple-500/40 text-left space-y-1 transition cursor-pointer"
+            className="p-3.5 bg-white hover:bg-slate-50 rounded-2xl border border-teal-200 text-left space-y-1 transition cursor-pointer"
           >
             <div className="text-[10px] font-bold text-teal-800">STAGE 3</div>
             <div className="text-xs font-bold text-slate-900 flex items-center gap-1">
@@ -148,7 +148,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
             <div className="text-[10px] text-slate-600">Speech Engine</div>
           </button>
 
-          <div className="p-3.5 bg-white border border-slate-200 rounded-2xl border border-indigo-400 ring-1 ring-indigo-400/40 text-left space-y-1 shadow-lg">
+          <div className="p-3.5 bg-white border border-slate-200 rounded-2xl border border-teal-200 ring-1 ring-teal-700/20 text-left space-y-1 shadow-lg">
             <div className="text-[10px] font-bold text-teal-900">STAGE 6</div>
             <div className="text-xs font-bold text-slate-900 flex items-center gap-1">
               <RotateCcw className="w-3.5 h-3.5 text-teal-900 shrink-0" />
@@ -251,7 +251,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
                     </button>
                     <button
                       onClick={() => onNavigateStage('stage3')}
-                      className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-slate-900 rounded-xl text-xs font-bold flex items-center gap-1 transition cursor-pointer"
+                      className="px-3 py-1.5 bg-teal-900 hover:bg-teal-800 text-white rounded-xl text-xs font-bold flex items-center gap-1 transition cursor-pointer"
                     >
                       <Mic className="w-3 h-3" />
                       <span>Record in Stage 3</span>
@@ -340,7 +340,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
 
         <button
           onClick={() => onNavigateStage('stage1')}
-          className="px-6 py-3 bg-white border border-slate-200 hover:from-emerald-500 hover:to-indigo-500 text-slate-900 rounded-2xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer whitespace-nowrap"
+          className="px-6 py-3 bg-white border border-slate-200 hover:bg-teal-800 text-slate-900 rounded-2xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer whitespace-nowrap"
         >
           <RotateCcw className="w-4 h-4" />
           <span>Retake Placement Quiz</span>

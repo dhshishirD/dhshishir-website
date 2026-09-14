@@ -21,7 +21,7 @@ export const ExperienceSection: React.FC = () => {
         </div>
 
         {/* Media & Press Mentions Banner */}
-        <div className="mb-16 bg-white border border-slate-200 border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-2xs">
+        <div className="mb-16 bg-white border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-2xs">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
             <div className="p-2.5 bg-teal-100 text-teal-900 rounded-xl border border-teal-200">
               <Newspaper className="w-5 h-5" />

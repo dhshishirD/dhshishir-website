@@ -70,7 +70,7 @@ export const SkillGapFinder: React.FC = () => {
                 onClick={() => setSelectedId(cp.id)}
                 className={`p-4 rounded-2xl text-left border transition cursor-pointer ${
                   selectedId === cp.id
-                    ? 'bg-indigo-600/30 border-teal-200 text-slate-900 shadow-lg'
+                    ? 'bg-teal-900/30 border-teal-200 text-white shadow-lg'
                     : 'bg-slate-100/50 border-slate-200 text-slate-600 hover:border-slate-200'
                 }`}
               >

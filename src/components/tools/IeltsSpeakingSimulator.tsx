@@ -118,7 +118,7 @@ export const IeltsSpeakingSimulator: React.FC = () => {
               <ul className="space-y-2 text-xs text-slate-600">
                 {card.subPoints.map((point, pIdx) => (
                   <li key={pIdx} className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-700 mt-1.5 shrink-0" />
                     <span>{point}</span>
                   </li>
                 ))}
