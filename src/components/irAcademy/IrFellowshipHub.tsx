@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { 
   PILLARS_DATA, 
   GLOSSARY_TERMS, 
+  CRISIS_SCENARIOS, 
+  GRAND_EXAM_QUESTIONS,
   IR_FELLOWSHIP_TITLE, 
   IR_FELLOWSHIP_CODE 
 } from '../../data/irAcademyData';
 import { 
   getFellowshipProfile, 
   markLectureAsCompleted, 
-  recordCheckpointScore 
+  recordCheckpointScore, 
+  recordCrisisSimulationResult,
+  recordGrandExamResult 
 } from '../../services/irFellowshipProfileService';
 import type { FellowshipProfile, Pillar, Lecture } from '../../types/irAcademy';
 import { 
@@ -23,19 +27,35 @@ import {
   Globe, 
   Printer, 
   Layers, 
-  HelpCircle 
+  HelpCircle,
+  AlertOctagon,
+  RotateCcw
 } from 'lucide-react';
 
 export const IrFellowshipHub: React.FC = () => {
   const [profile, setProfile] = useState<FellowshipProfile>(getFellowshipProfile());
-  const [activeTab, setActiveTab] = useState<'curriculum' | 'glossary' | 'exam' | 'certificate'>('curriculum');
+  const [activeTab, setActiveTab] = useState<'curriculum' | 'glossary' | 'crisis' | 'exam' | 'certificate'>('curriculum');
   const [selectedPillar, setSelectedPillar] = useState<Pillar>(PILLARS_DATA[0]);
   const [selectedLecture, setSelectedLecture] = useState<Lecture>(PILLARS_DATA[0].lectures[0]);
   const [searchGlossaryQuery, setSearchGlossaryQuery] = useState('');
+  
+  // Checkpoint Quiz States
   const [activeQuizPillar, setActiveQuizPillar] = useState<Pillar | null>(null);
   const [quizAnswers, setQuizAnswers] = useState<Record<string, number>>({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
   const [quizScore, setQuizScore] = useState(0);
+
+  // Crisis Simulator States
+  const activeCrisis = CRISIS_SCENARIOS[0];
+  const [crisisStageIdx, setCrisisStageIdx] = useState(0);
+  const [crisisChoices, setCrisisChoices] = useState<Record<string, string>>({});
+  const [crisisCompleted, setCrisisCompleted] = useState(false);
+  const [crisisTotalScore, setCrisisTotalScore] = useState(0);
+
+  // Grand Exam States
+  const [examAnswers, setExamAnswers] = useState<Record<string, number>>({});
+  const [examSubmitted, setExamSubmitted] = useState(false);
+  const [examScorePct, setExamScorePct] = useState(0);
 
   useEffect(() => {
     setProfile(getFellowshipProfile());
@@ -77,6 +97,50 @@ export const IrFellowshipHub: React.FC = () => {
     setProfile(updated);
   };
 
+  const handleCrisisSelectOption = (dilemmaId: string, optionId: string) => {
+    if (crisisCompleted) return;
+    const updatedChoices = { ...crisisChoices, [dilemmaId]: optionId };
+    setCrisisChoices(updatedChoices);
+
+    if (crisisStageIdx < activeCrisis.dilemmas.length - 1) {
+      setCrisisStageIdx(prev => prev + 1);
+    } else {
+      // Complete Crisis
+      let totalPts = 0;
+      activeCrisis.dilemmas.forEach(d => {
+        const pickedId = updatedChoices[d.id];
+        const opt = d.options.find(o => o.id === pickedId);
+        if (opt) totalPts += opt.scoreDelta;
+      });
+      const avgScore = Math.round(totalPts / activeCrisis.dilemmas.length);
+      const passed = avgScore >= 70;
+      setCrisisTotalScore(avgScore);
+      setCrisisCompleted(true);
+      const updatedProfile = recordCrisisSimulationResult(avgScore, passed);
+      setProfile(updatedProfile);
+    }
+  };
+
+  const handleExamAnswer = (questionId: string, optionIdx: number) => {
+    if (examSubmitted) return;
+    setExamAnswers(prev => ({ ...prev, [questionId]: optionIdx }));
+  };
+
+  const handleSubmitGrandExam = () => {
+    let correctCount = 0;
+    GRAND_EXAM_QUESTIONS.forEach(q => {
+      if (examAnswers[q.id] === q.correctIndex) {
+        correctCount += 1;
+      }
+    });
+    const pct = Math.round((correctCount / GRAND_EXAM_QUESTIONS.length) * 100);
+    const passed = pct >= 70;
+    setExamScorePct(pct);
+    setExamSubmitted(true);
+    const updated = recordGrandExamResult(pct, passed);
+    setProfile(updated);
+  };
+
   const completedLecturesCount = profile.completedLectureIds.length;
   const totalLecturesCount = PILLARS_DATA.reduce((acc, p) => acc + p.lectures.length, 0);
   const progressPercent = Math.min(100, Math.round((completedLecturesCount / (totalLecturesCount || 1)) * 100));
@@ -104,7 +168,7 @@ export const IrFellowshipHub: React.FC = () => {
                 {IR_FELLOWSHIP_TITLE}
               </h1>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Graduate-level executive scholarship synthesizing classical statecraft, cognitive political psychology, international law, geoeconomics, and the <strong className="text-amber-400">Bangladesh Geopolitical Paradigm (Post-2024 Strategic Realignment)</strong>.
+                Graduate-level executive curriculum synthesizing classical statecraft, cognitive political psychology, international law, geoeconomics, and the <strong className="text-amber-400">Bangladesh Geopolitical Paradigm (Post-2024 Strategic Realignment)</strong>.
               </p>
             </div>
 
@@ -154,7 +218,31 @@ export const IrFellowshipHub: React.FC = () => {
             }`}
           >
             <Search className="w-4 h-4" />
-            <span>Strategic & Diplomatic Glossary (50+)</span>
+            <span>Strategic Glossary (50+)</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('crisis')}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+              activeTab === 'crisis'
+                ? 'bg-rose-600 text-white shadow-lg shadow-rose-950'
+                : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+            }`}
+          >
+            <AlertOctagon className="w-4 h-4 text-rose-400" />
+            <span>Crisis Decision Simulator</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('exam')}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+              activeTab === 'exam'
+                ? 'bg-purple-600 text-white shadow-lg shadow-purple-950'
+                : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+            }`}
+          >
+            <HelpCircle className="w-4 h-4 text-purple-400" />
+            <span>Grand Qualifying Exam</span>
           </button>
 
           <button
@@ -413,9 +501,190 @@ export const IrFellowshipHub: React.FC = () => {
           </div>
         )}
 
-        {/* TAB 3: CERTIFICATION & TRANSCRIPT */}
+        {/* TAB 3: CRISIS DECISION SIMULATOR (STATECRAFT LAB) */}
+        {activeTab === 'crisis' && (
+          <div className="space-y-8 max-w-4xl mx-auto">
+            <div className="p-6 sm:p-8 bg-slate-900 border border-rose-500/40 rounded-3xl space-y-4 shadow-2xl">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold border border-rose-500/40 flex items-center gap-1.5 animate-pulse">
+                  <AlertOctagon className="w-4 h-4 text-rose-400" /> {activeCrisis.threatLevel} Alert • {activeCrisis.theater}
+                </span>
+                <span className="text-xs text-slate-400 font-mono">Stage {crisisStageIdx + 1} of {activeCrisis.dilemmas.length}</span>
+              </div>
+
+              <h2 className="text-xl sm:text-2xl font-black text-white">
+                {activeCrisis.title}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {activeCrisis.backgroundContext}
+              </p>
+              <div className="p-3.5 bg-slate-950 rounded-xl border border-slate-800 text-xs text-amber-300 font-medium">
+                <strong className="text-amber-400">Mission Directive: </strong>{activeCrisis.missionObjective}
+              </div>
+            </div>
+
+            {!crisisCompleted ? (
+              <div className="p-6 sm:p-8 bg-slate-900/90 rounded-3xl border border-slate-800 space-y-6 shadow-xl">
+                <div className="space-y-2">
+                  <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                    {activeCrisis.dilemmas[crisisStageIdx].stageTitle}
+                  </div>
+                  <h3 className="text-base font-bold text-white">
+                    {activeCrisis.dilemmas[crisisStageIdx].urgentDilemma}
+                  </h3>
+                  <p className="text-xs text-slate-400 p-3 bg-slate-950 rounded-xl border border-slate-800">
+                    <strong className="text-slate-200">Classified Intelligence Feed: </strong>
+                    {activeCrisis.dilemmas[crisisStageIdx].intelligenceBriefing}
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">Choose Strategic Course of Action:</div>
+                  {activeCrisis.dilemmas[crisisStageIdx].options.map((opt) => (
+                    <button
+                      key={opt.id}
+                      onClick={() => handleCrisisSelectOption(activeCrisis.dilemmas[crisisStageIdx].id, opt.id)}
+                      className="w-full p-5 rounded-2xl bg-slate-950 hover:bg-indigo-950/40 border border-slate-800 hover:border-indigo-500/50 text-left space-y-2 transition cursor-pointer group"
+                    >
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-bold text-white group-hover:text-indigo-300 text-sm">{opt.actionTitle}</span>
+                        <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">
+                          {opt.strategicDoctrine}
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-400">{opt.actionDescription}</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 text-[10px] text-slate-500">
+                        <div>Sovereignty: <span className="text-slate-300">{opt.projectedOutcomes.sovereigntyImpact}</span></div>
+                        <div>Stability: <span className="text-slate-300">{opt.projectedOutcomes.regionalStability}</span></div>
+                        <div>Cost: <span className="text-slate-300">{opt.projectedOutcomes.geoeconomicCost}</span></div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="p-8 bg-slate-900 rounded-3xl border border-emerald-500/40 space-y-4 text-center shadow-2xl">
+                <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
+                <h3 className="text-xl font-bold text-white">Crisis Management Scenario Successfully Resolved</h3>
+                <p className="text-xs text-slate-300 max-w-lg mx-auto">
+                  Your statecraft decisions maintained sovereign integrity while preventing catastrophic armed conflict. Strategic Performance Score: <strong className="text-emerald-400 text-base">{crisisTotalScore} / 100</strong>.
+                </p>
+                <button
+                  onClick={() => {
+                    setCrisisCompleted(false);
+                    setCrisisStageIdx(0);
+                    setCrisisChoices({});
+                  }}
+                  className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-2 mx-auto cursor-pointer"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                  <span>Re-run Crisis Simulation</span>
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* TAB 4: GRAND QUALIFYING EXAMINATION */}
+        {activeTab === 'exam' && (
+          <div className="space-y-8 max-w-4xl mx-auto">
+            <div className="p-6 sm:p-8 bg-slate-900 border border-purple-500/40 rounded-3xl space-y-3 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-1 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold border border-purple-500/30">
+                  <GraduationCap className="w-4 h-4 text-purple-400" /> Capstone Qualifying Examination
+                </div>
+                <h2 className="text-xl sm:text-2xl font-black text-white">
+                  Fellowship Grand Qualifying Examination
+                </h2>
+                <p className="text-xs text-slate-300 max-w-xl">
+                  Comprehensive multi-dimensional evaluation across all theoretical pillars, strategic doctrines, UNCLOS jurisprudence, and the post-2024 Bangladesh sovereign paradigm.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-center shrink-0">
+                <div className="text-xs text-slate-400">Honors Threshold</div>
+                <div className="text-2xl font-black text-emerald-400">≥ 80%</div>
+                <div className="text-[10px] text-slate-500">for A+ / A Distinction</div>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              {GRAND_EXAM_QUESTIONS.map((q, idx) => (
+                <div key={q.id} className="p-6 bg-slate-900/90 rounded-2xl border border-slate-800 space-y-4">
+                  <div className="text-xs font-bold text-white flex items-start gap-2">
+                    <span className="text-indigo-400 font-mono">Q{idx + 1}.</span>
+                    <span>{q.prompt}</span>
+                  </div>
+
+                  <div className="space-y-2">
+                    {q.options.map((opt, oIdx) => {
+                      const isSelected = examAnswers[q.id] === oIdx;
+                      const isCorrect = q.correctIndex === oIdx;
+
+                      let btnStyle = 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700';
+                      if (examSubmitted) {
+                        if (isCorrect) btnStyle = 'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold';
+                        else if (isSelected && !isCorrect) btnStyle = 'bg-rose-950/80 border-rose-500 text-rose-300';
+                      } else if (isSelected) {
+                        btnStyle = 'bg-purple-600 border-purple-500 text-white font-bold';
+                      }
+
+                      return (
+                        <button
+                          key={oIdx}
+                          onClick={() => handleExamAnswer(q.id, oIdx)}
+                          className={`w-full text-left p-3 rounded-xl border text-xs transition cursor-pointer ${btnStyle}`}
+                        >
+                          {opt}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {examSubmitted && (
+                    <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] space-y-1 text-slate-300">
+                      <p><strong className="text-indigo-400">Academic Rationale: </strong>{q.academicRationale}</p>
+                      <p className="font-bangla text-emerald-400/90">{q.banglaExplanation}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-between p-6 bg-slate-900 rounded-2xl border border-slate-800">
+              {examSubmitted ? (
+                <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+                  <div className="space-y-1 text-center sm:text-left">
+                    <div className="text-xs text-slate-400">Exam Outcome:</div>
+                    <div className="text-xl font-bold text-emerald-400">
+                      Score: {examScorePct}% • Conferred Grade: {profile.letterGrade || 'A'} (GPA: {profile.gpa?.toFixed(2) || '3.75'})
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setActiveTab('certificate')}
+                    className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg cursor-pointer"
+                  >
+                    <Award className="w-4 h-4" />
+                    <span>View Conferred Fellowship Diploma</span>
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={handleSubmitGrandExam}
+                  className="w-full py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold transition shadow-lg cursor-pointer"
+                >
+                  Submit Grand Qualifying Examination for Grading
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* TAB 5: CERTIFICATION & ACADEMIC TRANSCRIPT */}
         {activeTab === 'certificate' && (
           <div className="space-y-8 max-w-4xl mx-auto">
+            
+            {/* Diploma Card Preview */}
             <div className="p-8 sm:p-12 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/40 rounded-3xl border-2 border-amber-500/40 shadow-2xl space-y-8 text-center relative overflow-hidden">
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-amber-400 uppercase">
@@ -442,8 +711,12 @@ export const IrFellowshipHub: React.FC = () => {
                     <span className="font-bold text-amber-300 font-mono">{profile.credentialId || `OMF-IRSS-2026-${profile.fellowId.substring(3)}`}</span>
                   </div>
                   <div className="px-4 py-2 bg-slate-900 rounded-xl border border-slate-800 text-xs">
-                    <span className="text-slate-400">Academic Status: </span>
-                    <span className="font-bold text-emerald-400">Verified by Diplomatic Registry</span>
+                    <span className="text-slate-400">Academic Standing: </span>
+                    <span className="font-bold text-emerald-400">{profile.letterGrade ? `Grade ${profile.letterGrade} (GPA ${profile.gpa?.toFixed(2)})` : 'Executive Distinction'}</span>
+                  </div>
+                  <div className="px-4 py-2 bg-slate-900 rounded-xl border border-slate-800 text-xs">
+                    <span className="text-slate-400">Registry: </span>
+                    <span className="font-bold text-slate-200">Verified by Diplomatic Registry</span>
                   </div>
                 </div>
               </div>
@@ -460,10 +733,44 @@ export const IrFellowshipHub: React.FC = () => {
                   className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg cursor-pointer"
                 >
                   <Printer className="w-4 h-4" />
-                  <span>Print PDF Diploma</span>
+                  <span>Print / Save PDF Diploma</span>
                 </button>
               </div>
             </div>
+
+            {/* Official Academic Transcript Breakdown */}
+            <div className="bg-slate-900/90 rounded-3xl border border-slate-800 p-6 sm:p-8 space-y-6 shadow-2xl">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+                <div>
+                  <h3 className="text-base font-bold text-white flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-indigo-400" />
+                    Official Academic Transcript & Competency Breakdown
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    Individual grading of core competency areas across the fellowship.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {PILLARS_DATA.map((p, idx) => {
+                  const score = profile.checkpointScores[p.id] || (profile.passedCheckpointPillarIds.includes(p.id) ? 100 : 85);
+                  return (
+                    <div key={idx} className="p-4 bg-slate-950 rounded-2xl border border-slate-800 flex items-center justify-between">
+                      <div className="space-y-0.5">
+                        <div className="text-xs font-bold text-white">{p.title}</div>
+                        <div className="text-[11px] text-slate-400">{p.competencyArea}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xs font-bold text-emerald-400">{score}% Score</div>
+                        <div className="text-[10px] text-slate-500 font-mono">Grade A</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
         )}
 
