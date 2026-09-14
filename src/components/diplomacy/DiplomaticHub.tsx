@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import type { StrategicPillar, SourceTier, PolicyMemo, IntelItem } from '../../types/diplomacy';
 import { SmartAudioReader } from '../common/SmartAudioReader';
+import { AnnotatedDiplomaticText } from '../common/AnnotatedDiplomaticText';
 import { 
   INITIAL_INTEL_FEED, DIPLOMACY_PILLARS_META, SOURCE_TIERS_META, 
   DEFAULT_POLICY_MEMOS, AI_QUERY_TEMPLATES 
@@ -23,9 +24,10 @@ interface DiplomaticHubProps {
   user: any;
   onNavigateHome?: () => void;
   onOpenDossierPage?: (slug: string) => void;
+  onNavigateToMap?: (locationId: string) => void;
 }
 
-export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHome, onOpenDossierPage }) => {
+export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHome, onOpenDossierPage, onNavigateToMap }) => {
   const [selectedPillar, setSelectedPillar] = useState<StrategicPillar>('all');
   const [selectedTier, setSelectedTier] = useState<SourceTier>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -430,7 +432,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                       </h3>
 
                       <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        {item.executiveSummary}
+                        <AnnotatedDiplomaticText text={item.executiveSummary} onNavigateToMap={onNavigateToMap} />
                       </p>
 
                       <div className="mt-4 bg-teal-50/70 border-l-4 border-teal-800 border-y border-r border-teal-200/80 p-4 rounded-r-xl shadow-2xs">
@@ -438,7 +440,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                           <Compass className="w-3.5 h-3.5 text-teal-800" /> Significance for Bangladesh National Interest
                         </div>
                         <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
-                          {item.bangladeshSignificance}
+                          <AnnotatedDiplomaticText text={item.bangladeshSignificance} onNavigateToMap={onNavigateToMap} />
                         </p>
                       </div>
 
@@ -560,7 +562,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                       <span>{item.publishedAt}</span>
                     </div>
                     <h4 className="text-base font-bold text-slate-900">{item.title}</h4>
-                    <p className="text-xs text-slate-600 mt-2 leading-relaxed">{item.executiveSummary}</p>
+                    <p className="text-xs text-slate-600 mt-2 leading-relaxed"><AnnotatedDiplomaticText text={item.executiveSummary} onNavigateToMap={onNavigateToMap} /></p>
                     
                     {notes[item.id] && (
                       <div className="mt-3 bg-amber-50 border border-amber-500/30 rounded-xl p-3 text-xs text-amber-200">

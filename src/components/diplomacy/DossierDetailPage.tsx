@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { INITIAL_INTEL_FEED } from '../../data/diplomacyData';
 import { SmartAudioReader } from '../common/SmartAudioReader';
+import { AnnotatedDiplomaticText } from '../common/AnnotatedDiplomaticText';
 import type { AudioSection } from '../common/SmartAudioReader';
 import { getLocalBookmarks, toggleLocalBookmark, syncBookmarkToCloud } from '../../services/diplomacyService';
 
@@ -19,6 +20,7 @@ interface DossierDetailPageProps {
   onNavigateHome: () => void;
   onNavigateDiplomacy: () => void;
   onNavigateDossier: (slug: string) => void;
+  onNavigateToMap?: (locationId: string) => void;
 }
 
 type ReaderTheme = 'dark' | 'warm' | 'light';
@@ -30,7 +32,8 @@ export const DossierDetailPage: React.FC<DossierDetailPageProps> = ({
   user,
   onNavigateHome,
   onNavigateDiplomacy,
-  onNavigateDossier
+  onNavigateDossier,
+  onNavigateToMap
 }) => {
   const dossier = INITIAL_INTEL_FEED.find(item => item.slug === slug || item.id === slug) || INITIAL_INTEL_FEED[0];
   const [bookmarks, setBookmarks] = useState<string[]>([]);
@@ -193,7 +196,7 @@ TI  - ${dossier.title}
 JO  - Strategic Foreign Policy & Diplomatic Intelligence Desk
 PY  - ${year}
 UR  - ${url}
-AB  - ${dossier.executiveSummary}
+AB  - $<AnnotatedDiplomaticText text={dossier.executiveSummary} onNavigateToMap={onNavigateToMap} />
 KW  - ${dossier.tags.join('\nKW  - ')}
 ER  - `;
   };
@@ -269,12 +272,12 @@ ER  - `;
     {
       id: 'full',
       label: 'Full Executive Dossier',
-      text: `${dossier.title}. Executive Summary: ${dossier.executiveSummary}. Strategic Background: ${genesisText}. Regional Great Power Postures: ${usText} ${chinaText} ${indiaText}. Strategic Vulnerabilities and Macroeconomic Exposure: ${vulnText}. Ministerial Directives and Recommendations: ${directivesList}`
+      text: `${dossier.title}. Executive Summary: $<AnnotatedDiplomaticText text={dossier.executiveSummary} onNavigateToMap={onNavigateToMap} />. Strategic Background: ${genesisText}. Regional Great Power Postures: ${usText} ${chinaText} ${indiaText}. Strategic Vulnerabilities and Macroeconomic Exposure: ${vulnText}. Ministerial Directives and Recommendations: ${directivesList}`
     },
     {
       id: 'summary',
       label: 'Executive Summary',
-      text: `${dossier.title}. ${dossier.executiveSummary}. Strategic Significance for Bangladesh: ${dossier.bangladeshSignificance}`
+      text: `${dossier.title}. $<AnnotatedDiplomaticText text={dossier.executiveSummary} onNavigateToMap={onNavigateToMap} />. Strategic Significance for Bangladesh: $<AnnotatedDiplomaticText text={dossier.bangladeshSignificance} onNavigateToMap={onNavigateToMap} />`
     },
     {
       id: 'great-powers',
@@ -716,13 +719,13 @@ ER  - `;
                     <Compass className="w-4 h-4 text-teal-800" /> Core Significance for Bangladesh National Interest
                   </div>
                   <p className="text-sm sm:text-base text-slate-800 font-medium leading-relaxed">
-                    {dossier.bangladeshSignificance}
+                    <AnnotatedDiplomaticText text={dossier.bangladeshSignificance} onNavigateToMap={onNavigateToMap} />
                   </p>
                 </div>
 
                 <div className="bg-white p-4 rounded-2xl border border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed">
                   <span className="font-bold text-slate-900">Executive Context: </span>
-                  {dossier.executiveSummary}
+                  <AnnotatedDiplomaticText text={dossier.executiveSummary} onNavigateToMap={onNavigateToMap} />
                 </div>
               </div>
             )}
@@ -1224,7 +1227,7 @@ ER  - `;
                 <BookOpen className="w-4 h-4" /> Executive Intelligence Summary
               </h3>
               <p className={`font-normal ${textProseClass}`}>
-                {dossier.executiveSummary}
+                <AnnotatedDiplomaticText text={dossier.executiveSummary} onNavigateToMap={onNavigateToMap} />
               </p>
             </div>
 
@@ -1235,7 +1238,7 @@ ER  - `;
                 <Compass className="w-4 h-4" /> Significance for Bangladesh National Interest
               </h3>
               <p className={`font-medium ${textProseClass}`}>
-                {dossier.bangladeshSignificance}
+                <AnnotatedDiplomaticText text={dossier.bangladeshSignificance} onNavigateToMap={onNavigateToMap} />
               </p>
             </div>
           </section>
@@ -1703,7 +1706,7 @@ ER  - `;
               </div>
               <div className="bg-slate-100 p-3 rounded-lg border text-[11px] text-slate-800 leading-relaxed">
                 <span className="font-bold">Executive Summary: </span>
-                {dossier.executiveSummary}
+                <AnnotatedDiplomaticText text={dossier.executiveSummary} onNavigateToMap={onNavigateToMap} />
               </div>
               <div className="text-[10px] text-emerald-800 font-semibold bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
                 ✓ Includes Great Power Alignment Matrix (US, China, India)

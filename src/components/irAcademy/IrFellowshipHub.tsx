@@ -20,6 +20,7 @@ import {
 } from '../../services/irFellowshipProfileService';
 import type { FellowshipProfile, Pillar, Lecture } from '../../types/irAcademy';
 import { SmartAudioReader } from '../common/SmartAudioReader';
+import { AnnotatedDiplomaticText } from '../common/AnnotatedDiplomaticText';
 import type { AudioSection } from '../common/SmartAudioReader';
 import { 
   Award, 
@@ -285,12 +286,12 @@ export const IrFellowshipHub: React.FC = () => {
     {
       id: 'full',
       label: 'Complete Lecture Briefing',
-      text: `${selectedLecture.title}. ${selectedLecture.subtitle}. Overview: ${selectedLecture.overview}. Core Theoretical Frameworks: ${selectedLecture.theoreticalFrameworks.map(tf => `${tf.name}: ${tf.concept}. Diplomatic application: ${tf.application}`).join('. ')}. Executive Statecraft Case Study: ${selectedLecture.statecraftCaseStudy.title}. Historical Context: ${selectedLecture.statecraftCaseStudy.historicalContext}. Strategic Analysis: ${selectedLecture.statecraftCaseStudy.strategicAnalysis}. Lessons for statecraft: ${selectedLecture.statecraftCaseStudy.lessonsForStatecraft}. Postgraduate Seminar Prompts: ${selectedLecture.analyticalSeminarQuestions.join('. ')}`
+      text: `${selectedLecture.title}. ${selectedLecture.subtitle}. Overview: $<AnnotatedDiplomaticText text={selectedLecture.overview} />. Core Theoretical Frameworks: ${selectedLecture.theoreticalFrameworks.map(tf => `${tf.name}: ${tf.concept}. Diplomatic application: ${tf.application}`).join('. ')}. Executive Statecraft Case Study: ${selectedLecture.statecraftCaseStudy.title}. Historical Context: ${selectedLecture.statecraftCaseStudy.historicalContext}. Strategic Analysis: ${selectedLecture.statecraftCaseStudy.strategicAnalysis}. Lessons for statecraft: ${selectedLecture.statecraftCaseStudy.lessonsForStatecraft}. Postgraduate Seminar Prompts: ${selectedLecture.analyticalSeminarQuestions.join('. ')}`
     },
     {
       id: 'overview',
       label: 'Overview & Foundation',
-      text: `${selectedLecture.title}. ${selectedLecture.subtitle}. ${selectedLecture.overview}`
+      text: `${selectedLecture.title}. ${selectedLecture.subtitle}. $<AnnotatedDiplomaticText text={selectedLecture.overview} />`
     },
     {
       id: 'theories',
@@ -654,7 +655,7 @@ export const IrFellowshipHub: React.FC = () => {
                 </div>
 
                 <div className="text-sm sm:text-base leading-relaxed pt-3 border-t border-slate-200 whitespace-pre-line font-normal text-slate-700">
-                  {selectedLecture.overview}
+                  <AnnotatedDiplomaticText text={selectedLecture.overview} />
                 </div>
               </div>
 

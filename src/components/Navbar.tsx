@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, GraduationCap } from 'lucide-react';
+import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, GraduationCap, Compass } from 'lucide-react';
 import { supabase } from '../services/supabaseClient';
 import { AuthModal } from './auth/AuthModal';
 
-export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'fluency-lab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard';
+export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'fluency-lab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard';
 
 interface NavbarProps {
   currentView?: ViewType;
@@ -104,6 +104,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                 <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full uppercase ${currentView === 'diplomacy' ? 'bg-teal-800 text-teal-100' : 'bg-slate-200 text-slate-800'}`}>Intel</span>
               </button>
 
+              <button
+                onClick={() => handleNavClick('map')}
+                className={`text-xs font-bold transition px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer border ${
+                  currentView === 'map'
+                    ? 'bg-teal-900 text-white border-teal-900 shadow-xs'
+                    : 'bg-slate-50 text-slate-700 hover:text-teal-900 border-slate-200 hover:bg-teal-50/60'
+                }`}
+              >
+                <Compass className={`w-3.5 h-3.5 ${currentView === 'map' ? 'text-teal-200' : 'text-teal-800'}`} />
+                <span>Diplomatic Map</span>
+                <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full uppercase ${currentView === 'map' ? 'bg-teal-800 text-teal-100' : 'bg-teal-100 text-teal-900'}`}>Map</span>
+              </button>
               <button
                 onClick={() => handleNavClick('fluency-lab')}
                 className={`text-xs font-bold transition px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer border ${
@@ -228,6 +240,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               <span className="bg-slate-200 text-slate-800 text-[10px] font-bold px-2 py-0.5 rounded-full">LIVE</span>
             </button>
 
+                        <button
+              onClick={() => handleNavClick('map')}
+              className={`w-full text-left px-4 py-3 rounded-2xl text-sm font-bold flex items-center gap-3 transition cursor-pointer border ${
+                currentView === 'map'
+                  ? 'bg-teal-900 text-white border-teal-900 shadow-sm'
+                  : 'bg-white text-slate-800 border-slate-200 hover:bg-teal-50/60'
+              }`}
+            >
+              <Compass className="w-4 h-4 text-teal-700" />
+              <span>Diplomatic World Map</span>
+            </button>
             <button
               onClick={() => handleNavClick('fluency-lab')}
               className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-slate-800 hover:bg-teal-50 hover:text-teal-900 flex items-center gap-2 transition cursor-pointer"

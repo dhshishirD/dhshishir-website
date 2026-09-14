@@ -12,6 +12,7 @@ import { StandaloneToolPage } from './components/tools/StandaloneToolPage';
 import { LearnerDashboard } from './components/dashboard/LearnerDashboard';
 import { DiplomaticHub } from './components/diplomacy/DiplomaticHub';
 import { DossierDetailPage } from './components/diplomacy/DossierDetailPage';
+import { DiplomaticMapPage } from './components/diplomacy/DiplomaticMapPage';
 import { FluencyLabPage } from './components/pages/FluencyLabPage';
 import { LeadershipPage } from './components/pages/LeadershipPage';
 import { BlogPage } from './components/pages/BlogPage';
@@ -27,6 +28,7 @@ export function App() {
   const [isStandaloneTool, setIsStandaloneTool] = useState(false);
   const [activeToolId, setActiveToolId] = useState<string>('cover-letter');
   const [activeDossierSlug, setActiveDossierSlug] = useState<string | null>(null);
+  const [activeMapLocationId, setActiveMapLocationId] = useState<string | null>(null);
   const [user, setUser] = useState<any>(null);
 
   // Sync route with browser URL
@@ -40,6 +42,13 @@ export function App() {
       setCurrentView('fellowship');
       setIsStandaloneTool(false);
       document.title = "Open Master's Fellowship in International Relations & Strategic Studies | DH Shishir";
+        } else if (path === '/map' || path === '/diplomatic-map' || hash.startsWith('#/map')) {
+      const locParam = new URLSearchParams(window.location.search).get('location');
+      setActiveMapLocationId(locParam || null);
+      setActiveDossierSlug(null);
+      setCurrentView('map');
+      setIsStandaloneTool(false);
+      document.title = 'Interactive Diplomatic & Geopolitical World Map | DH Shishir';
     } else if (path.startsWith('/diplomacy/') || hash.startsWith('#/diplomacy/')) {
       const slug = path.replace('/diplomacy/', '') || hash.replace('#/diplomacy/', '');
       setActiveDossierSlug(slug);
@@ -126,6 +135,10 @@ export function App() {
     if (view === 'fellowship') {
       targetPath = '/fellowship';
       setActiveDossierSlug(null);
+        } else if (view === 'map') {
+      targetPath = subParam ? `/map?location=${subParam}` : '/map';
+      setActiveMapLocationId(subParam || null);
+      setActiveDossierSlug(null);
     } else if (view === 'diplomacy') {
       targetPath = subParam ? `/diplomacy/${subParam}` : '/diplomacy';
       if (subParam) setActiveDossierSlug(subParam);
@@ -168,7 +181,15 @@ export function App() {
       <Navbar currentView={currentView} onNavigate={navigateTo} />
       
       <main>
-        {currentView === 'fellowship' ? (
+                {currentView === 'map' ? (
+          <DiplomaticMapPage
+            initialLocationId={activeMapLocationId}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateDiplomacy={() => navigateTo('diplomacy')}
+            onNavigateDossier={(slug) => navigateTo('diplomacy', slug)}
+            onNavigateFellowship={() => navigateTo('fellowship')}
+          />
+        ) : currentView === 'fellowship' ? (
           <FellowshipPage
             onNavigateHome={() => navigateTo('home')}
           />
@@ -180,12 +201,14 @@ export function App() {
               onNavigateHome={() => navigateTo('home')}
               onNavigateDiplomacy={() => navigateTo('diplomacy')}
               onNavigateDossier={(slug) => navigateTo('diplomacy', slug)}
+              onNavigateToMap={(locId) => navigateTo('map', locId)}
             />
           ) : (
             <DiplomaticHub
               user={user}
               onNavigateHome={() => navigateTo('home')}
               onOpenDossierPage={(slug) => navigateTo('diplomacy', slug)}
+              onNavigateToMap={(locId) => navigateTo('map', locId)}
             />
           )
         ) : currentView === 'fluency-lab' ? (
