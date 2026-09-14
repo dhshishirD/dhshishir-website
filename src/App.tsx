@@ -91,7 +91,7 @@ export function App() {
       setActiveDossierSlug(null);
       setCurrentView('home');
       setIsStandaloneTool(false);
-      document.title = 'Daloyar Hassan Shishir | Diplomatic Scholar, Fluency Lab & Career Innovation';
+      document.title = 'Daloyar Hassan Shishir | Diplomatic Enthusiast, Policy Analyst & English Educator';
     }
   };
 

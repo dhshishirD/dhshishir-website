@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               dhshishir<span className="text-cyan-400">.com</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Official personal portal of <strong>Daloyar Hassan Shishir</strong> (???????? ????? ?????) ? Foreign Policy Scholar, Fluency Lab Innovator & Youth Leader.
+              Official personal portal of <strong>Daloyar Hassan Shishir</strong> (???????? ????? ?????) ? Diplomatic Enthusiast & Policy Analyst, Fluency Lab Innovator & Educator.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a

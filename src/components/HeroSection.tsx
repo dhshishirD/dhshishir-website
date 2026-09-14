@@ -32,7 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
               Daloyar Hassan Shishir <br />
               <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
-                Diplomatic Scholar & Educator
+                Diplomatic Enthusiast, Policy Analyst & English Educator
               </span>
             </h1>
 
@@ -103,7 +103,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                   <div className="relative w-full aspect-[4/4.6] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 group shadow-inner">
                     <img
                       src="/shishir-photo.jpg"
-                      alt="Daloyar Hassan Shishir - Diplomatic Scholar & English Educator"
+                      alt="Daloyar Hassan Shishir - Diplomatic Enthusiast, Policy Analyst & English Educator"
                       className="w-full h-full object-cover object-[50%_15%] transition duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3 bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-cyan-500/50 text-cyan-400 text-[11px] font-bold flex items-center gap-1.5 shadow-xl">
@@ -116,7 +116,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                       <span>Daloyar Hassan Shishir</span>
                       <span className="text-[10px] px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/30">SUST Alumnus</span>
                     </div>
-                    <p className="text-xs text-cyan-400 font-semibold mt-0.5">Diplomatic Scholar & Senior English Educator</p>
+                    <p className="text-xs text-cyan-400 font-semibold mt-0.5">Diplomatic Enthusiast, Policy Analyst & English Educator</p>
                   </div>
 
                   <div className="mt-3 space-y-2 text-xs">
