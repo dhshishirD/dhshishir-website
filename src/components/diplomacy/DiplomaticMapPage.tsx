@@ -5,22 +5,32 @@ import {
   Search, 
   RotateCcw, 
   ShieldCheck, 
-  Radio, 
   Filter, 
   BookOpen, 
   ArrowRight, 
   ZoomIn,
-  ZoomOut
+  ZoomOut,
+  Volume2,
+  Navigation,
+  Crosshair,
+  Award,
+  Layers,
+  MapPin,
+  Anchor
 } from 'lucide-react';
 import { 
   STRATEGIC_LOCATIONS_DATA, 
-  MARITIME_CORRIDORS 
+  MARITIME_CORRIDORS,
+  VOYAGE_ROUTE_OPTIONS,
+  MAP_RADAR_QUESTIONS
 } from '../../data/diplomaticMapData';
 import type { 
   StrategicLocation, 
   LocationCategory, 
-  MapTheater 
+  MapTheater,
+  VoyageRouteOption
 } from '../../data/diplomaticMapData';
+import { speakText } from '../../utils/audioPlayer';
 
 interface DiplomaticMapPageProps {
   initialLocationId?: string | null;
@@ -34,9 +44,12 @@ export const DiplomaticMapPage: React.FC<DiplomaticMapPageProps> = ({
   initialLocationId,
   onNavigateHome,
   onNavigateDiplomacy,
-  onNavigateDossier,
+  // onNavigateDossier,
   onNavigateFellowship
 }) => {
+  // Main view mode: 'map' | 'voyage-simulator' | 'radar-challenge'
+  const [activeMode, setActiveMode] = useState<'map' | 'voyage-simulator' | 'radar-challenge'>('map');
+
   const [selectedLocation, setSelectedLocation] = useState<StrategicLocation | null>(() => {
     if (initialLocationId) {
       return STRATEGIC_LOCATIONS_DATA.find(l => l.id === initialLocationId) || STRATEGIC_LOCATIONS_DATA[0];
@@ -56,9 +69,19 @@ export const DiplomaticMapPage: React.FC<DiplomaticMapPageProps> = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
+  // Voyage Simulator State
+  const [selectedVoyage, setSelectedVoyage] = useState<VoyageRouteOption>(VOYAGE_ROUTE_OPTIONS[0]);
+
+  // Radar Challenge (Quiz) State
+  const [radarQuestionIdx, setRadarQuestionIdx] = useState(0);
+  const [radarScore, setRadarScore] = useState(0);
+  const [radarCompleted, setRadarCompleted] = useState(false);
+  const [radarFeedback, setRadarFeedback] = useState<{ success: boolean; message: string } | null>(null);
+  const [showRadarClue, setShowRadarClue] = useState(false);
+
   const svgContainerRef = useRef<HTMLDivElement>(null);
 
-  // Focus on initialLocationId if passed via props or URL
+  // Focus on initialLocationId if passed via props
   useEffect(() => {
     if (initialLocationId) {
       const loc = STRATEGIC_LOCATIONS_DATA.find(l => l.id === initialLocationId);
@@ -68,13 +91,12 @@ export const DiplomaticMapPage: React.FC<DiplomaticMapPageProps> = ({
       }
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.title = 'Interactive Diplomatic & Geopolitical World Map | DH Shishir';
+    document.title = 'Diplomatic & Geopolitical World Map | DH Shishir';
   }, [initialLocationId]);
 
   // Smooth Fly-to Camera animation
   const flyToLocation = (loc: StrategicLocation) => {
     const targetScale = 2.4;
-    // Calculate translate offset based on 1000x600 SVG viewBox
     const targetX = -(loc.xPct * 10 - 500) * targetScale * 0.7;
     const targetY = -(loc.yPct * 6 - 300) * targetScale * 0.7;
 
@@ -83,8 +105,42 @@ export const DiplomaticMapPage: React.FC<DiplomaticMapPageProps> = ({
   };
 
   const handleSelectLocation = (loc: StrategicLocation) => {
+    if (activeMode === 'radar-challenge' && !radarCompleted) {
+      // Evaluate radar guess
+      const currentQ = MAP_RADAR_QUESTIONS[radarQuestionIdx];
+      if (loc.id === currentQ.targetLocationId) {
+        setRadarScore(prev => prev + 10);
+        setRadarFeedback({
+          success: true,
+          message: `Correct! ${loc.name} pinpointed successfully.`
+        });
+      } else {
+        setRadarFeedback({
+          success: false,
+          message: `Incorrect. You clicked ${loc.name}. Try reviewing strategic locations.`
+        });
+      }
+
+      setTimeout(() => {
+        setRadarFeedback(null);
+        setShowRadarClue(false);
+        if (radarQuestionIdx < MAP_RADAR_QUESTIONS.length - 1) {
+          setRadarQuestionIdx(prev => prev + 1);
+        } else {
+          setRadarCompleted(true);
+        }
+      }, 2200);
+      return;
+    }
+
     setSelectedLocation(loc);
     flyToLocation(loc);
+  };
+
+  // Play audio intelligence briefing
+  const handlePlayBriefing = (text: string, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    speakText(text, true);
   };
 
   // Theater quick presets
@@ -98,16 +154,19 @@ export const DiplomaticMapPage: React.FC<DiplomaticMapPageProps> = ({
       setPosition({ x: -800, y: -200 });
     } else if (theater === 'middle_east') {
       setScale(2.2);
-      setPosition({ x: -450, y: -180 });
+      setPosition({ x: -550, y: -130 });
     } else if (theater === 'europe_eurasia') {
       setScale(2.2);
-      setPosition({ x: -200, y: 50 });
+      setPosition({ x: -380, y: -50 });
     } else if (theater === 'americas') {
       setScale(1.8);
-      setPosition({ x: 350, y: -150 });
+      setPosition({ x: 50, y: -80 });
+    } else if (theater === 'africa') {
+      setScale(1.9);
+      setPosition({ x: -350, y: -220 });
     } else {
-      setScale(1.1);
-      setPosition({ x: 0, y: 0 });
+      setScale(1.2);
+      setPosition({ x: -150, y: -50 });
     }
   };
 
@@ -129,494 +188,759 @@ export const DiplomaticMapPage: React.FC<DiplomaticMapPageProps> = ({
     setIsDragging(false);
   };
 
-  const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    const delta = e.deltaY * -0.0015;
-    const newScale = Math.min(Math.max(0.8, scale + delta), 4.5);
-    setScale(newScale);
+  const handleZoom = (delta: number) => {
+    setScale(prev => Math.min(3.5, Math.max(0.9, prev + delta)));
   };
 
-  const handleZoomIn = () => setScale(prev => Math.min(4.5, prev + 0.4));
-  const handleZoomOut = () => setScale(prev => Math.max(0.8, prev - 0.4));
-  const handleResetCamera = () => {
+  const handleResetView = () => {
     setScale(1.2);
     setPosition({ x: -150, y: -50 });
+    setSelectedTheater('all');
+    setSelectedCategory('all');
   };
 
-  // Filter locations
+  // Filtered dataset
   const filteredLocations = useMemo(() => {
     return STRATEGIC_LOCATIONS_DATA.filter(loc => {
       const matchCat = selectedCategory === 'all' || loc.category === selectedCategory;
       const matchTheater = selectedTheater === 'all' || loc.theater === selectedTheater;
-      const matchSearch = 
+      const matchQuery = 
         loc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        loc.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        loc.theaterLabel.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        loc.significance.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCat && matchTheater && matchSearch;
+        (loc.banglaName && loc.banglaName.includes(searchQuery)) ||
+        loc.significance.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        loc.theaterLabel.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchCat && matchTheater && matchQuery;
     });
   }, [selectedCategory, selectedTheater, searchQuery]);
 
-  // Color helper for pins
-  const getCategoryColor = (cat: LocationCategory) => {
-    switch (cat) {
-      case 'chokepoint': return { bg: 'bg-teal-700', border: 'border-teal-300', fill: '#0f766e', glow: '#14b8a6' };
-      case 'flashpoint': return { bg: 'bg-rose-700', border: 'border-rose-300', fill: '#be123c', glow: '#f43f5e' };
-      case 'port': return { bg: 'bg-indigo-700', border: 'border-indigo-300', fill: '#4338ca', glow: '#6366f1' };
-      case 'island_base': return { bg: 'bg-emerald-700', border: 'border-emerald-300', fill: '#047857', glow: '#10b981' };
-      case 'river_basin': return { bg: 'bg-cyan-700', border: 'border-cyan-300', fill: '#0e7490', glow: '#06b6d4' };
-      case 'diplomatic_hq': return { bg: 'bg-amber-700', border: 'border-amber-300', fill: '#b45309', glow: '#f59e0b' };
-      default: return { bg: 'bg-slate-700', border: 'border-slate-300', fill: '#334155', glow: '#64748b' };
-    }
+  // Restart Radar Challenge
+  const handleRestartRadar = () => {
+    setRadarQuestionIdx(0);
+    setRadarScore(0);
+    setRadarCompleted(false);
+    setRadarFeedback(null);
+    setShowRadarClue(false);
   };
 
   return (
-    <div className="pt-20 pb-24 bg-slate-900 text-slate-100 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-
-        {/* Top Header Card */}
-        <div className="bg-slate-950 border border-teal-800/60 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-950/80 border border-teal-600 text-teal-300 text-xs font-bold uppercase tracking-wider">
-              <Compass className="w-4 h-4 text-teal-400" /> Interactive Geopolitical Intelligence Map
-            </div>
-            <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight font-serif-title">
-              World Diplomatic, Strategic & Maritime Map
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Global cartographic command center featuring <strong className="text-teal-400">50+ critical maritime chokepoints, terrestrial flashpoints, deep-sea ports, and multilateral headquarters</strong>, evaluated through the lens of Bangladesh statecraft and sovereign diplomacy.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            {onNavigateHome && (
-              <button
-                onClick={onNavigateHome}
-                className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-bold transition flex items-center gap-2 cursor-pointer"
-              >
-                <span>← Home</span>
-              </button>
-            )}
-            {onNavigateDiplomacy && (
-              <button
-                onClick={onNavigateDiplomacy}
-                className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-bold transition flex items-center gap-2 cursor-pointer"
-              >
-                <BookOpen className="w-4 h-4 text-teal-400" />
-                <span>Strategic Dossiers</span>
-              </button>
-            )}
-            {onNavigateFellowship && (
-              <button
-                onClick={onNavigateFellowship}
-                className="px-4 py-2.5 rounded-xl bg-teal-900 hover:bg-teal-800 border border-teal-700 text-white text-xs font-bold transition flex items-center gap-2 shadow-xs cursor-pointer"
-              >
-                <ShieldCheck className="w-4 h-4 text-teal-300" />
-                <span>IR Fellowship Studio</span>
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Filter Controls & Theater Presets Bar */}
-        <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-xl text-xs">
+    <div className="min-h-screen bg-slate-50 text-slate-900 pb-20 font-sans">
+      {/* Top Breadcrumb & Status Navigation */}
+      <div className="bg-white border-b border-slate-200 sticky top-20 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3 text-xs">
           
-          {/* Theater Camera Switchers */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-            <span className="text-slate-400 font-bold uppercase tracking-wider text-[11px] flex items-center gap-1 shrink-0 mr-1">
-              <Globe className="w-3.5 h-3.5 text-teal-400" /> Theaters:
-            </span>
-            {[
-              { id: 'all', label: 'Global View' },
-              { id: 'bay_of_bengal', label: 'Bay of Bengal & South Asia' },
-              { id: 'indo_pacific', label: 'Indo-Pacific' },
-              { id: 'middle_east', label: 'Middle East & Bab-el-Mandeb' },
-              { id: 'europe_eurasia', label: 'Europe & Eurasia' },
-              { id: 'americas', label: 'Americas' }
-            ].map(t => (
-              <button
-                key={t.id}
-                onClick={() => handleTheaterChange(t.id as any)}
-                className={`px-3 py-1.5 rounded-xl whitespace-nowrap transition cursor-pointer font-semibold ${
-                  selectedTheater === t.id
-                    ? 'bg-teal-900 text-white font-bold border border-teal-600 shadow-xs'
-                    : 'bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
-                }`}
+          <div className="flex items-center gap-2 text-slate-500">
+            {onNavigateHome && (
+              <button 
+                onClick={onNavigateHome}
+                className="hover:text-teal-900 font-semibold transition cursor-pointer"
               >
-                {t.label}
+                dhshishir.com
               </button>
-            ))}
+            )}
+            <span>/</span>
+            {onNavigateDiplomacy && (
+              <button 
+                onClick={onNavigateDiplomacy}
+                className="hover:text-teal-900 font-semibold transition cursor-pointer"
+              >
+                Diplomatic Intelligence Hub
+              </button>
+            )}
+            <span>/</span>
+            <span className="text-teal-900 font-bold">Interactive Geopolitical Map & Transit Radar</span>
           </div>
 
-                    {/* Category Filter Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none w-full pt-2 border-t border-slate-900">
-            <span className="text-slate-400 font-bold uppercase tracking-wider text-[11px] flex items-center gap-1 shrink-0 mr-1">
-              <Filter className="w-3.5 h-3.5 text-teal-400" /> Categories:
-            </span>
-            {[
-              { id: 'all', label: 'All Types (50+)' },
-              { id: 'chokepoint', label: '⚓ Chokepoints' },
-              { id: 'flashpoint', label: '⚡ Flashpoints' },
-              { id: 'port', label: '🚢 Deep-Sea Ports' },
-              { id: 'island_base', label: '🏝️ Island Bases' },
-              { id: 'river_basin', label: '🌊 River Basins' },
-              { id: 'diplomatic_hq', label: '🏛️ Diplomatic HQs' }
-            ].map(c => (
-              <button
-                key={c.id}
-                onClick={() => setSelectedCategory(c.id as any)}
-                className={`px-3 py-1 rounded-xl whitespace-nowrap transition cursor-pointer text-xs font-semibold ${
-                  selectedCategory === c.id
-                    ? 'bg-teal-900 text-white font-bold border border-teal-600 shadow-2xs'
-                    : 'bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800'
-                }`}
-              >
-                {c.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Search bar & Corridors Toggle */}
-          <div className="flex items-center gap-3 w-full sm:w-auto">
-            <div className="relative flex-1 sm:w-64">
-              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-3" />
-              <input
-                type="text"
-                placeholder="Search 50+ locations or chokepoints..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-teal-500"
-              />
-            </div>
-
+          {/* Mode Switcher Tabs */}
+          <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200">
             <button
-              onClick={() => setShowMaritimeCorridors(!showMaritimeCorridors)}
-              className={`px-3 py-1.5 rounded-xl border font-bold transition flex items-center gap-1.5 cursor-pointer text-xs ${
-                showMaritimeCorridors
-                  ? 'bg-teal-950/80 text-teal-300 border-teal-600'
-                  : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-slate-200'
+              onClick={() => setActiveMode('map')}
+              className={`px-3 py-1.5 rounded-lg font-bold text-xs flex items-center gap-1.5 transition cursor-pointer ${
+                activeMode === 'map'
+                  ? 'bg-white text-teal-950 shadow-xs'
+                  : 'text-slate-600 hover:text-teal-900'
               }`}
             >
-              <Radio className="w-3.5 h-3.5" />
-              <span>SLOC Corridors</span>
+              <Globe className="w-3.5 h-3.5" />
+              <span>World Map ({STRATEGIC_LOCATIONS_DATA.length})</span>
+            </button>
+
+            <button
+              onClick={() => setActiveMode('voyage-simulator')}
+              className={`px-3 py-1.5 rounded-lg font-bold text-xs flex items-center gap-1.5 transition cursor-pointer ${
+                activeMode === 'voyage-simulator'
+                  ? 'bg-teal-900 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-teal-900'
+              }`}
+            >
+              <Navigation className="w-3.5 h-3.5" />
+              <span>Voyage Route Simulator</span>
+            </button>
+
+            <button
+              onClick={() => setActiveMode('radar-challenge')}
+              className={`px-3 py-1.5 rounded-lg font-bold text-xs flex items-center gap-1.5 transition cursor-pointer ${
+                activeMode === 'radar-challenge'
+                  ? 'bg-teal-900 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-teal-900'
+              }`}
+            >
+              <Crosshair className="w-3.5 h-3.5" />
+              <span>Radar Challenge</span>
+              <span className="bg-amber-100 text-amber-900 text-[10px] font-extrabold px-1.5 py-0.2 rounded-full">Quiz</span>
             </button>
           </div>
 
         </div>
+      </div>
 
-        {/* Main Interactive Map & Intelligence Briefing Drawer Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          
-          {/* MAP CANVAS CONTAINER (Col span 8 on desktop) */}
-          <div className="lg:col-span-8 bg-slate-950 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl relative flex flex-col h-[580px] sm:h-[650px]">
-            
-            {/* Map Canvas Floating Controls */}
-            <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-2xl p-1.5 shadow-xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-6">
+
+        {/* Hero Title & Description */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-teal-900 text-xs font-bold border border-teal-200 uppercase tracking-wider mb-2">
+              <Compass className="w-3.5 h-3.5 text-teal-800" /> Strategic Geography & Global Sea Lines of Communication
+            </div>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight font-serif-title">
+              Interactive Geopolitical & <span className="text-teal-900">Diplomatic World Map</span>
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mt-1 leading-relaxed">
+              Explore <strong>55+ strategic maritime chokepoints, naval bases, diplomatic treaty seats, and flashpoints</strong> analyzed through the lens of Bangladesh statecraft and great-power competition.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="text-xs font-bold text-slate-500 font-mono">
+              Displaying {filteredLocations.length} of {STRATEGIC_LOCATIONS_DATA.length} Strategic Nodes
+            </span>
+          </div>
+        </div>
+
+        {/* RADAR CHALLENGE ACTIVE BANNER */}
+        {activeMode === 'radar-challenge' && (
+          <div className="p-5 bg-teal-900 text-white rounded-3xl space-y-3 shadow-md border border-teal-800 animate-fade-in">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-teal-800 pb-3">
+              <div className="flex items-center gap-2">
+                <Crosshair className="w-5 h-5 text-amber-400" />
+                <span className="font-bold text-sm tracking-wider uppercase">Geopolitical Map Radar Challenge</span>
+                <span className="bg-teal-800 text-teal-200 text-xs font-mono px-2.5 py-0.5 rounded-full">
+                  Question {radarQuestionIdx + 1} of {MAP_RADAR_QUESTIONS.length}
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-mono font-bold text-amber-300">Score: {radarScore} Pts</span>
+                <button
+                  onClick={handleRestartRadar}
+                  className="px-2.5 py-1 bg-teal-800 hover:bg-teal-700 text-teal-100 rounded-lg text-xs font-bold transition cursor-pointer"
+                >
+                  Restart
+                </button>
+              </div>
+            </div>
+
+            {!radarCompleted ? (
+              <div className="space-y-2">
+                <p className="text-sm sm:text-base font-bold text-teal-50">
+                  {MAP_RADAR_QUESTIONS[radarQuestionIdx].prompt}
+                </p>
+                <div className="flex items-center gap-3 text-xs">
+                  <button
+                    onClick={() => setShowRadarClue(prev => !prev)}
+                    className="text-amber-300 hover:text-amber-200 underline font-semibold cursor-pointer"
+                  >
+                    {showRadarClue ? 'Hide Strategic Clue' : '💡 Need a Clue?'}
+                  </button>
+                  {showRadarClue && (
+                    <span className="text-teal-200 italic font-bangla">
+                      {MAP_RADAR_QUESTIONS[radarQuestionIdx].banglaClue} ({MAP_RADAR_QUESTIONS[radarQuestionIdx].clue})
+                    </span>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div className="py-4 text-center space-y-3">
+                <Award className="w-12 h-12 text-amber-400 mx-auto" />
+                <h3 className="text-xl font-bold text-white">Radar Evaluation Completed!</h3>
+                <p className="text-xs text-teal-200">
+                  Final Geopolitical Acumen Score: <strong className="text-amber-300 text-base">{radarScore} / {MAP_RADAR_QUESTIONS.length * 10} Points</strong>
+                </p>
+                <button
+                  onClick={handleRestartRadar}
+                  className="px-5 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold rounded-xl text-xs transition cursor-pointer"
+                >
+                  Play Again
+                </button>
+              </div>
+            )}
+
+            {radarFeedback && (
+              <div className={`p-3 rounded-xl text-xs font-bold ${
+                radarFeedback.success ? 'bg-emerald-800/80 text-emerald-100 border border-emerald-500' : 'bg-rose-800/80 text-rose-100 border border-rose-500'
+              }`}>
+                {radarFeedback.message}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* VOYAGE ROUTE SIMULATOR ACTIVE SELECTOR */}
+        {activeMode === 'voyage-simulator' && (
+          <div className="p-5 bg-white rounded-3xl border border-slate-200 shadow-xs space-y-4 animate-fade-in">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2 text-teal-900 font-bold text-sm">
+                <Navigation className="w-4 h-4 text-teal-800" />
+                <span>Maritime Transit & Chokepoint Voyage Route Simulator</span>
+              </div>
+              <span className="text-xs font-mono text-slate-500">Cruising Speed Benchmark: 15 Knots</span>
+            </div>
+
+            {/* Route selection buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+              {VOYAGE_ROUTE_OPTIONS.map(route => (
+                <button
+                  key={route.id}
+                  onClick={() => setSelectedVoyage(route)}
+                  className={`p-3 rounded-2xl text-left border transition cursor-pointer flex flex-col justify-between gap-2 ${
+                    selectedVoyage.id === route.id
+                      ? 'bg-teal-900 text-white border-teal-900 shadow-xs'
+                      : 'bg-slate-50 hover:bg-teal-50/50 text-slate-800 border-slate-200'
+                  }`}
+                >
+                  <div className="font-bold text-xs leading-snug">{route.routeName}</div>
+                  <div className="flex items-center justify-between text-[10px] opacity-80 font-mono">
+                    <span>{route.totalNauticalMiles} NM</span>
+                    <span>~{route.transitDaysAt15Knots} Days</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Selected Route Analytics Box */}
+            <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs">
+              <div className="space-y-1">
+                <div className="font-bold text-slate-900">{selectedVoyage.routeName}</div>
+                <p className="text-slate-600 text-xs">{selectedVoyage.strategicSummary}</p>
+                <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                  <span className="font-bold text-slate-500 uppercase text-[10px]">Chokepoints Passed:</span>
+                  {selectedVoyage.chokepointsEncountered.map((chk, i) => (
+                    <span key={i} className="px-2 py-0.5 rounded-full bg-white border border-slate-200 text-teal-950 font-bold text-[10px]">
+                      {chk}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 shrink-0">
+                <div className="p-2.5 bg-white rounded-xl border border-slate-200 text-center">
+                  <div className="text-[10px] text-slate-500 font-bold uppercase">Transit Distance</div>
+                  <div className="text-base font-black text-teal-900 font-mono">{selectedVoyage.totalNauticalMiles} NM</div>
+                </div>
+                <div className="p-2.5 bg-white rounded-xl border border-slate-200 text-center">
+                  <div className="text-[10px] text-slate-500 font-bold uppercase">Voyage Duration</div>
+                  <div className="text-base font-black text-teal-900 font-mono">{selectedVoyage.transitDaysAt15Knots} Days</div>
+                </div>
+                <div className={`p-2.5 rounded-xl border text-center ${
+                  selectedVoyage.riskRating === 'High' ? 'bg-rose-50 border-rose-200 text-rose-900' : 'bg-teal-50 border-teal-200 text-teal-900'
+                }`}>
+                  <div className="text-[10px] font-bold uppercase">Transit Threat Index</div>
+                  <div className="text-base font-black font-mono">{selectedVoyage.riskRating}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* MAIN CONTROLS BAR (Theaters & Categories) */}
+        <div className="p-4 bg-white rounded-3xl border border-slate-200 shadow-xs space-y-3">
+          {/* Theater Quick Presets */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1 shrink-0 pl-1">
+              <Compass className="w-3.5 h-3.5 text-teal-800" /> Theaters:
+            </span>
+            {[
+              { id: 'all', label: 'Global View' },
+              { id: 'bay_of_bengal', label: 'Bay of Bengal & South Asia' },
+              { id: 'indo_pacific', label: 'Indo-Pacific & East Asia' },
+              { id: 'middle_east', label: 'Middle East & Gulf' },
+              { id: 'europe_eurasia', label: 'Europe & Eurasia' },
+              { id: 'americas', label: 'Americas' },
+              { id: 'africa', label: 'Africa' }
+            ].map(th => (
               <button
-                onClick={handleZoomIn}
-                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 transition cursor-pointer"
-                title="Zoom In (+)"
+                key={th.id}
+                onClick={() => handleTheaterChange(th.id as any)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                  selectedTheater === th.id
+                    ? 'bg-teal-900 text-white font-bold shadow-2xs'
+                    : 'bg-slate-50 text-slate-700 hover:text-teal-900 hover:bg-teal-50/60 border border-slate-200'
+                }`}
+              >
+                {th.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Search and Category Filter */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-slate-100">
+            {/* Search Input */}
+            <div className="relative w-full sm:w-80">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                placeholder="Search strait, port, treaty, or city..."
+                className="w-full pl-9.5 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-teal-800 focus:bg-white transition text-slate-900"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto scrollbar-none">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1 shrink-0">
+                <Filter className="w-3.5 h-3.5 text-teal-800" /> Type:
+              </span>
+              {[
+                { id: 'all', label: 'All' },
+                { id: 'chokepoint', label: 'Chokepoints' },
+                { id: 'port', label: 'Ports' },
+                { id: 'diplomatic_hq', label: 'Treaty HQs' },
+                { id: 'flashpoint', label: 'Flashpoints' },
+                { id: 'island_base', label: 'Naval Bases' },
+                { id: 'energy_resource', label: 'Energy Hubs' }
+              ].map(cat => (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id as any)}
+                  className={`px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition cursor-pointer ${
+                    selectedCategory === cat.id
+                      ? 'bg-teal-900 text-white font-bold'
+                      : 'bg-white text-slate-600 hover:text-teal-900 border border-slate-200'
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* MAP & DETAIL SPLIT LAYOUT */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          {/* INTERACTIVE SVG WORLD MAP CANVAS (7 COLS) */}
+          <div className="lg:col-span-7 bg-slate-950 rounded-3xl border border-slate-800 shadow-lg overflow-hidden relative min-h-[500px] flex flex-col justify-between select-none">
+            
+            {/* Map Top Overlay Controls */}
+            <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+              <div className="bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-700 text-xs text-slate-200 flex items-center gap-2 shadow-sm font-mono">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Zoom: {Math.round(scale * 100)}%</span>
+              </div>
+
+              <button
+                onClick={() => setShowMaritimeCorridors(prev => !prev)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition cursor-pointer flex items-center gap-1.5 ${
+                  showMaritimeCorridors 
+                    ? 'bg-teal-900/90 text-teal-200 border-teal-700' 
+                    : 'bg-slate-900/90 text-slate-400 border-slate-700'
+                }`}
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>Sea Lanes (SLOC)</span>
+              </button>
+            </div>
+
+            {/* Map Zoom / Reset Float Buttons */}
+            <div className="absolute top-4 right-4 z-20 flex flex-col gap-1.5">
+              <button
+                onClick={() => handleZoom(0.3)}
+                className="p-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 transition cursor-pointer shadow-sm"
+                title="Zoom In"
               >
                 <ZoomIn className="w-4 h-4" />
               </button>
               <button
-                onClick={handleZoomOut}
-                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 transition cursor-pointer"
-                title="Zoom Out (-)"
+                onClick={() => handleZoom(-0.3)}
+                className="p-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 transition cursor-pointer shadow-sm"
+                title="Zoom Out"
               >
                 <ZoomOut className="w-4 h-4" />
               </button>
               <button
-                onClick={handleResetCamera}
-                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 transition cursor-pointer"
-                title="Reset Global View"
+                onClick={handleResetView}
+                className="p-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 transition cursor-pointer shadow-sm"
+                title="Reset Camera"
               >
                 <RotateCcw className="w-4 h-4" />
               </button>
             </div>
 
-            {/* Map Legend Overlay */}
-            <div className="absolute bottom-4 left-4 z-20 hidden sm:flex flex-wrap items-center gap-3 bg-slate-950/90 backdrop-blur-md border border-slate-800 rounded-2xl px-4 py-2 text-[11px] shadow-xl">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-teal-400"></span>
-                <span className="text-slate-300">Chokepoint</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
-                <span className="text-slate-300">Flashpoint</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-indigo-400"></span>
-                <span className="text-slate-300">Deep-Sea Port</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                <span className="text-slate-300">Island Base</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                <span className="text-slate-300">Diplomatic HQ</span>
-              </div>
-            </div>
-
-            {/* Interactive Vector SVG Canvas */}
+            {/* SVG Interactive Canvas */}
             <div 
               ref={svgContainerRef}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
-              onWheel={handleWheel}
-              className={`w-full h-full cursor-grab ${isDragging ? 'cursor-grabbing' : ''} select-none overflow-hidden relative`}
+              className={`w-full h-[520px] flex items-center justify-center overflow-hidden cursor-${isDragging ? 'grabbing' : 'grab'}`}
             >
               <svg
                 viewBox="0 0 1000 600"
-                className="w-full h-full transition-transform duration-300 ease-out origin-center"
+                className="w-full h-full"
                 style={{
-                  transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`
+                  transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
+                  transformOrigin: 'center center',
+                  transition: isDragging ? 'none' : 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
               >
-                {/* Background Ocean & Grid */}
+                <defs>
+                  {/* Subtle Grid Pattern */}
+                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" strokeWidth="0.5" strokeOpacity="0.4" />
+                  </pattern>
+
+                  {/* Node Glow Filters */}
+                  <filter id="glow-teal" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                  <filter id="glow-red" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+
+                {/* Ocean Background */}
                 <rect width="1000" height="600" fill="#090d16" />
-                
-                {/* Subtle Lat/Long Grid lines */}
-                <g stroke="#1e293b" strokeWidth="0.5" strokeDasharray="3 3">
-                  <line x1="0" y1="150" x2="1000" y2="150" /> {/* Tropic of Cancer ~23.5 N */}
-                  <line x1="0" y1="300" x2="1000" y2="300" /> {/* Equator */}
-                  <line x1="0" y1="450" x2="1000" y2="450" /> {/* Tropic of Capricorn ~23.5 S */}
-                  <line x1="250" y1="0" x2="250" y2="600" /> {/* 90 W Americas */}
-                  <line x1="500" y1="0" x2="500" y2="600" /> {/* Prime Meridian */}
-                  <line x1="750" y1="0" x2="750" y2="600" /> {/* 90 E Bay of Bengal */}
-                </g>
+                <rect width="1000" height="600" fill="url(#grid)" />
 
-                {/* Stylized World Continents Landmass Geometry */}
-                <g fill="#131c2e" stroke="#1e293b" strokeWidth="0.8">
-                  {/* Eurasia & Africa */}
-                  <path d="M 480 120 Q 520 80 580 90 T 700 100 Q 800 120 880 160 T 920 250 Q 860 300 820 280 T 750 350 Q 720 400 680 380 T 600 450 Q 550 520 520 480 T 480 320 Q 420 260 450 180 Z" />
-                  
+                {/* Continental Landmass Silhouettes (Accurate Scaled Vectors) */}
+                <g fill="#1e293b" stroke="#334155" strokeWidth="0.75">
                   {/* North America */}
-                  <path d="M 120 100 Q 200 80 280 120 T 320 220 Q 280 280 240 320 T 180 260 Q 120 200 100 150 Z" />
-                  
+                  <path d="M 120 70 Q 180 50 260 75 Q 310 110 290 180 Q 260 220 240 280 Q 210 320 230 380 Q 180 340 140 280 Q 100 210 110 130 Z" />
+                  {/* Central America & Caribbean */}
+                  <path d="M 230 380 Q 250 420 242 485 Q 220 440 230 380 Z" />
                   {/* South America */}
-                  <path d="M 240 330 Q 320 360 340 420 T 300 550 Q 240 580 220 500 T 230 380 Z" />
-                  
-                  {/* Australia & Oceania */}
-                  <path d="M 780 430 Q 860 410 900 460 T 880 530 Q 800 560 760 500 Z" />
-                  
-                  {/* Indian Subcontinent & Bay of Bengal Littoral Outline */}
-                  <path 
-                    d="M 690 260 L 755 260 L 780 330 L 740 420 L 710 330 Z" 
-                    fill="#172439" 
-                    stroke="#2dd4bf" 
-                    strokeWidth="0.8" 
-                  />
+                  <path d="M 242 485 Q 310 490 350 560 Q 320 660 280 730 Q 240 680 230 580 Z" />
+                  {/* Europe & Scandinavia */}
+                  <path d="M 470 120 Q 520 80 580 110 Q 590 180 550 220 Q 500 240 470 190 Z" />
+                  <path d="M 500 80 Q 530 40 560 70 Q 540 120 500 80 Z" />
+                  {/* British Isles */}
+                  <path d="M 465 140 Q 485 130 480 170 Q 455 165 465 140 Z" />
+                  {/* Africa */}
+                  <path d="M 460 280 Q 550 260 620 310 Q 640 440 580 580 Q 545 780 480 560 Q 440 410 460 280 Z" />
+                  {/* Madagascar */}
+                  <path d="M 640 580 Q 655 570 650 630 Q 635 620 640 580 Z" />
+                  {/* Eurasia & Russia */}
+                  <path d="M 580 110 Q 750 70 920 100 Q 960 160 880 240 Q 780 220 670 200 Q 590 180 580 110 Z" />
+                  {/* Middle East & Arabian Peninsula */}
+                  <path d="M 600 280 Q 680 290 690 380 Q 630 410 600 340 Z" />
+                  {/* South Asia & Indian Subcontinent */}
+                  <path d="M 700 320 Q 760 300 800 340 Q 780 460 745 510 Q 710 440 700 320 Z" />
+                  {/* Sri Lanka */}
+                  <path d="M 744 525 Q 755 525 750 545 Q 740 540 744 525 Z" />
+                  {/* Southeast Asia & Indochina */}
+                  <path d="M 780 360 Q 840 370 850 460 Q 800 520 780 440 Z" />
+                  {/* Indonesian Archipelago & Philippines */}
+                  <path d="M 790 560 Q 860 550 900 590 Q 850 640 790 560 Z" />
+                  {/* East Asia & Japan */}
+                  <path d="M 860 240 Q 910 240 920 320 Q 860 350 830 300 Z" />
+                  <path d="M 900 260 Q 930 250 920 330 Q 895 310 900 260 Z" />
+                  {/* Australia */}
+                  <path d="M 850 640 Q 940 620 960 700 Q 920 790 840 760 Q 820 690 850 640 Z" />
                 </g>
 
-                {/* Animated Flowing Maritime Trade Corridors (SLOCs) */}
-                {showMaritimeCorridors && MARITIME_CORRIDORS.map(corridor => (
-                  <g key={corridor.id}>
+                {/* Sea Lines of Communication (Maritime Corridors) */}
+                {showMaritimeCorridors && activeMode !== 'voyage-simulator' && (
+                  <g>
+                    {MARITIME_CORRIDORS.map(corridor => (
+                      <g key={corridor.id}>
+                        <path
+                          d={corridor.pathD}
+                          fill="none"
+                          stroke={corridor.color}
+                          strokeWidth="2.5"
+                          strokeDasharray="6 6"
+                          strokeOpacity="0.75"
+                          className="animate-pulse"
+                        />
+                      </g>
+                    ))}
+                  </g>
+                )}
+
+                {/* VOYAGE SIMULATOR ACTIVE ROUTE TRACE */}
+                {activeMode === 'voyage-simulator' && selectedVoyage && (
+                  <g>
+                    {/* Shadow halo */}
                     <path
-                      d={corridor.pathD}
+                      d={selectedVoyage.pathD}
                       fill="none"
-                      stroke={corridor.color}
-                      strokeWidth="2.5"
-                      strokeDasharray="6 6"
-                      strokeLinecap="round"
-                      className="animate-pulse opacity-80"
+                      stroke="#0d9488"
+                      strokeWidth="6"
+                      strokeOpacity="0.3"
+                    />
+                    {/* Pulsing route line */}
+                    <path
+                      d={selectedVoyage.pathD}
+                      fill="none"
+                      stroke="#2dd4bf"
+                      strokeWidth="3.5"
+                      strokeDasharray="8 6"
                     />
                   </g>
-                ))}
+                )}
 
-                {/* Location Interactive Markers */}
+                {/* Strategic Location Pinpoints */}
                 {filteredLocations.map(loc => {
                   const isSelected = selectedLocation?.id === loc.id;
                   const isHovered = hoveredLocation?.id === loc.id;
-                  const colors = getCategoryColor(loc.category);
+                  const isCritical = loc.threatLevel === 'Critical Alert';
+                  const isHq = loc.category === 'diplomatic_hq';
+
                   const cx = loc.xPct * 10;
                   const cy = loc.yPct * 6;
 
+                  let pinColor = '#0d9488'; // Teal default
+                  if (isCritical) pinColor = '#ef4444'; // Red for critical alert
+                  if (isHq) pinColor = '#f59e0b'; // Amber for diplomatic HQs
+                  if (loc.category === 'port') pinColor = '#06b6d4'; // Cyan for ports
+                  if (loc.category === 'energy_resource') pinColor = '#10b981'; // Green for energy
+
                   return (
-                    <g
+                    <g 
                       key={loc.id}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleSelectLocation(loc);
-                      }}
+                      onClick={() => handleSelectLocation(loc)}
                       onMouseEnter={() => setHoveredLocation(loc)}
                       onMouseLeave={() => setHoveredLocation(null)}
-                      className="cursor-pointer group"
+                      className="cursor-pointer transition-all duration-200"
                     >
-                      {/* Pulsing Beacon Waves for Critical Alert or Selected Pin */}
-                      {(isSelected || loc.threatLevel === 'Critical Alert') && (
+                      {/* Outer animated ripple for selected or critical nodes */}
+                      {(isSelected || isCritical) && (
                         <circle
                           cx={cx}
                           cy={cy}
-                          r={isSelected ? "14" : "9"}
+                          r={isSelected ? "14" : "10"}
                           fill="none"
-                          stroke={colors.glow}
+                          stroke={pinColor}
                           strokeWidth="1.5"
-                          className="animate-ping opacity-75 origin-center"
+                          strokeOpacity="0.6"
+                          className="animate-ping"
+                          style={{ transformOrigin: `${cx}px ${cy}px` }}
                         />
                       )}
 
-                      {/* Outer Ring */}
+                      {/* Main Node Circle */}
                       <circle
                         cx={cx}
                         cy={cy}
-                        r={isSelected ? "7" : "5"}
-                        fill={isSelected ? "#ffffff" : colors.fill}
-                        stroke={isSelected ? colors.glow : "#090d16"}
-                        strokeWidth={isSelected ? "2.5" : "1.5"}
-                        className="transition-all duration-200"
+                        r={isSelected ? "7" : isHovered ? "6" : "4.5"}
+                        fill={pinColor}
+                        stroke="#ffffff"
+                        strokeWidth={isSelected ? "2" : "1"}
+                        filter={isCritical ? "url(#glow-red)" : "url(#glow-teal)"}
                       />
 
-                      {/* Center Pin Core */}
-                      <circle
-                        cx={cx}
-                        cy={cy}
-                        r="2.5"
-                        fill={isSelected ? colors.fill : "#ffffff"}
-                      />
-
-                      {/* Pin Label (Visible on hover or selected) */}
-                      {(isSelected || isHovered) && (
-                        <g transform={`translate(${cx}, ${cy - 12})`}>
-                          <rect
-                            x="-60"
-                            y="-18"
-                            width="120"
-                            height="18"
-                            rx="6"
-                            fill="#020617"
-                            stroke={colors.glow}
-                            strokeWidth="1"
-                            opacity="0.95"
-                          />
-                          <text
-                            x="0"
-                            y="-6"
-                            textAnchor="middle"
-                            fill="#ffffff"
-                            fontSize="8"
-                            fontWeight="bold"
-                            fontFamily="sans-serif"
-                          >
-                            {loc.name.length > 20 ? `${loc.name.substring(0, 18)}...` : loc.name}
-                          </text>
-                        </g>
+                      {/* Node Label (Visible on zoom > 1.8 or when selected/hovered) */}
+                      {(scale >= 1.9 || isSelected || isHovered) && (
+                        <text
+                          x={cx}
+                          y={cy - 9}
+                          textAnchor="middle"
+                          fill="#ffffff"
+                          fontSize="9"
+                          fontWeight={isSelected ? "bold" : "600"}
+                          className="pointer-events-none drop-shadow-md select-none font-sans"
+                        >
+                          {loc.name.split('(')[0].trim()}
+                        </text>
                       )}
                     </g>
                   );
                 })}
               </svg>
             </div>
+
+            {/* Map Bottom Legend Ribbon */}
+            <div className="p-3 bg-slate-900/90 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-300">
+              <div className="flex items-center gap-4 flex-wrap">
+                <span className="flex items-center gap-1.5 font-bold text-slate-400">
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500" /> Critical Chokepoint / Flashpoint
+                </span>
+                <span className="flex items-center gap-1.5 font-bold text-slate-400">
+                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" /> Deep-Sea Port / Maritime Base
+                </span>
+                <span className="flex items-center gap-1.5 font-bold text-slate-400">
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400" /> Diplomatic Treaty HQ / ICJ
+                </span>
+                <span className="flex items-center gap-1.5 font-bold text-slate-400">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" /> Energy Terminal / Minerals
+                </span>
+              </div>
+              <span className="text-[10px] text-slate-500 font-mono">
+                Click pin to load intelligence dossier
+              </span>
+            </div>
+
           </div>
 
-          {/* STRATEGIC INTELLIGENCE DRAWER (Col span 4 on desktop) */}
-          <div className="lg:col-span-4 bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-5 overflow-y-auto max-h-[650px]">
+          {/* RIGHT SIDEBAR: DETAILED STRATEGIC DOSSIER SHEET (5 COLS) */}
+          <div className="lg:col-span-5 space-y-4">
             {selectedLocation ? (
-              <div className="space-y-4 animate-fade-in text-left">
+              <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-7 shadow-sm space-y-6 animate-fade-in">
+                
                 {/* Header Badge & Category */}
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${getCategoryColor(selectedLocation.category).bg} text-white ${getCategoryColor(selectedLocation.category).border}`}>
-                    {selectedLocation.categoryLabel}
-                  </span>
-                  <span className="text-[10px] font-mono text-slate-400">
-                    {selectedLocation.lat}°N, {selectedLocation.lng}°E
-                  </span>
-                </div>
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="px-3 py-1 rounded-full bg-teal-50 text-teal-900 text-xs font-bold border border-teal-200 flex items-center gap-1.5">
+                      <Anchor className="w-3.5 h-3.5 text-teal-800" />
+                      {selectedLocation.categoryLabel}
+                    </span>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                      selectedLocation.threatLevel === 'Critical Alert'
+                        ? 'bg-rose-50 text-rose-800 border border-rose-200'
+                        : selectedLocation.threatLevel === 'Diplomatic Center'
+                        ? 'bg-amber-50 text-amber-900 border border-amber-200'
+                        : 'bg-teal-50 text-teal-900 border border-teal-200'
+                    }`}>
+                      {selectedLocation.threatLevel}
+                    </span>
+                  </div>
 
-                {/* Location Title & Theater */}
-                <div>
-                  <h2 className="text-xl sm:text-2xl font-black text-white font-serif-title">
+                  <h2 className="text-xl sm:text-2xl font-black text-slate-950 font-serif-title tracking-tight">
                     {selectedLocation.name}
                   </h2>
-                  <p className="text-xs text-teal-400 font-semibold mt-0.5">
-                    {selectedLocation.theaterLabel} • <span className="text-rose-400 font-bold">{selectedLocation.threatLevel}</span>
-                  </p>
-                </div>
-
-                {/* Strategic Significance */}
-                <div className="space-y-1.5">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-teal-400" /> Geopolitical Significance
-                  </div>
-                  <p className="text-xs text-slate-200 leading-relaxed bg-slate-900 p-3.5 rounded-2xl border border-slate-800">
-                    {selectedLocation.significance}
-                  </p>
-                </div>
-
-                {/* Bangladesh Foreign Policy Relevance */}
-                <div className="p-4 bg-teal-950/40 rounded-2xl border border-teal-800/80 space-y-1.5">
-                  <div className="text-xs font-bold uppercase tracking-wider text-teal-300 flex items-center gap-1.5">
-                    <Compass className="w-3.5 h-3.5 text-teal-400" /> Significance for Bangladesh Statecraft
-                  </div>
-                  <p className="text-xs text-slate-200 leading-relaxed font-medium">
-                    {selectedLocation.bangladeshRelevance}
-                  </p>
-                </div>
-
-                {/* Historical Context & Treaties */}
-                <div className="space-y-1.5">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                    <BookOpen className="w-3.5 h-3.5 text-teal-400" /> Historical Context & Legal Treaties
-                  </div>
-                  <p className="text-xs text-slate-300 leading-relaxed bg-slate-900 p-3 rounded-xl border border-slate-800">
-                    {selectedLocation.historicalContext}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {selectedLocation.keyTreaties.map((t, idx) => (
-                      <span key={idx} className="text-[10px] bg-slate-900 text-teal-300 px-2.5 py-0.5 rounded-lg border border-slate-800 font-mono">
-                        {t}
-                      </span>
-                    ))}
+                  {selectedLocation.banglaName && (
+                    <div className="text-sm font-bangla text-teal-900 font-semibold">
+                      {selectedLocation.banglaName}
+                    </div>
+                  )}
+                  <div className="text-xs text-slate-500 font-mono">
+                    Theater: <strong>{selectedLocation.theaterLabel}</strong> • Lat {selectedLocation.lat.toFixed(2)}°, Lng {selectedLocation.lng.toFixed(2)}°
                   </div>
                 </div>
 
-                {/* Great Power Postures */}
-                <div className="space-y-2 pt-2 border-t border-slate-800">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    Great Power Strategic Postures:
+                {/* Audio Briefing Action Button */}
+                <button
+                  onClick={e => handlePlayBriefing(selectedLocation.audioBriefingText, e)}
+                  className="w-full py-2.5 px-4 bg-teal-900 hover:bg-teal-800 text-white rounded-2xl text-xs font-bold flex items-center justify-center gap-2 transition cursor-pointer shadow-xs"
+                >
+                  <Volume2 className="w-4 h-4 text-teal-200" />
+                  <span>Listen to Diplomatic Intelligence Briefing (Smart Audio)</span>
+                </button>
+
+                {/* Core Significance (English & Bangla) */}
+                <div className="space-y-3">
+                  <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-700 leading-relaxed space-y-2">
+                    <strong className="text-slate-900 block font-sans">Strategic Significance:</strong>
+                    <p>{selectedLocation.significance}</p>
+                    <div className="pt-2 border-t border-slate-200 text-teal-950 font-bangla font-medium">
+                      {selectedLocation.banglaSignificance}
+                    </div>
                   </div>
-                  <div className="space-y-1.5 text-xs">
+
+                  {/* Bangladesh Foreign Policy Relevance */}
+                  <div className="p-4 bg-teal-50/60 rounded-2xl border border-teal-200 text-xs text-teal-950 leading-relaxed space-y-1">
+                    <strong className="text-teal-900 block font-sans flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-teal-800" /> Bangladesh Strategic Interest:
+                    </strong>
+                    <p>{selectedLocation.bangladeshRelevance}</p>
+                  </div>
+                </div>
+
+                {/* Great Power Dynamics Accordion / Grid */}
+                <div className="space-y-2">
+                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
+                    Great Power Competition Dynamics:
+                  </span>
+                  <div className="grid grid-cols-1 gap-2 text-xs">
                     {selectedLocation.greatPowerDynamics.us && (
-                      <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
-                        <strong className="text-blue-400">🇺🇸 United States: </strong>
-                        <span className="text-slate-300">{selectedLocation.greatPowerDynamics.us}</span>
+                      <div className="p-3 bg-white rounded-xl border border-slate-200">
+                        <strong className="text-slate-900">🇺🇸 United States: </strong>
+                        <span className="text-slate-600">{selectedLocation.greatPowerDynamics.us}</span>
                       </div>
                     )}
                     {selectedLocation.greatPowerDynamics.china && (
-                      <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
-                        <strong className="text-red-400">🇨🇳 China: </strong>
-                        <span className="text-slate-300">{selectedLocation.greatPowerDynamics.china}</span>
+                      <div className="p-3 bg-white rounded-xl border border-slate-200">
+                        <strong className="text-slate-900">🇨🇳 China: </strong>
+                        <span className="text-slate-600">{selectedLocation.greatPowerDynamics.china}</span>
                       </div>
                     )}
                     {selectedLocation.greatPowerDynamics.india && (
-                      <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
-                        <strong className="text-amber-400">🇮🇳 India: </strong>
-                        <span className="text-slate-300">{selectedLocation.greatPowerDynamics.india}</span>
+                      <div className="p-3 bg-white rounded-xl border border-slate-200">
+                        <strong className="text-slate-900">🇮🇳 India: </strong>
+                        <span className="text-slate-600">{selectedLocation.greatPowerDynamics.india}</span>
+                      </div>
+                    )}
+                    {selectedLocation.greatPowerDynamics.regional && (
+                      <div className="p-3 bg-white rounded-xl border border-slate-200">
+                        <strong className="text-slate-900">🌐 Regional Actors: </strong>
+                        <span className="text-slate-600">{selectedLocation.greatPowerDynamics.regional}</span>
+                      </div>
+                    )}
+                    {selectedLocation.greatPowerDynamics.global && (
+                      <div className="p-3 bg-white rounded-xl border border-slate-200">
+                        <strong className="text-slate-900">⚖️ Multilateral System: </strong>
+                        <span className="text-slate-600">{selectedLocation.greatPowerDynamics.global}</span>
                       </div>
                     )}
                   </div>
                 </div>
 
-                {/* Related Dossiers Link */}
-                {selectedLocation.relatedDossierSlugs && selectedLocation.relatedDossierSlugs.length > 0 && onNavigateDossier && (
-                  <div className="pt-2">
-                    <button
-                      onClick={() => onNavigateDossier(selectedLocation.relatedDossierSlugs![0])}
-                      className="w-full py-2.5 bg-teal-900 hover:bg-teal-800 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-xs cursor-pointer"
-                    >
-                      <span>Read Deep-Dive Intelligence Dossier</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                {/* Treaties and Accords */}
+                {selectedLocation.keyTreaties.length > 0 && (
+                  <div className="space-y-1.5">
+                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
+                      Governing Treaties & Accords:
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {selectedLocation.keyTreaties.map((t, idx) => (
+                        <span key={idx} className="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-[11px] font-semibold text-slate-800">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 )}
+
+                {/* Related Academic & Intelligence Links */}
+                <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+                  {onNavigateDiplomacy && (
+                    <button
+                      onClick={onNavigateDiplomacy}
+                      className="text-xs font-bold text-teal-900 hover:text-teal-700 flex items-center gap-1 cursor-pointer"
+                    >
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>Foreign Policy Desk</span>
+                    </button>
+                  )}
+                  {onNavigateFellowship && (
+                    <button
+                      onClick={onNavigateFellowship}
+                      className="text-xs font-bold text-teal-900 hover:text-teal-700 flex items-center gap-1 cursor-pointer"
+                    >
+                      <span>Study IR Fellowship Pillars</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
+
               </div>
             ) : (
-              <div className="p-12 text-center text-slate-500 space-y-2">
-                <Compass className="w-8 h-8 text-slate-600 mx-auto" />
-                <p className="text-xs">Select any pin on the map to inspect its strategic briefing.</p>
+              <div className="p-8 bg-white rounded-3xl border border-slate-200 text-center space-y-3">
+                <MapPin className="w-8 h-8 text-slate-400 mx-auto" />
+                <h3 className="font-bold text-slate-800 text-sm">Select Any Strategic Location</h3>
+                <p className="text-xs text-slate-500">
+                  Click any pin on the map or use the search bar to load the complete diplomatic and geopolitical intelligence briefing.
+                </p>
               </div>
             )}
           </div>
