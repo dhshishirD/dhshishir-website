@@ -17,9 +17,10 @@ import { LeadershipPage } from './components/pages/LeadershipPage';
 import { BlogPage } from './components/pages/BlogPage';
 import { ContactPage } from './components/pages/ContactPage';
 import { ToolsDirectoryPage } from './components/pages/ToolsDirectoryPage';
+import { FellowshipPage } from './components/pages/FellowshipPage';
 import { supabase } from './services/supabaseClient';
 import { syncLocalProfileToCloud } from './services/cloudProfileService';
-import { Globe, ArrowRight } from 'lucide-react';
+import { Globe, ArrowRight, GraduationCap } from 'lucide-react';
 
 export function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
@@ -34,7 +35,12 @@ export function App() {
     const hash = window.location.hash.toLowerCase();
 
     // Check pathname first (clean URLs)
-    if (path.startsWith('/diplomacy/') || hash.startsWith('#/diplomacy/')) {
+    if (path === '/fellowship' || path === '/ir-fellowship' || path === '/master-ir' || hash.startsWith('#/fellowship')) {
+      setActiveDossierSlug(null);
+      setCurrentView('fellowship');
+      setIsStandaloneTool(false);
+      document.title = "Open Master's Fellowship in International Relations & Strategic Studies | DH Shishir";
+    } else if (path.startsWith('/diplomacy/') || hash.startsWith('#/diplomacy/')) {
       const slug = path.replace('/diplomacy/', '') || hash.replace('#/diplomacy/', '');
       setActiveDossierSlug(slug);
       setCurrentView('diplomacy');
@@ -117,7 +123,10 @@ export function App() {
 
   const navigateTo = (view: ViewType, subParam?: string) => {
     let targetPath = '/';
-    if (view === 'diplomacy') {
+    if (view === 'fellowship') {
+      targetPath = '/fellowship';
+      setActiveDossierSlug(null);
+    } else if (view === 'diplomacy') {
       targetPath = subParam ? `/diplomacy/${subParam}` : '/diplomacy';
       if (subParam) setActiveDossierSlug(subParam);
       else setActiveDossierSlug(null);
@@ -153,12 +162,17 @@ export function App() {
     setCurrentView(view);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-white font-sans antialiased">
       <Navbar currentView={currentView} onNavigate={navigateTo} />
       
       <main>
-        {currentView === 'diplomacy' ? (
+        {currentView === 'fellowship' ? (
+          <FellowshipPage
+            onNavigateHome={() => navigateTo('home')}
+          />
+        ) : currentView === 'diplomacy' ? (
           activeDossierSlug ? (
             <DossierDetailPage
               slug={activeDossierSlug}
@@ -219,8 +233,34 @@ export function App() {
           <>
             <HeroSection onNavigate={navigateTo} />
             
+            {/* Featured IR Fellowship Academic Spotlight Banner on Homepage */}
+            <section className="py-12 bg-gradient-to-r from-slate-950 via-indigo-950/40 to-slate-950 border-y border-indigo-500/20">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="bg-slate-900/90 border border-indigo-500/40 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl shadow-indigo-950/60">
+                  <div className="space-y-2 text-center md:text-left">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
+                      <GraduationCap className="w-3.5 h-3.5 text-amber-400" /> Open Master's Fellowship (OMF-IRSS)
+                    </div>
+                    <h2 className="text-xl sm:text-2xl font-black text-white">
+                      Open Master's Fellowship in International Relations & Strategic Studies
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
+                      Master classical statecraft, cognitive political psychology, UNCLOS maritime law, and the post-2024 Bangladesh sovereign foreign policy paradigm. Earn verifiable credentials and academic transcripts.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => navigateTo('fellowship')}
+                    className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-xl shadow-indigo-900/40"
+                  >
+                    <span>Enter Master's Academy</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </section>
+
             {/* Featured Diplomatic Hub Spotlight Banner on Homepage */}
-            <section className="py-12 bg-gradient-to-r from-slate-950 via-cyan-950/30 to-slate-950 border-y border-cyan-500/20">
+            <section className="py-12 bg-gradient-to-r from-slate-950 via-cyan-950/30 to-slate-950 border-b border-cyan-500/20">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-slate-900/90 border border-cyan-500/40 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl shadow-cyan-950/60">
                   <div className="space-y-2 text-center md:text-left">

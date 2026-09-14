@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe } from 'lucide-react';
+import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, GraduationCap } from 'lucide-react';
 import { supabase } from '../services/supabaseClient';
 import { AuthModal } from './auth/AuthModal';
 
-export type ViewType = 'home' | 'diplomacy' | 'fluency-lab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard';
+export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'fluency-lab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard';
 
 interface NavbarProps {
   currentView?: ViewType;
@@ -69,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
             </button>
 
             {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center gap-4">
+            <nav className="hidden xl:flex items-center gap-3.5">
               <button
                 onClick={() => handleNavClick('home')}
                 className={`text-xs font-bold transition px-2.5 py-1.5 rounded-lg cursor-pointer ${
@@ -77,6 +77,20 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                 }`}
               >
                 Home
+              </button>
+
+              {/* IR Fellowship Link */}
+              <button
+                onClick={() => handleNavClick('fellowship')}
+                className={`text-xs font-bold transition px-3 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer border ${
+                  currentView === 'fellowship'
+                    ? 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40 shadow-sm shadow-indigo-950'
+                    : 'bg-indigo-950/40 text-indigo-400 hover:text-indigo-300 border-indigo-500/30 hover:bg-indigo-950/70'
+                }`}
+              >
+                <GraduationCap className="w-3.5 h-3.5 text-indigo-400" />
+                <span>IR Fellowship</span>
+                <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase">Master's</span>
               </button>
 
               <button
@@ -192,6 +206,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-slate-300 hover:bg-slate-900 hover:text-white transition cursor-pointer"
             >
               Home & Overview
+            </button>
+
+            <button
+              onClick={() => handleNavClick('fellowship')}
+              className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-indigo-300 bg-indigo-950/40 border border-indigo-500/30 flex items-center justify-between transition cursor-pointer"
+            >
+              <div className="flex items-center gap-2">
+                <GraduationCap className="w-4 h-4 text-indigo-400" />
+                <span>IR Master's Fellowship</span>
+              </div>
+              <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full">OPEN</span>
             </button>
 
             <button
