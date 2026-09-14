@@ -38,7 +38,7 @@ export const BlogSection: React.FC = () => {
                 </div>
 
                 <div className="p-6 space-y-3">
-                  <div className="flex items-center gap-3 text-xs text-slate-500">
+                  <div className="flex items-center gap-3 text-xs text-slate-600">
                     <span className="font-semibold text-teal-900">{post.category}</span>
                     <span>•</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {post.readTime}</span>
@@ -82,7 +82,7 @@ export const BlogSection: React.FC = () => {
               <div className="space-y-4">
                 <span className="text-xs font-bold text-teal-800 uppercase tracking-wider">{selectedPost.category}</span>
                 <h2 className="text-2xl font-black text-slate-900">{selectedPost.title}</h2>
-                <div className="text-xs text-slate-500">{selectedPost.date} • {selectedPost.readTime}</div>
+                <div className="text-xs text-slate-600">{selectedPost.date} • {selectedPost.readTime}</div>
 
                 <div className="text-sm text-slate-600 space-y-4 leading-relaxed whitespace-pre-line border-t border-slate-200 pt-4">
                   {selectedPost.content}

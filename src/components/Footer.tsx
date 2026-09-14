@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="bg-slate-50 border-t border-slate-200 py-12 text-slate-500 text-xs">
+    <footer className="bg-slate-50 border-t border-slate-200 py-12 text-slate-600 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -26,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="text-lg font-black text-slate-900">
               dhshishir<span className="text-teal-800">.com</span>
             </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               Official personal portal of <strong>Daloyar Hassan Shishir</strong> (???????? ????? ?????) ? Diplomatic Enthusiast & Policy Analyst, Fluency Lab Innovator & Educator.
             </p>
             <div className="flex items-center gap-3 pt-2">
@@ -129,7 +129,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
               <li>
-                <a href="/privacy.html" className="text-slate-500 hover:text-slate-500">
+                <a href="/privacy.html" className="text-slate-600 hover:text-slate-600">
                   Privacy Policy & Terms
                 </a>
               </li>
@@ -142,7 +142,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             ? {new Date().getFullYear()} dhshishir.com ? All Rights Reserved by Daloyar Hassan Shishir.
           </div>
-          <div className="text-slate-500">
+          <div className="text-slate-600">
             Strategic Foreign Policy Desk ? Fluency Lab Systems ? Career Innovation
           </div>
         </div>

@@ -55,7 +55,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
     <div className="space-y-8 max-w-5xl mx-auto">
 
       {/* Header Banner */}
-      <div className="bg-white border border-slate-200 border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold uppercase tracking-wider">
             <Compass className="w-3.5 h-3.5 text-teal-800" /> Stage 6 • Continuous Learning Loop
@@ -63,7 +63,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
             Personal Diagnostic Dashboard & Loop
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
             Close the loop on your pronunciation flaws. Track your recalibrated CEFR trajectory, launch targeted drills for flagged sound traps, and maintain your practice momentum.
           </p>
         </div>
@@ -83,7 +83,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
             <RotateCcw className="w-4 h-4 text-teal-800" />
             Interactive Looped Learning Cycle
           </div>
-          <span className="text-[11px] text-slate-500 font-medium">Click any node to navigate</span>
+          <span className="text-[11px] text-slate-600 font-medium">Click any node to navigate</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
@@ -97,7 +97,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
               <CheckCircle2 className="w-3.5 h-3.5 text-teal-800 shrink-0" />
               <span>Diagnose</span>
             </div>
-            <div className="text-[10px] text-slate-500">Placement Quiz</div>
+            <div className="text-[10px] text-slate-600">Placement Quiz</div>
           </button>
 
           <button
@@ -109,19 +109,19 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
               <BookOpen className="w-3.5 h-3.5 text-teal-800 shrink-0" />
               <span>Learn & Drill</span>
             </div>
-            <div className="text-[10px] text-slate-500">IPA & Minimal Pairs</div>
+            <div className="text-[10px] text-slate-600">IPA & Minimal Pairs</div>
           </button>
 
           <button
             onClick={() => onNavigateStage('stage3')}
             className="p-3.5 bg-white hover:bg-slate-50 rounded-2xl border border-purple-500/40 text-left space-y-1 transition cursor-pointer"
           >
-            <div className="text-[10px] font-bold text-purple-400">STAGE 3</div>
+            <div className="text-[10px] font-bold text-teal-800">STAGE 3</div>
             <div className="text-xs font-bold text-slate-900 flex items-center gap-1">
-              <Mic className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+              <Mic className="w-3.5 h-3.5 text-teal-800 shrink-0" />
               <span>Speak & Take</span>
             </div>
-            <div className="text-[10px] text-slate-500">Audio Comparison</div>
+            <div className="text-[10px] text-slate-600">Audio Comparison</div>
           </button>
 
           <button
@@ -133,7 +133,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
               <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               <span>Daily Practice</span>
             </div>
-            <div className="text-[10px] text-slate-500">Prompts & IELTS</div>
+            <div className="text-[10px] text-slate-600">Prompts & IELTS</div>
           </button>
 
           <button
@@ -145,10 +145,10 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
               <Activity className="w-3.5 h-3.5 text-teal-800 shrink-0" />
               <span>Get Feedback</span>
             </div>
-            <div className="text-[10px] text-slate-500">Speech Engine</div>
+            <div className="text-[10px] text-slate-600">Speech Engine</div>
           </button>
 
-          <div className="p-3.5 bg-gradient-to-br from-indigo-950/80 to-slate-900 rounded-2xl border border-indigo-400 ring-1 ring-indigo-400/40 text-left space-y-1 shadow-lg">
+          <div className="p-3.5 bg-white border border-slate-200 rounded-2xl border border-indigo-400 ring-1 ring-indigo-400/40 text-left space-y-1 shadow-lg">
             <div className="text-[10px] font-bold text-teal-900">STAGE 6</div>
             <div className="text-xs font-bold text-slate-900 flex items-center gap-1">
               <RotateCcw className="w-3.5 h-3.5 text-teal-900 shrink-0" />
@@ -165,7 +165,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
         
         {/* CEFR Level Card */}
         <div className="p-6 bg-white rounded-3xl border border-slate-200 space-y-2">
-          <div className="text-xs text-slate-500 font-medium">Verified CEFR Level</div>
+          <div className="text-xs text-slate-600 font-medium">Verified CEFR Level</div>
           <div className="text-3xl font-black text-teal-800 flex items-center gap-2">
             <span>{hasTakenTest ? profile.currentCefrLevel : 'Pending'}</span>
             {hasTakenTest && (
@@ -174,14 +174,14 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
               </span>
             )}
           </div>
-          <div className="text-xs text-slate-500">
+          <div className="text-xs text-slate-600">
             {hasTakenTest ? 'Standardized European Framework' : 'Take Stage 1 Quiz to calibrate'}
           </div>
         </div>
 
         {/* Accuracy Benchmark Delta */}
         <div className="p-6 bg-white rounded-3xl border border-slate-200 space-y-2">
-          <div className="text-xs text-slate-500 font-medium">Accuracy Benchmark</div>
+          <div className="text-xs text-slate-600 font-medium">Accuracy Benchmark</div>
           <div className="text-3xl font-black text-slate-900 flex items-center gap-2">
             <span>{hasTakenTest ? `${latestScore} / 10` : '—'}</span>
             {progressDelta > 0 && (
@@ -190,19 +190,19 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
               </span>
             )}
           </div>
-          <div className="text-xs text-slate-500">
+          <div className="text-xs text-slate-600">
             {hasTakenTest ? `${(latestScore / 10) * 100}% Diagnostic accuracy` : 'No test score recorded'}
           </div>
         </div>
 
         {/* Active Weak Traps */}
         <div className="p-6 bg-white rounded-3xl border border-slate-200 space-y-2">
-          <div className="text-xs text-slate-500 font-medium">Active Action Targets</div>
+          <div className="text-xs text-slate-600 font-medium">Active Action Targets</div>
           <div className="text-3xl font-black text-amber-400 flex items-center gap-2">
             <span>{weakList.length}</span>
-            <span className="text-xs text-slate-500 font-normal">sound patterns</span>
+            <span className="text-xs text-slate-600 font-normal">sound patterns</span>
           </div>
-          <div className="text-xs text-slate-500">
+          <div className="text-xs text-slate-600">
             Assigned for Stage 2 & Stage 3 calibration
           </div>
         </div>
@@ -216,7 +216,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
             <Target className="w-4 h-4 text-amber-400" />
             Your Targeted Action Drills (Direct Stage Jump)
           </h3>
-          <span className="text-xs text-slate-500">Auto-routed from your diagnosis</span>
+          <span className="text-xs text-slate-600">Auto-routed from your diagnosis</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -236,7 +236,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
                     <p className="text-xs text-slate-600 leading-relaxed font-bangla">
                       {info.banglaExplanation}
                     </p>
-                    <div className="text-[11px] text-slate-500 bg-white p-2.5 rounded-xl border border-slate-200 font-mono">
+                    <div className="text-[11px] text-slate-600 bg-white p-2.5 rounded-xl border border-slate-200 font-mono">
                       Trap Example: {info.exampleTrap}
                     </div>
                   </div>
@@ -264,7 +264,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
             <div className="p-6 bg-white rounded-2xl border border-teal-200 text-center space-y-2 col-span-2">
               <CheckCircle2 className="w-8 h-8 text-teal-800 mx-auto" />
               <div className="text-sm font-bold text-slate-900">No Phonetic Flaws Flagged!</div>
-              <p className="text-xs text-slate-500">You cleared placement checks with 100% clean articulation.</p>
+              <p className="text-xs text-slate-600">You cleared placement checks with 100% clean articulation.</p>
             </div>
           )}
         </div>
@@ -278,7 +278,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
               <Award className="w-4 h-4 text-amber-400" />
               Habit Momentum & Streak Milestones
             </h3>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-slate-600 mt-0.5">
               Consistent daily practice builds automatic neural pathways for clean pronunciation.
             </p>
           </div>
@@ -292,7 +292,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
 
         {/* Milestone Progress Bar */}
         <div className="space-y-2">
-          <div className="flex items-center justify-between text-xs text-slate-500 font-medium">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>{currentStreak} Days Completed</span>
             <span>{nextMilestone.days - currentStreak} Days to {nextMilestone.label}</span>
           </div>
@@ -319,7 +319,7 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
               >
                 <div className="text-2xl">{isUnlocked ? '🏆' : '🔒'}</div>
                 <div className="text-xs font-bold text-slate-900">{m.days} Days</div>
-                <div className="text-[10px] text-slate-500">{m.label}</div>
+                <div className="text-[10px] text-slate-600">{m.label}</div>
               </div>
             );
           })}
@@ -327,20 +327,20 @@ export const DashboardLoopHub: React.FC<DashboardLoopHubProps> = ({ onNavigateSt
       </div>
 
       {/* Placement Quiz Recalibration Action */}
-      <div className="p-6 bg-gradient-to-r from-indigo-950/60 via-slate-900 to-indigo-950/60 rounded-3xl border border-teal-200 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-2xl">
+      <div className="p-6 bg-white border border-slate-200 rounded-3xl border border-teal-200 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-2xl">
         <div className="space-y-1 text-center sm:text-left">
           <div className="text-sm font-bold text-slate-900 flex items-center justify-center sm:justify-start gap-2">
             <Sparkles className="w-4 h-4 text-teal-800" />
             Recalibrate Your Diagnostic Benchmark
           </div>
-          <p className="text-xs text-slate-500 max-w-lg">
+          <p className="text-xs text-slate-600 max-w-lg">
             Ready to test if your weak areas have resolved? Retake the Stage 1 placement quiz to measure your updated CEFR score and accuracy gains.
           </p>
         </div>
 
         <button
           onClick={() => onNavigateStage('stage1')}
-          className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 text-slate-900 rounded-2xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer whitespace-nowrap"
+          className="px-6 py-3 bg-white border border-slate-200 hover:from-emerald-500 hover:to-indigo-500 text-slate-900 rounded-2xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer whitespace-nowrap"
         >
           <RotateCcw className="w-4 h-4" />
           <span>Retake Placement Quiz</span>

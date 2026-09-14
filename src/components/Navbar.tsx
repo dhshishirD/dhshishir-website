@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                 <div className="text-lg font-extrabold tracking-tight text-slate-900 flex items-center gap-1.5">
                   dhshishir<span className="text-teal-800">.com</span>
                 </div>
-                <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 tracking-wider uppercase">
+                <div className="text-[10px] sm:text-[11px] font-semibold text-slate-600 tracking-wider uppercase">
                   Daloyar Hassan Shishir
                 </div>
               </div>

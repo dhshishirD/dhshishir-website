@@ -26,7 +26,7 @@ export const IeltsScoreEstimator: React.FC = () => {
           <h3 className="text-xl md:text-2xl font-bold text-slate-900">
             IELTS Study Plan & Target Band Predictor
           </h3>
-          <p className="text-sm text-slate-500">Calculate realistic preparation time based on your target score.</p>
+          <p className="text-sm text-slate-600">Calculate realistic preparation time based on your target score.</p>
         </div>
       </div>
 
@@ -45,7 +45,7 @@ export const IeltsScoreEstimator: React.FC = () => {
               onChange={(e) => setTargetBand(parseFloat(e.target.value))}
               className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-emerald-500"
             />
-            <div className="flex justify-between text-xs text-slate-500 mt-1">
+            <div className="flex justify-between text-xs text-slate-600 mt-1">
               <span>Band 5.5</span>
               <span>Band 6.5</span>
               <span>Band 7.5</span>
@@ -60,7 +60,7 @@ export const IeltsScoreEstimator: React.FC = () => {
             <select
               value={currentLevel}
               onChange={(e) => setCurrentLevel(e.target.value)}
-              className="w-full bg-slate-100 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-emerald-500"
+              className="w-full bg-slate-100 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-teal-200"
             >
               <option>Beginner (Need grammar & basic vocab guidance)</option>
               <option>Intermediate (SSC/HSC standard, can understand basic English)</option>
@@ -80,7 +80,7 @@ export const IeltsScoreEstimator: React.FC = () => {
                   className={`py-2 px-1 text-center rounded-xl text-xs font-bold transition cursor-pointer ${
                     dailyHours === hr
                       ? 'bg-indigo-600 text-slate-900 shadow-lg'
-                      : 'bg-slate-100 text-slate-500 hover:bg-slate-700'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-700'
                   }`}
                 >
                   {hr} {hr === 1 ? 'Hr' : 'Hrs'}
@@ -97,7 +97,7 @@ export const IeltsScoreEstimator: React.FC = () => {
               <div className="text-2xl md:text-3xl font-extrabold text-slate-900">
                 Timeline: <span className="text-teal-800">{getRecommendedMonths()}</span>
               </div>
-              <p className="text-xs text-slate-500 mt-1">Based on daily {dailyHours} hours focused Cambridge practice.</p>
+              <p className="text-xs text-slate-600 mt-1">Based on daily {dailyHours} hours focused Cambridge practice.</p>
             </div>
 
             <div className="space-y-2 pt-2 text-xs text-slate-600">
@@ -121,7 +121,7 @@ export const IeltsScoreEstimator: React.FC = () => {
               href="https://10minuteschool.com/skills/courses/ielts-course-by-munzereen-shahid?aff=dhshishir"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-slate-900 rounded-xl font-bold flex items-center justify-center gap-2 text-sm shadow-lg transition"
+              className="w-full py-3 bg-white border border-slate-200 hover:from-emerald-500 hover:to-teal-500 text-slate-900 rounded-xl font-bold flex items-center justify-center gap-2 text-sm shadow-lg transition"
             >
               Explore 10MS IELTS Course <ArrowRight className="w-4 h-4" />
             </a>

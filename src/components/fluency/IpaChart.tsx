@@ -46,7 +46,7 @@ export const IpaChart: React.FC = () => {
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
               selectedCategory === cat.key
                 ? 'bg-indigo-600 text-slate-900 shadow-md shadow-xs'
-                : 'bg-white text-slate-500 border border-slate-200 hover:text-slate-900 hover:border-slate-200'
+                : 'bg-white text-slate-600 border border-slate-200 hover:text-slate-900 hover:border-slate-200'
             }`}
           >
             {cat.label}
@@ -61,7 +61,7 @@ export const IpaChart: React.FC = () => {
             <h3 className="text-sm font-bold text-slate-600 uppercase tracking-wider flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-teal-800" /> Interactive Sound Matrix
             </h3>
-            <span className="text-xs text-slate-500">{filteredPhonemes.length} Phonemes</span>
+            <span className="text-xs text-slate-600">{filteredPhonemes.length} Phonemes</span>
           </div>
 
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
@@ -80,7 +80,7 @@ export const IpaChart: React.FC = () => {
                   <span className={`text-xl sm:text-2xl font-black ${isSelected ? 'text-slate-900' : 'text-teal-800 group-hover:text-teal-900'}`}>
                     {phoneme.symbol}
                   </span>
-                  <span className="text-[10px] font-medium text-slate-500 truncate max-w-full">
+                  <span className="text-[10px] font-medium text-slate-600 truncate max-w-full">
                     {phoneme.exampleWords[0]?.word}
                   </span>
                   <Volume2 className={`w-3.5 h-3.5 opacity-60 group-hover:opacity-100 ${isSelected ? 'text-slate-900' : 'text-teal-800'}`} />
@@ -91,7 +91,7 @@ export const IpaChart: React.FC = () => {
         </div>
 
         {/* Phoneme Detail & 3 Example Words Card (Right 5 Cols) */}
-        <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-indigo-950/40 border border-teal-200 rounded-3xl p-6 shadow-2xl space-y-6">
+        <div className="lg:col-span-5 bg-white border border-slate-200 border border-teal-200 rounded-3xl p-6 shadow-2xl space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-4">
             <div>
               <div className="flex items-center gap-2">
@@ -106,13 +106,13 @@ export const IpaChart: React.FC = () => {
               <h4 className="text-xl font-black text-slate-900 mt-1.5 flex items-center gap-2">
                 <span className="text-teal-800 text-2xl font-mono">{activePhoneme.symbol}</span>
               </h4>
-              <p className="text-xs text-slate-500 mt-0.5">{activePhoneme.name}</p>
+              <p className="text-xs text-slate-600 mt-0.5">{activePhoneme.name}</p>
             </div>
 
             {/* Standalone Isolated Phoneme Sound Button */}
             <button
               onClick={() => handlePlayIsolatedSound(activePhoneme)}
-              className="px-4 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold flex flex-col items-center justify-center shadow-lg shadow-xs transition cursor-pointer"
+              className="px-4 py-3 rounded-2xl bg-white border border-slate-200 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold flex flex-col items-center justify-center shadow-lg shadow-xs transition cursor-pointer"
               title="Play Isolated Phoneme Sound"
             >
               <Volume2 className="w-5 h-5" />
@@ -132,7 +132,7 @@ export const IpaChart: React.FC = () => {
 
           {/* 3 Real Example Words with Click-to-Hear Audio */}
           <div className="space-y-2.5">
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+            <div className="text-xs font-bold text-slate-600 uppercase tracking-wider">
               3 Example Words (Click to Hear):
             </div>
             
@@ -143,7 +143,7 @@ export const IpaChart: React.FC = () => {
                   <div
                     key={index}
                     onClick={() => handlePlayWord(item.word)}
-                    className="p-3 bg-white border border-slate-200 hover:border-emerald-500/50 rounded-xl flex items-center justify-between group transition cursor-pointer"
+                    className="p-3 bg-white border border-slate-200 hover:border-teal-200/50 rounded-xl flex items-center justify-between group transition cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-7 h-7 rounded-lg bg-teal-50 text-teal-800 border border-teal-200 flex items-center justify-center font-bold text-xs">
@@ -153,8 +153,8 @@ export const IpaChart: React.FC = () => {
                         <div className="text-sm font-bold text-slate-900 group-hover:text-teal-900 transition">
                           {item.word}
                         </div>
-                        <div className="text-[11px] text-slate-500 font-mono">
-                          {item.ipa} {item.meaningBn && <span className="text-slate-500 font-bangla">• {item.meaningBn}</span>}
+                        <div className="text-[11px] text-slate-600 font-mono">
+                          {item.ipa} {item.meaningBn && <span className="text-slate-600 font-bangla">• {item.meaningBn}</span>}
                         </div>
                       </div>
                     </div>
@@ -163,7 +163,7 @@ export const IpaChart: React.FC = () => {
                       className={`p-2 rounded-lg transition ${
                         isItemPlaying 
                           ? 'bg-emerald-500 text-slate-950' 
-                          : 'bg-white text-slate-500 group-hover:text-slate-900 group-hover:bg-indigo-600'
+                          : 'bg-white text-slate-600 group-hover:text-slate-900 group-hover:bg-indigo-600'
                       }`}
                     >
                       <Volume2 className="w-4 h-4" />

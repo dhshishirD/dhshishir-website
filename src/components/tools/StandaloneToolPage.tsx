@@ -173,7 +173,7 @@ export const StandaloneToolPage: React.FC<StandaloneToolPageProps> = ({
 
         {/* Quick Tool Selector Pills */}
         <div className="space-y-3">
-          <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+          <div className="text-xs font-bold uppercase tracking-wider text-slate-600">
             Available Free Interactive Tools:
           </div>
           <div className="flex flex-wrap gap-2">
@@ -186,8 +186,8 @@ export const StandaloneToolPage: React.FC<StandaloneToolPageProps> = ({
                   onClick={() => onSelectTool(t.id)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition cursor-pointer ${
                     isCurrent
-                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-slate-900 shadow-lg shadow-xs border border-indigo-400/40'
-                      : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
+                      ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs border border-indigo-400/40'
+                      : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -212,7 +212,7 @@ export const StandaloneToolPage: React.FC<StandaloneToolPageProps> = ({
             <h4 className="text-lg font-bold text-slate-900">
               Need 1-on-1 Guidance for IELTS, Admission English, or ATS CV Review?
             </h4>
-            <p className="text-xs text-slate-500 max-w-xl">
+            <p className="text-xs text-slate-600 max-w-xl">
               Senior Lecturer at UCC (7+ years), China 2025 Delegate, Malaysia 2026 Fellow, and SUST English Alumnus. Connect directly for personal mentoring.
             </p>
           </div>
@@ -220,7 +220,7 @@ export const StandaloneToolPage: React.FC<StandaloneToolPageProps> = ({
             href={SOCIAL_LINKS.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 text-slate-900 font-bold text-xs shadow-xl transition whitespace-nowrap flex items-center gap-2"
+            className="px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 font-bold text-xs shadow-xl transition whitespace-nowrap flex items-center gap-2"
           >
             Connect on Facebook <ExternalLink className="w-3.5 h-3.5" />
           </a>

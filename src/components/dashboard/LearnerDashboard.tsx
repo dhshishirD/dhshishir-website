@@ -80,8 +80,8 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
                   Cloud Verified Student
                 </span>
               </div>
-              <p className="text-xs text-slate-500">{user?.email}</p>
-              <div className="text-[11px] text-slate-500 flex items-center gap-1">
+              <p className="text-xs text-slate-600">{user?.email}</p>
+              <div className="text-[11px] text-slate-600 flex items-center gap-1">
                 <Calendar className="w-3 h-3" /> Member since {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
               </div>
             </div>
@@ -104,29 +104,29 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
         {/* Level & Diagnostic Snapshot */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           <div className="p-5 bg-white rounded-2xl border border-slate-200 space-y-1">
-            <div className="text-xs text-slate-500 font-medium">Placement CEFR Level</div>
+            <div className="text-xs text-slate-600 font-medium">Placement CEFR Level</div>
             <div className="text-3xl font-black text-teal-800">
               {hasTakenTest ? profile.current_cefr_level : 'Pending'}
             </div>
-            <div className="text-[11px] text-slate-500">
+            <div className="text-[11px] text-slate-600">
               {hasTakenTest ? 'Verified Fluency Benchmark' : 'Take Stage 1 placement quiz to calibrate'}
             </div>
           </div>
 
           <div className="p-5 bg-white rounded-2xl border border-slate-200 space-y-1">
-            <div className="text-xs text-slate-500 font-medium">Latest Score</div>
+            <div className="text-xs text-slate-600 font-medium">Latest Score</div>
             <div className="text-3xl font-black text-slate-900">
               {hasTakenTest ? `${profile.latest_score} / 10` : '—'}
             </div>
-            <div className="text-[11px] text-slate-500">
+            <div className="text-[11px] text-slate-600">
               {hasTakenTest ? `${(profile.latest_score / 10) * 100}% Accuracy Benchmark` : 'No score recorded yet'}
             </div>
           </div>
 
           <div className="p-5 bg-white rounded-2xl border border-slate-200 space-y-1">
-            <div className="text-xs text-slate-500 font-medium">Active Action Targets</div>
+            <div className="text-xs text-slate-600 font-medium">Active Action Targets</div>
             <div className="text-3xl font-black text-amber-400">{weakList.length}</div>
-            <div className="text-[11px] text-slate-500">
+            <div className="text-[11px] text-slate-600">
               {weakList.length > 0 ? 'Assigned for Stage 2 & 3 drills' : 'No weak patterns identified'}
             </div>
           </div>
@@ -139,7 +139,7 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
               <AlertTriangle className="w-4 h-4 text-amber-400" />
               Your Personal Weak Areas & Targeted Drills
             </h3>
-            <span className="text-xs text-slate-500">Synced from your placement quiz</span>
+            <span className="text-xs text-slate-600">Synced from your placement quiz</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -156,8 +156,8 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
                     <p className="text-xs text-slate-600 leading-relaxed font-bangla">
                       {info.banglaExplanation}
                     </p>
-                    <div className="text-[11px] text-slate-500 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-                      <span className="text-slate-500 font-semibold">Trap: </span>
+                    <div className="text-[11px] text-slate-600 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                      <span className="text-slate-600 font-semibold">Trap: </span>
                       <span className="text-slate-600 font-mono">{info.exampleTrap}</span>
                     </div>
                   </div>
@@ -167,13 +167,13 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
               <div className="p-6 bg-white rounded-2xl border border-teal-200 text-center space-y-2 col-span-2">
                 <CheckCircle2 className="w-8 h-8 text-teal-800 mx-auto" />
                 <div className="text-sm font-bold text-slate-900">No Phonetic Flaws Flagged!</div>
-                <p className="text-xs text-slate-500">You cleared placement checks with 100% clean articulation.</p>
+                <p className="text-xs text-slate-600">You cleared placement checks with 100% clean articulation.</p>
               </div>
             ) : (
               <div className="p-6 bg-white rounded-2xl border border-slate-200 text-center space-y-3 col-span-2">
                 <AlertTriangle className="w-8 h-8 text-amber-400 mx-auto" />
                 <div className="text-sm font-bold text-slate-900">Placement Test Pending</div>
-                <p className="text-xs text-slate-500 max-w-md mx-auto">
+                <p className="text-xs text-slate-600 max-w-md mx-auto">
                   Complete the 10-question placement quiz in Stage 1 to identify your specific phonetic weak areas and calibrate your learning path.
                 </p>
                 <button
@@ -212,18 +212,18 @@ export const LearnerDashboard: React.FC<LearnerDashboardProps> = ({
                         CEFR {record.cefr_level}
                       </span>
                     </div>
-                    <div className="text-[11px] text-slate-500 mt-0.5">
+                    <div className="text-[11px] text-slate-600 mt-0.5">
                       Reading: {record.reading_score} • Listening: {record.listening_score} • Speaking: {record.speaking_score}
                     </div>
                   </div>
-                  <div className="text-slate-500 text-[11px]">
+                  <div className="text-slate-600 text-[11px]">
                     {new Date(record.completed_at || record.created_at).toLocaleDateString()}
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="p-6 bg-slate-50 rounded-xl text-center text-xs text-slate-500 space-y-2">
+            <div className="p-6 bg-slate-50 rounded-xl text-center text-xs text-slate-600 space-y-2">
               <div>No previous test history found in cloud.</div>
               <button
                 onClick={() => onNavigateStage('stage1')}

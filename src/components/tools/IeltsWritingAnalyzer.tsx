@@ -53,7 +53,7 @@ export const IeltsWritingAnalyzer: React.FC = () => {
             IELTS Writing Task 2 Evaluator & Word Counter
             <span className="text-xs bg-teal-50 text-teal-900 border border-teal-200 px-2 py-0.5 rounded-full font-medium">Official Rubric</span>
           </h3>
-          <p className="text-sm text-slate-500">Evaluate word count, paragraphing structure, cohesive devices, and estimated band rating for your essay.</p>
+          <p className="text-sm text-slate-600">Evaluate word count, paragraphing structure, cohesive devices, and estimated band rating for your essay.</p>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ export const IeltsWritingAnalyzer: React.FC = () => {
               placeholder="e.g. Some people believe that university education should be free for all students. Discuss both views and give your opinion."
               value={prompt}
               onChange={e => setPrompt(e.target.value)}
-              className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+              className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
             />
           </div>
 
@@ -86,7 +86,7 @@ export const IeltsWritingAnalyzer: React.FC = () => {
                 setEssay(e.target.value);
                 if (analyzed) setAnalyzed(false);
               }}
-              className="w-full bg-white border border-slate-200 rounded-xl p-4 text-xs sm:text-sm text-slate-900 focus:border-emerald-500 outline-none leading-relaxed font-sans"
+              className="w-full bg-white border border-slate-200 rounded-xl p-4 text-xs sm:text-sm text-slate-900 focus:border-teal-200 outline-none leading-relaxed font-sans"
             />
           </div>
 
@@ -111,31 +111,31 @@ export const IeltsWritingAnalyzer: React.FC = () => {
 
           <div className="grid grid-cols-2 gap-3 text-xs">
             <div className="p-3 bg-white rounded-xl border border-slate-200">
-              <div className="text-slate-500">Total Words</div>
+              <div className="text-slate-600">Total Words</div>
               <div className={`text-xl font-black ${words >= 250 ? 'text-teal-800' : 'text-amber-400'}`}>
                 {words}
               </div>
-              <div className="text-[10px] text-slate-500">{words >= 250 ? '✓ Meets minimum' : '⚠️ Under 250 penalty'}</div>
+              <div className="text-[10px] text-slate-600">{words >= 250 ? '✓ Meets minimum' : '⚠️ Under 250 penalty'}</div>
             </div>
 
             <div className="p-3 bg-white rounded-xl border border-slate-200">
-              <div className="text-slate-500">Paragraphs</div>
+              <div className="text-slate-600">Paragraphs</div>
               <div className={`text-xl font-black ${paragraphs >= 4 && paragraphs <= 5 ? 'text-teal-800' : 'text-teal-800'}`}>
                 {paragraphs}
               </div>
-              <div className="text-[10px] text-slate-500">{paragraphs === 4 || paragraphs === 5 ? '✓ Ideal (Intro + 2 Body + Concl)' : 'Aim for 4-5 paragraphs'}</div>
+              <div className="text-[10px] text-slate-600">{paragraphs === 4 || paragraphs === 5 ? '✓ Ideal (Intro + 2 Body + Concl)' : 'Aim for 4-5 paragraphs'}</div>
             </div>
 
             <div className="p-3 bg-white rounded-xl border border-slate-200">
-              <div className="text-slate-500">Total Sentences</div>
+              <div className="text-slate-600">Total Sentences</div>
               <div className="text-xl font-black text-slate-900">{sentences}</div>
-              <div className="text-[10px] text-slate-500">Avg {avgSentenceLength} words/sentence</div>
+              <div className="text-[10px] text-slate-600">Avg {avgSentenceLength} words/sentence</div>
             </div>
 
             <div className="p-3 bg-white rounded-xl border border-slate-200">
-              <div className="text-slate-500">Cohesive Devices</div>
+              <div className="text-slate-600">Cohesive Devices</div>
               <div className="text-xl font-black text-teal-800">{foundLinkingWords.length}</div>
-              <div className="text-[10px] text-slate-500">Transitions identified</div>
+              <div className="text-[10px] text-slate-600">Transitions identified</div>
             </div>
           </div>
 
@@ -150,13 +150,13 @@ export const IeltsWritingAnalyzer: React.FC = () => {
                 ))}
               </div>
             ) : (
-              <p className="text-xs text-slate-500">None detected yet. Include transitions like "Furthermore", "However", "In conclusion".</p>
+              <p className="text-xs text-slate-600">None detected yet. Include transitions like "Furthermore", "However", "In conclusion".</p>
             )}
           </div>
 
           <div className="pt-3 border-t border-slate-200 space-y-2 text-xs">
             <div className="text-slate-600 font-semibold">Examiner Recommendations:</div>
-            <ul className="space-y-1.5 text-slate-500 text-[11px]">
+            <ul className="space-y-1.5 text-slate-600 text-[11px]">
               <li className="flex items-start gap-1.5">
                 <CheckCircle className="w-3.5 h-3.5 text-teal-800 shrink-0 mt-0.5" />
                 <span>Keep introduction concise (Paraphrase prompt + clear Thesis statement).</span>

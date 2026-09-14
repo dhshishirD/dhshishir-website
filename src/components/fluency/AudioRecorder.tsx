@@ -210,14 +210,14 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
                 return (
                   <div
                     key={i}
-                    className="w-1.5 rounded-full bg-gradient-to-t from-rose-500 via-amber-400 to-emerald-400 transition-all duration-75"
+                    className="w-1.5 rounded-full bg-white border border-slate-200 transition-all duration-75"
                     style={{ height: `${heightPercent}%` }}
                   />
                 );
               })}
             </div>
-            <div className="flex items-center justify-center gap-2 text-rose-400 font-mono text-sm font-bold animate-pulse">
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
+            <div className="flex items-center justify-center gap-2 text-teal-900 font-mono text-sm font-bold animate-pulse">
+              <span className="w-2.5 h-2.5 rounded-full bg-teal-700 animate-ping" />
               <span>RECORDING • {formatTime(duration)}</span>
             </div>
           </div>
@@ -226,12 +226,12 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
             <div className="text-teal-800 font-bold text-sm flex items-center justify-center gap-1.5">
               <Volume2 className="w-4 h-4" /> Recording Ready ({formatTime(duration)})
             </div>
-            <p className="text-slate-500 text-xs">Play back below to compare your articulation with the studio model.</p>
+            <p className="text-slate-600 text-xs">Play back below to compare your articulation with the studio model.</p>
           </div>
         ) : (
           <div className="space-y-1">
             <div className="text-slate-600 font-bold text-sm">Microphone Ready</div>
-            <p className="text-slate-500 text-xs">Press the button below, speak the phrase clearly, and press stop.</p>
+            <p className="text-slate-600 text-xs">Press the button below, speak the phrase clearly, and press stop.</p>
           </div>
         )}
 
@@ -241,7 +241,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
             <button
               onClick={startRecording}
               disabled={isRecordingDisabled}
-              className="px-6 py-3.5 bg-gradient-to-r from-rose-600 to-red-500 hover:from-rose-500 hover:to-red-400 disabled:opacity-50 text-slate-900 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer"
+              className="px-6 py-3.5 bg-teal-900 hover:bg-teal-800 disabled:opacity-50 text-white rounded-2xl font-bold text-sm flex items-center gap-2 shadow-xs transition transform active:scale-95 cursor-pointer"
             >
               <Mic className="w-4 h-4" />
               <span>Start Recording Take</span>
@@ -251,7 +251,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
           {recordingState === 'requesting' && (
             <button
               disabled
-              className="px-6 py-3.5 bg-slate-100 text-slate-500 rounded-2xl font-bold text-sm flex items-center gap-2 cursor-wait"
+              className="px-6 py-3.5 bg-slate-100 text-slate-600 rounded-2xl font-bold text-sm flex items-center gap-2 cursor-wait"
             >
               <Mic className="w-4 h-4 animate-spin" />
               <span>Accessing Mic...</span>

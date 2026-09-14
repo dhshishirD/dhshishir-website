@@ -146,7 +146,7 @@ export const MinimalPairsTrainer: React.FC = () => {
               <Sparkles className="w-4 h-4 text-teal-800" />
               {categories.find(c => c.key === activeCategory)?.label} Drill Set
             </h3>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-slate-600">
               {isClusterCategory 
                 ? 'Single-Word Cluster Preservation: Pay close attention to word-final consonant bursts without dropping endings.' 
                 : 'Click individual words or "Compare" to hear how native speakers articulate the subtle phonetic contrast.'}
@@ -160,14 +160,14 @@ export const MinimalPairsTrainer: React.FC = () => {
                 return (
                   <div
                     key={pair.id}
-                    className="bg-white border border-teal-200 hover:border-indigo-500/50 rounded-2xl p-4 transition space-y-3"
+                    className="bg-white border border-teal-200 hover:border-teal-200/50 rounded-2xl p-4 transition space-y-3"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <span className="w-6 h-6 rounded-lg bg-teal-50 text-teal-800 text-xs font-bold flex items-center justify-center">
                           {index + 1}
                         </span>
-                        <span className="text-xs font-bold text-slate-500">Full Cluster Preservation</span>
+                        <span className="text-xs font-bold text-slate-600">Full Cluster Preservation</span>
                       </div>
                       <span className="text-[11px] font-mono text-teal-800 px-2 py-0.5 rounded bg-teal-50 border border-teal-200">
                         {pair.phonemeA}
@@ -210,7 +210,7 @@ export const MinimalPairsTrainer: React.FC = () => {
                   className="bg-white border border-slate-200 hover:border-slate-200 rounded-2xl p-4 transition space-y-3"
                 >
                   <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-                    <span className="text-xs font-bold text-slate-500">Pair #{index + 1}</span>
+                    <span className="text-xs font-bold text-slate-600">Pair #{index + 1}</span>
                     <button
                       onClick={() => handlePlayComparison(pair)}
                       className="text-xs font-bold text-teal-800 hover:text-teal-900 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-teal-50 border border-teal-200 transition cursor-pointer"
@@ -223,7 +223,7 @@ export const MinimalPairsTrainer: React.FC = () => {
                     {/* Word A */}
                     <button
                       onClick={() => handlePlaySingle(pair.wordA)}
-                      className="p-3 bg-white hover:bg-indigo-950/40 border border-slate-200 hover:border-teal-200 rounded-xl text-left transition group cursor-pointer flex items-center justify-between"
+                      className="p-3 bg-white hover:bg-white border border-slate-200 hover:border-teal-200 rounded-xl text-left transition group cursor-pointer flex items-center justify-between"
                     >
                       <div>
                         <div className="text-base font-black text-slate-900 group-hover:text-teal-900 transition">
@@ -239,7 +239,7 @@ export const MinimalPairsTrainer: React.FC = () => {
                     {/* Word B */}
                     <button
                       onClick={() => handlePlaySingle(pair.wordB)}
-                      className="p-3 bg-white hover:bg-indigo-950/40 border border-slate-200 hover:border-teal-200 rounded-xl text-left transition group cursor-pointer flex items-center justify-between"
+                      className="p-3 bg-white hover:bg-white border border-slate-200 hover:border-teal-200 rounded-xl text-left transition group cursor-pointer flex items-center justify-between"
                     >
                       <div>
                         <div className="text-base font-black text-slate-900 group-hover:text-teal-900 transition">
@@ -290,7 +290,7 @@ export const MinimalPairsTrainer: React.FC = () => {
                 >
                   <Volume2 className="w-9 h-9" />
                 </button>
-                <div className="text-xs text-slate-500">
+                <div className="text-xs text-slate-600">
                   Click the button above to replay the word
                 </div>
               </div>
@@ -302,13 +302,13 @@ export const MinimalPairsTrainer: React.FC = () => {
                   disabled={selectedAnswer !== null}
                   className={`p-5 rounded-2xl border text-center transition font-black text-xl cursor-pointer ${
                     selectedAnswer === null
-                      ? 'bg-white border-slate-200 text-slate-900 hover:border-indigo-500 hover:bg-white'
+                      ? 'bg-white border-slate-200 text-slate-900 hover:border-teal-200 hover:bg-white'
                       : selectedAnswer === currentPair.wordA
                         ? isCorrect
-                          ? 'bg-emerald-600/30 border-emerald-500 text-teal-900'
+                          ? 'bg-emerald-600/30 border-teal-200 text-teal-900'
                           : 'bg-red-600/30 border-red-500 text-red-300'
                         : currentPair.wordA === targetWord
-                          ? 'bg-emerald-600/20 border-emerald-500/50 text-teal-800'
+                          ? 'bg-emerald-600/20 border-teal-200/50 text-teal-800'
                           : 'bg-white border-slate-200 text-slate-600'
                   }`}
                 >
@@ -321,13 +321,13 @@ export const MinimalPairsTrainer: React.FC = () => {
                   disabled={selectedAnswer !== null}
                   className={`p-5 rounded-2xl border text-center transition font-black text-xl cursor-pointer ${
                     selectedAnswer === null
-                      ? 'bg-white border-slate-200 text-slate-900 hover:border-indigo-500 hover:bg-white'
+                      ? 'bg-white border-slate-200 text-slate-900 hover:border-teal-200 hover:bg-white'
                       : selectedAnswer === currentPair.wordB
                         ? isCorrect
-                          ? 'bg-emerald-600/30 border-emerald-500 text-teal-900'
+                          ? 'bg-emerald-600/30 border-teal-200 text-teal-900'
                           : 'bg-red-600/30 border-red-500 text-red-300'
                         : currentPair.wordB === targetWord
-                          ? 'bg-emerald-600/20 border-emerald-500/50 text-teal-800'
+                          ? 'bg-emerald-600/20 border-teal-200/50 text-teal-800'
                           : 'bg-white border-slate-200 text-slate-600'
                   }`}
                 >
@@ -368,7 +368,7 @@ export const MinimalPairsTrainer: React.FC = () => {
           ) : (
             /* Game Over Scorecard */
             <div className="text-center py-6 space-y-6">
-              <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-indigo-500 to-emerald-500 p-0.5 flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto rounded-3xl bg-white border border-slate-200 p-0.5 flex items-center justify-center">
                 <div className="w-full h-full bg-white rounded-[22px] flex items-center justify-center">
                   <Award className="w-10 h-10 text-teal-800" />
                 </div>
@@ -376,7 +376,7 @@ export const MinimalPairsTrainer: React.FC = () => {
 
               <div className="space-y-2">
                 <h4 className="text-2xl font-black text-slate-900">Round Completed!</h4>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-slate-600">
                   You scored <span className="font-bold text-teal-800">{gameScore}</span> out of <span className="font-bold text-slate-900">{categoryPairs.length}</span> in {categories.find(c => c.key === activeCategory)?.label}.
                 </p>
               </div>

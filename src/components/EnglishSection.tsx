@@ -19,7 +19,7 @@ export const EnglishSection: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
             Practical English Study Guides
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             Designed specifically to overcome common challenges faced by Bangladeshi learners.
           </p>
         </div>
@@ -32,7 +32,7 @@ export const EnglishSection: React.FC = () => {
               className={`px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition cursor-pointer ${
                 activeCategory === cat
                   ? 'bg-emerald-600 text-white shadow-lg shadow-xs border border-emerald-400/40'
-                  : 'bg-white text-slate-500 hover:text-slate-800 border border-slate-200'
+                  : 'bg-white text-slate-600 hover:text-slate-800 border border-slate-200'
               }`}
             >
               {cat}
@@ -43,8 +43,8 @@ export const EnglishSection: React.FC = () => {
         <div className="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 backdrop-blur-xl">
           <div className="mb-6 pb-4 border-b border-slate-200">
             <h3 className="text-xl md:text-2xl font-bold text-slate-900">{activeResource.title}</h3>
-            <p className="text-sm text-slate-500 mt-1">{activeResource.subtitle}</p>
-            <p className="text-xs text-teal-800 mt-2 font-medium bg-emerald-950/40 inline-block px-3 py-1 rounded-lg border border-emerald-900/40">
+            <p className="text-sm text-slate-600 mt-1">{activeResource.subtitle}</p>
+            <p className="text-xs text-teal-800 mt-2 font-medium bg-white inline-block px-3 py-1 rounded-lg border border-emerald-900/40">
               💡 {activeResource.banglaContext}
             </p>
           </div>
@@ -65,7 +65,7 @@ export const EnglishSection: React.FC = () => {
                 <div className="text-xs text-slate-600 font-medium pl-6">
                   {item.banglaMeaning}
                 </div>
-                <div className="text-[11px] text-slate-500 bg-white p-2 rounded-xl border border-slate-200">
+                <div className="text-[11px] text-slate-600 bg-white p-2 rounded-xl border border-slate-200">
                   <span className="font-semibold text-teal-800">Explanation:</span> {item.tip}
                 </div>
               </div>
@@ -73,14 +73,14 @@ export const EnglishSection: React.FC = () => {
           </div>
 
           <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-xs text-slate-500 text-center sm:text-left">
+            <div className="text-xs text-slate-600 text-center sm:text-left">
               Want a comprehensive Spoken English course with Munzereen Shahid?
             </div>
             <a
               href="https://10minuteschool.com/skills/courses/ghore-boshe-spoken-english?aff=dhshishir"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 text-slate-900 font-bold text-xs flex items-center gap-2 shadow-lg"
+              className="px-6 py-2.5 rounded-xl bg-white border border-slate-200 hover:opacity-95 text-slate-900 font-bold text-xs flex items-center gap-2 shadow-lg"
             >
               <span>Enroll Ghore Boshe Spoken English</span>
               <ArrowRight className="w-4 h-4" />

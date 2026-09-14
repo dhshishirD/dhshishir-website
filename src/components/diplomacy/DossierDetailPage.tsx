@@ -378,7 +378,7 @@ ER  - `;
                 }}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold text-xs transition cursor-pointer ${
                   viewMode === 'presentation'
-                    ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-900 shadow-sm'
+                    ? 'bg-white border border-slate-200 text-slate-900 shadow-sm'
                     : 'opacity-70 hover:opacity-100'
                 }`}
               >
@@ -612,7 +612,7 @@ ER  - `;
                 onClick={() => setActiveSlide(idx)}
                 className={`h-2 rounded-full transition-all cursor-pointer ${
                   activeSlide === idx
-                    ? 'bg-gradient-to-r from-cyan-400 to-teal-400 shadow-lg shadow-xs'
+                    ? 'bg-white border border-slate-200 shadow-lg shadow-xs'
                     : idx < activeSlide
                     ? 'bg-cyan-700/60'
                     : 'bg-slate-100'
@@ -623,13 +623,13 @@ ER  - `;
           </div>
 
           {/* Slide Stage Container */}
-          <div className="bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 border border-t-0 border-teal-200 rounded-b-3xl p-6 sm:p-10 shadow-2xl min-h-[520px] flex flex-col justify-between text-slate-900">
+          <div className="bg-white border border-slate-200 border border-t-0 border-teal-200 rounded-b-3xl p-6 sm:p-10 shadow-2xl min-h-[520px] flex flex-col justify-between text-slate-900">
             
             {/* SLIDE 0: TITLE & EXECUTIVE OVERVIEW */}
             {activeSlide === 0 && (
               <div className="space-y-6 animate-fade-in">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="px-3 py-1 rounded-full bg-cyan-950 border border-teal-200 text-teal-900 text-xs font-bold">
+                  <span className="px-3 py-1 rounded-full bg-white border border-teal-200 text-teal-900 text-xs font-bold">
                     🏛️ {dossier.source}
                   </span>
                   <span className="px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-bold">
@@ -647,36 +647,36 @@ ER  - `;
                 {/* Presentation Metric Cards */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-6">
                   <div className="bg-white border border-slate-200 rounded-2xl p-4">
-                    <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Strategic Urgency</div>
+                    <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Strategic Urgency</div>
                     <div className="text-lg font-black text-rose-400 mt-1 flex items-center gap-1.5">
                       <Target className="w-4 h-4" /> Priority High
                     </div>
                   </div>
                   <div className="bg-white border border-slate-200 rounded-2xl p-4">
-                    <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Diplomatic Posture</div>
+                    <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Diplomatic Posture</div>
                     <div className="text-lg font-black text-teal-800 mt-1 flex items-center gap-1.5">
                       <Scale className="w-4 h-4" /> Multi-Vector
                     </div>
                   </div>
                   <div className="bg-white border border-slate-200 rounded-2xl p-4">
-                    <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Macro Horizon</div>
+                    <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Macro Horizon</div>
                     <div className="text-lg font-black text-teal-400 mt-1 flex items-center gap-1.5">
                       <TrendingUp className="w-4 h-4" /> 2026 – 2030
                     </div>
                   </div>
                   <div className="bg-white border border-slate-200 rounded-2xl p-4">
-                    <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Lead Analyst</div>
+                    <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Lead Analyst</div>
                     <div className="text-base font-extrabold text-slate-900 mt-1">
                       Daloyar Hassan
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-emerald-950/60 via-teal-950/40 to-slate-900 border-l-4 border-emerald-400 p-5 rounded-r-2xl">
+                <div className="bg-white border border-slate-200 border-l-4 border-emerald-400 p-5 rounded-r-2xl">
                   <div className="text-xs font-bold text-teal-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
                     <Compass className="w-4 h-4 text-teal-800" /> Core Significance for Bangladesh National Interest
                   </div>
-                  <p className="text-sm sm:text-base text-emerald-100 font-medium leading-relaxed">
+                  <p className="text-sm sm:text-base text-slate-800 font-medium leading-relaxed">
                     {dossier.bangladeshSignificance}
                   </p>
                 </div>
@@ -692,7 +692,7 @@ ER  - `;
             {activeSlide === 1 && (
               <div className="space-y-6 animate-fade-in">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-800 bg-cyan-950/60 border border-teal-200 px-3 py-1 rounded-full mb-2">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-800 bg-slate-100 border border-teal-200 px-3 py-1 rounded-full mb-2">
                     <Scale className="w-3.5 h-3.5" /> Triangular Geopolitical Equilibrium
                   </div>
                   <h2 className="text-2xl font-black text-slate-900">
@@ -753,7 +753,7 @@ ER  - `;
                         <span className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
                           🇮🇳 New Delhi (India Posture)
                         </span>
-                        <span className="text-[10px] bg-amber-950/80 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full font-bold">
+                        <span className="text-[10px] bg-amber-50/80 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full font-bold">
                           Neighborhood First
                         </span>
                       </div>
@@ -842,7 +842,7 @@ ER  - `;
             {activeSlide === 3 && (
               <div className="space-y-6 animate-fade-in">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-900 bg-indigo-950/60 border border-teal-200 px-3 py-1 rounded-full mb-2">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-900 bg-white border border-teal-200 px-3 py-1 rounded-full mb-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-teal-800" /> Executive Directives
                   </div>
                   <h2 className="text-2xl font-black text-slate-900">
@@ -875,7 +875,7 @@ ER  - `;
                   ))}
                 </div>
 
-                <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs text-slate-500 flex items-center justify-between">
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs text-slate-600 flex items-center justify-between">
                   <span>Target Implementing Bodies: <strong>MoFA, ERD, Ministry of Commerce, Port Authorities</strong></span>
                   <span className="text-teal-800 font-bold">Execution Horizon: Q1–Q4 2026/27</span>
                 </div>
@@ -886,7 +886,7 @@ ER  - `;
             {activeSlide === 4 && (
               <div className="space-y-6 animate-fade-in">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-900 bg-cyan-950/60 border border-teal-200 px-3 py-1 rounded-full mb-2">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-900 bg-slate-100 border border-teal-200 px-3 py-1 rounded-full mb-2">
                     <Award className="w-3.5 h-3.5 text-teal-800" /> Academic Accreditation & Literature
                   </div>
                   <h2 className="text-2xl font-black text-slate-900">
@@ -912,7 +912,7 @@ ER  - `;
                           className={`px-3 py-1 rounded-lg text-xs font-bold transition cursor-pointer ${
                             selectedCitationStyle === style
                               ? 'bg-cyan-600 text-slate-900 shadow'
-                              : 'text-slate-500 hover:text-slate-900'
+                              : 'text-slate-600 hover:text-slate-900'
                           }`}
                         >
                           {style}
@@ -928,7 +928,7 @@ ER  - `;
                   <div className="flex justify-end mt-3">
                     <button
                       onClick={handleCopyCitation}
-                      className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg shadow-cyan-950"
+                      className="px-4 py-2 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg shadow-cyan-950"
                     >
                       {copiedFormat ? <CheckCircle2 className="w-3.5 h-3.5 text-teal-900" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{copiedFormat ? `Copied ${copiedFormat} Citation!` : `Copy ${selectedCitationStyle} Citation`}</span>
@@ -937,15 +937,15 @@ ER  - `;
                 </div>
 
                 {/* Author Accreditation Card */}
-                <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-cyan-950/40 border border-teal-200 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4">
+                <div className="bg-teal-50 border border-teal-200/40 border border-teal-200 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-slate-900 font-black text-base shadow-lg">
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-slate-900 font-black text-base shadow-lg">
                       DH
                     </div>
                     <div>
                       <div className="text-base font-extrabold text-slate-900">Daloyar Hassan</div>
                       <div className="text-xs text-teal-800 font-medium">Lead Foreign Policy & Strategic Affairs Analyst</div>
-                      <div className="text-[11px] text-slate-500 mt-0.5">dhshishir.com/diplomacy • Open Strategic Intelligence</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">dhshishir.com/diplomacy • Open Strategic Intelligence</div>
                     </div>
                   </div>
 
@@ -960,7 +960,7 @@ ER  - `;
             )}
 
             {/* Slide Footer Toolbar */}
-            <div className="pt-6 mt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+            <div className="pt-6 mt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600">
               <div className="flex items-center gap-2">
                 <span>Use <strong>← / →</strong> Arrow Keys or Click Step Buttons to Navigate</span>
               </div>
@@ -1003,7 +1003,7 @@ ER  - `;
                   ? 'bg-[#ede5d3] text-amber-900 border-[#ded3be]' 
                   : theme === 'light' 
                   ? 'bg-slate-100 text-slate-800 border-slate-300' 
-                  : 'bg-cyan-950/80 border-teal-200 text-teal-900'
+                  : 'bg-white/80 border-teal-200 text-teal-900'
               }`}>
                 <Globe className="w-3.5 h-3.5" /> {dossier.source}
               </span>
@@ -1015,7 +1015,7 @@ ER  - `;
                   ? 'bg-[#ede5d3] text-[#554d3f] border-[#ded3be]' 
                   : theme === 'light' 
                   ? 'bg-slate-100 text-slate-600 border-slate-200' 
-                  : 'bg-white border-slate-200 text-slate-500'
+                  : 'bg-white border-slate-200 text-slate-600'
               }`}>
                 Strategic Pillar: {dossier.pillar.toUpperCase()}
               </span>
@@ -1029,7 +1029,7 @@ ER  - `;
 
             {/* Author & Publication Bylines with Daloyar Hassan */}
             <div className={`flex flex-wrap items-center justify-between gap-4 py-3.5 border-y text-xs ${
-              theme === 'warm' ? 'border-[#e4dac4] text-[#6d6352]' : theme === 'light' ? 'border-slate-200 text-slate-500' : 'border-slate-200 text-slate-500'
+              theme === 'warm' ? 'border-[#e4dac4] text-[#6d6352]' : theme === 'light' ? 'border-slate-200 text-slate-600' : 'border-slate-200 text-slate-600'
             }`}>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-teal-900 hover:bg-teal-800 flex items-center justify-center text-white font-black text-sm shadow-md">
@@ -1065,7 +1065,7 @@ ER  - `;
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => setIsPdfModalOpen(true)}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-slate-900 text-xs font-bold transition cursor-pointer shadow-md shadow-xs"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 hover:from-emerald-500 hover:to-teal-500 text-slate-900 text-xs font-bold transition cursor-pointer shadow-md shadow-xs"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Download Policy Briefing PDF</span>
@@ -1076,7 +1076,7 @@ ER  - `;
                   setViewMode('presentation');
                   setActiveSlide(0);
                 }}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold transition cursor-pointer shadow-sm"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold transition cursor-pointer shadow-sm"
               >
                 <MonitorPlay className="w-3.5 h-3.5" />
                 <span>Slide Deck</span>
@@ -1177,8 +1177,8 @@ ER  - `;
               </p>
             </div>
 
-            <div className={`p-5 rounded-r-2xl border-l-4 border-emerald-500 shadow-sm ${
-              theme === 'warm' ? 'bg-[#edf5ec] text-[#1c3823]' : theme === 'light' ? 'bg-emerald-50 text-emerald-950' : 'bg-gradient-to-r from-emerald-950/60 via-teal-950/40 to-slate-950/70 text-emerald-100'
+            <div className={`p-5 rounded-r-2xl border-l-4 border-teal-200 shadow-sm ${
+              theme === 'warm' ? 'bg-[#edf5ec] text-[#1c3823]' : theme === 'light' ? 'bg-emerald-50 text-emerald-950' : 'bg-white border border-slate-200 text-slate-800'
             }`}>
               <h3 className="text-xs font-bold text-emerald-600 dark:text-teal-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                 <Compass className="w-4 h-4" /> Significance for Bangladesh National Interest
@@ -1512,7 +1512,7 @@ ER  - `;
 
                 <button
                   onClick={handleCopyCitation}
-                  className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-md"
+                  className="px-4 py-2 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-md"
                 >
                   {copiedFormat ? <CheckCircle2 className="w-3.5 h-3.5 text-teal-900" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{copiedFormat ? `Copied ${copiedFormat} Citation!` : `Copy ${selectedCitationStyle} Citation`}</span>
@@ -1523,11 +1523,11 @@ ER  - `;
 
           {/* Professorial Author Accreditation Profile Card */}
           <section className={`mb-12 p-6 sm:p-7 rounded-3xl border shadow-lg ${
-            theme === 'warm' ? 'bg-[#ede5d3] border-[#ded3be]' : theme === 'light' ? 'bg-slate-100 border-slate-200' : 'bg-gradient-to-r from-slate-900 via-slate-900/90 to-cyan-950/40 border-slate-200'
+            theme === 'warm' ? 'bg-[#ede5d3] border-[#ded3be]' : theme === 'light' ? 'bg-slate-100 border-slate-200' : 'bg-white border border-slate-200 border-slate-200'
           }`}>
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-slate-900 font-black text-xl shadow-md">
+                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-slate-900 font-black text-xl shadow-md">
                   DH
                 </div>
                 <div>
@@ -1628,7 +1628,7 @@ ER  - `;
               </div>
               <button
                 onClick={() => setIsPdfModalOpen(false)}
-                className="p-2 rounded-xl bg-slate-100 hover:bg-slate-700 text-slate-500 hover:text-slate-900 transition cursor-pointer"
+                className="p-2 rounded-xl bg-slate-100 hover:bg-slate-700 text-slate-600 hover:text-slate-900 transition cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1678,7 +1678,7 @@ ER  - `;
                     setIsPdfModalOpen(false);
                     setTimeout(() => window.print(), 300);
                   }}
-                  className="px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-slate-900 font-extrabold text-xs rounded-xl shadow-lg shadow-emerald-950 transition flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 bg-white border border-slate-200 hover:from-emerald-500 hover:to-teal-500 text-slate-900 font-extrabold text-xs rounded-xl shadow-lg shadow-emerald-950 transition flex items-center gap-2 cursor-pointer"
                 >
                   <Printer className="w-4 h-4" />
                   <span>Print or Save to PDF Now</span>

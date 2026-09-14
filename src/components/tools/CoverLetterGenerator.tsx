@@ -100,7 +100,7 @@ ${role} Candidate`;
             AI-Style Professional Cover Letter Generator
             <span className="text-xs bg-teal-50 text-teal-800 border border-teal-200 px-2 py-0.5 rounded-full font-medium">BD Job Market Ready</span>
           </h3>
-          <p className="text-sm text-slate-500">Generate an ATS-compliant, tailored cover letter for corporate, NGO, bank, and tech job circulars.</p>
+          <p className="text-sm text-slate-600">Generate an ATS-compliant, tailored cover letter for corporate, NGO, bank, and tech job circulars.</p>
         </div>
       </div>
 
@@ -115,7 +115,7 @@ ${role} Candidate`;
                 placeholder="e.g. Daloyar Hassan"
                 value={formData.fullName}
                 onChange={e => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
               />
             </div>
             <div>
@@ -126,7 +126,7 @@ ${role} Candidate`;
                 placeholder="e.g. yourname@gmail.com | 017XXXXXXXX"
                 value={formData.emailOrPhone}
                 onChange={e => setFormData({ ...formData, emailOrPhone: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
               />
             </div>
           </div>
@@ -140,7 +140,7 @@ ${role} Candidate`;
                 placeholder="e.g. Management Trainee / English Faculty"
                 value={formData.jobTitle}
                 onChange={e => setFormData({ ...formData, jobTitle: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
               />
             </div>
             <div>
@@ -151,7 +151,7 @@ ${role} Candidate`;
                 placeholder="e.g. Grameenphone / BRAC / UCC"
                 value={formData.companyName}
                 onChange={e => setFormData({ ...formData, companyName: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
               />
             </div>
           </div>
@@ -162,7 +162,7 @@ ${role} Candidate`;
               <select
                 value={formData.experienceYears}
                 onChange={e => setFormData({ ...formData, experienceYears: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
               >
                 <option value="Fresher / Entry Level">Fresher / Recent Graduate</option>
                 <option value="1-3">1 to 3 Years (Junior / Mid)</option>
@@ -175,7 +175,7 @@ ${role} Candidate`;
               <select
                 value={formData.industryTone}
                 onChange={e => setFormData({ ...formData, industryTone: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
               >
                 <option value="Corporate & MNC">Corporate, Bank & MNC</option>
                 <option value="NGO & Development">NGO, INGO & Development</option>
@@ -193,13 +193,13 @@ ${role} Candidate`;
               placeholder="e.g. English pedagogy, curriculum design, leadership communication, IELTS training"
               value={formData.keySkills}
               onChange={e => setFormData({ ...formData, keySkills: e.target.value })}
-              className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+              className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs text-slate-900 focus:border-teal-200 outline-none"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:opacity-95 text-slate-900 font-bold text-xs shadow-lg shadow-xs transition flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-3.5 rounded-xl bg-white border border-slate-200 hover:opacity-95 text-slate-900 font-bold text-xs shadow-lg shadow-xs transition flex items-center justify-center gap-2 cursor-pointer"
           >
             <Sparkles className="w-4 h-4" /> Generate Professional Cover Letter
           </button>
@@ -233,10 +233,10 @@ ${role} Candidate`;
               </div>
             </>
           ) : (
-            <div className="h-full min-h-[300px] flex flex-col items-center justify-center text-center p-6 space-y-3 text-slate-500">
+            <div className="h-full min-h-[300px] flex flex-col items-center justify-center text-center p-6 space-y-3 text-slate-600">
               <FileText className="w-12 h-12 stroke-[1.2] text-slate-700" />
-              <div className="text-sm font-semibold text-slate-500">Ready to Draft Your Cover Letter</div>
-              <p className="text-xs max-w-xs text-slate-500">Fill in the job circular details on the left to generate an authentic, ATS-tested draft.</p>
+              <div className="text-sm font-semibold text-slate-600">Ready to Draft Your Cover Letter</div>
+              <p className="text-xs max-w-xs text-slate-600">Fill in the job circular details on the left to generate an authentic, ATS-tested draft.</p>
             </div>
           )}
         </div>

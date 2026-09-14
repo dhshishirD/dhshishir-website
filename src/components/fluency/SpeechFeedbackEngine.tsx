@@ -255,7 +255,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
     <div className="space-y-8 max-w-5xl mx-auto">
 
       {/* Header Banner */}
-      <div className="bg-white border border-slate-200 border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider">
             <Activity className="w-3.5 h-3.5" /> Stage 5 • Automated Speech Feedback
@@ -293,7 +293,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
 
       {/* Browser Support Fallback Banner if unsupported */}
       {!isBrowserSupported && (
-        <div className="p-5 bg-amber-950/40 rounded-2xl border border-amber-500/30 space-y-2 text-xs text-amber-200">
+        <div className="p-5 bg-amber-50 rounded-2xl border border-amber-500/30 space-y-2 text-xs text-amber-200">
           <div className="font-bold text-amber-300 flex items-center gap-2">
             <AlertTriangle className="w-4 h-4 text-amber-400" />
             Web Speech Recognition Not Available in This Browser
@@ -380,7 +380,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
               <button
                 onClick={startListening}
                 disabled={!isBrowserSupported}
-                className="px-6 py-3.5 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 disabled:opacity-50 text-slate-900 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer mx-auto"
+                className="px-6 py-3.5 bg-white border border-slate-200 hover:from-cyan-500 hover:to-indigo-500 disabled:opacity-50 text-slate-900 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-xs transition transform active:scale-95 cursor-pointer mx-auto"
               >
                 <Mic className="w-4 h-4" />
                 <span>Speak & Analyze With Speech Engine</span>
@@ -433,9 +433,9 @@ export const SpeechFeedbackEngine: React.FC = () => {
                     key={idx}
                     className={`p-3 rounded-xl border flex flex-col items-center justify-center min-w-[90px] text-center transition ${
                       item.status === 'matched'
-                        ? 'bg-emerald-950/40 border-teal-200 text-teal-900'
+                        ? 'bg-white border-teal-200 text-teal-900'
                         : item.status === 'mismatched'
-                        ? 'bg-amber-950/40 border-amber-500/50 text-amber-300 shadow-md shadow-xs'
+                        ? 'bg-amber-50 border-amber-500/50 text-amber-300 shadow-md shadow-xs'
                         : 'bg-rose-950/40 border-rose-500/40 text-rose-300'
                     }`}
                   >
@@ -464,7 +464,7 @@ export const SpeechFeedbackEngine: React.FC = () => {
 
             {/* Loopback Diagnostic Feedback Card */}
             {alignmentResult.some(i => i.associatedFlaw) && (
-              <div className="p-5 bg-gradient-to-r from-amber-950/40 via-purple-950/30 to-slate-950 rounded-2xl border border-amber-500/30 space-y-3 shadow-xl">
+              <div className="p-5 bg-white border border-slate-200 rounded-2xl border border-amber-500/30 space-y-3 shadow-xl">
                 <div className="flex items-center justify-between">
                   <div className="text-xs font-bold text-amber-400 flex items-center gap-1.5">
                     <AlertTriangle className="w-4 h-4" />

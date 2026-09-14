@@ -108,7 +108,7 @@ export const FluencyLabHub: React.FC = () => {
                     : 'bg-white border-slate-200 text-slate-800 hover:text-teal-900 hover:bg-slate-50 hover:border-slate-300'
                 }`}
               >
-                <div className={`text-[10px] font-bold tracking-wider uppercase mb-1 ${isActive ? 'text-teal-200 font-extrabold' : 'text-slate-500'}`}>
+                <div className={`text-[10px] font-bold tracking-wider uppercase mb-1 ${isActive ? 'text-teal-200 font-extrabold' : 'text-slate-600'}`}>
                   {st.number}
                 </div>
                 <div className="flex items-center gap-1.5 font-bold text-xs">

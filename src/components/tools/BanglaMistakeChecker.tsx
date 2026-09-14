@@ -93,7 +93,7 @@ export const BanglaMistakeChecker: React.FC = () => {
             Bangladeshi English Common Mistake Scanner
             <span className="text-xs bg-teal-50 text-teal-800 border border-teal-200 px-2 py-0.5 rounded-full font-medium">UCC 7+ Yrs Pedagogy</span>
           </h3>
-          <p className="text-sm text-slate-500">Detect typical Bengali-speaker grammatical habits, false collocations, and preposition mismatches.</p>
+          <p className="text-sm text-slate-600">Detect typical Bengali-speaker grammatical habits, false collocations, and preposition mismatches.</p>
         </div>
       </div>
 
@@ -135,7 +135,7 @@ export const BanglaMistakeChecker: React.FC = () => {
             </button>
           </div>
 
-          <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-500">
+          <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-600">
             <span className="font-bold text-slate-800">Try quick test examples: </span>
             <button
               onClick={() => setInputText("I am agree with your decision. We should discuss about this.")}
@@ -179,14 +179,14 @@ export const BanglaMistakeChecker: React.FC = () => {
                   </div>
                 ))
               ) : (
-                <div className="p-6 text-center space-y-2 text-slate-500">
+                <div className="p-6 text-center space-y-2 text-slate-600">
                   <CheckCircle2 className="w-10 h-10 text-teal-800 mx-auto" />
                   <div className="text-sm font-bold text-slate-900">Clean Structure Detected!</div>
-                  <p className="text-xs text-slate-500">No standard Bangladeshi English grammatical traps found in this excerpt.</p>
+                  <p className="text-xs text-slate-600">No standard Bangladeshi English grammatical traps found in this excerpt.</p>
                 </div>
               )
             ) : (
-              <div className="py-12 text-center text-slate-500 text-xs">
+              <div className="py-12 text-center text-slate-600 text-xs">
                 Enter your text and click "Scan for Typical Errors" to see instant grammatical diagnosis.
               </div>
             )}

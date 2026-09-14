@@ -22,7 +22,7 @@ export const AdSenseSlot: React.FC<AdSenseSlotProps> = ({
 
   return (
     <div className={`my-8 p-4 rounded-2xl bg-white border border-slate-200 text-center ${className}`}>
-      <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
+      <div className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-2">
         {label}
       </div>
       <div className="min-h-[100px] flex items-center justify-center bg-white rounded-xl border border-dashed border-slate-200 text-slate-600 text-xs">

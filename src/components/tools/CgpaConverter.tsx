@@ -27,7 +27,7 @@ export const CgpaConverter: React.FC = () => {
           <h3 className="text-xl md:text-2xl font-bold text-slate-900">
             Bangladesh CGPA (4.0 Scale) & Marks Converter
           </h3>
-          <p className="text-sm text-slate-500">Calculate academic equivalent percentage and corporate eligibility class.</p>
+          <p className="text-sm text-slate-600">Calculate academic equivalent percentage and corporate eligibility class.</p>
         </div>
       </div>
 
@@ -45,7 +45,7 @@ export const CgpaConverter: React.FC = () => {
             onChange={(e) => setCgpa(parseFloat(e.target.value))}
             className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-amber-500"
           />
-          <div className="flex justify-between text-xs text-slate-500">
+          <div className="flex justify-between text-xs text-slate-600">
             <span>2.00</span>
             <span>2.50</span>
             <span>3.00</span>
@@ -54,7 +54,7 @@ export const CgpaConverter: React.FC = () => {
           </div>
 
           <div className="pt-2">
-            <span className="text-xs text-slate-500">Pro-Tip for Job Seekers: If your CGPA is below 3.20, heavily emphasize your practical skills, portfolio, and internships on the top section of your CV.</span>
+            <span className="text-xs text-slate-600">Pro-Tip for Job Seekers: If your CGPA is below 3.20, heavily emphasize your practical skills, portfolio, and internships on the top section of your CV.</span>
           </div>
         </div>
 
@@ -63,7 +63,7 @@ export const CgpaConverter: React.FC = () => {
           <div className="my-3">
             <div className={`text-2xl font-bold ${info.color}`}>{info.title}</div>
             <div className="text-4xl font-extrabold text-slate-900 mt-2">~{getPercentageEstimate(cgpa)}%</div>
-            <span className="text-xs text-slate-500">Estimated Marks Equivalent</span>
+            <span className="text-xs text-slate-600">Estimated Marks Equivalent</span>
           </div>
           <div className="mt-4 inline-block px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-semibold text-slate-600">
             Status: {info.badge}

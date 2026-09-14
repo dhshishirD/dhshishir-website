@@ -28,7 +28,7 @@ export const AboutContactSection: React.FC = () => {
                   f
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 font-medium">Official Facebook</div>
+                  <div className="text-xs text-slate-600 font-medium">Official Facebook</div>
                   <a
                     href={SOCIAL_LINKS.facebook}
                     target="_blank"
@@ -44,7 +44,7 @@ export const AboutContactSection: React.FC = () => {
                   in
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 font-medium">Professional LinkedIn</div>
+                  <div className="text-xs text-slate-600 font-medium">Professional LinkedIn</div>
                   <a
                     href={SOCIAL_LINKS.linkedin}
                     target="_blank"
@@ -60,7 +60,7 @@ export const AboutContactSection: React.FC = () => {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 font-medium">Location</div>
+                  <div className="text-xs text-slate-600 font-medium">Location</div>
                   <span>Sylhet & Jashore, Bangladesh</span>
                 </div>
               </div>
@@ -70,7 +70,7 @@ export const AboutContactSection: React.FC = () => {
           <div className="lg:col-span-6">
             <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 backdrop-blur-xl">
               <h3 className="text-xl font-bold text-slate-900 mb-2">Connect Directly via Social Media</h3>
-              <p className="text-xs text-slate-500 mb-6">Reach out on social channels for academic admissions English, 10MS course inquiries, CV reviews, or youth leadership initiatives.</p>
+              <p className="text-xs text-slate-600 mb-6">Reach out on social channels for academic admissions English, 10MS course inquiries, CV reviews, or youth leadership initiatives.</p>
 
               <div className="space-y-4">
                 <a

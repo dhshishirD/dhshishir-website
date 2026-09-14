@@ -72,28 +72,28 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ onLaunchStandaloneTo
                 onClick={() => setActiveToolId(tool.id)}
                 className={`p-5 rounded-2xl border transition cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-gradient-to-br from-indigo-950/70 via-slate-900 to-slate-900 border-indigo-500 shadow-xl shadow-xs'
+                    ? 'bg-white border border-slate-200 border-teal-200 shadow-xl shadow-xs'
                     : 'bg-white hover:bg-white border-slate-200 hover:border-slate-200'
                 }`}
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className={`p-2.5 rounded-xl border ${isSelected ? 'bg-indigo-600/20 border-teal-200 text-teal-900' : 'bg-slate-50 border-slate-200 text-teal-800'}`}>
+                    <div className={`p-2.5 rounded-xl border ${isSelected ? 'bg-teal-900 text-white border-teal-900' : 'bg-teal-50 border-teal-200 text-teal-900'}`}>
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-50 text-slate-500 border border-slate-200 font-semibold">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-50 text-slate-600 border border-slate-200 font-semibold">
                       {tool.badge}
                     </span>
                   </div>
 
                   <div>
                     <h3 className="text-sm font-bold text-slate-900 mb-1">{tool.name}</h3>
-                    <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">{tool.tagline}</p>
+                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">{tool.tagline}</p>
                   </div>
                 </div>
 
                 <div className="pt-4 mt-3 border-t border-slate-200 flex items-center justify-between text-xs">
-                  <span className={`font-bold ${isSelected ? 'text-teal-800' : 'text-slate-500'}`}>
+                  <span className={`font-bold ${isSelected ? 'text-teal-900 font-extrabold' : 'text-slate-600 font-semibold'}`}>
                     {isSelected ? '● Currently Active' : 'Click to Load'}
                   </span>
                   <button
@@ -115,7 +115,7 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ onLaunchStandaloneTo
         {/* Live Active Tool Workspace */}
         <div className="mt-8">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-teal-800" /> Active Workspace: {currentTool.name}
             </span>
             <button

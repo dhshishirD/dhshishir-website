@@ -58,7 +58,7 @@ export const Stage2LearnDrill: React.FC = () => {
               <Volume2 className="w-5 h-5" />
             </div>
             <div>
-              <div className={`text-[10px] font-bold uppercase tracking-wider ${subTab === 'ipa' ? 'text-teal-200' : 'text-slate-500'}`}>Module A</div>
+              <div className={`text-[10px] font-bold uppercase tracking-wider ${subTab === 'ipa' ? 'text-teal-200' : 'text-slate-600'}`}>Module A</div>
               <div className={`text-sm font-bold ${subTab === 'ipa' ? 'text-white' : 'text-slate-900'}`}>Interactive IPA Chart</div>
             </div>
           </button>
@@ -77,7 +77,7 @@ export const Stage2LearnDrill: React.FC = () => {
               <Layers className="w-5 h-5" />
             </div>
             <div>
-              <div className={`text-[10px] font-bold uppercase tracking-wider ${subTab === 'minimal_pairs' ? 'text-teal-200' : 'text-slate-500'}`}>Module B</div>
+              <div className={`text-[10px] font-bold uppercase tracking-wider ${subTab === 'minimal_pairs' ? 'text-teal-200' : 'text-slate-600'}`}>Module B</div>
               <div className={`text-sm font-bold ${subTab === 'minimal_pairs' ? 'text-white' : 'text-slate-900'}`}>70 Minimal Pairs Trainer</div>
             </div>
           </button>
@@ -96,7 +96,7 @@ export const Stage2LearnDrill: React.FC = () => {
               <BookOpen className="w-5 h-5" />
             </div>
             <div>
-              <div className={`text-[10px] font-bold uppercase tracking-wider ${subTab === 'word_stress' ? 'text-teal-200' : 'text-slate-500'}`}>Module C</div>
+              <div className={`text-[10px] font-bold uppercase tracking-wider ${subTab === 'word_stress' ? 'text-teal-200' : 'text-slate-600'}`}>Module C</div>
               <div className={`text-sm font-bold ${subTab === 'word_stress' ? 'text-white' : 'text-slate-900'}`}>Word Stress Visualizer</div>
             </div>
           </button>

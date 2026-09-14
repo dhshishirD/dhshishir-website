@@ -22,8 +22,8 @@ export const LeadershipPage: React.FC<LeadershipPageProps> = ({ onNavigateHome }
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Main Homepage (dhshishir.com)
           </button>
-          <div className="flex items-center gap-1.5 bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs px-3 py-1 rounded-full font-bold">
-            <Award className="w-3.5 h-3.5 text-purple-400" /> Leadership & Public Engagements
+          <div className="flex items-center gap-1.5 bg-white border border-purple-500/30 text-teal-900 text-xs px-3 py-1 rounded-full font-bold">
+            <Award className="w-3.5 h-3.5 text-teal-800" /> Leadership & Public Engagements
           </div>
         </div>
       </div>

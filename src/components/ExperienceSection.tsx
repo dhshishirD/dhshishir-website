@@ -21,7 +21,7 @@ export const ExperienceSection: React.FC = () => {
         </div>
 
         {/* Media & Press Mentions Banner */}
-        <div className="mb-16 bg-gradient-to-r from-teal-50/40 via-slate-50 to-teal-50/40 border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-2xs">
+        <div className="mb-16 bg-white border border-slate-200 border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-2xs">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
             <div className="p-2.5 bg-teal-100 text-teal-900 rounded-xl border border-teal-200">
               <Newspaper className="w-5 h-5" />
@@ -85,9 +85,9 @@ export const ExperienceSection: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 mb-4 pb-3 border-b border-slate-100">
-                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-slate-500" /> {item.period}</span>
-                    <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-slate-500" /> {item.location}</span>
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 mb-4 pb-3 border-b border-slate-100">
+                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-slate-600" /> {item.period}</span>
+                    <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-slate-600" /> {item.location}</span>
                   </div>
 
                   <ul className="space-y-2">
@@ -117,7 +117,7 @@ export const ExperienceSection: React.FC = () => {
                 <div key={idx} className="p-5 bg-white rounded-2xl border border-slate-200 shadow-2xs space-y-2">
                   <h4 className="text-sm font-bold text-slate-900">{edu.degree}</h4>
                   <div className="text-xs font-bold text-teal-900">{edu.institution}</div>
-                  <div className="text-[11px] text-slate-500 font-medium">{edu.period}</div>
+                  <div className="text-[11px] text-slate-600 font-medium">{edu.period}</div>
                   <p className="text-xs text-slate-600 pt-1 leading-relaxed">{edu.details}</p>
                 </div>
               ))}
@@ -134,7 +134,7 @@ export const ExperienceSection: React.FC = () => {
                 <div key={idx} className="p-5 bg-white rounded-2xl border border-slate-200 shadow-2xs space-y-1.5">
                   <h4 className="text-xs font-bold text-slate-900">{cert.title}</h4>
                   <div className="text-xs text-teal-900 font-bold">{cert.issuer}</div>
-                  <div className="text-[11px] text-slate-500">{cert.date}</div>
+                  <div className="text-[11px] text-slate-600">{cert.date}</div>
                   <div className="text-[11px] text-slate-600 font-mono bg-slate-50 p-1.5 rounded-lg border border-slate-100">
                     {cert.skills}
                   </div>

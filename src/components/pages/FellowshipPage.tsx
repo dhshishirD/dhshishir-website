@@ -14,7 +14,7 @@ export const FellowshipPage: React.FC<FellowshipPageProps> = ({ onNavigateHome }
         <div className="flex items-center justify-between">
           <button
             onClick={onNavigateHome}
-            className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-xl transition cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-xl transition cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Homepage</span>

@@ -238,7 +238,7 @@ export const DailyPromptsHub: React.FC = () => {
     <div className="space-y-8 max-w-5xl mx-auto">
 
       {/* Header Banner */}
-      <div className="bg-white border border-slate-200 border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" /> Stage 4 • Spoken Fluency & IELTS Hub
@@ -246,7 +246,7 @@ export const DailyPromptsHub: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
             Daily Prompts & IELTS Cue Card Studio
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
             Bridge the gap to spontaneous spoken English. Practice daily thematic topics or simulate real-world IELTS Speaking Part 2 exams with structured 1-min prep and 2-min delivery.
           </p>
         </div>
@@ -266,7 +266,7 @@ export const DailyPromptsHub: React.FC = () => {
           className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
             activeMode === 'daily_prompt'
               ? 'bg-emerald-500 text-slate-950 shadow-md shadow-xs'
-              : 'text-slate-500 hover:text-slate-900'
+              : 'text-slate-600 hover:text-slate-900'
           }`}
         >
           <Calendar className="w-4 h-4" />
@@ -278,7 +278,7 @@ export const DailyPromptsHub: React.FC = () => {
           className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
             activeMode === 'ielts_cue_card'
               ? 'bg-indigo-600 text-slate-900 shadow-md shadow-xs'
-              : 'text-slate-500 hover:text-slate-900'
+              : 'text-slate-600 hover:text-slate-900'
           }`}
         >
           <GraduationCap className="w-4 h-4" />
@@ -296,7 +296,7 @@ export const DailyPromptsHub: React.FC = () => {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer ${
                 selectedCategory === cat.id
                   ? 'bg-emerald-500 text-slate-950 shadow-md shadow-xs'
-                  : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
+                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
               }`}
             >
               {cat.label}
@@ -315,7 +315,7 @@ export const DailyPromptsHub: React.FC = () => {
               <span className="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-900 font-mono text-xs font-bold border border-teal-200 flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5" /> Day {currentPrompt.dayNumber} Challenge
               </span>
-              <span className="text-xs text-slate-500 font-medium">
+              <span className="text-xs text-slate-600 font-medium">
                 {currentPrompt.categoryLabel}
               </span>
               <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-teal-50 text-teal-900 uppercase">
@@ -327,7 +327,7 @@ export const DailyPromptsHub: React.FC = () => {
               <span className="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-900 font-mono text-xs font-bold border border-teal-200 flex items-center gap-1.5">
                 <GraduationCap className="w-3.5 h-3.5" /> IELTS Topic #{currentCueCard.topicNumber}
               </span>
-              <span className="text-xs text-slate-500 font-medium">
+              <span className="text-xs text-slate-600 font-medium">
                 {currentCueCard.category}
               </span>
               <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-teal-50 text-amber-900 font-semibold uppercase">
@@ -346,7 +346,7 @@ export const DailyPromptsHub: React.FC = () => {
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                <span className="text-xs font-mono text-slate-500">
+                <span className="text-xs font-mono text-slate-600">
                   {currentPromptIndex + 1} / {filteredPrompts.length}
                 </span>
                 <button
@@ -383,7 +383,7 @@ export const DailyPromptsHub: React.FC = () => {
               </div>
 
               <div className="p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-600 font-bangla leading-relaxed">
-                <span className="font-bold text-slate-500">বাংলা প্রসঙ্গ: </span>
+                <span className="font-bold text-slate-600">বাংলা প্রসঙ্গ: </span>
                 {currentPrompt.banglaContext}
               </div>
             </div>
@@ -399,15 +399,15 @@ export const DailyPromptsHub: React.FC = () => {
                 <div className="space-y-2.5 text-xs text-slate-600">
                   <div className="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
                     <span className="text-teal-800 font-bold">1. Opening & Thesis:</span>
-                    <p className="text-slate-500">{currentPrompt.outlineGuide.step1}</p>
+                    <p className="text-slate-600">{currentPrompt.outlineGuide.step1}</p>
                   </div>
                   <div className="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
                     <span className="text-teal-800 font-bold">2. Analysis & Evidence:</span>
-                    <p className="text-slate-500">{currentPrompt.outlineGuide.step2}</p>
+                    <p className="text-slate-600">{currentPrompt.outlineGuide.step2}</p>
                   </div>
                   <div className="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
                     <span className="text-teal-800 font-bold">3. Actionable Conclusion:</span>
-                    <p className="text-slate-500">{currentPrompt.outlineGuide.step3}</p>
+                    <p className="text-slate-600">{currentPrompt.outlineGuide.step3}</p>
                   </div>
                 </div>
               </div>
@@ -423,13 +423,13 @@ export const DailyPromptsHub: React.FC = () => {
                       <div key={idx} className="p-2.5 bg-white rounded-xl border border-slate-200 space-y-0.5">
                         <div className="text-xs font-bold text-slate-900">{col.phrase}</div>
                         <div className="text-[10px] font-mono text-teal-900">{col.ipa}</div>
-                        <div className="text-[11px] text-slate-500 font-bangla">{col.meaningBn}</div>
+                        <div className="text-[11px] text-slate-600 font-bangla">{col.meaningBn}</div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="p-4 bg-amber-950/30 rounded-2xl border border-amber-500/20 space-y-2">
+                <div className="p-4 bg-amber-50/30 rounded-2xl border border-amber-500/20 space-y-2">
                   <div className="text-xs font-bold text-amber-800 font-bold flex items-center gap-1.5">
                     <AlertTriangle className="w-4 h-4 text-amber-800 font-bold shrink-0" />
                     <span>Phonetic & Grammar Trap Warnings</span>
@@ -453,7 +453,7 @@ export const DailyPromptsHub: React.FC = () => {
                 <div className="text-xs font-bold uppercase tracking-wider text-teal-800 flex items-center gap-1.5">
                   <FileText className="w-4 h-4" /> IELTS Candidate Task Card (Part 2)
                 </div>
-                <div className="text-[11px] font-mono text-slate-500 bg-white px-3 py-1 rounded-lg border border-slate-200">
+                <div className="text-[11px] font-mono text-slate-600 bg-white px-3 py-1 rounded-lg border border-slate-200">
                   1 Min Prep • 2 Min Speaking
                 </div>
               </div>
@@ -484,7 +484,7 @@ export const DailyPromptsHub: React.FC = () => {
                     {currentCueCard.powerVocabulary.map((voc, idx) => (
                       <div key={idx} className="p-2 bg-white rounded-lg border border-slate-200">
                         <div className="text-xs font-bold text-slate-900">{voc.word}</div>
-                        <div className="text-[10px] text-slate-500 font-bangla">{voc.meaningBn}</div>
+                        <div className="text-[10px] text-slate-600 font-bangla">{voc.meaningBn}</div>
                       </div>
                     ))}
                   </div>
@@ -504,14 +504,14 @@ export const DailyPromptsHub: React.FC = () => {
 
             {/* Candidate Scratchpad for 1-Min Notes */}
             <div className="p-4 bg-white rounded-2xl border border-slate-200 space-y-2">
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+              <div className="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center gap-1.5">
                 <FileText className="w-3.5 h-3.5 text-teal-800" /> Candidate 1-Minute Note-Taking Scratchpad
               </div>
               <textarea
                 value={cueCardNotes}
                 onChange={(e) => setCueCardNotes(e.target.value)}
                 placeholder="Jot down bullet points, key keywords, or narrative dates during your 1-minute prep time..."
-                className="w-full h-20 bg-white rounded-xl border border-slate-200 p-3 text-xs text-slate-900 placeholder-slate-600 focus:outline-none focus:border-indigo-500 font-mono resize-none"
+                className="w-full h-20 bg-white rounded-xl border border-slate-200 p-3 text-xs text-slate-900 placeholder-slate-600 focus:outline-none focus:border-teal-200 font-mono resize-none"
               />
             </div>
           </div>
@@ -529,7 +529,7 @@ export const DailyPromptsHub: React.FC = () => {
                 <h3 className="text-lg font-bold text-slate-900">
                   {activeMode === 'ielts_cue_card' ? '1-Minute IELTS Candidate Preparation' : '30-Second Mental Outline'}
                 </h3>
-                <p className="text-xs text-slate-500 max-w-md mx-auto">
+                <p className="text-xs text-slate-600 max-w-md mx-auto">
                   {activeMode === 'ielts_cue_card'
                     ? 'Take 60 seconds to structure your narrative and jot down vocabulary in the scratchpad.'
                     : 'Take 30 seconds to structure your thoughts using the 3-part blueprint.'}
@@ -577,13 +577,13 @@ export const DailyPromptsHub: React.FC = () => {
                   <div className="text-xs font-bold text-teal-800 uppercase tracking-wider flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" /> Spoken Challenge Active
                   </div>
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-slate-600">
                     Recommended length: <span className="text-slate-900 font-mono">{activeMode === 'ielts_cue_card' ? '120 seconds (2 mins)' : `${currentPrompt.recommendedDurationSec} seconds`}</span>
                   </div>
                 </div>
                 <button
                   onClick={() => setActiveStep('prep')}
-                  className="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1 cursor-pointer"
+                  className="text-xs text-slate-600 hover:text-slate-800 flex items-center gap-1 cursor-pointer"
                 >
                   <RotateCcw className="w-3 h-3" /> Back to Notes
                 </button>
@@ -642,7 +642,7 @@ export const DailyPromptsHub: React.FC = () => {
                   <span className={`text-xs px-2.5 py-0.5 rounded font-bold border ${
                     checkedCount === 4 ? 'bg-teal-50 text-teal-900 border-teal-200' :
                     checkedCount >= 2 ? 'bg-teal-50 text-amber-900 font-semibold border-amber-500/30' :
-                    'bg-slate-100 text-slate-500 border-slate-200'
+                    'bg-slate-100 text-slate-600 border-slate-200'
                   }`}>
                     {checkedCount}/4 Criteria Met
                   </span>
@@ -653,7 +653,7 @@ export const DailyPromptsHub: React.FC = () => {
                     type="button"
                     onClick={() => toggleRubric('outlineCovered')}
                     className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition cursor-pointer ${
-                      rubric.outlineCovered ? 'bg-emerald-950/40 border-emerald-500/50 text-slate-900' : 'bg-white border-slate-200 text-slate-500'
+                      rubric.outlineCovered ? 'bg-white border-teal-200/50 text-slate-900' : 'bg-white border-slate-200 text-slate-600'
                     }`}
                   >
                     <div className={`w-4 h-4 rounded border mt-0.5 flex items-center justify-center shrink-0 ${
@@ -672,7 +672,7 @@ export const DailyPromptsHub: React.FC = () => {
                     type="button"
                     onClick={() => toggleRubric('collocationsUsed')}
                     className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition cursor-pointer ${
-                      rubric.collocationsUsed ? 'bg-emerald-950/40 border-emerald-500/50 text-slate-900' : 'bg-white border-slate-200 text-slate-500'
+                      rubric.collocationsUsed ? 'bg-white border-teal-200/50 text-slate-900' : 'bg-white border-slate-200 text-slate-600'
                     }`}
                   >
                     <div className={`w-4 h-4 rounded border mt-0.5 flex items-center justify-center shrink-0 ${
@@ -689,7 +689,7 @@ export const DailyPromptsHub: React.FC = () => {
                     type="button"
                     onClick={() => toggleRubric('cleanPhonetics')}
                     className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition cursor-pointer ${
-                      rubric.cleanPhonetics ? 'bg-emerald-950/40 border-emerald-500/50 text-slate-900' : 'bg-white border-slate-200 text-slate-500'
+                      rubric.cleanPhonetics ? 'bg-white border-teal-200/50 text-slate-900' : 'bg-white border-slate-200 text-slate-600'
                     }`}
                   >
                     <div className={`w-4 h-4 rounded border mt-0.5 flex items-center justify-center shrink-0 ${
@@ -706,7 +706,7 @@ export const DailyPromptsHub: React.FC = () => {
                     type="button"
                     onClick={() => toggleRubric('fluencyPacing')}
                     className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition cursor-pointer ${
-                      rubric.fluencyPacing ? 'bg-emerald-950/40 border-emerald-500/50 text-slate-900' : 'bg-white border-slate-200 text-slate-500'
+                      rubric.fluencyPacing ? 'bg-white border-teal-200/50 text-slate-900' : 'bg-white border-slate-200 text-slate-600'
                     }`}
                   >
                     <div className={`w-4 h-4 rounded border mt-0.5 flex items-center justify-center shrink-0 ${
@@ -723,7 +723,7 @@ export const DailyPromptsHub: React.FC = () => {
 
               {/* Complete & Submit Action */}
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
-                <div className="text-xs text-slate-500">
+                <div className="text-xs text-slate-600">
                   {isCompleted ? (
                     <span className="text-teal-800 font-bold flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4" /> Practice Logged & Streak Advanced!

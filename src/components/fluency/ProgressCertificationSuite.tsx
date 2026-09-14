@@ -44,7 +44,7 @@ export const ProgressCertificationSuite: React.FC = () => {
     <div className="space-y-8 max-w-5xl mx-auto">
 
       {/* Header Banner */}
-      <div className="bg-white border border-slate-200 border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider">
             <Award className="w-3.5 h-3.5" /> Stage 7 • Certification & Spoken Portfolio
@@ -52,7 +52,7 @@ export const ProgressCertificationSuite: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
             Official Spoken Fluency Certification & Portfolio
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
             Generate and export your verified CEFR Spoken English Calibration Certificate and comprehensive phonetic competence report.
           </p>
         </div>
@@ -69,7 +69,7 @@ export const ProgressCertificationSuite: React.FC = () => {
       </div>
 
       {/* Official Certificate Card Preview */}
-      <div className="p-8 sm:p-12 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/40 rounded-3xl border-2 border-amber-500/40 shadow-2xl space-y-8 text-center relative overflow-hidden">
+      <div className="p-8 sm:p-12 bg-white border border-slate-200 rounded-3xl border-2 border-amber-500/40 shadow-2xl space-y-8 text-center relative overflow-hidden">
         
         {/* Subtle Background Seal */}
         <div className="absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-amber-500/5 border border-amber-500/10 pointer-events-none flex items-center justify-center">
@@ -85,39 +85,39 @@ export const ProgressCertificationSuite: React.FC = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-wider font-serif">
             Certificate of Spoken English Proficiency
           </h1>
-          <p className="text-xs text-slate-500 max-w-lg mx-auto">
+          <p className="text-xs text-slate-600 max-w-lg mx-auto">
             This credential verifies that the candidate has completed diagnostic phonetic calibration and spoken fluency benchmarking.
           </p>
         </div>
 
         {/* Candidate & Level Details */}
         <div className="py-6 border-y border-amber-500/20 max-w-2xl mx-auto space-y-4">
-          <div className="text-xs text-slate-500 uppercase tracking-wider">This is proudly presented to</div>
+          <div className="text-xs text-slate-600 uppercase tracking-wider">This is proudly presented to</div>
           <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-teal-900 hover:bg-teal-800 font-serif">
             {learnerName}
           </div>
           
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <div className="px-4 py-2 bg-white rounded-xl border border-amber-500/30 text-xs">
-              <span className="text-slate-500">Calibrated Benchmark: </span>
+              <span className="text-slate-600">Calibrated Benchmark: </span>
               <span className="font-bold text-teal-800 text-sm">CEFR {cefrLevel}</span>
             </div>
             <div className="px-4 py-2 bg-white rounded-xl border border-slate-200 text-xs">
-              <span className="text-slate-500">Issue Date: </span>
+              <span className="text-slate-600">Issue Date: </span>
               <span className="font-bold text-slate-800">{issueDate}</span>
             </div>
             <div className="px-4 py-2 bg-white rounded-xl border border-slate-200 text-xs">
-              <span className="text-slate-500">Status: </span>
+              <span className="text-slate-600">Status: </span>
               <span className="font-bold text-teal-800">Verified by Fluency Engine</span>
             </div>
           </div>
         </div>
 
         {/* Signatures & Seal */}
-        <div className="flex flex-col sm:flex-row items-center justify-between max-w-2xl mx-auto gap-6 pt-4 text-xs text-slate-500">
+        <div className="flex flex-col sm:flex-row items-center justify-between max-w-2xl mx-auto gap-6 pt-4 text-xs text-slate-600">
           <div className="text-center sm:text-left space-y-1">
             <div className="font-serif italic font-bold text-amber-300 text-base">Daloyar Hassan Shishir</div>
-            <div className="text-[11px] text-slate-500">Founder & Diplomatic Research Director</div>
+            <div className="text-[11px] text-slate-600">Founder & Diplomatic Research Director</div>
             <div className="text-[10px] text-slate-600">dhshishir.com • Spoken Fluency Hub</div>
           </div>
 
@@ -139,7 +139,7 @@ export const ProgressCertificationSuite: React.FC = () => {
               <FileText className="w-4 h-4 text-teal-800" />
               Comprehensive Phonetic Competence Portfolio
             </h3>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-slate-600 mt-0.5">
               Individual audit of all 8 core spoken competencies assessed across the 6-stage loop.
             </p>
           </div>
@@ -153,7 +153,7 @@ export const ProgressCertificationSuite: React.FC = () => {
                 key={idx}
                 className={`p-4 rounded-2xl border flex items-start justify-between gap-3 ${
                   isFlagged
-                    ? 'bg-amber-950/20 border-amber-500/30'
+                    ? 'bg-amber-50 border-amber-500/30'
                     : 'bg-white border-slate-200'
                 }`}
               >
@@ -161,7 +161,7 @@ export const ProgressCertificationSuite: React.FC = () => {
                   <div className="text-xs font-bold text-slate-900 flex items-center gap-2">
                     <span>{comp.name}</span>
                   </div>
-                  <p className="text-[11px] text-slate-500 leading-relaxed">
+                  <p className="text-[11px] text-slate-600 leading-relaxed">
                     {comp.desc}
                   </p>
                 </div>

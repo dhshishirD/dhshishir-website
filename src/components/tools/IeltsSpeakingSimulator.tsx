@@ -90,7 +90,7 @@ export const IeltsSpeakingSimulator: React.FC = () => {
             IELTS Speaking Part 2 Cue Card Simulator
             <span className="text-xs bg-teal-50 text-teal-800 border border-teal-200 px-2 py-0.5 rounded-full font-medium">Real Exam Timer</span>
           </h3>
-          <p className="text-sm text-slate-500">Practice official IELTS Part 2 cue cards with automated 1-minute preparation and 2-minute speaking timers.</p>
+          <p className="text-sm text-slate-600">Practice official IELTS Part 2 cue cards with automated 1-minute preparation and 2-minute speaking timers.</p>
         </div>
       </div>
 
@@ -126,7 +126,7 @@ export const IeltsSpeakingSimulator: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-3.5 bg-white rounded-xl border border-slate-200 text-[11px] text-slate-500">
+          <div className="p-3.5 bg-white rounded-xl border border-slate-200 text-[11px] text-slate-600">
             <span className="font-bold text-teal-800">Examiner Tip: </span>
             {card.tips}
           </div>
@@ -134,7 +134,7 @@ export const IeltsSpeakingSimulator: React.FC = () => {
 
         <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200 flex flex-col items-center justify-center text-center space-y-6">
           <div className="space-y-1">
-            <div className="text-xs font-bold uppercase tracking-widest text-slate-500">
+            <div className="text-xs font-bold uppercase tracking-widest text-slate-600">
               {mode === 'prep' ? '1-Min Preparation Phase' : '2-Min Speaking Phase'}
             </div>
             <div className={`text-5xl font-black font-mono ${mode === 'prep' ? 'text-amber-400' : 'text-teal-800'}`}>
@@ -148,7 +148,7 @@ export const IeltsSpeakingSimulator: React.FC = () => {
               className={`px-6 py-3 rounded-xl font-bold text-xs flex items-center gap-2 shadow-lg transition cursor-pointer ${
                 isRunning
                   ? 'bg-amber-600 hover:bg-amber-500 text-slate-900'
-                  : 'bg-gradient-to-r from-emerald-600 to-teal-600 text-slate-900'
+                  : 'bg-white border border-slate-200 text-slate-900'
               }`}
             >
               {isRunning ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
@@ -163,7 +163,7 @@ export const IeltsSpeakingSimulator: React.FC = () => {
             </button>
           </div>
 
-          <div className="text-[11px] text-slate-500 max-w-xs">
+          <div className="text-[11px] text-slate-600 max-w-xs">
             {mode === 'prep'
               ? 'Use the 1 minute to jot down 3-4 bullet keywords. Do not write full sentences.'
               : 'Speak continuously until the timer finishes. Maintain natural rhythm and tone.'}

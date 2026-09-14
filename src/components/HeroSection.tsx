@@ -16,7 +16,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
   };
 
   return (
-    <section id="hero" className="pt-28 pb-20 md:pt-36 md:pb-28 relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200">
+    <section id="hero" className="pt-28 pb-20 md:pt-36 md:pb-28 relative overflow-hidden bg-white border border-slate-200 border-b border-slate-200">
       {/* Subtle Ambient Tint */}
       <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[400px] bg-teal-50/80 blur-[140px] pointer-events-none rounded-full" />
 
@@ -103,7 +103,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
 
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-sm sm:max-w-md">
-              <div className="relative rounded-3xl p-2 bg-gradient-to-b from-teal-100/60 via-slate-100 to-teal-100/60 shadow-lg border border-slate-200">
+              <div className="relative rounded-3xl p-2 bg-white border border-slate-200 shadow-lg border border-slate-200">
                 <div className="bg-white rounded-[22px] overflow-hidden p-3 sm:p-4">
                   <div className="relative w-full aspect-[4/4.6] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 group shadow-inner">
                     <img

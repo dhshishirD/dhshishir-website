@@ -90,7 +90,7 @@ export const AtsResumeChecker: React.FC = () => {
             Interactive ATS Resume Readiness Diagnostic
             <span className="text-xs bg-teal-50 text-teal-800 border border-teal-200 px-2 py-0.5 rounded-full font-medium">Free Tool</span>
           </h3>
-          <p className="text-sm text-slate-500">Evaluate whether your CV will pass through automated corporate ATS filters.</p>
+          <p className="text-sm text-slate-600">Evaluate whether your CV will pass through automated corporate ATS filters.</p>
         </div>
       </div>
 
@@ -104,7 +104,7 @@ export const AtsResumeChecker: React.FC = () => {
                     <span className="text-xs font-bold text-teal-800 uppercase tracking-wider">#{idx + 1} {q.category}</span>
                   </div>
                   <p className="font-medium text-slate-800">{q.question}</p>
-                  <p className="text-xs text-slate-500">{q.explanation}</p>
+                  <p className="text-xs text-slate-600">{q.explanation}</p>
                 </div>
                 <div className="flex items-center gap-2 self-end md:self-center shrink-0">
                   <button
@@ -138,8 +138,8 @@ export const AtsResumeChecker: React.FC = () => {
               disabled={Object.keys(answers).length < QUESTIONS.length}
               className={`px-8 py-3.5 rounded-2xl font-bold text-slate-900 shadow-xl flex items-center gap-2 transition ${
                 Object.keys(answers).length === QUESTIONS.length
-                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:scale-[1.02] cursor-pointer'
-                  : 'bg-slate-100 text-slate-500 cursor-not-allowed'
+                  ? 'bg-white border border-slate-200 hover:scale-[1.02] cursor-pointer'
+                  : 'bg-slate-100 text-slate-600 cursor-not-allowed'
               }`}
             >
               <Sparkles className="w-5 h-5" /> Calculate My ATS Score
@@ -148,7 +148,7 @@ export const AtsResumeChecker: React.FC = () => {
         </div>
       ) : (
         <div className="space-y-6">
-          <div className="p-6 md:p-8 bg-gradient-to-br from-slate-900 to-indigo-950/60 rounded-3xl border border-teal-200 text-center">
+          <div className="p-6 md:p-8 bg-white border border-slate-200 rounded-3xl border border-teal-200 text-center">
             <span className="text-xs uppercase font-bold text-teal-800 tracking-widest">Diagnostic Result</span>
             <div className="my-4">
               <div className="text-6xl md:text-7xl font-black gradient-text">
@@ -157,7 +157,7 @@ export const AtsResumeChecker: React.FC = () => {
               <p className="text-lg font-bold text-slate-800 mt-2">
                 {score >= 80 ? '🎉 Excellent ATS Readiness! Highly Competitive' : score >= 50 ? '⚠️ Moderate Risk: Improvements Needed' : '🚨 High Risk: ATS Rejection Likely'}
               </p>
-              <p className="text-sm text-slate-500 max-w-xl mx-auto mt-1">
+              <p className="text-sm text-slate-600 max-w-xl mx-auto mt-1">
                 {score >= 80 
                   ? 'Your CV follows the core technical criteria of top corporate recruitment filters.' 
                   : 'Your CV is missing critical ATS parsing structures. Fixing these can 3x your interview callback rate.'}
@@ -174,7 +174,7 @@ export const AtsResumeChecker: React.FC = () => {
                   )}
                   <div>
                     <span className="text-xs font-bold text-slate-600 block">{q.category}</span>
-                    <span className="text-xs text-slate-500">{answers[q.id] ? 'Optimized' : 'Fix needed: ' + q.explanation}</span>
+                    <span className="text-xs text-slate-600">{answers[q.id] ? 'Optimized' : 'Fix needed: ' + q.explanation}</span>
                   </div>
                 </div>
               ))}
@@ -189,7 +189,7 @@ export const AtsResumeChecker: React.FC = () => {
               </button>
               <a
                 href="#cv-services"
-                className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-slate-900 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-xs transition text-sm"
+                className="px-6 py-3 bg-white border border-slate-200 hover:from-emerald-500 hover:to-teal-500 text-slate-900 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-xs transition text-sm"
               >
                 Get Professional CV Review <ArrowRight className="w-4 h-4" />
               </a>

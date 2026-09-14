@@ -33,10 +33,10 @@ export const DiagnosticResultCard: React.FC<DiagnosticResultCardProps> = ({
         </div>
 
         <div className="flex flex-col items-center justify-center p-5 bg-white rounded-2xl border border-slate-200 min-w-[150px] text-center shadow-lg">
-          <div className="text-4xl font-black bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
+          <div className="text-4xl font-black bg-white border border-slate-200 bg-clip-text text-transparent">
             {result.score}/{result.totalQuestions}
           </div>
-          <div className="text-xs text-slate-500 font-semibold mt-1">
+          <div className="text-xs text-slate-600 font-semibold mt-1">
             {result.percentage}% Accuracy
           </div>
           <span className="text-[10px] mt-1.5 px-2 py-0.5 rounded bg-teal-50 text-teal-800 font-bold">
@@ -48,21 +48,21 @@ export const DiagnosticResultCard: React.FC<DiagnosticResultCardProps> = ({
       {/* Sub-Score Category Breakdown */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="p-4 bg-white rounded-2xl border border-slate-200">
-          <div className="text-xs text-slate-500 font-medium">Reading & Syntax</div>
+          <div className="text-xs text-slate-600 font-medium">Reading & Syntax</div>
           <div className="text-xl font-bold text-slate-900 mt-1">{result.readingScore} / 4</div>
-          <div className="text-[11px] text-slate-500 mt-1">Tense harmony, collocations, nouns</div>
+          <div className="text-[11px] text-slate-600 mt-1">Tense harmony, collocations, nouns</div>
         </div>
 
         <div className="p-4 bg-white rounded-2xl border border-slate-200">
-          <div className="text-xs text-slate-500 font-medium">Listening Discrimination</div>
+          <div className="text-xs text-slate-600 font-medium">Listening Discrimination</div>
           <div className="text-xl font-bold text-teal-800 mt-1">{result.listeningScore} / 3</div>
-          <div className="text-[11px] text-slate-500 mt-1">/v/ vs /b/, TH sounds, vowels</div>
+          <div className="text-[11px] text-slate-600 mt-1">/v/ vs /b/, TH sounds, vowels</div>
         </div>
 
         <div className="p-4 bg-white rounded-2xl border border-slate-200">
-          <div className="text-xs text-slate-500 font-medium">Spoken Readiness & Stress</div>
+          <div className="text-xs text-slate-600 font-medium">Spoken Readiness & Stress</div>
           <div className="text-xl font-bold text-teal-800 mt-1">{result.speakingScore} / 3</div>
-          <div className="text-[11px] text-slate-500 mt-1">Syllable stress & connected speech</div>
+          <div className="text-[11px] text-slate-600 mt-1">Syllable stress & connected speech</div>
         </div>
       </div>
 
@@ -73,7 +73,7 @@ export const DiagnosticResultCard: React.FC<DiagnosticResultCardProps> = ({
             <AlertTriangle className="w-4 h-4 text-amber-400" />
             Diagnosed Weak Phonemes & Habits ({result.flaggedWeakPatterns.length})
           </h4>
-          <span className="text-xs text-slate-500">Auto-assigned for Stage 2 & 3 drills</span>
+          <span className="text-xs text-slate-600">Auto-assigned for Stage 2 & 3 drills</span>
         </div>
 
         {result.flaggedWeakPatterns.length > 0 ? (
@@ -90,8 +90,8 @@ export const DiagnosticResultCard: React.FC<DiagnosticResultCardProps> = ({
                   <p className="text-xs text-slate-600 leading-relaxed">
                     {info.banglaExplanation}
                   </p>
-                  <div className="pt-2 border-t border-slate-200 text-[11px] text-slate-500">
-                    <span className="text-slate-500 font-semibold">Common trap: </span>
+                  <div className="pt-2 border-t border-slate-200 text-[11px] text-slate-600">
+                    <span className="text-slate-600 font-semibold">Common trap: </span>
                     <span className="text-slate-600 font-mono">{info.exampleTrap}</span>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export const DiagnosticResultCard: React.FC<DiagnosticResultCardProps> = ({
           <div className="p-6 bg-white rounded-2xl border border-teal-200 text-center space-y-2">
             <CheckCircle className="w-8 h-8 text-teal-800 mx-auto" />
             <div className="text-sm font-bold text-slate-900">Flawless Pronunciation & Syntax Foundation!</div>
-            <p className="text-xs text-slate-500">You cleared all diagnostic checks without triggering standard phonetic traps.</p>
+            <p className="text-xs text-slate-600">You cleared all diagnostic checks without triggering standard phonetic traps.</p>
           </div>
         )}
       </div>
@@ -116,7 +116,7 @@ export const DiagnosticResultCard: React.FC<DiagnosticResultCardProps> = ({
           <RotateCcw className="w-3.5 h-3.5" /> Retake Diagnostic Placement Quiz
         </button>
 
-        <div className="text-xs text-slate-500 text-center sm:text-right">
+        <div className="text-xs text-slate-600 text-center sm:text-right">
           <span>Profile active for: </span>
           <span className="text-teal-800 font-bold">{userAlias}</span>
         </div>

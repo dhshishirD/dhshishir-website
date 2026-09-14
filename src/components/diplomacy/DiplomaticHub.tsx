@@ -192,7 +192,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
         
         {/* Top Breadcrumb & User Status */}
         <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-200">
-          <div className="flex items-center gap-2 text-xs text-slate-500">
+          <div className="flex items-center gap-2 text-xs text-slate-600">
             {onNavigateHome && (
               <button 
                 onClick={onNavigateHome}
@@ -210,7 +210,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               <div className="flex items-center gap-2 bg-teal-50 border border-teal-200 text-teal-900 text-xs px-3 py-1.5 rounded-full font-medium shadow-sm">
                 <Unlock className="w-3.5 h-3.5 text-teal-800" />
                 <span>Analyst Command Center Active</span>
-                <span className="text-slate-500">({user.email})</span>
+                <span className="text-slate-600">({user.email})</span>
               </div>
             ) : (
               <button
@@ -239,19 +239,19 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
           {/* Strategic Metrics Ribbon */}
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="bg-white border border-slate-200 rounded-xl p-3.5">
-              <div className="text-xs font-semibold text-slate-500">Tracked Dossiers</div>
+              <div className="text-xs font-semibold text-slate-600">Tracked Dossiers</div>
               <div className="text-xl font-extrabold text-teal-900 mt-0.5">{INITIAL_INTEL_FEED.length} Analyzed</div>
             </div>
             <div className="bg-white border border-slate-200 rounded-xl p-3.5">
-              <div className="text-xs font-semibold text-slate-500">Strategic Pillars</div>
+              <div className="text-xs font-semibold text-slate-600">Strategic Pillars</div>
               <div className="text-xl font-extrabold text-teal-900 mt-0.5">7 Core Domains</div>
             </div>
             <div className="bg-white border border-slate-200 rounded-xl p-3.5">
-              <div className="text-xs font-semibold text-slate-500">Think Tank Bodies</div>
+              <div className="text-xs font-semibold text-slate-600">Think Tank Bodies</div>
               <div className="text-xl font-extrabold text-teal-900 mt-0.5">25+ Ingested</div>
             </div>
             <div className="bg-white border border-slate-200 rounded-xl p-3.5">
-              <div className="text-xs font-semibold text-slate-500">Analysis Methodology</div>
+              <div className="text-xs font-semibold text-slate-600">Analysis Methodology</div>
               <div className="text-xl font-extrabold text-teal-900 mt-0.5">100% Open Intel</div>
             </div>
           </div>
@@ -263,8 +263,8 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             onClick={() => setActiveTab('stream')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
               activeTab === 'stream'
-                ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-slate-900 shadow-lg shadow-xs'
-                : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100/60'
+                ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
             }`}
           >
             <Layers className="w-4 h-4" />
@@ -276,8 +276,8 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             onClick={() => setActiveTab('bookmarks')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
               activeTab === 'bookmarks'
-                ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-slate-900 shadow-lg shadow-xs'
-                : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100/60'
+                ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
             }`}
           >
             <Bookmark className="w-4 h-4" />
@@ -289,8 +289,8 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             onClick={() => setActiveTab('ai-advisor')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
               activeTab === 'ai-advisor'
-                ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-slate-900 shadow-lg shadow-xs'
-                : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100/60'
+                ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
             }`}
           >
             <Sparkles className="w-4 h-4 text-teal-900" />
@@ -301,8 +301,8 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             onClick={() => setActiveTab('memos')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
               activeTab === 'memos'
-                ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-slate-900 shadow-lg shadow-xs'
-                : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100/60'
+                ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
             }`}
           >
             <FileText className="w-4 h-4" />
@@ -315,7 +315,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
               activeTab === 'simulator'
                 ? 'bg-teal-900 hover:bg-teal-800 text-white shadow-lg shadow-xs'
-                : 'text-slate-500 hover:text-white hover:bg-slate-100/60'
+                : 'text-slate-600 hover:text-white hover:bg-slate-100/60'
             }`}
           >
             <Sliders className="w-4 h-4 text-teal-900" />
@@ -330,13 +330,13 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             {/* Search and Tier Filter */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
               <div className="md:col-span-6 relative">
-                <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Search className="w-4 h-4 text-slate-600 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Search by topic, think tank (BIISS, CSIS), or keyword (Teesta, Matarbari)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition"
+                  className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-500 focus:outline-none focus:border-teal-200 transition"
                 />
               </div>
 
@@ -344,7 +344,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                 <select
                   value={selectedTier}
                   onChange={(e) => setSelectedTier(e.target.value as SourceTier)}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-cyan-500 transition cursor-pointer"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-teal-200 transition cursor-pointer"
                 >
                   {SOURCE_TIERS_META.map(tier => (
                     <option key={tier.id} value={tier.id} className="bg-slate-50 text-slate-900">
@@ -357,7 +357,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
             {/* Strategic Pillar Chips */}
             <div>
-              <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+              <div className="text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                 <Filter className="w-3.5 h-3.5 text-teal-800" /> Filter by Strategic Pillar
               </div>
               <div className="flex flex-wrap gap-2">
@@ -370,7 +370,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                       className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer border ${
                         isActive
                           ? 'bg-teal-50 text-teal-900 border-teal-200 shadow-sm'
-                          : 'bg-white text-slate-500 hover:text-slate-800 border-slate-200 hover:border-slate-200'
+                          : 'bg-white text-slate-600 hover:text-slate-800 border-slate-200 hover:border-slate-200'
                       }`}
                     >
                       <span>{pillar.label}</span>
@@ -385,10 +385,10 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               <div className="p-12 text-center bg-white rounded-2xl border border-slate-200 my-8">
                 <AlertCircle className="w-8 h-8 text-teal-800 mx-auto mb-3 opacity-60" />
                 <h3 className="text-base font-bold text-slate-900">No intelligence dossiers match this query</h3>
-                <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Try clearing your search query or selecting All Strategic Pillars.</p>
+                <p className="text-xs text-slate-600 mt-1 max-w-sm mx-auto">Try clearing your search query or selecting All Strategic Pillars.</p>
                 <button
                   onClick={() => { setSelectedPillar('all'); setSelectedTier('all'); setSearchQuery(''); }}
-                  className="mt-4 px-4 py-2 bg-cyan-600/30 hover:bg-cyan-600/50 border border-teal-200 text-teal-900 text-xs font-bold rounded-xl transition cursor-pointer"
+                  className="mt-4 px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white text-xs font-bold rounded-xl transition cursor-pointer shadow-xs"
                 >
                   Reset All Filters
                 </button>
@@ -407,21 +407,17 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                     >
                       <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-xs font-extrabold text-teal-800 bg-cyan-950/60 border border-teal-200 px-2.5 py-0.5 rounded-full">
+                          <span className="text-xs font-bold text-slate-800 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full">
                             {item.source}
                           </span>
                           <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${
-                            item.impactLevel === 'High Strategic Significance'
-                              ? 'bg-rose-500/10 text-rose-300 border-rose-500/20'
-                              : item.impactLevel === 'Medium Impact'
-                              ? 'bg-teal-50 text-amber-300 border-amber-500/20'
-                              : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
+                            'bg-teal-50 text-teal-900 border-teal-200 font-bold'
                           }`}>
                             ● {item.impactLevel}
                           </span>
                         </div>
 
-                        <div className="flex items-center gap-3 text-xs text-slate-500">
+                        <div className="flex items-center gap-3 text-xs text-slate-600">
                           <span>{item.publishedAt}</span>
                           <span>•</span>
                           <span>{item.readTime}</span>
@@ -436,11 +432,11 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                         {item.executiveSummary}
                       </p>
 
-                      <div className="mt-4 bg-gradient-to-r from-emerald-950/40 via-teal-950/30 to-slate-950/50 border-l-4 border-emerald-400 p-3.5 rounded-r-xl">
-                        <div className="text-[11px] font-bold text-teal-800 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                      <div className="mt-4 bg-teal-50/70 border-l-4 border-teal-800 border-y border-r border-teal-200/80 p-4 rounded-r-xl shadow-2xs">
+                        <div className="text-[11px] font-bold text-teal-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
                           <Compass className="w-3.5 h-3.5 text-teal-800" /> Significance for Bangladesh National Interest
                         </div>
-                        <p className="text-xs sm:text-sm text-emerald-100 font-medium leading-relaxed">
+                        <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
                           {item.bangladeshSignificance}
                         </p>
                       </div>
@@ -448,7 +444,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-200">
                         <div className="flex flex-wrap items-center gap-1.5">
                           {item.tags.map(tag => (
-                            <span key={tag} className="text-[11px] bg-slate-50 text-slate-500 px-2 py-0.5 rounded-md font-medium">
+                            <span key={tag} className="text-[11px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md font-medium border border-slate-200">
                               #{tag}
                             </span>
                           ))}
@@ -477,7 +473,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                             }`}
                             title={isSaved ? 'Remove from Binder' : 'Bookmark to Binder'}
                           >
-                            {isSaved ? <BookmarkCheck className="w-3.5 h-3.5 text-teal-800" /> : <Bookmark className="w-3.5 h-3.5 text-slate-500" />}
+                            {isSaved ? <BookmarkCheck className="w-3.5 h-3.5 text-teal-800" /> : <Bookmark className="w-3.5 h-3.5 text-slate-600" />}
                             <span className="hidden sm:inline">{isSaved ? 'Saved' : 'Save'}</span>
                           </button>
 
@@ -490,7 +486,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                                 setSelectedDossier(item);
                               }
                             }}
-                            className="px-3 py-1.5 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 border border-cyan-400/40 text-slate-900 shadow-md shadow-xs rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                            className="px-3 py-1.5 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 border border-cyan-400/40 text-slate-900 shadow-md shadow-xs rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
                           >
                             <span>Read Academic Dossier</span>
                             <ArrowUpRight className="w-3.5 h-3.5 text-teal-900" />
@@ -499,7 +495,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                       </div>
 
                       {notes[item.id] && (
-                        <div className="mt-3 bg-amber-950/20 border border-amber-500/30 rounded-xl p-3 text-xs text-amber-200">
+                        <div className="mt-3 bg-amber-50 border border-amber-500/30 rounded-xl p-3 text-xs text-amber-200">
                           <span className="font-bold text-amber-400 uppercase tracking-wider text-[10px]">Confidential Note: </span>
                           <span>{notes[item.id]}</span>
                         </div>
@@ -520,20 +516,20 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                 <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   <Bookmark className="w-5 h-5 text-teal-800" /> Saved Research Binder
                 </h2>
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-xs text-slate-600 mt-1">
                   Your curated repository of high-priority diplomatic dossiers, treaties, and think tank analyses.
                 </p>
               </div>
-              <span className="text-xs font-bold text-teal-800 bg-cyan-950/80 px-3 py-1 rounded-full border border-teal-200">
+              <span className="text-xs font-bold text-teal-800 bg-white/80 px-3 py-1 rounded-full border border-teal-200">
                 {bookmarkedItems.length} Saved Files
               </span>
             </div>
 
             {bookmarkedItems.length === 0 ? (
               <div className="p-12 text-center bg-white rounded-2xl border border-slate-200">
-                <Bookmark className="w-8 h-8 text-slate-500 mx-auto mb-3" />
+                <Bookmark className="w-8 h-8 text-slate-600 mx-auto mb-3" />
                 <h3 className="text-base font-bold text-slate-900">Your Research Binder is Empty</h3>
-                <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+                <p className="text-xs text-slate-600 mt-1 max-w-sm mx-auto">
                   Click the Save bookmark icon on any think tank analysis in the Daily Strategic Stream to organize it here.
                 </p>
                 <button
@@ -547,7 +543,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               <div className="grid grid-cols-1 gap-4">
                 {bookmarkedItems.map(item => (
                   <div key={item.id} className="bg-white border border-teal-200 rounded-2xl p-5 shadow-lg">
-                    <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
+                    <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
                       <span className="text-teal-800 font-extrabold">{item.source}</span>
                       <span>{item.publishedAt}</span>
                     </div>
@@ -555,7 +551,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                     <p className="text-xs text-slate-600 mt-2 leading-relaxed">{item.executiveSummary}</p>
                     
                     {notes[item.id] && (
-                      <div className="mt-3 bg-amber-950/20 border border-amber-500/30 rounded-xl p-3 text-xs text-amber-200">
+                      <div className="mt-3 bg-amber-50 border border-amber-500/30 rounded-xl p-3 text-xs text-amber-200">
                         <span className="font-bold text-amber-400 text-[10px] uppercase">Your Note: </span>
                         <span>{notes[item.id]}</span>
                       </div>
@@ -602,7 +598,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
         {/* TAB 3: AI DIPLOMATIC ADVISOR */}
         {activeTab === 'ai-advisor' && (
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-cyan-950/40 border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div className="bg-white border border-slate-200 border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-900">
                   <Sparkles className="w-5 h-5" />
@@ -614,7 +610,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               </div>
 
               <div className="mb-4">
-                <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">Suggested Inquiries:</div>
+                <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-2">Suggested Inquiries:</div>
                 <div className="flex flex-wrap gap-2">
                   {AI_QUERY_TEMPLATES.map(prompt => (
                     <button
@@ -635,16 +631,16 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                     value={aiQuery}
                     onChange={(e) => setAiQuery(e.target.value)}
                     placeholder="Ask any question on South Asian geopolitics, treaties, trade, or Bangladesh strategic interests..."
-                    className="w-full bg-white border border-slate-200 rounded-2xl p-4 text-xs sm:text-sm text-slate-900 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition resize-none"
+                    className="w-full bg-white border border-slate-200 rounded-2xl p-4 text-xs sm:text-sm text-slate-900 placeholder-slate-500 focus:outline-none focus:border-teal-200 transition resize-none"
                   />
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] text-slate-500">Powered by Diplomatic Synthesis Engine</span>
+                  <span className="text-[11px] text-slate-600">Powered by Diplomatic Synthesis Engine</span>
                   <button
                     type="submit"
                     disabled={isAiLoading || !aiQuery.trim()}
-                    className="px-6 py-2.5 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-slate-900 font-bold text-xs sm:text-sm rounded-xl transition flex items-center gap-2 shadow-lg shadow-cyan-950 disabled:opacity-50 cursor-pointer"
+                    className="px-6 py-2.5 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 font-bold text-xs sm:text-sm rounded-xl transition flex items-center gap-2 shadow-lg shadow-cyan-950 disabled:opacity-50 cursor-pointer"
                   >
                     {isAiLoading ? (
                       <>
@@ -678,14 +674,14 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                 <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   <FileText className="w-5 h-5 text-teal-800" /> Ministerial Policy Memos & Briefings
                 </h2>
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-xs text-slate-600 mt-1">
                   Compose, review, and export formal foreign policy briefing notes with actionable strategic recommendations.
                 </p>
               </div>
 
               <button
                 onClick={() => setIsCreatingMemo(!isCreatingMemo)}
-                className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg shadow-cyan-950"
+                className="px-4 py-2 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-lg shadow-cyan-950"
               >
                 <Plus className="w-4 h-4" />
                 <span>{isCreatingMemo ? 'Close Studio' : 'Draft New Policy Memo'}</span>
@@ -707,7 +703,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                       placeholder="e.g. Strategic Imperatives for Bangladesh-Japan CEPA"
                       value={newMemoTitle}
                       onChange={(e) => setNewMemoTitle(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-cyan-500"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-teal-200"
                     />
                   </div>
 
@@ -716,7 +712,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                     <select
                       value={newMemoPillar}
                       onChange={(e) => setNewMemoPillar(e.target.value as StrategicPillar)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-cyan-500 cursor-pointer"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-teal-200 cursor-pointer"
                     >
                       {DIPLOMACY_PILLARS_META.filter(p => p.id !== 'all').map(p => (
                         <option key={p.id} value={p.id}>{p.label}</option>
@@ -732,7 +728,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                     placeholder="1-2 sentences summarizing the core strategic takeaway..."
                     value={newMemoSummary}
                     onChange={(e) => setNewMemoSummary(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-cyan-500"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-teal-200"
                   />
                 </div>
 
@@ -744,7 +740,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                     placeholder="Provide in-depth context, geopolitical stakes, and risk assessments..."
                     value={newMemoContent}
                     onChange={(e) => setNewMemoContent(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-cyan-500 resize-none"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-teal-200 resize-none"
                   />
                 </div>
 
@@ -755,7 +751,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                     placeholder="1. Expedite bilateral negotiations&#10;2. Coordinate with Ministry of Commerce&#10;3. Conduct maritime feasibility review"
                     value={newMemoRecommendations}
                     onChange={(e) => setNewMemoRecommendations(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-cyan-500 resize-none"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-teal-200 resize-none"
                   />
                 </div>
 
@@ -779,9 +775,9 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
             {memos.length === 0 && !isCreatingMemo ? (
               <div className="p-12 text-center bg-white rounded-2xl border border-slate-200">
-                <FileText className="w-8 h-8 text-slate-500 mx-auto mb-3" />
+                <FileText className="w-8 h-8 text-slate-600 mx-auto mb-3" />
                 <h3 className="text-base font-bold text-slate-900">No Policy Memos Drafted Yet</h3>
-                <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+                <p className="text-xs text-slate-600 mt-1 max-w-sm mx-auto">
                   Click Draft New Policy Memo above to write high-level diplomatic briefings and strategic recommendations.
                 </p>
               </div>
@@ -789,14 +785,14 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               <div className="grid grid-cols-1 gap-5">
                 {memos.map(memo => (
                   <div key={memo.id} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-lg">
-                    <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 mb-2">
-                      <span className="text-teal-800 font-extrabold uppercase tracking-wider bg-cyan-950/60 border border-teal-200 px-2.5 py-0.5 rounded-full">
+                    <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 mb-2">
+                      <span className="text-teal-800 font-extrabold uppercase tracking-wider bg-white border border-teal-200 px-2.5 py-0.5 rounded-full">
                         {memo.pillar}
                       </span>
                       <span>Author: {memo.author} • {memo.createdAt}</span>
                     </div>
                     <h4 className="text-lg font-bold text-slate-900 mt-1">{memo.title}</h4>
-                    <p className="text-xs text-slate-600 mt-2 font-medium italic border-l-2 border-cyan-500/50 pl-3">
+                    <p className="text-xs text-slate-600 mt-2 font-medium italic border-l-2 border-teal-200/50 pl-3">
                       {memo.summary}
                     </p>
                     <div className="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed whitespace-pre-line bg-white p-4 rounded-xl border border-slate-200">
@@ -804,13 +800,13 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                     </div>
 
                     {memo.recommendations && memo.recommendations.length > 0 && (
-                      <div className="mt-4 bg-emerald-950/20 border border-teal-200 rounded-xl p-4">
+                      <div className="mt-4 bg-white border border-teal-200 rounded-xl p-4">
                         <div className="text-[11px] font-bold text-teal-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                           <CheckCircle2 className="w-4 h-4 text-teal-800" /> Key Policy Recommendations:
                         </div>
                         <ul className="space-y-1.5">
                           {memo.recommendations.map((rec, i) => (
-                            <li key={i} className="text-xs text-emerald-100 flex items-start gap-2">
+                            <li key={i} className="text-xs text-slate-800 flex items-start gap-2">
                               <span className="text-teal-800 font-bold">•</span>
                               <span>{rec}</span>
                             </li>
@@ -839,19 +835,19 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             
             <button
               onClick={() => setSelectedDossier(null)}
-              className="absolute top-5 right-5 p-2 bg-slate-100 hover:bg-slate-700 text-slate-500 hover:text-slate-900 rounded-full transition cursor-pointer"
+              className="absolute top-5 right-5 p-2 bg-slate-100 hover:bg-slate-700 text-slate-600 hover:text-slate-900 rounded-full transition cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex flex-wrap items-center gap-2 mb-3">
-              <span className="text-xs font-extrabold text-teal-800 bg-cyan-950/80 border border-teal-200 px-3 py-1 rounded-full">
+              <span className="text-xs font-extrabold text-teal-800 bg-white/80 border border-teal-200 px-3 py-1 rounded-full">
                 {selectedDossier.source}
               </span>
               <span className="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full">
                 {selectedDossier.publishedAt}
               </span>
-              <span className="text-xs text-slate-500">{selectedDossier.readTime}</span>
+              <span className="text-xs text-slate-600">{selectedDossier.readTime}</span>
             </div>
 
             <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-snug">
@@ -870,11 +866,11 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
               </div>
 
               {/* Bangladesh National Interest Box */}
-              <div className="bg-emerald-950/30 border border-teal-200 rounded-2xl p-4 sm:p-5">
+              <div className="bg-white border border-teal-200 rounded-2xl p-4 sm:p-5">
                 <div className="text-xs font-bold text-teal-800 uppercase tracking-wider flex items-center gap-1.5 mb-2">
                   <Compass className="w-4 h-4 text-teal-800" /> Significance for Bangladesh National Interest
                 </div>
-                <p className="text-xs sm:text-sm text-emerald-100 font-medium leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
                   {selectedDossier.bangladeshSignificance}
                 </p>
               </div>
@@ -916,13 +912,13 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
               {/* Policy Recommendations */}
               {selectedDossier.policyRecommendations && selectedDossier.policyRecommendations.length > 0 && (
-                <div className="bg-indigo-950/20 border border-teal-200 rounded-2xl p-4 sm:p-5">
+                <div className="bg-white border border-teal-200 rounded-2xl p-4 sm:p-5">
                   <h5 className="text-xs font-bold text-teal-900 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-teal-800" /> Actionable Recommendations for MoFA / ERD
                   </h5>
                   <ul className="space-y-2">
                     {selectedDossier.policyRecommendations.map((rec, i) => (
-                      <li key={i} className="text-xs sm:text-sm text-indigo-100 flex items-start gap-2">
+                      <li key={i} className="text-xs sm:text-sm text-slate-800 flex items-start gap-2">
                         <span className="text-teal-800 font-bold">✓</span>
                         <span>{rec}</span>
                       </li>
@@ -933,7 +929,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
               {/* Key Actors */}
               <div>
-                <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">Key Stakeholders & Institutions:</div>
+                <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-2">Key Stakeholders & Institutions:</div>
                 <div className="flex flex-wrap gap-2">
                   {selectedDossier.keyActors.map(actor => (
                     <span key={actor} className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-lg border border-slate-200">
@@ -986,7 +982,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                     </>
                   ) : (
                     <>
-                      <Bookmark className="w-3.5 h-3.5 text-slate-500" />
+                      <Bookmark className="w-3.5 h-3.5 text-slate-600" />
                       <span>Save</span>
                     </>
                   )}
@@ -999,7 +995,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
                       setSelectedDossier(null);
                       onOpenDossierPage(slug);
                     }}
-                    className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-slate-900 font-bold rounded-xl text-xs shadow-lg shadow-xs transition flex items-center gap-1.5 cursor-pointer"
+                    className="px-4 py-2 bg-white border border-slate-200 hover:from-cyan-500 hover:to-teal-500 text-slate-900 font-bold rounded-xl text-xs shadow-lg shadow-xs transition flex items-center gap-1.5 cursor-pointer"
                   >
                     <span>Open Dedicated Dossier Page</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-teal-900" />
@@ -1019,7 +1015,7 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
             <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
               <MessageSquare className="w-4 h-4 text-amber-400" /> Confidential Diplomatic Note
             </h3>
-            <p className="text-xs text-slate-500 mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Add your private analytical perspective, ministerial talking points, or follow-up actions.
             </p>
             <textarea

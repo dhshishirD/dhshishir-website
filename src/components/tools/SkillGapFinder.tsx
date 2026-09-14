@@ -56,13 +56,13 @@ export const SkillGapFinder: React.FC = () => {
           <h3 className="text-xl md:text-2xl font-bold text-slate-900">
             Skill-to-Career Roadmap & Course Matcher
           </h3>
-          <p className="text-sm text-slate-500">Identify exact skills needed for your dream career and find top-rated courses.</p>
+          <p className="text-sm text-slate-600">Identify exact skills needed for your dream career and find top-rated courses.</p>
         </div>
       </div>
 
       <div className="space-y-6">
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Choose Your Target Path:</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-3">Choose Your Target Path:</label>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {CAREER_PATHS.map((cp) => (
               <button
@@ -70,8 +70,8 @@ export const SkillGapFinder: React.FC = () => {
                 onClick={() => setSelectedId(cp.id)}
                 className={`p-4 rounded-2xl text-left border transition cursor-pointer ${
                   selectedId === cp.id
-                    ? 'bg-indigo-600/30 border-indigo-500 text-slate-900 shadow-lg'
-                    : 'bg-slate-100/50 border-slate-200 text-slate-500 hover:border-slate-200'
+                    ? 'bg-indigo-600/30 border-teal-200 text-slate-900 shadow-lg'
+                    : 'bg-slate-100/50 border-slate-200 text-slate-600 hover:border-slate-200'
                 }`}
               >
                 <div className="font-bold text-sm text-slate-900">{cp.title}</div>
@@ -102,7 +102,7 @@ export const SkillGapFinder: React.FC = () => {
                 <div key={idx} className="p-3 bg-white rounded-xl border border-slate-200/60 flex items-center justify-between gap-3">
                   <div>
                     <span className="text-xs font-bold text-slate-900 block">{c.name}</span>
-                    <span className="text-[11px] text-slate-500">{c.provider} • <span className="text-teal-800 font-semibold">{c.price}</span></span>
+                    <span className="text-[11px] text-slate-600">{c.provider} • <span className="text-teal-800 font-semibold">{c.price}</span></span>
                   </div>
                   <a
                     href={c.url}

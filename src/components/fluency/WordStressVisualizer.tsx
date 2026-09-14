@@ -49,13 +49,13 @@ export const WordStressVisualizer: React.FC = () => {
       {/* Header & Two-Tier Search Box */}
       <div className="max-w-2xl mx-auto space-y-4 text-center">
         <div className="relative">
-          <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
+          <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-600" />
           <input
             type="text"
             placeholder="Type ANY English word (e.g. technology, university, communication, record)..."
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            className="w-full bg-white border border-slate-200 rounded-2xl pl-12 pr-4 py-3.5 text-sm text-slate-900 focus:border-indigo-500 outline-none shadow-lg placeholder:text-slate-500"
+            className="w-full bg-white border border-slate-200 rounded-2xl pl-12 pr-4 py-3.5 text-sm text-slate-900 focus:border-teal-200 outline-none shadow-lg placeholder:text-slate-600"
           />
         </div>
 
@@ -68,7 +68,7 @@ export const WordStressVisualizer: React.FC = () => {
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
                 activeSection === sec.key
                   ? 'bg-indigo-600 text-slate-900 shadow-md shadow-xs'
-                  : 'bg-white text-slate-500 border border-slate-200 hover:text-slate-900 hover:border-slate-200'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:text-slate-900 hover:border-slate-200'
               }`}
             >
               {sec.label}
@@ -79,22 +79,22 @@ export const WordStressVisualizer: React.FC = () => {
 
       {/* UNLIMITED LOOKUP TIER (AI / CMUDICT RESULT) */}
       {aiLookupResult && (
-        <div className="max-w-2xl mx-auto bg-gradient-to-r from-purple-950/60 via-slate-900 to-indigo-950/60 border border-purple-500/40 rounded-3xl p-6 shadow-2xl space-y-4 animate-in fade-in duration-200">
+        <div className="max-w-2xl mx-auto bg-white border border-slate-200 border border-purple-500/40 rounded-3xl p-6 shadow-2xl space-y-4 animate-in fade-in duration-200">
           <div className="flex items-center justify-between border-b border-purple-500/20 pb-3">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 flex items-center gap-1">
-                <Cpu className="w-3 h-3 text-purple-400" /> Unlimited AI Lookup Tier
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-500/20 text-teal-900 border border-purple-500/30 flex items-center gap-1">
+                <Cpu className="w-3 h-3 text-teal-800" /> Unlimited AI Lookup Tier
               </span>
-              <span className="text-xs text-slate-500">CMUDict Phonetic Engine</span>
+              <span className="text-xs text-slate-600">CMUDict Phonetic Engine</span>
             </div>
-            <span className="text-xs font-mono text-purple-300">{aiLookupResult.ipa}</span>
+            <span className="text-xs font-mono text-teal-900">{aiLookupResult.ipa}</span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h4 className="text-2xl font-black text-slate-900 capitalize">{aiLookupResult.word}</h4>
-              <div className="text-xs text-slate-500 mt-1">
-                Primary stress identified on syllable <span className="font-bold text-purple-300">#{aiLookupResult.stressedIndex + 1}</span>
+              <div className="text-xs text-slate-600 mt-1">
+                Primary stress identified on syllable <span className="font-bold text-teal-900">#{aiLookupResult.stressedIndex + 1}</span>
               </div>
             </div>
 
@@ -107,8 +107,8 @@ export const WordStressVisualizer: React.FC = () => {
                     key={idx}
                     className={`px-3.5 py-1.5 rounded-xl font-mono text-sm font-black transition ${
                       isStressed
-                        ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-slate-900 shadow-lg shadow-xs ring-2 ring-purple-400 scale-105'
-                        : 'bg-white text-slate-500 border border-slate-200'
+                        ? 'bg-white border border-slate-200 text-slate-900 shadow-lg shadow-xs ring-2 ring-purple-400 scale-105'
+                        : 'bg-white text-slate-600 border border-slate-200'
                     }`}
                   >
                     {syl}
@@ -151,7 +151,7 @@ export const WordStressVisualizer: React.FC = () => {
                     <span className="text-[10px] font-bold uppercase tracking-widest text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded-md border border-teal-200 flex items-center gap-1">
                       <Sparkles className="w-3 h-3 text-teal-800" /> Studio Verified
                     </span>
-                    <span className="text-[10px] text-slate-500">Sec {item.section}</span>
+                    <span className="text-[10px] text-slate-600">Sec {item.section}</span>
                   </div>
 
                   {isShift && (
@@ -178,7 +178,7 @@ export const WordStressVisualizer: React.FC = () => {
                     )}
                   </h4>
                   {activeMeaning && (
-                    <div className="text-xs text-slate-500 mt-0.5 font-bangla">
+                    <div className="text-xs text-slate-600 mt-0.5 font-bangla">
                       {activeMeaning}
                     </div>
                   )}
@@ -193,8 +193,8 @@ export const WordStressVisualizer: React.FC = () => {
                         key={sIdx}
                         className={`px-3 py-1.5 rounded-xl font-mono text-sm transition font-black ${
                           isStressed
-                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md shadow-xs scale-105 ring-2 ring-emerald-400'
-                            : 'bg-white text-slate-500 border border-slate-200'
+                            ? 'bg-white border border-slate-200 text-slate-950 shadow-md shadow-xs scale-105 ring-2 ring-emerald-400'
+                            : 'bg-white text-slate-600 border border-slate-200'
                         }`}
                       >
                         {syl}
@@ -207,7 +207,7 @@ export const WordStressVisualizer: React.FC = () => {
               {/* Bottom Audio Play Trigger */}
               <button
                 onClick={() => handlePlayStressAudio(item.word)}
-                className="w-full py-2.5 bg-white hover:bg-emerald-600 text-slate-600 hover:text-white rounded-xl text-xs font-bold border border-slate-200 hover:border-emerald-500 flex items-center justify-center gap-2 transition cursor-pointer"
+                className="w-full py-2.5 bg-white hover:bg-emerald-600 text-slate-600 hover:text-white rounded-xl text-xs font-bold border border-slate-200 hover:border-teal-200 flex items-center justify-center gap-2 transition cursor-pointer"
               >
                 <Volume2 className="w-3.5 h-3.5 text-teal-800 group-hover:text-slate-900" />
                 <span>Hear Stressed Pronunciation</span>

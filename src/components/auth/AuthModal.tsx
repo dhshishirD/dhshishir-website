@@ -87,7 +87,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-slate-500 hover:text-slate-900 rounded-xl bg-slate-100/60 hover:bg-slate-100 transition"
+          className="absolute top-4 right-4 p-2 text-slate-600 hover:text-slate-900 rounded-xl bg-slate-100/60 hover:bg-slate-100 transition"
         >
           <X className="w-4 h-4" />
         </button>
@@ -100,7 +100,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           <h3 className="text-2xl font-black text-slate-900">
             {isSignUp ? 'Create Your Account' : 'Sign in to Your Space'}
           </h3>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-600">
             {isSignUp 
               ? 'Save your CEFR test records, sound drills, and daily streaks permanently to the cloud.' 
               : 'Access your saved diagnostic results, weak sound index, and practice timeline.'}
@@ -151,7 +151,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
 
         <div className="flex items-center gap-3 my-4">
           <div className="h-px bg-slate-100 flex-1" />
-          <span className="text-[11px] text-slate-500 font-semibold uppercase">or with email</span>
+          <span className="text-[11px] text-slate-600 font-semibold uppercase">or with email</span>
           <div className="h-px bg-slate-100 flex-1" />
         </div>
 
@@ -161,14 +161,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
             <div>
               <label className="block text-xs font-semibold text-slate-600 mb-1">Your Full Name</label>
               <div className="relative">
-                <User className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
+                <User className="w-4 h-4 text-slate-600 absolute left-3 top-3" />
                 <input
                   type="text"
                   required
                   placeholder="e.g. Tanvir Ahmed"
                   value={fullName}
                   onChange={e => setFullName(e.target.value)}
-                  className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+                  className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
                 />
               </div>
             </div>
@@ -177,14 +177,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           <div>
             <label className="block text-xs font-semibold text-slate-600 mb-1">Email Address</label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
+              <Mail className="w-4 h-4 text-slate-600 absolute left-3 top-3" />
               <input
                 type="email"
                 required
                 placeholder="you@example.com"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
               />
             </div>
           </div>
@@ -192,7 +192,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           <div>
             <label className="block text-xs font-semibold text-slate-600 mb-1">Password</label>
             <div className="relative">
-              <Lock className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
+              <Lock className="w-4 h-4 text-slate-600 absolute left-3 top-3" />
               <input
                 type="password"
                 required
@@ -200,7 +200,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
                 minLength={6}
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 focus:border-indigo-500 outline-none"
+                className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-200 outline-none"
               />
             </div>
           </div>
@@ -208,14 +208,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 hover:opacity-95 disabled:opacity-50 text-slate-900 font-bold text-xs shadow-lg shadow-xs transition flex items-center justify-center gap-2 cursor-pointer mt-2"
+            className="w-full py-3 rounded-xl bg-white border border-slate-200 hover:opacity-95 disabled:opacity-50 text-slate-900 font-bold text-xs shadow-lg shadow-xs transition flex items-center justify-center gap-2 cursor-pointer mt-2"
           >
             {loading ? 'Processing...' : (isSignUp ? 'Create Cloud Profile' : 'Sign in to Dashboard')}
           </button>
         </form>
 
         {/* Switch mode */}
-        <div className="mt-5 text-center text-xs text-slate-500">
+        <div className="mt-5 text-center text-xs text-slate-600">
           {isSignUp ? (
             <span>
               Already have an account?{' '}

@@ -234,7 +234,7 @@ export function App() {
             <HeroSection onNavigate={navigateTo} />
             
             {/* Featured IR Fellowship Academic Spotlight Banner on Homepage */}
-            <section className="py-12 bg-gradient-to-r from-teal-50/50 via-slate-50 to-teal-50/50 border-y border-teal-200">
+            <section className="py-12 bg-white border border-slate-200 border-y border-teal-200">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-white border border-teal-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
                   <div className="space-y-2 text-center md:text-left">

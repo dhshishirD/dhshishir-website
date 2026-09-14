@@ -183,19 +183,19 @@ export const DiagnosticQuiz: React.FC<DiagnosticQuizProps> = ({
             <span className="px-3 py-1 rounded-full bg-teal-50 text-teal-800 font-bold border border-teal-200">
               Stage 1: Diagnostic Placement Quiz
             </span>
-            <span className="text-slate-500">
+            <span className="text-slate-600">
               Question {currentIndex + 1} of {DIAGNOSTIC_QUESTIONS.length}
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <User className="w-3.5 h-3.5 text-slate-500" />
+            <User className="w-3.5 h-3.5 text-slate-600" />
             <input
               type="text"
               placeholder="Your Name (Optional)"
               value={userAlias}
               onChange={e => setUserAlias(e.target.value)}
-              className="bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-teal-800 font-medium focus:border-indigo-500 outline-none w-36"
+              className="bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-teal-800 font-medium focus:border-teal-200 outline-none w-36"
             />
           </div>
         </div>
@@ -203,7 +203,7 @@ export const DiagnosticQuiz: React.FC<DiagnosticQuizProps> = ({
         {/* Progress Bar */}
         <div className="w-full bg-white rounded-full h-2 overflow-hidden">
           <div
-            className="bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-500 h-full rounded-full transition-all duration-300"
+            className="bg-white border border-slate-200 h-full rounded-full transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -219,7 +219,7 @@ export const DiagnosticQuiz: React.FC<DiagnosticQuizProps> = ({
             {currentQuestion.promptText}
           </h3>
           {currentQuestion.banglaPromptSubtitle && (
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-slate-600">
               {currentQuestion.banglaPromptSubtitle}
             </p>
           )}
@@ -234,7 +234,7 @@ export const DiagnosticQuiz: React.FC<DiagnosticQuizProps> = ({
               </div>
               <div className="text-xs">
                 <div className="font-bold text-slate-900">Auditory Discrimination Audio Clip</div>
-                <div className="text-slate-500 text-[11px]">Click play to listen to native acoustic pronunciation</div>
+                <div className="text-slate-600 text-[11px]">Click play to listen to native acoustic pronunciation</div>
               </div>
             </div>
 
@@ -244,7 +244,7 @@ export const DiagnosticQuiz: React.FC<DiagnosticQuizProps> = ({
               className={`px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 shadow-lg transition cursor-pointer ${
                 isPlayingAudio
                   ? 'bg-amber-600 text-slate-900 animate-pulse'
-                  : 'bg-gradient-to-r from-indigo-600 to-emerald-600 hover:opacity-95 text-slate-900'
+                  : 'bg-white border border-slate-200 hover:opacity-95 text-slate-900'
               }`}
             >
               <Volume2 className="w-4 h-4" />
@@ -264,7 +264,7 @@ export const DiagnosticQuiz: React.FC<DiagnosticQuizProps> = ({
                 onClick={() => handleSelectOption(opt.id)}
                 className={`w-full p-4 rounded-2xl text-left text-xs sm:text-sm font-medium transition flex items-center justify-between cursor-pointer border ${
                   isSelected
-                    ? 'bg-gradient-to-r from-indigo-950 to-slate-900 border-indigo-500 text-slate-900 shadow-lg shadow-xs'
+                    ? 'bg-white border border-slate-200 border-teal-200 text-slate-900 shadow-lg shadow-xs'
                     : 'bg-white hover:bg-white border-slate-200 text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -282,7 +282,7 @@ export const DiagnosticQuiz: React.FC<DiagnosticQuizProps> = ({
 
       {/* Action Button */}
       <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
-        <span className="text-[11px] text-slate-500">
+        <span className="text-[11px] text-slate-600">
           {selectedOption ? 'Ready to continue' : 'Select an answer to proceed'}
         </span>
 
@@ -290,7 +290,7 @@ export const DiagnosticQuiz: React.FC<DiagnosticQuizProps> = ({
           type="button"
           onClick={handleNext}
           disabled={!selectedOption}
-          className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 disabled:opacity-40 text-slate-900 font-bold text-xs shadow-lg shadow-xs transition flex items-center gap-2 cursor-pointer"
+          className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:opacity-95 disabled:opacity-40 text-slate-900 font-bold text-xs shadow-lg shadow-xs transition flex items-center gap-2 cursor-pointer"
         >
           <span>{currentIndex === DIAGNOSTIC_QUESTIONS.length - 1 ? 'Finish & Generate CEFR Report' : 'Next Question'}</span>
           <ArrowRight className="w-4 h-4" />
