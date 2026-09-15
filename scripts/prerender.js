@@ -157,8 +157,8 @@ for (const fullUrl of urls) {
   );
 
   // Pre-render Semantic HTML in #root to eliminate "Thin Content" and "Missing H1" warnings in Ahrefs
-  const pageHeading = formatSlugToTitle(path.basename(urlPath));
-  const semanticRootHtml = `
+  const bodyHtml = `
+  <body class="bg-white text-slate-900 overflow-x-hidden antialiased">
     <div id="root">
       <div class="min-h-screen bg-slate-50 text-slate-900">
         <header class="bg-white border-b border-slate-200 py-6 px-4">
@@ -186,9 +186,10 @@ for (const fullUrl of urls) {
         </main>
       </div>
     </div>
+  </body>
   `;
 
-  html = html.replace('<div id="root"></div>', semanticRootHtml.trim());
+  html = html.replace(/<body[\s\S]*?<\/body>/i, bodyHtml.trim());
 
   fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
   generatedCount++;
