@@ -75,13 +75,20 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
 
   const handleUnlock = (e: React.FormEvent) => {
     e.preventDefault();
-    // Default executive pin is 1971 or 2026 or custom master key
-    if (passcode.trim() === '1971' || passcode.trim() === '2026' || passcode.trim().toLowerCase() === 'shishir') {
+    const cleanKey = passcode.trim().toLowerCase();
+    // Authorized Executive Passkeys: July24, 36July, 36july24, shishir
+    if (
+      cleanKey === 'july24' || 
+      cleanKey === '36july' || 
+      cleanKey === '36july24' || 
+      cleanKey === 'july2024' || 
+      cleanKey === 'shishir'
+    ) {
       setIsAuthenticated(true);
       sessionStorage.setItem('dh_executive_auth', 'true');
       setAuthError('');
     } else {
-      setAuthError('Invalid Executive Passkey. Access Denied.');
+      setAuthError('Invalid Executive Master Key. Access Denied.');
     }
   };
 
@@ -120,7 +127,7 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
                   type="password"
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
-                  placeholder="Enter Passkey (e.g. 1971)"
+                  placeholder="Enter Master Security Key"
                   className="w-full pl-10 pr-4 py-3 bg-slate-950/60 border border-slate-700 rounded-2xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 transition"
                   autoFocus
                 />
