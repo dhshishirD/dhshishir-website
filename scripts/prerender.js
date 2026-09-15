@@ -92,6 +92,22 @@ const CUSTOM_OVERRIDES = {
   'blog/project-mbridge-brics-de-dollarization-global-currency-reserves': {
     title: 'Project mBridge & BRICS De-Dollarization: Future Reserve Architecture | DH Shishir',
     description: 'Examination of Project mBridge multi-CBDC cross-border settlement, BRICS local-currency invoicing, SWIFT alternatives, and the future of dollar hegemony.'
+  },
+  'blog/how-to-overcome-mother-tongue-influence-mti-english-speaking': {
+    title: 'How to Overcome Mother Tongue Influence (MTI) in English Speaking | DH Shishir',
+    description: 'Acoustic shadowing & phonetic guide to eliminate Bengali mother tongue influence (MTI), master /v/ vs /w/, and build natural English rhythm.'
+  },
+  'blog/ielts-speaking-part-2-strategy-1-minute-preparation-cue-cards-band-9': {
+    title: 'IELTS Speaking Part 2 Strategy: 1-Minute Prep & Band 9 Transcripts | DH Shishir',
+    description: 'Master IELTS Speaking Part 2 with our 4-quadrant 1-minute prep formula and 3 genuine Band 9.0 verbatim model cue card audio transcripts.'
+  },
+  'blog/how-to-email-professors-funded-graduate-research-assistantships-templates': {
+    title: 'How to Email Professors for Funded Research Assistantships (RA/TA) | DH Shishir',
+    description: 'High-conversion 3-paragraph cold email templates, subject line conventions, and outreach strategies to secure fully funded graduate RA/TA positions.'
+  },
+  'blog/bay-of-bengal-maritime-geopolitics-bangladesh-naval-strategy-matarbari': {
+    title: 'Bay of Bengal Maritime Geopolitics & Bangladesh Naval Strategy | DH Shishir',
+    description: 'Strategic analysis of Bay of Bengal sea lanes of communication (SLOCs), Matarbari Deep Sea Port corridor, and naval deterrence.'
   }
 };
 
