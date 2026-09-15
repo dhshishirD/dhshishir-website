@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BLOG_POSTS, type BlogPost } from '../data/blogPostsData';
 import { Clock, ArrowRight, X, Sparkles, Share2, Check, BookOpen, Tag } from 'lucide-react';
 import { AdSenseSlot } from './AdSenseSlot';
+import { logRealContentView } from '../services/adminAnalyticsService';
 
 interface BlogSectionProps {
   initialSlug?: string | null;
@@ -30,12 +31,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       const found = BLOG_POSTS.find(p => p.slug === initialSlug || p.id === initialSlug);
       if (found) {
         setSelectedPost(found);
+        logRealContentView(found.slug);
       }
     }
   }, [initialSlug]);
 
   const handleOpenPost = (post: BlogPost) => {
     setSelectedPost(post);
+    logRealContentView(post.slug);
     window.history.pushState(null, '', `/blog/${post.slug}`);
     document.title = `${post.title} | DH Shishir`;
 

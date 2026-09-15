@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   FileText, 
   BookOpen, 
@@ -22,6 +22,7 @@ import { IeltsScoreEstimator } from './IeltsScoreEstimator';
 import { CgpaConverter } from './CgpaConverter';
 import { SkillGapFinder } from './SkillGapFinder';
 import { SOCIAL_LINKS } from '../../data/portfolioData';
+import { logRealToolUsage } from '../../services/adminAnalyticsService';
 
 export interface ToolDef {
   id: string;
@@ -131,6 +132,12 @@ export const StandaloneToolPage: React.FC<StandaloneToolPageProps> = ({
   const [copiedShare, setCopiedShare] = useState(false);
   const activeTool = ALL_TOOLS.find(t => t.id === toolId) || ALL_TOOLS[0];
   const ToolComponent = activeTool.component;
+
+  useEffect(() => {
+    if (activeTool?.id) {
+      logRealToolUsage(activeTool.id);
+    }
+  }, [activeTool?.id]);
 
   const handleShare = () => {
     const url = `${window.location.origin}/#/tools/${activeTool.id}`;

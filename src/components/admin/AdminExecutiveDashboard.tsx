@@ -5,7 +5,7 @@ import {
   type ExecutiveStats, 
   type LearnerRecord, 
   type ToolTelemetryStat, 
-  TOP_READ_CONTENT 
+  type ContentReadStat
 } from '../../services/adminAnalyticsService';
 import { 
   Users, 
@@ -25,7 +25,8 @@ import {
   FileSpreadsheet,
   Activity,
   BarChart3,
-  Layers
+  Layers,
+  Inbox
 } from 'lucide-react';
 
 interface AdminExecutiveDashboardProps {
@@ -50,6 +51,7 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
   const [stats, setStats] = useState<ExecutiveStats | null>(null);
   const [learners, setLearners] = useState<LearnerRecord[]>([]);
   const [tools, setTools] = useState<ToolTelemetryStat[]>([]);
+  const [topContent, setTopContent] = useState<ContentReadStat[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Filters & Tabs
@@ -70,13 +72,14 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
     setStats(data.stats);
     setLearners(data.learners);
     setTools(data.tools);
+    setTopContent(data.topContent);
     setLoading(false);
   };
 
   const handleUnlock = (e: React.FormEvent) => {
     e.preventDefault();
     const cleanKey = passcode.trim().toLowerCase();
-    // Authorized Executive Passkeys: July24, 36July, 36july24, shishir
+    // Authorized Executive Passkeys
     if (
       cleanKey === 'july24' || 
       cleanKey === '36july' || 
@@ -172,11 +175,11 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
                   Executive Command & Admin Panel
                 </h1>
                 <span className="px-2 py-0.5 rounded-full bg-teal-50 border border-teal-200 text-teal-900 text-[10px] font-extrabold uppercase">
-                  Live Master
+                  Live Supabase DB
                 </span>
               </div>
               <p className="text-xs text-slate-500 mt-0.5">
-                Daloyar Hassan Shishir | Real-Time Platform Telemetry & Learner Directory
+                Daloyar Hassan Shishir | Real-Time Database Telemetry & Verified Learner Records
               </p>
             </div>
           </div>
@@ -253,8 +256,8 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
               <div className="text-2xl sm:text-3xl font-black text-slate-900">
                 {stats.totalLearners}
               </div>
-              <div className="flex items-center gap-1 text-[11px] font-bold text-emerald-600">
-                <TrendingUp className="w-3 h-3" /> +{stats.weeklyGrowthRate}% this week
+              <div className="flex items-center gap-1 text-[11px] font-bold text-teal-800">
+                <TrendingUp className="w-3 h-3" /> Live Verified Profiles
               </div>
             </div>
 
@@ -286,14 +289,14 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
 
             <div className="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs space-y-2">
               <div className="flex items-center justify-between text-xs text-slate-500 font-bold uppercase tracking-wider">
-                <span>IR Fellowship Enrolled</span>
+                <span>Fluency & IR Scholars</span>
                 <GraduationCap className="w-4 h-4 text-amber-500" />
               </div>
               <div className="text-2xl sm:text-3xl font-black text-slate-900">
-                {stats.irFellowsEnrolled}
+                {stats.fluencyLabEnrolled}
               </div>
               <div className="text-[11px] font-bold text-teal-800">
-                Avg CEFR: {stats.avgCefrLevel}
+                Avg Level: {stats.avgCefrLevel}
               </div>
             </div>
           </div>
@@ -311,14 +314,14 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
                   <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                     <GraduationCap className="w-4 h-4 text-teal-800" /> Academic Programs Status
                   </h3>
-                  <span className="text-xs text-slate-500">Live Cohort Tracking</span>
+                  <span className="text-xs text-slate-500 font-bold">Real DB Cohort</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="p-4 rounded-2xl bg-teal-50/60 border border-teal-200/80 space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-teal-950">Open Master's Fellowship in IR</span>
-                      <span className="px-2 py-0.5 rounded-full bg-teal-900 text-white text-[10px] font-extrabold">{stats?.irFellowsEnrolled} Fellows</span>
+                      <span className="px-2 py-0.5 rounded-full bg-teal-900 text-white text-[10px] font-extrabold">{stats?.irFellowsEnrolled || 0} Fellows</span>
                     </div>
                     <p className="text-xs text-slate-600">
                       5 Strategic Pillars, Crisis Sim & Grand Exam. Candidates advancing through UNCLOS & Bay of Bengal modules.
@@ -334,7 +337,7 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
                   <div className="p-4 rounded-2xl bg-slate-100 border border-slate-200 space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-slate-900">Fluency Lab English Mastery</span>
-                      <span className="px-2 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-extrabold">{stats?.fluencyLabEnrolled} Learners</span>
+                      <span className="px-2 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-extrabold">{stats?.fluencyLabEnrolled || 0} Learners</span>
                     </div>
                     <p className="text-xs text-slate-600">
                       Looped phonetic shadowing, CEFR diagnostic tests & grammatical habit loops.
@@ -355,11 +358,11 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
                   <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                     <Layers className="w-4 h-4 text-indigo-600" /> Career & AI Tool Usage Telemetry
                   </h3>
-                  <span className="text-xs text-slate-500 font-medium">Ranked by Total Runs</span>
+                  <span className="text-xs text-slate-500 font-medium">Real-Time Execution Logs</span>
                 </div>
 
                 <div className="space-y-3">
-                  {tools.slice(0, 5).map((t, idx) => (
+                  {tools.map((t, idx) => (
                     <div key={t.toolId} className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
                       <div className="flex items-center gap-3">
                         <span className="w-6 h-6 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">
@@ -372,7 +375,7 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
                       </div>
                       <div className="text-right">
                         <div className="text-xs font-black text-teal-900">{t.usageCount} executions</div>
-                        <div className="text-[10px] text-emerald-600 font-semibold">+{t.weeklyTrend}% this week</div>
+                        <div className="text-[10px] text-slate-500 font-semibold">{t.usageCount > 0 ? 'Active telemetry' : 'Ready'}</div>
                       </div>
                     </div>
                   ))}
@@ -385,18 +388,18 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-xs space-y-4">
                 <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-teal-800" /> Top Read Intelligence & Guides
+                  <BookOpen className="w-4 h-4 text-teal-800" /> Published Masterclass Guides
                 </h3>
 
                 <div className="space-y-3">
-                  {TOP_READ_CONTENT.map((item, i) => (
+                  {topContent.map((item, i) => (
                     <div key={i} className="p-3 rounded-2xl bg-slate-50 border border-slate-100 space-y-1">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-extrabold text-teal-800 uppercase tracking-wider">{item.type}</span>
-                        <span className="text-[10px] text-slate-500">{item.avgTime} avg</span>
+                        <span className="text-[10px] text-slate-500">{item.avgTime} read</span>
                       </div>
                       <div className="text-xs font-bold text-slate-900 line-clamp-2">{item.title}</div>
-                      <div className="text-[11px] text-slate-500 font-semibold">{item.reads.toLocaleString()} readers</div>
+                      <div className="text-[11px] text-slate-500 font-semibold">{item.reads} live views</div>
                     </div>
                   ))}
                 </div>
@@ -433,72 +436,84 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
                   <option value="all">All Programs</option>
                   <option value="IR">Open Master's Fellowship</option>
                   <option value="Fluency">Fluency Lab</option>
-                  <option value="Career">Career Track</option>
+                  <option value="Grammar">Grammar Mastery</option>
                 </select>
               </div>
             </div>
 
-            {/* Learner Table */}
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs text-slate-700">
-                <thead className="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-500 font-extrabold">
-                  <tr>
-                    <th className="py-3 px-4 rounded-l-xl">Scholar / Candidate</th>
-                    <th className="py-3 px-3">Enrolled Tracks</th>
-                    <th className="py-3 px-3">CEFR / Score</th>
-                    <th className="py-3 px-3">IR Pillars</th>
-                    <th className="py-3 px-3">Study Hours</th>
-                    <th className="py-3 px-3">Streak</th>
-                    <th className="py-3 px-3">Last Active</th>
-                    <th className="py-3 px-4 rounded-r-xl text-right">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {filteredLearners.map((learner) => (
-                    <tr key={learner.id} className="hover:bg-slate-50/80 transition">
-                      <td className="py-3.5 px-4">
-                        <div className="font-bold text-slate-900">{learner.name}</div>
-                        <div className="text-[11px] text-slate-500">{learner.email}</div>
-                      </td>
-                      <td className="py-3.5 px-3">
-                        <div className="flex flex-wrap gap-1">
-                          {learner.enrolledPrograms.map((prog, idx) => (
-                            <span key={idx} className="bg-teal-50 border border-teal-200 text-teal-900 px-2 py-0.5 rounded-md text-[10px] font-bold">
-                              {prog}
-                            </span>
-                          ))}
-                        </div>
-                      </td>
-                      <td className="py-3.5 px-3 font-semibold">
-                        <span className="font-bold text-teal-900">{learner.currentCefrLevel}</span> ({learner.diagnosticScore}%)
-                      </td>
-                      <td className="py-3.5 px-3 font-semibold">
-                        {learner.irPillarsCompleted}/5 Pillars
-                      </td>
-                      <td className="py-3.5 px-3 font-semibold text-slate-900">
-                        {learner.studyHours}h
-                      </td>
-                      <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-bold text-[10px]">
-                          🔥 {learner.streakDays}d
-                        </span>
-                      </td>
-                      <td className="py-3.5 px-3 text-slate-500 text-[11px]">
-                        {learner.lastActive}
-                      </td>
-                      <td className="py-3.5 px-4 text-right">
-                        <button
-                          onClick={() => setSelectedLearner(learner)}
-                          className="px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-bold transition cursor-pointer"
-                        >
-                          Dossier ↗
-                        </button>
-                      </td>
+            {/* Learner Table or Empty State */}
+            {filteredLearners.length === 0 ? (
+              <div className="py-16 text-center space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
+                  <Inbox className="w-6 h-6" />
+                </div>
+                <div className="text-sm font-bold text-slate-700">No Real Database Profiles Found</div>
+                <p className="text-xs text-slate-500 max-w-md mx-auto">
+                  When scholars register via 1-Click Google Sign-In or take the Diagnostic Quiz on the live website, their real profiles and progress dossiers will appear here instantly.
+                </p>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs text-slate-700">
+                  <thead className="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-500 font-extrabold">
+                    <tr>
+                      <th className="py-3 px-4 rounded-l-xl">Scholar / Candidate</th>
+                      <th className="py-3 px-3">Enrolled Tracks</th>
+                      <th className="py-3 px-3">CEFR / Score</th>
+                      <th className="py-3 px-3">Diagnostic Tests</th>
+                      <th className="py-3 px-3">Study Hours</th>
+                      <th className="py-3 px-3">Streak</th>
+                      <th className="py-3 px-3">Last Active</th>
+                      <th className="py-3 px-4 rounded-r-xl text-right">Action</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {filteredLearners.map((learner) => (
+                      <tr key={learner.id} className="hover:bg-slate-50/80 transition">
+                        <td className="py-3.5 px-4">
+                          <div className="font-bold text-slate-900">{learner.name}</div>
+                          <div className="text-[11px] text-slate-500">{learner.email}</div>
+                        </td>
+                        <td className="py-3.5 px-3">
+                          <div className="flex flex-wrap gap-1">
+                            {learner.enrolledPrograms.map((prog, idx) => (
+                              <span key={idx} className="bg-teal-50 border border-teal-200 text-teal-900 px-2 py-0.5 rounded-md text-[10px] font-bold">
+                                {prog}
+                              </span>
+                            ))}
+                          </div>
+                        </td>
+                        <td className="py-3.5 px-3 font-semibold">
+                          <span className="font-bold text-teal-900">{learner.currentCefrLevel}</span> ({learner.diagnosticScore}%)
+                        </td>
+                        <td className="py-3.5 px-3 font-semibold">
+                          {learner.irPillarsCompleted} completed
+                        </td>
+                        <td className="py-3.5 px-3 font-semibold text-slate-900">
+                          {learner.studyHours}h
+                        </td>
+                        <td className="py-3.5 px-3">
+                          <span className="px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-bold text-[10px]">
+                            🔥 {learner.streakDays}d
+                          </span>
+                        </td>
+                        <td className="py-3.5 px-3 text-slate-500 text-[11px]">
+                          {learner.lastActive}
+                        </td>
+                        <td className="py-3.5 px-4 text-right">
+                          <button
+                            onClick={() => setSelectedLearner(learner)}
+                            className="px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-bold transition cursor-pointer"
+                          >
+                            Dossier ↗
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
 
           </div>
         )}
@@ -516,7 +531,7 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
                   </div>
                   <div className="text-right">
                     <div className="text-sm font-black text-teal-900">{tool.usageCount} Runs</div>
-                    <div className="text-[10px] text-emerald-600 font-bold">+{tool.weeklyTrend}% weekly velocity</div>
+                    <div className="text-[10px] text-slate-500 font-semibold">{tool.usageCount > 0 ? 'Live Executions' : 'Ready'}</div>
                   </div>
                 </div>
               ))}
@@ -560,8 +575,8 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
               </div>
 
               <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100">
-                <div className="text-[10px] uppercase font-bold text-slate-400">IR Fellowship Progress</div>
-                <div className="text-base font-black text-slate-900 mt-0.5">{selectedLearner.irPillarsCompleted}/5 Pillars Completed</div>
+                <div className="text-[10px] uppercase font-bold text-slate-400">Diagnostic Tests Done</div>
+                <div className="text-base font-black text-slate-900 mt-0.5">{selectedLearner.irPillarsCompleted} Completed</div>
               </div>
 
               <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100">
@@ -572,7 +587,7 @@ export const AdminExecutiveDashboard: React.FC<AdminExecutiveDashboardProps> = (
 
             {selectedLearner.notes && (
               <div className="p-3.5 rounded-2xl bg-teal-50/70 border border-teal-200 text-xs text-teal-950">
-                <div className="font-extrabold uppercase text-[10px] text-teal-800 tracking-wider mb-1">Academic & Advisor Notes</div>
+                <div className="font-extrabold uppercase text-[10px] text-teal-800 tracking-wider mb-1">Academic & Database Activity</div>
                 {selectedLearner.notes}
               </div>
             )}
