@@ -1,0 +1,40 @@
+name: Automated Daily Website & Database Backup
+
+on:
+  schedule:
+    # Runs every day at 00:00 UTC (06:00 AM Bangladesh Time)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual 1-click trigger anytime from GitHub Actions tab
+
+jobs:
+  daily-backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Supabase Live Database Backup
+        run: node scripts/backup-db.js
+
+      - name: Create Timestamped Archive
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          tar -czf dhshishir_backup_$DATE.tar.gz backups/$DATE/
+
+      - name: Upload Daily Backup to GitHub Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-site-db-backup-${{ github.sha }}
+          path: |
+            backups/
+            dhshishir_backup_*.tar.gz
+          retention-days: 90
