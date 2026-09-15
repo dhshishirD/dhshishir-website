@@ -19,6 +19,7 @@ import { BlogPage } from './components/pages/BlogPage';
 import { ContactPage } from './components/pages/ContactPage';
 import { ToolsDirectoryPage } from './components/pages/ToolsDirectoryPage';
 import { FellowshipPage } from './components/pages/FellowshipPage';
+import { AdminExecutiveDashboard } from './components/admin/AdminExecutiveDashboard';
 import { supabase } from './services/supabaseClient';
 import { syncLocalProfileToCloud } from './services/cloudProfileService';
 import { Globe, ArrowRight, GraduationCap } from 'lucide-react';
@@ -104,6 +105,12 @@ export function App() {
       setCurrentView('dashboard');
       setIsStandaloneTool(false);
       document.title = 'Personal Command & Learning Dashboard | DH Shishir';
+    } else if (path === '/admin' || path === '/executive' || hash.startsWith('#/admin')) {
+      setActiveDossierSlug(null);
+      setActiveBlogSlug(null);
+      setCurrentView('admin');
+      setIsStandaloneTool(false);
+      document.title = 'Executive Command & Admin Panel | DH Shishir';
     } else {
       setActiveDossierSlug(null);
       setCurrentView('home');
@@ -171,6 +178,10 @@ export function App() {
     } else if (view === 'dashboard') {
       targetPath = '/dashboard';
       setActiveDossierSlug(null);
+    } else if (view === 'admin') {
+      targetPath = '/admin';
+      setActiveDossierSlug(null);
+      setActiveBlogSlug(null);
     } else {
       setActiveDossierSlug(null);
     }
@@ -191,7 +202,7 @@ export function App() {
       <Navbar currentView={currentView} onNavigate={navigateTo} />
       
       <main>
-                {currentView === 'map' ? (
+        {currentView === 'map' ? (
           <DiplomaticMapPage
             initialLocationId={activeMapLocationId}
             onNavigateHome={() => navigateTo('home')}
@@ -201,6 +212,7 @@ export function App() {
           />
         ) : currentView === 'fellowship' ? (
           <FellowshipPage
+            user={user}
             onNavigateHome={() => navigateTo('home')}
           />
         ) : currentView === 'diplomacy' ? (
@@ -223,6 +235,7 @@ export function App() {
           )
         ) : currentView === 'fluency-lab' ? (
           <FluencyLabPage
+            user={user}
             onNavigateHome={() => navigateTo('home')}
           />
         ) : currentView === 'tools' ? (
@@ -234,6 +247,7 @@ export function App() {
             />
           ) : (
             <ToolsDirectoryPage
+              user={user}
               onNavigateHome={() => navigateTo('home')}
               onLaunchTool={(id) => navigateTo('tools', id)}
             />
@@ -263,6 +277,12 @@ export function App() {
             onNavigateStage={(_stage) => {
               navigateTo('fluency-lab');
             }}
+          />
+        ) : currentView === 'admin' ? (
+          <AdminExecutiveDashboard
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateFellowship={() => navigateTo('fellowship')}
+            onNavigateFluency={() => navigateTo('fluency-lab')}
           />
         ) : (
           /* UNIFIED HOMEPAGE OVERVIEW */

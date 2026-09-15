@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, GraduationCap, Compass } from 'lucide-react';
+import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, GraduationCap, Compass, Share2, Shield } from 'lucide-react';
 import { supabase } from '../services/supabaseClient';
 import { AuthModal } from './auth/AuthModal';
 import { DiplomaticSoundscapes } from './common/DiplomaticSoundscapes';
 import { LanguageSwitcher } from './common/LanguageSwitcher';
+import { ShareModal } from './common/ShareModal';
 
-export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'fluency-lab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard';
+export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'fluency-lab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard' | 'admin';
 
 interface NavbarProps {
   currentView?: ViewType;
@@ -16,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<any>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -171,16 +173,33 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
             <DiplomaticSoundscapes className="hidden md:flex" />
             <LanguageSwitcher />
 
+            {/* Share & Refer Button */}
+            <button
+              onClick={() => setIsShareModalOpen(true)}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200 text-xs font-bold transition cursor-pointer"
+              title="Share Portal, Tools & Fellowship"
+            >
+              <Share2 className="w-3.5 h-3.5 text-teal-800" />
+              <span>Share & Refer</span>
+            </button>
+
             {/* User Auth Action Button */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2">
               {user ? (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => handleNavClick('dashboard')}
-                    className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-900 text-xs font-bold transition cursor-pointer"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-900 text-xs font-bold transition cursor-pointer"
                   >
                     <LayoutDashboard className="w-4 h-4 text-teal-800" />
                     <span>Dashboard</span>
+                  </button>
+                  <button
+                    onClick={() => handleNavClick('admin')}
+                    className="p-2 rounded-xl bg-teal-50 hover:bg-teal-100 border border-teal-200 text-teal-900 transition cursor-pointer"
+                    title="Executive Admin Panel"
+                  >
+                    <Shield className="w-4 h-4" />
                   </button>
                   <button
                     onClick={handleSignOut}
@@ -191,13 +210,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                   </button>
                 </div>
               ) : (
-                <button
-                  onClick={() => setIsAuthModalOpen(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs shadow-xs transition cursor-pointer"
-                >
-                  <User className="w-3.5 h-3.5" />
-                  <span>Sign In / Join</span>
-                </button>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => setIsAuthModalOpen(true)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs shadow-xs transition cursor-pointer"
+                  >
+                    <User className="w-3.5 h-3.5" />
+                    <span>Sign In / Join</span>
+                  </button>
+                </div>
               )}
             </div>
 
@@ -332,6 +353,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
           setUser(u);
           setIsAuthModalOpen(false);
         }}
+      />
+
+      <ShareModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        title="Daloyar Hassan Shishir | Diplomatic Knowledge, Career Tools & English Fluency Portal"
+        url="https://dhshishir.com"
+        summary="Access geopolitical intelligence dossiers, interactive world map chokepoints, free AI career tools, and the Open Master's Fellowship."
+        category="Knowledge Portal"
       />
     </>
   );
