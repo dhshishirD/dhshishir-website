@@ -105,12 +105,12 @@ export function App() {
       setCurrentView('dashboard');
       setIsStandaloneTool(false);
       document.title = 'Personal Command & Learning Dashboard | DH Shishir';
-    } else if (path === '/admin' || path === '/executive' || hash.startsWith('#/admin')) {
+    } else if (path === '/command' || path === '/executive-command' || path === '/shishir-command' || hash.startsWith('#/command')) {
       setActiveDossierSlug(null);
       setActiveBlogSlug(null);
       setCurrentView('admin');
       setIsStandaloneTool(false);
-      document.title = 'Executive Command & Admin Panel | DH Shishir';
+      document.title = 'Executive Command & Intelligence Center | DH Shishir';
     } else {
       setActiveDossierSlug(null);
       setCurrentView('home');
@@ -179,7 +179,7 @@ export function App() {
       targetPath = '/dashboard';
       setActiveDossierSlug(null);
     } else if (view === 'admin') {
-      targetPath = '/admin';
+      targetPath = '/command';
       setActiveDossierSlug(null);
       setActiveBlogSlug(null);
     } else {
