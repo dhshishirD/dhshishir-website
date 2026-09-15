@@ -108,6 +108,10 @@ const CUSTOM_OVERRIDES = {
   'blog/bay-of-bengal-maritime-geopolitics-bangladesh-naval-strategy-matarbari': {
     title: 'Bay of Bengal Maritime Geopolitics & Bangladesh Naval Strategy | DH Shishir',
     description: 'Strategic analysis of Bay of Bengal sea lanes of communication (SLOCs), Matarbari Deep Sea Port corridor, and naval deterrence.'
+  },
+  'blog/500-high-frequency-academic-collocations-guide': {
+    title: '500 High-Frequency Academic Collocations: Research & Writing Guide | DH Shishir',
+    description: 'The definitive handbook of 500+ high-frequency academic collocations, syntactic pairings, false friends, and sentence templates for non-native professionals.'
   }
 };
 
