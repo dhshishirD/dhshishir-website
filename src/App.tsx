@@ -16,6 +16,7 @@ import { DiplomaticMapPage } from './components/diplomacy/DiplomaticMapPage';
 import { FluencyLabPage } from './components/pages/FluencyLabPage';
 import { LeadershipPage } from './components/pages/LeadershipPage';
 import { BlogPage } from './components/pages/BlogPage';
+import { BlogPostDetailPage } from './components/pages/BlogPostDetailPage';
 import { ContactPage } from './components/pages/ContactPage';
 import { ToolsDirectoryPage } from './components/pages/ToolsDirectoryPage';
 import { FellowshipPage } from './components/pages/FellowshipPage';
@@ -257,12 +258,23 @@ export function App() {
             onNavigateHome={() => navigateTo('home')}
           />
         ) : currentView === 'blog' ? (
-          <BlogPage
-            initialSlug={activeBlogSlug}
-            onNavigateHome={() => navigateTo('home')}
-            onNavigateTools={(tId) => navigateTo('tools', tId)}
-            onNavigateFluency={() => navigateTo('fluency-lab')}
-          />
+          activeBlogSlug ? (
+            <BlogPostDetailPage
+              slug={activeBlogSlug}
+              onNavigateHome={() => navigateTo('home')}
+              onNavigateBlog={() => navigateTo('blog')}
+              onNavigatePost={(slug) => navigateTo('blog', slug)}
+              onNavigateTools={(tId) => navigateTo('tools', tId)}
+              onNavigateFluency={() => navigateTo('fluency-lab')}
+            />
+          ) : (
+            <BlogPage
+              initialSlug={null}
+              onNavigateHome={() => navigateTo('home')}
+              onNavigateTools={(tId) => navigateTo('tools', tId)}
+              onNavigateFluency={() => navigateTo('fluency-lab')}
+            />
+          )
         ) : currentView === 'contact' ? (
           <ContactPage
             onNavigateHome={() => navigateTo('home')}
