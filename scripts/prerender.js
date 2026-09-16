@@ -112,6 +112,10 @@ const CUSTOM_OVERRIDES = {
   'blog/500-high-frequency-academic-collocations-guide': {
     title: '500 High-Frequency Academic Collocations: Research & Writing Guide | DH Shishir',
     description: 'The definitive handbook of 500+ high-frequency academic collocations, syntactic pairings, false friends, and sentence templates for non-native professionals.'
+  },
+  'blog/ghore-boshe-spoken-english-shekhar-shohoj-upay-bangla-guide': {
+    title: 'স্পোকেন ইংলিশ শেখার সহজ উপায় ও শ্যাডোইং গাইড | DH Shishir',
+    description: 'ঘরে বসে একা একা অনর্গল ইংরেজি কথা বলার বৈজ্ঞানিক শ্যাডোইং পদ্ধতি, দৈনন্দিন স্মার্ট স্পোকেন ফর্মুলা ও ফ্লুয়েন্সি রুটিন।'
   }
 };
 
