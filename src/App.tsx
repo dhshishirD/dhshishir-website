@@ -271,6 +271,7 @@ export function App() {
             <BlogPage
               initialSlug={null}
               onNavigateHome={() => navigateTo('home')}
+              onSelectPost={(slug) => navigateTo('blog', slug)}
               onNavigateTools={(tId) => navigateTo('tools', tId)}
               onNavigateFluency={() => navigateTo('fluency-lab')}
             />

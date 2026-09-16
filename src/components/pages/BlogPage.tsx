@@ -5,6 +5,7 @@ import { ArrowLeft, BookOpen } from 'lucide-react';
 interface BlogPageProps {
   initialSlug?: string | null;
   onNavigateHome: () => void;
+  onSelectPost?: (slug: string) => void;
   onNavigateTools?: (toolId?: string) => void;
   onNavigateFluency?: () => void;
 }
@@ -12,6 +13,7 @@ interface BlogPageProps {
 export const BlogPage: React.FC<BlogPageProps> = ({ 
   initialSlug, 
   onNavigateHome,
+  onSelectPost,
   onNavigateTools,
   onNavigateFluency
 }) => {
@@ -40,6 +42,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       <BlogSection 
         initialSlug={initialSlug} 
         onNavigateHome={onNavigateHome}
+        onSelectPost={onSelectPost}
         onNavigateTools={onNavigateTools}
         onNavigateFluency={onNavigateFluency}
       />

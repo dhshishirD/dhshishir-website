@@ -7,12 +7,15 @@ import { logRealContentView } from '../services/adminAnalyticsService';
 interface BlogSectionProps {
   initialSlug?: string | null;
   onNavigateHome?: () => void;
+  onNavigateBlog?: () => void;
+  onSelectPost?: (slug: string) => void;
   onNavigateTools?: (toolId?: string) => void;
   onNavigateFluency?: () => void;
 }
 
 export const BlogSection: React.FC<BlogSectionProps> = ({ 
   initialSlug,
+  onSelectPost,
   onNavigateTools,
   onNavigateFluency
 }) => {
@@ -37,6 +40,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   }, [initialSlug]);
 
   const handleOpenPost = (post: BlogPost) => {
+    if (onSelectPost) {
+      onSelectPost(post.slug);
+      return;
+    }
     setSelectedPost(post);
     logRealContentView(post.slug);
     window.history.pushState(null, '', `/blog/${post.slug}`);
