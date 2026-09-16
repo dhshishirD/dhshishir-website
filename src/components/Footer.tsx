@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               dhshishir<span className="text-teal-800">.com</span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Official personal portal of <strong>Daloyar Hassan Shishir</strong> (???????? ????? ?????) ? Diplomatic Enthusiast & Policy Analyst, Fluency Lab Innovator & Educator.
+              Official personal portal of <strong>Daloyar Hassan Shishir</strong> (দেলোয়ার হাসান শিশির) — Diplomatic Enthusiast, Policy Analyst & English Educator.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -140,10 +140,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           <div>
-            ? {new Date().getFullYear()} dhshishir.com ? All Rights Reserved by Daloyar Hassan Shishir.
+            © {new Date().getFullYear()} dhshishir.com • All Rights Reserved by Daloyar Hassan Shishir.
           </div>
           <div className="text-slate-600">
-            Strategic Foreign Policy Desk ? Fluency Lab Systems ? Career Innovation
+            Strategic Foreign Policy Desk • Fluency Lab Systems • Career Innovation
           </div>
         </div>
 

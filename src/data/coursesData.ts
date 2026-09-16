@@ -18,7 +18,7 @@ export interface Course {
 export const COURSES_DATA: Course[] = [
   {
     id: '10ms-spoken-english',
-    title: 'Ghore Boshe Spoken English (??? ??? Spoken English)',
+    title: 'Ghore Boshe Spoken English (ঘরে বসে Spoken English)',
     provider: '10 Minute School',
     category: 'English',
     instructor: 'Munzereen Shahid (Oxford Alumna)',
@@ -82,7 +82,7 @@ export const COURSES_DATA: Course[] = [
   },
   {
     id: '10ms-kids-english',
-    title: 'English for Kids (????????? ?????? ??????)',
+    title: 'English for Kids (ছোটদের স্পোকেন ইংলিশ)',
     provider: '10 Minute School',
     category: 'English',
     instructor: '10MS Junior Faculty',
