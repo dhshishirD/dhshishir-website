@@ -4,14 +4,14 @@ import {
   MessageSquare, Lock, Unlock, Filter, Plus, 
   Layers, Send, AlertCircle, RefreshCw, PenTool, ArrowUpRight,
   ShieldCheck, AlertTriangle, CheckCircle2, Copy, X,
-  BarChart3, TrendingUp, Sliders
+  BarChart3, TrendingUp, Sliders, Building2, ExternalLink
 } from 'lucide-react';
 import type { StrategicPillar, SourceTier, PolicyMemo, IntelItem } from '../../types/diplomacy';
 import { SmartAudioReader } from '../common/SmartAudioReader';
 import { AnnotatedDiplomaticText } from '../common/AnnotatedDiplomaticText';
 import { 
   INITIAL_INTEL_FEED, DIPLOMACY_PILLARS_META, SOURCE_TIERS_META, 
-  DEFAULT_POLICY_MEMOS, AI_QUERY_TEMPLATES 
+  DEFAULT_POLICY_MEMOS, AI_QUERY_TEMPLATES, THINK_TANKS_REGISTRY 
 } from '../../data/diplomacyData';
 import { 
   getLocalBookmarks, toggleLocalBookmark, getLocalNotes, saveLocalNote,
@@ -32,7 +32,10 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
   const [selectedPillar, setSelectedPillar] = useState<StrategicPillar>('all');
   const [selectedTier, setSelectedTier] = useState<SourceTier>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'stream' | 'bookmarks' | 'ai-advisor' | 'memos' | 'simulator' | 'negotiation'>('stream');
+  const [selectedThinkTankTier, setSelectedThinkTankTier] = useState<SourceTier>('all');
+  const [thinkTankSearch, setThinkTankSearch] = useState('');
+
+  const [activeTab, setActiveTab] = useState<'stream' | 'think-tanks' | 'bookmarks' | 'ai-advisor' | 'memos' | 'simulator' | 'negotiation'>('stream');
   
   const [bookmarks, setBookmarks] = useState<string[]>([]);
   const [notes, setNotes] = useState<Record<string, string>>({});
@@ -837,6 +840,149 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
         )}
 
         {/* TAB 5: GEOPOLITICAL RISK SIMULATOR */}
+        
+        {/* Think Tanks & Strategic Bodies Directory Tab */}
+        {activeTab === 'think-tanks' && (
+          <div className="space-y-8">
+            <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs">
+              <div className="max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold uppercase tracking-wider mb-3">
+                  <Building2 className="w-3.5 h-3.5 text-teal-800" /> Monitored Institutional Registry
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                  Global & Regional Strategic Think Tanks
+                </h2>
+                <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+                  Explore the premier statutory defense institutes, foreign policy councils, and economic statecraft think tanks whose policy papers and strategic dossiers are monitored and synthesized by the Diplomatic Desk.
+                </p>
+              </div>
+
+              {/* Think Tank Search & Tier Filter */}
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                <div className="flex flex-wrap items-center gap-2">
+                  {SOURCE_TIERS_META.map((tier) => (
+                    <button
+                      key={tier.id}
+                      onClick={() => setSelectedThinkTankTier(tier.id as SourceTier)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                        selectedThinkTankTier === tier.id
+                          ? 'bg-teal-800 text-white shadow-xs'
+                          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      }`}
+                    >
+                      {tier.label.split('(')[0].trim()}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="relative w-full sm:w-64">
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                  <input
+                    type="text"
+                    placeholder="Filter think tanks..."
+                    value={thinkTankSearch}
+                    onChange={(e) => setThinkTankSearch(e.target.value)}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-1.5 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-700"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Think Tanks Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {THINK_TANKS_REGISTRY
+                .filter(tt => selectedThinkTankTier === 'all' || tt.tier === selectedThinkTankTier)
+                .filter(tt => 
+                  thinkTankSearch === '' || 
+                  tt.name.toLowerCase().includes(thinkTankSearch.toLowerCase()) ||
+                  tt.acronym.toLowerCase().includes(thinkTankSearch.toLowerCase()) ||
+                  tt.specialization.toLowerCase().includes(thinkTankSearch.toLowerCase())
+                )
+                .map((tt) => (
+                  <div 
+                    key={tt.id}
+                    className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs hover:shadow-md hover:border-teal-300 transition flex flex-col justify-between"
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-center gap-2.5">
+                          <span className="text-2xl">{tt.flag}</span>
+                          <div>
+                            <h3 className="text-base font-black text-slate-900 leading-tight">
+                              {tt.acronym}
+                            </h3>
+                            <p className="text-[11px] font-semibold text-slate-500">
+                              {tt.headquarters}
+                            </p>
+                          </div>
+                        </div>
+                        <a
+                          href={tt.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-teal-800 transition"
+                          title={`Visit ${tt.name}`}
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </div>
+
+                      <div>
+                        <h4 className="text-xs font-bold text-teal-900 mb-1">
+                          {tt.name}
+                        </h4>
+                        <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                          {tt.description}
+                        </p>
+                      </div>
+
+                      <div className="space-y-1.5 pt-2 border-t border-slate-100">
+                        <div className="text-[11px] font-bold text-slate-700">Research Thrust:</div>
+                        <div className="text-xs text-teal-800 font-semibold bg-teal-50/60 p-2 rounded-xl border border-teal-100">
+                          🎯 {tt.specialization}
+                        </div>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <div className="text-[11px] font-bold text-slate-700">Flagship Series:</div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {tt.keyPublications.map((pub, pIdx) => (
+                            <span key={pIdx} className="text-[10px] font-medium bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">
+                              📄 {pub}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between">
+                      <button
+                        onClick={() => {
+                          setSelectedTier(tt.tier);
+                          setSearchQuery(tt.acronym);
+                          setActiveTab('stream');
+                          window.scrollTo({ top: 400, behavior: 'smooth' });
+                        }}
+                        className="text-xs font-bold text-teal-800 hover:text-teal-950 flex items-center gap-1.5 cursor-pointer"
+                      >
+                        <span>Filter Tracked Dossiers</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
+                      <a
+                        href={tt.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] font-semibold text-slate-500 hover:text-slate-800 underline"
+                      >
+                        Official Site ↗
+                      </a>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
+
         {activeTab === 'negotiation' && (
           <div className="mb-12">
             <BilateralNegotiationSimulator />

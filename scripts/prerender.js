@@ -37,6 +37,23 @@ function formatSlugToTitle(slug) {
 
 // Custom title & description overrides for key routes
 const CUSTOM_OVERRIDES = {
+  'diplomacy/bangladesh-strategic-autonomy-foreign-policy-rebalancing': {
+    title: 'Strategic Autonomy & Multipolar Balancing | Bangladesh Foreign Policy 2026 | DH Shishir',
+    description: "Analysis of Bangladesh's post-transition foreign policy doctrine, principled non-alignment, Western FDI, US-China-India balancing, and defense modernization."
+  },
+  'diplomacy/bay-of-bengal-subsea-cable-security-digital-sovereignty': {
+    title: 'Bay of Bengal Subsea Cable Security & Digital Sovereignty | DH Shishir',
+    description: 'Strategic assessment of submarine telecom cable routes (SEA-ME-WE 4/5/6) in the Bay of Bengal, seabed warfare vulnerabilities, and digital sovereignty.'
+  },
+  'diplomacy/critical-minerals-rare-earth-diplomacy-green-transition': {
+    title: 'Critical Minerals & Rare Earth Geopolitics in South Asia | DH Shishir',
+    description: 'Strategic analysis of critical mineral supply chains (lithium, nickel, rare earths), Quad-China competition, and Bangladesh green industrial diplomacy.'
+  },
+  'diplomacy/indian-ocean-a2ad-naval-deterrence-sloc-security': {
+    title: 'Indian Ocean A2/AD Naval Deterrence & SLOC Security | DH Shishir',
+    description: 'Deep-sea strategic analysis of Anti-Access/Area Denial (A2/AD) capabilities, submarine warfare in the Bay of Bengal, and SLOC security for Bangladesh.'
+  },
+
   '': {
     title: 'Daloyar Hassan Shishir | Diplomatic Enthusiast, Policy Analyst & English Educator',
     description: 'Official personal portal of Daloyar Hassan Shishir (দেলোয়ার হাসান শিশির) — Diplomatic Enthusiast, Policy Analyst & English Educator.'

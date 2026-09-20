@@ -23,10 +23,10 @@ export interface IntelItem {
   slug: string;
   title: string;
   source: string; // e.g. "BIISS", "CSIS", "ORF", "The Diplomat", "Foreign Affairs", "SIPRI"
-  sourceTier: 'bd-strategic' | 'regional-think-tank' | 'global-think-tank' | 'ir-journals' | 'global-media-multilateral';
+  sourceTier: SourceTier | string;
   publishedAt: string;
-  pillar: 'bay-of-bengal' | 'power-balancing' | 'trade-ldc' | 'climate-diplomacy' | 'rohingya-security' | 'regional-multilateralism' | 'defense-peacekeeping';
-  impactLevel: ImpactLevel;
+  pillar: StrategicPillar | string;
+  impactLevel: ImpactLevel | string;
   executiveSummary: string;
   bangladeshSignificance: string;
   strategicRisks?: string[];
@@ -34,16 +34,7 @@ export interface IntelItem {
   policyRecommendations?: string[];
   detailedAnalysis?: {
     backgroundAndGenesis: string;
-    greatPowerInterests: {
-      us?: string;
-      china?: string;
-      india?: string;
-      regionalActors?: string;
-      globalNorth?: string;
-      globalSouth?: string;
-      thailandAsean?: string;
-      [key: string]: string | undefined;
-    };
+    greatPowerInterests: Record<string, string | undefined>;
     vulnerabilitiesAndEconomicImpact: string;
     policyDirectives: string[];
     academicCitations: {
@@ -81,3 +72,19 @@ export interface PolicyMemo {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface ThinkTankProfile {
+  id: string;
+  name: string;
+  acronym: string;
+  headquarters: string;
+  region: string;
+  tier: SourceTier;
+  flag: string;
+  website: string;
+  specialization: string;
+  description: string;
+  trackedPillars: StrategicPillar[];
+  keyPublications: string[];
+}
+

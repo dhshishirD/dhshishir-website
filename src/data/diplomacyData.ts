@@ -1,4 +1,4 @@
-import type { IntelItem, PolicyMemo } from '../types/diplomacy';
+import type { IntelItem, PolicyMemo, ThinkTankProfile } from '../types/diplomacy';
 
 export const DIPLOMACY_PILLARS_META = [
   {
@@ -78,6 +78,298 @@ export const SOURCE_TIERS_META = [
 ];
 
 export const INITIAL_INTEL_FEED: IntelItem[] = [
+  {
+    "id": "intel-040",
+    "slug": "bangladesh-strategic-autonomy-foreign-policy-rebalancing",
+    "title": "Strategic Autonomy & Multipolar Balancing: Bangladesh's Foreign Policy Architecture in the Post-Transition Era",
+    "source": "BIISS (Dhaka) & Chatham House (London)",
+    "sourceTier": "bd-strategic",
+    "publishedAt": "2026-09-17",
+    "pillar": "power-balancing",
+    "impactLevel": "High Strategic Significance",
+    "executiveSummary": "A definitive strategic assessment of Bangladesh's recalibrated foreign policy doctrine following the post-2024 institutional transition. Evaluates Dhaka's shift toward principled non-alignment, omnidirectional economic diplomacy across Western development partners (US/EU), trilateral trade optimization with China and India, and the institutionalization of sovereign defense procurement standards.",
+    "bangladeshSignificance": "Directly impacts sovereign foreign policy formulation, preventing single-power dependency while securing foreign direct investment (FDI), defense modernization (Forces Goal 2030), and multilateral development financing without geopolitical coercion.",
+    "strategicRisks": [
+      "Heightened external diplomatic pressure during great-power friction cycles.",
+      "Bilateral tariff frictions or non-tariff barriers on transboundary transit corridors.",
+      "Balancing defense interoperability standards between Western and non-Western suppliers."
+    ],
+    "strategicOpportunities": [
+      "Leveraging geostrategic location at the Bay of Bengal apex as a neutral connectivity conduit for South and Southeast Asia.",
+      "Securing preferential trade access and GSP+ qualification with the European Union and UK.",
+      "Attracting high-value FDI in deep-water logistics (Matarbari), digital infrastructure, and renewable energy grids."
+    ],
+    "policyRecommendations": [
+      "Establish an institutionalized National Security Council (NSC) to coordinate cross-ministerial strategic foreign policy.",
+      "Diversify sovereign external debt portfolios to maintain debt-to-GDP ratios below international vulnerability thresholds.",
+      "Enact a proactive Indo-Pacific Economic Strategy prioritizing maritime domain awareness, port modernization, and multilateral climate resilience."
+    ],
+    "detailedAnalysis": {
+      "backgroundAndGenesis": "Following the 2024 political transition, Bangladesh entered a pivotal phase of foreign policy re-examination. Rather than gravitating toward a single regional patron, Dhaka's diplomatic corps has reaffirmed its constitutional mandate: 'Friendship to all, malice toward none,' translating it into an active doctrine of strategic autonomy.",
+      "greatPowerInterests": {
+        "us": "Seeks stronger maritime security cooperation, democratic governance alignment, and supply-chain diversification away from adversarial markets.",
+        "china": "Aims to protect Belt and Road Initiative (BRI) mega-investments, expand industrial park joint-ventures, and secure free trade agreement (FTA) negotiations.",
+        "india": "Focuses on border security stability, subregional energy grids (BBIN), and uninterrupted land-transit access to its northeastern states."
+      },
+      "vulnerabilitiesAndEconomicImpact": "As Bangladesh approaches its post-2026 LDC graduation milestone, preserving macroeconomic stability requires maintaining robust bilateral trade with the EU ($25B+), the US ($10B+), China ($20B+ imports), and India ($14B+ trade volume) simultaneously without geopolitical entrapment.",
+      "policyDirectives": [
+        "Ministry of Foreign Affairs (MoFA) must operationalize dedicated desks for Indo-Pacific Strategy coordination and ASEAN Sectoral Dialogue.",
+        "Ministry of Commerce must accelerate bilateral CEPA / FTA feasibility pacts with Japan, Singapore, and South Korea.",
+        "Armed Forces Division (AFD) must diversify defense hardware procurement across multi-nation NATO and non-NATO suppliers."
+      ],
+      "academicCitations": [
+        {
+          "title": "Sovereignty, Non-Alignment, and Great-Power Competition: South Asia's Strategic Calculus",
+          "authorOrBody": "Bangladesh Institute of International and Strategic Studies (BIISS)",
+          "publication": "BIISS Journal of International Affairs",
+          "year": "2026",
+          "url": "https://www.biiss.org"
+        },
+        {
+          "title": "South Asian Geopolitics & The Architecture of Strategic Autonomy",
+          "authorOrBody": "Chatham House (Royal Institute of International Affairs)",
+          "publication": "Chatham House Strategic Research Papers",
+          "year": "2026",
+          "url": "https://www.chathamhouse.org"
+        }
+      ]
+    },
+    "keyActors": [
+      "Ministry of Foreign Affairs (MoFA)",
+      "BIISS",
+      "Armed Forces Division (AFD)",
+      "Chatham House",
+      "BIPSS"
+    ],
+    "originalUrl": "https://www.biiss.org",
+    "readTime": "12 min read",
+    "tags": [
+      "Strategic Autonomy",
+      "Great Power Balancing",
+      "Foreign Policy",
+      "Forces Goal 2030",
+      "Indo-Pacific"
+    ]
+  },
+  {
+    "id": "intel-041",
+    "slug": "bay-of-bengal-subsea-cable-security-digital-sovereignty",
+    "title": "Subsea Fiber-Optic Cables & Maritime Domain Security: Protecting Critical Digital Infrastructure in the Bay of Bengal",
+    "source": "CSIS (Washington) & RSIS (Singapore)",
+    "sourceTier": "global-think-tank",
+    "publishedAt": "2026-09-17",
+    "pillar": "bay-of-bengal",
+    "impactLevel": "High Strategic Significance",
+    "executiveSummary": "Examines the geopolitical vulnerability of submarine fiber-optic cables (SEA-ME-WE 4, SEA-ME-WE 5, and SEA-ME-WE 6) traversing the Bay of Bengal seabed. Evaluates asymmetric risks including subsea sabotage, commercial anchoring accidents, intelligence interception, and the necessity of national subsea critical infrastructure defense doctrines.",
+    "bangladeshSignificance": "Over 98% of Bangladesh's international internet bandwidth, banking transactions, cloud services, and IT freelancing revenues rely on submarine cable landing stations in Cox's Bazar and Kuakata. Any physical or cyber severance paralyzes the national digital economy.",
+    "strategicRisks": [
+      "Single-point physical vulnerability at shallow coastal landing stations.",
+      "Covert undersea surveillance or acoustic tapping along regional seabed corridors.",
+      "Long repair turnaround times (weeks to months) during specialized cable-ship supply shortages."
+    ],
+    "strategicOpportunities": [
+      "Establishing Bangladesh as an independent regional subsea data hub connecting Northeast India, Bhutan, and Nepal.",
+      "Deploying indigenous naval and coast guard seabed sonar surveillance patrols.",
+      "Securing private-consortium submarine cable redundancy (third and fourth subsea routes)."
+    ],
+    "policyRecommendations": [
+      "Designate subsea landing stations and seabed cable corridors as Critical Information Infrastructure (CII) with 24/7 naval security zones.",
+      "Procure deep-sea acoustic monitoring buoys and autonomous underwater vehicles (AUVs) for Bangladesh Navy maritime domain awareness.",
+      "Draft regional subsea infrastructure protection agreements within the BIMSTEC and IORA frameworks."
+    ],
+    "detailedAnalysis": {
+      "backgroundAndGenesis": "Global geopolitical attention has shifted from surface shipping lanes to seabed critical infrastructure. The Bay of Bengal contains some of the highest concentrations of trans-oceanic fiber-optic highways linking Europe, the Middle East, and Southeast Asia. With rising undersea naval activity, safeguarding these digital lifelines is now a premier national security imperative.",
+      "greatPowerInterests": {
+        "us": "Funds the clean network initiative to prevent adversarial vendor dominance over subsea cable routing and landing station hardware.",
+        "china": "Expands the Digital Silk Road via peace cable initiatives and subsea cable laying fleets.",
+        "regionalActors": "India and Singapore prioritize subsea data highway resilience to maintain financial market continuity."
+      },
+      "vulnerabilitiesAndEconomicImpact": "A simultaneous disruption of Kuakata and Cox's Bazar landing stations would result in estimated direct economic losses exceeding $150M daily, impacting financial clearing houses, export documentation, and telecommunications.",
+      "policyDirectives": [
+        "BTRC and Ministry of Posts, Telecommunications & IT must enforce multi-vendor routing redundancy for all international gateway (IGW) operators.",
+        "Bangladesh Navy must integrate subsea cable path coordinates into regular EEZ surface and maritime patrol aviation sweeps.",
+        "Enact strict maritime exclusion zones prohibiting heavy bottom-trawling and anchoring within 5 nautical miles of cable routes."
+      ],
+      "academicCitations": [
+        {
+          "title": "Undersea Cables and National Security: Protecting the Invisible Backbone of Global Commerce",
+          "authorOrBody": "Center for Strategic and International Studies (CSIS)",
+          "publication": "CSIS International Security Program",
+          "year": "2026",
+          "url": "https://www.csis.org"
+        },
+        {
+          "title": "Maritime Cybersecurity & Seabed Infrastructure in the Indo-Pacific",
+          "authorOrBody": "S. Rajaratnam School of International Studies (RSIS)",
+          "publication": "RSIS Maritime Security Studies",
+          "year": "2026",
+          "url": "https://www.rsis.edu.sg"
+        }
+      ]
+    },
+    "keyActors": [
+      "Bangladesh Navy",
+      "BSCCL (Submarine Cable PLC)",
+      "BTRC",
+      "CSIS",
+      "BIMSTEC Secretariat"
+    ],
+    "originalUrl": "https://www.csis.org",
+    "readTime": "10 min read",
+    "tags": [
+      "Subsea Cables",
+      "Digital Sovereignty",
+      "Bay of Bengal",
+      "Cybersecurity",
+      "Critical Infrastructure"
+    ]
+  },
+  {
+    "id": "intel-042",
+    "slug": "critical-minerals-rare-earth-diplomacy-green-transition",
+    "title": "The Race for Critical Minerals: Rare Earth Processing Monopolies, Lithium Diplomacy & South Asian Renewable Transitions",
+    "source": "IISS (London) & Brookings Institution (Washington)",
+    "sourceTier": "global-think-tank",
+    "publishedAt": "2026-09-17",
+    "pillar": "trade-ldc",
+    "impactLevel": "Global Systemic Trend",
+    "executiveSummary": "Analyzes the escalating geoeconomic competition over critical minerals (Lithium, Cobalt, Nickel, and Rare Earth Elements) essential for electric vehicles (EVs), grid-scale battery storage, and semiconductor manufacturing. Evaluates China's 70%+ refining monopoly, Western mineral security partnerships (MSP), and strategic opportunities for South Asian manufacturing diversification.",
+    "bangladeshSignificance": "As Bangladesh transitions toward green industrialization and electric mobility under the Mujib Climate Prosperity Plan, securing stable mineral precursor supplies and recycling capabilities is vital to prevent severe energy transition bottlenecks.",
+    "strategicRisks": [
+      "Export quota weaponization and pricing volatility on battery precursor metals.",
+      "Single-source refining dependency on foreign processing hubs.",
+      "High capital expenditure barriers for advanced domestic mineral refining."
+    ],
+    "strategicOpportunities": [
+      "Developing urban mining and lithium-ion battery recycling facilities in special economic zones (SEZs).",
+      "Forging bilateral mineral procurement pacts with resource-rich Global South partners (Australia, Africa, Latin America).",
+      "Attracting electric vehicle assembly and battery pack manufacturing investments."
+    ],
+    "policyRecommendations": [
+      "Formulate a National Critical Minerals Strategy identifying industrial vulnerabilities and strategic stockpiling requirements.",
+      "Provide tax incentives for green tech enterprises engaged in circular battery recycling and mineral recovery.",
+      "Join plurilateral critical mineral supply chain resilience dialogues with democratic tech partners."
+    ],
+    "detailedAnalysis": {
+      "backgroundAndGenesis": "The global energy transition is fundamentally mineral-intensive. A typical electric vehicle requires six times the mineral input of a conventional internal combustion engine car. With China controlling over 60% of critical mineral extraction and nearly 90% of rare earth magnet processing, Western nations and developing economies are rushing to build alternative supply corridors.",
+      "greatPowerInterests": {
+        "us": "Deploys Inflation Reduction Act (IRA) subsidies and Minerals Security Partnership (MSP) to build friend-shored processing hubs.",
+        "china": "Implements strategic export controls on refined gallium, germanium, antimony, and rare earth processing technologies.",
+        "globalSouth": "Resource-rich nations (Indonesia, Chile, Zimbabwe) demand domestic beneficiation rather than raw ore exports."
+      },
+      "vulnerabilitiesAndEconomicImpact": "Bangladesh's industrial garment sector, solar rooftop revolution (targeting 4,000+ MW), and transition to electric two/three-wheelers depend entirely on imported battery cells and solar photovoltaic wafers.",
+      "policyDirectives": [
+        "Ministry of Industries must establish an Advanced Materials and Battery Research Directorate.",
+        "BIDA (Bangladesh Investment Development Authority) should target joint-venture recycling investments with Japanese and Korean firms.",
+        "Ministry of Power and Energy must integrate grid-scale battery energy storage systems (BESS) into national masterplans."
+      ],
+      "academicCitations": [
+        {
+          "title": "Geopolitics of the Energy Transition: Critical Minerals, Supply Chains, and Strategic Dependencies",
+          "authorOrBody": "Brookings Institution",
+          "publication": "Brookings Foreign Policy Studies",
+          "year": "2026",
+          "url": "https://www.brookings.edu"
+        },
+        {
+          "title": "Strategic Materials & The Future of Defense Industrial Production",
+          "authorOrBody": "International Institute for Strategic Studies (IISS)",
+          "publication": "IISS Strategic Dossiers",
+          "year": "2026",
+          "url": "https://www.iiss.org"
+        }
+      ]
+    },
+    "keyActors": [
+      "Ministry of Industries",
+      "BIDA",
+      "Brookings Institution",
+      "IISS",
+      "Sustainable and Renewable Energy Development Authority (SREDA)"
+    ],
+    "originalUrl": "https://www.brookings.edu",
+    "readTime": "11 min read",
+    "tags": [
+      "Critical Minerals",
+      "Rare Earth",
+      "Green Transition",
+      "Battery Supply Chain",
+      "Energy Security"
+    ]
+  },
+  {
+    "id": "intel-043",
+    "slug": "indian-ocean-a2ad-naval-deterrence-sloc-security",
+    "title": "A2/AD Anti-Access Strategies in the Eastern Indian Ocean: Dual-Use Ports, Submarine Corridors & SLOC Interdiction",
+    "source": "Lowy Institute (Sydney) & MP-IDSA (New Delhi)",
+    "sourceTier": "regional-think-tank",
+    "publishedAt": "2026-09-17",
+    "pillar": "defense-peacekeeping",
+    "impactLevel": "High Strategic Significance",
+    "executiveSummary": "A comprehensive maritime defense study examining Anti-Access/Area Denial (A2/AD) capabilities across the Eastern Indian Ocean, Andaman Sea, and Bay of Bengal. Analyzes coastal missile batteries, long-range anti-submarine warfare (ASW) aviation, diesel-electric submarine patrol regimes, and dual-use commercial port infrastructure.",
+    "bangladeshSignificance": "Essential for Bangladesh Navy doctrine, protecting sovereign rights across 118,813 sq km of Exclusive Economic Zone (EEZ), securing the Matarbari deep-water approach, and maintaining continuous operational deterrence against maritime piracy and illegal intrusions.",
+    "strategicRisks": [
+      "Militarization of regional sea lines of communication (SLOCs) restricting commercial trade during great-power standoffs.",
+      "Subsea acoustic detection networks crowding contested choke points.",
+      "Escalating naval arms race among regional littoral navies."
+    ],
+    "strategicOpportunities": [
+      "Modernizing Bangladesh Navy's 3-dimensional defense force (Subsurface, Surface, Naval Aviation).",
+      "Enhancing bilateral and multilateral maritime search-and-rescue (SAR) and humanitarian assistance exercises.",
+      "Expanding indigenous shipbuilding capabilities at Khulna Shipyard and Chattogram Dry Dock."
+    ],
+    "policyRecommendations": [
+      "Operationalize advanced Coastal Radar Surveillance Systems (CRSS) integrated with AIS telemetry.",
+      "Expand anti-submarine warfare (ASW) helicopter and maritime patrol aircraft (MPA) squadrons.",
+      "Maintain strict sovereign transparency standards on all dual-use commercial port facilities."
+    ],
+    "detailedAnalysis": {
+      "backgroundAndGenesis": "The Eastern Indian Ocean and Bay of Bengal represent the primary energy artery for East Asia. Over 80% of global oil shipments transit these waters toward the Malacca Strait. Littoral states are rapidly fielding supersonic anti-ship cruise missiles, stealth corvettes, and submarine forces to assert territorial control.",
+      "greatPowerInterests": {
+        "us": "Enhances Quad maritime domain awareness (IPMDA) and logistical interoperability with regional partners.",
+        "china": "Maintains continuous naval task group rotations and survey vessel research activities in international waters.",
+        "india": "Upgrades its Andaman & Nicobar Command (ANC) to monitor eastern approaches and submarine transit bottlenecks."
+      },
+      "vulnerabilitiesAndEconomicImpact": "Any blockade or kinetic clash along southern Bay of Bengal SLOCs would halt container feeder traffic into Chattogram and Payra within 72 hours, triggering severe industrial supply shocks.",
+      "policyDirectives": [
+        "Armed Forces Division must accelerate Forces Goal 2030 modernization milestones for guided-missile stealth frigates.",
+        "Coast Guard must receive additional offshore patrol vessels (OPVs) for 200-nautical-mile EEZ law enforcement.",
+        "Ministry of Foreign Affairs must continue championing UNCLOS maritime rule of law in all international forums."
+      ],
+      "academicCitations": [
+        {
+          "title": "The Naval Balance in the Indian Ocean: Submarines, Chokepoints, and Great-Power Competition",
+          "authorOrBody": "Lowy Institute for International Policy",
+          "publication": "Lowy Analysis Series",
+          "year": "2026",
+          "url": "https://www.lowyinstitute.org"
+        },
+        {
+          "title": "Maritime Security in the Bay of Bengal: Delimitation, Deterrence, and Blue Economy",
+          "authorOrBody": "Manohar Parrikar Institute for Defence Studies and Analyses (MP-IDSA)",
+          "publication": "Journal of Indian Ocean Studies",
+          "year": "2026",
+          "url": "https://www.idsa.in"
+        }
+      ]
+    },
+    "keyActors": [
+      "Bangladesh Navy",
+      "Armed Forces Division",
+      "Lowy Institute",
+      "MP-IDSA",
+      "International Maritime Organization"
+    ],
+    "originalUrl": "https://www.lowyinstitute.org",
+    "readTime": "11 min read",
+    "tags": [
+      "A2/AD",
+      "Naval Deterrence",
+      "Indian Ocean",
+      "Maritime Security",
+      "Forces Goal 2030"
+    ]
+  },
   {
     "id": "intel-009",
     "slug": "red-sea-crisis-bab-el-mandeb-garment-supply-chain-diversion",
@@ -2681,4 +2973,268 @@ export const AI_QUERY_TEMPLATES = [
   "Evaluate Bangladesh's strategic rationale for seeking ASEAN Sectoral Dialogue Partnership.",
   "How can Bangladesh Delta Plan 2100 leverage global Loss and Damage climate finance?",
   "What are the strategic benefits of the BBIN trilateral power trade agreement with Nepal and India?"
+];
+
+export const THINK_TANKS_REGISTRY: ThinkTankProfile[] = [
+  {
+    "id": "biiss",
+    "name": "Bangladesh Institute of International and Strategic Studies",
+    "acronym": "BIISS",
+    "headquarters": "Dhaka, Bangladesh",
+    "region": "South Asia",
+    "tier": "bd-strategic",
+    "flag": "🇧🇩",
+    "website": "https://www.biiss.org",
+    "specialization": "National Security, Foreign Policy & Regional Diplomacy",
+    "description": "The premier autonomous statutory research institution under the Ministry of Foreign Affairs of Bangladesh, providing high-level strategic intelligence and foreign policy counsel.",
+    "trackedPillars": [
+      "power-balancing",
+      "bay-of-bengal",
+      "regional-multilateralism"
+    ],
+    "keyPublications": [
+      "BIISS Journal",
+      "Bangladesh Foreign Policy Review",
+      "Bay of Bengal Strategic Papers"
+    ]
+  },
+  {
+    "id": "bipss",
+    "name": "Bangladesh Institute of Peace and Security Studies",
+    "acronym": "BIPSS",
+    "headquarters": "Dhaka, Bangladesh",
+    "region": "South Asia",
+    "tier": "bd-strategic",
+    "flag": "🇧🇩",
+    "website": "https://www.bipss.org.bd",
+    "specialization": "Security Studies, Maritime Strategy & Geopolitical Risk",
+    "description": "A leading non-partisan think tank focused on peace, conflict resolution, maritime domain awareness, transnational security threats, and South Asian defense dynamics.",
+    "trackedPillars": [
+      "bay-of-bengal",
+      "rohingya-security",
+      "defense-peacekeeping"
+    ],
+    "keyPublications": [
+      "Peace and Security Review",
+      "Maritime Security Briefings",
+      "Counter-Terrorism Bulletins"
+    ]
+  },
+  {
+    "id": "cpd",
+    "name": "Centre for Policy Dialogue",
+    "acronym": "CPD",
+    "headquarters": "Dhaka, Bangladesh",
+    "region": "South Asia",
+    "tier": "bd-strategic",
+    "flag": "🇧🇩",
+    "website": "https://www.cpd.org.bd",
+    "specialization": "Economic Statecraft, Trade Policy & LDC Graduation",
+    "description": "South Asia's leading civil-society economic policy think tank, producing authoritative macroeconomic analyses, trade negotiation strategies, and post-LDC graduation blueprints.",
+    "trackedPillars": [
+      "trade-ldc",
+      "climate-diplomacy",
+      "regional-multilateralism"
+    ],
+    "keyPublications": [
+      "State of the Bangladesh Economy",
+      "LDC Graduation Monitoring",
+      "Trade Policy Monographs"
+    ]
+  },
+  {
+    "id": "cgs",
+    "name": "Centre for Governance Studies",
+    "acronym": "CGS",
+    "headquarters": "Dhaka, Bangladesh",
+    "region": "South Asia",
+    "tier": "bd-strategic",
+    "flag": "🇧🇩",
+    "website": "https://www.cgs-bd.com",
+    "specialization": "Democratic Statecraft, Geopolitical Dialogue & Bay of Bengal Conversations",
+    "description": "Host of the prestigious annual Bay of Bengal Conversation (BOBC), bringing together global diplomats, defense chiefs, and scholars to debate multilateral security.",
+    "trackedPillars": [
+      "power-balancing",
+      "bay-of-bengal",
+      "rohingya-security"
+    ],
+    "keyPublications": [
+      "Bay of Bengal Policy Papers",
+      "Governance and Security Dispatches"
+    ]
+  },
+  {
+    "id": "csis",
+    "name": "Center for Strategic and International Studies",
+    "acronym": "CSIS",
+    "headquarters": "Washington, DC, USA",
+    "region": "Global / North America",
+    "tier": "global-think-tank",
+    "flag": "🇺🇸",
+    "website": "https://www.csis.org",
+    "specialization": "Grand Strategy, Tech Warfare, Indo-Pacific Defense & Supply Chains",
+    "description": "Ranked among the top defense and foreign policy think tanks globally, delivering bipartisan strategic insights to executive decision-makers worldwide.",
+    "trackedPillars": [
+      "power-balancing",
+      "bay-of-bengal",
+      "trade-ldc"
+    ],
+    "keyPublications": [
+      "Asia Maritime Transparency Initiative (AMTI)",
+      "Critical Questions",
+      "Geopolitics of Technology"
+    ]
+  },
+  {
+    "id": "chatham-house",
+    "name": "Chatham House (Royal Institute of International Affairs)",
+    "acronym": "Chatham House",
+    "headquarters": "London, United Kingdom",
+    "region": "Global / Europe",
+    "tier": "global-think-tank",
+    "flag": "🇬🇧",
+    "website": "https://www.chathamhouse.org",
+    "specialization": "International Law, Multilateral Governance & Global South Geopolitics",
+    "description": "One of the world's most influential international affairs institutes, home of the famed Chatham House Rule and authoritative research on sovereign debt, trade, and diplomacy.",
+    "trackedPillars": [
+      "power-balancing",
+      "trade-ldc",
+      "climate-diplomacy"
+    ],
+    "keyPublications": [
+      "International Affairs Journal",
+      "The World Today",
+      "Chatham House Research Papers"
+    ]
+  },
+  {
+    "id": "brookings",
+    "name": "Brookings Institution",
+    "acronym": "Brookings",
+    "headquarters": "Washington, DC, USA",
+    "region": "Global / North America",
+    "tier": "global-think-tank",
+    "flag": "🇺🇸",
+    "website": "https://www.brookings.edu",
+    "specialization": "Global Economy, Diplomatic Statecraft & Foreign Policy",
+    "description": "A premier non-profit public policy organization dedicated to conducting in-depth, non-partisan research to improve governance and international cooperation.",
+    "trackedPillars": [
+      "power-balancing",
+      "climate-diplomacy",
+      "trade-ldc"
+    ],
+    "keyPublications": [
+      "Brookings Foreign Policy Memos",
+      "Global Economy & Development Series"
+    ]
+  },
+  {
+    "id": "lowy",
+    "name": "Lowy Institute for International Policy",
+    "acronym": "Lowy Institute",
+    "headquarters": "Sydney, Australia",
+    "region": "Indo-Pacific",
+    "tier": "global-think-tank",
+    "flag": "🇦🇺",
+    "website": "https://www.lowyinstitute.org",
+    "specialization": "Indo-Pacific Power Dynamics, Maritime Sea Lanes & Asia Power Index",
+    "description": "Australia's leading international policy think tank, renowned for the Lowy Asia Power Index, maritime domain tracking, and Southeast Asia geopolitical analysis.",
+    "trackedPillars": [
+      "power-balancing",
+      "bay-of-bengal",
+      "defense-peacekeeping"
+    ],
+    "keyPublications": [
+      "Asia Power Index",
+      "The Interpreter",
+      "Lowy Institute Papers"
+    ]
+  },
+  {
+    "id": "orf",
+    "name": "Observer Research Foundation",
+    "acronym": "ORF",
+    "headquarters": "New Delhi, India",
+    "region": "South Asia",
+    "tier": "regional-think-tank",
+    "flag": "🇮🇳",
+    "website": "https://www.orfonline.org",
+    "specialization": "Raisina Dialogue, Indo-Pacific Connectivity & South Asian Economic Integration",
+    "description": "India's premier strategic think tank and host of the Raisina Dialogue, focusing on Indian Ocean security, energy diplomacy, and emerging technologies.",
+    "trackedPillars": [
+      "bay-of-bengal",
+      "regional-multilateralism",
+      "power-balancing"
+    ],
+    "keyPublications": [
+      "ORF Strategic Studies",
+      "Raisina Files",
+      "Cyber and Digital Diplomacy Series"
+    ]
+  },
+  {
+    "id": "sipri",
+    "name": "Stockholm International Peace Research Institute",
+    "acronym": "SIPRI",
+    "headquarters": "Stockholm, Sweden",
+    "region": "Global / Europe",
+    "tier": "global-media-multilateral",
+    "flag": "🇸🇪",
+    "website": "https://www.sipri.org",
+    "specialization": "Arms Transfers, Military Expenditure & Nuclear Non-Proliferation",
+    "description": "The definitive global authority on international arms flows, military expenditure datasets, conflict trends, and chemical/nuclear arms control.",
+    "trackedPillars": [
+      "defense-peacekeeping",
+      "power-balancing"
+    ],
+    "keyPublications": [
+      "SIPRI Yearbook",
+      "Trends in International Arms Transfers",
+      "Military Expenditure Database"
+    ]
+  },
+  {
+    "id": "iiss",
+    "name": "International Institute for Strategic Studies",
+    "acronym": "IISS",
+    "headquarters": "London, UK & Singapore",
+    "region": "Global / Europe",
+    "tier": "global-think-tank",
+    "flag": "🇬🇧",
+    "website": "https://www.iiss.org",
+    "specialization": "Shangri-La Dialogue, Military Balance & Strategic Defense Analysis",
+    "description": "The world's leading authority on military-geopolitical risk, organizer of the Shangri-La Dialogue (Singapore) and Manama Dialogue (Bahrain).",
+    "trackedPillars": [
+      "defense-peacekeeping",
+      "power-balancing",
+      "bay-of-bengal"
+    ],
+    "keyPublications": [
+      "The Military Balance",
+      "Strategic Survey",
+      "Survival: Global Politics and Strategy"
+    ]
+  },
+  {
+    "id": "iseas",
+    "name": "ISEAS - Yusof Ishak Institute",
+    "acronym": "ISEAS",
+    "headquarters": "Singapore",
+    "region": "Southeast Asia",
+    "tier": "regional-think-tank",
+    "flag": "🇸🇬",
+    "website": "https://www.iseas.edu.sg",
+    "specialization": "ASEAN Geopolitics, Regional Trade & Maritime Law",
+    "description": "A dedicated research center established by the Parliament of Singapore focusing on Southeast Asian political, security, and economic developments.",
+    "trackedPillars": [
+      "regional-multilateralism",
+      "bay-of-bengal",
+      "trade-ldc"
+    ],
+    "keyPublications": [
+      "State of Southeast Asia Survey",
+      "ISEAS Perspectives",
+      "Contemporary Southeast Asia"
+    ]
+  }
 ];
