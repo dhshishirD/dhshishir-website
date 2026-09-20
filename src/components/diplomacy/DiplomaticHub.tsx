@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import { 
   Globe, Compass, Bookmark, BookmarkCheck, FileText, Search, Sparkles, Volume2, 
   MessageSquare, Lock, Unlock, Filter, Plus, 
@@ -18,8 +18,9 @@ import {
   getLocalMemos, saveLocalMemo, generateDiplomaticQueryResponse, syncBookmarkToCloud
 } from '../../services/diplomacyService';
 import { AuthModal } from '../auth/AuthModal';
-import { GeopoliticalRiskSimulator } from './GeopoliticalRiskSimulator';
-import { BilateralNegotiationSimulator } from './BilateralNegotiationSimulator';
+
+const GeopoliticalRiskSimulator = lazy(() => import('./GeopoliticalRiskSimulator').then(m => ({ default: m.GeopoliticalRiskSimulator })));
+const BilateralNegotiationSimulator = lazy(() => import('./BilateralNegotiationSimulator').then(m => ({ default: m.BilateralNegotiationSimulator })));
 
 interface DiplomaticHubProps {
   user: any;
@@ -985,12 +986,16 @@ export const DiplomaticHub: React.FC<DiplomaticHubProps> = ({ user, onNavigateHo
 
         {activeTab === 'negotiation' && (
           <div className="mb-12">
+            <Suspense fallback={<div className="p-8 text-center text-xs text-slate-500">Loading Simulation Engine...</div>}>
             <BilateralNegotiationSimulator />
+          </Suspense>
           </div>
         )}
 
         {activeTab === 'simulator' && (
+          <Suspense fallback={<div className="p-8 text-center text-xs text-slate-500">Loading Simulation Engine...</div>}>
           <GeopoliticalRiskSimulator />
+        </Suspense>
         )}
 
       </div>

@@ -8,19 +8,28 @@ import { FluencyLabHub } from './components/fluency/FluencyLabHub';
 import { BlogSection } from './components/BlogSection';
 import { AboutContactSection } from './components/AboutContactSection';
 import { Footer } from './components/Footer';
-import { StandaloneToolPage } from './components/tools/StandaloneToolPage';
-import { LearnerDashboard } from './components/dashboard/LearnerDashboard';
-import { DiplomaticHub } from './components/diplomacy/DiplomaticHub';
-import { DossierDetailPage } from './components/diplomacy/DossierDetailPage';
-import { DiplomaticMapPage } from './components/diplomacy/DiplomaticMapPage';
-import { FluencyLabPage } from './components/pages/FluencyLabPage';
-import { LeadershipPage } from './components/pages/LeadershipPage';
-import { BlogPage } from './components/pages/BlogPage';
-import { BlogPostDetailPage } from './components/pages/BlogPostDetailPage';
-import { ContactPage } from './components/pages/ContactPage';
-import { ToolsDirectoryPage } from './components/pages/ToolsDirectoryPage';
-import { FellowshipPage } from './components/pages/FellowshipPage';
-import { AdminExecutiveDashboard } from './components/admin/AdminExecutiveDashboard';
+import { lazy, Suspense } from 'react';
+
+const StandaloneToolPage = lazy(() => import('./components/tools/StandaloneToolPage').then(m => ({ default: m.StandaloneToolPage })));
+const LearnerDashboard = lazy(() => import('./components/dashboard/LearnerDashboard').then(m => ({ default: m.LearnerDashboard })));
+const DiplomaticHub = lazy(() => import('./components/diplomacy/DiplomaticHub').then(m => ({ default: m.DiplomaticHub })));
+const DossierDetailPage = lazy(() => import('./components/diplomacy/DossierDetailPage').then(m => ({ default: m.DossierDetailPage })));
+const DiplomaticMapPage = lazy(() => import('./components/diplomacy/DiplomaticMapPage').then(m => ({ default: m.DiplomaticMapPage })));
+const FluencyLabPage = lazy(() => import('./components/pages/FluencyLabPage').then(m => ({ default: m.FluencyLabPage })));
+const LeadershipPage = lazy(() => import('./components/pages/LeadershipPage').then(m => ({ default: m.LeadershipPage })));
+const BlogPage = lazy(() => import('./components/pages/BlogPage').then(m => ({ default: m.BlogPage })));
+const BlogPostDetailPage = lazy(() => import('./components/pages/BlogPostDetailPage').then(m => ({ default: m.BlogPostDetailPage })));
+const ContactPage = lazy(() => import('./components/pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const ToolsDirectoryPage = lazy(() => import('./components/pages/ToolsDirectoryPage').then(m => ({ default: m.ToolsDirectoryPage })));
+const FellowshipPage = lazy(() => import('./components/pages/FellowshipPage').then(m => ({ default: m.FellowshipPage })));
+const AdminExecutiveDashboard = lazy(() => import('./components/admin/AdminExecutiveDashboard').then(m => ({ default: m.AdminExecutiveDashboard })));
+
+const RouteLoadingSpinner = () => (
+  <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3 bg-slate-50 text-slate-900 py-20">
+    <div className="w-8 h-8 border-3 border-teal-200 border-t-teal-800 rounded-full animate-spin" />
+    <span className="text-xs font-semibold text-slate-500 tracking-wider uppercase">Loading Resource...</span>
+  </div>
+);
 import { supabase } from './services/supabaseClient';
 import { syncLocalProfileToCloud } from './services/cloudProfileService';
 import { Globe, ArrowRight, GraduationCap } from 'lucide-react';
@@ -203,6 +212,7 @@ export function App() {
       <Navbar currentView={currentView} onNavigate={navigateTo} />
       
       <main>
+        <Suspense fallback={<RouteLoadingSpinner />}>
         {currentView === 'map' ? (
           <DiplomaticMapPage
             initialLocationId={activeMapLocationId}
@@ -361,6 +371,7 @@ export function App() {
             <AboutContactSection />
           </>
         )}
+        </Suspense>
       </main>
 
       <Footer onNavigate={navigateTo} />

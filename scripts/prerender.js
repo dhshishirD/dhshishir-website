@@ -37,6 +37,47 @@ function formatSlugToTitle(slug) {
 
 // Custom title & description overrides for key routes
 const CUSTOM_OVERRIDES = {
+  'tools/ats-checker': {
+    title: 'Free ATS Resume Checker Bangladesh & Global | DH Shishir',
+    description: 'Instant automated ATS compatibility test for CVs & resumes. Scans formatting, keyword density, parsing errors, and provides actionable optimization feedback.'
+  },
+  'tools/cover-letter': {
+    title: 'AI Cover Letter Generator for Jobs & Scholarships | DH Shishir',
+    description: 'Generate high-impact, customized professional cover letters for job applications, graduate admissions, and competitive international scholarships in seconds.'
+  },
+  'tools/ielts-planner': {
+    title: 'IELTS Study Plan & Band Score Roadmap Generator | DH Shishir',
+    description: 'Personalized IELTS preparation planner and band 8.5+ milestone roadmap with daily practice schedules for Speaking, Writing, Reading, and Listening.'
+  },
+  'tools/action-verbs': {
+    title: '200+ Power Action Verbs for ATS Resumes & CVs | DH Shishir',
+    description: 'Searchable library of 200+ high-impact action verbs categorized by leadership, analytical problem-solving, communication, and technical accomplishment.'
+  },
+  'tools/salary-negotiator': {
+    title: 'Salary Negotiation Script & Range Calculator | DH Shishir',
+    description: 'Strategic salary negotiation scripts, market benchmarking formulas, and counter-offer email templates tailored for corporate and international roles.'
+  },
+  'tools/sop-generator': {
+    title: 'Statement of Purpose (SOP) Outline Generator | DH Shishir',
+    description: 'Build structured 5-paragraph Statement of Purpose (SOP) frameworks for US, UK, and European Master\'s and PhD graduate school applications.'
+  },
+  'tools/interview-simulator': {
+    title: 'AI Job & Embassy Visa Interview Simulator | DH Shishir',
+    description: 'Practice real-time behavioral interview questions, STAR method answer structures, and embassy visa screening scenarios with instant analytical scoring.'
+  },
+  'tools/email-diplomat': {
+    title: 'Formal & Diplomatic Professional Email Writer | DH Shishir',
+    description: 'Draft impeccably polite, persuasive, and diplomatically phrased executive emails, cold outreach to professors, and official business correspondence.'
+  },
+  'tools/grammar-coach': {
+    title: 'Bangla-to-English Grammar & Error Checker | DH Shishir',
+    description: 'Diagnostic grammar tool pinpointing common Bengali-to-English translation errors, preposition confusion, tense shifts, and acoustic pronunciation traps.'
+  },
+  'tools/vocabulary-builder': {
+    title: 'Advanced GRE & Academic Vocabulary Builder | DH Shishir',
+    description: 'Interactive vocabulary mastery platform with contextual sentence examples, etymology roots, and spaced repetition flashcards for GRE and IELTS aspirants.'
+  },
+
   'diplomacy/bangladesh-strategic-autonomy-foreign-policy-rebalancing': {
     title: 'Strategic Autonomy & Multipolar Balancing | Bangladesh Foreign Policy 2026 | DH Shishir',
     description: "Analysis of Bangladesh's post-transition foreign policy doctrine, principled non-alignment, Western FDI, US-China-India balancing, and defense modernization."
