@@ -194,7 +194,7 @@ export async function postCambridgeQuiz(channelId = BOT_CONFIG.channelId) {
     correct_option_id: quiz.correct_option_id,
     explanation: quiz.explanation,
     explanation_parse_mode: 'HTML',
-    is_anonymous: false
+    is_anonymous: true
   });
 }
 
