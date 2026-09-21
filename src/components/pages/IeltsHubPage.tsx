@@ -26,6 +26,118 @@ export const IeltsHubPage: React.FC = () => {
   const [showTask1Modal, setShowTask1Modal] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState<string | null>(null);
 
+  const triggerDownload = (filename: string, content: string, mimeType: string) => {
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleDownloadAnki = () => {
+    const csvContent = `#separator:comma\n#html:true\n#tags column:4\nFront (Academic Phrase),Back (Meaning & Example),Domain,Tags\n` +
+      `"address the underlying dilemma","<b>Meaning:</b> Solve or confront the root cause of a complex issue.<br><br><b>Example:</b> Policymakers must <i>address the underlying dilemma</i> before imposing fiscal penalties.<br><br><b>Band Upgrade:</b> Replaces 'fix the problem' (Band 5.5).",Governance & Law,IELTS_Band_9 AWL\n` +
+      `"yield a transformative outcome","<b>Meaning:</b> Produce an overwhelmingly positive and profound change.<br><br><b>Example:</b> Subregional renewable energy integration will <i>yield a transformative outcome</i> for South Asian industry.",Economics,IELTS_Band_9 AWL\n` +
+      `"unprecedented exponential surge","<b>Meaning:</b> A massive and rapid upward trend never seen before.<br><br><b>Example:</b> The adoption rate witnessed an <i>unprecedented exponential surge</i> between 2020 and 2025.",Task_1_Trends,IELTS_Band_9 AWL\n` +
+      `"mitigate adverse ecological repercussions","<b>Meaning:</b> Reduce or lessen harmful environmental consequences.<br><br><b>Example:</b> Stringent regulatory standards are critical to <i>mitigate adverse ecological repercussions</i> in coastal belts.",Environment,IELTS_Band_9 AWL\n` +
+      `"impart pivotal strategic insights","<b>Meaning:</b> Provide deeply valuable, high-level analysis or knowledge.<br><br><b>Example:</b> The foreign policy dossier <i>imparts pivotal strategic insights</i> into maritime security.",Diplomacy,IELTS_Band_9 AWL\n` +
+      `"spark heated contentious debate","<b>Meaning:</b> Cause intense public disagreement and argument.<br><br><b>Example:</b> The proposal to automate port terminals <i>sparked heated contentious debate</i> among labor unions.",Society,IELTS_Band_9 AWL\n` +
+      `"exercise fiscal prudence","<b>Meaning:</b> Manage money and budget with great care and discipline.<br><br><b>Example:</b> Developing economies must <i>exercise fiscal prudence</i> during global inflationary cycles.",Economics,IELTS_Band_9 AWL\n` +
+      `"formulate a robust hypothesis","<b>Meaning:</b> Create a strong, well-reasoned scientific explanation.<br><br><b>Example:</b> Researchers <i>formulated a robust hypothesis</i> regarding cross-border climate migration patterns.",Academic_Defense,IELTS_Band_9 AWL\n` +
+      `"precipitate an unforeseen crisis","<b>Meaning:</b> Cause an unexpected and severe problem to happen suddenly.<br><br><b>Example:</b> Geopolitical tensions in maritime chokepoints <i>precipitated an unforeseen crisis</i> in international supply lines.",Global_Trade,IELTS_Band_9 AWL\n` +
+      `"exhibit marked volatility","<b>Meaning:</b> Show noticeable, continuous up-and-down fluctuations.<br><br><b>Example:</b> Hydrocarbon commodity prices <i>exhibited marked volatility</i> across the second quarter.",Task_1_Trends,IELTS_Band_9 AWL\n` +
+      `"cultivate resilient bilateral ties","<b>Meaning:</b> Develop strong, durable diplomatic relationships between two nations.<br><br><b>Example:</b> Both countries sought to <i>cultivate resilient bilateral ties</i> through comprehensive economic partnerships.",Diplomacy,IELTS_Band_9 AWL\n` +
+      `"accelerate technological obsolescence","<b>Meaning:</b> Cause older tools or methods to become outdated quickly.<br><br><b>Example:</b> Generative AI algorithms continue to <i>accelerate technological obsolescence</i> in manual data processing.",Technology,IELTS_Band_9 AWL\n` +
+      `"reconcile diametrically opposed viewpoints","<b>Meaning:</b> Bring together two completely opposite opinions or parties.<br><br><b>Example:</b> The mediator attempted to <i>reconcile diametrically opposed viewpoints</i> during the boundary dispute.",Negotiation,IELTS_Band_9 AWL\n` +
+      `"foster socio-economic mobility","<b>Meaning:</b> Encourage and help individuals improve their financial and social status.<br><br><b>Example:</b> Subsidized tertiary education remains indispensable to <i>foster socio-economic mobility</i>.",Education,IELTS_Band_9 AWL\n` +
+      `"perpetuate systemic inequalities","<b>Meaning:</b> Cause existing structural unfairness to continue over time.<br><br><b>Example:</b> Regressive tax structures inadvertently <i>perpetuate systemic inequalities</i>.",Economics,IELTS_Band_9 AWL\n`;
+    triggerDownload('IELTS-Band-9-Collocations-Anki-Deck.csv', csvContent, 'text/csv;charset=utf-8;');
+    setDownloadSuccess('anki');
+    setTimeout(() => setDownloadSuccess(null), 3000);
+  };
+
+  const handleDownloadTask1 = () => {
+    const textContent = `================================================================================\n` +
+      `IELTS ACADEMIC WRITING TASK 1: PREPOSITION & REPORTING MATRIX\n` +
+      `Authored by Daloyar Hassan Shishir | dhshishir.com/ielts\n` +
+      `================================================================================\n\n` +
+      `1. THE GOLDEN PREPOSITION MATRIX\n` +
+      `--------------------------------------------------------------------------------\n` +
+      `Rule 1: "BY" (Margin of difference)\n` +
+      `  - Example: "Exports increased BY 15% (from 50% to 65%)."\n` +
+      `  - Meaning: Indicates the exact difference/amount gained or lost.\n\n` +
+      `Rule 2: "TO" (Final destination endpoint)\n` +
+      `  - Example: "Exports rose TO 65% in 2025."\n` +
+      `  - Meaning: Indicates where the metric arrived.\n\n` +
+      `Rule 3: "OF" (Used after a noun)\n` +
+      `  - Example: "The industry witnessed a growth OF 15%."\n` +
+      `  - Example: "There was a contraction OF 8 million units."\n\n` +
+      `Rule 4: "AT" (Static point in time or plateau)\n` +
+      `  - Example: "The unemployment rate stood AT 4.5% in 2020."\n` +
+      `  - Example: "Solar adoption peaked AT 88% before stabilizing."\n\n` +
+      `Rule 5: "BETWEEN ... AND ..." / "FROM ... TO ..." (Time periods)\n` +
+      `  - Example: "Between 2015 and 2025..." (NOT Between 2015 to 2025)\n` +
+      `  - Example: "From 2015 to 2025..."\n\n` +
+      `2. DYNAMIC VERB & ADVERB TAXONOMY (BAND 8.5+)\n` +
+      `--------------------------------------------------------------------------------\n` +
+      `Rapid Increase: skyrocketed, surged exponentially, climbed markedly, escalated sharply.\n` +
+      `Moderate Growth: rose steadily, expanded progressively, registered consistent gains.\n` +
+      `Plummet / Decline: collapsed abruptly, contracted substantially, plummeted to an all-time low.\n` +
+      `Fluctuation: oscillated wildly, exhibited marked volatility, plateaued at, leveled off around.\n\n` +
+      `3. THE 2-SENTENCE BAND 9 OVERVIEW FORMULA\n` +
+      `--------------------------------------------------------------------------------\n` +
+      `Sentence 1 (Main Trend / Trajectory):\n` +
+      `  "Overall, it is manifest that while [Category A] experienced a sustained upward trajectory, [Category B] underwent a marked downward trend over the surveyed span."\n\n` +
+      `Sentence 2 (Dominant Category or Anomaly):\n` +
+      `  "Additionally, [Category A] remained the preeminent contributor throughout the period, despite a transient dip in 2022."\n\n` +
+      `================================================================================\n` +
+      `Official Study Resource | IELTS Band 8.5 Master Hub | dhshishir.com\n` +
+      `================================================================================\n`;
+    triggerDownload('IELTS-Task-1-Preposition-Reporting-Matrix.txt', textContent, 'text/plain;charset=utf-8;');
+    setDownloadSuccess('task1');
+    setTimeout(() => setDownloadSuccess(null), 3000);
+  };
+
+  const handleDownloadSpeaking = () => {
+    const textContent = `================================================================================\n` +
+      `IELTS SPEAKING BAND 9: DISCOURSE MARKERS & IDIOMATIC TRANSITIONS\n` +
+      `Authored by Daloyar Hassan Shishir | dhshishir.com/english-fluency-lab\n` +
+      `================================================================================\n\n` +
+      `1. NATURAL PERSPECTIVE & OPINION FRAMING\n` +
+      `--------------------------------------------------------------------------------\n` +
+      `❌ Avoid: "In my opinion...", "I think that..."\n` +
+      `✅ Band 9 Alternatives:\n` +
+      `  - "From where I stand, it seems abundantly clear that..."\n` +
+      `  - "As far as I can gather, the prevailing consensus suggests..."\n` +
+      `  - "If you look at the broader socioeconomic picture..."\n` +
+      `  - "I'm inclined to believe that..."\n\n` +
+      `2. BUILT-IN 2-SECOND THINKING FILLERS (AVOID AWKWARD SILENCE)\n` +
+      `--------------------------------------------------------------------------------\n` +
+      `❌ Avoid: Long pauses "Ummm... errr... silence"\n` +
+      `✅ Band 9 Natural Connectors:\n` +
+      `  - "That is a multifaceted question, but looking at the immediate evidence..."\n` +
+      `  - "To be completely candid, I haven't contemplated that deeply before, but..."\n` +
+      `  - "That depends heavily on the specific context, however generally speaking..."\n\n` +
+      `3. PART 3 ABSTRACT ARGUMENTATION CONNECTORS\n` +
+      `--------------------------------------------------------------------------------\n` +
+      `Concession & Nuance:\n` +
+      `  - "While there is some validity to that premise, one cannot overlook..."\n` +
+      `  - "Notwithstanding the initial benefits, the long-term repercussions remain..."\n\n` +
+      `Hypothetical & Speculative Speech:\n` +
+      `  - "Had governments acted proactively, the current fallout might have been averted."\n` +
+      `  - "Were modern cities to prioritize pedestrian zones, emissions would decline."\n\n` +
+      `================================================================================\n` +
+      `Official Study Resource | English Fluency Lab | dhshishir.com\n` +
+      `================================================================================\n`;
+    triggerDownload('IELTS-Speaking-Band-9-Discourse-Markers.txt', textContent, 'text/plain;charset=utf-8;');
+    setDownloadSuccess('speaking');
+    setTimeout(() => setDownloadSuccess(null), 3000);
+  };
+
   useEffect(() => {
     document.title = 'IELTS Band 8.5 Master Preparation Hub | Free Interactive Practice & Simulators | DH Shishir';
   }, []);
@@ -431,18 +543,13 @@ export const IeltsHubPage: React.FC = () => {
                     <p className="text-[11px] text-slate-500">250+ Flashcards with definitions, Band 5➔9 upgrades, and example sentences formatted for the Anki app.</p>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
-                    <a
-                      href="/downloads/IELTS-Band-9-Collocations-Anki-Deck.csv"
-                      download="IELTS-Band-9-Collocations-Anki-Deck.csv"
-                      onClick={() => {
-                        setDownloadSuccess('anki');
-                        setTimeout(() => setDownloadSuccess(null), 3000);
-                      }}
-                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm"
+                    <button
+                      onClick={handleDownloadAnki}
+                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm cursor-pointer"
                     >
                       {downloadSuccess === 'anki' ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Download className="w-3.5 h-3.5" />}
                       {downloadSuccess === 'anki' ? 'Downloaded!' : 'Download Anki (.CSV)'}
-                    </a>
+                    </button>
                   </div>
                 </div>
 
@@ -458,22 +565,17 @@ export const IeltsHubPage: React.FC = () => {
                   <div className="flex items-center gap-2 shrink-0">
                     <button
                       onClick={() => setShowTask1Modal(true)}
-                      className="px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-xl font-bold text-xs transition flex items-center gap-1.5"
+                      className="px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-xl font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
                     >
                       <Eye className="w-3.5 h-3.5 text-teal-800" /> View Matrix
                     </button>
-                    <a
-                      href="/downloads/IELTS-Task-1-Preposition-Reporting-Matrix.txt"
-                      download="IELTS-Task-1-Preposition-Reporting-Matrix.txt"
-                      onClick={() => {
-                        setDownloadSuccess('task1');
-                        setTimeout(() => setDownloadSuccess(null), 3000);
-                      }}
-                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm"
+                    <button
+                      onClick={handleDownloadTask1}
+                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm cursor-pointer"
                     >
                       {downloadSuccess === 'task1' ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Download className="w-3.5 h-3.5" />}
                       {downloadSuccess === 'task1' ? 'Downloaded!' : 'Download Cheat Sheet'}
-                    </a>
+                    </button>
                   </div>
                 </div>
 
@@ -487,18 +589,13 @@ export const IeltsHubPage: React.FC = () => {
                     <p className="text-[11px] text-slate-500">Natural thinking fillers, abstract opinion framing, and Part 3 nuance transitions.</p>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
-                    <a
-                      href="/downloads/IELTS-Speaking-Band-9-Discourse-Markers.txt"
-                      download="IELTS-Speaking-Band-9-Discourse-Markers.txt"
-                      onClick={() => {
-                        setDownloadSuccess('speaking');
-                        setTimeout(() => setDownloadSuccess(null), 3000);
-                      }}
-                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm"
+                    <button
+                      onClick={handleDownloadSpeaking}
+                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm cursor-pointer"
                     >
                       {downloadSuccess === 'speaking' ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Download className="w-3.5 h-3.5" />}
                       {downloadSuccess === 'speaking' ? 'Downloaded!' : 'Download Guide'}
-                    </a>
+                    </button>
                   </div>
                 </div>
 

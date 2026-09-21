@@ -1,0 +1,58 @@
+================================================================================
+IELTS ACADEMIC WRITING TASK 1: PREPOSITION & REPORTING MATRIX
+Authored by Daloyar Hassan Shishir | dhshishir.com/ielts
+================================================================================
+
+1. THE GOLDEN PREPOSITION MATRIX
+--------------------------------------------------------------------------------
+Rule 1: "BY" (Margin of difference)
+  - Example: "Exports increased BY 15% (from 50% to 65%)."
+  - Meaning: Indicates the exact difference/amount gained or lost.
+
+Rule 2: "TO" (Final destination endpoint)
+  - Example: "Exports rose TO 65% in 2025."
+  - Meaning: Indicates where the metric arrived.
+
+Rule 3: "OF" (Used after a noun)
+  - Example: "The industry witnessed a growth OF 15%."
+  - Example: "There was a contraction OF 8 million units."
+
+Rule 4: "AT" (Static point in time or plateau)
+  - Example: "The unemployment rate stood AT 4.5% in 2020."
+  - Example: "Solar adoption peaked AT 88% before stabilizing."
+
+Rule 5: "BETWEEN ... AND ..." / "FROM ... TO ..." (Time periods)
+  - Example: "Between 2015 and 2025..." (NOT Between 2015 to 2025)
+  - Example: "From 2015 to 2025..."
+
+2. DYNAMIC VERB & ADVERB TAXONOMY (BAND 8.5+)
+--------------------------------------------------------------------------------
+Rapid Increase:
+  - skyrocketed, surged exponentially, climbed markedly, escalated sharply.
+  - "The metric experienced an unprecedented exponential surge."
+
+Moderate Growth:
+  - rose steadily, expanded progressively, registered consistent gains.
+  - "Inbound tourism exhibited progressive growth throughout the timeframe."
+
+Plummet / Decline:
+  - collapsed abruptly, contracted substantially, plummeted to an all-time low.
+  - "Fossil fuel investments underwent a severe contraction of 42%."
+
+Fluctuation & Plateau:
+  - oscillated wildly, exhibited marked volatility, plateaued at, stabilized around.
+  - "Commodity prices displayed marked volatility before leveling off at $75."
+
+3. THE 2-SENTENCE BAND 9 OVERVIEW FORMULA
+--------------------------------------------------------------------------------
+Sentence 1 (Main Trend / Trajectory):
+  "Overall, it is manifest that while [Category A] experienced a sustained upward
+  trajectory, [Category B] underwent a marked downward trend over the surveyed span."
+
+Sentence 2 (Dominant Category or Anomaly):
+  "Additionally, [Category A] remained the preeminent contributor throughout the period,
+  despite a transient dip in 2022."
+
+================================================================================
+Official Study Resource | IELTS Band 8.5 Master Hub | dhshishir.com
+================================================================================
