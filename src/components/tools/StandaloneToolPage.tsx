@@ -12,7 +12,8 @@ import {
   Check, 
   ExternalLink,
   Zap,
-  BarChart3 
+  BarChart3,
+  Scale 
 } from 'lucide-react';
 import { CoverLetterGenerator } from './CoverLetterGenerator';
 import { IeltsWritingAnalyzer } from './IeltsWritingAnalyzer';
@@ -25,6 +26,8 @@ import { CgpaConverter } from './CgpaConverter';
 import { SkillGapFinder } from './SkillGapFinder';
 import { IeltsCollocationDuel } from './IeltsCollocationDuel';
 import { IeltsTask1ChartMorpher } from './IeltsTask1ChartMorpher';
+import { IeltsTfngCourtroom } from './IeltsTfngCourtroom';
+import { IeltsSpeakingFlowRadar } from './IeltsSpeakingFlowRadar';
 import { SOCIAL_LINKS } from '../../data/portfolioData';
 import { logRealToolUsage } from '../../services/adminAnalyticsService';
 
@@ -76,6 +79,15 @@ export const ALL_TOOLS: ToolDef[] = [
     component: IeltsTask1ChartMorpher
   },
   {
+    id: 'ielts-reading-tfng-court',
+    name: 'IELTS Reading T/F/NG Forensic Court',
+    tagline: 'Forensic evidence courtroom simulator breaking down True/False/Not Given modal qualifier and quantifier traps.',
+    category: 'IELTS & English',
+    icon: Scale,
+    badge: 'Reading Court',
+    component: IeltsTfngCourtroom
+  },
+  {
     id: 'ielts-writing',
     name: 'IELTS Writing Task 2 Evaluator',
     tagline: 'Live word count tracker, paragraph balance checker, cohesive devices counter, and estimated band rating.',
@@ -83,6 +95,15 @@ export const ALL_TOOLS: ToolDef[] = [
     icon: BookOpen,
     badge: 'IELTS Viral Tool',
     component: IeltsWritingAnalyzer
+  },
+  {
+    id: 'ielts-speaking-flow-radar',
+    name: 'IELTS Speaking Flow Radar & Practice Studio',
+    tagline: 'Real-time speech cadence WPM radar, hesitation alarm, Part 2 cue timer, and Part 3 reflex drill.',
+    category: 'IELTS & English',
+    icon: Mic,
+    badge: 'AI Speech Radar',
+    component: IeltsSpeakingFlowRadar
   },
   {
     id: 'ielts-speaking',

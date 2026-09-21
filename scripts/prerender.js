@@ -81,6 +81,14 @@ const CUSTOM_OVERRIDES = {
     title: 'IELTS Writing Task 1 Academic: Interactive Chart Sandbox | DH Shishir',
     description: 'Free interactive SVG graph sandbox for IELTS Writing Task 1 Academic. Drag line and bar chart nodes to generate live Band 8.5 reporting sentences, master mathematical prepositions, and spot overview traps.'
   },
+  'tools/ielts-reading-tfng-court': {
+    title: 'IELTS Reading True False Not Given: Logic Simulator | DH Shishir',
+    description: 'Master IELTS Reading True False Not Given (T/F/NG) with forensic evidence courtroom trials. Learn mathematical set theory logic, test qualifier microscopes, and eliminate plausible assumption traps.'
+  },
+  'tools/ielts-speaking-flow-radar': {
+    title: 'IELTS Speaking Practice & Flow Radar: Free Mock Studio | DH Shishir',
+    description: 'Interactive IELTS Speaking practice studio with real-time speech cadence WPM radar, 2.5s silence alerts, filler counter, 60s Part 2 cue timer, and 15s Part 3 reflex drill.'
+  },
   'tools/vocabulary-builder': {
     title: 'Advanced GRE & Academic Vocabulary Builder | DH Shishir',
     description: 'Interactive vocabulary mastery platform with contextual sentence examples, etymology roots, and spaced repetition flashcards for GRE and IELTS aspirants.'
