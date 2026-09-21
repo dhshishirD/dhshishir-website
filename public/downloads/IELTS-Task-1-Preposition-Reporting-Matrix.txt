@@ -1,57 +1,134 @@
 ================================================================================
-IELTS ACADEMIC WRITING TASK 1: PREPOSITION & REPORTING MATRIX
+IELTS ACADEMIC WRITING TASK 1: PREPOSITION & REPORTING MASTER MATRIX
 Authored by Daloyar Hassan Shishir | dhshishir.com/ielts
 ================================================================================
 
-1. THE GOLDEN PREPOSITION MATRIX
+1. THE 6 GOLDEN PREPOSITION RULES (GRAMMAR ACCURACY)
 --------------------------------------------------------------------------------
-Rule 1: "BY" (Margin of difference)
-  - Example: "Exports increased BY 15% (from 50% to 65%)."
-  - Meaning: Indicates the exact difference/amount gained or lost.
+Rule 1: "BY" (Margin / Difference)
+  - Syntax: Indicates the numerical difference or amount gained/lost.
+  - Example: "Garment exports surged BY 18% (from 42% in 2018 to 60% in 2024)."
+  - Example: "Unemployment was curtailed BY 3.5 percentage points."
 
-Rule 2: "TO" (Final destination endpoint)
-  - Example: "Exports rose TO 65% in 2025."
-  - Meaning: Indicates where the metric arrived.
+Rule 2: "TO" (Final Arrival Endpoint)
+  - Syntax: Indicates the final destination value reached by the metric.
+  - Example: "Renewable power capacity expanded steadily, climbing TO 85 gigawatts by 2025."
+  - Example: "Oil consumption plunged abruptly TO a historic low of 12 million barrels."
 
-Rule 3: "OF" (Used after a noun)
-  - Example: "The industry witnessed a growth OF 15%."
-  - Example: "There was a contraction OF 8 million units."
+Rule 3: "OF" (Follows Nominal Trend Nouns)
+  - Syntax: Used directly after nominal trend nouns (increase, surge, drop, contraction).
+  - Example: "The manufacturing sector registered a marked contraction OF 14 million units."
+  - Example: "Urban migration witnessed an unprecedented surge OF 25%."
 
-Rule 4: "AT" (Static point in time or plateau)
-  - Example: "The unemployment rate stood AT 4.5% in 2020."
-  - Example: "Solar adoption peaked AT 88% before stabilizing."
+Rule 4: "AT" (Static Level / Plateau Peak)
+  - Syntax: Indicates a static point, an initial starting value, or a stable plateau peak.
+  - Example: "In 2010, national literacy stood AT 72%, before ascending progressively."
+  - Example: "Electric vehicle sales peaked AT 45,000 units before leveling off."
 
-Rule 5: "BETWEEN ... AND ..." / "FROM ... TO ..." (Time periods)
-  - Example: "Between 2015 and 2025..." (NOT Between 2015 to 2025)
-  - Example: "From 2015 to 2025..."
+Rule 5: "IN / OVER / DURING" (Time Horizons)
+  - Syntax: Defines the timeframe or duration of movement.
+  - Example: "OVER the 15-year surveyed timeframe, solar adoption grew eightfold."
+  - Example: "DURING the subsequent five-year interval, consumer spending remained static."
 
-2. DYNAMIC VERB & ADVERB TAXONOMY (BAND 8.5+)
+Rule 6: "BETWEEN ... AND ..." vs. "FROM ... TO ..." (Time Boundaries)
+  - Syntax: Strict paired boundaries (Never write 'Between 2015 to 2025').
+  - Example: "BETWEEN 2015 AND 2025, global shipments exhibited exponential gains."
+  - Example: "FROM 2018 TO 2022, revenues underwent a consistent downward slump."
+
 --------------------------------------------------------------------------------
-Rapid Increase:
-  - skyrocketed, surged exponentially, climbed markedly, escalated sharply.
-  - "The metric experienced an unprecedented exponential surge."
-
-Moderate Growth:
-  - rose steadily, expanded progressively, registered consistent gains.
-  - "Inbound tourism exhibited progressive growth throughout the timeframe."
-
-Plummet / Decline:
-  - collapsed abruptly, contracted substantially, plummeted to an all-time low.
-  - "Fossil fuel investments underwent a severe contraction of 42%."
-
-Fluctuation & Plateau:
-  - oscillated wildly, exhibited marked volatility, plateaued at, stabilized around.
-  - "Commodity prices displayed marked volatility before leveling off at $75."
-
-3. THE 2-SENTENCE BAND 9 OVERVIEW FORMULA
+2. DYNAMIC VERB, ADVERB & NOMINAL TAXONOMY (BAND 8.5+)
 --------------------------------------------------------------------------------
-Sentence 1 (Main Trend / Trajectory):
-  "Overall, it is manifest that while [Category A] experienced a sustained upward
-  trajectory, [Category B] underwent a marked downward trend over the surveyed span."
+Trajectory 1: Exponential Surge / Steep Ascent
+  - Verbs: soared, skyrocketed, surged exponentially, climbed markedly, escalated sharply
+  - Adverbs: exponentially, precipitously, markedly, dramatically, drastically
+  - Nouns: an exponential surge, a meteoric rise, a steep upward trajectory
 
-Sentence 2 (Dominant Category or Anomaly):
-  "Additionally, [Category A] remained the preeminent contributor throughout the period,
-  despite a transient dip in 2022."
+Trajectory 2: Moderate & Consistent Growth
+  - Verbs: rose steadily, expanded progressively, registered consistent gains, trended upward
+  - Adverbs: steadily, progressively, consistently, incrementally, moderately
+  - Nouns: a steady ascent, progressive expansion, consistent growth
+
+Trajectory 3: Severe Collapse & Plunge
+  - Verbs: plummeted, slumped, collapsed abruptly, contracted substantially, dove
+  - Adverbs: sharply, severely, precipitously, abruptly, dramatically
+  - Nouns: a marked contraction, a precipitous slump, a severe collapse
+
+Trajectory 4: Mild / Gradual Reduction
+  - Verbs: dipped marginally, contracted slightly, edged down, softened, receded
+  - Adverbs: marginally, slightly, modestly, insignificantly, minimally
+  - Nouns: a slight downturn, an inconsequential dip, a marginal softening
+
+Trajectory 5: Wild Oscillation & Fluctuation
+  - Verbs: oscillated wildly, fluctuated erratically, underwent turbulence
+  - Adverbs: erratically, wildly, unpredictably, continuously
+  - Nouns: marked volatility, wild oscillations, erratic fluctuations
+
+Trajectory 6: Plateau & Stabilization
+  - Verbs: plateaued at, stabilized around, leveled off at, remained unchanged
+  - Adverbs: relatively, virtually, essentially, consistently
+  - Nouns: a plateau phase, a period of stabilization, a flatline trend
+
+--------------------------------------------------------------------------------
+3. EXAMINER TRAP: PERCENT (%) VS. PERCENTAGE POINT (pp) DISTINCTION
+--------------------------------------------------------------------------------
+If a metric moves from 20% to 30%:
+  - Percentage Points: It rose by 10 percentage points (30 - 20 = 10 pp).
+  - Percent Growth: It grew by 50 percent [(30 - 20) / 20 * 100 = 50%].
+
+Examiner Model Sentence:
+"Although urban electrification increased by only 10 percentage points (from 20% to 30%),
+this represented an impressive 50% expansion in total electrified households."
+
+--------------------------------------------------------------------------------
+4. THE 5 COMPLETE OVERVIEW FORMULA BLUEPRINTS (BAND 9)
+--------------------------------------------------------------------------------
+Blueprint 1: Dynamic Two-Trajectory Trend (Time Series)
+"Overall, it is immediately manifest that while [Category A] and [Category B] experienced
+sustained upward trajectories over the surveyed span, [Category C] underwent a marked
+contraction. Furthermore, [Category A] remained the preeminent contributor throughout."
+
+Blueprint 2: Static Comparative Distribution (Pie / Bar Snapshot)
+"In summary, what stands out from the data is that [Category A] accounted for the lion's
+share of overall figures, dwarfing all other sectors combined, whereas [Category D]
+represented an almost negligible fraction."
+
+Blueprint 3: Two-Chart Complex Synthesis (Line Graph + Pie Chart)
+"Overall, while the line graph indicates a steady long-term escalation in total expenditure
+across all demographics, the accompanying pie chart underscores that housing and food
+consumption constituted the vast majority of consumer allocations."
+
+Blueprint 4: Industrial / Natural Process Diagram
+"Overall, the process comprises [Number] distinct sequential stages, commencing with the
+initial harvesting/intake of [Raw Material] and culminating in the automated distribution
+of the refined end product to retail markets."
+
+Blueprint 5: Outlier / Anomaly-Driven Overview
+"Overall, across nearly all surveyed territories, renewable adoption registered significant
+proportional gains, with [Country X] serving as the sole notable exception by exhibiting
+a continuous downward trend."
+
+--------------------------------------------------------------------------------
+5. BAND 9 TASK 1 COHESIVE SENTENCE TEMPLATES
+--------------------------------------------------------------------------------
+1. Participial Clause:
+   "Fossil fuels remained the dominant power source throughout the decade, accounting
+   for nearly two-thirds (64%) of national energy output in 2020."
+
+2. Comparative Eclipse:
+   "In 2021, investments in solar infrastructure eclipsed those in hydroelectric power
+   for the first time, climbing to $4.2 billion against $3.8 billion."
+
+3. Proportional Multiplier:
+   "Figures for outbound cargo in Port A were nearly triple those registered by Port B
+   ($75M and $26M, respectively)."
+
+4. Subordinate Contrast:
+   "While the proportion of rural internet users climbed sharply from 15% to 58%,
+   the corresponding metric for urban centers experienced a much milder ascent."
+
+5. Temporal Transition:
+   "Turning to the latter half of the surveyed period, a sharp divergence occurred as
+   manufacturing output contracted to a decade-low of 12,000 units."
 
 ================================================================================
 Official Study Resource | IELTS Band 8.5 Master Hub | dhshishir.com

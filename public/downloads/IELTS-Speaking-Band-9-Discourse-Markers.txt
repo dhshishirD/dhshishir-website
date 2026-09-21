@@ -1,34 +1,85 @@
 ================================================================================
-IELTS SPEAKING BAND 9: DISCOURSE MARKERS & IDIOMATIC TRANSITIONS
+IELTS SPEAKING BAND 9: DISCOURSE MARKERS, THINKING BUFFERS & IDIOMS
 Authored by Daloyar Hassan Shishir | dhshishir.com/english-fluency-lab
 ================================================================================
 
-1. NATURAL PERSPECTIVE & OPINION FRAMING
+1. ABSTRACT PERSPECTIVE & OPINION FRAMING (REPLACING "I THINK / IN MY OPINION")
 --------------------------------------------------------------------------------
-❌ Avoid: "In my opinion...", "I think that..."
-✅ Band 9 Alternatives:
-  - "From where I stand, it seems abundantly clear that..."
-  - "As far as I can gather, the prevailing consensus suggests..."
-  - "If you look at the broader socioeconomic picture..."
-  - "I'm inclined to believe that..."
+- "From where I stand, it seems abundantly clear that..."
+- "As far as I can gather, prevailing consensus suggests..."
+- "If one examines the broader socioeconomic landscape, it becomes evident that..."
+- "I am firmly of the conviction that..."
+- "Looking at this through a pragmatic lens, one could argue that..."
+- "It is widely recognized among sociologists that..."
+- "From an empirical standpoint, the general trajectory indicates that..."
+- "I am inclined to believe that while initial appearances suggest X, reality favors Y..."
 
-2. BUILT-IN 2-SECOND THINKING FILLERS (AVOID AWKWARD SILENCE)
 --------------------------------------------------------------------------------
-❌ Avoid: Long pauses "Ummm... errr... silence"
-✅ Band 9 Natural Connectors:
-  - "That is a multifaceted question, but looking at the immediate evidence..."
-  - "To be completely candid, I haven't contemplated that deeply before, but..."
-  - "That depends heavily on the specific context, however generally speaking..."
-
-3. PART 3 ABSTRACT ARGUMENTATION CONNECTORS
+2. NATIVE 2-SECOND THINKING BUFFERS (ZERO AWKWARD SILENCE)
 --------------------------------------------------------------------------------
-Concession & Nuance:
-  - "While there is some validity to that premise, one cannot overlook..."
-  - "Notwithstanding the initial benefits, the long-term repercussions remain..."
+- "That is a remarkably multifaceted question, but looking at the immediate evidence..."
+- "To be completely candid, I haven't contemplated that specific angle deeply before, but..."
+- "That depends heavily on the societal context, however generally speaking..."
+- "That is an intriguing dilemma; let me unpack the most salient dimension first..."
+- "Well, there are two distinct ways to look at this issue..."
+- "Off the top of my head, I would say the most prominent factor is..."
 
-Hypothetical & Speculative Speech:
-  - "Had governments acted proactively, the current fallout might have been averted."
-  - "Were modern cities to prioritize pedestrian zones, emissions would decline."
+--------------------------------------------------------------------------------
+3. PART 3 NUANCE, COUNTER-ARGUMENT & CONCESSION CONNECTORS
+--------------------------------------------------------------------------------
+- "While there is indisputable validity to that premise, one cannot overlook..."
+- "Notwithstanding the immediate economic windfall, the long-term ecological fallout..."
+- "That policy holds substantial merit on paper; however, in practical execution..."
+- "It would be a gross oversimplification to attribute this solely to..."
+- "While that may hold true in metropolitan centers, the dynamic in rural communities..."
+- "To put that into sharper perspective, if we look at historical parallels..."
+
+--------------------------------------------------------------------------------
+4. INVERTED & SPECULATIVE CONDITIONALS FOR SPEAKING (BAND 9 GRAMMAR)
+--------------------------------------------------------------------------------
+- Inverted Past Unfulfilled:
+  "Had governments enacted stricter emissions regulations a decade ago, urban air
+  pollution wouldn't be anywhere near as severe today."
+
+- Inverted Hypothetical Present:
+  "Were municipal authorities to heavily subsidize electric public transport, private
+  vehicular congestion would diminish rapidly."
+
+- Inverted Future Possibility:
+  "Should global temperatures continue to rise unabated, low-lying coastal cities will
+  inevitably face existential displacement."
+
+- Personal Policy Speculation:
+  "Were I placed in a policymaking capacity, my immediate priority would be restructuring
+  vocational apprenticeships for youth."
+
+--------------------------------------------------------------------------------
+5. TOP 12 HIGH-SCORING IDIOMATIC PHRASAL CHUNKS & METAPHORS
+--------------------------------------------------------------------------------
+1. A double-edged sword: "Social media is undeniably a double-edged sword—it democratizes
+   information while fueling misinformation."
+2. A watershed moment: "The transition to online education during the pandemic marked
+   a watershed moment for global pedagogy."
+3. A silver bullet: "Electric vehicles are important, but they are certainly not a silver
+   bullet for overall carbon reduction."
+4. Weather the storm: "Only enterprises with agile digital infrastructure were able to
+   weather the economic storm."
+5. A catalyst for change: "Youth-led grassroots activism has acted as a potent catalyst
+   for change in climate policy."
+6. A zero-sum game: "International trade negotiations should aim for win-win synergy
+   rather than treating commerce as a zero-sum game."
+7. Tip the balance: "Targeted student mentorship programs could tip the balance in favor
+   of marginalized university applicants."
+8. A cautionary tale: "The rapid collapse of single-industry factory towns stands as a
+   sobering cautionary tale for modern urban planners."
+9. Pave the way for: "Breakthroughs in battery energy density will pave the way for
+   zero-emission commercial aviation."
+10. Strike a delicate balance: "Urban authorities must strike a delicate balance between
+    preserving historical architecture and building modern housing."
+11. At the eleventh hour: "Environmental treaties are often finalized at the eleventh hour
+    due to protracted diplomatic negotiations."
+12. Reap the dividends: "Countries that invested early in STEM education are now reaping
+    immense economic dividends."
 
 ================================================================================
 Official Study Resource | English Fluency Lab | dhshishir.com
