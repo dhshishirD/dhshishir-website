@@ -11,7 +11,8 @@ import {
   Share2, 
   Check, 
   ExternalLink,
-  Zap 
+  Zap,
+  BarChart3 
 } from 'lucide-react';
 import { CoverLetterGenerator } from './CoverLetterGenerator';
 import { IeltsWritingAnalyzer } from './IeltsWritingAnalyzer';
@@ -23,6 +24,7 @@ import { IeltsScoreEstimator } from './IeltsScoreEstimator';
 import { CgpaConverter } from './CgpaConverter';
 import { SkillGapFinder } from './SkillGapFinder';
 import { IeltsCollocationDuel } from './IeltsCollocationDuel';
+import { IeltsTask1ChartMorpher } from './IeltsTask1ChartMorpher';
 import { SOCIAL_LINKS } from '../../data/portfolioData';
 import { logRealToolUsage } from '../../services/adminAnalyticsService';
 
@@ -63,6 +65,15 @@ export const ALL_TOOLS: ToolDef[] = [
     icon: Zap,
     badge: 'Band 9 Arcade',
     component: IeltsCollocationDuel
+  },
+  {
+    id: 'ielts-task1-chart-morpher',
+    name: 'IELTS Academic Task 1 Chart Morpher',
+    tagline: 'Interactive SVG graph sandbox with live Band 8.5 reporting sentence generator and overview trap detector.',
+    category: 'IELTS & English',
+    icon: BarChart3,
+    badge: 'SVG Sandbox',
+    component: IeltsTask1ChartMorpher
   },
   {
     id: 'ielts-writing',

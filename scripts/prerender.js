@@ -77,6 +77,10 @@ const CUSTOM_OVERRIDES = {
     title: 'IELTS Collocations Trainer: Band 9 Lexical Duel (Free) | DH Shishir',
     description: 'Free 60-second speed collocation duel arcade and interactive Band 5 to Band 9 sentence morphing dial. Master 300+ CEFR C1/C2 academic collocations and export to Anki.'
   },
+  'tools/ielts-task1-chart-morpher': {
+    title: 'IELTS Writing Task 1 Academic: Interactive Chart Sandbox | DH Shishir',
+    description: 'Free interactive SVG graph sandbox for IELTS Writing Task 1 Academic. Drag line and bar chart nodes to generate live Band 8.5 reporting sentences, master mathematical prepositions, and spot overview traps.'
+  },
   'tools/vocabulary-builder': {
     title: 'Advanced GRE & Academic Vocabulary Builder | DH Shishir',
     description: 'Interactive vocabulary mastery platform with contextual sentence examples, etymology roots, and spaced repetition flashcards for GRE and IELTS aspirants.'
