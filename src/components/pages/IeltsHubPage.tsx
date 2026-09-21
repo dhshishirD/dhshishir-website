@@ -26,117 +26,334 @@ export const IeltsHubPage: React.FC = () => {
   const [showTask1Modal, setShowTask1Modal] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState<string | null>(null);
 
-  const triggerDownload = (filename: string, content: string, mimeType: string) => {
-    const blob = new Blob([content], { type: mimeType });
+  // Executive Branded Document Generator (Printable PDF & Word .DOC)
+  const generateBrandedHtml = (title: string, subtitle: string, bodyContent: string) => {
+    return `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>${title} | DH Shishir Knowledge Portal</title>
+  <style>
+    @page { size: A4; margin: 20mm; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 24px;
+    }
+    .header {
+      border-bottom: 3px solid #0f766e;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+    }
+    .brand-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f766e;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+    .badge {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .doc-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 16px 0 6px 0;
+    }
+    .doc-desc {
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 12px;
+    }
+    th {
+      background: #0f766e;
+      color: #ffffff;
+      text-align: left;
+      padding: 10px 12px;
+      font-weight: 700;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .callout {
+      background: #f0fdfa;
+      border-left: 4px solid #0f766e;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+    .callout-title {
+      font-weight: 800;
+      color: #0f766e;
+      margin-bottom: 4px;
+    }
+    .tag {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+    .footer {
+      margin-top: 40px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 16px;
+      font-size: 11px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+    }
+    @media print {
+      body { padding: 0; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <div class="brand-title">DH SHISHIR KNOWLEDGE PORTAL</div>
+      <div class="brand-subtitle">Daloyar Hassan Shishir | Diplomatic Enthusiast, Policy Analyst & English Educator</div>
+    </div>
+    <div class="badge">Band 8.5+ Official Resource</div>
+  </div>
+
+  <h1 class="doc-title">${title}</h1>
+  <div class="doc-desc">${subtitle}</div>
+
+  ${bodyContent}
+
+  <div class="footer">
+    <div>Official Learning Resource | <a href="https://dhshishir.com/ielts" style="color: #0f766e; text-decoration: none;">dhshishir.com/ielts</a></div>
+    <div>Dhaka, Bangladesh • Community: @ieltsenglishfluency</div>
+  </div>
+</body>
+</html>`;
+  };
+
+  const handleOpenPrintable = (title: string, subtitle: string, bodyContent: string) => {
+    const fullHtml = generateBrandedHtml(title, subtitle, bodyContent);
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write(fullHtml);
+      printWindow.document.close();
+      printWindow.focus();
+      setTimeout(() => {
+        printWindow.print();
+      }, 500);
+    }
+  };
+
+  const handleDownloadWordDoc = (filename: string, title: string, subtitle: string, bodyContent: string) => {
+    const fullHtml = generateBrandedHtml(title, subtitle, bodyContent);
+    const blob = new Blob(['\ufeff', fullHtml], { type: 'application/msword' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = filename;
+    a.download = filename.endsWith('.doc') ? filename : `${filename}.doc`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
 
-  const handleDownloadAnki = () => {
-    const csvContent = `#separator:comma\n#html:true\n#tags column:4\nFront (Academic Phrase),Back (Meaning & Example),Domain,Tags\n` +
-      `"address the underlying dilemma","<b>Meaning:</b> Solve or confront the root cause of a complex issue.<br><br><b>Example:</b> Policymakers must <i>address the underlying dilemma</i> before imposing fiscal penalties.<br><br><b>Band Upgrade:</b> Replaces 'fix the problem' (Band 5.5).",Governance & Law,IELTS_Band_9 AWL\n` +
-      `"yield a transformative outcome","<b>Meaning:</b> Produce an overwhelmingly positive and profound change.<br><br><b>Example:</b> Subregional renewable energy integration will <i>yield a transformative outcome</i> for South Asian industry.",Economics,IELTS_Band_9 AWL\n` +
-      `"unprecedented exponential surge","<b>Meaning:</b> A massive and rapid upward trend never seen before.<br><br><b>Example:</b> The adoption rate witnessed an <i>unprecedented exponential surge</i> between 2020 and 2025.",Task_1_Trends,IELTS_Band_9 AWL\n` +
-      `"mitigate adverse ecological repercussions","<b>Meaning:</b> Reduce or lessen harmful environmental consequences.<br><br><b>Example:</b> Stringent regulatory standards are critical to <i>mitigate adverse ecological repercussions</i> in coastal belts.",Environment,IELTS_Band_9 AWL\n` +
-      `"impart pivotal strategic insights","<b>Meaning:</b> Provide deeply valuable, high-level analysis or knowledge.<br><br><b>Example:</b> The foreign policy dossier <i>imparts pivotal strategic insights</i> into maritime security.",Diplomacy,IELTS_Band_9 AWL\n` +
-      `"spark heated contentious debate","<b>Meaning:</b> Cause intense public disagreement and argument.<br><br><b>Example:</b> The proposal to automate port terminals <i>sparked heated contentious debate</i> among labor unions.",Society,IELTS_Band_9 AWL\n` +
-      `"exercise fiscal prudence","<b>Meaning:</b> Manage money and budget with great care and discipline.<br><br><b>Example:</b> Developing economies must <i>exercise fiscal prudence</i> during global inflationary cycles.",Economics,IELTS_Band_9 AWL\n` +
-      `"formulate a robust hypothesis","<b>Meaning:</b> Create a strong, well-reasoned scientific explanation.<br><br><b>Example:</b> Researchers <i>formulated a robust hypothesis</i> regarding cross-border climate migration patterns.",Academic_Defense,IELTS_Band_9 AWL\n` +
-      `"precipitate an unforeseen crisis","<b>Meaning:</b> Cause an unexpected and severe problem to happen suddenly.<br><br><b>Example:</b> Geopolitical tensions in maritime chokepoints <i>precipitated an unforeseen crisis</i> in international supply lines.",Global_Trade,IELTS_Band_9 AWL\n` +
-      `"exhibit marked volatility","<b>Meaning:</b> Show noticeable, continuous up-and-down fluctuations.<br><br><b>Example:</b> Hydrocarbon commodity prices <i>exhibited marked volatility</i> across the second quarter.",Task_1_Trends,IELTS_Band_9 AWL\n` +
-      `"cultivate resilient bilateral ties","<b>Meaning:</b> Develop strong, durable diplomatic relationships between two nations.<br><br><b>Example:</b> Both countries sought to <i>cultivate resilient bilateral ties</i> through comprehensive economic partnerships.",Diplomacy,IELTS_Band_9 AWL\n` +
-      `"accelerate technological obsolescence","<b>Meaning:</b> Cause older tools or methods to become outdated quickly.<br><br><b>Example:</b> Generative AI algorithms continue to <i>accelerate technological obsolescence</i> in manual data processing.",Technology,IELTS_Band_9 AWL\n` +
-      `"reconcile diametrically opposed viewpoints","<b>Meaning:</b> Bring together two completely opposite opinions or parties.<br><br><b>Example:</b> The mediator attempted to <i>reconcile diametrically opposed viewpoints</i> during the boundary dispute.",Negotiation,IELTS_Band_9 AWL\n` +
-      `"foster socio-economic mobility","<b>Meaning:</b> Encourage and help individuals improve their financial and social status.<br><br><b>Example:</b> Subsidized tertiary education remains indispensable to <i>foster socio-economic mobility</i>.",Education,IELTS_Band_9 AWL\n` +
-      `"perpetuate systemic inequalities","<b>Meaning:</b> Cause existing structural unfairness to continue over time.<br><br><b>Example:</b> Regressive tax structures inadvertently <i>perpetuate systemic inequalities</i>.",Economics,IELTS_Band_9 AWL\n`;
-    triggerDownload('IELTS-Band-9-Collocations-Anki-Deck.csv', csvContent, 'text/csv;charset=utf-8;');
-    setDownloadSuccess('anki');
-    setTimeout(() => setDownloadSuccess(null), 3000);
-  };
+  // Pre-compiled Document Contents
+  const COLLOCATIONS_DOC_BODY = `
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25%;">Academic Collocation</th>
+          <th style="width: 15%;">Band 5.5 vs 8.5 Upgrade</th>
+          <th style="width: 30%;">Meaning & Context</th>
+          <th style="width: 30%;">Examiner Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Address the underlying dilemma</strong></td>
+          <td><span style="color: #dc2626;">❌ Fix the problem</span><br><span style="color: #166534; font-weight: bold;">✅ Address dilemma</span></td>
+          <td>Solve or confront the root cause of a complex structural issue.</td>
+          <td><em>"Policymakers must <strong>address the underlying dilemma</strong> before imposing arbitrary fiscal tariffs."</em></td>
+        </tr>
+        <tr>
+          <td><strong>Yield a transformative outcome</strong></td>
+          <td><span style="color: #dc2626;">❌ Make big change</span><br><span style="color: #166534; font-weight: bold;">✅ Yield outcome</span></td>
+          <td>Produce an overwhelmingly positive and profound structural transformation.</td>
+          <td><em>"Subregional renewable energy integration will <strong>yield a transformative outcome</strong> for South Asian industrial grids."</em></td>
+        </tr>
+        <tr>
+          <td><strong>Unprecedented exponential surge</strong></td>
+          <td><span style="color: #dc2626;">❌ Big fast increase</span><br><span style="color: #166534; font-weight: bold;">✅ Exponential surge</span></td>
+          <td>A massive and rapid upward trend never seen before (Task 1).</td>
+          <td><em>"The solar adoption metric witnessed an <strong>unprecedented exponential surge</strong> between 2020 and 2026."</em></td>
+        </tr>
+        <tr>
+          <td><strong>Mitigate adverse ecological repercussions</strong></td>
+          <td><span style="color: #dc2626;">❌ Stop bad effects</span><br><span style="color: #166534; font-weight: bold;">✅ Mitigate repercussions</span></td>
+          <td>Reduce or lessen harmful environmental consequences.</td>
+          <td><em>"Stringent regulatory standards are critical to <strong>mitigate adverse ecological repercussions</strong> in vulnerable coastal belts."</em></td>
+        </tr>
+        <tr>
+          <td><strong>Impart pivotal strategic insights</strong></td>
+          <td><span style="color: #dc2626;">❌ Give important info</span><br><span style="color: #166534; font-weight: bold;">✅ Impart insights</span></td>
+          <td>Provide deeply valuable, high-level analysis or knowledge.</td>
+          <td><em>"The foreign policy dossier <strong>imparts pivotal strategic insights</strong> into maritime choke-point security."</em></td>
+        </tr>
+        <tr>
+          <td><strong>Exercise fiscal prudence</strong></td>
+          <td><span style="color: #dc2626;">❌ Spend money carefully</span><br><span style="color: #166534; font-weight: bold;">✅ Fiscal prudence</span></td>
+          <td>Manage money and budget with great care and discipline.</td>
+          <td><em>"Developing economies must <strong>exercise fiscal prudence</strong> during global inflationary cycles."</em></td>
+        </tr>
+        <tr>
+          <td><strong>Formulate a robust hypothesis</strong></td>
+          <td><span style="color: #dc2626;">❌ Make a strong idea</span><br><span style="color: #166534; font-weight: bold;">✅ Formulate hypothesis</span></td>
+          <td>Create a strong, well-reasoned scientific explanation.</td>
+          <td><em>"Researchers <strong>formulated a robust hypothesis</strong> regarding cross-border climate migration patterns."</em></td>
+        </tr>
+        <tr>
+          <td><strong>Exhibit marked volatility</strong></td>
+          <td><span style="color: #dc2626;">❌ Go up and down</span><br><span style="color: #166534; font-weight: bold;">✅ Marked volatility</span></td>
+          <td>Show noticeable, continuous up-and-down fluctuations.</td>
+          <td><em>"Hydrocarbon commodity prices <strong>exhibited marked volatility</strong> across the second quarter."</em></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <div class="callout-title">💡 Cambridge Examiner Pro-Tip:</div>
+      To score Band 8.5+ in Lexical Resource, you must use collocations with precise syntactic appropriateness rather than inserting isolated, obscure vocabulary words.
+    </div>
+  `;
 
-  const handleDownloadTask1 = () => {
-    const textContent = `================================================================================\n` +
-      `IELTS ACADEMIC WRITING TASK 1: PREPOSITION & REPORTING MATRIX\n` +
-      `Authored by Daloyar Hassan Shishir | dhshishir.com/ielts\n` +
-      `================================================================================\n\n` +
-      `1. THE GOLDEN PREPOSITION MATRIX\n` +
-      `--------------------------------------------------------------------------------\n` +
-      `Rule 1: "BY" (Margin of difference)\n` +
-      `  - Example: "Exports increased BY 15% (from 50% to 65%)."\n` +
-      `  - Meaning: Indicates the exact difference/amount gained or lost.\n\n` +
-      `Rule 2: "TO" (Final destination endpoint)\n` +
-      `  - Example: "Exports rose TO 65% in 2025."\n` +
-      `  - Meaning: Indicates where the metric arrived.\n\n` +
-      `Rule 3: "OF" (Used after a noun)\n` +
-      `  - Example: "The industry witnessed a growth OF 15%."\n` +
-      `  - Example: "There was a contraction OF 8 million units."\n\n` +
-      `Rule 4: "AT" (Static point in time or plateau)\n` +
-      `  - Example: "The unemployment rate stood AT 4.5% in 2020."\n` +
-      `  - Example: "Solar adoption peaked AT 88% before stabilizing."\n\n` +
-      `Rule 5: "BETWEEN ... AND ..." / "FROM ... TO ..." (Time periods)\n` +
-      `  - Example: "Between 2015 and 2025..." (NOT Between 2015 to 2025)\n` +
-      `  - Example: "From 2015 to 2025..."\n\n` +
-      `2. DYNAMIC VERB & ADVERB TAXONOMY (BAND 8.5+)\n` +
-      `--------------------------------------------------------------------------------\n` +
-      `Rapid Increase: skyrocketed, surged exponentially, climbed markedly, escalated sharply.\n` +
-      `Moderate Growth: rose steadily, expanded progressively, registered consistent gains.\n` +
-      `Plummet / Decline: collapsed abruptly, contracted substantially, plummeted to an all-time low.\n` +
-      `Fluctuation: oscillated wildly, exhibited marked volatility, plateaued at, leveled off around.\n\n` +
-      `3. THE 2-SENTENCE BAND 9 OVERVIEW FORMULA\n` +
-      `--------------------------------------------------------------------------------\n` +
-      `Sentence 1 (Main Trend / Trajectory):\n` +
-      `  "Overall, it is manifest that while [Category A] experienced a sustained upward trajectory, [Category B] underwent a marked downward trend over the surveyed span."\n\n` +
-      `Sentence 2 (Dominant Category or Anomaly):\n` +
-      `  "Additionally, [Category A] remained the preeminent contributor throughout the period, despite a transient dip in 2022."\n\n` +
-      `================================================================================\n` +
-      `Official Study Resource | IELTS Band 8.5 Master Hub | dhshishir.com\n` +
-      `================================================================================\n`;
-    triggerDownload('IELTS-Task-1-Preposition-Reporting-Matrix.txt', textContent, 'text/plain;charset=utf-8;');
-    setDownloadSuccess('task1');
-    setTimeout(() => setDownloadSuccess(null), 3000);
-  };
+  const TASK1_DOC_BODY = `
+    <div class="callout">
+      <div class="callout-title">🎯 The 5 Golden Preposition Rules for Task 1:</div>
+      Mastering prepositions prevents standard grammatical errors that pull Task 1 Grammar scores down to Band 6.0.
+    </div>
 
-  const handleDownloadSpeaking = () => {
-    const textContent = `================================================================================\n` +
-      `IELTS SPEAKING BAND 9: DISCOURSE MARKERS & IDIOMATIC TRANSITIONS\n` +
-      `Authored by Daloyar Hassan Shishir | dhshishir.com/english-fluency-lab\n` +
-      `================================================================================\n\n` +
-      `1. NATURAL PERSPECTIVE & OPINION FRAMING\n` +
-      `--------------------------------------------------------------------------------\n` +
-      `❌ Avoid: "In my opinion...", "I think that..."\n` +
-      `✅ Band 9 Alternatives:\n` +
-      `  - "From where I stand, it seems abundantly clear that..."\n` +
-      `  - "As far as I can gather, the prevailing consensus suggests..."\n` +
-      `  - "If you look at the broader socioeconomic picture..."\n` +
-      `  - "I'm inclined to believe that..."\n\n` +
-      `2. BUILT-IN 2-SECOND THINKING FILLERS (AVOID AWKWARD SILENCE)\n` +
-      `--------------------------------------------------------------------------------\n` +
-      `❌ Avoid: Long pauses "Ummm... errr... silence"\n` +
-      `✅ Band 9 Natural Connectors:\n` +
-      `  - "That is a multifaceted question, but looking at the immediate evidence..."\n` +
-      `  - "To be completely candid, I haven't contemplated that deeply before, but..."\n` +
-      `  - "That depends heavily on the specific context, however generally speaking..."\n\n` +
-      `3. PART 3 ABSTRACT ARGUMENTATION CONNECTORS\n` +
-      `--------------------------------------------------------------------------------\n` +
-      `Concession & Nuance:\n` +
-      `  - "While there is some validity to that premise, one cannot overlook..."\n` +
-      `  - "Notwithstanding the initial benefits, the long-term repercussions remain..."\n\n` +
-      `Hypothetical & Speculative Speech:\n` +
-      `  - "Had governments acted proactively, the current fallout might have been averted."\n` +
-      `  - "Were modern cities to prioritize pedestrian zones, emissions would decline."\n\n` +
-      `================================================================================\n` +
-      `Official Study Resource | English Fluency Lab | dhshishir.com\n` +
-      `================================================================================\n`;
-    triggerDownload('IELTS-Speaking-Band-9-Discourse-Markers.txt', textContent, 'text/plain;charset=utf-8;');
-    setDownloadSuccess('speaking');
-    setTimeout(() => setDownloadSuccess(null), 3000);
-  };
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 20%;">Preposition</th>
+          <th style="width: 30%;">Grammar Function</th>
+          <th style="width: 50%;">Band 8.5+ Model Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>BY</strong></td>
+          <td>Indicates the <em>margin / difference</em> between start and end.</td>
+          <td><em>"Outbound garment exports increased <strong>by 15%</strong> (rising from $40M to $46M)."</em></td>
+        </tr>
+        <tr>
+          <td><strong>TO</strong></td>
+          <td>Indicates the <em>final arrival endpoint</em>.</td>
+          <td><em>"Renewable power capacity expanded steadily, climbing <strong>to 85 gigawatts</strong> by 2025."</em></td>
+        </tr>
+        <tr>
+          <td><strong>OF</strong></td>
+          <td>Used directly after nominal trend nouns (growth, drop).</td>
+          <td><em>"The industrial sector registered a marked contraction <strong>of 12 million units</strong>."</em></td>
+        </tr>
+        <tr>
+          <td><strong>AT</strong></td>
+          <td>Indicates a static level, starting point, or peak plateau.</td>
+          <td><em>"The national unemployment rate stood <strong>at 4.5%</strong> before stabilizing."</em></td>
+        </tr>
+        <tr>
+          <td><strong>BETWEEN ... AND</strong></td>
+          <td>Time boundaries (Never write 'between ... to').</td>
+          <td><em>"<strong>Between 2015 and 2025</strong>, solar adoption exhibited exponential gains."</em></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-title">📝 The 2-Sentence Band 9 Overview Formula:</div>
+      <em>"Overall, it is manifest that while [Category A] experienced a sustained upward trajectory, [Category B] underwent a marked contraction. Additionally, [Category A] remained the preeminent contributor throughout the surveyed span."</em>
+    </div>
+  `;
+
+  const SPEAKING_DOC_BODY = `
+    <div class="callout">
+      <div class="callout-title">🎙️ Speaking Part 2 & Part 3 Fluency & Discourse Architecture:</div>
+      Eliminate hesitation, unnatural silence, and repetition with native discourse connectors.
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 30%;">Speaking Stage</th>
+          <th style="width: 30%;">Avoid (Band 5.5)</th>
+          <th style="width: 40%;">Band 9 Native Alternatives</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Perspective & Opinion</strong></td>
+          <td><em>"In my opinion...", "I think..."</em></td>
+          <td>
+            • <em>"From where I stand, it seems abundantly clear that..."</em><br>
+            • <em>"As far as I can gather, prevailing consensus suggests..."</em><br>
+            • <em>"If you look at the broader socioeconomic picture..."</em>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Thinking Fillers (2-Sec Buffer)</strong></td>
+          <td><em>"Ummm... errr... [silence]"</em></td>
+          <td>
+            • <em>"That is a multifaceted question, but examining the evidence..."</em><br>
+            • <em>"To be completely candid, looking at the practical reality..."</em><br>
+            • <em>"That depends heavily on context, however generally speaking..."</em>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Nuance & Counterpoint (Part 3)</strong></td>
+          <td><em>"On the other hand...", "But also..."</em></td>
+          <td>
+            • <em>"While there is validity to that premise, one cannot overlook..."</em><br>
+            • <em>"Notwithstanding the immediate benefits, the long-term fallout..."</em><br>
+            • <em>"Had proactive measures been taken, this could have been mitigated..."</em>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
 
   useEffect(() => {
     document.title = 'IELTS Band 8.5 Master Preparation Hub | Free Interactive Practice & Simulators | DH Shishir';
@@ -533,22 +750,36 @@ export const IeltsHubPage: React.FC = () => {
               </div>
 
               <div className="space-y-3">
-                {/* Resource 1: Band 9 Anki Deck */}
+                {/* Resource 1: Band 9 Collocations Handbook */}
                 <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <FileText className="w-4 h-4 text-teal-800" />
-                      <h5 className="font-bold text-slate-900 text-xs">Band 9 Academic Collocations Anki Deck</h5>
+                      <h5 className="font-bold text-slate-900 text-xs">Band 9 Academic Collocations Master Handbook</h5>
                     </div>
-                    <p className="text-[11px] text-slate-500">250+ Flashcards with definitions, Band 5➔9 upgrades, and example sentences formatted for the Anki app.</p>
+                    <p className="text-[11px] text-slate-500">Curated Lexical Upgrades with definitions, Band 5.5➔8.5 contrasts, and Cambridge model sentences.</p>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0">
+                  <div className="flex flex-wrap items-center gap-2 shrink-0">
                     <button
-                      onClick={handleDownloadAnki}
-                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm cursor-pointer"
+                      onClick={() => handleOpenPrintable(
+                        'IELTS Band 9 Academic Collocations Master Handbook',
+                        'Essential Lexical Resource Upgrades & Examiner Models | Daloyar Hassan Shishir',
+                        COLLOCATIONS_DOC_BODY
+                      )}
+                      className="px-3.5 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm cursor-pointer"
                     >
-                      {downloadSuccess === 'anki' ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Download className="w-3.5 h-3.5" />}
-                      {downloadSuccess === 'anki' ? 'Downloaded!' : 'Download Anki (.CSV)'}
+                      <Download className="w-3.5 h-3.5 text-teal-300" /> Print / Save PDF
+                    </button>
+                    <button
+                      onClick={() => handleDownloadWordDoc(
+                        'IELTS-Band-9-Collocations-Handbook',
+                        'IELTS Band 9 Academic Collocations Master Handbook',
+                        'Essential Lexical Resource Upgrades & Examiner Models | Daloyar Hassan Shishir',
+                        COLLOCATIONS_DOC_BODY
+                      )}
+                      className="px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 rounded-xl font-bold text-xs transition flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                    >
+                      <FileText className="w-3.5 h-3.5 text-blue-600" /> Word (.DOC)
                     </button>
                   </div>
                 </div>
@@ -560,21 +791,35 @@ export const IeltsHubPage: React.FC = () => {
                       <BarChart3 className="w-4 h-4 text-teal-800" />
                       <h5 className="font-bold text-slate-900 text-xs">Task 1 Preposition & Reporting Matrix</h5>
                     </div>
-                    <p className="text-[11px] text-slate-500">Master preposition rules (by vs to vs of), dynamic verbs, and Band 9 overview formulas.</p>
+                    <p className="text-[11px] text-slate-500">Master preposition rules (by vs to vs of), dynamic trend verbs, and Band 9 overview formulas.</p>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0">
+                  <div className="flex flex-wrap items-center gap-2 shrink-0">
                     <button
                       onClick={() => setShowTask1Modal(true)}
-                      className="px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-xl font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
+                      className="px-3 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-xl font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
                     >
                       <Eye className="w-3.5 h-3.5 text-teal-800" /> View Matrix
                     </button>
                     <button
-                      onClick={handleDownloadTask1}
-                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm cursor-pointer"
+                      onClick={() => handleOpenPrintable(
+                        'IELTS Academic Task 1: Preposition & Reporting Matrix',
+                        'Golden Preposition Rules, Dynamic Verbs & Overview Blueprint | Daloyar Hassan Shishir',
+                        TASK1_DOC_BODY
+                      )}
+                      className="px-3.5 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm cursor-pointer"
                     >
-                      {downloadSuccess === 'task1' ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Download className="w-3.5 h-3.5" />}
-                      {downloadSuccess === 'task1' ? 'Downloaded!' : 'Download Cheat Sheet'}
+                      <Download className="w-3.5 h-3.5 text-teal-300" /> Print / Save PDF
+                    </button>
+                    <button
+                      onClick={() => handleDownloadWordDoc(
+                        'IELTS-Task-1-Preposition-Reporting-Matrix',
+                        'IELTS Academic Task 1: Preposition & Reporting Matrix',
+                        'Golden Preposition Rules, Dynamic Verbs & Overview Blueprint | Daloyar Hassan Shishir',
+                        TASK1_DOC_BODY
+                      )}
+                      className="px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 rounded-xl font-bold text-xs transition flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                    >
+                      <FileText className="w-3.5 h-3.5 text-blue-600" /> Word (.DOC)
                     </button>
                   </div>
                 </div>
@@ -588,13 +833,27 @@ export const IeltsHubPage: React.FC = () => {
                     </div>
                     <p className="text-[11px] text-slate-500">Natural thinking fillers, abstract opinion framing, and Part 3 nuance transitions.</p>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0">
+                  <div className="flex flex-wrap items-center gap-2 shrink-0">
                     <button
-                      onClick={handleDownloadSpeaking}
-                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm cursor-pointer"
+                      onClick={() => handleOpenPrintable(
+                        'IELTS Speaking Band 9: Discourse Markers & Fluency Architecture',
+                        'Native Thinking Fillers & Argumentation Connectors | Daloyar Hassan Shishir',
+                        SPEAKING_DOC_BODY
+                      )}
+                      className="px-3.5 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm cursor-pointer"
                     >
-                      {downloadSuccess === 'speaking' ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Download className="w-3.5 h-3.5" />}
-                      {downloadSuccess === 'speaking' ? 'Downloaded!' : 'Download Guide'}
+                      <Download className="w-3.5 h-3.5 text-teal-300" /> Print / Save PDF
+                    </button>
+                    <button
+                      onClick={() => handleDownloadWordDoc(
+                        'IELTS-Speaking-Band-9-Discourse-Markers',
+                        'IELTS Speaking Band 9: Discourse Markers & Fluency Architecture',
+                        'Native Thinking Fillers & Argumentation Connectors | Daloyar Hassan Shishir',
+                        SPEAKING_DOC_BODY
+                      )}
+                      className="px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 rounded-xl font-bold text-xs transition flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                    >
+                      <FileText className="w-3.5 h-3.5 text-blue-600" /> Word (.DOC)
                     </button>
                   </div>
                 </div>
