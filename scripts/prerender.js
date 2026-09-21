@@ -137,6 +137,38 @@ const CUSTOM_OVERRIDES = {
     title: 'IELTS Band 8.5 Master Preparation Hub | Free Interactive Simulators & Roadmap | DH Shishir',
     description: 'The ultimate free IELTS preparation portal. Interactive Band 9 Collocation Duel, Academic Task 1 Chart Morpher, Reading True/False/Not Given Courtroom, Speaking Flow Radar, customized study planner, and downloadable Anki vocabulary decks.'
   },
+  'ielts/writing-scanner': {
+    title: 'IELTS Handwritten Essay OCR Scanner & 4-Pillar Grader | DH Shishir',
+    description: 'Snap or upload a photo of your handwritten paper IELTS essay. Client-side optical scanner extracts handwriting, checks word count, and grades Task Achievement, Coherence, Lexical Resource, and Grammar with Band 9 model comparison.'
+  },
+  'ielts/listening-simulator': {
+    title: 'IELTS 4-Section Listening Exam Simulator (1.0x-1.25x Speed) | DH Shishir',
+    description: 'Practice full 4-section Cambridge-style listening tests with variable playback speed (1.0x, 1.15x, 1.25x), instant band score conversion, synchronized transcripts, and Section 3/4 distractor trap analysis.'
+  },
+  'ielts/reading-lab': {
+    title: 'IELTS Split-Screen Academic Reading Lab & Forensic T/F/NG Gate | DH Shishir',
+    description: 'Split-screen IELTS academic reading simulator with digital text highlighter, true/false/not given logic gates, headings matcher, summary completions, and strict 60-minute pacing timer.'
+  },
+  'ielts/daily-drill-tracker': {
+    title: '120-Day IELTS Band 8.5-9.0 Daily Roadmap & 1:2 Forensic Error Vault | DH Shishir',
+    description: 'Execute your 230-hour structured preparation across 120 days. Complete daily skill quotas, log missed questions into the 1:2 Forensic Error Vault, and schedule automatic 48-hour re-tests.'
+  },
+  'ielts/speaking-radar': {
+    title: 'IELTS Speaking Flow Radar & Speech Cadence Visualizer | DH Shishir',
+    description: 'Interactive IELTS speaking practice studio measuring words-per-minute (WPM) cadence, silence alerts, Part 2 cue timer, and Part 3 abstract discussion with 2-second thinking buffers.'
+  },
+  'ielts/task1-morpher': {
+    title: 'IELTS Academic Task 1 Chart Morpher & Sentence Sandbox | DH Shishir',
+    description: 'Interactive SVG graph sandbox for IELTS Writing Task 1 Academic. Drag chart nodes to generate live reporting sentences, master the 6 preposition rules, and learn 5 overview blueprints.'
+  },
+  'ielts/collocation-duel': {
+    title: 'IELTS Band 9 Collocation Speed Arcade & Sentence Transformer | DH Shishir',
+    description: '60-second speed arcade to master 36+ high-yield academic collocations across 6 domains. Transform Band 5.5 phrasing into Band 8.5+ examiner-level sentences.'
+  },
+  'ielts/tfng-court': {
+    title: 'IELTS Reading True False Not Given Forensic Courtroom | DH Shishir',
+    description: 'Master IELTS Reading True False Not Given logic with forensic evidence courtroom trials. Learn mathematical set theory logic and eliminate qualifier traps.'
+  },
   'tools': {
     title: 'Free Career, IELTS & Academic Productivity Tools | DH Shishir',
     description: 'Free browser-based tools: ATS Resume Scanner, AI Cover Letter Generator, IELTS Task 2 Evaluator, Bangla-English Error Checker, BCS Preparation Roadmap, and CGPA Converters.'

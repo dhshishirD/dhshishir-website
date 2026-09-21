@@ -39,6 +39,7 @@ export function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [isStandaloneTool, setIsStandaloneTool] = useState(false);
   const [activeToolId, setActiveToolId] = useState<string>('cover-letter');
+  const [activeIeltsToolId, setActiveIeltsToolId] = useState<string | null>(null);
   const [activeDossierSlug, setActiveDossierSlug] = useState<string | null>(null);
   const [activeBlogSlug, setActiveBlogSlug] = useState<string | null>(null);
   const [activeMapLocationId, setActiveMapLocationId] = useState<string | null>(null);
@@ -55,7 +56,7 @@ export function App() {
       setCurrentView('fellowship');
       setIsStandaloneTool(false);
       document.title = "Open Master's Fellowship in International Relations & Strategic Studies | DH Shishir";
-        } else if (path === '/diplomatic-map' || path === '/map' || path === '/diplomaticmap' || hash.startsWith('#/diplomatic-map') || hash.startsWith('#/map')) {
+    } else if (path === '/diplomatic-map' || path === '/map' || path === '/diplomaticmap' || hash.startsWith('#/diplomatic-map') || hash.startsWith('#/map')) {
       const locParam = new URLSearchParams(window.location.search).get('location');
       setActiveMapLocationId(locParam || null);
       setActiveDossierSlug(null);
@@ -72,7 +73,25 @@ export function App() {
       setCurrentView('diplomacy');
       setIsStandaloneTool(false);
       document.title = 'Diplomatic & Foreign Policy Intelligence Hub | DH Shishir';
+    } else if (path.startsWith('/ielts/') || hash.startsWith('#/ielts/')) {
+      const toolId = path.replace('/ielts/', '') || hash.replace('#/ielts/', '');
+      setActiveIeltsToolId(toolId || 'writing-scanner');
+      setActiveDossierSlug(null);
+      setCurrentView('ielts');
+      setIsStandaloneTool(false);
+      const titleMap: { [key: string]: string } = {
+        'writing-scanner': 'IELTS Handwritten Essay OCR Scanner & Rubric Grader | DH Shishir',
+        'listening-simulator': 'IELTS 4-Section Listening Exam Simulator (1.0x-1.25x) | DH Shishir',
+        'reading-lab': 'IELTS Split-Screen Academic Reading Lab & T/F/NG Logic | DH Shishir',
+        'daily-drill-tracker': '120-Day IELTS Band 8.5-9.0 Daily Roadmap & Error Vault | DH Shishir',
+        'speaking-radar': 'IELTS Speaking Flow & WPM Cadence Radar | DH Shishir',
+        'task1-morpher': 'IELTS Academic Task 1 Chart Morpher & Sentence Sandbox | DH Shishir',
+        'collocation-duel': 'IELTS Band 9 Collocation Speed Arcade | DH Shishir',
+        'tfng-court': 'IELTS Reading T/F/NG Forensic Courtroom | DH Shishir',
+      };
+      document.title = titleMap[toolId] || 'IELTS Band 8.5 Master Preparation Hub | DH Shishir';
     } else if (path === '/ielts' || path === '/ielts-hub' || path === '/ielts-prep' || hash.startsWith('#/ielts')) {
+      setActiveIeltsToolId(null);
       setActiveDossierSlug(null);
       setCurrentView('ielts');
       setIsStandaloneTool(false);
@@ -254,7 +273,7 @@ export function App() {
             />
           )
         ) : currentView === 'ielts' ? (
-          <IeltsHubPage />
+          <IeltsHubPage initialToolId={activeIeltsToolId || undefined} />
         ) : currentView === 'fluency-lab' ? (
           <FluencyLabPage
             user={user}

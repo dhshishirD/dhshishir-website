@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, Mic, BarChart3, Scale, Zap, Award, 
   Sparkles, Download, ArrowRight, Clock, Compass,
-  FileText, Eye, Check, X
+  FileText, Eye, Check, X, Camera, Volume2, Calendar
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { IeltsCollocationDuel } from '../tools/IeltsCollocationDuel';
@@ -12,17 +12,26 @@ import { IeltsSpeakingFlowRadar } from '../tools/IeltsSpeakingFlowRadar';
 import { IeltsWritingAnalyzer } from '../tools/IeltsWritingAnalyzer';
 import { IeltsSpeakingSimulator } from '../tools/IeltsSpeakingSimulator';
 import { IeltsScoreEstimator } from '../tools/IeltsScoreEstimator';
+import { IeltsHandwrittenEssayScanner } from '../tools/IeltsHandwrittenEssayScanner';
+import { IeltsListeningExamEngine } from '../tools/IeltsListeningExamEngine';
+import { IeltsReadingExamEngine } from '../tools/IeltsReadingExamEngine';
+import { IeltsDailyDrillTracker } from '../tools/IeltsDailyDrillTracker';
 import { AdSenseBanner } from '../common/AdSenseBanner';
 
-export const IeltsHubPage: React.FC = () => {
-  const [activeMainTab, setActiveMainTab] = useState<'tools' | 'roadmap' | 'masterclass' | 'resources'>('tools');
-  const [selectedToolId, setSelectedToolId] = useState<string>('collocation-duel');
+interface IeltsHubPageProps {
+  initialToolId?: string;
+}
 
-  // ROADMAP GENERATOR STATE
-  const [targetBand, setTargetBand] = useState<number>(7.5);
-  const [examTimeline, setExamTimeline] = useState<'1month' | '2months' | '3months'>('2months');
-  const [currentLevel, setCurrentLevel] = useState<'intermediate' | 'upper_intermediate' | 'advanced'>('upper_intermediate');
-  const [generatedPlan, setGeneratedPlan] = useState(false);
+export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({ initialToolId }) => {
+  const [activeMainTab, setActiveMainTab] = useState<'tools' | 'roadmap' | 'masterclass' | 'resources'>('tools');
+  const [selectedToolId, setSelectedToolId] = useState<string>(initialToolId || 'writing-scanner');
+
+  useEffect(() => {
+    if (initialToolId) {
+      setSelectedToolId(initialToolId);
+      setActiveMainTab('tools');
+    }
+  }, [initialToolId]);
   const [showTask1Modal, setShowTask1Modal] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState<string | null>(null);
 
@@ -1027,6 +1036,38 @@ export const IeltsHubPage: React.FC = () => {
   }, []);
 
   const toolsList = [
+    {
+      id: 'writing-scanner',
+      name: 'Handwritten Essay OCR Grader',
+      tagline: 'Snap paper photo & get 4-pillar Cambridge evaluation',
+      icon: Camera,
+      badge: 'Paper OCR Scanner',
+      component: IeltsHandwrittenEssayScanner
+    },
+    {
+      id: 'listening-simulator',
+      name: '4-Section Listening Exam',
+      tagline: 'Authentic Cambridge exam with 1.0x-1.25x speed controls',
+      icon: Volume2,
+      badge: 'Multi-Speed Audio',
+      component: IeltsListeningExamEngine
+    },
+    {
+      id: 'reading-lab',
+      name: 'Split-Screen Reading Lab',
+      tagline: 'Passage highlighter & forensic T/F/NG logic gates',
+      icon: BookOpen,
+      badge: 'T/F/NG Lab',
+      component: IeltsReadingExamEngine
+    },
+    {
+      id: 'daily-drill-tracker',
+      name: '120-Day Drill & Error Vault',
+      tagline: '120-day milestone checklist & 1:2 forensic error log',
+      icon: Calendar,
+      badge: 'Milestone Tracker',
+      component: IeltsDailyDrillTracker
+    },
     {
       id: 'collocation-duel',
       name: 'Band 9 Collocation Duel',
