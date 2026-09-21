@@ -54,11 +54,11 @@ export const ALL_TOOLS: ToolDef[] = [
   },
   {
     id: 'ats-resume',
-    name: 'ATS CV Readiness Diagnostic',
-    tagline: 'Audit your CV layout, section headings, and keywords to pass automated corporate hiring filters.',
+    name: 'Fortune 500 AI ATS Resume Intelligence Suite',
+    tagline: 'Deep semantic keyword audits, Workday/Greenhouse format checks, Google XYZ bullet morphing & 1-click ATS export.',
     category: 'Career & Jobs',
     icon: FileText,
-    badge: 'Top Bookmarked',
+    badge: 'Fortune 500 ATS Engine',
     component: AtsResumeChecker
   },
   {
@@ -174,7 +174,10 @@ export const StandaloneToolPage: React.FC<StandaloneToolPageProps> = ({
   onSelectTool
 }) => {
   const [copiedShare, setCopiedShare] = useState(false);
-  const activeTool = ALL_TOOLS.find(t => t.id === toolId) || ALL_TOOLS[0];
+  const activeTool = ALL_TOOLS.find(t => 
+    t.id === toolId || 
+    ((toolId === 'ats-scanner' || toolId === 'ats-checker') && t.id === 'ats-resume')
+  ) || ALL_TOOLS[0];
   const ToolComponent = activeTool.component;
 
   useEffect(() => {
