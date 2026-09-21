@@ -28,6 +28,7 @@ import { IeltsCollocationDuel } from './IeltsCollocationDuel';
 import { IeltsTask1ChartMorpher } from './IeltsTask1ChartMorpher';
 import { IeltsTfngCourtroom } from './IeltsTfngCourtroom';
 import { IeltsSpeakingFlowRadar } from './IeltsSpeakingFlowRadar';
+import { AdSenseBanner } from '../common/AdSenseBanner';
 import { SOCIAL_LINKS } from '../../data/portfolioData';
 import { logRealToolUsage } from '../../services/adminAnalyticsService';
 
@@ -252,6 +253,9 @@ export const StandaloneToolPage: React.FC<StandaloneToolPageProps> = ({
         <div className="transition-all duration-300">
           <ToolComponent />
         </div>
+
+        {/* Responsive Native Ad Placement */}
+        <AdSenseBanner slot="7890123456" className="max-w-4xl mx-auto" />
 
         {/* Organic Lead-In & Creator Attribution */}
         <div className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">

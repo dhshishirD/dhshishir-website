@@ -129,6 +129,10 @@ const CUSTOM_OVERRIDES = {
     title: 'Fluency Lab | Interactive Looped English Mastery System | DH Shishir',
     description: 'Master advanced spoken and professional English through looped acoustic shadowing, CEFR diagnostic tests, phonetic waveform visualization, and subconscious grammar acquisition.'
   },
+  'ielts': {
+    title: 'IELTS Band 8.5 Master Preparation Hub | Free Interactive Simulators & Roadmap | DH Shishir',
+    description: 'The ultimate free IELTS preparation portal. Interactive Band 9 Collocation Duel, Academic Task 1 Chart Morpher, Reading True/False/Not Given Courtroom, Speaking Flow Radar, customized study planner, and downloadable Anki vocabulary decks.'
+  },
   'tools': {
     title: 'Free Career, IELTS & Academic Productivity Tools | DH Shishir',
     description: 'Free browser-based tools: ATS Resume Scanner, AI Cover Letter Generator, IELTS Task 2 Evaluator, Bangla-English Error Checker, BCS Preparation Roadmap, and CGPA Converters.'
@@ -347,6 +351,7 @@ for (const fullUrl of urls) {
             <nav class="flex flex-wrap gap-4 text-sm font-bold text-slate-700">
               <a href="/diplomacy" class="hover:text-teal-800">Diplomacy</a>
               <a href="/fellowship" class="hover:text-teal-800">Fellowship</a>
+              <a href="/ielts" class="hover:text-teal-800 text-amber-700 font-extrabold">IELTS Hub</a>
               <a href="/fluency-lab" class="hover:text-teal-800">Fluency Lab</a>
               <a href="/tools" class="hover:text-teal-800">Tools</a>
               <a href="/blog" class="hover:text-teal-800">Blog</a>

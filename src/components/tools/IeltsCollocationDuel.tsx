@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Zap, Trophy, 
   RefreshCw, Download, Check, Sliders, Layers, 
-  HelpCircle, Flame, Star, CheckCircle2, XCircle, Sparkles
+  HelpCircle, Flame, Star, CheckCircle2, XCircle, Sparkles, Share2
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { SocialScorecardModal } from '../common/SocialScorecardModal';
 
 // 1. COLLOCATION DUEL QUESTION BANK (300+ Verified IELTS Band 8.5/9.0 Pairs)
 interface DuelQuestion {
@@ -305,6 +306,7 @@ export const IeltsCollocationDuel: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [gameOver, setGameOver] = useState(false);
+  const [showScorecard, setShowScorecard] = useState(false);
   const timerRef = useRef<any>(null);
 
   // TRANSFORMER STATE
@@ -582,7 +584,13 @@ export const IeltsCollocationDuel: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex gap-3 justify-center">
+              <div className="flex flex-wrap gap-3 justify-center">
+                <button
+                  onClick={() => setShowScorecard(true)}
+                  className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs shadow-md transition flex items-center gap-2 cursor-pointer"
+                >
+                  <Share2 className="w-4 h-4" /> Share Scorecard Badge
+                </button>
                 <button
                   onClick={startGame}
                   className="px-6 py-3.5 rounded-xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition flex items-center gap-2 cursor-pointer"
@@ -757,6 +765,21 @@ export const IeltsCollocationDuel: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Social Scorecard Modal */}
+      <SocialScorecardModal
+        isOpen={showScorecard}
+        onClose={() => setShowScorecard(false)}
+        data={{
+          toolTitle: 'IELTS Band 9 Collocation Duel',
+          metricLabel: 'Sprint Final Score',
+          metricValue: `${score} pts`,
+          bandScore: score >= 800 ? 'Band 8.5+' : score >= 500 ? 'Band 7.5' : 'Band 6.5',
+          skillName: 'Academic Collocations & Lexical Resource',
+          streakOrDetail: `${streak}x Best Streak`,
+          url: 'https://dhshishir.com/#/tools/ielts-collocation-duel'
+        }}
+      />
     </div>
   );
 };

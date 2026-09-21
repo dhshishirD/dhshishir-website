@@ -22,6 +22,7 @@ const BlogPostDetailPage = lazy(() => import('./components/pages/BlogPostDetailP
 const ContactPage = lazy(() => import('./components/pages/ContactPage').then(m => ({ default: m.ContactPage })));
 const ToolsDirectoryPage = lazy(() => import('./components/pages/ToolsDirectoryPage').then(m => ({ default: m.ToolsDirectoryPage })));
 const FellowshipPage = lazy(() => import('./components/pages/FellowshipPage').then(m => ({ default: m.FellowshipPage })));
+const IeltsHubPage = lazy(() => import('./components/pages/IeltsHubPage').then(m => ({ default: m.IeltsHubPage })));
 const AdminExecutiveDashboard = lazy(() => import('./components/admin/AdminExecutiveDashboard').then(m => ({ default: m.AdminExecutiveDashboard })));
 
 const RouteLoadingSpinner = () => (
@@ -71,6 +72,11 @@ export function App() {
       setCurrentView('diplomacy');
       setIsStandaloneTool(false);
       document.title = 'Diplomatic & Foreign Policy Intelligence Hub | DH Shishir';
+    } else if (path === '/ielts' || path === '/ielts-hub' || path === '/ielts-prep' || hash.startsWith('#/ielts')) {
+      setActiveDossierSlug(null);
+      setCurrentView('ielts');
+      setIsStandaloneTool(false);
+      document.title = 'IELTS Master Preparation Hub | Band 8.5+ Free Dynamic Simulators & Roadmap | DH Shishir';
     } else if (path === '/fluency-lab' || path === '/english' || hash.startsWith('#/fluency-lab')) {
       setActiveDossierSlug(null);
       setCurrentView('fluency-lab');
@@ -168,6 +174,9 @@ export function App() {
       targetPath = subParam ? `/diplomacy/${subParam}` : '/diplomacy';
       if (subParam) setActiveDossierSlug(subParam);
       else setActiveDossierSlug(null);
+    } else if (view === 'ielts') {
+      targetPath = '/ielts';
+      setActiveDossierSlug(null);
     } else if (view === 'fluency-lab') {
       targetPath = '/fluency-lab';
       setActiveDossierSlug(null);
@@ -244,6 +253,8 @@ export function App() {
               onNavigateToMap={(locId) => navigateTo('map', locId)}
             />
           )
+        ) : currentView === 'ielts' ? (
+          <IeltsHubPage />
         ) : currentView === 'fluency-lab' ? (
           <FluencyLabPage
             user={user}

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, GraduationCap, Compass, Share2, Shield } from 'lucide-react';
+import { Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, GraduationCap, Compass, Share2, Shield, Award } from 'lucide-react';
 import { supabase } from '../services/supabaseClient';
 import { AuthModal } from './auth/AuthModal';
 import { DiplomaticSoundscapes } from './common/DiplomaticSoundscapes';
 import { LanguageSwitcher } from './common/LanguageSwitcher';
 import { ShareModal } from './common/ShareModal';
 
-export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'fluency-lab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard' | 'admin';
+export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'fluency-lab' | 'ielts' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard' | 'admin';
 
 interface NavbarProps {
   currentView?: ViewType;
@@ -130,6 +130,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               >
                 <Sparkles className={`w-3.5 h-3.5 ${currentView === 'fluency-lab' ? 'text-teal-200' : 'text-teal-800'}`} />
                 <span>Fluency Lab</span>
+              </button>
+
+              <button
+                onClick={() => handleNavClick('ielts')}
+                className={`text-xs font-bold transition px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer border ${
+                  currentView === 'ielts'
+                    ? 'bg-teal-900 text-white border-teal-900 shadow-xs'
+                    : 'bg-amber-50/80 text-amber-950 hover:bg-amber-100/80 border-amber-200'
+                }`}
+              >
+                <Award className={`w-3.5 h-3.5 ${currentView === 'ielts' ? 'text-amber-300' : 'text-amber-700'}`} />
+                <span>IELTS Hub</span>
+                <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full uppercase ${currentView === 'ielts' ? 'bg-teal-800 text-amber-300' : 'bg-amber-200 text-amber-900'}`}>Band 8.5</span>
               </button>
 
               <button
@@ -278,6 +291,21 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               <Compass className="w-4 h-4 text-teal-700" />
               <span>Diplomatic World Map</span>
             </button>
+            <button
+              onClick={() => handleNavClick('ielts')}
+              className={`w-full text-left px-4 py-3 rounded-2xl text-sm font-bold flex items-center justify-between transition cursor-pointer border ${
+                currentView === 'ielts'
+                  ? 'bg-amber-500 text-slate-950 border-amber-600 shadow-sm'
+                  : 'bg-gradient-to-r from-amber-50 to-orange-50 text-amber-950 border-amber-200 hover:border-amber-300'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-600" />
+                <span>IELTS Master Hub</span>
+              </div>
+              <span className="bg-amber-400/90 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">Band 8.5</span>
+            </button>
+
             <button
               onClick={() => handleNavClick('fluency-lab')}
               className="w-full text-left py-2 px-3 rounded-lg text-sm font-bold text-slate-800 hover:bg-teal-50 hover:text-teal-900 flex items-center gap-2 transition cursor-pointer"
