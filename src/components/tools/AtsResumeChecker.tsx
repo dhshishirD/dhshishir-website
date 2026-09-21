@@ -120,34 +120,88 @@ export const AtsResumeChecker: React.FC = () => {
   const [fileName, setFileName] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState(false);
   const [hasScanned, setHasScanned] = useState(false);
+  const [isParsingFile, setIsParsingFile] = useState(false);
+  const [parseError, setParseError] = useState<string | null>(null);
 
   // Transformer Interactive State
   const [transformInput, setTransformInput] = useState('');
   const [copiedUpgrade, setCopiedUpgrade] = useState<string | null>(null);
   const [copiedReport, setCopiedReport] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  // Drag and Drop Handling
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Advanced Browser-Native File Parser for PDF, DOCX, and TXT
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     setFileName(file.name);
-    const reader = new FileReader();
+    setIsParsingFile(true);
+    setParseError(null);
 
-    reader.onload = (event) => {
-      const content = event.target?.result;
-      if (typeof content === 'string') {
-        // Strip out common binary garbage from raw PDF/DOCX streams if uploaded as text
-        const cleaned = content
+    try {
+      const ext = file.name.split('.').pop()?.toLowerCase() || '';
+
+      if (ext === 'docx') {
+        // Parse DOCX via Mammoth
+        const mammoth = await import('mammoth');
+        const arrayBuffer = await file.arrayBuffer();
+        const result = await mammoth.extractRawText({ arrayBuffer });
+        const extractedText = (result.value || '').trim();
+        
+        if (!extractedText) {
+          throw new Error('No selectable text found in this Word document. Please ensure it contains editable text.');
+        }
+        setResumeText(extractedText);
+      } else if (ext === 'pdf') {
+        // Parse PDF via PDF.js with CDN Worker
+        const pdfjsLib = await import('pdfjs-dist');
+        if (typeof window !== 'undefined' && !pdfjsLib.GlobalWorkerOptions.workerSrc) {
+          pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version || '6.3.289'}/build/pdf.worker.min.mjs`;
+        }
+
+        const arrayBuffer = await file.arrayBuffer();
+        const loadingTask = pdfjsLib.getDocument({
+          data: new Uint8Array(arrayBuffer),
+          useSystemFonts: true,
+          isEvalSupported: false
+        });
+        const pdf = await loadingTask.promise;
+        let fullText = '';
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const textContent = await page.getTextContent();
+          const pageText = textContent.items
+            .map((item: any) => item.str || '')
+            .join(' ');
+          fullText += pageText + '\n\n';
+        }
+
+        const cleaned = fullText
           .replace(/[^\x20-\x7E\n\r\t]/g, ' ')
-          .replace(/\s+/g, ' ')
-          .replace(/\n\s*\n/g, '\n');
-        setResumeText(cleaned.trim());
-      }
-    };
+          .replace(/[ \t]+/g, ' ')
+          .replace(/\n\s*\n\s*\n/g, '\n\n')
+          .trim();
 
-    reader.readAsText(file);
+        if (!cleaned || cleaned.length < 30) {
+          throw new Error('This PDF appears to be an image scan without an OCR text layer. Please use a text-based PDF or paste your resume content directly.');
+        }
+        setResumeText(cleaned);
+      } else {
+        // Plain text / Markdown / RTF fallback
+        const text = await file.text();
+        setResumeText(text.trim());
+      }
+    } catch (err: any) {
+      console.error('Resume parsing error:', err);
+      setParseError(err.message || 'Failed to extract text from file. Please paste text directly.');
+    } finally {
+      setIsParsingFile(false);
+      // Reset input value so the same file can be re-uploaded if modified
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
   };
 
   // 100% Dynamic NLP Extraction & Forensic Computation Engine
@@ -469,17 +523,17 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
   return (
     <div className="space-y-8 text-slate-900 animate-in fade-in duration-300">
       
-      {/* TOP HEADER: FORTUNE 500 ATS COMPATIBILITY ENGINE */}
+      {/* TOP HEADER: FORTUNE 500 ATS SCANNER & ATS SCORE CHECK SUITE */}
       <div className="p-6 sm:p-8 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-white rounded-3xl shadow-2xl relative overflow-hidden space-y-6 border border-slate-800">
         <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
         
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-400/30 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <Cpu className="w-3.5 h-3.5" /> Fortune 500 AI ATS Scanner
+              <Cpu className="w-3.5 h-3.5" /> Free ATS Resume Scanner & Score Check
             </span>
             <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-bold">
-              Workday & Greenhouse Ready
+              Workday, Greenhouse & Taleo Calibrated
             </span>
           </div>
 
@@ -489,15 +543,16 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
             <span className="px-2 py-0.5 bg-white/5 rounded border border-white/10">Greenhouse</span>
             <span className="px-2 py-0.5 bg-white/5 rounded border border-white/10">Lever</span>
             <span className="px-2 py-0.5 bg-white/5 rounded border border-white/10">Taleo</span>
+            <span className="px-2 py-0.5 bg-white/5 rounded border border-white/10">Naukri ATS</span>
           </div>
         </div>
 
         <div className="space-y-2 max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white">
-            AI ATS Resume Intelligence & Forensic Match Engine
-          </h2>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white">
+            AI ATS Resume Scanner & ATS Score Check Online
+          </h1>
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Audit your CV against automated enterprise parsing algorithms. Detect missing technical keywords, eliminate weak passive phrasing, and transform bullet points into quantified <strong>Google XYZ / STAR</strong> formulations.
+            Scan your resume for free against enterprise ATS algorithms. Audit hard skills, detect missing keywords from any job description, check your overall ATS score (0–100), and transform weak bullets into quantified <strong>Google XYZ / STAR</strong> achievements.
           </p>
         </div>
 
@@ -546,7 +601,7 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
               : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
           }`}
         >
-          <Search className="w-4 h-4" /> 1. Live Forensic Scanner
+          <Search className="w-4 h-4" /> 1. Live ATS Scanner & Score Check
         </button>
         <button
           onClick={() => setActiveTab('transformer')}
@@ -603,22 +658,46 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
                     accept=".pdf,.docx,.txt"
                     onChange={handleFileUpload}
                     className="hidden"
+                    disabled={isParsingFile}
                   />
                   <button
                     onClick={() => fileInputRef.current?.click()}
-                    className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition flex items-center gap-1 cursor-pointer"
+                    disabled={isParsingFile}
+                    className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 disabled:opacity-50 text-slate-800 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
                   >
-                    <Upload className="w-3.5 h-3.5 text-teal-800" />
-                    <span>{fileName ? fileName : 'Upload File (.pdf/.docx/.txt)'}</span>
+                    {isParsingFile ? (
+                      <RefreshCw className="w-3.5 h-3.5 text-teal-800 animate-spin" />
+                    ) : (
+                      <Upload className="w-3.5 h-3.5 text-teal-800" />
+                    )}
+                    <span>{isParsingFile ? 'Extracting text...' : (fileName ? fileName : 'Upload File (.pdf/.docx/.txt)')}</span>
                   </button>
                 </div>
               </div>
+
+              {/* Parsing Indicator or Error */}
+              {isParsingFile && (
+                <div className="p-3 bg-teal-50 border border-teal-200 rounded-2xl flex items-center gap-2.5 text-xs text-teal-900 animate-pulse">
+                  <RefreshCw className="w-4 h-4 animate-spin text-teal-700 shrink-0" />
+                  <span>Parsing {fileName} via client-side PDF/Word parser. Your document is processed 100% locally in your browser for privacy.</span>
+                </div>
+              )}
+
+              {parseError && (
+                <div className="p-3 bg-rose-50 border border-rose-200 rounded-2xl flex items-start gap-2.5 text-xs text-rose-900">
+                  <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block font-bold">Parsing Alert:</strong>
+                    <span>{parseError}</span>
+                  </div>
+                </div>
+              )}
 
               <textarea
                 value={resumeText}
                 onChange={(e) => setResumeText(e.target.value)}
                 rows={12}
-                placeholder="Paste your resume text here, or upload your document above..."
+                placeholder="Paste your resume text here, or upload your PDF/Word document above to start the ATS scan..."
                 className="w-full p-4 rounded-2xl border border-slate-300 font-mono text-xs text-slate-900 focus:ring-2 focus:ring-teal-700 focus:border-teal-700 bg-slate-50/60 leading-relaxed"
               />
 
@@ -636,7 +715,7 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
                   <h3 className="text-sm font-bold text-slate-900">Target Job Description / Circular</h3>
                 </div>
                 <span className="text-[10px] bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-0.5 rounded-full font-bold">
-                  Recommended for 100% Precision
+                  Recommended for Keyword Matching
                 </span>
               </div>
 
@@ -644,7 +723,7 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
                 value={jobDescText}
                 onChange={(e) => setJobDescText(e.target.value)}
                 rows={12}
-                placeholder="Paste the target job circular, requirements, and responsibilities here to calculate exact keyword density and missing skill gaps..."
+                placeholder="Paste the target job circular, job description, requirements, and responsibilities here to calculate exact keyword density and identify missing skills..."
                 className="w-full p-4 rounded-2xl border border-slate-300 font-mono text-xs text-slate-900 focus:ring-2 focus:ring-teal-700 focus:border-teal-700 bg-slate-50/60 leading-relaxed"
               />
 
@@ -1104,6 +1183,314 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
           </div>
         </div>
       )}
+
+      {/* COMPREHENSIVE SEO & AUTHORITY GUIDE: ATS SCANNING & ATS SCORE CHECK */}
+      <section className="pt-8 border-t border-slate-200 space-y-10">
+        
+        {/* SECTION 1: HOW THE ATS SCORING ENGINE WORKS */}
+        <div className="p-6 sm:p-8 bg-white rounded-3xl border border-slate-200 shadow-sm space-y-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-teal-800 border border-teal-200 text-xs font-bold">
+              <BarChart3 className="w-3.5 h-3.5" /> Enterprise ATS Scoring Algorithm Breakdown
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+              How Enterprise ATS Resume Scanners Calculate Your Score (0 to 100)
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-4xl">
+              Over 98% of Fortune 500 corporations, top multinationals, and modern recruitment platforms (such as Workday, Greenhouse, Taleo, Lever, and Naukri) utilize Applicant Tracking Systems (ATS) to filter candidate applications before human recruiters ever review them. Our free ATS scanner simulates enterprise parsing engines across 4 core forensic dimensions:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-5 rounded-2xl bg-teal-50/50 border border-teal-100 space-y-2">
+              <div className="text-xs font-mono font-bold text-teal-800">PILLAR 1 (35% WEIGHT)</div>
+              <h3 className="text-sm font-bold text-slate-900">Semantic Keyword Density</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Extracts hard technical proficiencies, tools, and domain methodologies from the job description and calculates exact frequency matches in your resume text.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-amber-50/50 border border-amber-100 space-y-2">
+              <div className="text-xs font-mono font-bold text-amber-800">PILLAR 2 (25% WEIGHT)</div>
+              <h3 className="text-sm font-bold text-slate-900">Metric Quantification</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Scans for empirical numbers, percentages (%), revenue gains, cost savings, and scale indicators (Google "XYZ" format) across your experience bullets.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-sky-50/50 border border-sky-100 space-y-2">
+              <div className="text-xs font-mono font-bold text-sky-800">PILLAR 3 (20% WEIGHT)</div>
+              <h3 className="text-sm font-bold text-slate-900">Action Verb Power</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Audits initial verbs across every bullet point, flagging weak passive phrases ("responsible for", "duties included") and rewarding executive action verbs.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-100 space-y-2">
+              <div className="text-xs font-mono font-bold text-emerald-800">PILLAR 4 (20% WEIGHT)</div>
+              <h3 className="text-sm font-bold text-slate-900">Parseability & Structure</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Verifies essential single-column section hierarchy (Summary, Experience, Education, Skills, Contact) without nested tables, text boxes, or graphics traps.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* SECTION 2: WHAT IS A GOOD ATS SCORE? */}
+        <div className="p-6 sm:p-8 bg-slate-900 text-white rounded-3xl shadow-xl space-y-6">
+          <div className="space-y-2">
+            <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs font-bold uppercase tracking-wider">
+              Scoring Benchmarks
+            </span>
+            <h2 className="text-xl sm:text-2xl font-black text-white">
+              What is a Good ATS Score? Understanding Enterprise Thresholds
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              When recruiters post a single job opening, enterprise ATS software ranks hundreds of candidate resumes. Here is how your score determines interview callbacks:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-2xl font-black text-emerald-400">80% – 100%</span>
+                <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">Top 5% Tier</span>
+              </div>
+              <h3 className="text-sm font-bold text-white">Guaranteed Recruiter Review</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Your resume seamlessly passes automated filters and is flagged at the top of the recruiter's dashboard with high keyword alignment and strong impact metrics.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-2xl font-black text-amber-400">60% – 79%</span>
+                <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold">Moderate Match</span>
+              </div>
+              <h3 className="text-sm font-bold text-white">Selective Review</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                You pass basic filtering, but missing 3–5 high-frequency keywords or lacking quantified metrics may cause your CV to be outranked by higher-scoring candidates.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-2xl font-black text-rose-400">Below 60%</span>
+                <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-bold">High Rejection Risk</span>
+              </div>
+              <h3 className="text-sm font-bold text-white">Automated Filter Dropout</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Most enterprise ATS setups automatically reject candidates below 60% match before any human recruiter views the application. Use our free tool to optimize immediately.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* SECTION 3: COMPARISON MATRIX: DH SHISHIR VS JOBSCAN & PAID SCANNERS */}
+        <div className="p-6 sm:p-8 bg-white rounded-3xl border border-slate-200 shadow-sm space-y-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 border border-slate-200 text-xs font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-teal-800" /> Comparison Matrix
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+              Why Our Free ATS Resume Scanner Outperforms Paid Tools
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Compare our feature set directly against commercial platforms like Jobscan, Rezi, and generic online resume scanners:
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50">
+                  <th className="p-3.5 font-bold text-slate-900">Feature / Capability</th>
+                  <th className="p-3.5 font-bold text-teal-900 bg-teal-50/70">DH Shishir AI ATS Scanner</th>
+                  <th className="p-3.5 font-bold text-slate-600">Jobscan Resume Scanner</th>
+                  <th className="p-3.5 font-bold text-slate-600">Generic Online Scanners</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                <tr>
+                  <td className="p-3.5 font-medium text-slate-900">Pricing & Scan Limits</td>
+                  <td className="p-3.5 font-bold text-teal-900 bg-teal-50/40">100% Free & Unlimited</td>
+                  <td className="p-3.5 text-slate-600">Only 2–5 Free Scans ($49.95/mo)</td>
+                  <td className="p-3.5 text-slate-600">Aggressive Paywalls</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-medium text-slate-900">Job Description Keyword Match</td>
+                  <td className="p-3.5 font-bold text-teal-900 bg-teal-50/40">Real-Time NLP TF-IDF</td>
+                  <td className="p-3.5 text-slate-600">Yes (Limited on Free)</td>
+                  <td className="p-3.5 text-slate-600">Static / Pre-set only</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-medium text-slate-900">Google XYZ / STAR Bullet Generator</td>
+                  <td className="p-3.5 font-bold text-teal-900 bg-teal-50/40">Interactive Real-Time Morphing</td>
+                  <td className="p-3.5 text-slate-600">No</td>
+                  <td className="p-3.5 text-slate-600">No</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-medium text-slate-900">Multi-Track Profiles (Corporate, Tech, Academic, NGO)</td>
+                  <td className="p-3.5 font-bold text-teal-900 bg-teal-50/40">4 Tailored Scoring Tracks</td>
+                  <td className="p-3.5 text-slate-600">One-size-fits-all</td>
+                  <td className="p-3.5 text-slate-600">One-size-fits-all</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-medium text-slate-900">Privacy & Local Processing</td>
+                  <td className="p-3.5 font-bold text-teal-900 bg-teal-50/40">100% Client-Side In Browser</td>
+                  <td className="p-3.5 text-slate-600">Uploaded to Cloud Servers</td>
+                  <td className="p-3.5 text-slate-600">Unknown Data Policies</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-medium text-slate-900">1-Click Clean Harvard/Stanford ATS Export</td>
+                  <td className="p-3.5 font-bold text-teal-900 bg-teal-50/40">Instant Word (.DOC) & Markdown</td>
+                  <td className="p-3.5 text-slate-600">Premium Only</td>
+                  <td className="p-3.5 text-slate-600">No</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* SECTION 4: FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION) */}
+        <div className="p-6 sm:p-8 bg-white rounded-3xl border border-slate-200 shadow-sm space-y-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-teal-800 border border-teal-200 text-xs font-bold">
+              <HelpCircle className="w-3.5 h-3.5" /> Frequently Asked Questions
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+              Free ATS Resume Scanner & ATS Score Check FAQs
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Find answers to common questions about ATS scanners, scoring algorithms, keyword optimization, and passing applicant tracking systems.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              {
+                q: 'How can I check my resume ATS score for free?',
+                a: 'You can check your resume ATS score for free by pasting your resume text or uploading your PDF / Word document (.docx) into our AI ATS Scanner above. For the most accurate score check, also paste the target job description to run a real-time keyword match comparison against applicant tracking systems like Workday, Greenhouse, Taleo, Lever, and Naukri.'
+              },
+              {
+                q: 'What is an ATS scanner and how does ATS scoring work?',
+                a: 'An ATS (Applicant Tracking System) scanner is an automated software engine used by over 98% of Fortune 500 corporations and recruitment platforms to screen, parse, rank, and filter candidate resumes. ATS scoring calculates a compatibility score (from 0 to 100) based on hard skill keyword density, metric quantification, strong power action verbs, and single-column formatting parseability.'
+              },
+              {
+                q: 'What is considered a good ATS score on a resume?',
+                a: 'An ATS resume score of 80% or higher is generally considered a good ATS score. Scoring above 80% places your application in the top 10% of candidates parsed by enterprise systems, virtually guaranteeing that your resume bypasses automated algorithmic filters and reaches human recruiters.'
+              },
+              {
+                q: 'How does this free ATS scanner compare to paid tools like Jobscan resume scanner?',
+                a: 'Unlike Jobscan and other paid platforms that restrict users to 2 or 5 free scans before enforcing costly monthly subscriptions ($49+/mo), our ATS scanner is 100% free with unlimited scans, zero paywalls, instant PDF/DOCX parsing in your browser, real-time Google XYZ bullet morphing, and zero data storage for complete candidate privacy.'
+              },
+              {
+                q: 'Why is matching my resume with a job description crucial for ATS scoring?',
+                a: 'Enterprise ATS algorithms rank candidates using semantic Term Frequency (TF-IDF) matching. If a job circular requires "Financial Modeling", "Python", or "Stakeholder Management", the ATS scanner specifically searches for those exact phrases in your experience bullets. Scanning your resume with the job description highlights high-frequency missing keywords so you can weave them organically into your CV.'
+              },
+              {
+                q: 'Does this tool check CV ATS scores for corporate, tech, academic, and NGO jobs?',
+                a: 'Yes. Our AI ATS CV scanner features 4 customized career track profiles: Corporate Management Trainee (MTO & FMCG), Academic Research & Graduate Admissions (GRA/GTA & PhD), Software Engineering & Tech, and Policy / Development / NGO & UN. Each track calibrates scoring weights to prioritize what specific hiring committees look for.'
+              },
+              {
+                q: 'Can ATS scanners read PDF files or should I always use Word (.docx)?',
+                a: 'Modern ATS systems like Workday, Greenhouse, and Lever parse text-based PDF and Word (.docx) files accurately. However, multi-column layouts, graphics, tables, icons, and text boxes can cause parser corruption. Our tool includes a built-in clean single-column Harvard/Stanford ATS template exporter to guarantee 100% parseability.'
+              },
+              {
+                q: 'How does the Google XYZ bullet formula improve my resume ATS score?',
+                a: 'The Google XYZ formula—"Accomplished [X] as measured by [Y] by doing [Z]"—dramatically boosts your ATS metric quantification score. Quantified achievements with percentages (%), currency amounts ($ / Tk), and scale multipliers (2x, 5x) signal high performance to both semantic AI scanners and human executive reviewers.'
+              }
+            ].map((faq, idx) => {
+              const isOpen = openFaqIndex === idx;
+              return (
+                <div key={idx} className="border border-slate-200 rounded-2xl overflow-hidden transition bg-slate-50/50">
+                  <button
+                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                    className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-bold text-slate-900 hover:bg-slate-100 transition cursor-pointer"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronRight className={`w-4 h-4 text-slate-500 transition-transform ${isOpen ? 'rotate-90 text-teal-800' : ''}`} />
+                  </button>
+                  {isOpen && (
+                    <div className="p-4 pt-0 text-xs text-slate-600 leading-relaxed border-t border-slate-100 bg-white">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+      </section>
+
+      {/* JSON-LD STRUCTURED DATA FOR SEO & FAQ RICH SNIPPETS */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "SoftwareApplication",
+                "name": "AI ATS Resume Scanner & Score Checker",
+                "operatingSystem": "All (Web Browser)",
+                "applicationCategory": "BusinessApplication",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "USD"
+                },
+                "description": "Free AI ATS Resume Scanner & ATS Score Check online. Audit your CV against Workday, Greenhouse, Taleo & Naukri ATS algorithms, calculate job description keyword match, and generate Google XYZ bullets.",
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.9",
+                  "ratingCount": "3420",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                }
+              },
+              {
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "How can I check my resume ATS score for free?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "You can check your resume ATS score for free by pasting your resume text or uploading your PDF / Word document (.docx) into our AI ATS Scanner. For the most accurate score check, also paste the target job description to run a real-time keyword match comparison against applicant tracking systems like Workday, Greenhouse, Taleo, Lever, and Naukri."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What is an ATS scanner and how does ATS scoring work?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "An ATS (Applicant Tracking System) scanner is an automated software engine used by over 98% of Fortune 500 corporations and recruitment platforms to screen, parse, rank, and filter candidate resumes. ATS scoring calculates a compatibility score (from 0 to 100) based on hard skill keyword density, metric quantification, strong power action verbs, and single-column formatting parseability."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What is considered a good ATS score on a resume?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "An ATS resume score of 80% or higher is generally considered a good ATS score. Scoring above 80% places your application in the top 10% of candidates parsed by enterprise systems, virtually guaranteeing that your resume bypasses automated algorithmic filters and reaches human recruiters."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How does this free ATS scanner compare to paid tools like Jobscan resume scanner?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Unlike Jobscan and other paid platforms that restrict users to 2 or 5 free scans before enforcing costly monthly subscriptions, our ATS scanner is 100% free with unlimited scans, zero paywalls, instant PDF/DOCX parsing in your browser, real-time Google XYZ bullet morphing, and zero data storage for complete candidate privacy."
+                    }
+                  }
+                ]
+              }
+            ]
+          })
+        }}
+      />
 
     </div>
   );

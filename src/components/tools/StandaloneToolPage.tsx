@@ -54,11 +54,11 @@ export const ALL_TOOLS: ToolDef[] = [
   },
   {
     id: 'ats-resume',
-    name: 'Fortune 500 AI ATS Resume Intelligence Suite',
+    name: 'ATS Resume Scanner & ATS Score Check Suite',
     tagline: 'Deep semantic keyword audits, Workday/Greenhouse format checks, Google XYZ bullet morphing & 1-click ATS export.',
     category: 'Career & Jobs',
     icon: FileText,
-    badge: 'Fortune 500 ATS Engine',
+    badge: 'Enterprise ATS Engine',
     component: AtsResumeChecker
   },
   {
