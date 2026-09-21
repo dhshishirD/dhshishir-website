@@ -10,7 +10,8 @@ import {
   ArrowLeft, 
   Share2, 
   Check, 
-  ExternalLink 
+  ExternalLink,
+  Zap 
 } from 'lucide-react';
 import { CoverLetterGenerator } from './CoverLetterGenerator';
 import { IeltsWritingAnalyzer } from './IeltsWritingAnalyzer';
@@ -21,6 +22,7 @@ import { AtsResumeChecker } from './AtsResumeChecker';
 import { IeltsScoreEstimator } from './IeltsScoreEstimator';
 import { CgpaConverter } from './CgpaConverter';
 import { SkillGapFinder } from './SkillGapFinder';
+import { IeltsCollocationDuel } from './IeltsCollocationDuel';
 import { SOCIAL_LINKS } from '../../data/portfolioData';
 import { logRealToolUsage } from '../../services/adminAnalyticsService';
 
@@ -52,6 +54,15 @@ export const ALL_TOOLS: ToolDef[] = [
     icon: FileText,
     badge: 'Top Bookmarked',
     component: AtsResumeChecker
+  },
+  {
+    id: 'ielts-collocation-duel',
+    name: 'IELTS Band 9 Collocation Duel',
+    tagline: 'Speed collocation duel arcade and interactive Band 5.0 to Band 9.0 sentence morphing slider.',
+    category: 'IELTS & English',
+    icon: Zap,
+    badge: 'Band 9 Arcade',
+    component: IeltsCollocationDuel
   },
   {
     id: 'ielts-writing',

@@ -73,6 +73,10 @@ const CUSTOM_OVERRIDES = {
     title: 'Bangla-to-English Grammar & Error Checker | DH Shishir',
     description: 'Diagnostic grammar tool pinpointing common Bengali-to-English translation errors, preposition confusion, tense shifts, and acoustic pronunciation traps.'
   },
+  'tools/ielts-collocation-duel': {
+    title: 'IELTS Collocations Trainer: Band 9 Lexical Duel (Free) | DH Shishir',
+    description: 'Free 60-second speed collocation duel arcade and interactive Band 5 to Band 9 sentence morphing dial. Master 300+ CEFR C1/C2 academic collocations and export to Anki.'
+  },
   'tools/vocabulary-builder': {
     title: 'Advanced GRE & Academic Vocabulary Builder | DH Shishir',
     description: 'Interactive vocabulary mastery platform with contextual sentence examples, etymology roots, and spaced repetition flashcards for GRE and IELTS aspirants.'
