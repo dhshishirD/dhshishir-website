@@ -226,10 +226,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-slate-900 group-hover:text-teal-950">Fluency Lab Hub</span>
-                          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-teal-100 text-teal-800 uppercase">AUDIO</span>
+                          <span className="text-xs font-bold text-slate-900 group-hover:text-teal-950">English Fluency Lab</span>
+                          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-teal-100 text-teal-800 uppercase">FREE AUDIO</span>
                         </div>
-                        <p className="text-[11px] text-slate-500 mt-0.5">Looped acoustic shadowing & spoken fluency</p>
+                        <p className="text-[11px] text-slate-500 mt-0.5">Online speaking course & acoustic shadowing</p>
                       </div>
                     </button>
                   </div>
@@ -450,10 +450,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
 
               <button
                 onClick={() => handleNavClick('fluency-lab')}
-                className="w-full text-left py-2 px-3.5 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-2.5 transition cursor-pointer"
+                className="w-full text-left py-2 px-3.5 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-50 flex items-center justify-between transition cursor-pointer"
               >
-                <Sparkles className="w-4 h-4 text-teal-800" />
-                <span>Fluency Lab System</span>
+                <div className="flex items-center gap-2.5">
+                  <Sparkles className="w-4 h-4 text-teal-800" />
+                  <span>English Fluency Lab</span>
+                </div>
+                <span className="bg-teal-50 text-teal-900 border border-teal-200 text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase">COURSE</span>
               </button>
             </div>
 

@@ -77,11 +77,11 @@ export function App() {
       setCurrentView('ielts');
       setIsStandaloneTool(false);
       document.title = 'IELTS Master Preparation Hub | Band 8.5+ Free Dynamic Simulators & Roadmap | DH Shishir';
-    } else if (path === '/fluency-lab' || path === '/english' || hash.startsWith('#/fluency-lab')) {
+    } else if (path === '/english-fluency-lab' || path === '/fluency-lab' || path === '/english' || hash.startsWith('#/english-fluency-lab') || hash.startsWith('#/fluency-lab')) {
       setActiveDossierSlug(null);
       setCurrentView('fluency-lab');
       setIsStandaloneTool(false);
-      document.title = 'Fluency Lab | Interactive Looped English Mastery System | DH Shishir';
+      document.title = 'English Fluency Lab | Free English Speaking Course Online & Practice | DH Shishir';
     } else if (path.startsWith('/tools/') || hash.startsWith('#/tools/')) {
       setActiveDossierSlug(null);
       const toolId = path.replace('/tools/', '') || hash.replace('#/tools/', '');
@@ -178,7 +178,7 @@ export function App() {
       targetPath = '/ielts';
       setActiveDossierSlug(null);
     } else if (view === 'fluency-lab') {
-      targetPath = '/fluency-lab';
+      targetPath = '/english-fluency-lab';
       setActiveDossierSlug(null);
     } else if (view === 'tools') {
       targetPath = subParam ? `/tools/${subParam}` : '/tools';

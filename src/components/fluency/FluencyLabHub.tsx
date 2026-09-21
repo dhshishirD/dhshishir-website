@@ -50,13 +50,13 @@ export const FluencyLabHub: React.FC = () => {
         {/* Hub Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-teal-800" /> Fluency Lab • Spoken English Hub
+            <Sparkles className="w-3.5 h-3.5 text-teal-800" /> English Fluency Lab • Free Online Speaking Course
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
-            Interactive Looped Learning System
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            English Fluency Lab: Free Speaking Course & Practice Studio
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            Continuous cycle: <span className="text-slate-900 font-bold">Diagnose → Learn → Drill → Speak & Record → Get Feedback → Repeat → Certify</span>.
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Free interactive system: <span className="text-slate-900 font-bold">Diagnose CEFR Level → Learn IPA Drills → Shadow Speech → Record & Analyze → Certify Fluency</span>.
           </p>
         </div>
 

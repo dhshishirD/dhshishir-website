@@ -25,8 +25,14 @@
     <priority>0.90</priority>
   </url>
   <url>
+    <loc>https://dhshishir.com/english-fluency-lab</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://dhshishir.com/fluency-lab</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>
   </url>

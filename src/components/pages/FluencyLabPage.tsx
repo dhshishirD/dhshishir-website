@@ -19,7 +19,7 @@ export const FluencyLabPage: React.FC<FluencyLabPageProps> = ({
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.title = 'Fluency Lab | Interactive Looped English Mastery System | DH Shishir';
+    document.title = 'English Fluency Lab | Free English Speaking Course Online & Practice | DH Shishir';
   }, []);
 
   return (
@@ -39,30 +39,32 @@ export const FluencyLabPage: React.FC<FluencyLabPageProps> = ({
               className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-900 bg-teal-50 hover:bg-teal-100 border border-teal-200 px-3 py-1 rounded-full transition cursor-pointer"
             >
               <Share2 className="w-3.5 h-3.5 text-teal-800" />
-              <span>Share Fluency Lab</span>
+              <span>Share English Fluency Lab</span>
             </button>
             <div className="hidden sm:flex items-center gap-1.5 bg-white border border-teal-200 text-teal-900 text-xs px-3 py-1 rounded-full font-bold">
-              <Sparkles className="w-3.5 h-3.5 text-teal-800" /> Fluency Lab Suite Active
+              <Sparkles className="w-3.5 h-3.5 text-teal-800" /> English Fluency Lab Active
             </div>
           </div>
         </div>
 
-        {/* Cloud Sync & Auto-Save Reminder */}
-        <CloudSyncBanner
-          user={user}
-          contextText="Log in with Google in 1-click to auto-save your CEFR diagnostic scores, phonetic shadowing loops & daily study streak."
-          onOpenAuthModal={onOpenAuthModal}
-        />
+        {/* Cloud Sync & Auto-Save Reminder - Encapsulated with data-nosnippet to prevent SERP scraping */}
+        <div data-nosnippet>
+          <CloudSyncBanner
+            user={user}
+            contextText="Log in with Google in 1-click to auto-save your CEFR diagnostic scores, phonetic shadowing loops & daily study streak."
+            onOpenAuthModal={onOpenAuthModal}
+          />
+        </div>
       </div>
       <FluencyLabHub />
 
       <ShareModal
         isOpen={isShareOpen}
         onClose={() => setIsShareOpen(false)}
-        title="Fluency Lab: Looped English Mastery System by Daloyar Hassan Shishir"
-        url="https://dhshishir.com/fluency-lab"
+        title="English Fluency Lab: Free Online Speaking Course & Practice by Daloyar Hassan Shishir"
+        url="https://dhshishir.com/english-fluency-lab"
         summary="A neuro-linguistic, 3-stage iterative English speaking system with CEFR diagnostic tests, phonetic shadowing, and habit loop tracking."
-        category="English Mastery"
+        category="English Fluency"
       />
     </div>
   );

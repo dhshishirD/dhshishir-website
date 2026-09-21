@@ -125,9 +125,13 @@ const CUSTOM_OVERRIDES = {
     title: "Open Master's Fellowship in International Relations & Strategic Studies | DH Shishir",
     description: 'A structured 5-pillar masterclass curriculum covering geopolitical intelligence, bilateral diplomacy, maritime law, crisis simulations, and research methodology.'
   },
+  'english-fluency-lab': {
+    title: 'English Fluency Lab | Free English Speaking Course Online & Practice | DH Shishir',
+    description: 'Welcome to English Fluency Lab: the free interactive English speaking course & fluency practice portal. Master acoustic shadowing, CEFR speech cadence, and native spoken English online.'
+  },
   'fluency-lab': {
-    title: 'Fluency Lab | Interactive Looped English Mastery System | DH Shishir',
-    description: 'Master advanced spoken and professional English through looped acoustic shadowing, CEFR diagnostic tests, phonetic waveform visualization, and subconscious grammar acquisition.'
+    title: 'English Fluency Lab | Free English Speaking Course Online & Practice | DH Shishir',
+    description: 'Welcome to English Fluency Lab: the free interactive English speaking course & fluency practice portal. Master acoustic shadowing, CEFR speech cadence, and native spoken English online.'
   },
   'ielts': {
     title: 'IELTS Band 8.5 Master Preparation Hub | Free Interactive Simulators & Roadmap | DH Shishir',
@@ -255,6 +259,38 @@ for (const fullUrl of urls) {
     `<meta name="twitter:description" content="${description}" />`
   );
 
+  // Inject Course Schema for English Fluency Lab
+  if (urlPath === 'english-fluency-lab' || urlPath === 'fluency-lab') {
+    const courseSchema = `
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "English Fluency Lab: Free Online Spoken English Course",
+      "description": "Interactive English fluency course utilizing acoustic speech shadowing, CEFR speech diagnostics, waveform rhythm drills, and IELTS speaking practice.",
+      "provider": {
+        "@type": "Person",
+        "name": "Daloyar Hassan Shishir",
+        "jobTitle": "Diplomatic Enthusiast, Policy Analyst & English Educator",
+        "url": "https://dhshishir.com/"
+      },
+      "isAccessibleForFree": true,
+      "educationalLevel": "Beginner to Advanced (CEFR A1 to C2)",
+      "courseMode": "Online (Self-Paced / Interactive Practice)",
+      "inLanguage": "en",
+      "teaches": [
+        "English Spoken Fluency",
+        "Acoustic Speech Shadowing",
+        "CEFR Speech Assessment",
+        "Phonetic Rhythm & Cadence",
+        "Professional Speaking Confidence"
+      ]
+    }
+    </script>
+    `;
+    html = html.replace('</head>', `${courseSchema}\n  </head>`);
+  }
+
   // Deep High-Word-Count Semantic Content Body (Eliminates Ahrefs "Thin Content" completely)
   const cleanTitle = title.split('|')[0].trim();
   let articleBody = '';
@@ -310,6 +346,37 @@ for (const fullUrl of urls) {
         </p>
       </div>
     `;
+  } else if (urlPath === 'english-fluency-lab' || urlPath === 'fluency-lab') {
+    articleBody = `
+      <div class="space-y-6">
+        <div class="bg-teal-50 border border-teal-200 rounded-2xl p-6 mb-6">
+          <span class="text-xs font-bold text-teal-800 uppercase tracking-wider block mb-1">Interactive Free Online Spoken English Course & Speech Studio</span>
+          <p class="text-base text-slate-800 leading-relaxed font-medium">${description}</p>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">1. The Science of Acoustic Speech Shadowing & Cadence Loops</h2>
+        <p class="text-slate-700 leading-relaxed">
+          English Fluency Lab is an evidence-based, neuro-linguistic spoken English mastery platform designed for global learners, non-native professionals, and graduate scholars. Unlike traditional passive grammar lessons, English Fluency Lab implements <strong>Acoustic Speech Shadowing</strong>—a cognitive technique that trains vocal cords, phonetic muscle memory, and subconscious speech rhythm through looped audio feedback.
+        </p>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">2. 7-Stage CEFR Continuous Fluency Architecture</h2>
+        <ul class="list-disc pl-5 space-y-2 text-slate-700">
+          <li><strong>Stage 1 — Diagnostic Placement:</strong> Instant 12-point CEFR oral & lexical diagnostic calibrated to A1–C2 levels.</li>
+          <li><strong>Stage 2 — IPA & Phonetic Drills:</strong> High-frequency sound contrast drills (/v/ vs /w/, /p/ vs /f/, aspirated plosives, and schwa reduction).</li>
+          <li><strong>Stage 3 — Speak & Record Studio:</strong> Real-time audio cadence visualizer with waveform analysis, pitch variation, and duration matching.</li>
+          <li><strong>Stage 4 — Daily Conversation & IELTS Prompts:</strong> 100+ real-world prompts covering academic defense, executive boardroom meetings, embassy interviews, and casual discourse.</li>
+          <li><strong>Stage 5 — Speech Feedback Engine:</strong> Automated lexical density, filler word detection, and rhythm scoring.</li>
+          <li><strong>Stage 6 — Habit Loop Dashboard:</strong> Spaced repetition daily streak tracking and progress telemetry.</li>
+          <li><strong>Stage 7 — Verified Certification:</strong> CEFR-aligned verifiable milestone achievement certificates.</li>
+        </ul>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">3. Overcoming Mother Tongue Influence (MTI) for Global Learners</h2>
+        <p class="text-slate-700 leading-relaxed">
+          Non-native speakers frequently face linguistic interference from their first language, leading to unnatural intonation, syllable-timed cadence, and acoustic stress misalignment. English Fluency Lab corrects stress-timed English rhythm through connected speech drills, linking words, weak forms, and conversational chunking.
+        </p>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">4. Free Online Speaking Practice & IELTS Integration</h2>
+        <p class="text-slate-700 leading-relaxed">
+          Whether you are preparing for IELTS Speaking (Band 7.5➔9.0), job interviews with multinational firms, or graduate seminar presentations, English Fluency Lab provides 100% free, unlimited browser-based speaking practice with zero paywalls.
+        </p>
+      </div>
+    `;
   } else if (urlPath.startsWith('tools/')) {
     articleBody = `
       <div class="space-y-6">
@@ -352,7 +419,7 @@ for (const fullUrl of urls) {
               <a href="/diplomacy" class="hover:text-teal-800">Diplomacy</a>
               <a href="/fellowship" class="hover:text-teal-800">Fellowship</a>
               <a href="/ielts" class="hover:text-teal-800 text-amber-700 font-extrabold">IELTS Hub</a>
-              <a href="/fluency-lab" class="hover:text-teal-800">Fluency Lab</a>
+              <a href="/english-fluency-lab" class="hover:text-teal-800">English Fluency Lab</a>
               <a href="/tools" class="hover:text-teal-800">Tools</a>
               <a href="/blog" class="hover:text-teal-800">Blog</a>
               <a href="/leadership" class="hover:text-teal-800">Leadership</a>
