@@ -116,14 +116,33 @@ export const IeltsScoreEstimator: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-slate-200">
+          <div className="mt-6 pt-4 border-t border-slate-200 space-y-2.5">
             <a
-              href="https://10minuteschool.com/skills/courses/ielts-course-by-munzereen-shahid?aff=dhshishir"
+              href="https://10ms.io/hKLSB8"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 bg-white border border-slate-200 hover:from-emerald-500 hover:to-teal-500 text-slate-900 rounded-xl font-bold flex items-center justify-center gap-2 text-sm shadow-lg transition"
+              className="w-full py-3 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold flex items-center justify-center gap-2 text-xs sm:text-sm shadow-md transition"
             >
-              Explore 10MS IELTS Course <ArrowRight className="w-4 h-4" />
+              <span>🔥 Join 10MS IELTS LIVE Batch (Interactive)</span>
+              <ArrowRight className="w-4 h-4 text-teal-300" />
+            </a>
+            <a
+              href="https://10ms.io/eKLSMe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition shadow-sm"
+            >
+              <span>📝 10MS Reading & Listening Mock Tests</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-900" />
+            </a>
+            <a
+              href="https://10ms.io/FKLSLS"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-300 rounded-xl font-bold flex items-center justify-center gap-2 text-xs transition"
+            >
+              <span>Explore Self-Paced Master Course</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-500" />
             </a>
           </div>
         </div>

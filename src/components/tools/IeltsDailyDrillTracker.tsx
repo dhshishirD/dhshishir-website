@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Calendar, CheckCircle2, Clock, Award, 
   RotateCcw, Sparkles, Download, Upload, 
-  ArrowRight, ShieldAlert, Zap, BookOpen, Volume2, Edit3, Mic
+  ArrowRight, ShieldAlert, Zap, BookOpen, Volume2, Edit3, Mic, ExternalLink
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -259,6 +259,71 @@ export const IeltsDailyDrillTracker: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* RECOMMENDED OFFICIAL PREPARATION PROGRAMS */}
+      <div className="p-6 bg-slate-900 text-white rounded-3xl border border-slate-800 shadow-xl space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-teal-300">
+              Recommended Companion Programs
+            </span>
+            <h4 className="text-base font-black text-white">
+              Official & Live IELTS Courses for Guaranteed Band 7.5–8.5
+            </h4>
+          </div>
+          <span className="text-xs text-slate-400 font-medium">10 Minute School Programs</span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex flex-col justify-between space-y-3">
+            <div>
+              <div className="font-bold text-teal-300 text-sm">IELTS LIVE Batch</div>
+              <p className="text-[11px] text-slate-400 mt-1">Live classes, direct teacher feedback on Speaking & Writing, and peer study groups.</p>
+            </div>
+            <a
+              href="https://10ms.io/hKLSB8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2 px-3 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl text-center text-xs flex items-center justify-center gap-1 transition"
+            >
+              <span>Join LIVE Batch</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
+
+          <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex flex-col justify-between space-y-3">
+            <div>
+              <div className="font-bold text-amber-300 text-sm">Reading & Listening Mocks</div>
+              <p className="text-[11px] text-slate-400 mt-1">Timed computer-delivered practice tests with automated scoring and error diagnostics.</p>
+            </div>
+            <a
+              href="https://10ms.io/eKLSMe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2 px-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-center text-xs flex items-center justify-center gap-1 transition"
+            >
+              <span>Explore Mock Tests</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
+
+          <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex flex-col justify-between space-y-3">
+            <div>
+              <div className="font-bold text-sky-300 text-sm">Complete Master Course</div>
+              <p className="text-[11px] text-slate-400 mt-1">Self-paced video masterclasses covering all 4 modules from foundational to advanced Band 9.</p>
+            </div>
+            <a
+              href="https://10ms.io/FKLSLS"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2 px-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-center text-xs flex items-center justify-center gap-1 transition border border-white/10"
+            >
+              <span>View Master Course</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
         </div>
       </div>
 

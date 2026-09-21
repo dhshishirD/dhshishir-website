@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { 
   Camera, Upload, FileText, CheckCircle2, AlertTriangle, 
   Sparkles, RefreshCw, Award, BookOpen, Download, ArrowRight,
-  Eye, Edit3, ShieldAlert, Zap, HelpCircle, Check, Copy
+  Eye, Edit3, ShieldAlert, Zap, HelpCircle, Check, Copy, ExternalLink
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -550,6 +550,42 @@ export const IeltsHandwrittenEssayScanner: React.FC = () => {
             <p className="text-xs text-slate-300 whitespace-pre-line leading-relaxed font-serif">
               {selectedPrompt.modelBand9}
             </p>
+          </div>
+
+          {/* RECOMMENDED 10MS LIVE MENTORSHIP & WRITING MASTERY */}
+          <div className="p-6 bg-gradient-to-r from-teal-950 via-slate-900 to-teal-900 text-white rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-teal-800/40">
+            <div className="space-y-1.5 text-center md:text-left">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-teal-300 bg-teal-500/20 px-2.5 py-0.5 rounded-full border border-teal-400/30">
+                Want 1-on-1 Human Examiner Feedback?
+              </span>
+              <h4 className="text-base sm:text-lg font-black text-white">
+                Join 10MS IELTS LIVE Batch for Personalized Writing & Speaking Mock Reviews
+              </h4>
+              <p className="text-xs text-slate-300 max-w-xl">
+                Get your handwritten essays graded line-by-line by expert mentors and join live interactive peer critique sessions.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-2.5 shrink-0">
+              <a
+                href="https://10ms.io/hKLSB8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 rounded-xl font-black text-xs transition flex items-center gap-1.5 shadow-md"
+              >
+                <span>🔥 Join LIVE Batch</span>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-950" />
+              </a>
+              <a
+                href="https://10ms.io/FKLSLS"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 border border-white/20"
+              >
+                <span>Complete Master Course</span>
+                <ExternalLink className="w-3.5 h-3.5 text-teal-300" />
+              </a>
+            </div>
           </div>
 
         </div>

@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Play, Pause, RotateCcw, Volume2, FastForward, 
   CheckCircle2, AlertCircle, HelpCircle, Sparkles, 
-  Clock, FileText, Check, Award, RefreshCw, Eye, EyeOff
+  Clock, FileText, Check, Award, RefreshCw, Eye, EyeOff,
+  ArrowRight, ExternalLink
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -658,6 +659,42 @@ export const IeltsListeningExamEngine: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* RECOMMENDED 10MS PREPARATION ENGINES */}
+      <div className="p-6 bg-gradient-to-r from-teal-950 via-slate-900 to-teal-900 text-white rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-teal-800/40">
+        <div className="space-y-1.5 text-center md:text-left">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/20">
+            Official Recommended Resources
+          </span>
+          <h4 className="text-base sm:text-lg font-black text-white">
+            Need Full-Length Cambridge Mock Exams with Live Feedback?
+          </h4>
+          <p className="text-xs text-slate-300 max-w-xl">
+            Level up your Listening & Reading speed with full-length computer-delivered mock tests and live interactive coaching.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-2.5 shrink-0">
+          <a
+            href="https://10ms.io/eKLSMe"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl font-black text-xs transition flex items-center gap-1.5 shadow-md"
+          >
+            <span>📝 10MS Mock Tests</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href="https://10ms.io/hKLSB8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2.5 bg-teal-800 hover:bg-teal-700 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 border border-teal-600"
+          >
+            <span>🔥 IELTS LIVE Batch</span>
+            <ArrowRight className="w-3.5 h-3.5 text-teal-300" />
+          </a>
+        </div>
+      </div>
 
     </div>
   );

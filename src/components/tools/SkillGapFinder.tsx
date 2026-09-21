@@ -39,6 +39,17 @@ const CAREER_PATHS: CareerPath[] = [
       { name: 'Full Stack MERN Career Track', provider: 'Bohubrihi', url: 'https://bohubrihi.com/courses/full-stack-web-development/?ref=dhshishir', price: '৳ ১৪,৫০০' },
       { name: 'Digital Marketing Bootcamp', provider: 'Ostad', url: 'https://ostad.app/course/digital-marketing?aff=dhshishir', price: '৳ ৭,৫০০' }
     ]
+  },
+  {
+    id: 'higher_studies_ielts',
+    title: 'Higher Studies & Scholarship (IELTS / GRE)',
+    roleDescription: 'Targeting USA, UK, Canada & EU Graduate Assistantships, Erasmus Mundus, and Chevening Scholarships.',
+    keySkills: ['Academic IELTS Band 7.5-8.5', 'Statement of Purpose (SOP) Drafting', 'Speaking & Interview Fluency', 'Academic Collocations & Task 2 Writing'],
+    recommendedCourses: [
+      { name: 'IELTS LIVE Batch (Live Coaching & Reviews)', provider: '10 Minute School', url: 'https://10ms.io/hKLSB8', price: 'Live Batches' },
+      { name: 'IELTS Reading & Listening Mock Tests', provider: '10 Minute School', url: 'https://10ms.io/eKLSMe', price: 'Full Mock Package' },
+      { name: 'IELTS Complete Master Course', provider: '10 Minute School', url: 'https://10ms.io/FKLSLS', price: 'Self-Paced' }
+    ]
   }
 ];
 
@@ -63,7 +74,7 @@ export const SkillGapFinder: React.FC = () => {
       <div className="space-y-6">
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-3">Choose Your Target Path:</label>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {CAREER_PATHS.map((cp) => (
               <button
                 key={cp.id}

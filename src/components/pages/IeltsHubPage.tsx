@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, Mic, BarChart3, Scale, Zap, Award, 
   Sparkles, Download, ArrowRight, Clock, Compass,
-  FileText, Eye, Check, X, Camera, Volume2, Calendar
+  FileText, Eye, Check, X, Camera, Volume2, Calendar, ExternalLink
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { IeltsCollocationDuel } from '../tools/IeltsCollocationDuel';
@@ -1180,6 +1180,89 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({ initialToolId }) => 
             <div className="p-3.5 bg-white/10 rounded-2xl border border-white/10 backdrop-blur-xs">
               <div className="text-2xl font-black text-sky-300">Anki Vault</div>
               <div className="text-[11px] text-slate-300">1-Click Deck Exports</div>
+            </div>
+          </div>
+        </div>
+
+        {/* RECOMMENDED OFFICIAL & LIVE IELTS COURSES BANNER */}
+        <div className="p-6 sm:p-8 bg-gradient-to-r from-teal-950 via-slate-900 to-teal-900 rounded-3xl border border-teal-800/40 text-white shadow-xl space-y-5">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-teal-800/60 pb-4">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/20">
+                Official Recommended Programs
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
+                Top-Rated IELTS Live Batches & Cambridge Mock Test Packages
+              </h3>
+            </div>
+            <span className="text-xs text-slate-300 font-medium shrink-0">10 Minute School Aligned</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Card 1: Live Batch */}
+            <div className="p-5 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 transition space-y-3 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-400/30">
+                  Live Interactive Batch
+                </span>
+                <h4 className="font-black text-white text-base">IELTS LIVE Batch</h4>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Real-time interactive live coaching, line-by-line Writing mock evaluations, 1-on-1 Speaking interviews, and peer study groups.
+                </p>
+              </div>
+              <a
+                href="https://10ms.io/hKLSB8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-sm"
+              >
+                <span>🔥 Join IELTS LIVE Batch</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            {/* Card 2: Mock Tests */}
+            <div className="p-5 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 transition space-y-3 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-400/30">
+                  Full-Length Mocks
+                </span>
+                <h4 className="font-black text-white text-base">Reading & Listening Mock Tests</h4>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Authentic computer-delivered timed mock tests mirroring real IDP/British Council exam format with instant scaled band scoring.
+                </p>
+              </div>
+              <a
+                href="https://10ms.io/eKLSMe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-sm"
+              >
+                <span>📝 Start Mock Tests</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            {/* Card 3: Complete Master Course */}
+            <div className="p-5 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 transition space-y-3 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-400/30">
+                  Comprehensive Masterclass
+                </span>
+                <h4 className="font-black text-white text-base">Complete IELTS Master Course</h4>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Self-paced modular video course by Munzereen Shahid covering all 4 modules, Band 9 templates, and grammar essentials.
+                </p>
+              </div>
+              <a
+                href="https://10ms.io/FKLSLS"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition border border-white/20"
+              >
+                <span>Explore Master Course</span>
+                <ExternalLink className="w-3.5 h-3.5 text-teal-300" />
+              </a>
             </div>
           </div>
         </div>
