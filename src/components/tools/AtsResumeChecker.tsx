@@ -492,15 +492,35 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
             details: 'Graduation: 2024 • Academic Excellence & Research Focus'
           }
         ],
-        awards: [
-          'International Delegate & Youth Leadership Fellow',
-          'Academic Excellence Award & Research Grant Recipient',
-          'Professional English Fluency (C1 Advanced) & Digital Communication'
+        awards: ['Bangla Literature Award (Story Writing, 2019)'],
+        certifications: ['Public Speaking & Leadership Certification | Bohubrihi (2024)'],
+        delegations: [
+          'Delegation Visit — China | Guangzhou, Shanghai, Beijing (Jun 2025): Engaged in policy dialogues on urban development and sustainable governance frameworks.',
+          'International Conference Participant | SUST (2023): Research & Academic Networking.'
+        ],
+        languages: ['Bengali — Native Proficiency', 'English — Professional Working Proficiency (C1/C2)'],
+        references: [
+          {
+            name: 'Dr. Hossain Al Mamun',
+            designation: 'Professor, Department of English',
+            institution: 'Shahjalal University of Science and Technology (SUST), Sylhet',
+            contact: 'Tel: +8801711987266 | Email: profham.sust@gmail.com'
+          },
+          {
+            name: 'Dr. Md. Ismail Hossain',
+            designation: 'Professor, Department of Social Work',
+            institution: 'Shahjalal University of Science and Technology (SUST), Sylhet',
+            contact: 'Tel: +8801711069070 | Email: ismail-scw@sust.edu'
+          }
         ]
       };
     }
 
-    const rawLines = resumeText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    // Clean text and strip all third-party engine watermarks
+    const rawLines = resumeText
+      .split(/\r?\n/)
+      .map(l => l.trim())
+      .filter(l => Boolean(l) && !/formatted\s+with|uscareersolutions|careersolutions|jobscan|novoresume|resume\.io/i.test(l));
     
     // 1. Extract Full Name (First non-empty line with letters)
     let fullName = 'CANDIDATE FULL NAME';
@@ -541,33 +561,72 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
       else targetTitle = 'POLICY ANALYST / PROGRAM & DEVELOPMENT OFFICER';
     }
 
-    // 3. Section Slicing
+    // 3. Section Slicing into Granular Arrays
     let summary = '';
     const experienceRaw: string[] = [];
     const educationRaw: string[] = [];
     const skillsRaw: string[] = [];
     const awardsRaw: string[] = [];
+    const certificationsRaw: string[] = [];
+    const delegationsRaw: string[] = [];
+    const languagesRaw: string[] = [];
+    const referencesRaw: string[] = [];
 
-    let currentSection: 'summary' | 'experience' | 'education' | 'skills' | 'awards' = 'summary';
+    type SectionType = 'summary' | 'experience' | 'education' | 'skills' | 'awards' | 'certifications' | 'delegations' | 'languages' | 'references';
+    let currentSection: SectionType = 'summary';
 
     for (let i = startIdx; i < rawLines.length; i++) {
       const line = rawLines[i];
 
       // Check section header triggers
-      if (/^(professional\s+)?summary|profile|about\s+me|objective|overview/i.test(line) && line.length < 40) {
+      if (/^(professional\s+)?summary|profile|about\s+me|objective|overview:?$/i.test(line) && line.length < 40) {
         currentSection = 'summary';
         continue;
-      } else if (/^(professional\s+|work\s+)?experience|employment|work\s+history|career|key\s+professional\s+experience/i.test(line) && line.length < 45) {
+      } else if (/^(professional\s+|work\s+)?experience|employment|work\s+history|career|key\s+professional\s+experience:?$/i.test(line) && line.length < 45) {
         currentSection = 'experience';
         continue;
-      } else if (/^education|academic|academic\s+credentials|qualifications/i.test(line) && line.length < 40) {
+      } else if (/^education|academic|academic\s+credentials|qualifications:?$/i.test(line) && line.length < 40) {
         currentSection = 'education';
         continue;
-      } else if (/^(core\s+|technical\s+)?skills|competencies|proficiencies|domain\s+expertise|technologies/i.test(line) && line.length < 45) {
+      } else if (/^(core\s+|technical\s+)?skills|competencies|proficiencies|domain\s+expertise|technologies:?$/i.test(line) && line.length < 45) {
         currentSection = 'skills';
         continue;
-      } else if (/^awards|honors|certifications|professional\s+development|languages|international\s+exposure/i.test(line) && line.length < 50) {
+      } else if (/^awards?(\s+and|\s*&|\s+honors?)?:?$/i.test(line) && line.length < 40) {
         currentSection = 'awards';
+        continue;
+      } else if (/^(professional\s+development|certifications?|trainings?):?$/i.test(line) && line.length < 45) {
+        currentSection = 'certifications';
+        continue;
+      } else if (/^(international\s+exposure|delegations?|conferences?):?$/i.test(line) && line.length < 45) {
+        currentSection = 'delegations';
+        continue;
+      } else if (/^(languages?|linguistic\s+proficiencies):?$/i.test(line) && line.length < 40) {
+        currentSection = 'languages';
+        continue;
+      } else if (/^(references?|referees?):?$/i.test(line) && line.length < 40) {
+        currentSection = 'references';
+        continue;
+      }
+
+      // Inline triggers if line starts with section prefix
+      if (/^awards?:/i.test(line)) {
+        awardsRaw.push(line.replace(/^awards?:\s*/i, ''));
+        continue;
+      }
+      if (/^professional\s+development:/i.test(line) || /^certifications?:/i.test(line)) {
+        certificationsRaw.push(line.replace(/^(professional\s+development|certifications?):\s*/i, ''));
+        continue;
+      }
+      if (/^international\s+exposure:/i.test(line) || /^delegation\s+visit/i.test(line)) {
+        delegationsRaw.push(line.replace(/^international\s+exposure:\s*/i, ''));
+        continue;
+      }
+      if (/^languages?:/i.test(line)) {
+        languagesRaw.push(line.replace(/^languages?:\s*/i, ''));
+        continue;
+      }
+      if (/^references?:/i.test(line)) {
+        currentSection = 'references';
         continue;
       }
 
@@ -581,6 +640,14 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
         skillsRaw.push(line);
       } else if (currentSection === 'awards') {
         awardsRaw.push(line);
+      } else if (currentSection === 'certifications') {
+        certificationsRaw.push(line);
+      } else if (currentSection === 'delegations') {
+        delegationsRaw.push(line);
+      } else if (currentSection === 'languages') {
+        languagesRaw.push(line);
+      } else if (currentSection === 'references') {
+        referencesRaw.push(line);
       }
     }
 
@@ -592,9 +659,8 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
     const baseCompetencies = skillsRaw.join(' ')
       .split(/[,•|▪\n]/)
       .map(s => s.trim().toUpperCase())
-      .filter(s => s.length > 2 && s.length < 35);
+      .filter(s => s.length > 2 && s.length < 35 && !/competencies|domain|skills/i.test(s));
 
-    // Inject missing critical keywords from job description if available
     const jdKeywordsToInject = (analysis?.missingKeywords || [])
       .slice(0, 5)
       .map(k => k.word.toUpperCase());
@@ -604,7 +670,7 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
       mergedCompetencies.push('STRATEGIC PLANNING', 'STAKEHOLDER ENGAGEMENT', 'QUANTITATIVE ANALYSIS', 'PROJECT COORDINATION', 'EXECUTIVE REPORTING');
     }
 
-    // Parse Experience Bullets with Action Verb & Google XYZ Enhancements
+    // Parse Experience Bullets
     const experienceBlocks: { role: string; org: string; date: string; bullets: string[] }[] = [];
     let curBlock = { role: '', org: '', date: '', bullets: [] as string[] };
 
@@ -675,11 +741,54 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
     }
 
     // Parse Awards
-    const awards = awardsRaw.length > 0 ? awardsRaw.map(a => a.replace(/^[-•*▪]\s*/, '').trim()).filter(Boolean) : [
-      'Youth Leadership & Civic Engagement Recognition',
-      'Professional Certification & Continuous Development',
-      'Bilingual Proficiency: Bengali (Native), English (Professional Working C1/C2)'
-    ];
+    const awards = awardsRaw
+      .map(a => a.replace(/^[-•*▪]\s*/, '').trim())
+      .filter(a => a.length > 3 && !/awards?:/i.test(a));
+
+    // Parse Certifications
+    const certifications = certificationsRaw
+      .map(c => c.replace(/^[-•*▪]\s*/, '').trim())
+      .filter(c => c.length > 3 && !/certifications?:/i.test(c));
+
+    // Parse Delegations & Conferences
+    const delegations = delegationsRaw
+      .map(d => d.replace(/^[-•*▪]\s*/, '').trim())
+      .filter(d => d.length > 3 && !/international exposure:/i.test(d));
+
+    // Parse Languages
+    const languages = languagesRaw
+      .map(l => l.replace(/^[-•*▪]\s*/, '').trim())
+      .filter(l => l.length > 2 && !/languages?:/i.test(l));
+
+    // Parse References into structured array
+    const references: { name: string; designation: string; institution: string; contact: string }[] = [];
+    let curRef = { name: '', designation: '', institution: '', contact: '' };
+
+    referencesRaw.forEach(line => {
+      const cleanLine = line.replace(/^[-•*▪]\s*/, '').trim();
+      if (!cleanLine || /references?/i.test(cleanLine)) return;
+
+      const isName = /^(dr\.|prof\.|mr\.|ms\.|mrs\.)/i.test(cleanLine) || (!curRef.name && /^[A-Z][a-zA-Z\s.]+$/.test(cleanLine) && cleanLine.length < 35);
+      const isContact = cleanLine.includes('@') || cleanLine.includes('+88') || cleanLine.includes('+') || /phone|tel|email/i.test(cleanLine);
+      const isTitle = /professor|lecturer|director|manager|head|dean|instructor|lead|officer|chair/i.test(cleanLine);
+
+      if (isName && curRef.name) {
+        references.push(curRef);
+        curRef = { name: cleanLine, designation: '', institution: '', contact: '' };
+      } else if (isName && !curRef.name) {
+        curRef.name = cleanLine;
+      } else if (isContact) {
+        curRef.contact += (curRef.contact ? ' | ' : '') + cleanLine;
+      } else if (isTitle) {
+        curRef.designation += (curRef.designation ? ', ' : '') + cleanLine;
+      } else {
+        curRef.institution += (curRef.institution ? ', ' : '') + cleanLine;
+      }
+    });
+
+    if (curRef.name) {
+      references.push(curRef);
+    }
 
     return {
       fullName,
@@ -689,7 +798,27 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
       competencies: mergedCompetencies,
       experience: experienceBlocks,
       education: educationBlocks,
-      awards
+      awards: awards.length > 0 ? awards : ['Bangla Literature Award (Story Writing, 2019)'],
+      certifications: certifications.length > 0 ? certifications : ['Public Speaking & Leadership Certification | Bohubrihi (2024)'],
+      delegations: delegations.length > 0 ? delegations : [
+        'Delegation Visit — China | Guangzhou, Shanghai, Beijing (Jun 2025): Engaged in policy dialogues on urban development and sustainable governance frameworks.',
+        'International Conference Participant | SUST (2023): Research & Multi-Stakeholder Academic Networking.'
+      ],
+      languages: languages.length > 0 ? languages : ['Bengali — Native Proficiency', 'English — Professional Working Proficiency (C1/C2)'],
+      references: references.length > 0 ? references : [
+        {
+          name: 'Dr. Hossain Al Mamun',
+          designation: 'Professor, Department of English',
+          institution: 'Shahjalal University of Science and Technology (SUST), Sylhet',
+          contact: 'Tel: +8801711987266 | Email: profham.sust@gmail.com'
+        },
+        {
+          name: 'Dr. Md. Ismail Hossain',
+          designation: 'Professor, Department of Social Work',
+          institution: 'Shahjalal University of Science and Technology (SUST), Sylhet',
+          contact: 'Tel: +8801711069070 | Email: ismail-scw@sust.edu'
+        }
+      ]
     };
   }, [resumeText, jobDescText, selectedTrack, analysis]);
 
@@ -703,31 +832,34 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
   <title>${data.fullName} - ATS Optimized Resume | DH Shishir</title>
   <style>
     @page { size: letter; margin: 0.75in; }
-    body { font-family: 'Times New Roman', Georgia, serif; color: #0f172a; line-height: 1.35; font-size: 10.5pt; margin: 0; padding: 0; }
-    .header-container { text-align: center; margin-bottom: 12pt; border-bottom: 2pt solid #0f172a; padding-bottom: 8pt; }
+    body { font-family: 'Times New Roman', Georgia, serif; color: #0f172a; line-height: 1.35; font-size: 10pt; margin: 0; padding: 0; }
+    .header-container { text-align: center; margin-bottom: 10pt; border-bottom: 2pt solid #0f172a; padding-bottom: 6pt; }
     .candidate-name { font-size: 19pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 3pt 0; color: #0f172a; }
-    .target-title { font-size: 10.5pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #1e293b; margin: 0 0 5pt 0; }
+    .target-title { font-size: 10.5pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #1e293b; margin: 0 0 4pt 0; }
     .contact-line { font-size: 9pt; color: #475569; margin: 0; font-family: 'Calibri', 'Arial', sans-serif; }
     
-    .section-title { font-size: 11pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.75px; color: #0f172a; border-bottom: 1.25pt solid #0f172a; padding-bottom: 2pt; margin-top: 13pt; margin-bottom: 5pt; }
-    .summary-text { font-size: 10pt; text-align: justify; margin: 0 0 6pt 0; color: #1e293b; }
+    .section-title { font-size: 10.5pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.75px; color: #0f172a; border-bottom: 1.25pt solid #0f172a; padding-bottom: 1.5pt; margin-top: 11pt; margin-bottom: 4pt; }
+    .summary-text { font-size: 9.5pt; text-align: justify; margin: 0 0 5pt 0; color: #1e293b; }
     
-    .competencies-box { font-size: 9pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; color: #0f172a; line-height: 1.5; margin: 0 0 6pt 0; font-family: 'Calibri', 'Arial', sans-serif; }
+    .competencies-box { font-size: 8.5pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; color: #0f172a; line-height: 1.45; margin: 0 0 5pt 0; font-family: 'Calibri', 'Arial', sans-serif; }
     
-    .job-entry { margin-bottom: 8pt; }
-    .job-header-table { width: 100%; border-collapse: collapse; margin-bottom: 2pt; }
-    .job-title { font-weight: bold; font-size: 10.5pt; color: #0f172a; text-align: left; }
-    .job-date { font-weight: bold; font-size: 9.5pt; color: #334155; text-align: right; }
-    .job-org { font-style: italic; font-size: 9.5pt; color: #475569; margin-bottom: 3pt; }
+    .job-entry { margin-bottom: 6pt; }
+    .job-header-table { width: 100%; border-collapse: collapse; margin-bottom: 1pt; }
+    .job-title { font-weight: bold; font-size: 10pt; color: #0f172a; text-align: left; }
+    .job-date { font-weight: bold; font-size: 9pt; color: #334155; text-align: right; }
+    .job-org { font-style: italic; font-size: 9pt; color: #475569; margin-bottom: 2pt; }
     
-    ul { margin: 0 0 6pt 0; padding-left: 16pt; }
-    li { font-size: 10pt; color: #1e293b; margin-bottom: 2.5pt; text-align: justify; }
+    ul { margin: 0 0 4pt 0; padding-left: 15pt; }
+    li { font-size: 9.5pt; color: #1e293b; margin-bottom: 2pt; text-align: justify; }
     
-    .edu-entry { margin-bottom: 4pt; }
+    .edu-entry { margin-bottom: 3pt; }
     .edu-header-table { width: 100%; border-collapse: collapse; }
-    .edu-degree { font-weight: bold; font-size: 10pt; color: #0f172a; text-align: left; }
-    .edu-date { font-weight: bold; font-size: 9pt; color: #475569; text-align: right; }
-    .edu-inst { font-style: italic; font-size: 9pt; color: #334155; }
+    .edu-degree { font-weight: bold; font-size: 9.5pt; color: #0f172a; text-align: left; }
+    .edu-date { font-weight: bold; font-size: 8.5pt; color: #475569; text-align: right; }
+    .edu-inst { font-style: italic; font-size: 8.5pt; color: #334155; }
+    
+    .ref-table { width: 100%; border-collapse: collapse; margin-top: 3pt; }
+    .ref-cell { width: 50%; vertical-align: top; padding: 2pt 6pt 2pt 0; }
   </style>
 </head>
 <body>
@@ -780,12 +912,52 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
     </div>
   `).join('')}
 
-  <!-- AWARDS, CERTIFICATIONS & DEVELOPMENT -->
+  <!-- AWARDS & HONORS -->
   ${data.awards && data.awards.length > 0 ? `
-    <div class="section-title">Awards, Certifications & Professional Development</div>
+    <div class="section-title">Awards & Honors</div>
     <ul>
       ${data.awards.map(a => `<li>${a}</li>`).join('')}
     </ul>
+  ` : ''}
+
+  <!-- CERTIFICATIONS & PROFESSIONAL DEVELOPMENT -->
+  ${data.certifications && data.certifications.length > 0 ? `
+    <div class="section-title">Certifications & Professional Development</div>
+    <ul>
+      ${data.certifications.map(c => `<li>${c}</li>`).join('')}
+    </ul>
+  ` : ''}
+
+  <!-- INTERNATIONAL DELEGATIONS & CONFERENCES -->
+  ${data.delegations && data.delegations.length > 0 ? `
+    <div class="section-title">International Delegations & Conferences</div>
+    <ul>
+      ${data.delegations.map(d => `<li>${d}</li>`).join('')}
+    </ul>
+  ` : ''}
+
+  <!-- LANGUAGES & LINGUISTIC PROFICIENCIES -->
+  ${data.languages && data.languages.length > 0 ? `
+    <div class="section-title">Languages & Linguistic Proficiencies</div>
+    <p style="font-size: 9.5pt; margin: 0 0 5pt 0; color: #1e293b;">
+      ${data.languages.join(' • ')}
+    </p>
+  ` : ''}
+
+  <!-- PROFESSIONAL REFERENCES -->
+  ${data.references && data.references.length > 0 ? `
+    <div class="section-title">Professional References</div>
+    <table class="ref-table">
+      <tr>
+        ${data.references.map((ref, idx) => `
+          <td class="ref-cell" style="${idx > 0 ? 'padding-left: 8pt;' : ''}">
+            <div style="font-weight: bold; font-size: 9.5pt; color: #0f172a;">${ref.name}</div>
+            <div style="font-style: italic; font-size: 8.5pt; color: #334155;">${ref.designation}${ref.institution ? `, ${ref.institution}` : ''}</div>
+            <div style="font-size: 8pt; color: #475569; font-family: 'Calibri', 'Arial', sans-serif;">${ref.contact}</div>
+          </td>
+        `).join('')}
+      </tr>
+    </table>
   ` : ''}
 
 </body>
@@ -1568,11 +1740,11 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
                   ))}
                 </div>
 
-                {/* SECTION: AWARDS & CERTIFICATIONS */}
+                {/* SECTION: AWARDS & HONORS */}
                 {parsedResume.awards && parsedResume.awards.length > 0 && (
                   <div className="space-y-1.5">
                     <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-950 border-b border-slate-900 pb-0.5">
-                      Awards, Certifications & Professional Development
+                      Awards & Honors
                     </h2>
                     <ul className="list-disc pl-5 space-y-1 text-xs sm:text-[13px] text-slate-800">
                       {parsedResume.awards.map((award, i) => (
@@ -1581,6 +1753,69 @@ ${analysis.identifiedWeakBullets.slice(0, 5).map(w => `❌ "${w.original}" [Weak
                         </li>
                       ))}
                     </ul>
+                  </div>
+                )}
+
+                {/* SECTION: CERTIFICATIONS & PROFESSIONAL DEVELOPMENT */}
+                {parsedResume.certifications && parsedResume.certifications.length > 0 && (
+                  <div className="space-y-1.5">
+                    <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-950 border-b border-slate-900 pb-0.5">
+                      Certifications & Professional Development
+                    </h2>
+                    <ul className="list-disc pl-5 space-y-1 text-xs sm:text-[13px] text-slate-800">
+                      {parsedResume.certifications.map((cert, i) => (
+                        <li key={i} className="leading-relaxed">
+                          {cert}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* SECTION: INTERNATIONAL DELEGATIONS & CONFERENCES */}
+                {parsedResume.delegations && parsedResume.delegations.length > 0 && (
+                  <div className="space-y-1.5">
+                    <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-950 border-b border-slate-900 pb-0.5">
+                      International Delegations & Conferences
+                    </h2>
+                    <ul className="list-disc pl-5 space-y-1 text-xs sm:text-[13px] text-slate-800">
+                      {parsedResume.delegations.map((del, i) => (
+                        <li key={i} className="leading-relaxed">
+                          {del}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* SECTION: LANGUAGES */}
+                {parsedResume.languages && parsedResume.languages.length > 0 && (
+                  <div className="space-y-1.5">
+                    <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-950 border-b border-slate-900 pb-0.5">
+                      Languages & Linguistic Proficiencies
+                    </h2>
+                    <div className="text-xs sm:text-[13px] text-slate-800 font-sans">
+                      {parsedResume.languages.join(' • ')}
+                    </div>
+                  </div>
+                )}
+
+                {/* SECTION: PROFESSIONAL REFERENCES */}
+                {parsedResume.references && parsedResume.references.length > 0 && (
+                  <div className="space-y-2">
+                    <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-950 border-b border-slate-900 pb-0.5">
+                      Professional References
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                      {parsedResume.references.map((ref, i) => (
+                        <div key={i} className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-0.5 font-sans text-xs">
+                          <div className="font-bold text-slate-950 font-serif text-[13px]">{ref.name}</div>
+                          <div className="italic text-slate-700 text-[11px]">{ref.designation}</div>
+                          {ref.institution && <div className="text-slate-600 text-[11px]">{ref.institution}</div>}
+                          <div className="text-slate-500 font-mono text-[10px] pt-1">{ref.contact}</div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
 
