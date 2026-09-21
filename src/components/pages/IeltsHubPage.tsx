@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, Mic, BarChart3, Scale, Zap, Award, 
-  Sparkles, Download, ArrowRight, Clock, Compass
+  Sparkles, Download, ArrowRight, Clock, Compass,
+  FileText, Eye, Check, X
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { IeltsCollocationDuel } from '../tools/IeltsCollocationDuel';
@@ -22,6 +23,8 @@ export const IeltsHubPage: React.FC = () => {
   const [examTimeline, setExamTimeline] = useState<'1month' | '2months' | '3months'>('2months');
   const [currentLevel, setCurrentLevel] = useState<'intermediate' | 'upper_intermediate' | 'advanced'>('upper_intermediate');
   const [generatedPlan, setGeneratedPlan] = useState(false);
+  const [showTask1Modal, setShowTask1Modal] = useState(false);
+  const [downloadSuccess, setDownloadSuccess] = useState<string | null>(null);
 
   useEffect(() => {
     document.title = 'IELTS Band 8.5 Master Preparation Hub | Free Interactive Practice & Simulators | DH Shishir';
@@ -410,39 +413,219 @@ export const IeltsHubPage: React.FC = () => {
             <div className="p-6 bg-white rounded-3xl border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                 <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">
-                  <Download className="w-4 h-4 text-teal-800" /> Free Candidate Downloadables
+                  <Download className="w-4 h-4 text-teal-800" /> Free Candidate Downloadables & Cheat Sheets
                 </div>
                 <span className="text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-2.5 py-0.5 rounded-full font-bold">
-                  Instant Access
+                  100% Free Instant Download
                 </span>
               </div>
 
               <div className="space-y-3">
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-between gap-4">
-                  <div>
-                    <h5 className="font-bold text-slate-900 text-xs">Band 9 Academic Collocations Anki Deck</h5>
-                    <p className="text-[11px] text-slate-500">250+ Flashcards with definitions, C1/C2 context, and example sentences.</p>
+                {/* Resource 1: Band 9 Anki Deck */}
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <FileText className="w-4 h-4 text-teal-800" />
+                      <h5 className="font-bold text-slate-900 text-xs">Band 9 Academic Collocations Anki Deck</h5>
+                    </div>
+                    <p className="text-[11px] text-slate-500">250+ Flashcards with definitions, Band 5➔9 upgrades, and example sentences formatted for the Anki app.</p>
                   </div>
-                  <a
-                    href="#/tools/ielts-collocation-duel"
-                    className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition whitespace-nowrap"
-                  >
-                    Export from Vault
-                  </a>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <a
+                      href="/downloads/IELTS-Band-9-Collocations-Anki-Deck.csv"
+                      download="IELTS-Band-9-Collocations-Anki-Deck.csv"
+                      onClick={() => {
+                        setDownloadSuccess('anki');
+                        setTimeout(() => setDownloadSuccess(null), 3000);
+                      }}
+                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm"
+                    >
+                      {downloadSuccess === 'anki' ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Download className="w-3.5 h-3.5" />}
+                      {downloadSuccess === 'anki' ? 'Downloaded!' : 'Download Anki (.CSV)'}
+                    </a>
+                  </div>
                 </div>
 
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-between gap-4">
-                  <div>
-                    <h5 className="font-bold text-slate-900 text-xs">Task 1 Preposition & Reporting Matrix</h5>
-                    <p className="text-[11px] text-slate-500">Cheat sheet covering dynamic verbs, percentages, and overview rules.</p>
+                {/* Resource 2: Task 1 Preposition & Reporting Matrix */}
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <BarChart3 className="w-4 h-4 text-teal-800" />
+                      <h5 className="font-bold text-slate-900 text-xs">Task 1 Preposition & Reporting Matrix</h5>
+                    </div>
+                    <p className="text-[11px] text-slate-500">Master preposition rules (by vs to vs of), dynamic verbs, and Band 9 overview formulas.</p>
                   </div>
-                  <a
-                    href="#/tools/ielts-task1-chart-morpher"
-                    className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition whitespace-nowrap"
-                  >
-                    View Matrix
-                  </a>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <button
+                      onClick={() => setShowTask1Modal(true)}
+                      className="px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-xl font-bold text-xs transition flex items-center gap-1.5"
+                    >
+                      <Eye className="w-3.5 h-3.5 text-teal-800" /> View Matrix
+                    </button>
+                    <a
+                      href="/downloads/IELTS-Task-1-Preposition-Reporting-Matrix.txt"
+                      download="IELTS-Task-1-Preposition-Reporting-Matrix.txt"
+                      onClick={() => {
+                        setDownloadSuccess('task1');
+                        setTimeout(() => setDownloadSuccess(null), 3000);
+                      }}
+                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm"
+                    >
+                      {downloadSuccess === 'task1' ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Download className="w-3.5 h-3.5" />}
+                      {downloadSuccess === 'task1' ? 'Downloaded!' : 'Download Cheat Sheet'}
+                    </a>
+                  </div>
                 </div>
+
+                {/* Resource 3: Band 9 Speaking Discourse Markers */}
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <Mic className="w-4 h-4 text-teal-800" />
+                      <h5 className="font-bold text-slate-900 text-xs">IELTS Speaking Band 9 Discourse Markers & Idioms</h5>
+                    </div>
+                    <p className="text-[11px] text-slate-500">Natural thinking fillers, abstract opinion framing, and Part 3 nuance transitions.</p>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <a
+                      href="/downloads/IELTS-Speaking-Band-9-Discourse-Markers.txt"
+                      download="IELTS-Speaking-Band-9-Discourse-Markers.txt"
+                      onClick={() => {
+                        setDownloadSuccess('speaking');
+                        setTimeout(() => setDownloadSuccess(null), 3000);
+                      }}
+                      className="px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-1.5 shadow-sm"
+                    >
+                      {downloadSuccess === 'speaking' ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Download className="w-3.5 h-3.5" />}
+                      {downloadSuccess === 'speaking' ? 'Downloaded!' : 'Download Guide'}
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TASK 1 PREPOSITION & REPORTING MATRIX MODAL */}
+        {showTask1Modal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs animate-in fade-in duration-200">
+            <div className="bg-white rounded-3xl max-w-3xl w-full max-h-[85vh] overflow-y-auto border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-6">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
+                    Academic Writing Task 1
+                  </span>
+                  <h3 className="text-xl font-black text-slate-900 mt-1">Preposition & Dynamic Reporting Matrix</h3>
+                </div>
+                <button
+                  onClick={() => setShowTask1Modal(false)}
+                  className="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* SECTION 1: PREPOSITION RULES TABLE */}
+              <div className="space-y-3">
+                <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-teal-700"></span> 1. The 5 Golden Preposition Rules
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                    <div className="font-bold text-teal-900">Rule 1: "BY" (Margin of Change)</div>
+                    <p className="text-slate-600 text-[11px]">Indicates the difference/amount gained or lost.</p>
+                    <div className="text-[11px] font-mono bg-white p-2 rounded-lg border border-slate-200 text-teal-950">
+                      "Exports increased <strong>BY 15%</strong> (from 50% to 65%)."
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                    <div className="font-bold text-teal-900">Rule 2: "TO" (Final Endpoint)</div>
+                    <p className="text-slate-600 text-[11px]">Indicates where the metric arrived.</p>
+                    <div className="text-[11px] font-mono bg-white p-2 rounded-lg border border-slate-200 text-teal-950">
+                      "Renewable adoption rose <strong>TO 65%</strong> in 2025."
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                    <div className="font-bold text-teal-900">Rule 3: "OF" (Follows a Noun)</div>
+                    <p className="text-slate-600 text-[11px]">Used after nominal trend nouns.</p>
+                    <div className="text-[11px] font-mono bg-white p-2 rounded-lg border border-slate-200 text-teal-950">
+                      "The sector witnessed a growth <strong>OF 15%</strong>."
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                    <div className="font-bold text-teal-900">Rule 4: "AT" (Static Point / Peak)</div>
+                    <p className="text-slate-600 text-[11px]">Indicates a steady point or plateau level.</p>
+                    <div className="text-[11px] font-mono bg-white p-2 rounded-lg border border-slate-200 text-teal-950">
+                      "Unemployment stood <strong>AT 4.5%</strong> in 2020."
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION 2: DYNAMIC VERB TAXONOMY */}
+              <div className="space-y-3">
+                <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span> 2. Band 8.5+ Dynamic Trend Verbs
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                  <div className="p-3 bg-emerald-50/70 rounded-xl border border-emerald-200 text-emerald-950 space-y-1">
+                    <div className="font-bold text-xs text-emerald-900">🚀 Rapid Surge</div>
+                    <ul className="text-[11px] space-y-0.5 text-emerald-800">
+                      <li>• Skyrocketed</li>
+                      <li>• Surged exponentially</li>
+                      <li>• Climbed markedly</li>
+                      <li>• Escalated sharply</li>
+                    </ul>
+                  </div>
+
+                  <div className="p-3 bg-rose-50/70 rounded-xl border border-rose-200 text-rose-950 space-y-1">
+                    <div className="font-bold text-xs text-rose-900">📉 Severe Contraction</div>
+                    <ul className="text-[11px] space-y-0.5 text-rose-800">
+                      <li>• Collapsed abruptly</li>
+                      <li>• Contracted substantially</li>
+                      <li>• Plummeted to a low</li>
+                      <li>• Underwent a slump</li>
+                    </ul>
+                  </div>
+
+                  <div className="p-3 bg-indigo-50/70 rounded-xl border border-indigo-200 text-indigo-950 space-y-1">
+                    <div className="font-bold text-xs text-indigo-900">〰️ Volatility & Plateau</div>
+                    <ul className="text-[11px] space-y-0.5 text-indigo-800">
+                      <li>• Oscillated wildly</li>
+                      <li>• Displayed volatility</li>
+                      <li>• Plateaued at</li>
+                      <li>• Levelled off around</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION 3: 2-SENTENCE OVERVIEW BLUEPRINT */}
+              <div className="p-4 bg-teal-50 rounded-2xl border border-teal-200 text-xs space-y-2">
+                <div className="font-bold text-teal-900 text-xs">🎯 The 2-Sentence Band 9 Overview Formula:</div>
+                <p className="text-slate-700 text-[11px] leading-relaxed">
+                  <em>"Overall, it is manifest that while <strong>[Category A]</strong> experienced a sustained upward trajectory, <strong>[Category B]</strong> underwent a marked contraction. Additionally, <strong>[Category A]</strong> remained the preeminent contributor throughout the surveyed span."</em>
+                </p>
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <a
+                  href="/downloads/IELTS-Task-1-Preposition-Reporting-Matrix.txt"
+                  download="IELTS-Task-1-Preposition-Reporting-Matrix.txt"
+                  className="px-5 py-2.5 bg-teal-900 hover:bg-teal-800 text-white rounded-xl font-bold text-xs transition flex items-center gap-2 shadow-sm"
+                >
+                  <Download className="w-4 h-4" /> Download Printable Cheat Sheet
+                </a>
+                <button
+                  onClick={() => setShowTask1Modal(false)}
+                  className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-xs transition"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
