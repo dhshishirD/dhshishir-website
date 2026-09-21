@@ -1,0 +1,51 @@
+name: Telegram Daily Fluency & IELTS Drills
+
+on:
+  schedule:
+    # 10:00 AM BST (04:00 UTC) -> Morning Collocation Duel
+    - cron: '0 4 * * *'
+    # 03:00 PM BST (09:00 UTC) -> Afternoon Cambridge Quiz Poll
+    - cron: '0 9 * * *'
+    # 08:30 PM BST (14:30 UTC) -> Nightly Acoustic Speech Shadowing
+    - cron: '30 14 * * *'
+  workflow_dispatch:
+    inputs:
+      drill_type:
+        description: 'Drill type to post'
+        required: true
+        default: 'collocation'
+        type: choice
+        options:
+          - collocation
+          - quiz
+          - shadowing
+
+jobs:
+  post-drill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Dispatch Scheduled Drill
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || '8869531997:AAEn0Ld2pnnQg8ymnaIjkxh1-as4Ru7g8FU' }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID || '@ieltsenglishfluency' }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node scripts/telegram-bot.js "${{ github.event.inputs.drill_type }}"
+          else
+            HOUR=$(date -u +%H)
+            if [ "$HOUR" -lt 7 ]; then
+              node scripts/telegram-bot.js collocation
+            elif [ "$HOUR" -lt 12 ]; then
+              node scripts/telegram-bot.js quiz
+            else
+              node scripts/telegram-bot.js shadowing
+            fi
+          fi
