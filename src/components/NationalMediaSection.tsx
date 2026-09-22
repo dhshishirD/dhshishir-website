@@ -171,16 +171,56 @@ export const NATIONAL_MEDIA_ITEMS: MediaItem[] = [
     description: 'Documentary overview detailing the vision for a modern, research-driven, and globally competitive university campus.'
   },
 
-  // --- NATIONAL PRINT & DIGITAL PRESS ARTICLES ---
+  // --- NATIONAL PRINT & DIGITAL PRESS MENTIONS ---
   {
-    id: 'daily-campus-article',
+    id: 'prothom-alo-featured',
+    type: 'article',
+    articleUrl: 'https://www.prothomalo.com/bangladesh/district/n5ggyur619',
+    title: 'শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ের ইংরেজি বিভাগের শিক্ষার্থী দেলোয়ার হাসান শিশির',
+    publisher: 'Prothom Alo (প্রথম আলো)',
+    category: 'press_article',
+    badge: 'Featured News',
+    description: 'National coverage in Prothom Alo on student academic excellence and university contributions at Shahjalal University of Science & Technology.'
+  },
+  {
+    id: 'daily-campus-election-230711',
+    type: 'article',
+    articleUrl: 'https://thedailycampus.com/engineering-university/230711',
+    title: 'শাকসু নির্বাচনে দুর্বার সাস্টিয়ান ঐক্য প্যানেলের ভিপি (সহ-সভাপতি) প্রার্থী হিসেবে আলোচনা',
+    publisher: 'The Daily Campus',
+    category: 'press_article',
+    badge: 'SUCSU Election Spotlight',
+    description: 'Special news analysis on the leadership candidacy and educational reforms proposed by Daloyar Hassan Shishir.'
+  },
+  {
+    id: 'naya-diganta-campus-edu',
+    type: 'article',
+    articleUrl: 'https://dailynayadiganta.com/bangladesh/education-campus/5BiZDXWi26N8',
+    title: 'শাবিপ্রবি শিক্ষার্থী দেলোয়ার হাসান শিশিরের শিক্ষা ও ক্যাম্পাস কার্যক্রম',
+    publisher: 'Daily Naya Diganta (নয়া দিগন্ত)',
+    category: 'press_article',
+    badge: 'Campus & Education',
+    description: 'Feature highlighting student welfare leadership, debate achievements, and language training initiatives at SUST.'
+  },
+  {
+    id: 'dhruba-news-leadership',
+    type: 'article',
+    articleUrl: 'https://www.dhrubanews.com/details/study/1653',
+    title: 'সাস্টিয়ান তরুণ নেতৃত্ব ও শিক্ষামূলক উদ্যোগের স্বীকৃতি',
+    publisher: 'Dhruba News',
+    category: 'press_article',
+    badge: 'Youth Leadership',
+    description: 'Recognition of progressive youth leadership, international study fellowship representation, and community education.'
+  },
+  {
+    id: 'daily-campus-panel-230722',
     type: 'article',
     articleUrl: 'https://thedailycampus.com/higher-education/230722',
     title: 'শাকসু নির্বাচনে শিবিরের প্যানেলের শীর্ষ ৩ পদে শিশির-মোজাহিদ-শাকিল',
     publisher: 'The Daily Campus',
     category: 'press_article',
     badge: 'Higher Education Press',
-    description: 'Official announcement and panel introduction for the 23-member SUCSU leadership election at Shahjalal University of Science & Technology.'
+    description: 'Official announcement and panel introduction for the 23-member full SUCSU leadership panel at SUST.'
   },
   {
     id: 'kalbela-article',
@@ -235,15 +275,15 @@ export const NationalMediaSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/90 border border-teal-500/30 text-teal-400 text-xs font-bold uppercase tracking-wider shadow-lg">
             <Tv className="w-3.5 h-3.5 text-teal-400 animate-pulse" />
-            <span>National Media & Public Keynotes</span>
+            <span>National Media Presence & Press Mentions</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Broadcast Interviews & <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">National Press Coverage</span>
+            Broadcast Interviews & <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">National Media Presence</span>
           </h2>
 
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Televised dialogues, panel debates, and national news features across Bangladesh mainstream networks covering higher education reform, student rights, and strategic leadership.
+            Featured in leading national dailies, television networks, and campus media for academic, diplomatic, and leadership contributions.
           </p>
         </div>
 
@@ -252,7 +292,10 @@ export const NationalMediaSection: React.FC = () => {
           <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider text-center mb-4">
             Featured Across National Television & Mainstream Press Networks
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-bold text-slate-300">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-sm font-bold text-slate-300">
+            <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900/80 rounded-lg border border-slate-700/60">
+              <span className="w-2 h-2 rounded-full bg-rose-500" /> Prothom Alo
+            </span>
             <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900/80 rounded-lg border border-slate-700/60">
               <span className="w-2 h-2 rounded-full bg-red-500" /> ATN Bangla News
             </span>
@@ -270,6 +313,9 @@ export const NationalMediaSection: React.FC = () => {
             </span>
             <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900/80 rounded-lg border border-slate-700/60">
               <span className="w-2 h-2 rounded-full bg-cyan-500" /> Naya Diganta
+            </span>
+            <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900/80 rounded-lg border border-slate-700/60">
+              <span className="w-2 h-2 rounded-full bg-indigo-500" /> Dhruba News
             </span>
             <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900/80 rounded-lg border border-slate-700/60">
               <span className="w-2 h-2 rounded-full bg-purple-500" /> Shomoyer Alo
@@ -290,7 +336,7 @@ export const NationalMediaSection: React.FC = () => {
                 : 'bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700'
             }`}
           >
-            <span>All Media Highlights</span>
+            <span>All Media Presence</span>
           </button>
 
           <button
@@ -314,7 +360,7 @@ export const NationalMediaSection: React.FC = () => {
             }`}
           >
             <Newspaper className="w-3.5 h-3.5" />
-            <span>Print & Press Articles</span>
+            <span>Press & News Mentions</span>
           </button>
 
           <button
@@ -360,6 +406,9 @@ export const NationalMediaSection: React.FC = () => {
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                     loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/shishir-photo-focused.jpg';
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
                   
@@ -432,7 +481,7 @@ export const NationalMediaSection: React.FC = () => {
                       rel="noopener noreferrer"
                       className="text-xs font-bold text-teal-400 hover:text-teal-300 flex items-center gap-1.5"
                     >
-                      <span>Read Full Article</span>
+                      <span>Read Article</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   )}

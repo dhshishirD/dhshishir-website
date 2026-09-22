@@ -1,6 +1,6 @@
 import React from "react";
 import { 
-  Globe, GraduationCap, Sparkles, Compass, Tv, Briefcase, 
+  Globe, GraduationCap, Sparkles, Compass, Briefcase, 
   ArrowRight, ShieldCheck, CheckCircle2 
 } from "lucide-react";
 import { SOCIAL_LINKS } from "../data/portfolioData";
@@ -15,14 +15,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
     e.preventDefault();
     if (onNavigate) {
       onNavigate(view, toolId);
-    }
-  };
-
-  const scrollToMedia = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const mediaEl = document.getElementById('media-presence');
-    if (mediaEl) {
-      mediaEl.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -41,9 +33,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.14]">
-              Delowar Hassan Shishir <br />
+              Daloyar Hassan Shishir <br />
               <span className="text-teal-900 font-serif-title">
-                Diplomatic Analyst, AI Education Architect & Public Speaker
+                Diplomatic Enthusiast, Policy Analyst & English Educator
               </span>
             </h1>
 
@@ -70,27 +62,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
               </button>
 
               <button
-                onClick={scrollToMedia}
-                className="px-5 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-teal-300 font-bold text-xs sm:text-sm transition flex items-center gap-2 cursor-pointer shadow-xs"
+                onClick={(e) => handleNav(e, 'organizations')}
+                className="px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-300 font-bold text-xs sm:text-sm transition flex items-center gap-2 cursor-pointer shadow-2xs"
               >
-                <Tv className="w-4 h-4 text-teal-400" />
-                <span>National Media & Press</span>
+                <Briefcase className="w-4 h-4 text-teal-800" />
+                <span>24+ Organization Dossiers</span>
               </button>
             </div>
 
             {/* Social Connect + Global Dossiers */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
               <button
-                onClick={(e) => handleNav(e, 'organizations')}
-                className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
-              >
-                <Briefcase className="w-3.5 h-3.5 text-teal-800" /> 24+ Organization Dossiers
-              </button>
-              <button
                 onClick={(e) => handleNav(e, 'fellowship')}
                 className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-teal-800" /> Open Fellowship (OMF-IRSS)
+              </button>
+              <button
+                onClick={(e) => handleNav(e, 'communication-course')}
+                className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-teal-800" /> Executive Masterclass
               </button>
               <a
                 href={SOCIAL_LINKS.facebook}
@@ -125,8 +117,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                 <div className="text-[11px] text-slate-600 font-semibold">Global UN/NGO Dossiers</div>
               </div>
               <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-2xs text-center sm:text-left">
-                <div className="text-xl sm:text-2xl font-black text-teal-900">National</div>
-                <div className="text-[11px] text-slate-600 font-semibold">TV & Media Coverage</div>
+                <div className="text-xl sm:text-2xl font-black text-teal-900">Media</div>
+                <div className="text-[11px] text-slate-600 font-semibold">Extensive Presence</div>
               </div>
             </div>
           </div>
@@ -136,7 +128,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             <div className="relative w-72 sm:w-80 md:w-96 aspect-4/5 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group">
               <img
                 src="/shishir-photo-focused.jpg"
-                alt="Delowar Hassan Shishir"
+                alt="Daloyar Hassan Shishir"
                 className="w-full h-full object-cover object-top transition duration-700 group-hover:scale-105"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/shishir-photo.jpg';
@@ -144,9 +136,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/90 text-slate-950 font-black text-xs uppercase tracking-wider backdrop-blur-xs w-fit mb-2">
-                  <ShieldCheck className="w-3.5 h-3.5" /> Verified Public Leader
+                  <ShieldCheck className="w-3.5 h-3.5" /> Youth Leader
                 </div>
-                <h3 className="text-xl font-black leading-tight">Delowar Hassan Shishir</h3>
+                <h3 className="text-xl font-black leading-tight">Daloyar Hassan Shishir</h3>
                 <p className="text-xs text-teal-200 font-medium">Shahjalal University of Science & Technology (SUST)</p>
               </div>
             </div>
