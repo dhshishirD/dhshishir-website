@@ -268,6 +268,85 @@ const htmlContent = `<!DOCTYPE html>
   </tbody>
 </table>
 
+<h2>1.5. Deep Architectural Justification: Why Choose These Specific Programs vs. Their Alternatives?</h2>
+<p>In modern web engineering, selecting the wrong toolchain can result in slow site speed, high server maintenance bills, security vulnerabilities, or vendor lock-in. Below is the precise technical rationale for why each program was chosen over its common market rivals:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Chosen Technology</th>
+      <th>Direct Market Alternatives</th>
+      <th>Actual Mechanical Function</th>
+      <th>Why Chosen Over Alternatives (Critical Advantages)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>React 18 + TypeScript</strong></td>
+      <td>• Next.js / Nuxt<br>• Vue.js / Svelte<br>• Angular<br>• Vanilla JavaScript</td>
+      <td>Manages reactive UI state, virtual DOM reconciliation, and compile-time type safety across complex interactive simulators.</td>
+      <td>
+        • <strong>Vs Next.js:</strong> Next.js requires expensive Node.js server runtimes or complex serverless compute. React + custom static prerendering gives 100% free static edge hosting with zero cold-starts.<br>
+        • <strong>Vs Vanilla JS:</strong> Managing state across 20 lectures, negotiation simulators, and speech labs in plain JS causes spaghetti code and frequent DOM sync bugs.<br>
+        • <strong>Vs TypeScript over Plain JS:</strong> TypeScript catches data shape errors before runtime, critical for multi-round game-theory engines.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Vite (v8 / Rolldown)</strong></td>
+      <td>• Webpack<br>• Create React App (CRA)<br>• Turbopack<br>• Parcel</td>
+      <td>Compiles and bundles ES modules, provides Hot Module Replacement (HMR) during local development, and creates minified production chunks.</td>
+      <td>
+        • <strong>Vs Webpack / CRA:</strong> Webpack bundles the entire app into memory before serving (taking 20–40 seconds to start). Vite leverages native browser ES modules to launch instantly (&lt;200ms).<br>
+        • <strong>Vs CRA:</strong> CRA is officially deprecated by the React team and produces bloated bundle sizes with slow build times.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Tailwind CSS (v4)</strong></td>
+      <td>• Bootstrap 5<br>• Material UI (MUI)<br>• SASS / Pure CSS<br>• Styled Components</td>
+      <td>Generates utility-first responsive CSS directly from HTML class names with zero unused styling in production.</td>
+      <td>
+        • <strong>Vs Bootstrap / MUI:</strong> Bootstrap and MUI impose heavy predefined visual styles and inject massive runtime JavaScript overhead. Tailwind produces bespoke luxury design with zero runtime penalty.<br>
+        • <strong>Vs Pure CSS:</strong> Pure CSS leads to bloated 5,000-line stylesheets with naming collisions; Tailwind purges unused rules, keeping the production CSS under 20 KB.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Supabase (PostgreSQL)</strong></td>
+      <td>• Google Firebase (Firestore)<br>• MongoDB / Express<br>• AWS Amplify / DynamoDB<br>• MySQL / PHP</td>
+      <td>Relational cloud database with built-in Google OAuth 2.0, Row-Level Security (RLS), and real-time user state synchronization.</td>
+      <td>
+        • <strong>Vs Firebase:</strong> Firebase is NoSQL, making complex relational queries (e.g., student progress across specific IR modules or IELTS scores) difficult and expensive. Supabase is true relational PostgreSQL.<br>
+        • <strong>Vs Custom Node/Express API:</strong> With Supabase Row Level Security (RLS), database access rules are enforced directly at the Postgres engine level, eliminating the need to write and maintain a separate backend server.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Custom Node.js Prerenderer</strong></td>
+      <td>• Puppeteer / Playwright<br>• Gatsby<br>• Next.js SSG<br>• Prerender.io (Paid)</td>
+      <td>Crawls <span class="tech-badge">sitemap.xml</span> during build, generates 123+ static HTML index files, and injects Schema.org JSON-LD microdata for search engines.</td>
+      <td>
+        • <strong>Vs Puppeteer / Playwright:</strong> Headless browsers require 2–4 GB of RAM and take minutes to render; our custom Node script executes in <strong>under 2 seconds</strong> with zero memory overhead.<br>
+        • <strong>Vs Paid Prerender.io:</strong> Saves $20–$100/month in SaaS subscriptions while giving 100% control over injected SEO metadata.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Lucide React & Framer Motion</strong></td>
+      <td>• FontAwesome<br>• React-Icons<br>• Lottie Animations<br>• jQuery / CSS Animations</td>
+      <td>Provides vector SVG iconography and physics-based fluid layout animations (accordions, modal reveals, score counters).</td>
+      <td>
+        • <strong>Vs FontAwesome:</strong> FontAwesome loads heavy font files that delay First Contentful Paint (FCP); Lucide provides pure, tree-shakable inline SVGs with zero layout shift.<br>
+        • <strong>Vs Lottie:</strong> Lottie uses heavy JSON animations that drain mobile battery; Framer Motion runs on GPU-accelerated hardware transforms.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Vercel / Cloudflare Edge CDN</strong></td>
+      <td>• Traditional cPanel / Apache<br>• AWS EC2 / Droplets<br>• Heroku<br>• Dedicated Linux Server</td>
+      <td>Distributes the website across 300+ global data centers, serves static assets from edge memory, and manages SSL certificates.</td>
+      <td>
+        • <strong>Vs cPanel / VPS:</strong> Traditional servers crash under sudden traffic spikes, require manual Linux OS patching, and have high latency for international visitors. Edge CDN serves content in &lt;30ms worldwide for $0 hosting cost.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <div class="page-break"></div>
 
 <h2>2. Core Technology Stack & Library Matrix</h2>
