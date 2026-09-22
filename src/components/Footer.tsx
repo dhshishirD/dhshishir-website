@@ -63,8 +63,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
               <li>
-                <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-teal-800 transition">
-                  Daily Think Tank Strategic Stream
+                <a href="/courses/executive-communication" onClick={(e) => handleLink(e, 'communication-course')} className="hover:text-teal-800 transition">
+                  Executive Communication Masterclass
+                </a>
+              </li>
+              <li>
+                <a href="/fellowship" onClick={(e) => handleLink(e, 'fellowship')} className="hover:text-teal-800 transition">
+                  IR Master's Fellowship (Open Syllabus)
                 </a>
               </li>
               <li>
@@ -74,7 +79,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-teal-800 transition">
-                  Bay of Bengal & Maritime Security
+                  Daily Think Tank Strategic Stream
                 </a>
               </li>
             </ul>
@@ -86,6 +91,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <Sparkles className="w-3.5 h-3.5 text-teal-800" /> Learning & Tools
             </h4>
             <ul className="space-y-2">
+              <li>
+                <a href="/ielts/vocabulary-studio" onClick={(e) => handleLink(e, 'ielts-vocab')} className="hover:text-teal-800 transition font-bold text-amber-950">
+                  📚 IELTS Topic-Wise Vocabulary Studio
+                </a>
+              </li>
+              <li>
+                <a href="/ielts" onClick={(e) => handleLink(e, 'ielts')} className="hover:text-teal-800 transition">
+                  IELTS Master Preparation Hub
+                </a>
+              </li>
               <li>
                 <a href="/fluency-lab" onClick={(e) => handleLink(e, 'fluency-lab')} className="hover:text-teal-800 transition">
                   Fluency Lab Interactive Spoken English
@@ -99,11 +114,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li>
                 <a href="/tools/cover-letter" onClick={(e) => handleLink(e, 'tools', 'cover-letter')} className="hover:text-teal-800 transition">
                   AI Cover Letter Studio
-                </a>
-              </li>
-              <li>
-                <a href="/tools/ielts-planner" onClick={(e) => handleLink(e, 'tools', 'ielts-planner')} className="hover:text-teal-800 transition">
-                  IELTS Study Routine Architect
                 </a>
               </li>
             </ul>

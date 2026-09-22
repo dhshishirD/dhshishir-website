@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, 
   GraduationCap, Compass, Share2, Shield, Award, ChevronDown, 
-  Wrench, BookOpen, FileText, PhoneCall, Building2
+  Wrench, BookOpen, FileText, PhoneCall, Building2, MessageSquare
 } from 'lucide-react';
 import { supabase } from '../services/supabaseClient';
 import { AuthModal } from './auth/AuthModal';
@@ -10,7 +10,7 @@ import { DiplomaticSoundscapes } from './common/DiplomaticSoundscapes';
 import { LanguageSwitcher } from './common/LanguageSwitcher';
 import { ShareModal } from './common/ShareModal';
 
-export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'organizations' | 'fluency-lab' | 'ielts' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard' | 'admin';
+export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'organizations' | 'communication-course' | 'fluency-lab' | 'ielts' | 'ielts-vocab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard' | 'admin';
 
 interface NavbarProps {
   currentView?: ViewType;
@@ -64,8 +64,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
     if (onNavigate) onNavigate('home');
   };
 
-  const isDiplomacyActive = currentView === 'fellowship' || currentView === 'diplomacy' || currentView === 'map' || currentView === 'organizations';
-  const isEnglishActive = currentView === 'ielts' || currentView === 'fluency-lab';
+  const isDiplomacyActive = currentView === 'fellowship' || currentView === 'diplomacy' || currentView === 'map' || currentView === 'organizations' || currentView === 'communication-course';
+  const isEnglishActive = currentView === 'ielts' || currentView === 'fluency-lab' || currentView === 'ielts-vocab';
   const isInsightsActive = currentView === 'blog' || currentView === 'leadership' || currentView === 'contact';
 
   return (
@@ -141,6 +141,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                           <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-emerald-500 text-slate-950 uppercase">VERIFIED</span>
                         </div>
                         <p className="text-[11px] text-slate-500 mt-0.5">32+ dossiers, verified UN jobs & scholarships</p>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => handleNavClick('communication-course')}
+                      className="w-full text-left p-2.5 rounded-xl hover:bg-teal-50/70 flex items-start gap-3 transition cursor-pointer group"
+                    >
+                      <div className="p-2 rounded-lg bg-teal-50 text-teal-800 group-hover:bg-teal-900 group-hover:text-white transition">
+                        <MessageSquare className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-900 group-hover:text-teal-950">Executive Communication</span>
+                          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-amber-400 text-slate-950 uppercase">CERTIFICATE</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 mt-0.5">BLUF, Harvard PON, RACI & crisis sims</p>
                       </div>
                     </button>
 
@@ -230,6 +246,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                           <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-amber-200 text-amber-900 uppercase">FREE</span>
                         </div>
                         <p className="text-[11px] text-slate-500 mt-0.5">6 interactive engines, study roadmap & Anki</p>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => handleNavClick('ielts-vocab')}
+                      className="w-full text-left p-2.5 rounded-xl hover:bg-amber-50/70 flex items-start gap-3 transition cursor-pointer group bg-amber-50/40 border border-amber-200/60"
+                    >
+                      <div className="p-2 rounded-lg bg-amber-500 text-slate-950 group-hover:scale-105 transition">
+                        <BookOpen className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-900 group-hover:text-amber-950">Topic Vocabulary Studio</span>
+                          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-amber-400 text-slate-950 uppercase">150+ C1/C2</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 mt-0.5">10 domains, collocations, speech & Anki</p>
                       </div>
                     </button>
 
@@ -448,6 +480,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               </button>
 
               <button
+                onClick={() => handleNavClick('communication-course')}
+                className="w-full text-left py-2.5 px-3.5 rounded-xl text-xs font-bold text-slate-900 bg-amber-50/50 border border-amber-200 flex items-center justify-between transition cursor-pointer"
+              >
+                <div className="flex items-center gap-2.5">
+                  <MessageSquare className="w-4 h-4 text-amber-700" />
+                  <span>Executive Communication Course</span>
+                </div>
+                <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">CERT</span>
+              </button>
+
+              <button
                 onClick={() => handleNavClick('fellowship')}
                 className="w-full text-left py-2.5 px-3.5 rounded-xl text-xs font-bold text-teal-950 bg-teal-50/70 border border-teal-200 flex items-center justify-between transition cursor-pointer"
               >
@@ -492,6 +535,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                   <span>IELTS Master Hub</span>
                 </div>
                 <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">Band 8.5</span>
+              </button>
+
+              <button
+                onClick={() => handleNavClick('ielts-vocab')}
+                className="w-full text-left py-2.5 px-3.5 rounded-xl text-xs font-bold text-slate-900 bg-amber-50/50 border border-amber-200 flex items-center justify-between transition cursor-pointer"
+              >
+                <div className="flex items-center gap-2.5">
+                  <BookOpen className="w-4 h-4 text-amber-700" />
+                  <span>Topic-wise Vocabulary Studio</span>
+                </div>
+                <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">150+ C1</span>
               </button>
 
               <button

@@ -55,6 +55,18 @@
     <priority>0.90</priority>
   </url>
   <url>
+    <loc>https://dhshishir.com/courses/executive-communication</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.96</priority>
+  </url>
+  <url>
+    <loc>https://dhshishir.com/ielts/vocabulary-studio</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.96</priority>
+  </url>
+  <url>
     <loc>https://dhshishir.com/ielts</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>daily</changefreq>

@@ -133,9 +133,13 @@ const CUSTOM_OVERRIDES = {
     title: 'English Fluency Lab | Free English Speaking Course Online & Practice | DH Shishir',
     description: 'Welcome to English Fluency Lab: the free interactive English speaking course & fluency practice portal. Master acoustic shadowing, CEFR speech cadence, and native spoken English online.'
   },
-  'ielts': {
-    title: 'IELTS Band 8.5 Master Preparation Hub | Free Interactive Simulators & Roadmap | DH Shishir',
-    description: 'The ultimate free IELTS preparation portal. Interactive Band 9 Collocation Duel, Academic Task 1 Chart Morpher, Reading True/False/Not Given Courtroom, Speaking Flow Radar, customized study planner, and downloadable Anki vocabulary decks.'
+  'courses/executive-communication': {
+    title: 'Executive Communication & Coordination Skills Masterclass | Free Interactive Course & Certificate | DH Shishir',
+    description: 'Master executive communication, BLUF framework, Harvard PON negotiation (BATNA/ZOPA), RACI matrix alignment, and crisis de-escalation with interactive simulators and verifiable certification.'
+  },
+  'ielts/vocabulary-studio': {
+    title: 'IELTS Band 9 Topic-Wise Vocabulary Studio & Collocation Decks | DH Shishir',
+    description: 'Master 150+ CEFR C1/C2 advanced lexical items across 10 high-frequency IELTS academic topics. Features acoustic audio pronunciation, collocation pairings, Band 5 vs Band 9 morphing, 60s speed duel, and Anki/Word export.'
   },
   'organizations': {
     title: 'Global Organization Strategic Dossiers & 100% Verified Career Pathways Hub | DH Shishir',
@@ -299,6 +303,70 @@ for (const fullUrl of urls) {
     `<meta name="twitter:description" content="${description}" />`
   );
 
+  // Inject Course Schema for Executive Communication Masterclass
+  if (urlPath === 'courses/executive-communication') {
+    const courseSchema = `
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Executive Communication, Negotiation & Coordination Skills Masterclass",
+      "description": "High-impact interactive executive masterclass covering the Pyramid Principle (BLUF), Harvard Program on Negotiation (PON BATNA/ZOPA), RACI matrix governance, and crisis de-escalation.",
+      "provider": {
+        "@type": "Person",
+        "name": "Daloyar Hassan Shishir",
+        "jobTitle": "Diplomatic Enthusiast, Policy Analyst & English Educator",
+        "url": "https://dhshishir.com/"
+      },
+      "isAccessibleForFree": true,
+      "educationalLevel": "Executive & Advanced Professional",
+      "courseMode": "Online (Interactive Simulators & Capstone Exam)",
+      "inLanguage": "en",
+      "teaches": [
+        "Executive BLUF Communication",
+        "Harvard PON Negotiation Frameworks",
+        "RACI Matrix Governance",
+        "Crisis Decision-Tree Resolution",
+        "Diplomatic & High-Stakes Verbal Briefings"
+      ]
+    }
+    </script>
+    `;
+    html = html.replace('</head>', `${courseSchema}\n  </head>`);
+  }
+
+  // Inject LearningResource Schema for IELTS Vocabulary Studio
+  if (urlPath === 'ielts/vocabulary-studio') {
+    const courseSchema = `
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "IELTS Band 9 Special Topic-Wise Vocabulary Studio & Collocation Decks",
+      "description": "Comprehensive academic lexical resource featuring 150+ C1/C2 terms across 10 IELTS topics with IPA pronunciation, collocations, Band 5 vs 9 contrasts, and 60s speed arcade.",
+      "provider": {
+        "@type": "Person",
+        "name": "Daloyar Hassan Shishir",
+        "jobTitle": "Diplomatic Enthusiast, Policy Analyst & English Educator",
+        "url": "https://dhshishir.com/"
+      },
+      "isAccessibleForFree": true,
+      "educationalLevel": "CEFR C1 to C2 (IELTS Band 7.5 to 9.0)",
+      "courseMode": "Online (Interactive Lexicon Studio)",
+      "inLanguage": "en",
+      "teaches": [
+        "Band 9 Academic Vocabulary",
+        "Natural Academic Collocations",
+        "Acoustic Pronunciation & IPA",
+        "Lexical Resource Band Descriptors",
+        "Anki Spaced Repetition Lexicon Export"
+      ]
+    }
+    </script>
+    `;
+    html = html.replace('</head>', `${courseSchema}\n  </head>`);
+  }
+
   // Inject Course Schema for English Fluency Lab
   if (urlPath === 'english-fluency-lab' || urlPath === 'fluency-lab') {
     const courseSchema = `
@@ -383,6 +451,67 @@ for (const fullUrl of urls) {
         <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">3. Interactive Practice & Recommended Tools</h2>
         <p class="text-slate-700 leading-relaxed">
           To reinforce this masterclass, explore our free interactive browser tools including the ATS Resume Checker, AI Statement of Purpose Generator, and Fluency Lab Acoustic Shadowing engine.
+        </p>
+      </div>
+    `;
+  } else if (urlPath === 'courses/executive-communication') {
+    articleBody = `
+      <div class="space-y-6">
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-6">
+          <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block mb-1">Executive Leadership & Strategic Coordination Course</span>
+          <p class="text-base text-slate-800 leading-relaxed font-medium">${description}</p>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">1. Executive Communication Masterclass Curriculum</h2>
+        <p class="text-slate-700 leading-relaxed">
+          Designed for diplomats, senior civil servants, corporate executives, and non-profit leaders, this interactive course covers 5 foundational frameworks essential for high-stakes decision-making and cross-functional leadership.
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-slate-700">
+          <li><strong>Pyramid Principle & BLUF:</strong> Inverting bottom-heavy narratives to front-load the Bottom Line Up Front, decision requests, and impact summaries.</li>
+          <li><strong>RACI Matrix & Cross-Functional Alignment:</strong> Eliminating organizational ambiguity by establishing single Responsible (R) and Accountable (A) ownership.</li>
+          <li><strong>Harvard PON Negotiation:</strong> Master BATNA (Best Alternative to a Negotiated Agreement), ZOPA (Zone of Possible Agreement), and interest-based bargaining.</li>
+          <li><strong>Crisis De-escalation:</strong> Non-violent de-escalation models for high-tension corporate and diplomatic crises.</li>
+          <li><strong>PREP Verbal Briefing:</strong> Point, Reason, Evidence, Point framework for 60-second executive summaries.</li>
+        </ul>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">2. Interactive Crisis Simulators & Decision Trees</h2>
+        <p class="text-slate-700 leading-relaxed">
+          Test your executive judgment through real-time branching crisis simulators featuring cyber breach disclosure, high-stakes M&A leak containment, hostile supply chain renegotiation, and cross-cultural diplomatic standoff resolution.
+        </p>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">3. Verifiable Digital Certification</h2>
+        <p class="text-slate-700 leading-relaxed">
+          Complete all interactive case studies and score 80%+ on the 10-question Capstone Certification Exam to earn a verifiable digital certificate shareable directly to LinkedIn and professional CVs.
+        </p>
+      </div>
+    `;
+  } else if (urlPath === 'ielts/vocabulary-studio') {
+    articleBody = `
+      <div class="space-y-6">
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-6">
+          <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block mb-1">IELTS Band 9 Topic-Wise Lexicon & Collocation Studio</span>
+          <p class="text-base text-slate-800 leading-relaxed font-medium">${description}</p>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">1. 10 High-Frequency Academic Domains</h2>
+        <p class="text-slate-700 leading-relaxed">
+          Master 150+ CEFR C1/C2 advanced lexical items and precise academic collocations across the 10 most heavily tested IELTS Writing and Speaking topic areas:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-slate-700">
+          <li>Artificial Intelligence, Automation & Data Sovereignty</li>
+          <li>Climate Transition, Renewable Grids & Environmental Policy</li>
+          <li>Global Economics, Supply Chains & Fiscal Policy</li>
+          <li>Public Health, Pandemics & Biomedical Innovation</li>
+          <li>Education Reform, Digital Pedagogy & Cognitive Development</li>
+          <li>Urbanization, Smart Infrastructure & Sustainable Cities</li>
+          <li>Geopolitical Strategy, Diplomacy & International Law</li>
+          <li>Media Ecosystems, Algorithmic Curation & Digital Culture</li>
+          <li>Space Exploration, Astronomy & Sovereign Space Commerce</li>
+          <li>Cultural Heritage, Linguistic Diversity & Globalization</li>
+        </ul>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">2. Interactive Features & Band 9 Collocation Arcade</h2>
+        <p class="text-slate-700 leading-relaxed">
+          Each lexical entry features acoustic pronunciation audio, IPA transcription, essential academic collocations, and side-by-side Band 5.5 vs Band 9.0 model sentence contrasts. Challenge yourself in the 60-second Speed Collocation Duel arcade to build rapid lexical retrieval reflex under exam pressure.
+        </p>
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-3">3. Anki & Word Export Toolkits</h2>
+        <p class="text-slate-700 leading-relaxed">
+          Export full topic decks directly to Anki (.tsv spaced repetition format) or download structured Microsoft Word (.doc) study sheets for offline revision.
         </p>
       </div>
     `;

@@ -25,6 +25,8 @@ const ToolsDirectoryPage = lazy(() => import('./components/pages/ToolsDirectoryP
 const FellowshipPage = lazy(() => import('./components/pages/FellowshipPage').then(m => ({ default: m.FellowshipPage })));
 const IeltsHubPage = lazy(() => import('./components/pages/IeltsHubPage').then(m => ({ default: m.IeltsHubPage })));
 const OrganizationHubPage = lazy(() => import('./components/pages/OrganizationHubPage').then(m => ({ default: m.OrganizationHubPage })));
+const CommunicationCoursePage = lazy(() => import('./components/pages/CommunicationCoursePage').then(m => ({ default: m.CommunicationCoursePage })));
+const IeltsVocabPage = lazy(() => import('./components/pages/IeltsVocabPage').then(m => ({ default: m.IeltsVocabPage })));
 const AdminExecutiveDashboard = lazy(() => import('./components/admin/AdminExecutiveDashboard').then(m => ({ default: m.AdminExecutiveDashboard })));
 
 const RouteLoadingSpinner = () => (
@@ -58,6 +60,16 @@ export function App() {
       setCurrentView('organizations');
       setIsStandaloneTool(false);
       document.title = 'Global Organization Strategic Dossiers, 100% Verified Careers & Scholarships Hub | DH Shishir';
+    } else if (path === '/courses/executive-communication' || path === '/executive-communication' || path === '/communication-course' || path === '/coordination-skills' || path === '/negotiation-course' || hash.startsWith('#/courses/executive-communication') || hash.startsWith('#/communication-course')) {
+      setActiveDossierSlug(null);
+      setCurrentView('communication-course');
+      setIsStandaloneTool(false);
+      document.title = 'Executive Communication & Coordination Skills Masterclass | DH Shishir';
+    } else if (path === '/ielts/vocabulary-studio' || path === '/ielts-vocab' || path === '/ielts-vocabulary' || path === '/topic-vocab' || hash.startsWith('#/ielts/vocabulary-studio') || hash.startsWith('#/ielts-vocab')) {
+      setActiveDossierSlug(null);
+      setCurrentView('ielts-vocab');
+      setIsStandaloneTool(false);
+      document.title = 'IELTS Band 9 Topic-Wise Vocabulary Studio & Collocation Decks | DH Shishir';
     } else if (path === '/fellowship' || path === '/ir-fellowship' || path === '/master-ir' || hash.startsWith('#/fellowship')) {
       setActiveDossierSlug(null);
       setCurrentView('fellowship');
@@ -192,10 +204,16 @@ export function App() {
     if (view === 'organizations') {
       targetPath = '/organizations';
       setActiveDossierSlug(null);
+    } else if (view === 'communication-course') {
+      targetPath = '/courses/executive-communication';
+      setActiveDossierSlug(null);
+    } else if (view === 'ielts-vocab') {
+      targetPath = '/ielts/vocabulary-studio';
+      setActiveDossierSlug(null);
     } else if (view === 'fellowship') {
       targetPath = '/fellowship';
       setActiveDossierSlug(null);
-        } else if (view === 'map') {
+    } else if (view === 'map') {
       targetPath = subParam ? `/diplomatic-map?location=${subParam}` : '/diplomatic-map';
       setActiveMapLocationId(subParam || null);
       setActiveDossierSlug(null);
@@ -258,6 +276,17 @@ export function App() {
             onNavigateToAtsWithTrack={(_trackPayload) => {
               navigateTo('tools', 'ats-resume');
             }}
+          />
+        ) : currentView === 'communication-course' ? (
+          <CommunicationCoursePage
+            user={user}
+            onNavigateHome={() => navigateTo('home')}
+          />
+        ) : currentView === 'ielts-vocab' ? (
+          <IeltsVocabPage
+            user={user}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateIeltsHub={() => navigateTo('ielts')}
           />
         ) : currentView === 'map' ? (
           <DiplomaticMapPage
