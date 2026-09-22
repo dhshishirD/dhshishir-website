@@ -16,6 +16,10 @@ dhshishir_backup_*.tar.gz
 scripts/temp_video_build
 scripts/temp_elevenlabs_build
 scripts/temp_short1_build
+local_video_production
+videos
+*.mp4
+*.webm
 
 # Editor directories and files
 .vscode/*
