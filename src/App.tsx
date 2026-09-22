@@ -27,6 +27,7 @@ const IeltsHubPage = lazy(() => import('./components/pages/IeltsHubPage').then(m
 const OrganizationHubPage = lazy(() => import('./components/pages/OrganizationHubPage').then(m => ({ default: m.OrganizationHubPage })));
 const CommunicationCoursePage = lazy(() => import('./components/pages/CommunicationCoursePage').then(m => ({ default: m.CommunicationCoursePage })));
 const IeltsVocabPage = lazy(() => import('./components/pages/IeltsVocabPage').then(m => ({ default: m.IeltsVocabPage })));
+const CertificateVerificationPage = lazy(() => import('./components/pages/CertificateVerificationPage').then(m => ({ default: m.CertificateVerificationPage })));
 const AdminExecutiveDashboard = lazy(() => import('./components/admin/AdminExecutiveDashboard').then(m => ({ default: m.AdminExecutiveDashboard })));
 
 const RouteLoadingSpinner = () => (
@@ -159,6 +160,11 @@ export function App() {
       setCurrentView('dashboard');
       setIsStandaloneTool(false);
       document.title = 'Personal Command & Learning Dashboard | DH Shishir';
+    } else if (path === '/verify' || path === '/certificate' || path === '/credentials' || path === '/credential-verification' || hash.startsWith('#/verify') || hash.startsWith('#/certificate')) {
+      setActiveDossierSlug(null);
+      setCurrentView('verify');
+      setIsStandaloneTool(false);
+      document.title = 'Universal Certificate & Credential Verification Registry | DH Shishir';
     } else if (path === '/command' || path === '/executive-command' || path === '/shishir-command' || hash.startsWith('#/command')) {
       setActiveDossierSlug(null);
       setActiveBlogSlug(null);
@@ -243,6 +249,9 @@ export function App() {
       setActiveDossierSlug(null);
     } else if (view === 'dashboard') {
       targetPath = '/dashboard';
+      setActiveDossierSlug(null);
+    } else if (view === 'verify') {
+      targetPath = subParam ? `/verify?id=${encodeURIComponent(subParam)}` : '/verify';
       setActiveDossierSlug(null);
     } else if (view === 'admin') {
       targetPath = '/command';
@@ -377,6 +386,11 @@ export function App() {
             onNavigateStage={(_stage) => {
               navigateTo('fluency-lab');
             }}
+            onNavigateView={navigateTo}
+          />
+        ) : currentView === 'verify' ? (
+          <CertificateVerificationPage
+            onNavigateHome={() => navigateTo('home')}
           />
         ) : currentView === 'admin' ? (
           <AdminExecutiveDashboard

@@ -6,6 +6,7 @@ import {
   ArrowRight, ExternalLink
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { recordIeltsTestResult } from '../../services/unifiedMemberService';
 
 interface Question {
   id: number;
@@ -386,9 +387,25 @@ export const IeltsListeningExamEngine: React.FC = () => {
       }
     });
 
+    const band = calculateBand(correctCount, allQuestions.length);
     setScore(correctCount);
     setSubmitted(true);
     setShowTranscript(true);
+
+    // Synchronize score to unified member dashboard & telemetry
+    recordIeltsTestResult({
+      type: 'listening',
+      title: 'Cambridge Academic Simulation 1 (Full 4-Section Listening)',
+      rawScore: correctCount,
+      maxScore: allQuestions.length,
+      bandScore: band,
+      percentage: Math.round((correctCount / allQuestions.length) * 100),
+      details: {
+        playbackSpeed,
+        elapsedTimeSeconds: elapsedTime
+      }
+    });
+
     confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
   };
 

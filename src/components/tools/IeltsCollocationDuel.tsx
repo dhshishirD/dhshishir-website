@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { SocialScorecardModal } from '../common/SocialScorecardModal';
+import { recordIeltsTestResult } from '../../services/unifiedMemberService';
 
 // 1. COLLOCATION DUEL QUESTION BANK (300+ Verified IELTS Band 8.5/9.0 Pairs)
 interface DuelQuestion {
@@ -327,6 +328,21 @@ export const IeltsCollocationDuel: React.FC = () => {
             clearInterval(timerRef.current);
             setGameOver(true);
             setGameStarted(false);
+
+            // Record duel score to member telemetry
+            const calcBand = score >= 15 ? 9.0 : score >= 12 ? 8.5 : score >= 9 ? 8.0 : score >= 6 ? 7.5 : 7.0;
+            recordIeltsTestResult({
+              type: 'duel',
+              title: 'IELTS Band 9 Speed Collocation Duel (60s Arcade)',
+              rawScore: score,
+              maxScore: 20,
+              bandScore: calcBand,
+              percentage: Math.min(100, Math.round((score / 15) * 100)),
+              details: {
+                highestStreak: streak
+              }
+            });
+
             confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
             return 0;
           }

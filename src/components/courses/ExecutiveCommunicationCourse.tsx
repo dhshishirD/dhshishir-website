@@ -19,6 +19,10 @@ import type {
 } from '../../data/executiveCommunicationData';
 import { ShareModal } from '../common/ShareModal';
 import confetti from 'canvas-confetti';
+import { 
+  recordExecutiveCourseProgress, 
+  issueUnifiedCertificate 
+} from '../../services/unifiedMemberService';
 
 interface ExecutiveCommunicationCourseProps {
   user?: any;
@@ -124,9 +128,29 @@ export const ExecutiveCommunicationCourse: React.FC<ExecutiveCommunicationCourse
     });
     setExamScore(score);
     setExamSubmitted(true);
+
+    // Record progress into unified member profile
+    recordExecutiveCourseProgress({
+      capstoneScore: score / 10,
+      moduleId: activeModule
+    });
+
     if (score >= 80) {
-      const randomHash = 'DHS-EXEC-' + Math.random().toString(36).substring(2, 9).toUpperCase();
-      setCertificateHash(randomHash);
+      const issued = issueUnifiedCertificate({
+        type: 'executive_communication',
+        title: 'Executive Communication, Negotiation & Coordination Skills Masterclass',
+        recipientName: certificateName || user?.user_metadata?.full_name || 'Executive Scholar',
+        scoreOrLevel: `Score: ${score}% (Pass with Distinction)`,
+        skillsVerified: [
+          'Pyramid Principle & BLUF Briefing',
+          'Harvard PON BATNA / ZOPA Negotiation',
+          'RACI Cross-Functional Governance',
+          'Crisis Decision-Tree Resolution',
+          'Diplomatic Stakeholder Alignment'
+        ]
+      });
+
+      setCertificateHash(issued.verificationHash);
       confetti({ particleCount: 120, spread: 80, origin: { y: 0.5 } });
     }
   };

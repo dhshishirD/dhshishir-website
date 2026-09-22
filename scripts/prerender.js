@@ -201,6 +201,10 @@ const CUSTOM_OVERRIDES = {
     title: 'Contact & Advisory Booking | Daloyar Hassan Shishir',
     description: 'Get in touch for policy consulting, diplomatic research advisory, IELTS & English masterclass workshops, or speaking engagements.'
   },
+  'verify': {
+    title: 'Universal Credential & Certificate Verification Registry | DH Shishir',
+    description: 'Verify the authenticity of digital certificates of completion, IELTS vocabulary credentials, CEFR spoken fluency reports, and Executive Communication certifications issued by Daloyar Hassan Shishir.'
+  },
   'blog/statement-of-purpose-sop-us-universities-winning-templates': {
     title: "SOP for US Universities: Winning Master's & PhD Templates | DH Shishir",
     description: "Complete Statement of Purpose (SOP) masterclass for top US universities. Free winning templates, paragraph breakdown, and hook strategies for STEM, Social Sciences & Business."

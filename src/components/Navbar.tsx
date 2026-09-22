@@ -10,7 +10,7 @@ import { DiplomaticSoundscapes } from './common/DiplomaticSoundscapes';
 import { LanguageSwitcher } from './common/LanguageSwitcher';
 import { ShareModal } from './common/ShareModal';
 
-export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'organizations' | 'communication-course' | 'fluency-lab' | 'ielts' | 'ielts-vocab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard' | 'admin';
+export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'organizations' | 'communication-course' | 'fluency-lab' | 'ielts' | 'ielts-vocab' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard' | 'verify' | 'admin';
 
 interface NavbarProps {
   currentView?: ViewType;
