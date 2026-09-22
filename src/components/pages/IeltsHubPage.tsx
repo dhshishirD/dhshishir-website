@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, Mic, BarChart3, Scale, Zap, Award, 
   Sparkles, Download, ArrowRight, Clock, Compass,
-  FileText, Eye, Check, X, Camera, Volume2, Calendar, ExternalLink
+  FileText, Eye, Check, X, Camera, Volume2, Calendar, ExternalLink, Video
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { IeltsPromoVideoShowcase } from '../promo/IeltsPromoVideoShowcase';
 import { IeltsCollocationDuel } from '../tools/IeltsCollocationDuel';
 import { IeltsTask1ChartMorpher } from '../tools/IeltsTask1ChartMorpher';
 import { IeltsTfngCourtroom } from '../tools/IeltsTfngCourtroom';
@@ -32,7 +33,7 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({
   onOpenAuthModal,
   onNavigateDashboard
 }) => {
-  const [activeMainTab, setActiveMainTab] = useState<'tools' | 'roadmap' | 'masterclass' | 'resources'>('tools');
+  const [activeMainTab, setActiveMainTab] = useState<'tools' | 'roadmap' | 'masterclass' | 'resources' | 'video'>('tools');
   const [selectedToolId, setSelectedToolId] = useState<string>(initialToolId || 'writing-scanner');
 
   const handleLaunchDayDrill = (_dayNumber: number) => {
@@ -1334,6 +1335,16 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({
           >
             <Download className="w-4 h-4" /> 4. Free Anki Decks & Vault
           </button>
+          <button
+            onClick={() => setActiveMainTab('video')}
+            className={`px-5 py-3 rounded-2xl text-xs font-bold flex items-center gap-2 transition cursor-pointer ${
+              activeMainTab === 'video'
+                ? 'bg-gradient-to-r from-teal-900 via-slate-900 to-indigo-950 text-amber-300 shadow-md border border-amber-400/40'
+                : 'bg-gradient-to-r from-slate-900 to-teal-950 text-amber-300 hover:text-white border border-teal-500/30'
+            }`}
+          >
+            <Video className="w-4 h-4 text-amber-400 animate-pulse" /> 5. Animated Video Tour & Promo (New)
+          </button>
         </div>
 
         {/* TAB 1: INTERACTIVE SIMULATORS SUITE */}
@@ -1704,6 +1715,13 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({
 
               </div>
             </div>
+          </div>
+        )}
+
+        {/* TAB 5: ANIMATED PROMOTIONAL VIDEO & SCREEN SHOWCASE */}
+        {activeMainTab === 'video' && (
+          <div className="space-y-4 animate-in fade-in duration-300">
+            <IeltsPromoVideoShowcase />
           </div>
         )}
 
