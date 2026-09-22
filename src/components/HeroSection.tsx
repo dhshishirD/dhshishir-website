@@ -1,7 +1,7 @@
 import React from "react";
 import { 
   Globe, GraduationCap, Sparkles, Compass, Briefcase, 
-  ArrowRight, ShieldCheck, CheckCircle2 
+  ArrowRight, ShieldCheck, CheckCircle2, Mic, MapPin, FileCheck
 } from "lucide-react";
 import { SOCIAL_LINKS } from "../data/portfolioData";
 import type { ViewType } from "./Navbar";
@@ -40,17 +40,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              MA & BA in English from <span className="text-slate-900 font-bold">SUST</span>, Young Leaders Fellow in <span className="text-teal-900 font-bold">China (2025)</span>, Development Model Study in <span className="text-teal-900 font-bold">Malaysia (2026)</span>, and Founder of <span className="text-teal-900 font-bold">IELTS AI Master Hub</span> & <span className="text-teal-900 font-bold">Diplomatic Intelligence Desk</span>.
+              MA & BA in English from <span className="text-slate-900 font-bold">SUST</span>, Young Leaders Fellow in <span className="text-teal-900 font-bold">China (2025)</span>, Development Model Study in <span className="text-teal-900 font-bold">Malaysia (2026)</span>, and Founder of <span className="text-teal-900 font-bold">IELTS AI Master Hub</span>, <span className="text-teal-900 font-bold">English Fluency Lab</span> & <span className="text-teal-900 font-bold">Diplomatic Intelligence Desk</span>.
             </p>
 
-            {/* Quick Action Navigation Buttons */}
+            {/* Primary Action Row - Key Hubs */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
               <button
                 onClick={(e) => handleNav(e, 'ielts')}
-                className="px-6 py-3.5 rounded-2xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm shadow-xs transition flex items-center gap-2 cursor-pointer"
+                className="px-5 py-3.5 rounded-2xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm shadow-xs transition flex items-center gap-2 cursor-pointer"
               >
                 <GraduationCap className="w-4 h-4 text-teal-200" />
                 <span>IELTS AI Hub (16 Tools)</span>
+              </button>
+
+              <button
+                onClick={(e) => handleNav(e, 'fluency-lab')}
+                className="px-5 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-bold text-xs sm:text-sm shadow-xs transition flex items-center gap-2 cursor-pointer"
+              >
+                <Mic className="w-4 h-4 text-emerald-200" />
+                <span>English Fluency Lab</span>
               </button>
 
               <button
@@ -58,37 +66,45 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                 className="px-5 py-3.5 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold text-xs sm:text-sm shadow-2xs transition flex items-center gap-2 cursor-pointer"
               >
                 <Compass className="w-4 h-4 text-teal-800" /> 
-                <span>Diplomatic Intelligence Desk</span>
-              </button>
-
-              <button
-                onClick={(e) => handleNav(e, 'organizations')}
-                className="px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-300 font-bold text-xs sm:text-sm transition flex items-center gap-2 cursor-pointer shadow-2xs"
-              >
-                <Briefcase className="w-4 h-4 text-teal-800" />
-                <span>24+ Organization Dossiers</span>
+                <span>Diplomatic Desk</span>
               </button>
             </div>
 
-            {/* Social Connect + Global Dossiers */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
+            {/* Secondary Career & Interactive Pathways */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1">
+              <button
+                onClick={(e) => handleNav(e, 'tools', 'ats-resume')}
+                className="px-4 py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-950 border border-amber-200 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer shadow-2xs"
+              >
+                <FileCheck className="w-3.5 h-3.5 text-amber-700" /> Career & ATS Resume Scorer
+              </button>
+              
+              <button
+                onClick={(e) => handleNav(e, 'organizations')}
+                className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
+              >
+                <Briefcase className="w-3.5 h-3.5 text-teal-800" /> 24+ Organization Dossiers
+              </button>
+
+              <button
+                onClick={(e) => handleNav(e, 'map')}
+                className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
+              >
+                <MapPin className="w-3.5 h-3.5 text-teal-800" /> Diplomatic World Map
+              </button>
+
               <button
                 onClick={(e) => handleNav(e, 'fellowship')}
                 className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-teal-800" /> Open Fellowship (OMF-IRSS)
               </button>
-              <button
-                onClick={(e) => handleNav(e, 'communication-course')}
-                className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-teal-800" /> Executive Masterclass
-              </button>
+
               <a
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5"
+                className="px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5"
               >
                 <span className="font-black text-sm text-[#1877F2]">f</span> Facebook
               </a>
@@ -96,7 +112,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                 href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5"
+                className="px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-bold text-xs transition flex items-center gap-1.5"
               >
                 <span className="font-black text-sm text-[#0a66c2]">in</span> LinkedIn
               </a>
