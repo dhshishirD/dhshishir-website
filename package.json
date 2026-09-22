@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-downloads.js && node scripts/generate-ir-handbook.js && node scripts/generate-dev-roadmap.js && vite build && node scripts/prerender.js",
+    "build": "node scripts/generate-downloads.js && node scripts/generate-ir-handbook.js && node scripts/generate-dev-roadmap.js && node scripts/generate-ops-manual.js && vite build && node scripts/prerender.js",
     "typecheck": "tsc -b",
     "backup": "node scripts/backup-db.js",
     "lint": "oxlint",
