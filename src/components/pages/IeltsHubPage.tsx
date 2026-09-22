@@ -17,14 +17,29 @@ import { IeltsListeningExamEngine } from '../tools/IeltsListeningExamEngine';
 import { IeltsReadingExamEngine } from '../tools/IeltsReadingExamEngine';
 import { IeltsDailyDrillTracker } from '../tools/IeltsDailyDrillTracker';
 import { AdSenseBanner } from '../common/AdSenseBanner';
+import { DailyMissionNotification } from '../common/DailyMissionNotification';
 
 interface IeltsHubPageProps {
   initialToolId?: string;
+  user?: any;
+  onOpenAuthModal?: () => void;
+  onNavigateDashboard?: () => void;
 }
 
-export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({ initialToolId }) => {
+export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({ 
+  initialToolId,
+  user,
+  onOpenAuthModal,
+  onNavigateDashboard
+}) => {
   const [activeMainTab, setActiveMainTab] = useState<'tools' | 'roadmap' | 'masterclass' | 'resources'>('tools');
   const [selectedToolId, setSelectedToolId] = useState<string>(initialToolId || 'writing-scanner');
+
+  const handleLaunchDayDrill = (_dayNumber: number) => {
+    setSelectedToolId('daily-drill-tracker');
+    setActiveMainTab('tools');
+    window.scrollTo({ top: 650, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     if (initialToolId) {
@@ -1267,6 +1282,16 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({ initialToolId }) => 
           </div>
         </div>
 
+        {/* IN-PAGE DAILY MISSION & GOOGLE SIGN-IN BANNER */}
+        <div data-nosnippet>
+          <DailyMissionNotification
+            user={user}
+            onOpenAuthModal={onOpenAuthModal}
+            onLaunchDayDrill={handleLaunchDayDrill}
+            onNavigateDashboard={onNavigateDashboard}
+          />
+        </div>
+
         {/* MAIN MODULE NAVIGATION TABS */}
         <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-4">
           <button
@@ -1350,7 +1375,11 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({ initialToolId }) => 
 
             {/* Active Embedded Tool Component */}
             <div className="mt-6">
-              <ActiveToolComponent />
+              {selectedToolId === 'daily-drill-tracker' ? (
+                <IeltsDailyDrillTracker onSelectTool={(toolId) => setSelectedToolId(toolId)} />
+              ) : (
+                <ActiveToolComponent />
+              )}
             </div>
 
             {/* In-Page Responsive Ad Unit */}
@@ -1361,6 +1390,30 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({ initialToolId }) => 
         {/* TAB 2: BAND 8.5 ROADMAP GENERATOR */}
         {activeMainTab === 'roadmap' && (
           <div className="max-w-4xl mx-auto space-y-8">
+            {/* Quick Link to 120-Day Action Matrix */}
+            <div className="p-4 sm:p-5 bg-gradient-to-r from-teal-950 via-slate-900 to-teal-900 text-white rounded-3xl border border-teal-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center shrink-0 font-black text-sm shadow-md">
+                  120
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">Interactive 120-Day Action Plan & Daily Matrix</div>
+                  <div className="text-xs text-slate-300 mt-0.5">Explore day-by-day 90-minute blueprints, phase objectives, 30/60/120 sprint filters, and 1:2 error vault.</div>
+                </div>
+              </div>
+              <button
+                onClick={() => {
+                  setSelectedToolId('daily-drill-tracker');
+                  setActiveMainTab('tools');
+                }}
+                className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs rounded-xl transition flex items-center gap-1.5 shrink-0 cursor-pointer shadow-md"
+              >
+                <Zap className="w-3.5 h-3.5 fill-slate-950" />
+                <span>Open 120-Day Action Plan</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
             <div className="p-8 bg-white rounded-3xl border border-slate-200 shadow-xl space-y-6">
               <div className="border-b border-slate-200 pb-4">
                 <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">

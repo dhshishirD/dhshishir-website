@@ -38,6 +38,7 @@ const RouteLoadingSpinner = () => (
 );
 import { supabase } from './services/supabaseClient';
 import { syncLocalProfileToCloud } from './services/cloudProfileService';
+import { AuthModal } from './components/auth/AuthModal';
 import { Globe, ArrowRight, GraduationCap } from 'lucide-react';
 
 export function App() {
@@ -49,6 +50,7 @@ export function App() {
   const [activeBlogSlug, setActiveBlogSlug] = useState<string | null>(null);
   const [activeMapLocationId, setActiveMapLocationId] = useState<string | null>(null);
   const [user, setUser] = useState<any>(null);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   // Sync route with browser URL
   const updateRouteFromLocation = () => {
@@ -281,6 +283,7 @@ export function App() {
         {currentView === 'organizations' ? (
           <OrganizationHubPage
             user={user}
+            onOpenAuthModal={() => setIsAuthModalOpen(true)}
             onNavigateHome={() => navigateTo('home')}
             onNavigateToAtsWithTrack={(_trackPayload) => {
               navigateTo('tools', 'ats-resume');
@@ -289,11 +292,13 @@ export function App() {
         ) : currentView === 'communication-course' ? (
           <CommunicationCoursePage
             user={user}
+            onOpenAuthModal={() => setIsAuthModalOpen(true)}
             onNavigateHome={() => navigateTo('home')}
           />
         ) : currentView === 'ielts-vocab' ? (
           <IeltsVocabPage
             user={user}
+            onOpenAuthModal={() => setIsAuthModalOpen(true)}
             onNavigateHome={() => navigateTo('home')}
             onNavigateIeltsHub={() => navigateTo('ielts')}
           />
@@ -308,6 +313,7 @@ export function App() {
         ) : currentView === 'fellowship' ? (
           <FellowshipPage
             user={user}
+            onOpenAuthModal={() => setIsAuthModalOpen(true)}
             onNavigateHome={() => navigateTo('home')}
           />
         ) : currentView === 'diplomacy' ? (
@@ -329,10 +335,16 @@ export function App() {
             />
           )
         ) : currentView === 'ielts' ? (
-          <IeltsHubPage initialToolId={activeIeltsToolId || undefined} />
+          <IeltsHubPage
+            initialToolId={activeIeltsToolId || undefined}
+            user={user}
+            onOpenAuthModal={() => setIsAuthModalOpen(true)}
+            onNavigateDashboard={() => navigateTo('dashboard')}
+          />
         ) : currentView === 'fluency-lab' ? (
           <FluencyLabPage
             user={user}
+            onOpenAuthModal={() => setIsAuthModalOpen(true)}
             onNavigateHome={() => navigateTo('home')}
           />
         ) : currentView === 'tools' ? (
@@ -345,6 +357,7 @@ export function App() {
           ) : (
             <ToolsDirectoryPage
               user={user}
+              onOpenAuthModal={() => setIsAuthModalOpen(true)}
               onNavigateHome={() => navigateTo('home')}
               onLaunchTool={(id) => navigateTo('tools', id)}
             />
@@ -467,6 +480,14 @@ export function App() {
 
       <Footer onNavigate={navigateTo} />
       <GlobalVocabVault />
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        onSuccess={(u) => {
+          setUser(u);
+          setIsAuthModalOpen(false);
+        }}
+      />
     </div>
   );
 }
