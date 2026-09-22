@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   Building2, Globe, Shield, Sparkles, Search, Filter, 
   ExternalLink, Download, FileText, ArrowRight, CheckCircle2, 
@@ -15,6 +15,7 @@ import type {
   OrganizationDossier, 
   VerifiedOpportunity 
 } from '../../data/organizationDossiersData';
+import { ShareModal } from '../common/ShareModal';
 import confetti from 'canvas-confetti';
 
 interface OrganizationDossierHubProps {
@@ -32,7 +33,100 @@ export const OrganizationDossierHub: React.FC<OrganizationDossierHubProps> = ({
   const [selectedCareerTrack, setSelectedCareerTrack] = useState<string>('all');
   const [expandedOrgId, setExpandedOrgId] = useState<string | null>('undp');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-  const [copiedLink, setCopiedLink] = useState<string | null>(null);
+  const [activeShareData, setActiveShareData] = useState<{
+    isOpen: boolean;
+    title: string;
+    url: string;
+    summary: string;
+    category: string;
+  } | null>(null);
+
+  // Auto-detect deep linked item from URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const scholarshipParam = params.get('scholarship');
+    const itemParam = params.get('item') || params.get('track');
+    const orgParam = params.get('org');
+
+    if (scholarshipParam) {
+      setActiveTab('scholarships');
+      const found = VERIFIED_OPPORTUNITIES.find(o => o.id === scholarshipParam);
+      if (found) setSearchQuery(found.title);
+    } else if (itemParam) {
+      setActiveTab('careers');
+      const found = VERIFIED_OPPORTUNITIES.find(o => o.id === itemParam);
+      if (found) setSearchQuery(found.title);
+    } else if (orgParam) {
+      setActiveTab('dossiers');
+      setExpandedOrgId(orgParam);
+    }
+  }, []);
+
+  const handleShareIndividualItem = (opp: VerifiedOpportunity) => {
+    const baseUrl = window.location.origin;
+    const isScholarship = opp.trackCategory === 'scholarships_fellowships';
+    const targetPath = isScholarship
+      ? `/scholarships?scholarship=${opp.id}`
+      : `/career-pathways?item=${opp.id}`;
+    const fullShareUrl = `${baseUrl}${targetPath}`;
+    const shareTitle = `${opp.title} (${opp.orgName})`;
+    const shareSummary = `${opp.sampleJobCircularDescription.slice(0, 140)}...`;
+
+    if (navigator.share) {
+      navigator.share({
+        title: shareTitle,
+        text: `${shareTitle}\n${shareSummary}`,
+        url: fullShareUrl
+      }).catch(() => {
+        setActiveShareData({
+          isOpen: true,
+          title: shareTitle,
+          url: fullShareUrl,
+          summary: shareSummary,
+          category: isScholarship ? 'Global Scholarship' : 'Verified Career'
+        });
+      });
+    } else {
+      setActiveShareData({
+        isOpen: true,
+        title: shareTitle,
+        url: fullShareUrl,
+        summary: shareSummary,
+        category: isScholarship ? 'Global Scholarship' : 'Verified Career'
+      });
+    }
+  };
+
+  const handleShareDossier = (org: OrganizationDossier) => {
+    const baseUrl = window.location.origin;
+    const fullShareUrl = `${baseUrl}/organizations?org=${org.id}`;
+    const shareTitle = `${org.name} (${org.acronym}) - Strategic Organization Dossier`;
+    const shareSummary = `Institutional intelligence, thematic pillars, and verified career gateways for ${org.name}.`;
+
+    if (navigator.share) {
+      navigator.share({
+        title: shareTitle,
+        text: `${shareTitle}\n${shareSummary}`,
+        url: fullShareUrl
+      }).catch(() => {
+        setActiveShareData({
+          isOpen: true,
+          title: shareTitle,
+          url: fullShareUrl,
+          summary: shareSummary,
+          category: 'Organization Dossier'
+        });
+      });
+    } else {
+      setActiveShareData({
+        isOpen: true,
+        title: shareTitle,
+        url: fullShareUrl,
+        summary: shareSummary,
+        category: 'Organization Dossier'
+      });
+    }
+  };
 
   // Filtered Organizations
   const filteredOrgs = useMemo(() => {
@@ -347,12 +441,20 @@ export const OrganizationDossierHub: React.FC<OrganizationDossierHubProps> = ({
 
                     <div className="flex items-center gap-2 shrink-0">
                       <button
+                        onClick={() => handleShareDossier(org)}
+                        className="p-2 bg-slate-100 hover:bg-teal-50 text-slate-700 hover:text-teal-900 rounded-xl transition cursor-pointer border border-slate-200"
+                        title="Share this Organization Dossier"
+                      >
+                        <Share2 className="w-3.5 h-3.5" />
+                      </button>
+
+                      <button
                         onClick={() => handleDownloadDossierDoc(org)}
                         className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
                         title="Download Dossier Word Document (.doc)"
                       >
                         <Download className="w-3.5 h-3.5 text-teal-800" />
-                        <span className="hidden sm:inline">Export Dossier (.doc)</span>
+                        <span className="hidden sm:inline">Export (.doc)</span>
                       </button>
 
                       <button
@@ -596,6 +698,15 @@ export const OrganizationDossierHub: React.FC<OrganizationDossierHubProps> = ({
                       <span>🎯 1-Click Tailor CV / SOP</span>
                     </button>
 
+                    <button
+                      onClick={() => handleShareIndividualItem(opp)}
+                      className="w-full sm:w-auto p-2.5 px-3 bg-slate-100 hover:bg-teal-50 text-slate-700 hover:text-teal-900 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer border border-slate-200"
+                      title={opp.trackCategory === 'scholarships_fellowships' ? "Share this Scholarship" : "Share this Job Opportunity"}
+                    >
+                      <Share2 className="w-3.5 h-3.5 text-teal-800" />
+                      <span className="sm:hidden">Share</span>
+                    </button>
+
                     <a
                       href={opp.officialPortalUrl}
                       target="_blank"
@@ -793,6 +904,18 @@ export const OrganizationDossierHub: React.FC<OrganizationDossierHubProps> = ({
           })
         }}
       />
+
+      {/* INDIVIDUAL ITEM SHARE MODAL */}
+      {activeShareData && (
+        <ShareModal
+          isOpen={activeShareData.isOpen}
+          onClose={() => setActiveShareData(null)}
+          title={activeShareData.title}
+          url={activeShareData.url}
+          summary={activeShareData.summary}
+          category={activeShareData.category}
+        />
+      )}
 
     </div>
   );
