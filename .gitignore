@@ -15,6 +15,7 @@ backups
 dhshishir_backup_*.tar.gz
 scripts/temp_video_build
 scripts/temp_elevenlabs_build
+scripts/temp_short1_build
 
 # Editor directories and files
 .vscode/*
