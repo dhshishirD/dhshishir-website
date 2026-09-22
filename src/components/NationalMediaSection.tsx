@@ -290,7 +290,7 @@ export const NationalMediaSection: React.FC = () => {
                 : 'bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700'
             }`}
           >
-            <span>All Media ({NATIONAL_MEDIA_ITEMS.length})</span>
+            <span>All Media Highlights</span>
           </button>
 
           <button
@@ -302,7 +302,7 @@ export const NationalMediaSection: React.FC = () => {
             }`}
           >
             <Tv className="w-3.5 h-3.5" />
-            <span>National TV Broadcasts ({NATIONAL_MEDIA_ITEMS.filter(i => i.category === 'national_tv').length})</span>
+            <span>National TV Broadcasts</span>
           </button>
 
           <button
@@ -314,7 +314,7 @@ export const NationalMediaSection: React.FC = () => {
             }`}
           >
             <Newspaper className="w-3.5 h-3.5" />
-            <span>Print & Press Articles ({NATIONAL_MEDIA_ITEMS.filter(i => i.category === 'press_article').length})</span>
+            <span>Print & Press Articles</span>
           </button>
 
           <button
@@ -326,7 +326,7 @@ export const NationalMediaSection: React.FC = () => {
             }`}
           >
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>In-Depth Interviews ({NATIONAL_MEDIA_ITEMS.filter(i => i.category === 'interview').length})</span>
+            <span>In-Depth Interviews</span>
           </button>
 
           <button
@@ -338,7 +338,7 @@ export const NationalMediaSection: React.FC = () => {
             }`}
           >
             <Video className="w-3.5 h-3.5" />
-            <span>Keynote Speeches ({NATIONAL_MEDIA_ITEMS.filter(i => i.category === 'speech').length})</span>
+            <span>Keynote Speeches</span>
           </button>
         </div>
 

@@ -74,7 +74,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                 className="px-5 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-teal-300 font-bold text-xs sm:text-sm transition flex items-center gap-2 cursor-pointer shadow-xs"
               >
                 <Tv className="w-4 h-4 text-teal-400" />
-                <span>National Media (15 Videos)</span>
+                <span>National Media & Press</span>
               </button>
             </div>
 
@@ -125,8 +125,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                 <div className="text-[11px] text-slate-600 font-semibold">Global UN/NGO Dossiers</div>
               </div>
               <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-2xs text-center sm:text-left">
-                <div className="text-xl sm:text-2xl font-black text-teal-900">15+</div>
-                <div className="text-[11px] text-slate-600 font-semibold">TV & Media Features</div>
+                <div className="text-xl sm:text-2xl font-black text-teal-900">National</div>
+                <div className="text-[11px] text-slate-600 font-semibold">TV & Media Coverage</div>
               </div>
             </div>
           </div>
