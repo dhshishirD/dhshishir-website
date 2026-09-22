@@ -58,23 +58,23 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-2">
               <li>
+                <a href="/organizations" onClick={(e) => handleLink(e, 'organizations')} className="hover:text-teal-800 transition font-bold text-teal-900">
+                  🏛️ Organization Dossiers & Career Hub
+                </a>
+              </li>
+              <li>
                 <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-teal-800 transition">
                   Daily Think Tank Strategic Stream
                 </a>
               </li>
               <li>
+                <a href="/diplomatic-map" onClick={(e) => handleLink(e, 'map')} className="hover:text-teal-800 transition">
+                  Interactive Diplomatic World Map
+                </a>
+              </li>
+              <li>
                 <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-teal-800 transition">
                   Bay of Bengal & Maritime Security
-                </a>
-              </li>
-              <li>
-                <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-teal-800 transition">
-                  Post-2026 LDC Trade & Economic Desk
-                </a>
-              </li>
-              <li>
-                <a href="/diplomacy" onClick={(e) => handleLink(e, 'diplomacy')} className="hover:text-teal-800 transition">
-                  AI Diplomatic Query Advisor
                 </a>
               </li>
             </ul>

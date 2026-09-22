@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Menu, X, Sparkles, User, LogOut, LayoutDashboard, Globe, 
   GraduationCap, Compass, Share2, Shield, Award, ChevronDown, 
-  Wrench, BookOpen, FileText, PhoneCall
+  Wrench, BookOpen, FileText, PhoneCall, Building2
 } from 'lucide-react';
 import { supabase } from '../services/supabaseClient';
 import { AuthModal } from './auth/AuthModal';
@@ -10,7 +10,7 @@ import { DiplomaticSoundscapes } from './common/DiplomaticSoundscapes';
 import { LanguageSwitcher } from './common/LanguageSwitcher';
 import { ShareModal } from './common/ShareModal';
 
-export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'fluency-lab' | 'ielts' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard' | 'admin';
+export type ViewType = 'home' | 'fellowship' | 'diplomacy' | 'map' | 'organizations' | 'fluency-lab' | 'ielts' | 'tools' | 'leadership' | 'blog' | 'contact' | 'dashboard' | 'admin';
 
 interface NavbarProps {
   currentView?: ViewType;
@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
     if (onNavigate) onNavigate('home');
   };
 
-  const isDiplomacyActive = currentView === 'fellowship' || currentView === 'diplomacy' || currentView === 'map';
+  const isDiplomacyActive = currentView === 'fellowship' || currentView === 'diplomacy' || currentView === 'map' || currentView === 'organizations';
   const isEnglishActive = currentView === 'ielts' || currentView === 'fluency-lab';
   const isInsightsActive = currentView === 'blog' || currentView === 'leadership' || currentView === 'contact';
 
@@ -128,6 +128,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
 
                 {activeDropdown === 'diplomacy' && (
                   <div className="absolute top-full left-0 mt-1.5 w-80 bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <button
+                      onClick={() => handleNavClick('organizations')}
+                      className="w-full text-left p-2.5 rounded-xl hover:bg-teal-50/70 flex items-start gap-3 transition cursor-pointer group bg-teal-50/40 border border-teal-200/60"
+                    >
+                      <div className="p-2 rounded-lg bg-teal-900 text-white group-hover:scale-105 transition">
+                        <Building2 className="w-4 h-4 text-teal-300" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-900 group-hover:text-teal-950">Organization & Career Hub</span>
+                          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-emerald-500 text-slate-950 uppercase">VERIFIED</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 mt-0.5">32+ dossiers, verified UN jobs & scholarships</p>
+                      </div>
+                    </button>
+
                     <button
                       onClick={() => handleNavClick('fellowship')}
                       className="w-full text-left p-2.5 rounded-xl hover:bg-teal-50/70 flex items-start gap-3 transition cursor-pointer group"
@@ -420,6 +436,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 px-3 pb-1">
                 Academic & Diplomatic Affairs
               </div>
+              <button
+                onClick={() => handleNavClick('organizations')}
+                className="w-full text-left py-2.5 px-3.5 rounded-xl text-xs font-bold text-teal-950 bg-teal-50 border border-teal-200 flex items-center justify-between transition cursor-pointer"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Building2 className="w-4 h-4 text-teal-800" />
+                  <span>Organization & Career Gateway</span>
+                </div>
+                <span className="bg-emerald-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">VERIFIED</span>
+              </button>
+
               <button
                 onClick={() => handleNavClick('fellowship')}
                 className="w-full text-left py-2.5 px-3.5 rounded-xl text-xs font-bold text-teal-950 bg-teal-50/70 border border-teal-200 flex items-center justify-between transition cursor-pointer"

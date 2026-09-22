@@ -137,6 +137,18 @@ const CUSTOM_OVERRIDES = {
     title: 'IELTS Band 8.5 Master Preparation Hub | Free Interactive Simulators & Roadmap | DH Shishir',
     description: 'The ultimate free IELTS preparation portal. Interactive Band 9 Collocation Duel, Academic Task 1 Chart Morpher, Reading True/False/Not Given Courtroom, Speaking Flow Radar, customized study planner, and downloadable Anki vocabulary decks.'
   },
+  'organizations': {
+    title: 'Global Organization Strategic Dossiers & 100% Verified Career Pathways Hub | DH Shishir',
+    description: 'Explore comprehensive dossiers on 32+ global organizations & think tanks. Discover 100% verified UN jobs, WFP careers, NGO vacancies, and prestigious global scholarships.'
+  },
+  'career-pathways': {
+    title: '100% Verified Career Pathways & UN Job Vacancies Hub | DH Shishir',
+    description: 'Direct official access to verified United Nations jobs (UN jobs), WFP careers, World Bank YPP, BRAC vacancies, and think tank fellowships with ATS CV tailoring.'
+  },
+  'scholarships': {
+    title: 'Fully Funded Global Scholarships for International Students | DH Shishir',
+    description: 'Curated 100% verified fully funded global scholarships (Chevening, DAAD, Erasmus Mundus, Gates Cambridge, MEXT, Commonwealth) with annual cycle deadlines and SOP guidelines.'
+  },
   'ielts/writing-scanner': {
     title: 'IELTS Handwritten Essay OCR Scanner & 4-Pillar Grader | DH Shishir',
     description: 'Snap or upload a photo of your handwritten paper IELTS essay. Client-side optical scanner extracts handwriting, checks word count, and grades Task Achievement, Coherence, Lexical Resource, and Grammar with Band 9 model comparison.'

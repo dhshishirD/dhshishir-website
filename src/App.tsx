@@ -24,6 +24,7 @@ const ContactPage = lazy(() => import('./components/pages/ContactPage').then(m =
 const ToolsDirectoryPage = lazy(() => import('./components/pages/ToolsDirectoryPage').then(m => ({ default: m.ToolsDirectoryPage })));
 const FellowshipPage = lazy(() => import('./components/pages/FellowshipPage').then(m => ({ default: m.FellowshipPage })));
 const IeltsHubPage = lazy(() => import('./components/pages/IeltsHubPage').then(m => ({ default: m.IeltsHubPage })));
+const OrganizationHubPage = lazy(() => import('./components/pages/OrganizationHubPage').then(m => ({ default: m.OrganizationHubPage })));
 const AdminExecutiveDashboard = lazy(() => import('./components/admin/AdminExecutiveDashboard').then(m => ({ default: m.AdminExecutiveDashboard })));
 
 const RouteLoadingSpinner = () => (
@@ -52,7 +53,12 @@ export function App() {
     const hash = window.location.hash.toLowerCase();
 
     // Check pathname first (clean URLs)
-    if (path === '/fellowship' || path === '/ir-fellowship' || path === '/master-ir' || hash.startsWith('#/fellowship')) {
+    if (path === '/organizations' || path === '/career-pathways' || path === '/career-hub' || path === '/scholarships' || path === '/un-jobs' || path === '/ngo-jobs' || hash.startsWith('#/organizations') || hash.startsWith('#/scholarships')) {
+      setActiveDossierSlug(null);
+      setCurrentView('organizations');
+      setIsStandaloneTool(false);
+      document.title = 'Global Organization Strategic Dossiers, 100% Verified Careers & Scholarships Hub | DH Shishir';
+    } else if (path === '/fellowship' || path === '/ir-fellowship' || path === '/master-ir' || hash.startsWith('#/fellowship')) {
       setActiveDossierSlug(null);
       setCurrentView('fellowship');
       setIsStandaloneTool(false);
@@ -183,7 +189,10 @@ export function App() {
 
   const navigateTo = (view: ViewType, subParam?: string) => {
     let targetPath = '/';
-    if (view === 'fellowship') {
+    if (view === 'organizations') {
+      targetPath = '/organizations';
+      setActiveDossierSlug(null);
+    } else if (view === 'fellowship') {
       targetPath = '/fellowship';
       setActiveDossierSlug(null);
         } else if (view === 'map') {
@@ -242,7 +251,15 @@ export function App() {
       
       <main>
         <Suspense fallback={<RouteLoadingSpinner />}>
-        {currentView === 'map' ? (
+        {currentView === 'organizations' ? (
+          <OrganizationHubPage
+            user={user}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateToAtsWithTrack={(_trackPayload) => {
+              navigateTo('tools', 'ats-resume');
+            }}
+          />
+        ) : currentView === 'map' ? (
           <DiplomaticMapPage
             initialLocationId={activeMapLocationId}
             onNavigateHome={() => navigateTo('home')}
