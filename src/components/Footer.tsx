@@ -138,10 +138,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Contact & Advisory Booking
                 </a>
               </li>
-              <li>
-                <a href="/privacy.html" className="text-slate-600 hover:text-slate-600">
-                  Privacy Policy & Terms
-                </a>
+              <li className="pt-2 border-t border-slate-200/60 text-[11px] space-y-1">
+                <div>
+                  <a href="/privacy.html" className="text-slate-500 hover:text-teal-800 transition">
+                    Privacy Policy
+                  </a>
+                  <span className="mx-1.5 text-slate-300">•</span>
+                  <a href="/terms.html" className="text-slate-500 hover:text-teal-800 transition">
+                    Terms of Service
+                  </a>
+                </div>
+                <div>
+                  <a href="/disclaimer.html" className="text-slate-500 hover:text-teal-800 transition">
+                    Disclaimer & Non-Affiliation Notices
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

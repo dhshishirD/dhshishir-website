@@ -252,7 +252,7 @@ let generatedCount = 0;
 for (const fullUrl of urls) {
   const urlPath = fullUrl.replace('https://dhshishir.com', '').replace(/^\/+/, '').replace(/\/+$/, '');
   
-  if (urlPath === '') {
+  if (urlPath === '' || urlPath.endsWith('.html')) {
     continue;
   }
 
