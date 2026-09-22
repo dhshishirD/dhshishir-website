@@ -444,6 +444,7 @@ export const CAPSTONE_QUESTIONS: CapstoneQuestion[] = [
   {
     id: 9,
     scenario: 'In cross-cultural diplomatic negotiations with Asian and European counterparts, what does the Japanese concept of "Nemawashi" emphasize?',
+    question: 'What is the strategic purpose and mechanism of Nemawashi in multi-stakeholder consensus-building?',
     options: [
       'Aggressive legal posturing during open plenary debates.',
       'The practice of quiet, informal pre-alignment and 1-on-1 consensus-building before formal public voting takes place.',

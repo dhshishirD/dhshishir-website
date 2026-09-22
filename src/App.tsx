@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import type { ViewType } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { NationalMediaSection } from './components/NationalMediaSection';
+import { FlagshipEcosystemSection } from './components/FlagshipEcosystemSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ToolsSection } from './components/ToolsSection';
 import { FluencyLabHub } from './components/fluency/FluencyLabHub';
@@ -415,6 +417,8 @@ export function App() {
           /* UNIFIED HOMEPAGE OVERVIEW */
           <>
             <HeroSection onNavigate={navigateTo} />
+            <NationalMediaSection />
+            <FlagshipEcosystemSection onNavigate={navigateTo} />
             
             {/* Featured IR Fellowship Academic Spotlight Banner on Homepage */}
             <section className="py-12 bg-white border border-slate-200 border-y border-teal-200">
@@ -422,55 +426,28 @@ export function App() {
                 <div className="bg-white border border-teal-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
                   <div className="space-y-2 text-center md:text-left">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold uppercase tracking-wider">
-                      <GraduationCap className="w-3.5 h-3.5 text-amber-400" /> Open Master's Fellowship (OMF-IRSS)
+                      <GraduationCap className="w-3.5 h-3.5 text-amber-400" /> Open Fellowship in Strategic Studies (OMF-IRSS)
                     </div>
                     <h2 className="text-xl sm:text-2xl font-black text-slate-900">
-                      Open Master's Fellowship in International Relations & Strategic Studies
+                      Open Research Fellowship in International Relations & Strategic Studies
                     </h2>
                     <p className="text-xs sm:text-sm text-slate-600 max-w-2xl">
-                      Master classical statecraft, cognitive political psychology, UNCLOS maritime law, and the post-2024 Bangladesh sovereign foreign policy paradigm. Earn verifiable credentials and academic transcripts.
+                      Independent autodidact graduate-level curriculum mastering classical statecraft, UNCLOS maritime law, and post-2024 Bangladesh sovereign diplomacy. Earn verifiable research credentials and download the 400+ page Strategic Handbook.
                     </p>
                   </div>
                   <button
                     onClick={() => navigateTo('fellowship')}
                     className="px-6 py-3.5 rounded-2xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-xs"
                   >
-                    <span>Enter Master's Academy</span>
+                    <span>Explore Research Academy</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
             </section>
 
-            {/* Featured Diplomatic Hub Spotlight Banner on Homepage */}
-            <section className="py-12 bg-slate-50 border-b border-slate-200">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
-                  <div className="space-y-2 text-center md:text-left">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider">
-                      <Globe className="w-3.5 h-3.5 text-teal-900" /> Strategic Intelligence Desk
-                    </div>
-                    <h2 className="text-xl sm:text-2xl font-black text-slate-900">
-                      Explore the Diplomatic & Foreign Policy Intelligence Hub
-                    </h2>
-                    <p className="text-xs sm:text-sm text-slate-600 max-w-2xl">
-                      Live daily intelligence synthesizing 25+ global think tanks (BIISS, BIPSS, ORF, CSIS, Chatham House) with strategic impact analysis for Bangladesh.
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => navigateTo('diplomacy')}
-                    className="px-6 py-3.5 rounded-2xl bg-teal-900 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-xs"
-                  >
-                    <span>Launch Diplomatic Desk</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            </section>
-
-            <ExperienceSection />
-            <FluencyLabHub />
             <ToolsSection onLaunchStandaloneTool={(id) => navigateTo('tools', id)} />
+            <ExperienceSection />
             <BlogSection />
             <AboutContactSection />
           </>

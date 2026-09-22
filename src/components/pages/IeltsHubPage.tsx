@@ -49,6 +49,10 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({
   }, [initialToolId]);
   const [showTask1Modal, setShowTask1Modal] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState<string | null>(null);
+  const [targetBand, setTargetBand] = useState('8.5');
+  const [examTimeline, setExamTimeline] = useState('90');
+  const [currentLevel, setCurrentLevel] = useState('6.5');
+  const [generatedPlan, setGeneratedPlan] = useState<string | null>(null);
 
   // Executive Branded Document Generator (Printable PDF & Word .DOC)
   const generateBrandedHtml = (title: string, subtitle: string, bodyContent: string) => {
