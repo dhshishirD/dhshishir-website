@@ -135,11 +135,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-72 sm:w-80 md:w-96 aspect-4/5 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group">
               <img
-                src="/images/profile.jpg"
+                src="/shishir-photo-focused.jpg"
                 alt="Delowar Hassan Shishir"
                 className="w-full h-full object-cover object-top transition duration-700 group-hover:scale-105"
                 onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
+                  (e.target as HTMLImageElement).src = '/shishir-photo.jpg';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
