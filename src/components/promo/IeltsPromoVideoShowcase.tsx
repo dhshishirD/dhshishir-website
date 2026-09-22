@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Play, Pause, RotateCcw, Volume2, VolumeX, Maximize, CheckCircle2, 
   Sparkles, Award, Globe, Mic, BookOpen, PenTool, Headphones, 
-  ArrowRight, ShieldCheck, TrendingUp, Users, PlayCircle, Video
+  ArrowRight, ShieldCheck, TrendingUp, Users, PlayCircle, Video, Download
 } from 'lucide-react';
 
 interface Scene {
@@ -432,12 +432,20 @@ export function IeltsPromoVideoShowcase() {
                   </div>
 
                   <div className="flex items-center gap-2">
+                    <a 
+                      href="/downloads/dhshishir-ielts-promotional-video-1080p.mp4" 
+                      download="dhshishir-ielts-promotional-video-1080p.mp4"
+                      className="px-2.5 py-1 rounded-md bg-gradient-to-r from-teal-400 to-emerald-500 text-slate-950 font-extrabold flex items-center gap-1.5 text-[11px] shadow-md hover:scale-105 transition-all"
+                      title="Download 1080p Full HD MP4 Video with Professional English Voiceover"
+                    >
+                      <Download className="w-3.5 h-3.5" /> Download 1080p MP4
+                    </a>
                     <button 
                       onClick={() => setIsCleanRecordMode(true)}
                       className="px-2.5 py-1 rounded-md bg-rose-600 hover:bg-rose-500 text-white font-semibold flex items-center gap-1.5 text-[11px] shadow-sm transition-all"
                       title="Hide all UI controls for high quality screen recording"
                     >
-                      <Video className="w-3.5 h-3.5" /> Clean Screen Record Mode
+                      <Video className="w-3.5 h-3.5" /> Clean Record Mode
                     </button>
                   </div>
                 </div>

@@ -13,6 +13,7 @@ dist-ssr
 *.local
 backups
 dhshishir_backup_*.tar.gz
+scripts/temp_video_build
 
 # Editor directories and files
 .vscode/*
