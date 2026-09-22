@@ -6,6 +6,7 @@ import { DailyPromptsHub } from './DailyPromptsHub';
 import { SpeechFeedbackEngine } from './SpeechFeedbackEngine';
 import { DashboardLoopHub } from './DashboardLoopHub';
 import { ProgressCertificationSuite } from './ProgressCertificationSuite';
+import { ChunkingCadenceStudio } from './ChunkingCadenceStudio';
 import { getFluencyProfile } from '../../services/fluencyProfileService';
 import type { FluencyUserProfile } from '../../types/fluencyLab';
 import { 
@@ -17,12 +18,14 @@ import {
   Calendar, 
   Activity, 
   RotateCcw, 
-  Award 
+  Award,
+  Layers,
+  Zap
 } from 'lucide-react';
 
 export const FluencyLabHub: React.FC = () => {
   const [profile, setProfile] = useState<FluencyUserProfile>(getFluencyProfile());
-  const [activeTab, setActiveTab] = useState<'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6' | 'stage7'>('stage6');
+  const [activeTab, setActiveTab] = useState<'stage1' | 'stage2' | 'stage3' | 'stage4' | 'stage5' | 'stage6' | 'stage7' | 'stage8'>('stage8');
 
   useEffect(() => {
     setProfile(getFluencyProfile());
@@ -36,11 +39,12 @@ export const FluencyLabHub: React.FC = () => {
   const stages = [
     { id: 'stage1', number: 'STAGE 1', title: 'Placement', icon: CheckCircle2 },
     { id: 'stage2', number: 'STAGE 2', title: 'IPA & Drills', icon: BookOpen },
-    { id: 'stage3', number: 'STAGE 3', title: 'Speak & Record', icon: Mic },
-    { id: 'stage4', number: 'STAGE 4', title: 'Daily & IELTS', icon: Calendar },
-    { id: 'stage5', number: 'STAGE 5', title: 'Speech Feedback', icon: Activity },
-    { id: 'stage6', number: 'STAGE 6', title: 'Dashboard Loop', icon: RotateCcw },
-    { id: 'stage7', number: 'STAGE 7', title: 'Certificate', icon: Award },
+    { id: 'stage8', number: 'STAGE 3', title: '⚡ Chunking Studio', icon: Zap, highlight: true },
+    { id: 'stage3', number: 'STAGE 4', title: 'Speak & Record', icon: Mic },
+    { id: 'stage4', number: 'STAGE 5', title: 'Daily & IELTS', icon: Calendar },
+    { id: 'stage5', number: 'STAGE 6', title: 'Speech Feedback', icon: Activity },
+    { id: 'stage6', number: 'STAGE 7', title: 'Dashboard Loop', icon: RotateCcw },
+    { id: 'stage7', number: 'STAGE 8', title: 'Certificate', icon: Award },
   ] as const;
 
   return (
@@ -56,7 +60,7 @@ export const FluencyLabHub: React.FC = () => {
             English Fluency Lab: Free Speaking Course & Practice Studio
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Free interactive system: <span className="text-slate-900 font-bold">Diagnose CEFR Level → Learn IPA Drills → Shadow Speech → Record & Analyze → Certify Fluency</span>.
+            Free interactive system: <span className="text-slate-900 font-bold">Diagnose CEFR Level → Learn IPA Drills → Master Thought Chunking → Shadow Speech → Record & Analyze → Certify Fluency</span>.
           </p>
         </div>
 
@@ -93,8 +97,8 @@ export const FluencyLabHub: React.FC = () => {
           </div>
         </div>
 
-        {/* Sequential 7-Stage Navigation Bar with High Contrast Text */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
+        {/* Sequential Navigation Bar with High Contrast Text */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
           {stages.map((st) => {
             const Icon = st.icon;
             const isActive = activeTab === st.id;
@@ -112,7 +116,7 @@ export const FluencyLabHub: React.FC = () => {
                   {st.number}
                 </div>
                 <div className="flex items-center gap-1.5 font-bold text-xs">
-                  <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-teal-800'}`} />
+                  <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : (st as any).highlight ? 'text-amber-600' : 'text-teal-800'}`} />
                   <span className={isActive ? 'text-white font-extrabold' : 'text-slate-900 font-bold'}>{st.title}</span>
                 </div>
               </button>
@@ -128,6 +132,10 @@ export const FluencyLabHub: React.FC = () => {
 
           {activeTab === 'stage2' && (
             <Stage2LearnDrill />
+          )}
+
+          {activeTab === 'stage8' && (
+            <ChunkingCadenceStudio />
           )}
 
           {activeTab === 'stage3' && (

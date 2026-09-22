@@ -226,10 +226,29 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-slate-900 group-hover:text-teal-950">English Fluency Lab</span>
-                          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-teal-100 text-teal-800 uppercase">FREE AUDIO</span>
+                          <span className="text-xs font-bold text-slate-900 group-hover:text-teal-950">Fluency Lab & Chunking</span>
+                          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-teal-100 text-teal-800 uppercase">CADENCE</span>
                         </div>
-                        <p className="text-[11px] text-slate-500 mt-0.5">Online speaking course & acoustic shadowing</p>
+                        <p className="text-[11px] text-slate-500 mt-0.5">Thought-group chunking & speech shadowing</p>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        window.dispatchEvent(new CustomEvent('open-vocab-vault-modal'));
+                        setActiveDropdown(null);
+                      }}
+                      className="w-full text-left p-2.5 rounded-xl hover:bg-amber-50/70 flex items-start gap-3 transition cursor-pointer group border-t border-slate-100"
+                    >
+                      <div className="p-2 rounded-lg bg-amber-50 text-amber-800 group-hover:bg-amber-600 group-hover:text-white transition">
+                        <BookOpen className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-900 group-hover:text-amber-950">Personal Vocab Vault</span>
+                          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-amber-200 text-amber-900 uppercase">C1/C2</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 mt-0.5">In-text word bank & spaced flashcards</p>
                       </div>
                     </button>
                   </div>
@@ -454,9 +473,23 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               >
                 <div className="flex items-center gap-2.5">
                   <Sparkles className="w-4 h-4 text-teal-800" />
-                  <span>English Fluency Lab</span>
+                  <span>Fluency Lab & Chunking Studio</span>
                 </div>
-                <span className="bg-teal-50 text-teal-900 border border-teal-200 text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase">COURSE</span>
+                <span className="bg-teal-50 text-teal-900 border border-teal-200 text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase">CADENCE</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent('open-vocab-vault-modal'));
+                  setIsOpen(false);
+                }}
+                className="w-full text-left py-2 px-3.5 rounded-xl text-xs font-bold text-slate-700 hover:bg-amber-50 flex items-center justify-between transition cursor-pointer"
+              >
+                <div className="flex items-center gap-2.5">
+                  <BookOpen className="w-4 h-4 text-amber-700" />
+                  <span>My Personal Vocab Vault</span>
+                </div>
+                <span className="bg-amber-100 text-amber-900 border border-amber-200 text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase">C1/C2</span>
               </button>
             </div>
 

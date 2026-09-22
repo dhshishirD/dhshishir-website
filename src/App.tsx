@@ -8,6 +8,7 @@ import { FluencyLabHub } from './components/fluency/FluencyLabHub';
 import { BlogSection } from './components/BlogSection';
 import { AboutContactSection } from './components/AboutContactSection';
 import { Footer } from './components/Footer';
+import { GlobalVocabVault } from './components/common/GlobalVocabVault';
 import { lazy, Suspense } from 'react';
 
 const StandaloneToolPage = lazy(() => import('./components/tools/StandaloneToolPage').then(m => ({ default: m.StandaloneToolPage })));
@@ -405,6 +406,7 @@ export function App() {
       </main>
 
       <Footer onNavigate={navigateTo} />
+      <GlobalVocabVault />
     </div>
   );
 }
