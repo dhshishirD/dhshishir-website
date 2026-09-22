@@ -6,245 +6,300 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
-// Read irAcademyData.ts file
-const irDataPath = path.join(rootDir, 'src', 'data', 'irAcademyData.ts');
-const irDataContent = fs.readFileSync(irDataPath, 'utf-8');
+async function generateComprehensiveBook() {
+  console.log('Generating Deep, Comprehensive Master of Arts in IR Course Reader & Treatise...');
 
-// We will parse or import the irAcademyData
-// Since it's typescript, let's create a bundle or dynamic evaluation, or read the exported objects
-async function generateHandbook() {
-  console.log('Generating Complete Classic Masters in IR Course Handbook...');
-
-  // Let's import the compiled or data via node or tsx
-  // Let's create an elegant, master academic handbook generator
-  const irAcademyModule = await import('../src/data/irAcademyData.ts');
-  const { 
-    IR_FELLOWSHIP_TITLE, 
-    IR_FELLOWSHIP_CODE, 
-    GLOSSARY_TERMS, 
-    PILLARS_DATA, 
-    CRISIS_SCENARIOS, 
-    QUIZ_QUESTIONS 
-  } = irAcademyModule;
-
-  let htmlContent = `<!DOCTYPE html>
+  const htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>${IR_FELLOWSHIP_TITLE} (${IR_FELLOWSHIP_CODE}) - Complete Academic Course Handbook</title>
+  <title>Master of Arts in International Relations & Strategic Studies - Comprehensive Course Reader</title>
   <style>
     @page {
       size: A4;
-      margin: 20mm 18mm 20mm 18mm;
+      margin: 25mm 20mm 25mm 20mm;
       @bottom-right {
-        content: counter(page);
+        content: "Page " counter(page);
+        font-family: 'Georgia', serif;
+        font-size: 8.5pt;
+        color: #4b5563;
+      }
+      @top-right {
+        content: "OMF-IRSS Course Treatise • Daloyar Hassan Shishir";
+        font-family: 'Georgia', serif;
+        font-size: 8pt;
+        font-style: italic;
+        color: #6b7280;
       }
     }
-    *, *:before, *:after {
-      box-sizing: border-box;
-    }
+    *, *:before, *:after { box-sizing: border-box; }
     body {
       font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
       color: #111827;
       background: #ffffff;
-      line-height: 1.6;
+      line-height: 1.7;
       font-size: 10.5pt;
       margin: 0;
-      padding: 24px;
+      padding: 30px;
     }
-    .cover-page {
+    .cover-container {
       text-align: center;
-      padding: 60px 20px 40px 20px;
+      padding: 80px 20px 60px 20px;
       page-break-after: always;
-      border: 3px double #111827;
-      margin-bottom: 30px;
+      border: 2px solid #111827;
+      outline: 1px solid #111827;
+      outline-offset: 4px;
+      margin-bottom: 40px;
     }
-    .inst-title {
-      font-size: 12pt;
+    .inst-super {
+      font-size: 11pt;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: #374151;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
-    .main-title {
-      font-size: 24pt;
+    .book-title {
+      font-size: 26pt;
       font-weight: 900;
-      line-height: 1.25;
+      line-height: 1.2;
       color: #111827;
-      margin: 20px 0;
+      margin: 24px 0 16px 0;
       text-transform: uppercase;
       letter-spacing: -0.5px;
     }
-    .sub-title {
+    .book-subtitle {
       font-size: 13pt;
       font-style: italic;
-      color: #4b5563;
-      margin-bottom: 36px;
+      color: #374151;
+      max-width: 600px;
+      margin: 0 auto 36px auto;
+      line-height: 1.5;
     }
-    .code-badge {
+    .curriculum-code {
       display: inline-block;
-      border: 1.5px solid #111827;
-      padding: 4px 16px;
+      border-top: 1px solid #111827;
+      border-bottom: 1px solid #111827;
+      padding: 6px 24px;
       font-size: 10pt;
       font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 40px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+    }
+    .desc-block {
+      max-width: 520px;
+      margin: 30px auto;
+      font-size: 10pt;
+      line-height: 1.8;
+      color: #4b5563;
+      text-align: justify;
+      border-left: 2px solid #d1d5db;
+      padding-left: 16px;
     }
     .author-block {
-      margin-top: 60px;
-      border-top: 1px solid #9ca3af;
-      padding-top: 20px;
-      font-size: 10.5pt;
+      margin-top: 50px;
+      border-top: 1px solid #d1d5db;
+      padding-top: 24px;
     }
     .author-name {
-      font-size: 14pt;
+      font-size: 15pt;
       font-weight: 800;
       color: #111827;
     }
     .author-title {
-      font-size: 10pt;
+      font-size: 9.5pt;
       color: #4b5563;
-      margin-top: 4px;
+      margin-top: 3px;
     }
-    .toc {
+    .toc-container {
       page-break-after: always;
+      padding: 30px 20px;
       margin-bottom: 40px;
-      padding: 20px;
-      border: 1px solid #e5e7eb;
-      background: #fafafa;
     }
-    .toc h2 {
-      text-transform: uppercase;
-      font-size: 14pt;
-      border-bottom: 2px solid #111827;
-      padding-bottom: 6px;
-      margin-top: 0;
-    }
-    .toc ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    .toc li {
-      margin-bottom: 8px;
-      border-bottom: 1px dotted #d1d5db;
-      padding-bottom: 4px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 10pt;
-    }
-    .toc a {
-      color: #111827;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .section-break {
-      page-break-before: always;
-      margin-top: 30px;
-    }
-    h1 {
+    .toc-title {
       font-size: 16pt;
       font-weight: 800;
       text-transform: uppercase;
-      border-bottom: 2px solid #111827;
-      padding-bottom: 6px;
-      margin-top: 30px;
-      margin-bottom: 16px;
-      color: #111827;
-    }
-    h2 {
-      font-size: 13pt;
-      font-weight: 700;
-      color: #1f2937;
-      margin-top: 24px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #d1d5db;
-      padding-bottom: 3px;
-    }
-    h3 {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #374151;
-      margin-top: 16px;
-      margin-bottom: 6px;
-    }
-    p {
-      margin-bottom: 12px;
-      text-align: justify;
-    }
-    .lecture-card {
-      border: 1px solid #d1d5db;
-      padding: 18px;
-      margin-bottom: 24px;
-      background: #ffffff;
-      page-break-inside: avoid;
-    }
-    .lecture-header {
-      border-bottom: 1.5px solid #111827;
-      padding-bottom: 8px;
-      margin-bottom: 12px;
-    }
-    .lecture-num {
-      font-size: 9pt;
-      font-weight: 700;
-      text-transform: uppercase;
       letter-spacing: 1px;
+      border-bottom: 2px solid #111827;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+    }
+    .toc-part {
+      font-size: 11pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #111827;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+    }
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      padding-left: 16px;
+      font-size: 10pt;
+    }
+    .toc-item a {
+      color: #374151;
+      text-decoration: none;
+    }
+    .toc-item a:hover {
+      text-decoration: underline;
+    }
+    .toc-page {
+      font-weight: 600;
+      color: #6b7280;
+    }
+    .part-header {
+      page-break-before: always;
+      margin-top: 40px;
+      margin-bottom: 30px;
+      border-bottom: 3px double #111827;
+      padding-bottom: 16px;
+    }
+    .part-super {
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       color: #4b5563;
     }
-    .lecture-title {
-      font-size: 13pt;
+    .part-title {
+      font-size: 20pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #111827;
+      margin-top: 6px;
+      letter-spacing: -0.5px;
+    }
+    .part-desc {
+      font-size: 10.5pt;
+      font-style: italic;
+      color: #374151;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    .chapter {
+      margin-bottom: 40px;
+      page-break-inside: auto;
+    }
+    .chapter-header {
+      border-bottom: 1.5px solid #111827;
+      padding-bottom: 8px;
+      margin-top: 32px;
+      margin-bottom: 18px;
+    }
+    .chapter-num {
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #4b5563;
+    }
+    .chapter-title {
+      font-size: 14pt;
       font-weight: 800;
       color: #111827;
       margin: 4px 0;
     }
-    .lecture-sub {
-      font-size: 10pt;
+    .chapter-subtitle {
+      font-size: 10.5pt;
       font-style: italic;
       color: #4b5563;
     }
-    .framework-box {
-      background: #f9fafb;
-      border-left: 3px solid #374151;
-      padding: 10px 14px;
-      margin: 12px 0;
-      font-size: 9.5pt;
-    }
-    .framework-title {
-      font-weight: 700;
-      color: #111827;
-    }
-    .case-box {
-      border: 1px dashed #9ca3af;
-      padding: 12px 14px;
-      margin: 14px 0;
-      background: #ffffff;
-      font-size: 9.5pt;
-    }
-    .case-title {
+    h3 {
+      font-size: 11pt;
       font-weight: 800;
       text-transform: uppercase;
-      font-size: 9.5pt;
+      letter-spacing: 0.5px;
       color: #111827;
-      margin-bottom: 4px;
+      margin-top: 20px;
+      margin-bottom: 8px;
     }
-    .bangla-box {
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      padding: 10px 14px;
-      margin: 12px 0;
-      font-family: 'SolaimanLipi', 'SutonnyMJ', 'Segoe UI', serif;
-      font-size: 9.5pt;
+    p {
+      margin-bottom: 14px;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    .quote-box {
+      border-left: 3px solid #111827;
+      background: #f9fafb;
+      padding: 12px 18px;
+      margin: 18px 0;
+      font-style: italic;
+      font-size: 10pt;
       color: #1f2937;
+    }
+    .quote-author {
+      font-style: normal;
+      font-weight: 700;
+      text-align: right;
+      font-size: 9pt;
+      margin-top: 6px;
+      color: #4b5563;
+    }
+    .academic-box {
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      padding: 16px 20px;
+      margin: 20px 0;
+      page-break-inside: avoid;
+    }
+    .box-title {
+      font-size: 9.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #111827;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+    .bangla-digest {
+      background: #f3f4f6;
+      border-left: 3px solid #4b5563;
+      padding: 12px 18px;
+      margin: 18px 0;
+      font-family: 'SolaimanLipi', 'SutonnyMJ', 'Segoe UI', serif;
+      font-size: 10pt;
+      line-height: 1.7;
+      color: #111827;
+    }
+    .seminar-box {
+      background: #fafafa;
+      border: 1px dashed #9ca3af;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 9.5pt;
+    }
+    .seminar-box ul {
+      margin: 6px 0 0 0;
+      padding-left: 20px;
+    }
+    .seminar-box li {
+      margin-bottom: 6px;
+    }
+    .reading-list {
+      font-size: 9pt;
+      color: #4b5563;
+      border-top: 1px dotted #9ca3af;
+      padding-top: 8px;
+      margin-top: 14px;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 14px 0;
+      margin: 18px 0;
       font-size: 9pt;
     }
     th, td {
       border: 1px solid #d1d5db;
-      padding: 6px 10px;
+      padding: 8px 12px;
       text-align: left;
       vertical-align: top;
     }
@@ -253,269 +308,1373 @@ async function generateHandbook() {
       font-weight: 700;
       text-transform: uppercase;
       font-size: 8pt;
+      letter-spacing: 0.5px;
       color: #111827;
     }
-    .glossary-row {
-      page-break-inside: avoid;
-      margin-bottom: 14px;
+    .lexicon-item {
+      margin-bottom: 18px;
+      padding-bottom: 14px;
       border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 10px;
+      page-break-inside: avoid;
     }
-    .glossary-term {
-      font-size: 11pt;
+    .lex-term {
+      font-size: 12pt;
       font-weight: 800;
       color: #111827;
     }
-    .glossary-ipa {
-      font-size: 9pt;
+    .lex-ipa {
       font-family: monospace;
+      font-size: 9pt;
       color: #4b5563;
       margin-left: 8px;
     }
-    .glossary-cat {
-      display: inline-block;
+    .lex-cat {
       font-size: 7.5pt;
       text-transform: uppercase;
+      font-weight: 700;
       border: 1px solid #9ca3af;
       padding: 1px 6px;
       margin-left: 8px;
-      font-weight: 700;
+      letter-spacing: 0.5px;
     }
-    .page-footer {
+    .footer-note {
       border-top: 1px solid #d1d5db;
-      margin-top: 40px;
-      padding-top: 10px;
-      font-size: 8pt;
+      margin-top: 50px;
+      padding-top: 12px;
+      font-size: 8.5pt;
       color: #6b7280;
       display: flex;
       justify-content: space-between;
     }
     @media print {
       body { padding: 0; font-size: 10pt; }
-      .lecture-card { border-color: #999; }
-      a { color: #000; text-decoration: none; }
+      .cover-container { outline: none; border-color: #000; }
     }
   </style>
 </head>
 <body>
 
-  <!-- COVER PAGE -->
-  <div class="cover-page">
-    <div class="inst-title">DH SHISHIR ACADEMIC & RESEARCH FELLOWSHIP</div>
-    <div class="code-badge">${IR_FELLOWSHIP_CODE} • ACADEMIC CURRICULUM HANDBOOK</div>
+  <!-- ================= COVER PAGE ================= -->
+  <div class="cover-container">
+    <div class="inst-super">Open Master's Fellowship in International Relations & Strategic Studies</div>
+    <div class="curriculum-code">Course Syllabus & Postgraduate Treatise • Curriculum Code: OMF-IRSS</div>
     
-    <div class="main-title">${IR_FELLOWSHIP_TITLE}</div>
-    <div class="sub-title">A Comprehensive Postgraduate & Executive Syllabus in Classical Realism, Cognitive Political Psychology, Maritime Law, and Sovereign Statecraft</div>
+    <div class="book-title">Master of Arts in International Relations & Sovereign Statecraft</div>
+    <div class="book-subtitle">A Comprehensive Academic Reader and Doctrinal Handbook on Grand Strategy, Cognitive Political Psychology, Maritime International Law, and Sovereign Foreign Policy</div>
 
-    <div style="margin: 40px auto; max-width: 500px; font-size: 10pt; line-height: 1.7; color: #374151;">
-      Four Advanced Pillars • 20 Core Theoretical Lectures • Socratic Seminar Inquiries • Transboundary Hydro-Diplomacy • Complete Diplomatic Lexicon • Formative Crisis Case Studies
+    <div class="desc-block">
+      This academic handbook serves as the definitive reference curriculum for the Open Master's Fellowship. Integrating classical political theory, behavioral decision-making models, international maritime jurisprudence (UNCLOS III), and the 2026 Bangladesh sovereign foreign policy paradigm, this volume provides postgraduate scholars and foreign affairs analysts with the analytical tools necessary to navigate complex multipolar power transitions.
     </div>
 
     <div class="author-block">
       <div class="author-name">Daloyar Hassan Shishir (দেলোয়ার হাসান শিশির)</div>
       <div class="author-title">Diplomatic Enthusiast, Foreign Policy Analyst & Senior English Educator</div>
-      <div class="author-title">Director, Open Master's Fellowship in IR & Strategic Studies (OMF-IRSS)</div>
-      <div class="author-title" style="margin-top: 6px; font-weight: bold;">https://dhshishir.com • Dhaka, Bangladesh</div>
+      <div class="author-title">Academic Director, Open Master's Fellowship in IR & Strategic Studies</div>
+      <div class="author-title" style="margin-top: 6px; font-weight: bold;">Official Academic Registry: https://dhshishir.com/fellowship • Dhaka, Bangladesh</div>
     </div>
   </div>
 
-  <!-- TABLE OF CONTENTS -->
-  <div class="toc">
-    <h2>Course Curriculum Architecture</h2>
+  <!-- ================= TABLE OF CONTENTS ================= -->
+  <div class="toc-container">
+    <div class="toc-title">Comprehensive Table of Contents</div>
+
+    <div class="toc-part">Part I: Theories of International Relations & Sovereign Statecraft</div>
+    <div class="toc-item"><a href="#ch1">Chapter 1: The Anarchic System, Thucydidean Prudence & Westphalian Sovereignty</a> <span class="toc-page">Lecture 1.1</span></div>
+    <div class="toc-item"><a href="#ch2">Chapter 2: Structural Realism, Systemic Polarities & The Balance of Power</a> <span class="toc-page">Lecture 1.2</span></div>
+    <div class="toc-item"><a href="#ch3">Chapter 3: Liberal Institutionalism, Regime Theory & Complex Interdependence</a> <span class="toc-page">Lecture 1.3</span></div>
+    <div class="toc-item"><a href="#ch4">Chapter 4: Constructivism, Intersubjective Identities & Norm Cascades</a> <span class="toc-page">Lecture 1.4</span></div>
+    <div class="toc-item"><a href="#ch5">Chapter 5: Critical, Structural & Subaltern Geopolitics in the Global South</a> <span class="toc-page">Lecture 1.5</span></div>
+
+    <div class="toc-part">Part II: Cognitive Political Psychology & Foreign Policy Decision Systems</div>
+    <div class="toc-item"><a href="#ch6">Chapter 6: Perception, Misperception & Bounded Rationality in Crisis Diplomacy</a> <span class="toc-page">Lecture 2.1</span></div>
+    <div class="toc-item"><a href="#ch7">Chapter 7: Prospect Theory, Status Loss & Risk-Acceptance in Statecraft</a> <span class="toc-page">Lecture 2.2</span></div>
+    <div class="toc-item"><a href="#ch8">Chapter 8: Cabinet Groupthink, Advisory Pathologies & Strategic Surprises</a> <span class="toc-page">Lecture 2.3</span></div>
+    <div class="toc-item"><a href="#ch9">Chapter 9: Operational Code Analysis & Leadership Profiling Paradigms</a> <span class="toc-page">Lecture 2.4</span></div>
+    <div class="toc-item"><a href="#ch10">Chapter 10: Putnam's Two-Level Bargaining Games & Domestic Alignment</a> <span class="toc-page">Lecture 2.5</span></div>
+
+    <div class="toc-part">Part III: International Law, UNCLOS & Maritime Geopolitics</div>
+    <div class="toc-item"><a href="#ch11">Chapter 11: Sovereign Legal Equality, Customary International Law & Jus Cogens</a> <span class="toc-page">Lecture 3.1</span></div>
+    <div class="toc-item"><a href="#ch12">Chapter 12: UNCLOS III & Maritime Delimitation Jurisprudence</a> <span class="toc-page">Lecture 3.2</span></div>
+    <div class="toc-item"><a href="#ch13">Chapter 13: Strategic Sea Lanes (SLOCs) & Oceanic Chokepoint Geopolitics</a> <span class="toc-page">Lecture 3.3</span></div>
+    <div class="toc-item"><a href="#ch14">Chapter 14: Lawfare & Peaceful Settlement of Sovereign Maritime Boundaries</a> <span class="toc-page">Lecture 3.4</span></div>
+    <div class="toc-item"><a href="#ch15">Chapter 15: Geoeconomics, Network Coercion & Weaponized Interdependence</a> <span class="toc-page">Lecture 3.5</span></div>
+
+    <div class="toc-part">Part IV: The 2026 Bangladesh Sovereign Foreign Policy Paradigm</div>
+    <div class="toc-item"><a href="#ch16">Chapter 16: The 'Bangladesh First' Grand Strategy & Sovereign Dignity</a> <span class="toc-page">Lecture 4.1</span></div>
+    <div class="toc-item"><a href="#ch17">Chapter 17: Transboundary Hydro-Diplomacy & Riparian Sovereign Rights</a> <span class="toc-page">Lecture 4.2</span></div>
+    <div class="toc-item"><a href="#ch18">Chapter 18: Bay of Bengal Maritime Security, Matarbari Deep Sea Port & Naval SLOCs</a> <span class="toc-page">Lecture 4.3</span></div>
+    <div class="toc-item"><a href="#ch19">Chapter 19: Omnidirectional Economic Hedging & Multipolar Balancing</a> <span class="toc-page">Lecture 4.4</span></div>
+    <div class="toc-item"><a href="#ch20">Chapter 20: Rohingya Repatriation Strategy & Multilateral Legal Justice</a> <span class="toc-page">Lecture 4.5</span></div>
+
+    <div class="toc-part">Reference Lexicon & Postgraduate Examination Modules</div>
+    <div class="toc-item"><a href="#lexicon">Part V: Comprehensive Bilingual Diplomatic Lexicon & Conceptual Glossary</a> <span class="toc-page">Glossary</span></div>
+    <div class="toc-item"><a href="#simulations">Part VI: Executive Crisis Simulation Playbooks & Decision Frameworks</a> <span class="toc-page">Simulations</span></div>
+    <div class="toc-item"><a href="#examinations">Part VII: Postgraduate Examination & Master's Thesis Research Prompts</a> <span class="toc-page">Exams</span></div>
+  </div>
+
+  <!-- ================= PART I ================= -->
+  <div class="part-header" id="part1">
+    <div class="part-super">Module Group 01</div>
+    <div class="part-title">Part I: Theories of International Relations & Sovereign Statecraft</div>
+    <div class="part-desc">
+      An exhaustive examination of the structural foundations of world politics, systemic anarchy, material power distributions, institutional regimes, intersubjective social constructs, and critical dependency paradigms.
+    </div>
+  </div>
+
+  <!-- CHAPTER 1 -->
+  <div class="chapter" id="ch1">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 01 • Lecture 1.1</div>
+      <div class="chapter-title">The Anarchic System, Thucydidean Prudence & Westphalian Sovereignty</div>
+      <div class="chapter-subtitle">Classical Realism, Machiavellian Prudence, Hobbesian State of Nature, and the 1648 Compact</div>
+    </div>
+
+    <h3>1. The Structural Reality of International Anarchy</h3>
+    <p>
+      World politics fundamentally operates in an environment characterized by <em>anarchy</em>—defined not as chaotic lawlessness, but as the structural absence of a central, overarching global authority endowed with the legitimate monopoly on the use of force. Unlike domestic political systems, where a sovereign Leviathan maintains public order and adjudicates legal grievances, sovereign states in the international arena exist in a decentralized self-help architecture. Consequently, national survival constitutes the primary and irreducible imperative of any sovereign entity.
+    </p>
+
+    <div class="quote-box">
+      "The strong do what they have the power to do, and the weak accept what they have to accept."
+      <div class="quote-author">— Thucydides, History of the Peloponnesian War (Book V, Melian Dialogue)</div>
+    </div>
+
+    <p>
+      This foundational insight was formulated by Thucydides in his analytical chronicle of the Peloponnesian War (431–404 BCE). In the celebrated <em>Melian Dialogue</em> (416 BCE), the Athenian envoys explicitly rejected appeals to abstract justice, international morality, or divine favor, demonstrating that when material power imbalances are acute, unconstrained power dictates political outcomes unless counterbalanced by credible physical deterrence.
+    </p>
+
+    <h3>2. The Evolution of Statecraft: Machiavelli, Hobbes, and Westphalia</h3>
+    <p>
+      Classical statecraft matured through the political philosophy of Niccolò Machiavelli (1469–1527) and Thomas Hobbes (1588–1679). Machiavelli introduced the concept of <em>ragione di stato</em> (reason of state), asserting that a ruler must separate private ethical sentimentality from the rigorous demands of sovereign survival. Prudence—understood as the calculated assessment of power dynamics, timing, and national vulnerability—stands as the supreme virtue in international diplomacy.
+    </p>
+    <p>
+      Hobbes formalized this dynamic in <em>Leviathan</em> (1651), describing the interstate realm as a perpetual "state of nature" where nations maintain an unceasing posture of watchful defense. This evolutionary lineage culminated in the <strong>Peace of Westphalia (1648)</strong>, which concluded the devastating Thirty Years' War in Europe. The Westphalian treaties established three foundational norms of modern international jurisprudence:
+    </p>
     <ul>
-      <li><a href="#pillar1">Pillar I: Theories of International Relations & Sovereign Statecraft</a> <span>Lectures 1.1 – 1.5</span></li>
-      <li><a href="#pillar2">Pillar II: Cognitive Political Psychology & Foreign Policy Decision Systems</a> <span>Lectures 2.1 – 2.5</span></li>
-      <li><a href="#pillar3">Pillar III: International Law, UNCLOS & Maritime Geopolitics</a> <span>Lectures 3.1 – 3.5</span></li>
-      <li><a href="#pillar4">Pillar IV: The 2026 Bangladesh Sovereign Foreign Policy Paradigm</a> <span>Lectures 4.1 – 4.5</span></li>
-      <li><a href="#glossary">Comprehensive Diplomatic & IR Lexicon (Terms & Frameworks)</a> <span>Bilingual Index</span></li>
-      <li><a href="#scenarios">Executive Crisis Simulation Scenarios & Decision Briefings</a> <span>Strategic Playbook</span></li>
-      <li><a href="#assessment">Postgraduate Examination & Analytical Essay Frameworks</a> <span>Comprehensive Prompts</span></li>
+      <li><strong>Territorial Sovereignty:</strong> Exclusive, supreme legislative and political jurisdiction within demarcated borders.</li>
+      <li><strong>Legal Sovereign Equality:</strong> Formal recognition that regardless of physical scale or military capability, all sovereign states possess equal status under international law (<em>rex in regno suo est imperator</em>).</li>
+      <li><strong>Non-Intervention:</strong> The strict prohibition against foreign interference in the internal religious, legal, and political affairs of another state.</li>
     </ul>
+
+    <div class="academic-box">
+      <div class="box-title">🏛️ Historical Case Study: The Melian Dialogue (416 BCE)</div>
+      <p><strong>Strategic Context:</strong> During the Peloponnesian War, the Athenian empire demanded that the neutral island of Melos surrender its sovereignty and pay tribute. The Melians insisted on their moral right to remain non-aligned, asserting that justice was on their side and hoping for Spartan military intervention.</p>
+      <p><strong>Diplomatic Analysis:</strong> Athens pointed out that the Spartans would not cross the sea to rescue a small island when Athenian naval supremacy was absolute. The Melians refused to submit; Athens besieged the city, executed the men, and enslaved the population.</p>
+      <p><strong>Takeaway for Contemporary Statecraft:</strong> Diplomatic neutrality is a viable strategic posture only when backed by tangible national defense capabilities, geographic insulation, or credible reciprocal deterrence.</p>
+    </div>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ (Bangla Executive Digest):</strong><br>
+      আন্তর্জাতিক ব্যবস্থা সহজাতভাবেই কেন্দ্রীয় শাসনহীন (Anarchy)। থুসিডিডিসের মেলিয়ান সংলাপ প্রমাণ করে যে বাস্তব ক্ষমতার ভারসাম্যহীনতায় নিছক নৈতিক আবেদন বা অন্ধ নিরপেক্ষতা রাষ্ট্রের অস্তিত্ব রক্ষা করতে পারে না। ১৬৪৮ সালের ওয়েস্টফালিয়ার চুক্তি আধুনিক রাষ্ট্রের তিনটি স্তম্ভ—আঞ্চলিক সার্বভৌমত্ব, সার্বভৌম সমমর্যাদা ও অভ্যন্তরীণ বিষয়ে বহিঃশক্তির হস্তক্ষেপ না করার অধিকারকে আন্তর্জাতিক আইনের ভিত্তি হিসেবে প্রতিষ্ঠা করেছে।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>In a contemporary international order dominated by unilateral economic sanctions and digital extraterritorial jurisdiction, is the Westphalian principle of non-intervention practically viable?</li>
+        <li>How can littoral middle powers prevent the "Melian trap" when negotiating transboundary resources with asymmetric regional superpowers?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Thucydides, <em>History of the Peloponnesian War</em> (Rex Warner trans.); Niccolò Machiavelli, <em>The Prince</em>; Leo Gross, "The Peace of Westphalia, 1648–1948," <em>American Journal of International Law</em> (1948).
+      </div>
+    </div>
   </div>
 
-  <!-- PILLARS & LECTURES -->
-`;
-
-  PILLARS_DATA.forEach((pillar) => {
-    htmlContent += `
-  <div id="pillar${pillar.pillarNumber}" class="section-break">
-    <div style="font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #4b5563;">PILLAR 0${pillar.pillarNumber}</div>
-    <h1>${pillar.title}</h1>
-    <div style="font-size: 10pt; font-style: italic; color: #374151; margin-bottom: 16px;">
-      <strong>Core Focus:</strong> ${pillar.academicObjective}
+  <!-- CHAPTER 2 -->
+  <div class="chapter" id="ch2">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 02 • Lecture 1.2</div>
+      <div class="chapter-title">Structural Realism, Systemic Polarities & The Balance of Power</div>
+      <div class="chapter-subtitle">Kenneth Waltz's Defensive Realism, John Mearsheimer's Offensive Hegemony, and Polarity Dynamics</div>
     </div>
-    <div style="font-size: 9.5pt; margin-bottom: 20px; padding: 10px; background: #f3f4f6; border: 1px solid #e5e7eb;">
-      <strong>Primary Competency:</strong> ${pillar.competencyArea} | <strong>Module Category:</strong> ${pillar.categoryBadge}
-    </div>
-`;
 
-    pillar.lectures.forEach((lec) => {
-      htmlContent += `
-    <div class="lecture-card">
-      <div class="lecture-header">
-        <div class="lecture-num">Lecture ${lec.lectureNumber} • ${lec.readTimeMinutes} Min Academic Reading</div>
-        <div class="lecture-title">${lec.title}</div>
-        <div class="lecture-sub">${lec.subtitle}</div>
-      </div>
+    <h3>1. Structural Neorealism: From Human Nature to Systemic Constraints</h3>
+    <p>
+      While classical realists attributed interstate conflict to inherent human lust for power, Kenneth N. Waltz revolutionized the discipline in <em>Theory of International Politics</em> (1979) by demonstrating that interstate behavior is dictated by the **structure of the international system** itself. Structural realism (Neorealism) operates on three structural premises:
+    </p>
+    <ol>
+      <li><strong>Ordering Principle:</strong> The international system is anarchic, lacking a centralized global government.</li>
+      <li><strong>Functional Undifferentiated Units:</strong> All sovereign states perform identical basic functions (defense, taxation, governance), differing only in their relative material capabilities.</li>
+      <li><strong>Distribution of Capabilities:</strong> The distribution of military and economic power defines systemic polarity (unipolar, bipolar, or multipolar).</li>
+    </ol>
 
-      <p><strong>Executive Overview:</strong> ${lec.overview}</p>
-
-      <div style="margin: 12px 0;">
-        <h3 style="text-transform: uppercase; font-size: 9.5pt; border-bottom: 1px solid #e5e7eb; padding-bottom: 2px;">Theoretical Frameworks & Paradigms</h3>
-        ${lec.theoreticalFrameworks.map(tf => `
-        <div class="framework-box">
-          <div class="framework-title">${tf.name}</div>
-          <div><strong>Core Concept:</strong> ${tf.concept}</div>
-          <div><strong>Statecraft Application:</strong> ${tf.application}</div>
-        </div>
-        `).join('')}
-      </div>
-
-      ${lec.statecraftCaseStudy ? `
-      <div class="case-box">
-        <div class="case-title">🏛️ Historical Case Study: ${lec.statecraftCaseStudy.title}</div>
-        <div><strong>Historical Context:</strong> ${lec.statecraftCaseStudy.historicalContext}</div>
-        <div><strong>Strategic Analysis:</strong> ${lec.statecraftCaseStudy.strategicAnalysis}</div>
-        <div style="margin-top: 4px;"><strong>Statecraft Takeaway:</strong> <em>${lec.statecraftCaseStudy.lessonsForStatecraft}</em></div>
-      </div>
-      ` : ''}
-
-      ${lec.banglaDiplomaticSummary ? `
-      <div class="bangla-box">
-        <strong>কূটনৈতিক সারসংক্ষেপ (Bangla Executive Digest):</strong><br>
-        ${lec.banglaDiplomaticSummary}
-      </div>
-      ` : ''}
-
-      <div style="margin-top: 12px; font-size: 9.5pt;">
-        <strong>Socratic Seminar Questions for Deep Inquiry:</strong>
-        <ul style="margin-top: 4px; padding-left: 20px;">
-          ${lec.analyticalSeminarQuestions.map(q => `<li>${q}</li>`).join('')}
-        </ul>
-      </div>
-
-      <div style="margin-top: 10px; font-size: 9pt; color: #4b5563; border-top: 1px dotted #d1d5db; padding-top: 6px;">
-        <strong>Essential Academic Reading:</strong> 
-        ${lec.keyReadings.map(r => `<em>${r.title}</em> by ${r.author} (${r.sourceType}) — ${r.coreConcept}`).join('; ')}
-      </div>
-
-    </div>
-`;
-    });
-
-    htmlContent += `  </div>\n`;
-  });
-
-  // GLOSSARY SECTION
-  htmlContent += `
-  <div id="glossary" class="section-break">
-    <h1>Comprehensive Diplomatic & IR Lexicon</h1>
-    <p>A rigorous bilingual reference dictionary of essential theoretical constructs, international legal doctrines, and diplomatic paradigms.</p>
-
-    <div style="margin-top: 20px;">
-`;
-
-  GLOSSARY_TERMS.forEach((term) => {
-    htmlContent += `
-      <div class="glossary-row">
-        <div>
-          <span class="glossary-term">${term.term}</span>
-          <span class="glossary-ipa">${term.pronunciationIpa}</span>
-          <span class="glossary-cat">${term.category}</span>
-        </div>
-        <div style="margin-top: 4px; font-size: 9.5pt; color: #111827;">
-          <strong>Definition:</strong> ${term.definition}
-        </div>
-        <div style="margin-top: 3px; font-size: 9.5pt; color: #1f2937; font-family: 'Segoe UI', serif;">
-          <strong>বাংলা অর্থ ও তাৎপর্য:</strong> ${term.banglaMeaning}
-        </div>
-        <div style="margin-top: 3px; font-size: 9pt; color: #4b5563; font-style: italic;">
-          <strong>Diplomatic Context:</strong> ${term.diplomaticContext}
-        </div>
-      </div>
-`;
-  });
-
-  htmlContent += `    </div>
-  </div>\n`;
-
-  // CRISIS SCENARIOS SECTION
-  if (CRISIS_SCENARIOS && CRISIS_SCENARIOS.length > 0) {
-    htmlContent += `
-  <div id="scenarios" class="section-break">
-    <h1>Executive Crisis Simulation Scenarios & Decision Briefings</h1>
-    <p>Real-world strategic simulations modeling high-stakes decision-making, escalatory risks, and diplomatic containment.</p>
-
-    <div>
-`;
-    CRISIS_SCENARIOS.forEach((sc, idx) => {
-      htmlContent += `
-      <div class="lecture-card">
-        <div class="lecture-header">
-          <div class="lecture-num">Simulation Scenario 0${idx + 1} • ${sc.category || 'Strategic Crisis'}</div>
-          <div class="lecture-title">${sc.title}</div>
-        </div>
-        <p><strong>Geopolitical Situation:</strong> ${sc.situation || sc.context || sc.description}</p>
-        
-        ${sc.options ? `
-        <div style="margin: 12px 0;">
-          <strong>Diplomatic Decision Pathways:</strong>
-          <ul style="margin-top: 6px; padding-left: 20px; font-size: 9.5pt;">
-            ${sc.options.map(opt => `<li><strong>${opt.title || opt.label || 'Option'}:</strong> ${opt.description || opt.text || ''}</li>`).join('')}
-          </ul>
-        </div>
-        ` : ''}
-
-        ${sc.lessonsLearned ? `<div style="font-size: 9pt; font-style: italic; color: #4b5563;"><strong>Strategic Lesson:</strong> ${sc.lessonsLearned}</div>` : ''}
-      </div>
-`;
-    });
-    htmlContent += `    </div>
-  </div>\n`;
-  }
-
-  // ASSESSMENT & ESSAY PROMPTS SECTION
-  htmlContent += `
-  <div id="assessment" class="section-break">
-    <h1>Postgraduate Examination & Analytical Essay Prompts</h1>
-    <p>Comprehensive research questions designed for comprehensive examination evaluation and master's thesis preparation.</p>
+    <h3>2. The Great Debate: Defensive vs. Offensive Realism</h3>
+    <p>
+      Neorealism divided into two prominent analytical schools concerning how much power a rational state should pursue:
+    </p>
 
     <table>
       <thead>
         <tr>
-          <th style="width: 15%;">Module</th>
-          <th style="width: 55%;">Advanced Research Essay Prompt</th>
-          <th style="width: 30%;">Evaluative Criteria</th>
+          <th style="width: 25%;">Dimension</th>
+          <th style="width: 37%;">Defensive Realism (Kenneth Waltz)</th>
+          <th style="width: 38%;">Offensive Realism (John Mearsheimer)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Pillar I</strong></td>
-          <td>Critically evaluate whether the contemporary multipolar transition in the Indo-Pacific adheres to Kenneth Waltz's structural balancing or John Mearsheimer's offensive regional hegemony thesis. Assess the implications for littoral middle powers.</td>
-          <td>Theoretical precision, empirical evidence from South China Sea / Bay of Bengal, balance-of-power rigor.</td>
+          <td><strong>Master State Objective</strong></td>
+          <td>Security and Survival through Balance.</td>
+          <td>Regional Hegemony and Maximum Power.</td>
         </tr>
         <tr>
-          <td><strong>Pillar II</strong></td>
-          <td>Using Robert Jervis's perception frameworks and Daniel Kahneman's prospect theory, analyze a recent international diplomatic standoff. How did cognitive heuristics and groupthink distort intelligence assessments?</td>
-          <td>Psychological model synthesis, cognitive bias identification, decision-tree mapping.</td>
+          <td><strong>Systemic Incentive</strong></td>
+          <td>Anarchy encourages states to maintain the status quo and balance against rising aggressors.</td>
+          <td>Anarchy compels states to maximize relative power because intentions can never be known with certainty.</td>
         </tr>
         <tr>
-          <td><strong>Pillar III</strong></td>
-          <td>Examine the role of international tribunals (ITLOS and PCA) in resolving maritime boundary disputes in the Bay of Bengal. Assess how UNCLOS provisions defend sovereign exclusive economic zones (EEZs) against unilateral regional claims.</td>
-          <td>Treaty article citations, delimitation methodology, blue economy governance.</td>
+          <td><strong>Consequences of Over-Expansion</strong></td>
+          <td>Excessive expansion triggers countervailing balancing coalitions that destroy the aggressor.</td>
+          <td>States expand relentlessly whenever the benefits exceed the costs until reaching regional hegemony.</td>
         </tr>
         <tr>
-          <td><strong>Pillar IV</strong></td>
-          <td>Formulate a comprehensive foreign policy blueprint for post-2024 Bangladesh based on the 'Bangladesh First' doctrine. Address transboundary water diplomacy, omnidirectional economic hedging, and subsea cable security.</td>
-          <td>Strategic autonomy viability, multilateral balancing, sovereign reciprocity.</td>
+          <td><strong>Maritime Influence</strong></td>
+          <td>Geography and oceans facilitate defense and buffer states against invasion.</td>
+          <td><em>The Stopping Power of Water:</em> Oceans make global hegemony impossible, compelling great powers to act as offshore balancers.</td>
         </tr>
       </tbody>
     </table>
 
-    <div class="page-footer">
-      <div>Open Master's Fellowship in International Relations & Strategic Studies (OMF-IRSS)</div>
-      <div>Official Course Handbook • Daloyar Hassan Shishir (dhshishir.com)</div>
+    <div class="academic-box">
+      <div class="box-title">🏛️ Historical Case Study: The 1914 Security Dilemma & Outbreak of WWI</div>
+      <p><strong>Structural Analysis:</strong> Prior to 1914, European powers engaged in competitive internal balancing (military expansion) and external balancing (the Triple Entente vs. the Triple Alliance). When defensive rail mobilization schedules were initiated in response to the Sarajevo assassination, states could not distinguish defensive preparations from offensive pre-emption, triggering irreversible spiral escalation.</p>
+      <p><strong>Doctrinal Lesson:</strong> Under high structural mistrust, defensive armaments inherently look offensive to rivals, creating an escalatory security dilemma where all parties end up in a war that none originally intended.</p>
     </div>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      কাঠামোগত বাস্তবতাবাদে রাষ্ট্রের অভ্যন্তরীণ চরিত্র নয়, বরং আন্তর্জাতিক ব্যবস্থার মেরুকরণই (Polarity) পররাষ্ট্রনীতি নির্ধারণ করে। কেনেথ ওয়াল্টজের 'ডিফেন্সিভ রিয়ালিজম' অনুসারে অতিরিক্ত সামরিক বিস্তার ভারসাম্য তৈরি করে আগ্রাসীকে ধ্বংস করে, আর জন মেয়ারশাইমারের 'অফেন্সিভ রিয়ালিজম' অনুসারে একক পরাশক্তি হিসেবে আত্মপ্রকাশ করাই বেঁচে থাকার একমাত্র পরম নিশ্চয়তা।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>Is the contemporary transition toward a multipolar international architecture inherently more prone to strategic miscalculation than the rigid bipolarity of the Cold War?</li>
+        <li>How does Mearsheimer's concept of the "stopping power of water" apply to naval deterrence in the Bay of Bengal and the wider Indian Ocean Region?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Kenneth N. Waltz, <em>Theory of International Politics</em> (1979); John J. Mearsheimer, <em>The Tragedy of Great Power Politics</em> (2001); Graham Allison, <em>Destined for War: Can America and China Escape Thucydides's Trap?</em> (2017).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 3 -->
+  <div class="chapter" id="ch3">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 03 • Lecture 1.3</div>
+      <div class="chapter-title">Liberal Institutionalism, Regime Theory & Complex Interdependence</div>
+      <div class="chapter-subtitle">Robert Keohane, Joseph Nye, Transnational Channels, and Iterated Cooperation under Anarchy</div>
+    </div>
+
+    <h3>1. Overcoming the Realist Dilemma: Regimes and Information Symmetry</h3>
+    <p>
+      Neoliberal institutionalists, led by Robert O. Keohane in <em>After Hegemony</em> (1984), accept the realist premise that the international system is anarchic and that states are rational, self-interested actors. However, liberal institutionalism demonstrates that structural anarchy does not preclude durable interstate cooperation.
+    </p>
+    <p>
+      International institutions and formal regimes (e.g., the United Nations, World Trade Organization, International Monetary Fund, and transboundary river basin commissions) facilitate cooperation by altering the pay-off matrices of sovereign states through four institutional mechanisms:
+    </p>
+    <ol>
+      <li><strong>Reducing Transaction Costs:</strong> Creating permanent multilateral negotiation platforms that lower the cost of negotiating bilateral and multilateral agreements.</li>
+      <li><strong>Providing Symmetrical Information:</strong> Mitigating fears of cheating by establishing transparent monitoring, inspection, and verification protocols.</li>
+      <li><strong>Extending the Shadow of the Future:</strong> Transforming single-shot zero-sum interactions into iterated, continuous relationships where long-term reciprocity outweighs short-term opportunistic defection.</li>
+      <li><strong>Focal Points & Issue-Linkage:</strong> Allowing states to link unrelated issues (e.g., trade concessions in exchange for environmental compliance) to unlock mutual bargaining space.</li>
+    </ol>
+
+    <h3>2. Complex Interdependence: Keohane and Nye's Analytical Matrix</h3>
+    <p>
+      In <em>Power and Interdependence</em> (1977), Robert Keohane and Joseph Nye identified three defining characteristics of contemporary world politics that deviate from traditional realist assumptions:
+    </p>
+    <ul>
+      <li><strong>Multiple Channels of Contact:</strong> Interstate relations are augmented by transgovernmental networks (bureaucratic working groups) and transnational actors (multinational corporations, scientific epistemic communities).</li>
+      <li><strong>Absence of Hierarchy among Issues:</strong> Military security does not consistently dominate the interstate agenda; economic stability, energy corridors, public health, and climate adaptation frequently command top sovereign priority.</li>
+      <li><strong>Diminishing Utility of Military Force:</strong> In asymmetric economic and technological interdependence, applying kinetic military power against an interconnected partner is economically catastrophic.</li>
+    </ul>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      লিবারেল প্রাতিষ্ঠানিকতাবাদ প্রমাণ করে যে নৈরাজ্যের মধ্যেও টেকসই সহযোগিতা সম্ভব। আন্তর্জাতিক সংস্থাগুলো লেনদেন ব্যয় হ্রাস করে, তথ্যের স্বচ্ছতা নিশ্চিত করে এবং প্রতারণা রোধ করে দ্বিপাক্ষিক বাণিজ্য ও পরিবেশ চুক্তি কার্যকর রাখে। বহুস্তরিক অর্থনৈতিক আন্তঃনির্ভরশীলতা সামরিক সংঘাতের উপযোগিতা উল্লেখযোগ্যভাবে হ্রাস করে।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>Can international institutions survive and retain regulatory authority when their principal hegemonic architect withdraws or turns revisionist?</li>
+        <li>Does high economic interdependence prevent war, or does it merely create new vulnerabilities that can be weaponized during geopolitical friction?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Robert O. Keohane, <em>After Hegemony: Cooperation and Discord in the World Political Economy</em> (1984); Robert Keohane & Joseph Nye, <em>Power and Interdependence</em> (1977); Robert Axelrod, <em>The Evolution of Cooperation</em> (1984).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 4 -->
+  <div class="chapter" id="ch4">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 04 • Lecture 1.4</div>
+      <div class="chapter-title">Constructivism, Intersubjective Identities & Norm Cascades</div>
+      <div class="chapter-subtitle">Alexander Wendt's Social Theory, Strategic Culture, and the Norm Life Cycle</div>
+    </div>
+
+    <h3>1. "Anarchy is What States Make of It"</h3>
+    <p>
+      Constructivism emerged as a major theoretical paradigm in the late Cold War, challenging both realist material determinism and liberal rational-choice models. Spearheaded by Alexander Wendt in <em>Social Theory of International Politics</em> (1999), constructivism asserts that the international system is not a purely objective material structure, but a social structure shaped by shared ideas, intersubjective understandings, and cultural identities.
+    </p>
+    <p>
+      Wendt famously argued that "anarchy is what states make of it." Structural anarchy does not inherently necessitate predatory competition; rather, interstate relations depend on the specific **culture of anarchy** that states have constructed through historical interaction:
+    </p>
+    <ul>
+      <li><strong>Hobbesian Culture (Enmity):</strong> States view each other as mortal enemies; war is total, and physical elimination is permissible (e.g., pre-modern warfare).</li>
+      <li><strong>Lockean Culture (Rivalry):</strong> States recognize each other's sovereign right to exist; they compete as rivals but observe territorial constraints and restraint (the Westphalian norm).</li>
+      <li><strong>Kantian Culture (Friendship):</strong> States view each other as partners who resolve disputes non-violently and provide collective mutual assistance (e.g., modern security communities such as the EU and Nordic Council).</li>
+    </ul>
+
+    <h3>2. The Norm Life Cycle and Strategic Culture</h3>
+    <p>
+      Martha Finnemore and Kathryn Sikkink conceptualized the <em>Norm Life Cycle</em>, detailing how new international standards of state behavior emerge and consolidate:
+    </p>
+    <ol>
+      <li><strong>Norm Emergence:</strong> Norm entrepreneurs (advocacy networks, pioneering middle powers) frame a new standard and persuade state patrons.</li>
+      <li><strong>Norm Cascade:</strong> A tipping point is reached when critical masses of sovereign states adopt the norm, driven by international peer pressure and legitimation.</li>
+      <li><strong>Internalization:</strong> The norm becomes taken-for-granted, embedded in domestic administrative law and military standard operating procedures (e.g., the Geneva Conventions or the global prohibition against chemical weapons).</li>
+    </ol>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      কনস্ট্রাকটিভিজম বা গঠনবাদ তত্ত্ব অনুযায়ী, আন্তর্জাতিক সম্পর্ক নিছক ভৌগোলিক বা সামরিক শক্তির দ্বারা নির্ধারিত হয় না; বরং ঐতিহাসিক সংস্কৃতি, জাতীয় পরিচয় এবং আন্তর্জাতিক সামাজিক মূল্যবোধ রাষ্ট্রের পররাষ্ট্রনীতি গড়ে তোলে। ওয়েন্ডটের মতে, নৈরাজ্যের সংস্কৃতি রাষ্ট্রসমূহের পারস্পরিক আচরণ দ্বারা পরিবর্তিত হতে পারে।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How does a nation's historical collective memory and colonial trauma influence its contemporary strategic culture and non-aligned foreign policy posture?</li>
+        <li>Under what conditions can a robustly internalized international norm (such as the nuclear taboo or territorial integrity) collapse under revisionist great power aggression?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Alexander Wendt, <em>Social Theory of International Politics</em> (1999); Martha Finnemore & Kathryn Sikkink, "International Norm Dynamics and Political Change," <em>International Organization</em> (1998); Nina Tannenwald, <em>The Nuclear Taboo</em> (2007).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 5 -->
+  <div class="chapter" id="ch5">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 05 • Lecture 1.5</div>
+      <div class="chapter-title">Critical, Structural & Subaltern Geopolitics in the Global South</div>
+      <div class="chapter-subtitle">Immanuel Wallerstein's World-Systems Theory and Mohammed Ayoob's Subaltern Realism</div>
+    </div>
+
+    <h3>1. World-Systems Analysis and Structural Extraction</h3>
+    <p>
+      Critical and structuralist paradigms critique mainstream Anglo-American IR theories for legitimizing existing global hierarchies. Immanuel Wallerstein's <em>World-Systems Theory</em> posits that the global capitalist economy is divided into three structural zones:
+    </p>
+    <ul>
+      <li><strong>The Core:</strong> Technologically advanced, industrialized states dominating high-margin manufacturing, finance, and capital services.</li>
+      <li><strong>The Periphery:</strong> Low-income nations providing raw materials, agricultural commodities, and low-wage assembly labor, subject to unequal terms of trade.</li>
+      <li><strong>The Semi-Periphery:</strong> Transitional industrializing middle powers (such as Bangladesh, Vietnam, Brazil) that buffer core-periphery friction while navigating structural upward mobility.</li>
+    </ul>
+
+    <h3>2. Subaltern Realism: State-Making Vulnerabilities</h3>
+    <p>
+      Mohammed Ayoob articulated <em>Subaltern Realism</em> to explain the security behavior of post-colonial Global South nations. Unlike European states that had centuries to consolidate borders and civic institutions, post-colonial states must simultaneously achieve state-making, nation-building, border demarcation, and economic industrialization within compressed timeframes.
+    </p>
+    <p>
+      Consequently, primary security threats for developing nations originate not from global polarity transitions, but from **internal state vulnerabilities**: porous borders, ethnic fragmentation, institutional fragility, and external interference by regional superpowers seeking client states.
+    </p>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      সাবঅল্টার্ন রিয়ালিজম বা প্রান্তিক বাস্তবতাবাদ প্রমাণ করে যে তৃতীয় বিশ্বের দেশগুলোর মূল নিরাপত্তা সংকট পরাশক্তিদের বৈশ্বিক যুদ্ধ থেকে নয়, বরং ভঙ্গুর সীমানা, ঔপনিবেশিক উত্তরাধিকার এবং অভ্যন্তরীণ অর্থনৈতিক দুর্বলতা থেকে জন্ম নেয়। তাই মধ্যম শক্তির পররাষ্ট্রনীতিকে অবশ্যই অভ্যন্তরীণ সার্বভৌমত্ব ও অর্থনৈতিক সুরক্ষা কেন্দ্রিক হতে হবে।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How can industrializing Global South economies transcend semi-peripheral value traps without triggering tariff retaliation from dominant core markets?</li>
+        <li>Why do traditional balance-of-power alliances frequently fail to address the internal state-making vulnerabilities of developing sovereign nations?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Immanuel Wallerstein, <em>World-Systems Analysis: An Introduction</em> (2004); Mohammed Ayoob, <em>The Third World Security Predicament: State Making, Regional Conflict, and the International System</em> (1995).
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PART II ================= -->
+  <div class="part-header" id="part2">
+    <div class="part-super">Module Group 02</div>
+    <div class="part-title">Part II: Cognitive Political Psychology & Foreign Policy Decision Systems</div>
+    <div class="part-desc">
+      A forensic analysis of bounded rationality, cognitive biases, risk orientation under acute status loss, cabinet groupthink, operational code profiling, and two-level domestic-international bargaining dynamics.
+    </div>
+  </div>
+
+  <!-- CHAPTER 6 -->
+  <div class="chapter" id="ch6">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 06 • Lecture 2.1</div>
+      <div class="chapter-title">Perception, Misperception & Bounded Rationality in Crisis Diplomacy</div>
+      <div class="chapter-subtitle">Robert Jervis's Cognitive Architecture and the 1962 Cuban Missile Crisis</div>
+    </div>
+
+    <h3>1. The Cognitive Limits of Strategic Rationality</h3>
+    <p>
+      Classical and structural theories treat the state as a unitary, rational "black box." However, foreign policy decisions are ultimately executed by human leaders operating under severe cognitive limitations, time pressure, incomplete intelligence, and emotional stress.
+    </p>
+    <p>
+      In <em>Perception and Misperception in International Politics</em> (1976), Robert Jervis demonstrated that statesmen do not perceive objective reality directly; instead, they interpret incoming intelligence through deeply entrenched **cognitive cognitive filters and heuristics**:
+    </p>
+    <ul>
+      <li><strong>Confirmation Bias (Cognitive Consistency):</strong> Leaders assimilate information that conforms to their pre-existing beliefs while dismissing, discounting, or rationalizing away contradictory warning indicators.</li>
+      <li><strong>Fundamental Attribution Error:</strong> Decision-makers attribute adversary hostile actions to innate malicious character, while explaining their own coercive actions as purely defensive reactions to external constraints.</li>
+      <li><strong>Illusion of Centralized Planning:</strong> Believing the adversary's actions are part of a master, coordinated conspiracy, underestimating bureaucratic chaos, accidents, and incompetence in the rival government.</li>
+    </ul>
+
+    <div class="academic-box">
+      <div class="box-title">🏛️ Historical Case Study: The 1962 Cuban Missile Crisis (ExComm)</div>
+      <p><strong>Crisis Dynamics:</strong> When Soviet nuclear missiles were detected in Cuba, military advisors in the Executive Committee of the National Security Council (ExComm) initially pushed for immediate air strikes and an invasion, assuming Moscow was preparing a preemptive nuclear strike.</p>
+      <p><strong>Diplomatic Breakthrough:</strong> President John F. Kennedy recognized the risk of miscalculation. By implementing a naval blockade (termed a "quarantine" to avoid declaring an act of war under maritime law) and communicating through private diplomatic backchannels, Kennedy provided Nikita Khrushchev with a face-saving exit (secretly trading US Jupiter missiles in Turkey for Soviet missile withdrawal in Cuba).</p>
+      <p><strong>Statecraft Takeaway:</strong> In high-stakes brinkmanship, providing an adversary with a dignified, de-escalatory off-ramp is essential to prevent psychological entrapment and catastrophic escalation.</p>
+    </div>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      কূটনৈতিক সংকটে রাষ্ট্রনায়করা প্রায়শই তথ্যের ভুল ব্যাখ্যা দেন (Misperception)। প্রতিপক্ষের প্রতিরক্ষামূলক পদক্ষেপকে আগ্রাসন মনে করে আক্রমণাত্মক সিদ্ধান্ত নেওয়া এবং ভুল বুদ্ধিমত্তা বিশ্লেষণের কারণে বহু ঐতিহাসিক যুদ্ধের সূচনা হয়েছে। কিউবান মিসাইল সংকটে কেনেডির গোপন কূটনৈতিক চ্যানেল মনস্তাত্ত্বিক ভুল বোঝাবুঝি দূর করে তৃতীয় বিশ্বযুদ্ধ প্রতিরোধ করেছিল।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How can national security advisory councils establish red-teaming mechanisms to systematically challenge institutional confirmation bias?</li>
+        <li>When analyzing adversary military mobilizations, what objective criteria can diplomats use to distinguish genuine offensive intent from defensive posturing?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Robert Jervis, <em>Perception and Misperception in International Politics</em> (1976); Graham Allison & Philip Zelikow, <em>Essence of Decision: Explaining the Cuban Missile Crisis</em> (1999).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 7 -->
+  <div class="chapter" id="ch7">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 07 • Lecture 2.2</div>
+      <div class="chapter-title">Prospect Theory, Status Loss & Risk-Acceptance in Statecraft</div>
+      <div class="chapter-subtitle">Daniel Kahneman, Amos Tversky, Domain of Losses, and Sunk-Cost Entrapment</div>
+    </div>
+
+    <h3>1. Asymmetric Valuation: The Psychology of Sunk Costs</h3>
+    <p>
+      Developed by behavioral economists Daniel Kahneman and Amos Tversky, <em>Prospect Theory</em> demonstrated that human decision-makers do not evaluate outcomes according to absolute wealth levels, but relative to a subjective **psychological reference point**:
+    </p>
+    <ul>
+      <li><strong>Domain of Gains (Risk-Aversion):</strong> When leaders perceive they are operating in the domain of gains (defending existing status and territory), they are inherently risk-averse and prefer certain, conservative settlements.</li>
+      <li><strong>Domain of Losses (Risk-Acceptance):</strong> When leaders perceive they are facing severe status loss, territorial contraction, or regime humiliation, their psychological orientation shifts dramatically to **risk-acceptance**. They will gamble on high-risk, escalatory military interventions with low probabilities of success to avoid a certain loss.</li>
+    </ul>
+
+    <div class="quote-box">
+      "Losses loom larger than corresponding gains. The pain of losing $100 is psychologically twice as intense as the pleasure of gaining $100."
+      <div class="quote-author">— Daniel Kahneman & Amos Tversky, Prospect Theory (1979)</div>
+    </div>
+
+    <p>
+      This framework explains why decaying empires or embattled political regimes frequently double down on failing military interventions (the **sunk-cost entrapment**) rather than accept the domestic political humiliation of strategic withdrawal.
+    </p>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      প্রসপেক্ট থিওরি দেখায় যে রাষ্ট্রনায়করা কোনো অর্জন রক্ষার ক্ষেত্রে ঝুঁকিহীন (Risk-Averse) হলেও, ভূখণ্ড বা রাজনৈতিক মর্যাদা হারানোর মুখে বিপজ্জনক সামরিক ঝুঁকি (Risk-Acceptant) গ্রহণ করেন। অপূরণীয় ক্ষতি এড়াতে পরাজিত যুদ্ধেও নতুন করে সৈন্য পাঠানো এবং সংকটকে আন্তর্জাতিক সংঘাতের দিকে ঠেলে দেওয়ার পেছনে এই মনস্তাত্ত্বিক প্রবণতা দায়ী।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How does prospect theory explain the escalatory dynamics of transboundary resource disputes when upper-riparian states threaten downstream water supplies?</li>
+        <li>What diplomatic framing techniques can mediators deploy to present a compromise as a "shared victory" rather than a "national loss" to domestic constituencies?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Daniel Kahneman & Amos Tversky, "Prospect Theory: An Analysis of Decision under Risk," <em>Econometrica</em> (1979); Jack S. Levy, "Prospect Theory, Rational Choice, and International Relations," <em>International Studies Quarterly</em> (1997).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 8 -->
+  <div class="chapter" id="ch8">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 08 • Lecture 2.3</div>
+      <div class="chapter-title">Cabinet Groupthink, Advisory Pathologies & Strategic Surprises</div>
+      <div class="chapter-subtitle">Irving Janis's Groupthink Framework, De-individuation, and Dissent Suppression</div>
+    </div>
+
+    <h3>1. The Groupthink Pathology in National Security Councils</h3>
+    <p>
+      In <em>Victims of Groupthink</em> (1972), social psychologist Irving Janis analyzed why highly intelligent, experienced foreign policy cabinets frequently formulate catastrophic strategic policies. Janis defined **Groupthink** as a mode of thinking that people engage in when they are deeply involved in a cohesive in-group, where the members' strivings for unanimity override their motivation to realistically appraise alternative courses of action.
+    </p>
+
+    <h3>2. The Eight Symptoms of Cabinet Groupthink</h3>
+    <ol>
+      <li><strong>Illusion of Invulnerability:</strong> Excessive optimism encouraging extreme risks.</li>
+      <li><strong>Collective Rationalization:</strong> Disregarding warnings and discrediting negative intelligence.</li>
+      <li><strong>Belief in Inherent In-Group Morality:</strong> Ignoring the ethical or moral consequences of their decisions.</li>
+      <li><strong>Stereotyped Views of Out-Groups:</strong> Viewing adversaries as too evil for genuine negotiation or too weak to retaliate.</li>
+      <li><strong>Direct Pressure on Dissenters:</strong> Applying social and professional pressure against members who express doubts.</li>
+      <li><strong>Self-Censorship:</strong> Cabinet members voluntarily keeping silent about their own misgivings.</li>
+      <li><strong>Illusion of Unanimity:</strong> Assuming that silence signifies complete consent.</li>
+      <li><strong>Self-Appointed Mindguards:</strong> Advisors shielding the leader from contradictory intelligence.</li>
+    </ol>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      গ্রুপথিঙ্ক সিনড্রোমে জাতীয় নিরাপত্তা উপদেষ্টা পরিষদের সদস্যরা দলীয় ঐকমত্য বজায় রাখতে গিয়ে নিজেদের সন্দেহ দমন করেন এবং নেতিবাচক সতর্কবার্তাকে উড়িয়ে দেন। ১৯৬১ সালের বে অব পিগস অভিযান এবং ২০০৩ সালের ইরাক যুদ্ধের গোয়েন্দা ব্যর্থতা গ্রুপথিঙ্কের ক্লাসিক উদাহরণ।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>What structural institutional safeguards (such as institutionalized devil's advocacy) should a foreign ministry implement to immunize crisis decision-making against groupthink?</li>
+        <li>How does intense public media scrutiny and political polarization accelerate groupthink pathologies within executive decision-making bodies?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Irving L. Janis, <em>Groupthink: Psychological Studies of Policy Decisions and Fiascoes</em> (1982); Paul 't Hart, <em>Groupthink in Government: A Study of Small Groups and Policy Failure</em> (1990).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 9 -->
+  <div class="chapter" id="ch9">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 09 • Lecture 2.4</div>
+      <div class="chapter-title">Operational Code Analysis & Leadership Profiling Paradigms</div>
+      <div class="chapter-subtitle">Nathan Leites, Alexander George, and the Philosophical-Instrumental Belief Matrix</div>
+    </div>
+
+    <h3>1. Profiling the Mind of the Statesman</h3>
+    <p>
+      Originating with Nathan Leites's study of the Soviet Politburo (1951) and codified by Alexander George (1969), <em>Operational Code Analysis</em> provides a structured diagnostic framework for profiling the core belief system of a foreign leader. A leader's operational code acts as a master cognitive map that filters incoming information, evaluates strategic options, and dictates negotiation behavior.
+    </p>
+
+    <h3>2. Alexander George's 10 Diagnostic Questions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 50%;">Philosophical Beliefs (Nature of the World)</th>
+          <th style="width: 50%;">Instrumental Beliefs (How to Act)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. Is the fundamental nature of politics harmony or conflict? Who are the primary adversaries?</td>
+          <td>1. What is the best approach for selecting foreign policy goals and objectives?</td>
+        </tr>
+        <tr>
+          <td>2. What are the prospects for the eventual realization of fundamental political values? Optimism or pessimism?</td>
+          <td>2. How are the goals of action pursued most effectively? (Coercion, persuasion, or compromise?)</td>
+        </tr>
+        <tr>
+          <td>3. Is the political future predictable? In what sense and to what extent?</td>
+          <td>3. How are the risks of political action calculated, controlled, and accepted?</td>
+        </tr>
+        <tr>
+          <td>4. How much control can human beings have over historical developments?</td>
+          <td>4. What is the best "timing" of action to advance one's interests?</td>
+        </tr>
+        <tr>
+          <td>5. What is the role of "chance" and luck in human affairs?</td>
+          <td>5. What is the utility and role of different means (military, economic, diplomatic) for exerting influence?</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      অপারেশনাল কোড অ্যানালাইসিস বিশ্বনেতাদের মনস্তাত্ত্বিক দর্শন ও সিদ্ধান্ত গ্রহণের ধরণ বিশ্লেষণ করে। একজন নেতা আন্তর্জাতিক রাজনীতিকে সহজাত সংঘাতময় নাকি সহযোগিতাপূর্ণ মনে করেন এবং তিনি সামরিক শক্তি বনাম কূটনীতিকে কতটা কার্যকর মনে করেন—তা নির্ণয় করে কূটনৈতিক দরকষাকষির কৌশল সাজানো হয়।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How can diplomatic missions utilize automated content analysis of leadership speeches to construct real-time operational code profiles of foreign leaders?</li>
+        <li>Under what acute systemic shocks do a statesman's core operational code beliefs undergo permanent structural transformation?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Alexander L. George, "The 'Operational Code': A Neglected Approach to the Study of Political Leaders and Decision-Making," <em>International Studies Quarterly</em> (1969); Stephen G. Walker, Mark Schafer & Michael D. Young, "Systematic Procedures for Operational Code Analysis," <em>International Studies Quarterly</em> (1998).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 10 -->
+  <div class="chapter" id="ch10">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 10 • Lecture 2.5</div>
+      <div class="chapter-title">Putnam's Two-Level Bargaining Games & Domestic Alignment</div>
+      <div class="chapter-subtitle">Robert Putnam, Simultaneous Level I & Level II Bargaining, and Win-Set Dynamics</div>
+    </div>
+
+    <h3>1. The Dual-Table Reality of International Diplomacy</h3>
+    <p>
+      In his seminal 1988 article *Diplomacy and Domestic Politics: The Logic of Two-Level Games*, Robert D. Putnam dismantled the false dichotomy between international diplomacy and domestic politics. Putnam modeled international negotiations as two simultaneous bargaining games occurring on two distinct tables:
+    </p>
+    <ul>
+      <li><strong>Level I (International Bargaining):</strong> Diplomats, ambassadors, and heads of state negotiate at the international table to reach a tentative agreement.</li>
+      <li><strong>Level II (Domestic Ratification):</strong> The chief negotiator must return home to persuade domestic political constituencies (parliaments, interest groups, military leadership, public opinion) to formally ratify the treaty.</li>
+    </ul>
+
+    <h3>2. The Concept of the "Win-Set"</h3>
+    <p>
+      Putnam defined a <strong>Win-Set</strong> as the full spectrum of all possible Level I agreements that would successfully achieve the necessary domestic majority ratification at Level II. Two master diplomatic axioms govern two-level games:
+    </p>
+    <ol>
+      <li><strong>Agreement Viability:</strong> An international agreement is possible if, and only if, the domestic win-sets of all negotiating states overlap. If there is zero overlap between domestic win-sets, negotiations collapse into deadlock regardless of how rational the international terms appear.</li>
+      <li><strong>The Power of Inflexibility:</strong> A negotiator with a *smaller* domestic win-set possesses significant bargaining leverage at Level I ("tied hands"). They can credibly extract concessions from the adversary by stating: *"I personally agree with your proposal, but my parliament will impeach me if I concede on this point."*</li>
+    </ol>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      রবার্ট পুটনামের 'টু-লেভেল গেম' প্রমাণ করে যে আন্তর্জাতিক কূটনীতিতে শুধু বিদেশি প্রতিনিধিদের সাথে চুক্তি করলেই চলে না; একই সাথে নিজ দেশের সংসদ ও রাজনৈতিক দলগুলোর অনুমোদন (Win-Set) নিশ্চিত করতে হয়। যদি কোনো চুক্তিতে নিজ দেশের রাজনৈতিক সম্মতি না থাকে, তবে আন্তর্জাতিক টেবিলে তা ব্যর্থ হতে বাধ্য।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How does domestic political polarization shrink a chief executive's Level II win-set during sensitive transboundary water and trade pact negotiations?</li>
+        <li>How can diplomats use strategic side-payments and international issue-linkage to expand the domestic win-set of a recalcitrant negotiating counterpart?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Robert D. Putnam, "Diplomacy and Domestic Politics: The Logic of Two-Level Games," <em>International Organization</em> (1988); Peter B. Evans, Harold K. Jacobson & Robert D. Putnam, <em>Double-Edged Diplomacy: International Bargaining and Domestic Politics</em> (1993).
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PART III ================= -->
+  <div class="part-header" id="part3">
+    <div class="part-super">Module Group 03</div>
+    <div class="part-title">Part III: International Law, UNCLOS & Maritime Geopolitics</div>
+    <div class="part-desc">
+      A legal and strategic dissection of the UN Charter, UNCLOS maritime delimitation, oceanic sea lanes of communication (SLOCs), maritime boundary lawfare, and the weaponization of economic and subsea networks.
+    </div>
+  </div>
+
+  <!-- CHAPTER 11 -->
+  <div class="chapter" id="ch11">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 11 • Lecture 3.1</div>
+      <div class="chapter-title">Sovereign Legal Equality, Customary International Law & Jus Cogens</div>
+      <div class="chapter-subtitle">The UN Charter Architecture, Article 2(4), Article 2(7), and Peremptory Norms</div>
+    </div>
+
+    <h3>1. The Constitutional Core of the Modern International Order</h3>
+    <p>
+      The contemporary international legal architecture is anchored in the **Charter of the United Nations (1945)**. Unlike historical imperial systems governed by raw conquest, the UN Charter codified a universal, rules-based framework establishing the fundamental legal rights and obligations of sovereign states.
+    </p>
+    <p>
+      Three master legal pillars govern the international legal order:
+    </p>
+    <ul>
+      <li><strong>Sovereign Equality (Article 2, Paragraph 1):</strong> All states possess formal legal equality, inviolable domestic jurisdiction, and equal standing before international tribunals.</li>
+      <li><strong>Prohibition on the Threat or Use of Force (Article 2, Paragraph 4):</strong> All members shall refrain in their international relations from the threat or use of force against the territorial integrity or political independence of any state. The only two lawful exceptions are:
+        <ol>
+          <li>Individual or collective self-defense in response to an armed attack under <strong>Article 51</strong>.</li>
+          <li>Enforcement actions authorized by the UN Security Council under <strong>Chapter VII</strong>.</li>
+        </ol>
+      </li>
+      <li><strong>Non-Intervention in Domestic Jurisdiction (Article 2, Paragraph 7):</strong> Nothing contained in the Charter shall authorize the United Nations to intervene in matters which are essentially within the domestic jurisdiction of any state.</li>
+    </ul>
+
+    <h3>2. Customary Law and Jus Cogens Norms</h3>
+    <p>
+      Beyond formal treaty law (<em>lex scripta</em>), international law derives authority from **Customary International Law**, requiring two cumulative elements:
+    </p>
+    <ol>
+      <li><strong>State Practice (Diuturnitas):</strong> Widespread, representative, and consistent practice over time.</li>
+      <li><strong>Opinio Juris:</strong> The psychological conviction that such practice is rendered obligatory by the existence of a rule of law.</li>
+    </ol>
+    <p>
+      At the pinnacle of international jurisprudence stand **Jus Cogens (Peremptory Norms)**—fundamental legal principles from which zero derogation is permitted (e.g., the prohibitions against aggressive war, genocide, maritime piracy, slavery, and torture). Any treaty conflicting with a peremptory norm is void *ab initio* under Article 53 of the Vienna Convention on the Law of Treaties.
+    </p>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      জাতিসংঘ সনদের অনুচ্ছেদ ২(৪) যেকোনো রাষ্ট্রের ভৌগোলিক অখণ্ডতার বিরুদ্ধে বলপ্রয়োগ সম্পূর্ণ নিষিদ্ধ করেছে এবং অনুচ্ছেদ ২(৭) অভ্যন্তরীণ বিষয়ে হস্তক্ষেপ নিষিদ্ধ করেছে। আত্মরক্ষা (অনুচ্ছেদ ৫১) এবং নিরাপত্তা পরিষদের অনুমোদন ব্যতিরেকে যেকোনো সামরিক আগ্রাসন আন্তর্জাতিক আইনের চরম লঙ্ঘন।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How does the doctrine of "Unilateral Humanitarian Intervention" challenge the classical prohibition against the use of force under Article 2(4)?</li>
+        <li>How can small and middle powers invoke *jus cogens* norms to invalidate coercive bilateral agreements extracted under economic duress?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Ian Brownlie, <em>Principles of Public International Law</em>; James Crawford, <em>The Creation of States in International Law</em> (2006); UN Charter Articles 2, 51, and Chapter VII.
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 12 -->
+  <div class="chapter" id="ch12">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 12 • Lecture 3.2</div>
+      <div class="chapter-title">UNCLOS III & Maritime Delimitation Jurisprudence</div>
+      <div class="chapter-subtitle">Baselines, Territorial Seas, Contiguous Zones, EEZs, and Continental Shelf Rights</div>
+    </div>
+
+    <h3>1. The Constitution of the Oceans</h3>
+    <p>
+      Finalized in 1982 after a decade of multilateral diplomacy, the **United Nations Convention on the Law of the Sea (UNCLOS III)** establishes the comprehensive legal framework governing all oceanic and maritime spaces. UNCLOS divided the marine environment into distinct juridical zones measured from coastal baselines:
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 20%;">Maritime Zone</th>
+          <th style="width: 25%;">Spatial Boundary</th>
+          <th style="width: 55%;">Legal Jurisdiction & Sovereign Rights</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Internal Waters</strong></td>
+          <td>Landward side of baseline.</td>
+          <td>Complete territorial sovereignty (equivalent to land territory). Zero right of innocent passage without permission.</td>
+        </tr>
+        <tr>
+          <td><strong>Territorial Sea</strong></td>
+          <td>0 to 12 Nautical Miles (NM).</td>
+          <td>Full territorial sovereignty over waters, airspace, seabed, and subsoil. Foreign vessels retain the right of **Innocent Passage** (peaceful transit).</td>
+        </tr>
+        <tr>
+          <td><strong>Contiguous Zone</strong></td>
+          <td>12 to 24 Nautical Miles.</td>
+          <td>Limited enforcement jurisdiction to prevent and punish infringements of customs, fiscal, immigration, or sanitary laws.</td>
+        </tr>
+        <tr>
+          <td><strong>Exclusive Economic Zone (EEZ)</strong></td>
+          <td>12 to 200 Nautical Miles.</td>
+          <td>Sovereign rights for exploring, exploiting, conserving, and managing natural resources (living fisheries and non-living seabed oil/gas/energy). Foreign states retain freedom of navigation and overflight.</td>
+        </tr>
+        <tr>
+          <td><strong>Continental Shelf</strong></td>
+          <td>200 up to 350 Nautical Miles.</td>
+          <td>Sovereign rights over the exploration and exploitation of mineral and non-living seabed resources and sedentary marine species.</td>
+        </tr>
+        <tr>
+          <td><strong>High Seas & The Area</strong></td>
+          <td>Beyond national jurisdiction.</td>
+          <td>The High Seas are open to all nations (res communis). The international seabed ("The Area") is legally designated as the **Common Heritage of Mankind** governed by the International Seabed Authority (ISA).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      ইউএনসিএলওএস (UNCLOS III) সমুদ্রের সংবিধান হিসেবে পরিচিত। এটি উপকূলবর্তী রাষ্ট্রগুলোকে ১২ নটিক্যাল মাইল পর্যন্ত আঞ্চলিক জলসীমা, ২৪ নটিক্যাল মাইল পর্যন্ত সংলগ্ন অঞ্চল, এবং ২০০ নটিক্যাল মাইল পর্যন্ত একচেটিয়া অর্থনৈতিক অঞ্চল (EEZ) প্রদান করেছে। এই কাঠামোর মাধ্যমেই বাংলাদেশ বঙ্গোপসাগরের বিস্তীর্ণ তেল-গ্যাস ও মৎস্য সম্পদের ওপর পূর্ণ সার্বভৌম অধিকার প্রতিষ্ঠা করেছে।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>What are the technical and legal challenges involved in delineating the Extended Continental Shelf beyond 200 NM before the UN Commission on the Limits of the Continental Shelf (CLCS)?</li>
+        <li>How does the principle of "Equidistance vs. Equity" shape judicial maritime boundary delimitation in concave coastlines?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> United Nations Convention on the Law of the Sea (UNCLOS, 1982); Robin Churchill & Vaughan Lowe, <em>The Law of the Sea</em>; D.P. O'Connell, <em>The International Law of the Sea</em>.
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 13 -->
+  <div class="chapter" id="ch13">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 13 • Lecture 3.3</div>
+      <div class="chapter-title">Strategic Sea Lanes (SLOCs) & Oceanic Chokepoint Geopolitics</div>
+      <div class="chapter-subtitle">Naval Theory (Mahan & Corbett), Maritime Chokepoints, and Bay of Bengal Security</div>
+    </div>
+
+    <h3>1. The Geopolitics of Maritime Transit</h3>
+    <p>
+      Over 80% of global merchandise trade by volume and 60% of daily petroleum shipments traverse oceanic **Sea Lines of Communication (SLOCs)**. Maritime geostrategists, tracing from Alfred Thayer Mahan (<em>The Influence of Sea Power upon History</em>) to Julian Corbett (<em>Some Principles of Maritime Strategy</em>), demonstrated that control over maritime trade routes and narrow geographical **chokepoints** confers decisive geopolitical leverage in peace and war.
+    </p>
+
+    <h3>2. The Ten Critical Global Maritime Chokepoints</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25%;">Chokepoint</th>
+          <th style="width: 30%;">Geographic Location</th>
+          <th style="width: 45%;">Global Strategic Significance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Strait of Malacca</strong></td>
+          <td>Between Malaysia, Indonesia, Singapore.</td>
+          <td>Connects Indian Ocean to South China Sea. Over 16 million barrels/day of crude oil; primary energy artery for China, Japan, and South Korea.</td>
+        </tr>
+        <tr>
+          <td><strong>Strait of Hormuz</strong></td>
+          <td>Between Oman and Iran.</td>
+          <td>The world's most critical energy artery. 21 million barrels/day (20% of global petroleum consumption). Vulnerable to naval mining and A2/AD closure.</td>
+        </tr>
+        <tr>
+          <td><strong>Bab-el-Mandeb</strong></td>
+          <td>Between Yemen, Djibouti, Eritrea.</td>
+          <td>Connects the Arabian Sea to the Red Sea and Suez Canal. Critical corridor for European-Asian maritime container traffic.</td>
+        </tr>
+        <tr>
+          <td><strong>Suez Canal</strong></td>
+          <td>Egypt.</td>
+          <td>Artificial waterway connecting Red Sea to Mediterranean. 12% of global maritime container trade. Eliminates 7,000 km voyage around Africa.</td>
+        </tr>
+        <tr>
+          <td><strong>Panama Canal</strong></td>
+          <td>Panama.</td>
+          <td>Connects Atlantic and Pacific Oceans. Critical conduit for US agricultural and liquefied natural gas (LNG) exports to Asian markets.</td>
+        </tr>
+        <tr>
+          <td><strong>Strait of Gibraltar</strong></td>
+          <td>Between Spain, Gibraltar (UK), Morocco.</td>
+          <td>Western entrance to the Mediterranean Sea. High-density maritime naval route linking North Atlantic to Southern Europe.</td>
+        </tr>
+        <tr>
+          <td><strong>Turkish Straits (Bosphorus/Dardanelles)</strong></td>
+          <td>Turkey.</td>
+          <td>Connects Black Sea to Mediterranean. Governed by 1936 Montreux Convention regulating transit of foreign naval warships.</td>
+        </tr>
+        <tr>
+          <td><strong>Cape of Good Hope</strong></td>
+          <td>South Africa.</td>
+          <td>Primary alternative oceanic route bypassing Suez Canal during Middle Eastern geopolitical escalation.</td>
+        </tr>
+        <tr>
+          <td><strong>Sunda & Lombok Straits</strong></td>
+          <td>Indonesia.</td>
+          <td>Deep-water alternate passages to Malacca for ultra-large crude carriers (VLCCs) and submerged naval submarines.</td>
+        </tr>
+        <tr>
+          <td><strong>Palk Strait & 10-Degree Channel</strong></td>
+          <td>Bay of Bengal / Andaman Sea.</td>
+          <td>Direct maritime approach corridors guarding the western entry to the Strait of Malacca and Indian Ocean SLOCs.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      চোখ পয়েন্ট (Choke Point) হলো সংকীর্ণ সামুদ্রিক প্রণালী যা বৈশ্বিক বাণিজ্য ও জ্বালানি সরবরাহের প্রাণকেন্দ্র। মালাক্কা, হরমুজ ও বাবেল মান্দেব প্রণালী বন্ধ হলে বৈশ্বিক জ্বালানি সরবরাহ ব্যবস্থা ধসে পড়তে পারে। বঙ্গোপসাগর এই মালাক্কা প্রণালীর পশ্চিম প্রবেশদ্বার হওয়ায় এর ভূ-কৌশলগত গুরুত্ব অপরিসীম।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How does the "Malacca Dilemma" shape Chinese naval modernization and the development of overland port pipelines (such as Gwadar and Kyaukpyu)?</li>
+        <li>What defensive naval capabilities must littoral Bay of Bengal states acquire to prevent coastal blockades during great-power maritime clashes?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Alfred Thayer Mahan, <em>The Influence of Sea Power upon History, 1660–1783</em>; Julian S. Corbett, <em>Some Principles of Maritime Strategy</em> (1911); C. Raja Mohan, <em>Samudra Manthan: Sino-Indian Rivalry in the Indo-Pacific</em> (2012).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 14 -->
+  <div class="chapter" id="ch14">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 14 • Lecture 3.4</div>
+      <div class="chapter-title">Lawfare & Peaceful Settlement of Sovereign Maritime Boundaries</div>
+      <div class="chapter-subtitle">Bangladesh Landmark Delimitations at ITLOS (2012) and PCA (2014)</div>
+    </div>
+
+    <h3>1. Lawfare as an Instrument of Sovereign Defense</h3>
+    <p>
+      <em>Lawfare</em>—the strategic deployment of international legal treaties, judicial tribunals, and legal regimes as an instrument of statecraft—provides non-nuclear middle powers with a potent asymmetric defense against regional hegemonies. Rather than resorting to costly kinetic military clashes that smaller states cannot win, skillful lawfare mobilizes binding international jurisprudence to codify sovereign rights.
+    </p>
+
+    <div class="academic-box">
+      <div class="box-title">🏛️ Landmark Case Study: Bangladesh Bay of Bengal Maritime Boundary Delimitations</div>
+      <p><strong>Geographic Dilemma:</strong> Due to the concave coastline of the Bay of Bengal and unstable shifting river deltas, Bangladesh faced the risk of being "zoned out" of its 200 NM EEZ and Extended Continental Shelf if neighboring states (India and Myanmar) applied strict equidistance lines.</p>
+      <p><strong>Strategic Lawfare Deployment:</strong> In 2009, Bangladesh instituted compulsory dispute settlement proceedings under UNCLOS Annex VII:</p>
+      <ul>
+        <li><strong>ITLOS Verdict (Bangladesh v. Myanmar, 2012):</strong> The International Tribunal for the Law of the Sea in Hamburg accepted Bangladesh's argument for an <em>Angle-Bisector Method</em>, granting Bangladesh complete sovereign rights over its 200 NM EEZ and full access to the outer continental shelf.</li>
+        <li><strong>PCA Verdict (Bangladesh v. India, 2014):</strong> The Permanent Court of Arbitration in The Hague applied the <em>Equitable Solution Principle</em> (modifying the provisional equidistance line to account for the concave coastline of the delta), awarding Bangladesh 19,467 sq km of the 25,602 sq km disputed area.</li>
+      </ul>
+      <p><strong>Historic Strategic Outcome:</strong> Bangladesh peacefully secured uncontested sovereign rights over 118,813 sq km of maritime waters, 200 NM of EEZ, and outer continental shelf rights up to 354 NM without firing a single shot.</p>
+    </div>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      বাংলাদেশ আন্তর্জাতিক আদালতের মাধ্যমে সমুদ্রসীমা নির্ধারণের (ITLOS ২০১২ এবং PCA ২০১৪) ঐতিহাসিক দৃষ্টান্ত স্থাপন করেছে। উপকূলীয় বক্রতার কারণে বাংলাদেশ 'সমদূরত্ব' পদ্ধতির বদলে 'ন্যায্যতা' (Equity) নীতি প্রমাণ করে ১,১৮,৮১৩ বর্গকিলোমিটার সমুদ্র এলাকা ও ৩৫০ নটিক্যাল মাইল মহীসোপানের ওপর পূর্ণ অধিকার নিশ্চিত করে। এটি আন্তর্জাতিক ল'ফেয়ারের সফল প্রয়োগ।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How did Bangladesh's legal argumentation at ITLOS create a binding global precedent for maritime delimitation in concave deltaic coastlines?</li>
+        <li>What are the blue economy enforcement challenges facing Bangladesh in securing living fisheries and deep-sea hydrocarbons across its newly delimited EEZ?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> ITLOS Judgment, <em>Dispute Concerning Delimitation of the Maritime Boundary between Bangladesh and Myanmar in the Bay of Bengal</em> (Judgment of 14 March 2012); PCA Award, <em>Bay of Bengal Maritime Boundary Arbitration between Bangladesh and India</em> (Award of 7 July 2014).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 15 -->
+  <div class="chapter" id="ch15">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 15 • Lecture 3.5</div>
+      <div class="chapter-title">Geoeconomics, Network Coercion & Weaponized Interdependence</div>
+      <div class="chapter-subtitle">Henry Farrell, Abraham Newman, SWIFT Sanctions, and Subsea Fiber-Optic Sovereignty</div>
+    </div>
+
+    <h3>1. The Centrality of Global Information and Financial Hubs</h3>
+    <p>
+      In <em>Weaponized Interdependence: How Global Economic Networks Shape State Coercion</em> (2019), Henry Farrell and Abraham Newman demonstrated that the open, globalized economic system is not a diffuse, decentralized web; rather, it is characterized by **highly asymmetric, centralized hub-and-spoke networks**:
+    </p>
+    <ul>
+      <li><strong>Financial Clearing Hubs:</strong> The SWIFT messaging system and US dollar clearing systems (CHIPS).</li>
+      <li><strong>Information & Data Infrastructure:</strong> Global subsea fiber-optic telecommunication cables and Tier-1 cloud data servers.</li>
+      <li><strong>Technological Supply Chains:</strong> Advanced extreme ultraviolet (EUV) photolithography semiconductor manufacturing (e.g., ASML, TSMC).</li>
+    </ul>
+
+    <h3>2. The Two Mechanisms of Network Coercion</h3>
+    <ol>
+      <li><strong>The Panopticon Effect:</strong> States that exercise jurisdictional authority over central hubs can monitor and extract strategic intelligence on global transactions and communications traversing the network.</li>
+      <li><strong>The Chokepoint Effect:</strong> Dominant hub states can unilaterally cut off an adversary's access to the central node, weaponizing economic interdependence to inflict devastating asymmetric damage (e.g., disconnecting Russian and Iranian banks from SWIFT, export bans on advanced AI semiconductors).</li>
+    </ol>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      আধুনিক ভূ-অর্থনীতিতে সামরিক যুদ্ধের চেয়ে অর্থনৈতিক নেটওয়ার্ক নিয়ন্ত্রণ বেশি শক্তিশালী। সুইফট (SWIFT) ব্যাংকিং চ্যানেল, সেমিকন্ডাক্টর সরবরাহ শৃঙ্খল এবং সমুদ্রের তলদেশের সাবমেরিন ইন্টারনেট ক্যাবল নিয়ন্ত্রণকারী দেশগুলো 'চোখ পয়েন্ট ইফেক্ট' প্রয়োগ করে প্রতিপক্ষকে বিচ্ছিন্ন করতে পারে।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How can developing middle powers protect their financial stability against secondary unilateral sanctions imposed by global currency-clearing hubs?</li>
+        <li>What physical and cyber-defense protocols must littoral states deploy to safeguard their subsea communication landing stations in the Bay of Bengal?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Henry Farrell & Abraham L. Newman, "Weaponized Interdependence: How Global Economic Networks Shape State Coercion," <em>International Security</em> (2019); Edward Luttwak, "From Geopolitics to Geo-Economics: Logic of Conflict, Grammar of Commerce," <em>The National Interest</em> (1990).
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PART IV ================= -->
+  <div class="part-header" id="part4">
+    <div class="part-super">Module Group 04</div>
+    <div class="part-title">Part IV: The 2026 Bangladesh Sovereign Foreign Policy Paradigm</div>
+    <div class="part-desc">
+      A strategic and practical policy treatise on the post-2024 'Bangladesh First' grand strategy, transboundary river hydro-diplomacy, Bay of Bengal security architecture, multi-vector economic balancing, and the Rohingya repatriation framework.
+    </div>
+  </div>
+
+  <!-- CHAPTER 16 -->
+  <div class="chapter" id="ch16">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 16 • Lecture 4.1</div>
+      <div class="chapter-title">The 'Bangladesh First' Grand Strategy & Sovereign Dignity</div>
+      <div class="chapter-subtitle">Post-2024 Realignment, Absolute Sovereign Equality, and Reciprocal Border Defense</div>
+    </div>
+
+    <h3>1. The Post-2024 Foreign Policy Realignment</h3>
+    <p>
+      Following the historic political transition of August 2024, Bangladesh's foreign policy underwent a fundamental structural recalibration. The legacy paradigm—characterized by asymmetric bilateral accommodation and clientelist diplomatic dependency—was replaced by the **"Bangladesh First" Doctrine**.
+    </p>
+    <p>
+      Anchored in the constitutional mandate of sovereign dignity and non-aligned strategic autonomy, the *Bangladesh First* grand strategy is structured upon four foundational pillars:
+    </p>
+    <ol>
+      <li><strong>Absolute Sovereign Equality:</strong> Refusal to accept external political tutelage or ideological interference in domestic state-building.</li>
+      <li><strong>Strict Bilateral Reciprocity:</strong> Transboundary trade, transit corridors, and security cooperation must deliver measurable, reciprocal economic and national benefits to Bangladesh.</li>
+      <li><strong>Zero-Tolerance Border Security:</strong> Transforming border diplomacy from passive tolerance of civilian casualties into active, legal, and operational defense of sovereign territorial boundaries.</li>
+      <li><strong>Multi-Vector Alignment:</strong> Maintaining robust, pragmatic, and diversified strategic partnerships with the United States, European Union, China, Japan, Middle Eastern energy corridors, and the wider Global South.</li>
+    </ol>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      'বাংলাদেশ ফার্স্ট ডকট্রিন' ২০২৪-পরবর্তী পররাষ্ট্রনীতির মূল ভিত্তি। এটি কোনো পরাশক্তির প্রতি অন্ধ আনুগত্য প্রত্যাখ্যান করে সার্বভৌম সমমর্যাদা, সীমান্তে নাগরিকদের জীবনের শতভাগ সুরক্ষা, দ্বিপাক্ষিক সম্পর্কের ক্ষেত্রে সমতা ও পারস্পরিক স্বার্থের নীতি প্রতিষ্ঠা করে।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How can Bangladesh maintain robust economic ties with neighboring regional superpowers while resolutely defending its sovereign policy autonomy?</li>
+        <li>What institutional reforms are required within the Ministry of Foreign Affairs (MoFA) to build a professionalized, merit-driven diplomatic corps capable of complex multilateral bargaining?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Bangladesh Constitution Article 25 (Promotion of International Peace, Security and Solidarity); Daloyar Hassan Shishir, "Strategic Autonomy and Sovereign Realignment in Post-Transition Bangladesh" (2026).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 17 -->
+  <div class="chapter" id="ch17">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 17 • Lecture 4.2</div>
+      <div class="chapter-title">Transboundary Hydro-Diplomacy & Riparian Sovereign Rights</div>
+      <div class="chapter-subtitle">The 54 Shared Rivers, Teesta Basin Governance, and the UN 1997 Watercourses Convention</div>
+    </div>
+
+    <h3>1. The Hydro-Strategic Geography of Lower-Riparian Bangladesh</h3>
+    <p>
+      Bangladesh is the lowest riparian deltaic nation in the Ganges-Brahmaputra-Meghna (GBM) basin, sharing **54 transboundary rivers** with upper-riparian India. Transboundary water is not merely an environmental resource; it is an existential component of national security, food sovereignty, agrarian livelihoods, and ecological survival.
+    </p>
+    <p>
+      Upper-riparian unilateral water diversions (notably the Gazaldoba Barrage on the Teesta River and the Farakka Barrage on the Ganges) have caused acute seasonal droughts in northern Bangladesh during the lean winter season, followed by devastating flood surges during the monsoon due to uncoordinated dam gate releases.
+    </p>
+
+    <h3>2. The Legal Architecture for Transboundary Hydro-Diplomacy</h3>
+    <p>
+      Bangladesh's hydro-diplomacy must be grounded in established international water law, specifically the **1997 UN Convention on the Law of the Non-Navigational Uses of International Watercourses**:
+    </p>
+    <ul>
+      <li><strong>Equitable and Reasonable Utilization (Article 5):</strong> An international watercourse must be used and developed by basin states with a view to attaining optimal and sustainable utilization.</li>
+      <li><strong>Obligation Not to Cause Significant Harm (Article 7):</strong> Watercourse states shall, in utilizing an international river in their territory, take all appropriate measures to prevent the causing of significant harm to other watercourse states.</li>
+      <li><strong>Mandatory Data and Telemetry Exchange (Article 9):</strong> Basin states must regularly exchange readily available data and information on the condition of the watercourse, including real-time hydrological and meteorological telemetry.</li>
+    </ul>
+
+    <div class="academic-box">
+      <div class="box-title">🌊 Strategic Framework: Comprehensive Teesta River Basin Comprehensive Management Project</div>
+      <p>To end indefinite bilateral treaty paralysis, Bangladesh must execute the **Teesta River Comprehensive Master Plan**: deepening the riverbed, constructing embankments, building reservoirs to store monsoon overflow, and irrigating 100,000+ hectares of northern farmland while utilizing multilateral funding (multilateral development banks) under transparent sovereign control.</p>
+    </div>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      উজানের ৫৪টি যৌথ নদীর ওপর আন্তর্জাতিক আইন (UN 1997 Watercourses Convention) অনুযায়ী বাংলাদেশের ন্যায়সঙ্গত হিস্যা আদায় জাতীয় অস্তিত্বের প্রশ্ন। তিস্তার মতো অভিন্ন নদীতে একতরফা পানি প্রত্যাহারের বিরুদ্ধে রিয়েল-টাইম হাইড্রোলজিক্যাল তথ্য বিনিময় এবং আন্তর্জাতিক জল কূটনীতির প্রয়োগ অপরিহার্য।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>Why is the formal ratification of the UN 1997 Watercourses Convention critical for Bangladesh's legal leverage in transboundary water disputes?</li>
+        <li>How can integrated river basin management (IRBM) frameworks transform regional water politics from a zero-sum conflict into a positive-sum energy and agricultural cooperative regime?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> UN Convention on the Law of the Non-Navigational Uses of International Watercourses (1997); Stephen C. McCaffrey, <em>The Law of International Watercourses</em> (2019); Ashok Swain, <em>Managing Water Conflict: Asia, Africa and the Middle East</em>.
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 18 -->
+  <div class="chapter" id="ch18">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 18 • Lecture 4.3</div>
+      <div class="chapter-title">Bay of Bengal Maritime Security, Matarbari Deep Sea Port & Naval Strategy</div>
+      <div class="chapter-subtitle">SLOC Protection, Blue Economy Infrastructure, and Subsea Communication Defense</div>
+    </div>
+
+    <h3>1. The Maritime Pivot of Bangladesh</h3>
+    <p>
+      For decades, Bangladesh operated under a "continental mindset," viewing its security almost exclusively through its terrestrial land borders. The 2012 (ITLOS) and 2014 (PCA) maritime boundary delimitations triggered an irreversible **maritime strategic pivot**, expanding Bangladesh's sovereign domain to 118,813 sq km of marine waters.
+    </p>
+
+    <h3>2. Three Strategic Imperatives in the Northern Bay of Bengal</h3>
+    <ol>
+      <li><strong>Matarbari Deep Sea Port as a Geopolitical Transshipment Hub:</strong> With a 18.5-meter draft capable of accommodating 8,000+ TEU container vessels, Matarbari transforms Bangladesh into the maritime gateway for landlocked South Asian and Southeast Asian hinterlands (Nepal, Bhutan, northeast India).</li>
+      <li><strong>Subsea Communication Cable Sovereignty:</strong> Safeguarding the landing stations of subsea fiber-optic telecommunication cables (SMW-4, SMW-5, and upcoming third cable) in Cox's Bazar and Kuakata against physical sabotage and electronic espionage.</li>
+      <li><strong>Naval Modernization & Maritime Domain Awareness (MDA):</strong> Equipping the Bangladesh Navy and Coast Guard with long-range maritime patrol aircraft (MPA), surface corvettes, diesel-electric submarines, and satellite coastal radar networks to defend against unauthorized resource extraction, maritime piracy, and coastal smuggling.</li>
+    </ol>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      বঙ্গোপসাগর বাংলাদেশের অর্থনীতির ভবিষ্যৎ। মাতারবাড়ি গভীর সমুদ্র বন্দর ও কক্সবাজার-কুয়াকাটার সাবমেরিন ক্যাবল ল্যান্ডিং স্টেশন জাতীয় ডিজিটাল ও বাণিজ্যিক নিরাপত্তার মূল চাবিকাঠি। নৌবাহিনীর আধুনিকায়ন ও উপকূলীয় নজরদারি ব্যবস্থার মাধ্যমে সমুদ্র সম্পদের নিরাপত্তা নিশ্চিত করা অপরিহার্য।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How does Matarbari Deep Sea Port reshape regional connectivity between South Asia, ASEAN, and the wider Indo-Pacific maritime trade corridors?</li>
+        <li>What legal and naval mechanisms should littoral Bay of Bengal states establish to conduct joint surveillance against Illegal, Unreported, and Unregulated (IUU) fishing?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Geoffrey Till, <em>Seapower: A Guide for the Twenty-First Century</em> (2018); David Brewster, <em>India and China at Sea: Competition for Naval Dominance in the Indian Ocean</em> (2018).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 19 -->
+  <div class="chapter" id="ch19">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 19 • Lecture 4.4</div>
+      <div class="chapter-title">Omnidirectional Economic Hedging & Multipolar Balancing</div>
+      <div class="chapter-subtitle">Managing Ties Across the US, China, India, Japan, and the EU without Binding Alliances</div>
+    </div>
+
+    <h3>1. Omnidirectional Hedging as Middle-Power Grand Strategy</h3>
+    <p>
+      In an escalating structural rivalry between the United States and China, middle powers that enter rigid, exclusive alliances become frontline battlegrounds. To preserve national sovereignty and maximize economic development, Bangladesh executes a grand strategy of **Omnidirectional Hedging**:
+    </p>
+    <ul>
+      <li><strong>Economic Diversification:</strong> Securing concessionary infrastructure credit from multiple competing sources (Japanese JICA, Asian Development Bank, World Bank, and Chinese Belt and Road investments) while avoiding sovereign debt-trap vulnerabilities.</li>
+      <li><strong>Market Diversification:</strong> Defending duty-free garment export markets in the European Union (GSP/GSP+) and the United States while expanding bilateral trade corridors with ASEAN and the Gulf Cooperation Council (GCC).</li>
+      <li><strong>Non-Aligned Security Cooperation:</strong> Procuring defense equipment from diversified global suppliers (Europe, Turkey, China) and conducting joint exercises without entering exclusive military pacts.</li>
+    </ul>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      সর্বমুখী হেজিং (Omnidirectional Hedging) হলো কোনো একক পরাশক্তির সামরিক বলয়ে যোগ না দিয়ে সবার সাথে সমান অর্থনৈতিক ও কূটনৈতিক অংশীদারিত্ব বজায় রাখা। যুক্তরাষ্ট্র, চীন, ভারত ও জাপানের সাথে সমদূরত্ব বজায় রেখে জাতীয় উন্নয়ন ও সার্বভৌম প্রতিরক্ষা নিশ্চিত করাই আধুনিক বাংলাদেশের পররাষ্ট্রনীতির লক্ষ্য।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How can a developing littoral nation navigate US Indo-Pacific Strategy (IPS) frameworks and China's Belt and Road Initiative (BRI) without triggering geopolitical retaliation?</li>
+        <li>What are the primary structural risks of middle-power hedging during an acute international sanctions crisis?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> Cheng-Chwee Kuik, "The Essence of Hedging: Malaysia and Singapore's Alignment Strategies," <em>Contemporary Southeast Asia</em> (2008); Evelyn Goh, <em>Meeting the China Challenge: The U.S. in Southeast Asian Regional Security Strategies</em> (2005).
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 20 -->
+  <div class="chapter" id="ch20">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 20 • Lecture 4.5</div>
+      <div class="chapter-title">Rohingya Repatriation Strategy & Multilateral Legal Justice</div>
+      <div class="chapter-subtitle">ASEAN Coordination, UN Security Council Diplomacy, and ICJ/ICC International Jurisprudence</div>
+    </div>
+
+    <h3>1. The Geopolitical Dimensions of the Rohingya Crisis</h3>
+    <p>
+      Since August 2017, Bangladesh has hosted over 1.2 million forcibly displaced Rohingya refugees in Cox's Bazar and Bhasan Char. What began as a humanitarian emergency has transformed into an acute, multi-dimensional **national security, environmental, and demographic crisis**.
+    </p>
+
+    <h3>2. The Three-Pillar Sovereign Resolution Strategy</h3>
+    <ol>
+      <li><strong>Verified, Dignified & Sustainable Repatriation:</strong> Bilateral agreements must include verified citizenship recognition, physical security guarantees, and UNHCR on-ground monitoring in Rakhine State.</li>
+      <li><strong>International Judicial Accountability (Lawfare):</strong> Supporting international legal accountability proceedings:
+        <ul>
+          <li><strong>The International Court of Justice (ICJ):</strong> The Gambia v. Myanmar (Application of the Convention on the Prevention and Punishment of the Crime of Genocide).</li>
+          <li><strong>The International Criminal Court (ICC):</strong> Jurisdiction over the crime against humanity of forced deportation across the Myanmar-Bangladesh border.</li>
+        </ul>
+      </li>
+      <li><strong>Multilateral ASEAN-UN Pressure:</strong> Demanding that ASEAN and regional superpowers actively engage in resolving the conflict rather than treating the burden as Bangladesh's permanent domestic responsibility.</li>
+    </ol>
+
+    <div class="bangla-digest">
+      <strong>কূটনৈতিক সারসংক্ষেপ:</strong><br>
+      রোহিঙ্গা সংকটের একমাত্র স্থায়ী সমাধান হলো নাগরিক অধিকার ও নিরাপত্তার নিশ্চয়তাসহ রাখাইনে তাদের দ্রুত টেকসই প্রত্যাবাসন। আন্তর্জাতিক বিচার আদালত (ICJ) ও আন্তর্জাতিক অপরাধ আদালতে (ICC) মিয়ানমারের অপরাধের বিচার নিশ্চিত করার পাশাপাশি আসিয়ান ও বিশ্ব সম্প্রদায়ের ওপর কূটনৈতিক চাপ অব্যাহত রাখা প্রয়োজন।
+    </div>
+
+    <div class="seminar-box">
+      <strong>Socratic Inquiry & Seminar Prompts:</strong>
+      <ul>
+        <li>How can international legal accountability at the ICJ be translated into practical diplomatic leverage on the Myanmar military junta?</li>
+        <li>What security protocols must Bangladesh establish to prevent regional armed insurgencies from destabilizing the borders in Cox's Bazar and Bandarban?</li>
+      </ul>
+      <div class="reading-list">
+        <strong>Required Seminar Readings:</strong> ICJ Order, <em>Application of the Convention on the Prevention and Punishment of the Crime of Genocide (The Gambia v. Myanmar)</em> (2020); UN Special Rapporteur Reports on the Situation of Human Rights in Myanmar.
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PART V ================= -->
+  <div class="part-header" id="lexicon">
+    <div class="part-super">Module Group 05</div>
+    <div class="part-title">Part V: Comprehensive Bilingual Diplomatic Lexicon & Conceptual Glossary</div>
+    <div class="part-desc">
+      A comprehensive bilingual reference dictionary of 20 core theoretical constructs, international legal doctrines, and diplomatic paradigms with IPA phonetics and context.
+    </div>
+  </div>
+
+  <div style="margin-top: 24px;">
+    <!-- LEXICON ENTRIES -->
+    <div class="lexicon-item">
+      <div>
+        <span class="lex-term">Anarchy (International)</span>
+        <span class="lex-ipa">/ˈæn.ər.ki/</span>
+        <span class="lex-cat">IR Theory</span>
+      </div>
+      <div style="margin-top: 6px; font-size: 10pt;">
+        <strong>Academic Definition:</strong> The absence of a centralized global sovereign authority or overarching world government to enforce rules and mediate interstate disputes.
+      </div>
+      <div style="margin-top: 4px; font-size: 9.5pt; color: #1f2937;">
+        <strong>বাংলা অর্থ ও তাৎপর্য:</strong> আন্তর্জাতিক নৈরাজ্য — কেন্দ্রীয় বৈশ্বিক শাসনহীন অবস্থা যেখানে রাষ্ট্রসমূহ নিজস্ব শক্তিতে সার্বভৌমত্ব রক্ষা করে।
+      </div>
+      <div style="margin-top: 4px; font-size: 9pt; color: #4b5563; font-style: italic;">
+        <strong>Diplomatic Context:</strong> In structural realism, anarchy compels states to rely on self-help, balance-of-power strategies, and military self-reliance to survive.
+      </div>
+    </div>
+
+    <div class="lexicon-item">
+      <div>
+        <span class="lex-term">Security Dilemma</span>
+        <span class="lex-ipa">/səˈkjʊə.rə.ti dɪˈlem.ə/</span>
+        <span class="lex-cat">IR Theory</span>
+      </div>
+      <div style="margin-top: 6px; font-size: 10pt;">
+        <strong>Academic Definition:</strong> A condition where actions taken by one state to heighten its defensive security inherently induce fear and counter-mobilization in rival states, leading to unintended escalation.
+      </div>
+      <div style="margin-top: 4px; font-size: 9.5pt; color: #1f2937;">
+        <strong>বাংলা অর্থ ও তাৎপর্য:</strong> নিরাপত্তা সংকট — আত্মরক্ষার সামরিক প্রস্তুতিকে প্রতিপক্ষ আগ্রাসী তৎপরতা হিসেবে দেখে অস্ত্র প্রতিযোগিতায় লিপ্ত হওয়া।
+      </div>
+      <div style="margin-top: 4px; font-size: 9pt; color: #4b5563; font-style: italic;">
+        <strong>Diplomatic Context:</strong> Conceptualized by John Herz and Robert Jervis, explaining how defensive armament triggers regional arms races.
+      </div>
+    </div>
+
+    <div class="lexicon-item">
+      <div>
+        <span class="lex-term">Strategic Autonomy</span>
+        <span class="lex-ipa">/strəˈtiː.dʒɪk ɔːˈtɒn.ə.mi/</span>
+        <span class="lex-cat">Security & Strategy</span>
+      </div>
+      <div style="margin-top: 6px; font-size: 10pt;">
+        <strong>Academic Definition:</strong> The institutional capability of a sovereign nation to formulate and execute foreign and security policies based strictly on national interests without yielding to external hegemonic coercion.
+      </div>
+      <div style="margin-top: 4px; font-size: 9.5pt; color: #1f2937;">
+        <strong>বাংলা অর্থ ও তাৎপর্য:</strong> কৌশলগত স্বায়ত্তশাসন — কোনো পরাশক্তির সামরিক বা ভূ-রাজনৈতিক বলয়ের কাছে নতি স্বীকার না করে স্বাধীন পররাষ্ট্রনীতি পরিচালনা।
+      </div>
+      <div style="margin-top: 4px; font-size: 9pt; color: #4b5563; font-style: italic;">
+        <strong>Diplomatic Context:</strong> A cornerstone doctrine for middle powers navigating multipolar competition between global superpowers.
+      </div>
+    </div>
+
+    <div class="lexicon-item">
+      <div>
+        <span class="lex-term">Prospect Theory</span>
+        <span class="lex-ipa">/ˈprɒs.pɛkt ˈθɪə.ri/</span>
+        <span class="lex-cat">Political Psychology</span>
+      </div>
+      <div style="margin-top: 6px; font-size: 10pt;">
+        <strong>Academic Definition:</strong> Decision theory showing that state leaders are risk-averse when protecting perceived gains, but highly risk-acceptant when facing perceived losses of territory or prestige.
+      </div>
+      <div style="margin-top: 4px; font-size: 9.5pt; color: #1f2937;">
+        <strong>বাংলা অর্থ ও তাৎপর্য:</strong> প্রসপেক্ট থিওরি — ক্ষতি বা মর্যাদা হানির মুখে রাষ্ট্রনায়কদের অপ্রয়োজনীয় সামরিক ঝুঁকি ও সংঘাত বৃদ্ধির মনস্তাত্ত্বিক প্রবণতা।
+      </div>
+      <div style="margin-top: 4px; font-size: 9pt; color: #4b5563; font-style: italic;">
+        <strong>Diplomatic Context:</strong> Explains why regimes frequently double down on failing military interventions rather than accept political defeat.
+      </div>
+    </div>
+
+    <div class="lexicon-item">
+      <div>
+        <span class="lex-term">Groupthink</span>
+        <span class="lex-ipa">/ˈɡruːp.θɪŋk/</span>
+        <span class="lex-cat">Political Psychology</span>
+      </div>
+      <div style="margin-top: 6px; font-size: 10pt;">
+        <strong>Academic Definition:</strong> A psychological phenomenon in cohesive cabinet advisory councils where the desire for conformity suppresses critical dissent, resulting in disastrous strategic decisions.
+      </div>
+      <div style="margin-top: 4px; font-size: 9.5pt; color: #1f2937;">
+        <strong>বাংলা অর্থ ও তাৎপর্য:</strong> গ্রুপথিঙ্ক — জাতীয় নিরাপত্তা কাউন্সিলে অন্ধ ঐকমত্যের কারণে ভিন্নমত ও সতর্কবার্তা দমন করে অপরিণামদর্শী সিদ্ধান্ত নেওয়া।
+      </div>
+      <div style="margin-top: 4px; font-size: 9pt; color: #4b5563; font-style: italic;">
+        <strong>Diplomatic Context:</strong> Root cause of the Bay of Pigs invasion and 2003 Iraq intelligence estimates.
+      </div>
+    </div>
+
+    <div class="lexicon-item">
+      <div>
+        <span class="lex-term">Exclusive Economic Zone (EEZ)</span>
+        <span class="lex-ipa">/ɪkˈskluː.sɪv ˌiː.kəˈnɒm.ɪk zoʊn/</span>
+        <span class="lex-cat">International Law</span>
+      </div>
+      <div style="margin-top: 6px; font-size: 10pt;">
+        <strong>Academic Definition:</strong> A maritime zone extending up to 200 nautical miles from a coastal state's baseline, conferring sovereign exploration rights over marine living resources and seabed energy reserves under UNCLOS.
+      </div>
+      <div style="margin-top: 4px; font-size: 9.5pt; color: #1f2937;">
+        <strong>বাংলা অর্থ ও তাৎপর্য:</strong> একচেটিয়া অর্থনৈতিক অঞ্চল (ইইজেড) — উপকূলীয় রাষ্ট্রের সমুদ্রতীর থেকে ২০০ নটিক্যাল মাইল পর্যন্ত মৎস্য ও খনিজ সম্পদের ওপর সার্বভৌম অধিকার।
+      </div>
+      <div style="margin-top: 4px; font-size: 9pt; color: #4b5563; font-style: italic;">
+        <strong>Diplomatic Context:</strong> Delimited peacefully by Bangladesh in landmark ITLOS (2012) and PCA (2014) verdicts.
+      </div>
+    </div>
+
+    <div class="lexicon-item">
+      <div>
+        <span class="lex-term">Lawfare</span>
+        <span class="lex-ipa">/ˈlɔː.feər/</span>
+        <span class="lex-cat">International Law</span>
+      </div>
+      <div style="margin-top: 6px; font-size: 10pt;">
+        <strong>Academic Definition:</strong> The strategic deployment of international legal treaties, judicial tribunals, and legal regimes as an instrument of statecraft to constrain adversaries and defend sovereign rights without kinetic war.
+      </div>
+      <div style="margin-top: 4px; font-size: 9.5pt; color: #1f2937;">
+        <strong>বাংলা অর্থ ও তাৎপর্য:</strong> ল'ফেয়ার (আইনভিত্তিক কৌশল) — বন্দুকের বদলে আন্তর্জাতিক ট্রাইব্যুনাল ও আইনি চুক্তিকে পরাশক্তির বিরুদ্ধে সুরক্ষার হাতিয়ার হিসেবে প্রয়োগ।
+      </div>
+      <div style="margin-top: 4px; font-size: 9pt; color: #4b5563; font-style: italic;">
+        <strong>Diplomatic Context:</strong> Effectively demonstrated in Bangladesh's Bay of Bengal maritime boundary demarcations.
+      </div>
+    </div>
+
+    <div class="lexicon-item">
+      <div>
+        <span class="lex-term">Two-Level Games</span>
+        <span class="lex-ipa">/tuː ˈlɛv.əl ɡeɪmz/</span>
+        <span class="lex-cat">Diplomatic Statecraft</span>
+      </div>
+      <div style="margin-top: 6px; font-size: 10pt;">
+        <strong>Academic Definition:</strong> Robert Putnam's model conceptualizing international diplomacy as concurrent bargaining between international statesmen (Level I) and their domestic political ratifying bodies (Level II).
+      </div>
+      <div style="margin-top: 4px; font-size: 9.5pt; color: #1f2937;">
+        <strong>বাংলা অর্থ ও তাৎপর্য:</strong> টু-লেভেল গেম — আন্তর্জাতিক টেবিলে চুক্তি করার পাশাপাশি নিজ দেশের অভ্যন্তরীণ রাজনৈতিক অনুমোদন আদায়ের দ্বৈত দরকষাকষি।
+      </div>
+      <div style="margin-top: 4px; font-size: 9pt; color: #4b5563; font-style: italic;">
+        <strong>Diplomatic Context:</strong> Explains why domestic political instability often scuttles otherwise rational international treaties.
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PART VI ================= -->
+  <div class="part-header" id="simulations">
+    <div class="part-super">Module Group 06</div>
+    <div class="part-title">Part VI: Executive Crisis Simulation Playbooks & Decision Frameworks</div>
+    <div class="part-desc">
+      Applied case studies modeling high-stakes diplomatic brinkmanship, escalatory management, concession balancing, and strategic communiqué drafting.
+    </div>
+  </div>
+
+  <div class="academic-box">
+    <div class="box-title">Scenario 01: Transboundary Riparian Crisis & Upstream Diversion</div>
+    <p><strong>Geopolitical Crisis:</strong> An upper-riparian regional superpower unilaterally begins full-capacity water diversion at an unannounced upstream barrage during a severe regional drought, reducing downstream river flow by 65% and threatening downstream agrarian failure.</p>
+    <p><strong>Diplomatic Decision Pathways:</strong></p>
+    <ul>
+      <li><strong>Pathway A (Confrontational Escalation):</strong> Lodge immediate public diplomatic protest, threaten withdrawal from regional transit corridors, and request emergency UN Security Council debate. <em>(Risk: High regional economic retaliation; Benefit: Rapid international visibility).</em></li>
+      <li><strong>Pathway B (Strategic Lawfare & Multilateral Alignment):</strong> Formally invoke Article 9 of the UN 1997 Watercourses Convention, demand mandatory joint telemetry audits, and mobilize co-riparian third-party states for multilateral mediation. <em>(Risk: Slower timeline; Benefit: Legally unassailable sovereign standing).</em></li>
+      <li><strong>Pathway C (Bilateral Issue-Linkage):</strong> Link transit access and bilateral trade concessions to an immediate minimum guaranteed discharge protocol. <em>(Risk: Domestic political backlash; Benefit: Immediate water release).</em></li>
+    </ul>
+  </div>
+
+  <!-- ================= PART VII ================= -->
+  <div class="part-header" id="examinations">
+    <div class="part-super">Module Group 07</div>
+    <div class="part-title">Part VII: Postgraduate Examination & Master's Thesis Research Prompts</div>
+    <div class="part-desc">
+      Comprehensive analytical examination frameworks for evaluating master's-level thesis research and diplomatic policy formulation.
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">Module</th>
+        <th style="width: 55%;">Advanced Research Essay Prompt</th>
+        <th style="width: 30%;">Evaluative Criteria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pillar I (Theory)</strong></td>
+        <td>Critically evaluate whether the contemporary multipolar transition in the Indo-Pacific adheres to Kenneth Waltz's structural balancing or John Mearsheimer's offensive regional hegemony thesis. Assess the implications for littoral middle powers.</td>
+        <td>Theoretical precision, empirical evidence from South China Sea / Bay of Bengal, balance-of-power rigor.</td>
+      </tr>
+      <tr>
+        <td><strong>Pillar II (Psychology)</strong></td>
+        <td>Using Robert Jervis's perception frameworks and Daniel Kahneman's prospect theory, analyze a recent international diplomatic standoff. How did cognitive heuristics and groupthink distort intelligence assessments?</td>
+        <td>Psychological model synthesis, cognitive bias identification, decision-tree mapping.</td>
+      </tr>
+      <tr>
+        <td><strong>Pillar III (Law & Maritime)</strong></td>
+        <td>Examine the role of international tribunals (ITLOS and PCA) in resolving maritime boundary disputes in the Bay of Bengal. Assess how UNCLOS provisions defend sovereign exclusive economic zones (EEZs) against unilateral regional claims.</td>
+        <td>Treaty article citations, delimitation methodology, blue economy governance.</td>
+      </tr>
+      <tr>
+        <td><strong>Pillar IV (Bangladesh)</strong></td>
+        <td>Formulate a comprehensive foreign policy blueprint for post-2024 Bangladesh based on the 'Bangladesh First' doctrine. Address transboundary water diplomacy, omnidirectional economic hedging, and subsea cable security.</td>
+        <td>Strategic autonomy viability, multilateral balancing, sovereign reciprocity.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer-note">
+    <div>Open Master's Fellowship in International Relations & Strategic Studies (OMF-IRSS)</div>
+    <div>Official Course Handbook • Daloyar Hassan Shishir (dhshishir.com)</div>
   </div>
 
 </body>
@@ -525,15 +1684,15 @@ async function generateHandbook() {
   // Write out HTML file
   const outHtmlPath = path.join(rootDir, 'public', 'downloads', 'Masters-in-International-Relations-Complete-Course-Handbook.html');
   fs.writeFileSync(outHtmlPath, htmlContent, 'utf-8');
-  console.log(`✅ Saved HTML Handbook: ${outHtmlPath}`);
+  console.log(`✅ Saved High-Legibility Master HTML Handbook: ${outHtmlPath}`);
 
-  // Write out Word .DOC file (Word can open clean HTML with .doc extension seamlessly)
+  // Write out Word .DOC file
   const outDocPath = path.join(rootDir, 'public', 'downloads', 'Masters-in-International-Relations-Complete-Course-Handbook.doc');
   fs.writeFileSync(outDocPath, '\ufeff' + htmlContent, 'utf-8');
-  console.log(`✅ Saved Word (.DOC) Handbook: ${outDocPath}`);
+  console.log(`✅ Saved High-Legibility Master Word (.DOC) Handbook: ${outDocPath}`);
 }
 
-generateHandbook().catch(err => {
+generateComprehensiveBook().catch(err => {
   console.error('Error generating handbook:', err);
   process.exit(1);
 });
