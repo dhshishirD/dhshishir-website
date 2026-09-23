@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Tv, Play, ExternalLink, ShieldCheck, Newspaper, Sparkles, Filter, 
-  Award, Video, X, ChevronRight, MessageSquare, BookOpen
+  Award, Video, X, ChevronRight, MessageSquare, BookOpen, ChevronDown, ChevronUp
 } from 'lucide-react';
 
 export interface MediaItem {
@@ -257,11 +257,14 @@ export const NATIONAL_MEDIA_ITEMS: MediaItem[] = [
 export const NationalMediaSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'national_tv' | 'interview' | 'speech' | 'press_article'>('all');
   const [selectedVideo, setSelectedVideo] = useState<MediaItem | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const filteredItems = NATIONAL_MEDIA_ITEMS.filter(item => {
     if (activeCategory === 'all') return true;
     return item.category === activeCategory;
   });
+
+  const visibleItems = isExpanded ? filteredItems : filteredItems.slice(0, 6);
 
   return (
     <section id="media-presence" className="py-20 bg-slate-900 text-white relative overflow-hidden border-t border-b border-slate-800">
@@ -329,7 +332,7 @@ export const NationalMediaSection: React.FC = () => {
         {/* Filter Category Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           <button
-            onClick={() => setActiveCategory('all')}
+            onClick={() => { setActiveCategory('all'); setIsExpanded(false); }}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
               activeCategory === 'all'
                 ? 'bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20'
@@ -340,7 +343,7 @@ export const NationalMediaSection: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setActiveCategory('national_tv')}
+            onClick={() => { setActiveCategory('national_tv'); setIsExpanded(false); }}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
               activeCategory === 'national_tv'
                 ? 'bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20'
@@ -352,7 +355,7 @@ export const NationalMediaSection: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setActiveCategory('press_article')}
+            onClick={() => { setActiveCategory('press_article'); setIsExpanded(false); }}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
               activeCategory === 'press_article'
                 ? 'bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20'
@@ -364,7 +367,7 @@ export const NationalMediaSection: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setActiveCategory('interview')}
+            onClick={() => { setActiveCategory('interview'); setIsExpanded(false); }}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
               activeCategory === 'interview'
                 ? 'bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20'
@@ -376,7 +379,7 @@ export const NationalMediaSection: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setActiveCategory('speech')}
+            onClick={() => { setActiveCategory('speech'); setIsExpanded(false); }}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
               activeCategory === 'speech'
                 ? 'bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20'
@@ -390,7 +393,7 @@ export const NationalMediaSection: React.FC = () => {
 
         {/* Media Items Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredItems.map((item) => (
+          {visibleItems.map((item) => (
             <div
               key={item.id}
               className="bg-slate-800/80 border border-slate-700/70 hover:border-teal-500/60 rounded-3xl overflow-hidden shadow-xl transition duration-300 group flex flex-col justify-between"
@@ -494,6 +497,23 @@ export const NationalMediaSection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* EXPAND / SHOW MORE ARCHIVE TOGGLE BUTTON */}
+        {filteredItems.length > 6 && (
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="px-6 py-3.5 rounded-2xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-teal-500/20 transition inline-flex items-center gap-2 cursor-pointer"
+            >
+              <span>
+                {isExpanded 
+                  ? 'Show Less (Compact View)' 
+                  : `Explore Full Archive (${filteredItems.length} Broadcasts & News Coverage)`}
+              </span>
+              {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Interactive Video Modal */}

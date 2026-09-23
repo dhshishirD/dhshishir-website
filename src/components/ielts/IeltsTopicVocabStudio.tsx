@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   Building2, Globe, Shield, Sparkles, Search, Filter, 
   ExternalLink, Download, FileText, ArrowRight, CheckCircle2, 
@@ -16,6 +16,10 @@ import type {
   TopicVocabItem, 
   VocabTopic
 } from '../../data/ieltsTopicVocabData';
+import { 
+  getSavedVocabWords, 
+  saveVocabWord 
+} from '../../services/vocabVaultService';
 import confetti from 'canvas-confetti';
 
 interface IeltsTopicVocabStudioProps {
@@ -32,6 +36,19 @@ export const IeltsTopicVocabStudio: React.FC<IeltsTopicVocabStudioProps> = ({
   const [selectedLevel, setSelectedLevel] = useState<string>('all');
   const [savedWords, setSavedWords] = useState<string[]>([]);
   const [activeTab, setActiveTab] = useState<'vault' | 'collocation_game' | 'anki_guide'>('vault');
+
+  // Load existing saved words from Vocab Vault store
+  useEffect(() => {
+    const existing = getSavedVocabWords();
+    setSavedWords(existing.map(w => w.word.toLowerCase()));
+
+    const handleVaultUpdate = (e: any) => {
+      const updated = e.detail || getSavedVocabWords();
+      setSavedWords(updated.map((w: any) => w.word.toLowerCase()));
+    };
+    window.addEventListener('vocab-vault-updated', handleVaultUpdate);
+    return () => window.removeEventListener('vocab-vault-updated', handleVaultUpdate);
+  }, []);
 
   // Collocation Speed Game State
   const [gameScore, setGameScore] = useState<number>(0);
@@ -65,17 +82,25 @@ export const IeltsTopicVocabStudio: React.FC<IeltsTopicVocabStudioProps> = ({
 
   // Save Word to Personal Vocab Vault
   const handleSaveToVault = (item: TopicVocabItem) => {
-    addVocabWord({
+    const cleanPos = (item.partOfSpeech.toLowerCase().includes('verb') ? 'verb'
+      : item.partOfSpeech.toLowerCase().includes('adj') ? 'adjective'
+      : item.partOfSpeech.toLowerCase().includes('adv') ? 'adverb'
+      : item.partOfSpeech.toLowerCase().includes('phrase') ? 'phrase'
+      : 'noun') as 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase';
+
+    saveVocabWord({
       word: item.word,
-      ipa: item.ipa,
-      cefrLevel: item.cefrLevel,
-      partOfSpeech: item.partOfSpeech,
+      phonetic: item.ipa,
+      partOfSpeech: cleanPos,
+      cefrLevel: (item.cefrLevel as 'B2' | 'C1' | 'C2') || 'C1',
       definition: item.definition,
+      bengaliMeaning: `আইইএলটিএস উচ্চমানের শব্দ (${item.word})`,
       collocations: item.collocationPairs,
+      formalSynonyms: item.collocationPairs.slice(0, 3),
       exampleSentence: item.band9Sentence,
-      contextSource: `IELTS Topic: ${item.topicId.toUpperCase()}`
+      category: 'academic'
     });
-    setSavedWords(prev => [...prev, item.id]);
+    setSavedWords(prev => [...prev, item.id, item.word.toLowerCase()]);
     confetti({ particleCount: 35, spread: 50, origin: { y: 0.7 } });
   };
 
@@ -299,7 +324,7 @@ export const IeltsTopicVocabStudio: React.FC<IeltsTopicVocabStudioProps> = ({
           {/* VOCABULARY CARDS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {filteredItems.map(item => {
-              const isSaved = savedWords.includes(item.id);
+              const isSaved = savedWords.includes(item.id) || savedWords.includes(item.word.toLowerCase());
               return (
                 <div key={item.id} className="p-6 bg-white rounded-3xl border border-slate-200 shadow-sm space-y-4 flex flex-col justify-between hover:border-amber-400 transition">
                   
