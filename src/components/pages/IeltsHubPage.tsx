@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, Mic, BarChart3, Scale, Zap, Award, 
   Sparkles, Download, ArrowRight, Clock, Compass,
-  FileText, Eye, Check, X, Camera, Volume2, Calendar, ExternalLink
+  FileText, Eye, Check, X, Camera, Volume2, Calendar, ExternalLink,
+  ListOrdered, Filter, Layers, ChevronRight, CheckCircle2
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { IeltsCollocationDuel } from '../tools/IeltsCollocationDuel';
@@ -33,7 +34,7 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({
   onNavigateDashboard
 }) => {
   const [activeMainTab, setActiveMainTab] = useState<'tools' | 'roadmap' | 'masterclass' | 'resources'>('tools');
-  const [selectedToolId, setSelectedToolId] = useState<string>(initialToolId || 'writing-scanner');
+  const [selectedToolId, setSelectedToolId] = useState<string>(initialToolId || 'daily-drill-tracker');
 
   const handleLaunchDayDrill = (_dayNumber: number) => {
     setSelectedToolId('daily-drill-tracker');
@@ -1054,99 +1055,210 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({
     document.title = 'IELTS Band 8.5 Master Preparation Hub | Free Interactive Practice & Simulators | DH Shishir';
   }, []);
 
+  const [toolFilter, setToolFilter] = useState<'all' | 'phase1' | 'phase2' | 'phase3' | 'phase4' | 'listening' | 'reading' | 'writing' | 'speaking'>('all');
+
   const toolsList = [
+    // --- PHASE 1: DAYS 1–30 (FOUNDATION & LEXICON BASE) ---
     {
-      id: 'writing-scanner',
-      name: 'Handwritten Essay OCR Grader',
-      tagline: 'Snap paper photo & get 4-pillar Cambridge evaluation',
-      icon: Camera,
-      badge: 'Paper OCR Scanner',
-      component: IeltsHandwrittenEssayScanner
+      id: 'daily-drill-tracker',
+      stepNumber: 1,
+      stepLabel: 'Step 01',
+      phase: 1,
+      phaseTitle: 'Phase 1: Days 1–30',
+      phaseCategory: 'phase1' as const,
+      module: 'Roadmap & Vocab' as const,
+      name: '120-Day Action Roadmap & Error Vault',
+      tagline: '120-day milestone checklist, sprint filters & 1:2 forensic error log',
+      icon: Calendar,
+      badge: 'Master Planner',
+      colorClass: 'from-teal-600 to-emerald-600',
+      component: IeltsDailyDrillTracker
     },
     {
+      id: 'score-estimator',
+      stepNumber: 2,
+      stepLabel: 'Step 02',
+      phase: 1,
+      phaseTitle: 'Phase 1: Days 1–30',
+      phaseCategory: 'phase1' as const,
+      module: 'Roadmap & Vocab' as const,
+      name: 'Band Score Diagnostic & Target Converter',
+      tagline: 'Instant raw-to-band score conversion for Academic & GT test formats',
+      icon: Award,
+      badge: 'Diagnostic Lab',
+      colorClass: 'from-amber-600 to-yellow-600',
+      component: IeltsScoreEstimator
+    },
+    {
+      id: 'collocation-duel',
+      stepNumber: 3,
+      stepLabel: 'Step 03',
+      phase: 1,
+      phaseTitle: 'Phase 1: Days 1–30',
+      phaseCategory: 'phase1' as const,
+      module: 'Roadmap & Vocab' as const,
+      name: 'Band 9 Collocation Speed Duel',
+      tagline: '60s Speed arcade & Band 5➔9 academic sentence morphing dial',
+      icon: Zap,
+      badge: 'Speed Arcade',
+      colorClass: 'from-sky-600 to-cyan-600',
+      component: IeltsCollocationDuel
+    },
+
+    // --- PHASE 2: DAYS 31–60 (RECEPTIVE RIGOR: LISTENING & READING LAB) ---
+    {
       id: 'listening-simulator',
-      name: '4-Section Listening Exam',
-      tagline: 'Authentic Cambridge exam with 1.0x-1.25x speed controls',
+      stepNumber: 4,
+      stepLabel: 'Step 04',
+      phase: 2,
+      phaseTitle: 'Phase 2: Days 31–60',
+      phaseCategory: 'phase2' as const,
+      module: 'Listening' as const,
+      name: '4-Section Academic Listening Exam',
+      tagline: 'Authentic Cambridge exam with 1.0x-1.25x speed & modular section grading',
       icon: Volume2,
-      badge: 'Multi-Speed Audio',
+      badge: 'Audio Simulator',
+      colorClass: 'from-indigo-600 to-blue-600',
       component: IeltsListeningExamEngine
     },
     {
       id: 'reading-lab',
-      name: 'Split-Screen Reading Lab',
-      tagline: 'Passage highlighter & forensic T/F/NG logic gates',
+      stepNumber: 5,
+      stepLabel: 'Step 05',
+      phase: 2,
+      phaseTitle: 'Phase 2: Days 31–60',
+      phaseCategory: 'phase2' as const,
+      module: 'Reading' as const,
+      name: 'Split-Screen Academic Reading Lab',
+      tagline: 'Passage highlighter, timed 3-passage lab & forensic logic evaluation',
       icon: BookOpen,
-      badge: 'T/F/NG Lab',
+      badge: 'Split-Screen Lab',
+      colorClass: 'from-emerald-600 to-teal-600',
       component: IeltsReadingExamEngine
     },
     {
-      id: 'daily-drill-tracker',
-      name: '120-Day Drill & Error Vault',
-      tagline: '120-day milestone checklist & 1:2 forensic error log',
-      icon: Calendar,
-      badge: 'Milestone Tracker',
-      component: IeltsDailyDrillTracker
-    },
-    {
-      id: 'collocation-duel',
-      name: 'Band 9 Collocation Duel',
-      tagline: '60s Speed arcade & Band 5➔9 sentence morphing dial',
-      icon: Zap,
-      badge: 'Speed Arcade',
-      component: IeltsCollocationDuel
-    },
-    {
-      id: 'task1-morpher',
-      name: 'Academic Task 1 Chart Morpher',
-      tagline: 'Interactive SVG sandbox & live sentence generator',
-      icon: BarChart3,
-      badge: 'SVG Sandbox',
-      component: IeltsTask1ChartMorpher
-    },
-    {
       id: 'tfng-court',
+      stepNumber: 6,
+      stepLabel: 'Step 06',
+      phase: 2,
+      phaseTitle: 'Phase 2: Days 31–60',
+      phaseCategory: 'phase2' as const,
+      module: 'Reading' as const,
       name: 'Reading T/F/NG Forensic Court',
-      tagline: 'Forensic evidence courtroom & qualifier microscope',
+      tagline: 'Forensic evidence courtroom, qualifier microscope & logical trap analysis',
       icon: Scale,
       badge: 'Reading Logic',
+      colorClass: 'from-violet-600 to-purple-600',
       component: IeltsTfngCourtroom
     },
+
+    // --- PHASE 3: DAYS 61–90 (PRODUCTIVE MASTERY: WRITING TASK 1 & 2) ---
     {
-      id: 'speaking-radar',
-      name: 'Speaking Flow & WPM Radar',
-      tagline: 'Live speech cadence visualizer & 15s reflex drill',
-      icon: Mic,
-      badge: 'AI Audio Radar',
-      component: IeltsSpeakingFlowRadar
+      id: 'writing-scanner',
+      stepNumber: 7,
+      stepLabel: 'Step 07',
+      phase: 3,
+      phaseTitle: 'Phase 3: Days 61–90',
+      phaseCategory: 'phase3' as const,
+      module: 'Writing' as const,
+      name: 'Handwritten Paper Essay Scanner & Grader',
+      tagline: 'Snap paper photo with mobile & get instant 4-pillar Cambridge evaluation',
+      icon: Camera,
+      badge: 'Paper OCR Scanner',
+      colorClass: 'from-rose-600 to-pink-600',
+      component: IeltsHandwrittenEssayScanner
     },
     {
       id: 'writing-analyzer',
-      name: 'Writing Task 2 Evaluator',
-      tagline: '4-pillar rubric analyzer & AWL lexical density scanner',
-      icon: BookOpen,
+      stepNumber: 8,
+      stepLabel: 'Step 08',
+      phase: 3,
+      phaseTitle: 'Phase 3: Days 61–90',
+      phaseCategory: 'phase3' as const,
+      module: 'Writing' as const,
+      name: 'Writing Task 2 Cambridge 4-Pillar Evaluator',
+      tagline: 'TR, CC, LR & GRA rubric analyzer & AWL lexical density scanner',
+      icon: FileText,
       badge: '4-Pillar Rubric',
+      colorClass: 'from-amber-600 to-orange-600',
       component: IeltsWritingAnalyzer
     },
     {
-      id: 'speaking-cue-timer',
-      name: 'Speaking Part 2 Cue Timer',
-      tagline: 'Official 60s prep + 2-minute speaking countdown',
-      icon: Clock,
-      badge: 'Exam Timer',
-      component: IeltsSpeakingSimulator
+      id: 'task1-morpher',
+      stepNumber: 9,
+      stepLabel: 'Step 09',
+      phase: 3,
+      phaseTitle: 'Phase 3: Days 61–90',
+      phaseCategory: 'phase3' as const,
+      module: 'Writing' as const,
+      name: 'Academic Task 1 Dynamic Chart Morpher',
+      tagline: 'Interactive SVG sandbox & automated Band 9 overview sentence generator',
+      icon: BarChart3,
+      badge: 'SVG Sandbox',
+      colorClass: 'from-teal-600 to-cyan-600',
+      component: IeltsTask1ChartMorpher
+    },
+
+    // --- PHASE 4: DAYS 91–120 (PEAK CADENCE: SPEAKING & FINAL SIMULATIONS) ---
+    {
+      id: 'speaking-radar',
+      stepNumber: 10,
+      stepLabel: 'Step 10',
+      phase: 4,
+      phaseTitle: 'Phase 4: Days 91–120',
+      phaseCategory: 'phase4' as const,
+      module: 'Speaking' as const,
+      name: 'Speaking Flow & Speech Cadence Radar',
+      tagline: 'Live speech cadence visualizer, WPM radar & 15s reflex speech drill',
+      icon: Mic,
+      badge: 'AI Audio Radar',
+      colorClass: 'from-fuchsia-600 to-pink-600',
+      component: IeltsSpeakingFlowRadar
     },
     {
-      id: 'score-estimator',
-      name: 'Band Score Calculator',
-      tagline: 'Instant raw-to-band score conversion for Academic & GT',
-      icon: Award,
-      badge: 'Score Converter',
-      component: IeltsScoreEstimator
+      id: 'speaking-cue-timer',
+      stepNumber: 11,
+      stepLabel: 'Step 11',
+      phase: 4,
+      phaseTitle: 'Phase 4: Days 91–120',
+      phaseCategory: 'phase4' as const,
+      module: 'Speaking' as const,
+      name: 'Speaking Part 2 Cue Card Exam Simulator',
+      tagline: 'Official 60s prep + 2-minute speaking countdown timer with notes',
+      icon: Clock,
+      badge: 'Exam Timer',
+      colorClass: 'from-blue-600 to-teal-600',
+      component: IeltsSpeakingSimulator
     }
   ];
 
   const activeTool = toolsList.find(t => t.id === selectedToolId) || toolsList[0];
   const ActiveToolComponent = activeTool.component;
+
+  const currentToolIndex = toolsList.findIndex(t => t.id === activeTool.id);
+  const prevTool = currentToolIndex > 0 ? toolsList[currentToolIndex - 1] : null;
+  const nextTool = currentToolIndex < toolsList.length - 1 ? toolsList[currentToolIndex + 1] : null;
+
+  const handleSelectTool = (toolId: string) => {
+    setSelectedToolId(toolId);
+    const element = document.getElementById('active-tool-workspace');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const filteredTools = toolsList.filter(tool => {
+    if (toolFilter === 'all') return true;
+    if (toolFilter === 'phase1') return tool.phase === 1;
+    if (toolFilter === 'phase2') return tool.phase === 2;
+    if (toolFilter === 'phase3') return tool.phase === 3;
+    if (toolFilter === 'phase4') return tool.phase === 4;
+    if (toolFilter === 'listening') return tool.module === 'Listening';
+    if (toolFilter === 'reading') return tool.module === 'Reading';
+    if (toolFilter === 'writing') return tool.module === 'Writing';
+    if (toolFilter === 'speaking') return tool.module === 'Speaking';
+    return true;
+  });
 
   const handleGenerateRoadmap = () => {
     setGeneratedPlan(true);
@@ -1178,15 +1290,15 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({
               IELTS Band 8.5+ Master Preparation Hub
             </h1>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-              Master the Cambridge IELTS exam with free, interactive diagnostic engines, SVG graph sandboxes, real-time speech cadence radars, and forensic reading logic gates. No paywalls, no login barriers.
+              Master the Cambridge IELTS exam with structured 120-day diagnostic engines, SVG graph sandboxes, real-time speech cadence radars, and forensic reading logic gates. No paywalls, no login barriers.
             </p>
           </div>
 
           {/* Key Metric Highlights */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 max-w-4xl">
             <div className="p-3.5 bg-white/10 rounded-2xl border border-white/10 backdrop-blur-xs">
-              <div className="text-2xl font-black text-teal-300">6 Engines</div>
-              <div className="text-[11px] text-slate-300">Interactive Simulators</div>
+              <div className="text-2xl font-black text-teal-300">11 Engines</div>
+              <div className="text-[11px] text-slate-300">120-Day Practice Suite</div>
             </div>
             <div className="p-3.5 bg-white/10 rounded-2xl border border-white/10 backdrop-blur-xs">
               <div className="text-2xl font-black text-amber-300">300+ Pairs</div>
@@ -1306,7 +1418,7 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
             }`}
           >
-            <Zap className="w-4 h-4" /> 1. Interactive Practice Simulators (6)
+            <Zap className="w-4 h-4" /> 1. Interactive 120-Day Practice Suite (11)
           </button>
           <button
             onClick={() => setActiveMainTab('roadmap')}
@@ -1342,48 +1454,232 @@ export const IeltsHubPage: React.FC<IeltsHubPageProps> = ({
 
         {/* TAB 1: INTERACTIVE SIMULATORS SUITE */}
         {activeMainTab === 'tools' && (
-          <div className="space-y-6">
-            {/* Tool Selector Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
-              {toolsList.map(tool => {
-                const Icon = tool.icon;
-                const isSelected = selectedToolId === tool.id;
-                return (
+          <div className="space-y-8">
+            
+            {/* 120-DAY PEDAGOGICAL PHASES NAVIGATOR */}
+            <div className="p-6 bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 text-white rounded-3xl border border-teal-800/40 shadow-xl space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-teal-800/60 pb-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 bg-amber-400 text-slate-950 rounded-xl font-black text-xs">
+                    120D
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-white">
+                      120-Day Pedagogical Progression Architecture
+                    </h3>
+                    <p className="text-xs text-slate-300">
+                      Follow the sequential 4-phase master curve to build Band 8.5+ test reflexes step by step.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="text-xs font-mono text-teal-300 bg-white/10 px-3 py-1 rounded-full w-fit">
+                  11 Specialized Simulators
+                </div>
+              </div>
+
+              {/* 4 Phase Tabs */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
+                {[
+                  { key: 'phase1', label: 'Phase 1: Days 1–30', subtitle: 'Foundation & Lexicon Base', count: '3 Tools', icon: '🌱' },
+                  { key: 'phase2', label: 'Phase 2: Days 31–60', subtitle: 'Receptive Rigor (L & R)', count: '3 Tools', icon: '🎧' },
+                  { key: 'phase3', label: 'Phase 3: Days 61–90', subtitle: 'Productive Mastery (Writing)', count: '3 Tools', icon: '✍️' },
+                  { key: 'phase4', label: 'Phase 4: Days 91–120', subtitle: 'Peak Cadence (Speaking & Mocks)', count: '2 Tools', icon: '🎙️' }
+                ].map(phaseItem => {
+                  const isActive = toolFilter === phaseItem.key;
+                  return (
+                    <button
+                      key={phaseItem.key}
+                      onClick={() => setToolFilter(isActive ? 'all' : (phaseItem.key as any))}
+                      className={`p-3.5 rounded-2xl border text-left transition cursor-pointer space-y-1 relative ${
+                        isActive
+                          ? 'bg-teal-800/90 border-teal-400 shadow-md ring-2 ring-teal-400/40'
+                          : 'bg-white/5 hover:bg-white/10 border-white/10'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-amber-300 flex items-center gap-1.5">
+                          <span>{phaseItem.icon}</span> {phaseItem.label}
+                        </span>
+                        <span className="text-[10px] font-mono text-slate-300 bg-white/10 px-2 py-0.5 rounded-full">
+                          {phaseItem.count}
+                        </span>
+                      </div>
+                      <div className="text-xs font-bold text-white">{phaseItem.subtitle}</div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Filter Pills Bar */}
+              <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-teal-800/40">
+                <span className="text-xs font-bold text-slate-400 flex items-center gap-1">
+                  <Filter className="w-3.5 h-3.5 text-teal-400" /> Filter Sequence:
+                </span>
+
+                {[
+                  { id: 'all', label: '🌟 Full 120-Day Sequence (11)' },
+                  { id: 'listening', label: '🎧 Listening (1)' },
+                  { id: 'reading', label: '📖 Reading (2)' },
+                  { id: 'writing', label: '✍️ Writing (3)' },
+                  { id: 'speaking', label: '🎙️ Speaking (2)' },
+                  { id: 'phase1', label: '🌱 Phase 1 Only (3)' },
+                  { id: 'phase2', label: '🎧 Phase 2 Only (3)' },
+                  { id: 'phase3', label: '✍️ Phase 3 Only (3)' },
+                  { id: 'phase4', label: '🎙️ Phase 4 Only (2)' }
+                ].map(f => (
                   <button
-                    key={tool.id}
-                    onClick={() => setSelectedToolId(tool.id)}
-                    className={`p-3.5 rounded-2xl border-2 text-left transition cursor-pointer space-y-1.5 ${
-                      isSelected
-                        ? 'bg-teal-950 text-white border-teal-500 shadow-lg'
-                        : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-800'
+                    key={f.id}
+                    onClick={() => setToolFilter(f.id as any)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                      toolFilter === f.id
+                        ? 'bg-amber-400 text-slate-950 shadow-sm font-black'
+                        : 'bg-white/10 hover:bg-white/20 text-slate-200'
                     }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <div className={`p-2 rounded-xl ${isSelected ? 'bg-teal-800 text-teal-200' : 'bg-slate-100 text-slate-700'}`}>
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${isSelected ? 'bg-teal-800 text-teal-100' : 'bg-slate-100 text-slate-600'}`}>
-                        {tool.badge}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="font-bold text-xs leading-tight line-clamp-1">{tool.name}</div>
-                      <div className={`text-[10px] line-clamp-1 mt-0.5 ${isSelected ? 'text-teal-200' : 'text-slate-500'}`}>
-                        {tool.tagline}
-                      </div>
-                    </div>
+                    {f.label}
                   </button>
-                );
-              })}
+                ))}
+              </div>
             </div>
 
-            {/* Active Embedded Tool Component */}
-            <div className="mt-6">
-              {selectedToolId === 'daily-drill-tracker' ? (
-                <IeltsDailyDrillTracker onSelectTool={(toolId) => setSelectedToolId(toolId)} />
-              ) : (
-                <ActiveToolComponent />
-              )}
+            {/* SEQUENTIAL TOOLS GRID */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+                  <ListOrdered className="w-4 h-4 text-teal-700" />
+                  <span>Curriculum Steps ({filteredTools.length} Simulators in Sequence)</span>
+                </div>
+                <span className="text-xs text-slate-500">
+                  Click any simulator card to launch below
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
+                {filteredTools.map(tool => {
+                  const Icon = tool.icon;
+                  const isSelected = selectedToolId === tool.id;
+
+                  return (
+                    <button
+                      key={tool.id}
+                      onClick={() => handleSelectTool(tool.id)}
+                      className={`p-4 rounded-3xl border-2 text-left transition-all duration-200 cursor-pointer space-y-2.5 flex flex-col justify-between relative ${
+                        isSelected
+                          ? 'bg-gradient-to-br from-teal-950 to-slate-900 text-white border-teal-500 shadow-xl ring-2 ring-teal-500/30'
+                          : 'bg-white hover:bg-slate-50 hover:border-slate-300 border-slate-200 text-slate-800 shadow-xs'
+                      }`}
+                    >
+                      {/* Top Header Row */}
+                      <div className="flex items-center justify-between w-full">
+                        <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                          isSelected 
+                            ? 'bg-amber-400 text-slate-950 shadow-xs' 
+                            : 'bg-teal-50 text-teal-800 border border-teal-200'
+                        }`}>
+                          {tool.stepLabel}
+                        </span>
+
+                        <span className={`text-[10px] font-medium ${isSelected ? 'text-teal-200' : 'text-slate-500'}`}>
+                          {tool.phaseTitle.split(':')[0]}
+                        </span>
+                      </div>
+
+                      {/* Icon + Badge */}
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2.5 rounded-2xl shrink-0 ${
+                          isSelected 
+                            ? 'bg-teal-800 text-teal-200 border border-teal-600' 
+                            : 'bg-slate-100 text-teal-900 border border-slate-200'
+                        }`}>
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <span className={`text-[9px] font-bold px-2 py-0.5 rounded-md ${
+                            isSelected 
+                              ? 'bg-teal-800/80 text-teal-100 border border-teal-600/60' 
+                              : 'bg-slate-100 text-slate-600 border border-slate-200'
+                          }`}>
+                            {tool.badge}
+                          </span>
+                          <h4 className={`font-black text-xs sm:text-sm leading-snug mt-1 ${isSelected ? 'text-white' : 'text-slate-900'}`}>
+                            {tool.name}
+                          </h4>
+                        </div>
+                      </div>
+
+                      {/* Tagline */}
+                      <p className={`text-[11px] leading-relaxed line-clamp-2 ${isSelected ? 'text-slate-300' : 'text-slate-500'}`}>
+                        {tool.tagline}
+                      </p>
+
+                      {/* Bottom Status / CTA */}
+                      <div className={`pt-2 border-t flex items-center justify-between text-[11px] font-bold w-full ${
+                        isSelected ? 'border-teal-800 text-amber-300' : 'border-slate-100 text-teal-800'
+                      }`}>
+                        <span>{isSelected ? '● Active Engine' : 'Launch Simulator'}</span>
+                        <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'translate-x-0.5 text-amber-300' : 'text-slate-400'}`} />
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* ACTIVE EMBEDDED TOOL WORKSPACE */}
+            <div id="active-tool-workspace" className="pt-4 space-y-4">
+              
+              {/* Active Workspace Header Bar with Sequential Next/Prev */}
+              <div className="p-4 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <span className="px-3 py-1 rounded-xl bg-amber-400 text-slate-950 font-black text-xs">
+                    {activeTool.stepLabel}
+                  </span>
+                  <div>
+                    <h3 className="font-black text-sm text-white flex items-center gap-2">
+                      <span>{activeTool.name}</span>
+                      <span className="text-[10px] font-normal text-teal-300 px-2 py-0.5 rounded-full bg-teal-900/60 border border-teal-700">
+                        {activeTool.phaseTitle}
+                      </span>
+                    </h3>
+                    <p className="text-[11px] text-slate-400">
+                      {activeTool.tagline}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Next / Previous Stepper Controls */}
+                <div className="flex items-center gap-2 shrink-0">
+                  {prevTool && (
+                    <button
+                      onClick={() => handleSelectTool(prevTool.id)}
+                      className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded-xl text-xs font-bold transition flex items-center gap-1 cursor-pointer"
+                      title={`Go to ${prevTool.name}`}
+                    >
+                      <span>← {prevTool.stepLabel}</span>
+                    </button>
+                  )}
+                  {nextTool && (
+                    <button
+                      onClick={() => handleSelectTool(nextTool.id)}
+                      className="px-3.5 py-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl text-xs font-black transition flex items-center gap-1 shadow-sm cursor-pointer"
+                      title={`Go to ${nextTool.name}`}
+                    >
+                      <span>Next: {nextTool.stepLabel}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Active Embedded Tool Component */}
+              <div>
+                {selectedToolId === 'daily-drill-tracker' ? (
+                  <IeltsDailyDrillTracker onSelectTool={(toolId) => handleSelectTool(toolId)} />
+                ) : (
+                  <ActiveToolComponent />
+                )}
+              </div>
             </div>
 
             {/* In-Page Responsive Ad Unit */}

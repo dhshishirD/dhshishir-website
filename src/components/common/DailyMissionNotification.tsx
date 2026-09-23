@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Target, Sparkles, ArrowRight, UserPlus, LogIn, 
-  CheckCircle2, Flame, Clock, Award, X, ChevronRight, Zap,
-  LayoutDashboard, ShieldCheck
+  Target, Sparkles, ArrowRight, LogIn, 
+  Clock, X, Zap, LayoutDashboard, ShieldCheck, Calendar
 } from 'lucide-react';
 import { supabase } from '../../services/supabaseClient';
 import { getUnifiedMemberProfile } from '../../services/unifiedMemberService';
 import type { UnifiedMemberProfile } from '../../services/unifiedMemberService';
 import { ALL_120_DAYS_DATA } from '../../data/ieltsDailyDrillData';
-import type { DailyDrillAction } from '../../data/ieltsDailyDrillData';
 
 interface DailyMissionNotificationProps {
   user?: any;
@@ -69,7 +67,6 @@ export const DailyMissionNotification: React.FC<DailyMissionNotificationProps> =
 
   const currentDayAction = ALL_120_DAYS_DATA.find(d => d.day === nextActiveDayNumber) || ALL_120_DAYS_DATA[0];
   const unlockedBadgesCount = (profile.unlockedBadges || []).length;
-  const streakCount = profile.streakDays || 1;
 
   if (isDismissed) return null;
 
@@ -82,15 +79,15 @@ export const DailyMissionNotification: React.FC<DailyMissionNotificationProps> =
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
         
         {/* Left: Mission Statement & Today's Skill Focus */}
-        <div className="flex items-start sm:items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-400/40 text-amber-300 flex items-center justify-center shrink-0 shadow-xs">
-            <Target className="w-5 h-5 animate-pulse" />
+        <div className="flex items-start sm:items-center gap-3.5">
+          <div className="w-11 h-11 rounded-2xl bg-amber-500/20 border border-amber-400/40 text-amber-300 flex items-center justify-center shrink-0 shadow-xs">
+            <Target className="w-5 h-5 animate-pulse text-amber-400" />
           </div>
 
           <div className="space-y-0.5">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-400 text-slate-950">
-                Today's Action Mission
+              <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950">
+                120-Day Action Mission
               </span>
               <span className="text-xs font-black text-teal-200">
                 Day {nextActiveDayNumber} of 120 • {currentDayAction.focusSkill} Focus
@@ -108,6 +105,9 @@ export const DailyMissionNotification: React.FC<DailyMissionNotificationProps> =
             <h4 className="text-xs sm:text-sm font-bold text-white line-clamp-1">
               {currentDayAction.title}
             </h4>
+            <p className="text-[11px] text-slate-300 hidden sm:block">
+              Structured daily curriculum designed for consistent daily practice to reach Band 8.5+ with zero confusion.
+            </p>
           </div>
         </div>
 
@@ -118,10 +118,10 @@ export const DailyMissionNotification: React.FC<DailyMissionNotificationProps> =
           {onLaunchDayDrill && (
             <button
               onClick={() => onLaunchDayDrill(nextActiveDayNumber)}
-              className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-xl shadow-md transition flex items-center gap-1.5 cursor-pointer"
+              className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs rounded-xl shadow-md transition flex items-center gap-1.5 cursor-pointer"
             >
               <Zap className="w-3.5 h-3.5 fill-slate-950" />
-              <span>Start Day {nextActiveDayNumber} Drill</span>
+              <span>Start Day {nextActiveDayNumber} Practice Drill</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           )}
@@ -130,7 +130,7 @@ export const DailyMissionNotification: React.FC<DailyMissionNotificationProps> =
           {user && onNavigateDashboard && (
             <button
               onClick={onNavigateDashboard}
-              className="px-3.5 py-2 bg-white/10 hover:bg-white/20 text-teal-200 border border-teal-400/30 font-bold text-xs rounded-xl transition flex items-center gap-1.5 cursor-pointer"
+              className="px-3.5 py-2.5 bg-white/10 hover:bg-white/20 text-teal-200 border border-teal-400/30 font-bold text-xs rounded-xl transition flex items-center gap-1.5 cursor-pointer"
             >
               <LayoutDashboard className="w-3.5 h-3.5 text-teal-300" />
               <span>My Score Dashboard ({unlockedBadgesCount}/16 Badges)</span>
@@ -143,7 +143,7 @@ export const DailyMissionNotification: React.FC<DailyMissionNotificationProps> =
               <button
                 onClick={handleGoogleSignIn}
                 disabled={signingInWithGoogle}
-                className="px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs rounded-xl transition flex items-center gap-2 cursor-pointer shadow-sm"
+                className="px-3.5 py-2.5 bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs rounded-xl transition flex items-center gap-2 cursor-pointer shadow-sm"
                 title="Log in with Google to auto-sync scores to personal dashboard"
               >
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24">
@@ -158,7 +158,7 @@ export const DailyMissionNotification: React.FC<DailyMissionNotificationProps> =
               {onOpenAuthModal && (
                 <button
                   onClick={onOpenAuthModal}
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 text-teal-200 border border-teal-400/30 font-bold text-xs rounded-xl transition flex items-center gap-1.5 cursor-pointer"
+                  className="px-3 py-2.5 bg-white/10 hover:bg-white/20 text-teal-200 border border-teal-400/30 font-bold text-xs rounded-xl transition flex items-center gap-1.5 cursor-pointer"
                   title="Sign in with Email"
                 >
                   <LogIn className="w-3.5 h-3.5 text-amber-300" />
@@ -171,7 +171,7 @@ export const DailyMissionNotification: React.FC<DailyMissionNotificationProps> =
           {/* Dismiss Button */}
           <button
             onClick={() => setIsDismissed(true)}
-            className="p-1.5 text-slate-400 hover:text-white rounded-lg transition"
+            className="p-1.5 text-slate-400 hover:text-white rounded-lg transition cursor-pointer"
             title="Dismiss notification"
           >
             <X className="w-4 h-4" />

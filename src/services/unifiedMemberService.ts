@@ -96,7 +96,7 @@ const DEFAULT_PROFILE: UnifiedMemberProfile = {
   totalPoints: 100,
 
   ieltsHistory: [],
-  ieltsRoadmapDays: [1, 2],
+  ieltsRoadmapDays: [],
   ieltsErrorVault: [],
   collocationDuelHighScore: 0,
 
