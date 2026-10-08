@@ -1,24 +1,35 @@
-name: Telegram Daily Fluency & IELTS Drills
+name: Telegram Daily Fluency & IELTS 15-Day Auto-Poster
 
 on:
   schedule:
-    # 10:30 AM BST (04:30 UTC) -> Morning Lexical Upgrade
-    - cron: '30 4 * * *'
-    # 03:30 PM BST (09:30 UTC) -> Afternoon Cambridge Quiz Poll
-    - cron: '30 9 * * *'
-    # 08:30 PM BST (14:30 UTC) -> Nightly Acoustic Speech Shadowing
+    # 08:30 AM BST (02:30 UTC) -> Slot 1: Morning Band 8.5 Reflex & Word of the Day
+    - cron: '30 2 * * *'
+    # 02:30 PM BST (08:30 UTC) -> Slot 2: Afternoon Cambridge Forensic Trap / Reading / Listening Trial
+    - cron: '30 8 * * *'
+    # 08:30 PM BST (14:30 UTC) -> Slot 3: Evening Voice Shadowing Challenge & VIP Asset Drop
     - cron: '30 14 * * *'
   workflow_dispatch:
     inputs:
+      day:
+        description: 'Day number (1-15) [Leave empty for auto-calculated day]'
+        required: false
+        default: ''
+        type: string
       slot:
-        description: 'Slot to dispatch'
+        description: 'Slot to dispatch [Leave auto for current time slot]'
         required: true
-        default: 'morning'
+        default: 'auto'
         type: choice
         options:
+          - auto
           - morning
           - afternoon
           - evening
+      dry_run:
+        description: 'Perform dry run preview only (will not post to channel)'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   post-drill:
@@ -32,20 +43,23 @@ jobs:
         with:
           node-version: 22
 
-      - name: Dispatch Scheduled Drill
+      - name: Dispatch Scheduled Telegram Post
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || '8869531997:AAEn0Ld2pnnQg8ymnaIjkxh1-as4Ru7g8FU' }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID || '@ieltsenglishfluency' }}
+          AUTO_POST_START_DATE: '2026-10-08'
         run: |
+          ARGS=""
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            node scripts/telegram-bot.js "${{ github.event.inputs.slot }}"
-          else
-            HOUR=$(date -u +%H)
-            if [ "$HOUR" -lt 7 ]; then
-              node scripts/telegram-bot.js morning
-            elif [ "$HOUR" -lt 12 ]; then
-              node scripts/telegram-bot.js afternoon
-            else
-              node scripts/telegram-bot.js evening
+            if [ -n "${{ github.event.inputs.day }}" ]; then
+              ARGS="$ARGS --day ${{ github.event.inputs.day }}"
+            fi
+            if [ "${{ github.event.inputs.slot }}" != "auto" ]; then
+              ARGS="$ARGS --slot ${{ github.event.inputs.slot }}"
+            fi
+            if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+              ARGS="$ARGS --dry-run"
             fi
           fi
+          
+          node scripts/telegram_auto_poster.js $ARGS
