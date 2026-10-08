@@ -91,15 +91,19 @@ async function callTelegramJson(endpoint, body) {
  * Helper: Send Photo (supports local file or remote URL)
  */
 async function sendTelegramPhoto(channelId, photoPath, caption) {
-  const url = `${TELEGRAM_API}/sendPhoto`;
+  const isSvg = photoPath.toLowerCase().endsWith('.svg');
+  const endpoint = isSvg ? 'sendDocument' : 'sendPhoto';
+  const fieldName = isSvg ? 'document' : 'photo';
+  const url = `${TELEGRAM_API}/${endpoint}`;
 
   if (photoPath.startsWith('http://') || photoPath.startsWith('https://')) {
-    return await callTelegramJson('sendPhoto', {
+    const payload = {
       chat_id: channelId,
-      photo: photoPath,
       caption: caption,
       parse_mode: 'HTML'
-    });
+    };
+    payload[fieldName] = photoPath;
+    return await callTelegramJson(endpoint, payload);
   }
 
   // Local file upload via FormData
@@ -114,7 +118,7 @@ async function sendTelegramPhoto(channelId, photoPath, caption) {
 
   const formData = new FormData();
   formData.append('chat_id', channelId);
-  formData.append('photo', fileBlob, fileName);
+  formData.append(fieldName, fileBlob, fileName);
   formData.append('caption', caption);
   formData.append('parse_mode', 'HTML');
 
@@ -125,7 +129,7 @@ async function sendTelegramPhoto(channelId, photoPath, caption) {
     });
     return await res.json();
   } catch (error) {
-    console.error('Network error during sendPhoto:', error);
+    console.error(`Network error during ${endpoint}:`, error);
     return { ok: false, description: error.message };
   }
 }

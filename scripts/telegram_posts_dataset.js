@@ -51,6 +51,7 @@ export const TELEGRAM_POSTS_DATA = [
   {
     day: 4,
     morning: {
+      image: 'public/assets/telegram/word-stress-pairs.svg',
       text: `❌ <b>If you are still using "On the other hand" without "On the one hand", examiners see it as memorized template filler.</b>\n\nWhich sophisticated academic transition should you use instead?\n\nA) On the other face\nB) Notwithstanding the immediate benefits\nC) Beside this point\nD) In other side\n\n💡 <b>Tap for Answer:</b>\n<tg-spoiler>Answer: B) Notwithstanding the immediate benefits. It demonstrates complex syntactic concession and Band 8.5+ cohesion!</tg-spoiler>\n\n━━━━━━━━━━━━━━━━━━━\n💎 <b>STOP SAYING:</b> "Make things worse"\n🔥 <b>SAY THIS INSTEAD:</b> <b>Exacerbate</b> /ɪɡˈzæs.ɚ.beɪt/ (Verb)\n• <b>Bangla:</b> পরিস্থিতি আরও সংকটময় বা তীব্রতর করা\n• <b>Examiner Model:</b> <i>"Unplanned urbanization serves to exacerbate traffic congestion in delta cities."</i>\n\n━━━━━━━━━━━━━━━━━━━\n🎓 <b>IELTS 8.5 Lab by DH Shishir</b>\n🔗 Test Your Essay on AI 4-Pillar Rubric: <a href="https://dhshishir.com/ielts">dhshishir.com/ielts</a>`
     },
     afternoon: {
@@ -171,6 +172,7 @@ export const TELEGRAM_POSTS_DATA = [
   {
     day: 12,
     morning: {
+      image: 'public/assets/telegram/intonation-pitch-contours.svg',
       text: `✍️ <b>Task 2 Problem-Solution Essay Architecture:</b>\n\nWhen writing a Problem-Solution essay, should your Solutions directly solve the specific Problems mentioned in Body 1?\n\nA) Yes, 1:1 direct logical alignment is mandatory for Band 8+ Task Response.\nB) No, you can mention generic solutions like 'raising public awareness'.\n\n💡 <b>Tap for Answer:</b>\n<tg-spoiler>Answer: A) Mandatory 1:1 alignment. Generic solutions like 'educating the public' cap Task Response at Band 6.0 if they don't solve the specific causes in Body 1!</tg-spoiler>\n\n━━━━━━━━━━━━━━━━━━━\n💎 <b>STOP SAYING:</b> "Lessen bad eco effects"\n🔥 <b>SAY THIS INSTEAD:</b> <b>Mitigate adverse ecological repercussions</b>\n• <b>Bangla:</b> পরিবেশগত ক্ষয়ক্ষতি হ্রাস ও প্রশমিত করা\n• <b>Examiner Model:</b> <i>"Environmental impact audits are vital to mitigate adverse ecological repercussions."</i>\n\n━━━━━━━━━━━━━━━━━━━\n🎓 <b>IELTS 8.5 Lab by DH Shishir</b>\n🔗 AI Essay Grader: <a href="https://dhshishir.com/ielts">dhshishir.com/ielts</a>`
     },
     afternoon: {
@@ -204,6 +206,7 @@ export const TELEGRAM_POSTS_DATA = [
       text: `✍️ <b>Academic Transition Syntax: Which transition shows simultaneous actions with highest sophistication?</b>\n\nA) At the same time\nB) Concurrently\nC) Together with this\n\n💡 <b>Tap for Answer:</b>\n<tg-spoiler>Answer: B) Concurrently. Highly favored in Task 1 dynamic trends and Task 2 synthesis.</tg-spoiler>\n\n━━━━━━━━━━━━━━━━━━━\n💎 <b>STOP SAYING:</b> "Make old tools useless"\n🔥 <b>SAY THIS INSTEAD:</b> <b>Accelerate technological obsolescence</b>\n• <b>Bangla:</b> পুরনো প্রযুক্তিকে দ্রুত অকার্যকর বা বাতিল করে তোলা\n• <b>Examiner Model:</b> <i>"Generative AI continues to accelerate technological obsolescence across legacy administrative software."</i>\n\n━━━━━━━━━━━━━━━━━━━\n🎓 <b>IELTS 8.5 Lab by DH Shishir</b>\n🔗 Practice Collocation Duel: <a href="https://dhshishir.com/ielts">dhshishir.com/ielts</a>`
     },
     afternoon: {
+      image: 'public/assets/telegram/task1-prepositions-matrix.svg',
       text: `⚙️ <b>Task 1 Process Diagrams: The Passive Voice Mandate:</b>\n\nIn natural or industrial manufacturing processes, 80% of verbs MUST be written in:\n\nA) Active Voice (e.g., Workers harvest the leaves)\nB) Passive Voice (e.g., The raw leaves are harvested and subsequently transported)\n\n💡 <b>Tap for Rule:</b>\n<tg-spoiler>Answer: B) Passive Voice. In industrial diagrams, the process matters more than who is doing it!</tg-spoiler>\n\n━━━━━━━━━━━━━━━━━━━\n🎓 <b>IELTS 8.5 Lab by DH Shishir</b>\n🔗 Task 1 Sandbox: <a href="https://dhshishir.com/ielts">dhshishir.com/ielts</a>`
     },
     evening: {
@@ -221,6 +224,7 @@ export const TELEGRAM_POSTS_DATA = [
       text: `⏱️ <b>The 60-Minute Reading Time-Budget Strategy:</b>\n\nPassage 1: 15 mins (Band 7.0 target)\nPassage 2: 18 mins (Band 8.0 target)\nPassage 3: 20 mins (Band 9.0 target)\nBuffer / Transfer: 7 mins (Final verification)\n\nNever spend more than 90 seconds on a single question — mark it, move on, and return at the end!\n\n━━━━━━━━━━━━━━━━━━━\n🎓 <b>IELTS 8.5 Lab by DH Shishir</b>\n🔗 Practice Timed Split-Screen Lab: <a href="https://dhshishir.com/ielts">dhshishir.com/ielts</a>`
     },
     evening: {
+      image: 'public/assets/telegram/brand-badge.png',
       text: `🚀 <b>GRAND CAMBRIDGE MOCK SIMULATION DAY!</b>\n\nTonight, benchmark your full raw score across all 4 sections:\n• 🎧 4-Section Listening Exam (20 Qs with Multi-Speed Audio)\n• 📖 3-Passage Split-Screen Reading Lab (15 Qs with Logic Gates)\n• ✍️ AI Task 2 4-Pillar Evaluator & OCR Paper Grader\n• 🎙️ Speaking Flow & WPM Cadence Radar\n\n🎁 <b>COMPLETE ACCESS — 100% FREE (ZERO LOGIN BARRIERS):</b>\n━━━━━━━━━━━━━━━━━━━\n🎓 <b>IELTS 8.5 Lab by DH Shishir</b>\n🔗 <a href="https://dhshishir.com/ielts">https://dhshishir.com/ielts</a>\n\n🎙️ <b>Post your target Band Score in the COMMENTS below!</b>`
     }
   }
