@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" style="background:#F8FAFC; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- Background Pattern Elements -->
+  <circle cx="980" cy="120" r="140" fill="#E2E8F0" opacity="0.4" />
+  <circle cx="80" cy="980" r="160" fill="#E2E8F0" opacity="0.4" />
+
+  <!-- Top Title Badge -->
+  <g transform="translate(60, 50)">
+    <rect width="960" height="130" rx="20" fill="url(#headerGrad)" />
+    <text x="480" y="55" fill="#38BDF8" font-size="20" font-weight="700" letter-spacing="3" text-anchor="middle">IELTS ACADEMIC WRITING TASK 1</text>
+    <text x="480" y="98" fill="#FFFFFF" font-size="38" font-weight="800" text-anchor="middle">The 4 Master Preposition Rules</text>
+  </g>
+
+  <!-- Grid of 4 Cards -->
+
+  <!-- CARD 1: BY (Margin / Difference) -->
+  <g transform="translate(60, 210)" filter="url(#cardShadow)">
+    <rect width="465" height="370" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    <rect width="465" height="50" rx="18" fill="#F0FDF4" />
+    <path d="M 0 35 Q 0 50 18 50 L 447 50 Q 465 50 465 35 L 465 18 Q 465 0 447 0 L 18 0 Q 0 0 0 18 Z" fill="#F0FDF4" />
+    <circle cx="35" cy="25" r="12" fill="#16A34A" />
+    <text x="35" y="30" fill="#FFFFFF" font-size="14" font-weight="900" text-anchor="middle">1</text>
+    <text x="60" y="32" fill="#166534" font-size="20" font-weight="800">Increased / Rose BY [X]</text>
+
+    <!-- Meaning Badge -->
+    <rect x="25" y="65" width="415" height="32" rx="8" fill="#DCFCE7" />
+    <text x="35" y="86" fill="#15803D" font-size="14" font-weight="700">📍 FUNCTION: Describes the AMOUNT OF CHANGE (Margin)</text>
+
+    <!-- Visual Chart Vector -->
+    <g transform="translate(30, 110)">
+      <line x1="20" y1="90" x2="380" y2="90" stroke="#CBD5E1" stroke-width="2" />
+      <line x1="20" y1="20" x2="20" y2="90" stroke="#CBD5E1" stroke-width="2" />
+      <!-- Trend Line -->
+      <polyline points="30,80 120,80 260,35 360,35" fill="none" stroke="#16A34A" stroke-width="4" stroke-linecap="round" />
+      <!-- Gap Bracket -->
+      <line x1="330" y1="80" x2="330" y2="35" stroke="#E11D48" stroke-width="2" stroke-dasharray="4,4" />
+      <rect x="290" y="50" width="75" height="22" rx="4" fill="#FFE4E6" />
+      <text x="327" y="66" fill="#BE123C" font-size="12" font-weight="800" text-anchor="middle">BY 15%</text>
+    </g>
+
+    <!-- Example Box -->
+    <rect x="25" y="240" width="415" height="105" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+    <text x="40" y="268" fill="#0F172A" font-size="15" font-weight="700">✅ Examiner Model Sentence:</text>
+    <text x="40" y="295" fill="#334155" font-size="14" font-style="italic">"Renewable energy generation grew <tspan fill="#16A34A" font-weight="800">by 15%</tspan>,</text>
+    <text x="40" y="320" fill="#334155" font-size="14" font-style="italic">rising from 20GW to 35GW."</text>
+  </g>
+
+  <!-- CARD 2: TO (Final Destination Point) -->
+  <g transform="translate(555, 210)" filter="url(#cardShadow)">
+    <rect width="465" height="370" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    <rect width="465" height="50" rx="18" fill="#EFF6FF" />
+    <path d="M 0 35 Q 0 50 18 50 L 447 50 Q 465 50 465 35 L 465 18 Q 465 0 447 0 L 18 0 Q 0 0 0 18 Z" fill="#EFF6FF" />
+    <circle cx="35" cy="25" r="12" fill="#2563EB" />
+    <text x="35" y="30" fill="#FFFFFF" font-size="14" font-weight="900" text-anchor="middle">2</text>
+    <text x="60" y="32" fill="#1E40AF" font-size="20" font-weight="800">Rose / Climbed TO [X]</text>
+
+    <!-- Meaning Badge -->
+    <rect x="25" y="65" width="415" height="32" rx="8" fill="#DBEAFE" />
+    <text x="35" y="86" fill="#1D4ED8" font-size="14" font-weight="700">🎯 FUNCTION: Indicates the FINAL REACHED FIGURE</text>
+
+    <!-- Visual Chart Vector -->
+    <g transform="translate(30, 110)">
+      <line x1="20" y1="90" x2="380" y2="90" stroke="#CBD5E1" stroke-width="2" />
+      <line x1="20" y1="20" x2="20" y2="90" stroke="#CBD5E1" stroke-width="2" />
+      <!-- Trend Line -->
+      <polyline points="30,75 140,75 280,30 360,30" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round" />
+      <!-- Point Circle -->
+      <circle cx="360" cy="30" r="7" fill="#2563EB" stroke="#FFFFFF" stroke-width="2" />
+      <rect x="280" y="5" width="90" height="22" rx="4" fill="#DBEAFE" />
+      <text x="325" y="21" fill="#1E40AF" font-size="12" font-weight="800" text-anchor="middle">TO 85% (End)</text>
+    </g>
+
+    <!-- Example Box -->
+    <rect x="25" y="240" width="415" height="105" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+    <text x="40" y="268" fill="#0F172A" font-size="15" font-weight="700">✅ Examiner Model Sentence:</text>
+    <text x="40" y="295" fill="#334155" font-size="14" font-style="italic">"Consumer confidence climbed <tspan fill="#2563EB" font-weight="800">to 85%</tspan></text>
+    <text x="40" y="320" fill="#334155" font-size="14" font-style="italic">by the final quarter of the year."</text>
+  </g>
+
+  <!-- CARD 3: AT (Static Point / Coordinate) -->
+  <g transform="translate(60, 610)" filter="url(#cardShadow)">
+    <rect width="465" height="370" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    <rect width="465" height="50" rx="18" fill="#FDF4FF" />
+    <path d="M 0 35 Q 0 50 18 50 L 447 50 Q 465 50 465 35 L 465 18 Q 465 0 447 0 L 18 0 Q 0 0 0 18 Z" fill="#FDF4FF" />
+    <circle cx="35" cy="25" r="12" fill="#9333EA" />
+    <text x="35" y="30" fill="#FFFFFF" font-size="14" font-weight="900" text-anchor="middle">3</text>
+    <text x="60" y="32" fill="#7E22CE" font-size="20" font-weight="800">Stood / Peaked AT [X]</text>
+
+    <!-- Meaning Badge -->
+    <rect x="25" y="65" width="415" height="32" rx="8" fill="#F3E8FF" />
+    <text x="35" y="86" fill="#7E22CE" font-size="14" font-weight="700">⚓ FUNCTION: Pinpoints a STATIC or PEAK LEVEL</text>
+
+    <!-- Visual Chart Vector -->
+    <g transform="translate(30, 110)">
+      <line x1="20" y1="90" x2="380" y2="90" stroke="#CBD5E1" stroke-width="2" />
+      <line x1="20" y1="20" x2="20" y2="90" stroke="#CBD5E1" stroke-width="2" />
+      <!-- Peak Line -->
+      <polyline points="30,70 180,25 240,25 360,70" fill="none" stroke="#9333EA" stroke-width="4" stroke-linecap="round" />
+      <circle cx="210" cy="25" r="7" fill="#9333EA" stroke="#FFFFFF" stroke-width="2" />
+      <rect x="150" y="2" width="120" height="22" rx="4" fill="#F3E8FF" />
+      <text x="210" y="18" fill="#6B21A8" font-size="12" font-weight="800" text-anchor="middle">PEAKED AT 92k</text>
+    </g>
+
+    <!-- Example Box -->
+    <rect x="25" y="240" width="415" height="105" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+    <text x="40" y="268" fill="#0F172A" font-size="15" font-weight="700">✅ Examiner Model Sentence:</text>
+    <text x="40" y="295" fill="#334155" font-size="14" font-style="italic">"Unemployment <tspan fill="#9333EA" font-weight="800">stood at 4.2%</tspan> in 2018,</text>
+    <text x="40" y="320" fill="#334155" font-size="14" font-style="italic">before peaking <tspan fill="#9333EA" font-weight="800">at 7.8%</tspan> in 2020."</text>
+  </g>
+
+  <!-- CARD 4: OF (Noun Phrase Magnitude) -->
+  <g transform="translate(555, 610)" filter="url(#cardShadow)">
+    <rect width="465" height="370" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    <rect width="465" height="50" rx="18" fill="#FFF7ED" />
+    <path d="M 0 35 Q 0 50 18 50 L 447 50 Q 465 50 465 35 L 465 18 Q 465 0 447 0 L 18 0 Q 0 0 0 18 Z" fill="#FFF7ED" />
+    <circle cx="35" cy="25" r="12" fill="#EA580C" />
+    <text x="35" y="30" fill="#FFFFFF" font-size="14" font-weight="900" text-anchor="middle">4</text>
+    <text x="60" y="32" fill="#C2410C" font-size="20" font-weight="800">An Increase / Drop OF [X]</text>
+
+    <!-- Meaning Badge -->
+    <rect x="25" y="65" width="415" height="32" rx="8" fill="#FFEDD5" />
+    <text x="35" y="86" fill="#C2410C" font-size="14" font-weight="700">📦 FUNCTION: Connects a NOUN to its NUMERICAL VALUE</text>
+
+    <!-- Visual Chart Vector -->
+    <g transform="translate(30, 110)">
+      <line x1="20" y1="90" x2="380" y2="90" stroke="#CBD5E1" stroke-width="2" />
+      <line x1="20" y1="20" x2="20" y2="90" stroke="#CBD5E1" stroke-width="2" />
+      <!-- Bar Chart -->
+      <rect x="80" y="55" width="45" height="35" rx="4" fill="#94A3B8" />
+      <rect x="230" y="25" width="45" height="65" rx="4" fill="#EA580C" />
+      <!-- Difference Arrow -->
+      <path d="M 140 50 L 210 30" stroke="#EA580C" stroke-width="2" marker-end="url(#arrow)" />
+      <rect x="145" y="10" width="85" height="22" rx="4" fill="#FFEDD5" />
+      <text x="187" y="26" fill="#C2410C" font-size="12" font-weight="800" text-anchor="middle">DROP OF $4M</text>
+    </g>
+
+    <!-- Example Box -->
+    <rect x="25" y="240" width="415" height="105" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+    <text x="40" y="268" fill="#0F172A" font-size="15" font-weight="700">✅ Examiner Model Sentence:</text>
+    <text x="40" y="295" fill="#334155" font-size="14" font-style="italic">"The region experienced a sharp <tspan fill="#EA580C" font-weight="800">surge of 28%</tspan></text>
+    <text x="40" y="320" fill="#334155" font-size="14" font-style="italic">in electric vehicle registrations."</text>
+  </g>
+
+  <!-- Bottom Master Brand Signature Banner -->
+  <g transform="translate(60, 1000)">
+    <rect width="960" height="50" rx="12" fill="#0F172A" />
+    <text x="40" y="32" fill="#F8FAFC" font-size="16" font-weight="700">🎓 IELTS 8.5 Lab by DH Shishir</text>
+    <text x="920" y="32" fill="#38BDF8" font-size="15" font-weight="700" text-anchor="end">🌐 Interactive Simulators: dhshishir.com/ielts</text>
+  </g>
+</svg>

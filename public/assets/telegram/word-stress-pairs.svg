@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" style="background:#FAF8F5; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#312E81" />
+    </linearGradient>
+    <filter id="cardShadow2" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1E1B4B" flood-opacity="0.05" />
+    </filter>
+  </defs>
+
+  <!-- Top Title Badge -->
+  <g transform="translate(60, 50)">
+    <rect width="960" height="130" rx="20" fill="url(#headerGrad2)" />
+    <text x="480" y="55" fill="#A5B4FC" font-size="20" font-weight="700" letter-spacing="3" text-anchor="middle">ENGLISH ACOUSTIC FLUENCY LAB</text>
+    <text x="480" y="98" fill="#FFFFFF" font-size="38" font-weight="800" text-anchor="middle">Word Stress Shifts (Noun vs. Verb)</text>
+  </g>
+
+  <!-- Rule Core Banner -->
+  <g transform="translate(60, 205)">
+    <rect width="960" height="60" rx="14" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="2" />
+    <text x="480" y="38" fill="#3730A3" font-size="18" font-weight="800" text-anchor="middle">💡 GOLDEN RULE: 2-Syllable Nouns = STRESS ON 1ST | 2-Syllable Verbs = STRESS ON 2ND</text>
+  </g>
+
+  <!-- 4 Comparison Rows -->
+
+  <!-- ROW 1: PRESENT -->
+  <g transform="translate(60, 290)" filter="url(#cardShadow2)">
+    <rect width="960" height="150" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    
+    <!-- Left Column: NOUN -->
+    <rect x="25" y="20" width="440" height="110" rx="12" fill="#F0FDF4" stroke="#BBF7D0" />
+    <circle cx="50" cy="45" r="14" fill="#16A34A" />
+    <circle cx="75" cy="45" r="6" fill="#94A3B8" />
+    <text x="105" y="52" fill="#166534" font-size="24" font-weight="900">PRE-sent</text>
+    <text x="240" y="50" fill="#15803D" font-size="14" font-weight="700">(Noun: /ˈprez.ənt/)</text>
+    <text x="50" y="95" fill="#334155" font-size="15" font-style="italic">"She gave him an expensive birthday <tspan fill="#16A34A" font-weight="800">present</tspan>."</text>
+
+    <!-- Center Pivot Arrow -->
+    <circle cx="480" cy="75" r="16" fill="#EEF2FF" />
+    <text x="480" y="81" fill="#4F46E5" font-size="16" font-weight="900" text-anchor="middle">⇄</text>
+
+    <!-- Right Column: VERB -->
+    <rect x="495" y="20" width="440" height="110" rx="12" fill="#EFF6FF" stroke="#BFDBFE" />
+    <circle cx="520" cy="45" r="6" fill="#94A3B8" />
+    <circle cx="545" cy="45" r="14" fill="#2563EB" />
+    <text x="575" y="52" fill="#1E40AF" font-size="24" font-weight="900">pre-SENT</text>
+    <text x="720" y="50" fill="#1D4ED8" font-size="14" font-weight="700">(Verb: /prɪˈzent/)</text>
+    <text x="520" y="95" fill="#334155" font-size="15" font-style="italic">"The CEO will <tspan fill="#2563EB" font-weight="800">present</tspan> the quarterly report today."</text>
+  </g>
+
+  <!-- ROW 2: RECORD -->
+  <g transform="translate(60, 465)" filter="url(#cardShadow2)">
+    <rect width="960" height="150" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    
+    <!-- Left Column: NOUN -->
+    <rect x="25" y="20" width="440" height="110" rx="12" fill="#F0FDF4" stroke="#BBF7D0" />
+    <circle cx="50" cy="45" r="14" fill="#16A34A" />
+    <circle cx="75" cy="45" r="6" fill="#94A3B8" />
+    <text x="105" y="52" fill="#166534" font-size="24" font-weight="900">REC-ord</text>
+    <text x="240" y="50" fill="#15803D" font-size="14" font-weight="700">(Noun: /ˈrek.ɚd/)</text>
+    <text x="50" y="95" fill="#334155" font-size="15" font-style="italic">"The runner broke the world <tspan fill="#16A34A" font-weight="800">record</tspan> yesterday."</text>
+
+    <!-- Center Pivot Arrow -->
+    <circle cx="480" cy="75" r="16" fill="#EEF2FF" />
+    <text x="480" y="81" fill="#4F46E5" font-size="16" font-weight="900" text-anchor="middle">⇄</text>
+
+    <!-- Right Column: VERB -->
+    <rect x="495" y="20" width="440" height="110" rx="12" fill="#EFF6FF" stroke="#BFDBFE" />
+    <circle cx="520" cy="45" r="6" fill="#94A3B8" />
+    <circle cx="545" cy="45" r="14" fill="#2563EB" />
+    <text x="575" y="52" fill="#1E40AF" font-size="24" font-weight="900">re-CORD</text>
+    <text x="720" y="50" fill="#1D4ED8" font-size="14" font-weight="700">(Verb: /rɪˈkɔːrd/)</text>
+    <text x="520" y="95" fill="#334155" font-size="15" font-style="italic">"Tap the mic to <tspan fill="#2563EB" font-weight="800">record</tspan> your speaking drill."</text>
+  </g>
+
+  <!-- ROW 3: INCREASE -->
+  <g transform="translate(60, 640)" filter="url(#cardShadow2)">
+    <rect width="960" height="150" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    
+    <!-- Left Column: NOUN -->
+    <rect x="25" y="20" width="440" height="110" rx="12" fill="#F0FDF4" stroke="#BBF7D0" />
+    <circle cx="50" cy="45" r="14" fill="#16A34A" />
+    <circle cx="75" cy="45" r="6" fill="#94A3B8" />
+    <text x="105" y="52" fill="#166534" font-size="24" font-weight="900">IN-crease</text>
+    <text x="240" y="50" fill="#15803D" font-size="14" font-weight="700">(Noun: /ˈɪn.kriːs/)</text>
+    <text x="50" y="95" fill="#334155" font-size="15" font-style="italic">"There was a substantial <tspan fill="#16A34A" font-weight="800">increase</tspan> in sales."</text>
+
+    <!-- Center Pivot Arrow -->
+    <circle cx="480" cy="75" r="16" fill="#EEF2FF" />
+    <text x="480" y="81" fill="#4F46E5" font-size="16" font-weight="900" text-anchor="middle">⇄</text>
+
+    <!-- Right Column: VERB -->
+    <rect x="495" y="20" width="440" height="110" rx="12" fill="#EFF6FF" stroke="#BFDBFE" />
+    <circle cx="520" cy="45" r="6" fill="#94A3B8" />
+    <circle cx="545" cy="45" r="14" fill="#2563EB" />
+    <text x="575" y="52" fill="#1E40AF" font-size="24" font-weight="900">in-CREASE</text>
+    <text x="720" y="50" fill="#1D4ED8" font-size="14" font-weight="700">(Verb: /ɪnˈkriːs/)</text>
+    <text x="520" y="95" fill="#334155" font-size="15" font-style="italic">"Electric car exports will <tspan fill="#2563EB" font-weight="800">increase</tspan> by 20%."</text>
+  </g>
+
+  <!-- ROW 4: CONTRAST -->
+  <g transform="translate(60, 815)" filter="url(#cardShadow2)">
+    <rect width="960" height="150" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    
+    <!-- Left Column: NOUN -->
+    <rect x="25" y="20" width="440" height="110" rx="12" fill="#F0FDF4" stroke="#BBF7D0" />
+    <circle cx="50" cy="45" r="14" fill="#16A34A" />
+    <circle cx="75" cy="45" r="6" fill="#94A3B8" />
+    <text x="105" y="52" fill="#166534" font-size="24" font-weight="900">CON-trast</text>
+    <text x="240" y="50" fill="#15803D" font-size="14" font-weight="700">(Noun: /ˈkɑːn.træst/)</text>
+    <text x="50" y="95" fill="#334155" font-size="15" font-style="italic">"The sharp <tspan fill="#16A34A" font-weight="800">contrast</tspan> between data sets is clear."</text>
+
+    <!-- Center Pivot Arrow -->
+    <circle cx="480" cy="75" r="16" fill="#EEF2FF" />
+    <text x="480" y="81" fill="#4F46E5" font-size="16" font-weight="900" text-anchor="middle">⇄</text>
+
+    <!-- Right Column: VERB -->
+    <rect x="495" y="20" width="440" height="110" rx="12" fill="#EFF6FF" stroke="#BFDBFE" />
+    <circle cx="520" cy="45" r="6" fill="#94A3B8" />
+    <circle cx="545" cy="45" r="14" fill="#2563EB" />
+    <text x="575" y="52" fill="#1E40AF" font-size="24" font-weight="900">con-TRAST</text>
+    <text x="720" y="50" fill="#1D4ED8" font-size="14" font-weight="700">(Verb: /kənˈtræst/)</text>
+    <text x="520" y="95" fill="#334155" font-size="15" font-style="italic">"The authors <tspan fill="#2563EB" font-weight="800">contrast</tspan> theory with practical reality."</text>
+  </g>
+
+  <!-- Bottom Master Brand Signature Banner -->
+  <g transform="translate(60, 1000)">
+    <rect width="960" height="50" rx="12" fill="#1E1B4B" />
+    <text x="40" y="32" fill="#F8FAFC" font-size="16" font-weight="700">🎓 IELTS 8.5 Lab by DH Shishir</text>
+    <text x="920" y="32" fill="#A5B4FC" font-size="15" font-weight="700" text-anchor="end">🎙️ Acoustic Shadowing: dhshishir.com/ielts</text>
+  </g>
+</svg>
