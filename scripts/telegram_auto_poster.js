@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import { TELEGRAM_POSTS_DATA } from './telegram_posts_dataset.js';
 
 // Configuration
@@ -12,7 +14,6 @@ const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
  */
 function getAutoSlot() {
   const now = new Date();
-  // Get current hour in UTC+6
   const utcHours = now.getUTCHours();
   const bstHours = (utcHours + 6) % 24;
 
@@ -43,6 +44,7 @@ function parseArgs() {
   const options = {
     day: null,
     slot: null,
+    image: null,
     dryRun: false,
     setup: false
   };
@@ -53,6 +55,9 @@ function parseArgs() {
       i++;
     } else if (args[i] === '--slot' && args[i + 1]) {
       options.slot = args[i + 1].toLowerCase();
+      i++;
+    } else if (args[i] === '--image' && args[i + 1]) {
+      options.image = args[i + 1];
       i++;
     } else if (args[i] === '--dry-run' || args[i] === '--preview') {
       options.dryRun = true;
@@ -65,9 +70,9 @@ function parseArgs() {
 }
 
 /**
- * Helper: Call Telegram API
+ * Helper: Call Telegram API with JSON
  */
-async function callTelegram(endpoint, body) {
+async function callTelegramJson(endpoint, body) {
   const url = `${TELEGRAM_API}/${endpoint}`;
   try {
     const res = await fetch(url, {
@@ -75,10 +80,52 @@ async function callTelegram(endpoint, body) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (error) {
     console.error(`Network error calling ${endpoint}:`, error);
+    return { ok: false, description: error.message };
+  }
+}
+
+/**
+ * Helper: Send Photo (supports local file or remote URL)
+ */
+async function sendTelegramPhoto(channelId, photoPath, caption) {
+  const url = `${TELEGRAM_API}/sendPhoto`;
+
+  if (photoPath.startsWith('http://') || photoPath.startsWith('https://')) {
+    return await callTelegramJson('sendPhoto', {
+      chat_id: channelId,
+      photo: photoPath,
+      caption: caption,
+      parse_mode: 'HTML'
+    });
+  }
+
+  // Local file upload via FormData
+  const resolvedPath = path.isAbsolute(photoPath) ? photoPath : path.resolve(process.cwd(), photoPath);
+  if (!fs.existsSync(resolvedPath)) {
+    throw new Error(`Photo file not found: ${resolvedPath}`);
+  }
+
+  const fileBuffer = fs.readFileSync(resolvedPath);
+  const fileBlob = new Blob([fileBuffer]);
+  const fileName = path.basename(resolvedPath);
+
+  const formData = new FormData();
+  formData.append('chat_id', channelId);
+  formData.append('photo', fileBlob, fileName);
+  formData.append('caption', caption);
+  formData.append('parse_mode', 'HTML');
+
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      body: formData
+    });
+    return await res.json();
+  } catch (error) {
+    console.error('Network error during sendPhoto:', error);
     return { ok: false, description: error.message };
   }
 }
@@ -89,17 +136,17 @@ async function callTelegram(endpoint, body) {
 async function setupBot() {
   console.log('🤖 Updating @IeltsFluencyLabBot profile, description, and slash commands...');
 
-  const descRes = await callTelegram('setMyDescription', {
+  const descRes = await callTelegramJson('setMyDescription', {
     description: 'Welcome to English Fluency & IELTS 8.5+ Lab! 🎯 Free interactive speaking simulators, acoustic shadowing, Band 8.5 collocation duels, and Cambridge reading courtroom drills powered by https://dhshishir.com'
   });
   console.log('Set description status:', descRes.ok ? '✅ Success' : descRes.description);
 
-  const shortDescRes = await callTelegram('setMyShortDescription', {
+  const shortDescRes = await callTelegramJson('setMyShortDescription', {
     short_description: 'Daily Interactive IELTS Band 8.5 & English Fluency Training Hub by Daloyar Hassan Shishir.'
   });
   console.log('Set short description status:', shortDescRes.ok ? '✅ Success' : shortDescRes.description);
 
-  const cmdRes = await callTelegram('setMyCommands', {
+  const cmdRes = await callTelegramJson('setMyCommands', {
     commands: [
       { command: 'ielts', description: 'Launch IELTS Band 8.5 Master Hub & Simulators' },
       { command: 'fluency', description: 'Start English Fluency Lab Acoustic Shadowing' },
@@ -148,28 +195,36 @@ async function main() {
   }
 
   const postText = slotData.text.trim();
+  const photoPath = options.image || slotData.image || null;
 
   if (options.dryRun) {
     console.log('🧪 DRY RUN PREVIEW (Message will NOT be sent):');
     console.log('----------------------------------------');
+    if (photoPath) console.log(`[ATTACHED PHOTO]: ${photoPath}`);
     console.log(postText);
     console.log('----------------------------------------\n');
     console.log('✅ Dry run completed successfully.');
     return;
   }
 
-  console.log('📡 Sending post to Telegram channel...');
-  const result = await callTelegram('sendMessage', {
-    chat_id: CHANNEL_ID,
-    text: postText,
-    parse_mode: 'HTML',
-    disable_web_page_preview: true
-  });
+  let result;
+  if (photoPath) {
+    console.log(`📡 Sending photo post (${photoPath}) to Telegram channel...`);
+    result = await sendTelegramPhoto(CHANNEL_ID, photoPath, postText);
+  } else {
+    console.log('📡 Sending text post to Telegram channel...');
+    result = await callTelegramJson('sendMessage', {
+      chat_id: CHANNEL_ID,
+      text: postText,
+      parse_mode: 'HTML',
+      disable_web_page_preview: true
+    });
+  }
 
-  if (result.ok) {
+  if (result && result.ok) {
     console.log(`🎉 SUCCESS! Message ID: ${result.result.message_id} posted to ${CHANNEL_ID}`);
   } else {
-    console.error(`❌ FAILED to send message: ${result.description || JSON.stringify(result)}`);
+    console.error(`❌ FAILED to send message:`, result?.description || result);
     process.exit(1);
   }
 }
